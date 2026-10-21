@@ -374,6 +374,43 @@ describe("the /mcp endpoint over HTTP", () => {
   });
 });
 
+describe("aliases over MCP", () => {
+  it("answers a normas.leg.br alias with a tool error that suggests the canonical id", async () => {
+    // A literal dataset: "art1_par1u" is how normas.leg.br writes a parágrafo único (lexml-ids.md).
+    const handler = createHandler({
+      norms: [{ key: "cf", urn: "urn:lex:br:federal:constituicao:1988-10-05;1988", title: "Constituição" }],
+      provisions: [
+        {
+          id: "art1_par1",
+          norm: "cf",
+          kind: "paragrafo",
+          label: "parágrafo único",
+          path: [{ kind: "artigo", label: "Art. 1º" }],
+          text: "Todo o poder emana do povo.",
+          status: "in_force",
+          amendments: [],
+          references: [],
+          aliases: ["art1_par1u"],
+          provenance: {
+            sourceUrl: compiledCf,
+            retrievedAt: "2026-10-21",
+            contentHash: "sha256:0",
+            datasetVersion: "t",
+            secondary: { source: "normas.leg.br", outcome: "agrees" },
+            notice: STF_NOTICE,
+          },
+        },
+      ],
+    });
+    const { client } = await connect("legacy", {}, handler);
+
+    const result = await client.callTool({ name: "get_provision", arguments: { norm: "cf", id: "art1_par1u" } });
+
+    expect(result.isError).toBe(true);
+    expect(text(result)).toContain("Você quis dizer / did you mean `art1_par1`?");
+  });
+});
+
 describe("rate limiting on /mcp", () => {
   /** A limiter switched by the test: the client's handshake requests pass, then everything is refused. */
   function switchable() {
