@@ -1,6 +1,14 @@
 // The build pipeline: raw snapshots + norm manifests in, canonical dataset out.
 import { createHash } from "node:crypto";
-import { NOTICE, type Dataset, type NormEntry, type Provision, type SourcePage } from "../schema/dataset.ts";
+import {
+  NOTICE,
+  type Article,
+  type Dataset,
+  type Grouping,
+  type NormEntry,
+  type Provision,
+  type SourcePage,
+} from "../schema/dataset.ts";
 import type { RawSnapshot, Source } from "../sources/source.ts";
 import { readAmendingAct, type AmendingAct } from "./acts.ts";
 import { parsePlanaltoPage, type PageLayout } from "./planalto.ts";
@@ -63,6 +71,8 @@ export async function build({ manifests, source, datasetVersion, today }: BuildI
   if (today !== undefined && !isCalendarDate(today)) throw new Error(`build: today must be a YYYY-MM-DD date, got "${today}"`);
   const norms: NormEntry[] = [];
   const provisions: Provision[] = [];
+  const groupings: Grouping[] = [];
+  const articles: Article[] = [];
   const pages = new Map<string, SourcePage>();
   const acts = new Map<string, Promise<{ act: AmendingAct; retrievedAt: string; url: string }>>();
   const actAt = (url: string) => {
@@ -81,8 +91,17 @@ export async function build({ manifests, source, datasetVersion, today }: BuildI
     const html = new TextDecoder(snapshot.encoding).decode(snapshot.body);
     if (!pages.has(snapshot.url)) pages.set(snapshot.url, sourcePage(snapshot, html));
     const seen = new Set<string>();
+    const page = parsePlanaltoPage(html, manifest, snapshot.url);
+    const groupingIds = new Set<string>();
+    for (const parsed of page.groupings) {
+      // Two headings with one id mean a heading was misread (or a struck old one kept): the outline would be ambiguous.
+      if (groupingIds.has(parsed.id)) throw new Error(`${manifest.key}: grouping id ${parsed.id} parsed twice`);
+      groupingIds.add(parsed.id);
+      groupings.push({ norm: manifest.key, ...parsed });
+    }
+    for (const parsed of page.articles) articles.push({ norm: manifest.key, ...parsed });
     const drafts: Draft[] = [];
-    for (const parsed of parsePlanaltoPage(html, manifest, snapshot.url)) {
+    for (const parsed of page.provisions) {
       // A duplicate means the parser misread the page (e.g. struck old wording kept); never let one shadow the other.
       if (seen.has(parsed.id)) throw new Error(`${manifest.key}: dispositivo id ${parsed.id} parsed twice`);
       seen.add(parsed.id);
@@ -118,7 +137,7 @@ export async function build({ manifests, source, datasetVersion, today }: BuildI
     norms.push({ key: manifest.key, urn: manifest.urn, title: manifest.title });
   }
 
-  return { norms, provisions, pages: [...pages.values()] };
+  return { norms, provisions, groupings, articles, pages: [...pages.values()] };
 }
 
 function sourcePage(snapshot: RawSnapshot, html: string): SourcePage {
