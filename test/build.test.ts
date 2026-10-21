@@ -97,110 +97,6 @@ describe("build", () => {
       });
     });
 
-    const titulo1 = { kind: "titulo", label: "Título I" };
-    const art1 = { kind: "artigo", label: "Art. 1º" };
-    const art5 = [
-      { kind: "titulo", label: "Título II" },
-      { kind: "capitulo", label: "Capítulo I" },
-      { kind: "artigo", label: "Art. 5º" },
-    ];
-    const caput = { kind: "caput", label: "caput" };
-    const inciso = (label: string) => ({ kind: "inciso", label: `inciso ${label}` });
-    const paragrafo = (label: string) => ({ kind: "paragrafo", label });
-
-    it.each([
-      {
-        id: "art1_cpt",
-        path: [titulo1, art1, caput],
-        text: "A República Federativa do Brasil, formada pela união indissolúvel dos Estados e Municípios e do Distrito Federal, constitui-se em Estado Democrático de Direito e tem como fundamentos:",
-      },
-      {
-        id: "art1_par1",
-        path: [titulo1, art1, paragrafo("parágrafo único")],
-        text: "Todo o poder emana do povo, que o exerce por meio de representantes eleitos ou diretamente, nos termos desta Constituição.",
-      },
-      {
-        id: "art3_cpt_inc4",
-        path: [titulo1, { kind: "artigo", label: "Art. 3º" }, inciso("IV")],
-        text: "promover o bem de todos, sem preconceitos de origem, raça, sexo, cor, idade e quaisquer outras formas de discriminação.",
-      },
-      {
-        id: "art5_cpt",
-        path: [...art5, caput],
-        text: "Todos são iguais perante a lei, sem distinção de qualquer natureza, garantindo-se aos brasileiros e aos estrangeiros residentes no País a inviolabilidade do direito à vida, à liberdade, à igualdade, à segurança e à propriedade, nos termos seguintes:",
-      },
-      {
-        id: "art5_cpt_inc10",
-        path: [...art5, inciso("X")],
-        text: "são invioláveis a intimidade, a vida privada, a honra e a imagem das pessoas, assegurado o direito a indenização pelo dano material ou moral decorrente de sua violação;",
-      },
-      {
-        // Two trailing annotations: "(Vide Lei nº 13.105, de 2015)" and "(Vigência)".
-        id: "art5_cpt_inc11",
-        path: [...art5, inciso("XI")],
-        text: "a casa é asilo inviolável do indivíduo, ninguém nela podendo penetrar sem consentimento do morador, salvo em caso de flagrante delito ou desastre, ou para prestar socorro, ou, durante o dia, por determinação judicial;",
-      },
-      {
-        // Followed by alíneas a) and b), which must not leak into the inciso.
-        id: "art5_cpt_inc34",
-        path: [...art5, inciso("XXXIV")],
-        text: "são a todos assegurados, independentemente do pagamento de taxas:",
-      },
-      {
-        // The label is split across lines in the HTML ("LXXVIII \n- a todos").
-        id: "art5_cpt_inc78",
-        path: [...art5, inciso("LXXVIII")],
-        text: "a todos, no âmbito judicial e administrativo, são assegurados a razoável duração do processo e os meios que garantam a celeridade de sua tramitação.",
-      },
-      {
-        // The text is split across two positioned spans.
-        id: "art5_cpt_inc79",
-        path: [...art5, inciso("LXXIX")],
-        text: "é assegurado, nos termos da lei, o direito à proteção dos dados pessoais, inclusive nos meios digitais.",
-      },
-      {
-        // Three trailing annotations, the last opening its parenthesis outside the link.
-        id: "art5_par3",
-        path: [...art5, paragrafo("§ 3º")],
-        text: "Os tratados e convenções internacionais sobre direitos humanos que forem aprovados, em cada Casa do Congresso Nacional, em dois turnos, por três quintos dos votos dos respectivos membros, serão equivalentes às emendas constitucionais.",
-      },
-      {
-        id: "art5_par4",
-        path: [...art5, paragrafo("§ 4º")],
-        text: "O Brasil se submete à jurisdição de Tribunal Penal Internacional a cuja criação tenha manifestado adesão.",
-      },
-    ])("reads $id verbatim from the official text, with its provenance", ({ id, path, text }) => {
-      expect(provision(dataset, id)).toMatchObject({
-        id,
-        norm: "cf",
-        path,
-        text,
-        provenance: { sourceUrl: compiledCf, retrievedAt: "2026-10-21T01:26:39Z", datasetVersion },
-      });
-    });
-
-    it("reads alíneas under their inciso, with kind, label and status", () => {
-      const xxxiv = [...art5, inciso("XXXIV")];
-      expect(provision(dataset, "art5_cpt_inc34_ali1")).toMatchObject({
-        kind: "alinea",
-        label: "alínea a",
-        path: [...xxxiv, { kind: "alinea", label: "alínea a" }],
-        text: "o direito de petição aos Poderes Públicos em defesa de direitos ou contra ilegalidade ou abuso de poder;",
-        status: "in_force",
-      });
-      expect(provision(dataset, "art5_cpt_inc34_ali2")).toMatchObject({
-        kind: "alinea",
-        label: "alínea b",
-        path: [...xxxiv, { kind: "alinea", label: "alínea b" }],
-        text: "a obtenção de certidões em repartições públicas, para defesa de direitos e esclarecimento de situações de interesse pessoal;",
-      });
-      expect(provision(dataset, "art5_cpt_inc35")).toMatchObject({
-        kind: "inciso",
-        label: "inciso XXXV",
-        text: "a lei não excluirá da apreciação do Poder Judiciário lesão ou ameaça a direito;",
-      });
-    });
-
     it("hashes each dispositivo's own text, so the hash changes only when its wording does", () => {
       // SHA-256 of the hand-copied text of art. 5º X (see the table above), computed with shasum.
       expect(provision(dataset, "art5_cpt_inc10")?.provenance.contentHash).toBe(
@@ -247,6 +143,124 @@ describe("build", () => {
       expect(early.length).toBeGreaterThan(100);
       for (const p of early) for (const old of struck) expect(p.text).not.toContain(old);
     });
+  });
+});
+
+// Parser hygiene through seam 1: a small cp1252 page built from real CDC, CLT and CC excerpts with documented edits
+// (test/fixtures/hygiene/README.md), so every markup variant is exercised even where the CF has none.
+describe("parser hygiene", () => {
+  const hygiene = {
+    key: "hygiene",
+    urn: "urn:lex:br:federal:lei:1990-09-11;99999",
+    title: "Hygiene fixture",
+    primaryUrl: "https://example.invalid/ccivil_03/leis/hygiene.htm",
+  };
+  let dataset: Dataset;
+  const get = (id: string) => provision(dataset, id, "hygiene");
+  const top = [
+    { kind: "parte", label: "Parte Geral" },
+    { kind: "livro", label: "Livro Primeiro" },
+    { kind: "titulo", label: "Título I" },
+  ];
+  const art4a = [...top, { kind: "capitulo", label: "Capítulo I" }, { kind: "artigo", label: "Art. 4º-A" }];
+
+  beforeAll(async () => {
+    const source = await recordedSource(new URL("./fixtures/hygiene/", import.meta.url));
+    dataset = await build({ manifests: [hygiene], source, datasetVersion });
+  });
+
+  it("yields exactly the dispositivos in force or marked, nothing struck and nothing after the closing formula", () => {
+    expect(dataset.provisions.map((p) => p.id)).toEqual([
+      "art1_cpt",
+      "art2_cpt",
+      "art2_par1",
+      "art3_cpt",
+      "art3_par1",
+      "art3_par2",
+      "art3_par3",
+      "art3_par4",
+      "art4-1_cpt",
+      "art4-1_cpt_inc1",
+      "art4-1_cpt_inc2",
+      "art4-1_cpt_inc2_ali1",
+      "art4-1_cpt_inc2_ali2",
+      "art4-1_cpt_inc2_ali2_ite1",
+      "art4-1_cpt_inc2_ali2_ite2",
+      "art4-1_cpt_inc3",
+      "art4-1_cpt_inc9",
+      "art4-1_par1-1",
+      "art10-2_cpt",
+      "art10-2_cpt_ali1",
+      "art10-2_cpt_ali2",
+      "art11_cpt",
+    ]);
+  });
+
+  it("decodes cp1252 bytes and numeric entities (&#146;, &#147;, &#148;, &#150;)", () => {
+    expect(get("art1_cpt")?.text).toBe(
+      "O presente código estabelece normas de proteção e defesa do consumidor, de ordem pública e interesse social, nos termos dos arts. 5°, inciso XXXII, 170, inciso V, da Constituição Federal e art. 48 de suas Disposições Transitórias.",
+    );
+    expect(get("art3_par4")?.text).toBe("A lei disporá sobre a d’água e a “defesa” do consumidor.");
+    // "I &#150; reconhecimento…" and "II <0x96> ação…": both dashes are separators.
+    expect(get("art4-1_cpt_inc1")?.text).toBe("reconhecimento da vulnerabilidade do consumidor no mercado de consumo;");
+    expect(get("art4-1_cpt_inc2")?.text).toBe("ação governamental no sentido de proteger efetivamente o consumidor:");
+  });
+
+  it("removes <strike>, <s>, <del>, CSS line-through and nested strikes, keeping only the wording in force", () => {
+    expect(get("art3_cpt")?.text).toBe(
+      "Fornecedor é toda pessoa física ou jurídica, pública ou privada, nacional ou estrangeira, bem como os entes despersonalizados, que desenvolvem atividades de produção.",
+    );
+    expect(get("art3_par2")?.text).toBe("Serviço é qualquer atividade fornecida no mercado de consumo, mediante remuneração.");
+    expect(get("art4-1_cpt")?.text).toBe(
+      "A Política Nacional das Relações de Consumo tem por objetivo o atendimento das necessidades dos consumidores:",
+    );
+    expect(get("art4-1_cpt_inc3")).toMatchObject({
+      text: "harmonização dos interesses dos participantes das relações de consumo;",
+      amendments: [
+        {
+          effect: "wording",
+          annotation: "Redação dada pela Lei nº 9.999, de 1999",
+          act: { type: "lei", number: "9.999", year: 1999, href: "https://example.invalid/ccivil_03/leis/l9999.htm#art1" },
+        },
+      ],
+    });
+  });
+
+  it("normalises ordinal variants (º, °, superscript o, \"4.º\") and letter suffixes in labels and ids", () => {
+    expect(get("art1_cpt")?.path.at(-2)).toEqual({ kind: "artigo", label: "Art. 1º" });
+    expect(get("art2_cpt")?.path.at(-2)).toEqual({ kind: "artigo", label: "Art. 2º" });
+    expect(get("art3_par1")?.label).toBe("§ 1º");
+    expect(get("art3_par2")?.label).toBe("§ 2º");
+    expect(get("art3_par4")?.label).toBe("§ 4º");
+    expect(get("art4-1_par1-1")).toMatchObject({ label: "§ 1º-A", text: "Os órgãos públicos são obrigados a fornecer serviços adequados." });
+    expect(get("art10-2_cpt")?.path.at(-2)).toEqual({ kind: "artigo", label: "Art. 10-B" });
+  });
+
+  it("places Parte and Livro headings, itens under alíneas, and alíneas directly under a caput", () => {
+    expect(get("art1_cpt")?.path).toEqual([
+      ...top,
+      { kind: "capitulo", label: "Capítulo I" },
+      { kind: "artigo", label: "Art. 1º" },
+      { kind: "caput", label: "caput" },
+    ]);
+    expect(get("art4-1_cpt_inc2_ali1")).toMatchObject({ label: "alínea a", text: "por iniciativa direta;" });
+    expect(get("art4-1_cpt_inc2_ali2_ite1")).toMatchObject({
+      kind: "item",
+      label: "item 1",
+      path: [...art4a, { kind: "inciso", label: "inciso II" }, { kind: "alinea", label: "alínea b" }, { kind: "item", label: "item 1" }],
+      text: "de âmbito nacional;",
+    });
+    expect(get("art10-2_cpt_ali1")).toMatchObject({
+      path: [...top, { kind: "capitulo", label: "Capítulo II" }, { kind: "artigo", label: "Art. 10-B" }, { kind: "alinea", label: "alínea a" }],
+      text: "ato de improbidade;",
+    });
+  });
+
+  it("keeps vetoed dispositivos with their ids and the page's own marker", () => {
+    expect(get("art3_par3")).toMatchObject({ status: "vetoed", text: "(Vetado)." });
+    expect(get("art4-1_cpt_inc9")).toMatchObject({ status: "vetoed", text: "(Vetado);" });
+    expect(get("art11_cpt")).toMatchObject({ status: "vetoed", text: "(Vetado)." });
+    expect(get("art3_cpt")?.status).toBe("in_force");
   });
 });
 

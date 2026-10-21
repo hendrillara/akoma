@@ -1,0 +1,13 @@
+{
+  "capturedOn": "2026-10-21",
+  "snapshots": [
+    {
+      "file": "page.htm",
+      "url": "https://example.invalid/ccivil_03/leis/hygiene.htm",
+      "encoding": "windows-1252",
+      "headers": {},
+      "sha256": "7e4e41191b452a2748ca179444cb87fbd3261c9193cbc15e1254d2b12ca8163b",
+      "bytes": 3124
+    }
+  ]
+}
