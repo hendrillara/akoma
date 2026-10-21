@@ -8,6 +8,7 @@ import { cf } from "../src/norms/cf.ts";
 import { build } from "../src/pipeline/build.ts";
 import type { Dataset, Provision } from "../src/schema/dataset.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
+import type { Source } from "../src/sources/source.ts";
 
 const capture = new URL("../fixtures/2026-10-20/", import.meta.url);
 const ecCapture = new URL("../fixtures/2026-10-21/", import.meta.url);
@@ -21,6 +22,22 @@ const ec141 = {
   year: 2026,
   href: emc141,
 };
+
+/**
+ * The recorded pages, with one page edited (decoded, edited as a string, served as UTF-8): scenario inputs derived
+ * from the real pages by edits each test spells out, instead of committing another 1.5 MB copy.
+ */
+async function edited(url: string, edit: (html: string) => string): Promise<Source> {
+  const recorded = await source();
+  const original = (await recorded.get(url))!;
+  const html = new TextDecoder(original.encoding).decode(original.body);
+  const changed = edit(html);
+  if (changed === html) throw new Error(`the edit of ${url} changed nothing`);
+  const body = new TextEncoder().encode(changed);
+  return { get: async (u) => (u === url ? { ...original, body, encoding: "utf-8" } : recorded.get(u)) };
+}
+
+const compiledCf = cf.primaryUrl;
 
 function find(dataset: Dataset, id: string, norm = "cf"): Provision | undefined {
   return dataset.provisions.find((p) => p.norm === norm && p.id === id);
@@ -320,5 +337,57 @@ describe("deferred vigência: EC 132/2023, phased to 2027 and 2033", () => {
       // What ends in 2033 is still in force.
       expect(find(in2027, "art155_cpt_inc2")).toMatchObject({ status: "in_force", pending: [{ effect: "revoked", effectiveFrom: y2033 }] });
     });
+  });
+});
+
+// Planalto updates the compiled page once a deferred change takes effect. The build must then take the page's word
+// for it: no pending entry left, no second amendment, and an earlier phase never overwriting a later one.
+describe("deferred vigência once the page shows it", () => {
+  it("adds nothing when the page already shows the deferred wording (EC 141 applied by Planalto)", async () => {
+    // Edit: art. 7º XV's block gets the EC 141 wording and the annotation Planalto prints for an applied change.
+    const after = await edited(compiledCf, (html) =>
+      html.replace(
+        /XV - repouso semanal remunerado, preferencialmente aos domingos;[\s\S]*?\(Vigência\)<\/a><\/font><\/p>/,
+        'XV - repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos; <a href="emendas/emc/emc141.htm#art1">(Redação dada pela Emenda Constitucional nº 141, de 2026)</a></font></p>',
+      ),
+    );
+    for (const today of ["2026-12-16", "2026-12-18"]) {
+      const dataset = await build({ manifests: [cf], source: after, datasetVersion: "vigencia", today });
+      const xv = find(dataset, "art7_cpt_inc15")!;
+      expect(xv.text, today).toBe("repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;");
+      expect(xv.pending, today).toBeUndefined();
+      expect(xv.amendments, today).toEqual([
+        {
+          effect: "wording",
+          annotation: "Redação dada pela Emenda Constitucional nº 141, de 2026",
+          act: { ...ec141, href: `${emc141}#art1` },
+        },
+      ]);
+    }
+  });
+
+  it("never lets a 2027 wording overwrite the 2033 one the page already shows", async () => {
+    // Edit: art. 146 III "d" gets the wording of EC 132 art. 4 (2033), as Planalto will print it from 2033.
+    const in2033 =
+      "definição de tratamento diferenciado e favorecido para as microempresas e para as empresas de pequeno porte, inclusive regimes especiais ou simplificados no caso do imposto previsto no art. 156-A e das contribuições sociais previstas no art. 195, I e V.";
+    const after = await edited(compiledCf, (html) =>
+      html.replace(/d\) definição de\s+tratamento diferenciado[\s\S]*?se refere o art\. 239\./, `d) ${in2033}`),
+    );
+    const dataset = await build({ manifests: [cf], source: after, datasetVersion: "vigencia", today: "2033-02-01" });
+    const d = find(dataset, "art146_cpt_inc3_ali4")!;
+
+    expect(d.text).toBe(in2033);
+    expect(d.pending).toBeUndefined();
+    expect(d.amendments).toEqual([expect.objectContaining({ annotation: "Redação dada pela Emenda Constitucional nº 132, de 2023" })]);
+    expect(d.amendments[0]).not.toHaveProperty("effectiveFrom");
+  });
+
+  it("stops the build when an act defers a change to a date it does not give", async () => {
+    // Edit: EC 141 art. 10 I made conditional on a future law, a start no build can compute.
+    const conditional = await edited(emc141, (html) =>
+      html.replace(/após\s+decorridos\s+2\s+\(dois\)\s+meses\s+de\s+sua\s+publicação/, "na data de publicação de lei que a regulamente"),
+    );
+
+    await expect(build({ manifests: [cf], source: conditional, datasetVersion: "vigencia" })).rejects.toThrow(/no computable date/);
   });
 });
