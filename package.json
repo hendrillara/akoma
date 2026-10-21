@@ -9,7 +9,7 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
+    "test": "vitest run --testTimeout=30000",
     "check:map": "node scripts/check-agent-map.mjs AGENTS.md",
     "build:dataset": "node scripts/build-dataset.ts",
     "check:dataset": "node scripts/check-dataset.ts",

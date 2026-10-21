@@ -23,6 +23,7 @@
 // (normas.leg.br's API) is passed through unread; any other body, whatever it starts with, is redacted as HTML.
 // The daily job and the recheck wrap every source in `redacting`, so the build, the review, the committed capture and
 // every report see the same redacted page, and a regeneration from the capture reads exactly what the run read.
+import { createHash } from "node:crypto";
 import { parse, type DefaultTreeAdapterMap } from "parse5";
 import type { Probe, RawSnapshot, Source, Validators } from "./source.ts";
 
@@ -72,6 +73,21 @@ interface Context {
  */
 export function redactPersonalData(body: Uint8Array): Uint8Array {
   if (!(body instanceof Uint8Array)) throw new RedactionError("redact: the body is not bytes");
+  // The same page is often redacted again (every run of the job reads the same captures): reuse the result by content.
+  const key = createHash("sha256").update(body).digest("hex");
+  const known = DONE.get(key);
+  if (known) return known === SAME ? body : known;
+  const out = redactOnce(body);
+  if (DONE.size >= 64) DONE.delete(DONE.keys().next().value!);
+  DONE.set(key, out === body ? SAME : out);
+  return out;
+}
+
+/** Results by the SHA-256 of the page, oldest first; `SAME` when the page needed no edit. */
+const DONE = new Map<string, Uint8Array>();
+const SAME = new Uint8Array(0);
+
+function redactOnce(body: Uint8Array): Uint8Array {
   if (body.includes(0) || (body[0] === 0xfe && body[1] === 0xff) || (body[0] === 0xff && body[1] === 0xfe)) {
     throw new RedactionError("redact: the body is not windows-1252 or UTF-8 text (NUL bytes or a UTF-16 byte-order mark)");
   }
