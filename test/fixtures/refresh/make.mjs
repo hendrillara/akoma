@@ -276,7 +276,56 @@ const emc142 = [
     page,
     "Art. 49. O consumidor pode desistir do contrato, no prazo de 7 dias a contar de sua\r\nassinatura ou do ato de recebimento do produto ou serviço, sempre que a contratação de\r\nfornecimento de produtos e serviços ocorrer fora do estabelecimento comercial,\r\nespecialmente por telefone ou a domicílio.</font></p>",
     "Art. 49. O consumidor pode desistir do contrato, no prazo de 14 dias a contar de sua\r\nassinatura ou do ato de recebimento do produto ou serviço, sempre que a contratação de\r\nfornecimento de produtos e serviços ocorrer fora do estabelecimento comercial,\r\nespecialmente por telefone ou a domicílio. " +
-      '<a href="_ato2023-2026/2026/lei/L15999.htm#art1">(Redação dada pela Lei nº 15.999, de 2026)</a></font></p>',
+      '<a href="../_ato2023-2026/2026/lei/L15999.htm#art1">(Redação dada pela Lei nº 15.999, de 2026)</a></font></p>',
   );
-  write("cdc-law", [{ file: "page.htm", url: cdcUrl, page, c1: true, headers: { "last-modified": "Thu, 22 Oct 2026 09:50:35 GMT" } }], "2026-10-23T01:30:00Z");
+  // The simulated law's own page, laid out like Planalto's law pages (fixtures/2026-10-21/planalto/L14181.htm): its
+  // art. 1º rewords the caput of CDC art. 49 exactly as the page above prints it (naming the CDC by its short form,
+  // "Lei nº 8.078, de 1990"), art. 2º is its vigência clause.
+  const p = (html) =>
+    `\t<p class="Artigo" style="text-indent: 38px; margin: 15px 0cm" align="justify">\r\n\t<span style="font-family: Arial; color: black; font-weight: normal">\r\n\t<font size="2">${html}</font></span></p>\r\n`;
+  const law = [
+    "<!-- Akoma test scenario: a simulated Lei nº 15.999, de 2026, written by test/fixtures/refresh/make.mjs. Not an official text. -->\r\n",
+    "<html>\r\n<head>\r\n<title>L15999</title>\r\n</head>\r\n<body>\r\n",
+    '  <p align="CENTER" style="margin-top: 20px; margin-bottom: 20px">\r\n   <font color="#000080" face="Arial"><strong><small>LEI Nº 15.999, DE 22 DE OUTUBRO DE 2026</small></strong></font></p>\r\n',
+    '  <p align="justify"><span style="font-family: Arial; color: #800000"><font size="2">Altera o art. 49 da Lei nº 8.078, de 11 de setembro de 1990 (Código de Defesa do Consumidor), para ampliar o prazo de arrependimento.</font></span></p>\r\n',
+    p("O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte Lei:"),
+    p('<a name="art1"></a>Art. 1º O art. 49 da <a href="../../../LEIS/L8078.htm">Lei nº 8.078, de 1990</a> (Código de Defesa do Consumidor), passa a vigorar com a seguinte redação:'),
+    "\t<blockquote>\r\n",
+    p("“Art. 49. O consumidor pode desistir do contrato, no prazo de 14 dias a contar de sua assinatura ou do ato de recebimento do produto ou serviço, sempre que a contratação de fornecimento de produtos e serviços ocorrer fora do estabelecimento comercial, especialmente por telefone ou a domicílio."),
+    p("..................................................................................................” (NR)"),
+    "\t</blockquote>\r\n",
+    p('<a name="art2"></a>Art. 2º Esta Lei entra em vigor na data de sua publicação.'),
+    p("Brasília, 22 de outubro de 2026; 205º da Independência e 138º da República."),
+    '\t<p class="MsoNormal"><font color="#FF0000" face="Arial" size="2">Este texto não substitui o publicado no DOU de 23.10.2026</font></p>\r\n',
+    "</body>\r\n</html>\r\n",
+  ]
+    .join("")
+    // windows-1252 curly quotes, as the page's bytes (read and written as latin1, see the top of this file).
+    .replace(/“/g, "\x93")
+    .replace(/”/g, "\x94");
+  write(
+    "cdc-law",
+    [
+      { file: "page.htm", url: cdcUrl, page, c1: true, headers: { "last-modified": "Thu, 22 Oct 2026 09:50:35 GMT" } },
+      { file: "L15999.htm", url: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/L15999.htm", page: law, c1: true, headers: {} },
+    ],
+    "2026-10-23T01:30:00Z",
+  );
+}
+
+// --- cdc-before-14181: the CDC page without art. 6º XIII, which the real Lei 14.181/2021 inserted -----------------
+{
+  const cdcUrl = "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm";
+  let page = readFileSync(new URL("../../../fixtures/2026-10-20/planalto/l8078compilado.htm", import.meta.url), "latin1");
+  page = edit(
+    page,
+    "<html",
+    "<!-- Akoma test scenario: Planalto's compiled CDC page (2026-10-20) without art. 6º XIII, edited by test/fixtures/refresh/make.mjs. Not an official text. -->\r\n<html",
+  );
+  page = editRe(
+    page,
+    /<p class="Artigo"[^>]*>\r\n<span[^>]*>XIII - a \r\ninformação acerca dos preços[\s\S]*?<\/p>\r\n/,
+    "",
+  );
+  write("cdc-before-14181", [{ file: "page.htm", url: cdcUrl, page, c1: true, headers: { "last-modified": "Mon, 05 Oct 2026 09:50:35 GMT" } }], "2026-10-15T01:30:00Z");
 }

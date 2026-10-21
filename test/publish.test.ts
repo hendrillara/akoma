@@ -410,15 +410,82 @@ describe("daily job: what it writes regenerates to the same dataset", () => {
 });
 
 describe("daily job: the CDC reworded by a law (test/fixtures/refresh/cdc-law, simulated Lei 15.999/2026)", () => {
-  it("escalates, and the PR body explains that v1 reviews only constitutional amendments", async () => {
+  // test/fixtures/refresh/cdc-law/L15999.htm, art. 1º: "O art. 49 da Lei nº 8.078, de 1990 (Código de Defesa do
+  // Consumidor), passa a vigorar com a seguinte redação:", quoting the caput with "no prazo de 14 dias";
+  // art. 2º: "Esta Lei entra em vigor na data de sua publicação."
+  const lei15999 = "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/L15999.htm";
+  const reviewer = fakeReviewer({
+    mappings: [{ change: "cdc/art49_cpt", act: "Lei 15.999", command: "art. 1º", reason: "new caput quoted" }],
+    orphanChanges: [],
+    unappliedCommands: [],
+  });
+  let before: Dataset;
+  beforeAll(async () => {
+    before = await build({ manifests: [cdc], source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
+  });
+
+  it("reads the law's commands like an amendment's and merges: every layer passes", async () => {
     const source = await recordedSource(recorded, acts, scenario("cdc-law"));
-    const before = await build({ manifests: [cdc], source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
-    const { result, github } = await run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before });
+    const { result, github } = await run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before, reviewer });
     expect(result.report?.changes.map((c) => `${c.kind} ${c.norm} ${c.id}`)).toEqual(["changed cdc art49_cpt"]);
+    expect(result.verdict?.findings.filter((f) => f.severity === "problem")).toEqual([]);
+    expect(result.verdict?.findings).toContainEqual({
+      layer: "gates",
+      check: "target-matching",
+      severity: "note",
+      act: "Lei 15.999",
+      message: "targets 1 dispositivos, all changed: cdc art49_cpt",
+    });
+    expect(result.verdict?.decision).toBe("merge");
+    expect(github.pulls[0]!.body).not.toContain("Why a change by a law needs a human");
+  });
+
+  it("escalates when the law's page cannot be read, naming the page", async () => {
+    const source = unreachable(await recordedSource(recorded, acts, scenario("cdc-law")), [lei15999]);
+    const { result } = await run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before, reviewer });
     expect(result.verdict?.decision).toBe("needs-human");
-    expect(github.pulls[0]!.body).toContain(
-      "> **Why a change by a law needs a human.** 1 change cites only acts other than constitutional amendments (Lei nº 15.999, de 2026). In v1, target matching and the LLM reviewer read only constitutional amendments",
-    );
+    expect(result.verdict?.findings.filter((f) => f.severity === "problem")).toEqual([
+      { layer: "gates", check: "target-matching", severity: "problem", act: "Lei 15.999", message: `its page ${lei15999} is not in the source` },
+      {
+        layer: "gates",
+        check: "target-matching",
+        severity: "problem",
+        norm: "cdc",
+        id: "art49_cpt",
+        message: "changed (text, amendments), citing Lei 15.999, which does not target it",
+      },
+      { layer: "llm", check: "act-text", severity: "problem", act: "Lei 15.999", message: `its page ${lei15999} is not in the source, so the reviewer cannot read it` },
+    ]);
+  });
+});
+
+describe("daily job: a dispositivo of the real Lei 14.181/2021 appears (test/fixtures/refresh/cdc-before-14181)", () => {
+  // fixtures/2026-10-21/planalto/L14181.htm, read by hand: art. 1º quotes, for the CDC, art. 4º IX–X, art. 5º VI–VII,
+  // art. 6º XI–XIII, art. 51 XVII–XIX, arts. 54-A (caput, §§ 1º–3º), 54-B (caput, I–V, §§ 1º–3º), 54-C (caput, I–V,
+  // parágrafo único), 54-D (caput, I–III, parágrafo único), 54-E (caput), 54-F (caput, I–II, §§ 1º–4º, § 3º I–II),
+  // 54-G (caput, I–III, §§ 1º–2º), 104-A (caput, §§ 1º–5º, § 4º I–IV), 104-B (caput, §§ 1º–4º) and 104-C (caput,
+  // §§ 1º–2º): 69 dispositivos. Art. 2º amends the Estatuto do Idoso, outside the corpus; art. 5º: in force on publication.
+  it("reads every command of the official page and merges the dispositivo it targets", async () => {
+    const before = await build({ manifests: [cdc], source: await sourceWith(scenario("cdc-before-14181")), datasetVersion: "2026-10-15", today: "2026-10-15" });
+    const reviewer = fakeReviewer({
+      mappings: [{ change: "cdc/art6_cpt_inc13", act: "Lei 14.181", command: "art. 1º", reason: "inciso XIII quoted" }],
+      orphanChanges: [],
+      unappliedCommands: [],
+    });
+    const { result } = await run({ source: await sourceWith(), now: "2026-10-22T09:00:00Z", manifests: [cdc], previous: before, reviewer });
+    expect(result.report?.changes.map((c) => `${c.kind} ${c.norm} ${c.id}`)).toEqual(["added cdc art6_cpt_inc13"]);
+    const lei = result.verdict?.findings.filter((f) => f.act === "Lei 14.181");
+    expect(lei).toEqual([
+      {
+        layer: "gates",
+        check: "target-matching",
+        severity: "note",
+        act: "Lei 14.181",
+        message: "already in the dataset: each change citing it must be one of its 69 targets; the others may stay as they are",
+      },
+      { layer: "llm", check: "change-mapping", severity: "note", act: "Lei 14.181", message: "fake-reviewer (prompt fake) mapped the only change to its commands: cdc art6_cpt_inc13 → art. 1º" },
+    ]);
+    expect(result.verdict?.decision).toBe("merge");
   });
 });
 

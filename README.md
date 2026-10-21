@@ -103,7 +103,7 @@ Tudo isto roda em `pnpm verify`, o mesmo comando do CI (o badge acima):
 - **Não publicado ainda.** O endereço é planejado; nada roda em produção.
 - **A atualização diária ainda não roda.** O job que busca o Planalto, abre um PR e faz merge sozinho ou pede revisão humana existe ([`docs/publishing.md`](docs/publishing.md)), mas só roda depois de chegar ao `main` e de o mantenedor permitir que o GitHub Actions abra PRs. Os dados de hoje vêm das capturas de 2026-10-20/21 (`fixtures/`).
 - **Revisão por LLM (camada 3): construída, não ativa.** O revisor e seus testes existem, mas ainda não rodam em nenhum fluxo.
-- **Mudanças no CDC sempre vão para revisão humana na v1.** A conferência de alvos lê só os comandos de emendas constitucionais; o CDC é alterado por leis, então toda mudança de texto nele é escalada.
+- **Mudanças feitas por lei passam pela mesma revisão que as feitas por emenda.** A conferência de alvos e o revisor LLM leem os comandos de todo ato que a mudança cita (EC, lei, medida provisória), na página do Planalto a que a anotação aponta. Se a anotação não traz link, ou se a página não pode ser lida, a mudança vai para revisão humana.
 - **STF não verificado** (ver acima). A busca é lexical (BM25 com dicionário de sinônimos), não semântica.
 
 ## Estado do serviço
@@ -230,7 +230,7 @@ All of this runs in `pnpm verify`, the same command CI runs (the badge above):
 - **Not deployed yet.** The address is planned; nothing runs in production.
 - **The daily refresh does not run yet.** The job that fetches Planalto, opens a PR and merges it or asks for human review exists ([`docs/publishing.md`](docs/publishing.md)), but it runs only once it reaches `main` and the maintainer lets GitHub Actions open PRs. Today's data is built from the 2026-10-20/21 captures (`fixtures/`).
 - **LLM review (layer 3): built, not active.** The reviewer and its tests exist, but no workflow runs it yet.
-- **CDC changes always escalate to human review in v1.** Target matching reads only constitutional amendments' commands; the CDC is amended by laws, so every text change to it is escalated.
+- **Changes made by a law get the same review as changes made by an amendment.** Target matching and the LLM reviewer read the commands of every act a change cites (an EC, a law, a medida provisória), on the Planalto page its annotation links to. A change whose act has no link, or whose page cannot be read, escalates to human review.
 - **STF not verified** (see above). Search is lexical (BM25 with a synonym dictionary), not semantic.
 
 ### Service status

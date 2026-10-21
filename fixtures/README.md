@@ -39,6 +39,10 @@ It was checked offline before being committed: it is the FrontPage page Planalto
 
 - `planalto/emc132.htm` ← https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm
 
+**The Lei 14.181/2021 page.** The page of Lei nº 14.181, de 1º de julho de 2021 (credit and over-indebtedness), a law that amended the CDC, captured so that review can read a real law's commands (target matching and the LLM reviewer read every act a change cites, not only ECs). Fetched on 2026-10-21 at 07:16 UTC with one anonymous GET through `src/sources/http.ts` (UA `Mozilla/5.0 (compatible; akoma/0.0.0)`, no personal identifier); the response's ETag, Last-Modified and `Date` are recorded. Stored with the metadata edit above (as served: SHA-256 `c46d30bcfeb0262e6f9af05754ec5138ce22a2f0dc8dc32c9273db2a1a6554e1`, 52,362 bytes). Its art. 1º quotes 69 CDC dispositivos (arts. 4º, 5º, 6º and 51, the new Chapter VI-A with arts. 54-A to 54-G, and arts. 104-A to 104-C); art. 2º amends the Estatuto do Idoso; art. 5º puts it in force on publication. Public domain (Lei 9.610/1998, art. 8º, IV).
+
+- `planalto/L14181.htm` ← https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm
+
 Scenario fixtures (a simulated new amendment, a stale secondary source…) are derived from these files by documented edits and live next to the tests that use them.
 
 ## Daily captures (`YYYY-MM-DD-daily/`)
@@ -75,6 +79,8 @@ Capturada em 21/10/2026, às 04:48 UTC, de uma conexão residencial, com um GET 
 **A página da EC 132.** A página da EC 132/2023 (reforma tributária), a emenda cuja cláusula de vigência adia para 2027 e 2033 mudanças na CF e no ADCT (ADR 0003). Foi baixada durante a pesquisa em 21/10/2026 (horário de Brasília), cerca de três horas depois da captura de 20/10 e separadamente da página do LEGIN, com um único GET anônimo, UA `Mozilla/5.0 (compatible; akoma/0.0.0)` e sem identificador pessoal, e está guardada como foi servida, salvo a edição dos metadados acima. Os headers da resposta e o instante exato não foram registrados; por isso `headers` está vazio e a proveniência mostra o dia da captura.
 
 Antes do commit, foi conferida offline: é a página FrontPage que o Planalto serve (`GENERATOR` Microsoft FrontPage 6.0, o script `f5_cspm` do F5 depois de `</html>`, rodapé `Este texto não substitui o publicado no DOU 21.12.2023`), e as redações citadas no art. 1º dela para os arts. 146, III, "d", 156-A, § 1º, IX, 159, § 3º, 195, § 17, e 225, § 1º, VIII, da CF são idênticas às que a CF compilada de 20/10 mostra como dadas pela EC 132. Como foi servida: SHA-256 `bee37a51c439d37d261c859ffd7992a4164257e6017f12cdf5c4ab2ca44eed4c`, 510.399 bytes (`servedSha256`; os do arquivo gravado, já redigido, estão no `index.json`). Domínio público (Lei 9.610/1998, art. 8º, IV).
+
+**A página da Lei 14.181/2021.** A página da Lei nº 14.181, de 1º de julho de 2021 (crédito e superendividamento), uma lei que alterou o CDC, capturada para que a revisão leia os comandos de uma lei real (a conferência de alvos e o revisor LLM leem todo ato que a mudança cita, não só ECs). Baixada em 21/10/2026 às 07:16 UTC com um único GET anônimo pelo `src/sources/http.ts` (UA `Mozilla/5.0 (compatible; akoma/0.0.0)`, sem identificador pessoal); ETag, Last-Modified e `Date` da resposta estão registrados. Guardada com a edição dos metadados acima (como foi servida: SHA-256 `c46d30bcfeb0262e6f9af05754ec5138ce22a2f0dc8dc32c9273db2a1a6554e1`, 52.362 bytes). O art. 1º dela cita 69 dispositivos do CDC; o art. 2º altera o Estatuto do Idoso; o art. 5º a põe em vigor na publicação. Domínio público (Lei 9.610/1998, art. 8º, IV).
 
 Fixtures de cenário (uma emenda nova simulada, uma fonte secundária defasada…) são derivadas destes arquivos por edições documentadas e ficam ao lado dos testes que as usam.
 

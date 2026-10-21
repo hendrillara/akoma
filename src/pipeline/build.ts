@@ -14,7 +14,7 @@ import {
 } from "../schema/dataset.ts";
 import { buildSearchIndex, loadSynonyms, type SynonymDictionary } from "../search/build-index.ts";
 import type { RawSnapshot, Source } from "../sources/source.ts";
-import { readAmendingAct, type AmendingAct } from "./acts.ts";
+import { NORM_NAMES, readAmendingAct, type AmendingAct } from "./acts.ts";
 import { parsePlanaltoPage, type PageLayout } from "./planalto.ts";
 import { applyDeferredChanges, type Draft } from "./vigencia.ts";
 import { isCalendarDate } from "./vigencia-dates.ts";
@@ -85,8 +85,9 @@ export async function build({ manifests, source, datasetVersion, today, synonyms
   const pages = new Map<string, SourcePage>();
   const crossSource: CrossSourceStatus[] = [];
   const acts = new Map<string, Promise<{ act: AmendingAct; retrievedAt: string; url: string }>>();
+  const names = [...new Set([...NORM_NAMES, ...manifests.flatMap((m) => (m.citedAs ? [m.citedAs] : []))])];
   const actAt = (url: string) => {
-    if (!acts.has(url)) acts.set(url, readAct(source, url));
+    if (!acts.has(url)) acts.set(url, readAct(source, url, names));
     return acts.get(url)!;
   };
 
@@ -196,10 +197,10 @@ function sha256(text: string): string {
   return `sha256:${createHash("sha256").update(text, "utf8").digest("hex")}`;
 }
 
-async function readAct(source: Source, url: string): Promise<{ act: AmendingAct; retrievedAt: string; url: string }> {
+async function readAct(source: Source, url: string, names: string[]): Promise<{ act: AmendingAct; retrievedAt: string; url: string }> {
   const snapshot = await source.get(url);
   if (!snapshot) throw new Error(`amending act ${url} is unavailable`);
-  const act = readAmendingAct(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url);
+  const act = readAmendingAct(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url, names);
   return { act, retrievedAt: snapshot.retrievedAt, url };
 }
 

@@ -2,7 +2,6 @@
 // caps a body at 65,536 characters; a longer one is cut at a line and points to the full report, which the workflow
 // keeps as a run artifact.
 import { renderChangeReport, type ChangeReport } from "../pipeline/changes.ts";
-import { citedEcs } from "../review/gates.ts";
 import type { Verdict } from "../review/verdict.ts";
 import type { TestResult } from "./job.ts";
 
@@ -39,14 +38,6 @@ export function prBody({ today, report, verdict, tests, reviewer, capture, runUr
     ...(answers?.length ? [`- Answers the text-divergence reports ${answers.map((n) => `#${n}`).join(", ")}: their recheck saw Planalto's page print a dispositivo differently from the published dataset.`] : []),
   ];
 
-  const nonEc = report.changes.filter((c) => c.kind !== "removed" && !citedEcs(c).length && c.amendments.some((a) => a.act));
-  if (nonEc.length) {
-    const acts = [...new Set(nonEc.flatMap((c) => c.amendments.filter((a) => a.act).map((a) => a.act!.citation)))];
-    out.push(
-      "",
-      `> **Why a change by a law needs a human.** ${nonEc.length} ${nonEc.length === 1 ? "change cites" : "changes cite"} only acts other than constitutional amendments (${acts.join("; ")}). In v1, target matching and the LLM reviewer read only constitutional amendments, so they report such a change as citing no amending act they can check, and it always escalates. Check it against the act's official text.`,
-    );
-  }
   out.push("", renderChangeReport(report, verdict));
   return out.join("\n");
 }

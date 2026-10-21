@@ -24,6 +24,21 @@
       "edits": "Page metadata redacted by src/sources/redact.ts (every <meta> but the charset declaration, every comment and every script, style and title content blanked: here the FrontPage GENERATOR/ProgId metas, the title, the inline CSS and the scripts, including the F5 WAF token); see README.",
       "servedSha256": "bee37a51c439d37d261c859ffd7992a4164257e6017f12cdf5c4ab2ca44eed4c",
       "servedBytes": 510399
+    },
+    {
+      "file": "planalto/L14181.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm",
+      "encoding": "windows-1252",
+      "headers": {
+        "etag": "\"c673-65029161d32dd\"",
+        "last-modified": "Thu, 23 Apr 2026 23:34:15 GMT"
+      },
+      "retrievedAt": "2026-10-21T07:16:20Z",
+      "sha256": "b7840b1ea6a6985949eb7b948773b19ab6455412c7adaddbcbad9409f6113684",
+      "bytes": 47450,
+      "edits": "Page metadata redacted by src/sources/redact.ts (every <meta> but the charset declaration, every comment and every script, style and title content blanked); see README.",
+      "servedSha256": "c46d30bcfeb0262e6f9af05754ec5138ce22a2f0dc8dc32c9273db2a1a6554e1",
+      "servedBytes": 52362
     }
   ]
 }

@@ -1,13 +1,14 @@
 // Review layer 1: deterministic gates over a new build and its change report. Each gate returns findings; a problem
 // from any of them makes the verdict `needs-human` (see verdict.ts).
 import { createHash } from "node:crypto";
-import { isUnder, readActCommands, readAmendingAct, type ActTarget } from "../pipeline/acts.ts";
+import { isUnder, NORM_NAMES, readActCommands, readAmendingAct, type ActTarget } from "../pipeline/acts.ts";
 import { emc } from "../norms/cf.ts";
 import type { NormManifest } from "../pipeline/build.ts";
 import type { ChangeReport, ProvisionChange } from "../pipeline/changes.ts";
 import {
   NOTICE,
   type ActCitation,
+  type ActType,
   type Amendment,
   type Dataset,
   type Provision,
@@ -16,6 +17,7 @@ import {
   type Reference,
 } from "../schema/dataset.ts";
 import type { Source } from "../sources/source.ts";
+import { actKey } from "./secondary.ts";
 import type { Finding } from "./verdict.ts";
 
 export interface GateInput {
@@ -180,23 +182,26 @@ async function targetMatching(
 ): Promise<Finding[]> {
   const findings: Finding[] = [];
   const position = new Map(next.provisions.map((p, i) => [`${p.norm}/${p.id}`, i]));
-  const known = new Set(previous.provisions.flatMap(citedByRecord));
+  const known = new Set(previous.provisions.flatMap(knownActs));
   const changes = report.changes.filter((c) => c.kind !== "removed");
-  const numbers = [...new Set(changes.flatMap(citedEcs))].sort((a, b) => Number(a) - Number(b));
+  const names = normNames(manifests);
 
   const targetsOf = new Map<string, { norm: string; target: ActTarget }[]>();
-  for (const number of numbers) {
-    const act = `EC ${number}`;
-    const isNew = !known.has(number);
-    const url = emc(Number(number));
-    const snapshot = await source.get(url);
+  for (const cited of actsCitedBy(changes)) {
+    const act = cited.label;
+    const isNew = !known.has(cited.key);
+    if (!cited.url) {
+      findings.push(gate("target-matching", "problem", "its annotations give no link to its official page, so its commands cannot be read", { act }));
+      continue;
+    }
+    const snapshot = await source.get(cited.url);
     if (!snapshot) {
-      findings.push(gate("target-matching", "problem", `its page ${url} is not in the source`, { act }));
+      findings.push(gate("target-matching", "problem", `its page ${cited.url} is not in the source`, { act }));
       continue;
     }
     let commands;
     try {
-      commands = readActCommands(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url);
+      commands = readActCommands(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url, names);
     } catch (error) {
       findings.push(gate("target-matching", "problem", `its page could not be read: ${(error as Error).message}`, { act }));
       continue;
@@ -210,7 +215,7 @@ async function targetMatching(
     }
     // Page order: the order a reader of the change report meets them.
     targets.sort((a, b) => (position.get(`${a.norm}/${a.target.id}`) ?? Infinity) - (position.get(`${b.norm}/${b.target.id}`) ?? Infinity));
-    targetsOf.set(number, targets);
+    targetsOf.set(cited.key, targets);
     for (const message of unread) findings.push(gate("target-matching", isNew ? "problem" : "note", message, { act }));
     if (!isNew) {
       const message = `already in the dataset: each change citing it must be one of its ${targets.length} targets; the others may stay as they are`;
@@ -229,8 +234,8 @@ async function targetMatching(
   }
 
   for (const c of changes) {
-    const cited = citedEcs(c);
-    if (cited.some((n) => targetsOf.get(n)?.some(({ norm, target }) => norm === c.norm && covers(target, c.id)))) continue;
+    const cited = citedActs(c);
+    if (cited.some((a) => targetsOf.get(a.key)?.some(({ norm, target }) => norm === c.norm && covers(target, c.id)))) continue;
     const about = { norm: c.norm, id: c.id };
     if (c.fields.length === 1 && c.fields[0] === "references") {
       // Planalto adds "Vide" notes (STF cases, other acts) without any amending act; the wording is untouched.
@@ -244,7 +249,7 @@ async function targetMatching(
         "target-matching",
         "problem",
         cited.length
-          ? `${what}, citing ${cited.map((n) => `EC ${n}`).join(", ")}, which ${cited.length === 1 ? "does" : "do"} not target it`
+          ? `${what}, citing ${cited.map((a) => a.label).join(", ")}, which ${cited.length === 1 ? "does" : "do"} not target it`
           : `${what} without citing an amending act`,
         about,
       ),
@@ -265,26 +270,26 @@ export interface DeferredActInput {
 }
 
 /**
- * A constitutional amendment new to the dataset whose vigência clause defers changes that no manifest lists it for
+ * An amending act (an EC, a law, an MP) new to the dataset whose vigência clause defers changes that no manifest lists it for
  * in `deferredActs` (ADR 0003). The compiled page shows such a change only as a "(Vigência)" note, so without the
  * manifest entry its pending wording is never recorded, and the other layers may not notice: the gates accept a
  * references-only change on a target, and the LLM reviewer is not shown one. Each such act blocks with the fix.
  * An act whose page is missing is target matching's to report.
  */
 export async function reviewDeferredActs({ manifests, previous, report, source, today }: DeferredActInput): Promise<Finding[]> {
-  const known = new Set(previous.provisions.flatMap(citedByRecord));
+  const known = new Set(previous.provisions.flatMap(knownActs));
   const listed = new Set(manifests.flatMap((m) => m.deferredActs ?? []));
-  const numbers = [...new Set(report.changes.filter((c) => c.kind !== "removed").flatMap(citedEcs))].sort((a, b) => Number(a) - Number(b));
+  const names = normNames(manifests);
   const findings: Finding[] = [];
-  for (const number of numbers) {
-    const url = emc(Number(number));
-    if (known.has(number) || listed.has(url)) continue;
-    const act = `EC ${number}`;
+  for (const cited of actsCitedBy(report.changes.filter((c) => c.kind !== "removed"))) {
+    const url = cited.url;
+    if (!url || known.has(cited.key) || listed.has(url)) continue;
+    const act = cited.label;
     const snapshot = await source.get(url);
     if (!snapshot) continue;
     let changes;
     try {
-      changes = readAmendingAct(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url).changes;
+      changes = readAmendingAct(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url, names).changes;
     } catch (error) {
       const message = `its vigência clause could not be read (${(error as Error).message}); if it defers changes, add ${url} to the deferredActs of the norms it changes`;
       findings.push(gate("deferred-act", "problem", message, { act }));
@@ -308,20 +313,80 @@ function covers(target: ActTarget, id: string): boolean {
   return target.how === "revoked" || !target.id.includes("_") ? isUnder(id, target.id) : id === target.id;
 }
 
-/** The constitutional amendments a record carries: those it took effect by, and pending ones. */
-export function citedByRecord(record: Provision): string[] {
-  const acts = [...record.amendments.map((a) => a.act), ...(record.pending ?? []).map((p) => p.act)];
-  return acts.filter((a) => a?.type === "emenda_constitucional").map((a) => a!.number);
+/** An amending act a change or a record cites, whatever its type. */
+export interface CitedAct {
+  /** `actKey`: "emenda_constitucional:141", "lei:15999". */
+  key: string;
+  /** How findings and the LLM reviewer name it: "EC 141", "Lei 15.999", "MP 1.393". */
+  label: string;
+  /**
+   * Its official page: for an EC, its canonical Planalto URL; for any other act, the page its annotation links to
+   * (without the fragment). Absent when no annotation links it.
+   */
+  url?: string;
+  type: ActType;
+  number: string;
 }
 
-/** The constitutional amendments a change cites anew: new amendment annotations, "Vide" notes or pending changes. */
-export function citedEcs(c: ProvisionChange): string[] {
+const SHORT: Record<ActType, string> = {
+  emenda_constitucional: "EC",
+  emenda_constitucional_de_revisao: "ECR",
+  lei: "Lei",
+  lei_complementar: "LC",
+  decreto_lei: "Decreto-Lei",
+  decreto_legislativo: "Decreto Legislativo",
+  decreto: "Decreto",
+  medida_provisoria: "MP",
+};
+
+export function citedAct(act: ActCitation): CitedAct {
+  const url = act.type === "emenda_constitucional" ? emc(Number(act.number)) : act.href?.replace(/#.*$/, "");
+  return { key: actKey(act.type, act.number), label: `${SHORT[act.type]} ${act.number}`, ...(url && { url }), type: act.type, number: act.number };
+}
+
+/** The acts a record carries (`actKey`s): those it took effect by, and pending ones. */
+export function knownActs(record: Provision): string[] {
+  const acts = [...record.amendments.map((a) => a.act), ...(record.pending ?? []).map((p) => p.act)];
+  return acts.flatMap((a) => (a ? [citedAct(a).key] : []));
+}
+
+/**
+ * The amending acts a change cites anew: its new amendment annotations and pending changes, of any act, and the
+ * constitutional amendments of its new "Vide" notes (the CF annotates a deferred change with "Vide Emenda
+ * Constitucional"; a "Vide Lei" is a cross-reference, not a command). Once each; an act's page is the first link given.
+ */
+export function citedActs(c: ProvisionChange): CitedAct[] {
   const acts: (ActCitation | undefined)[] = [
     ...c.amendments.map((a) => a.act),
-    ...newReferences(c).map((r) => r.act),
+    ...newReferences(c).map((r) => (r.act?.type === "emenda_constitucional" ? r.act : undefined)),
     ...newPending(c).map((p) => p.act),
   ];
-  return [...new Set(acts.filter((a) => a?.type === "emenda_constitucional").map((a) => a!.number))];
+  const byKey = new Map<string, CitedAct>();
+  for (const act of acts) {
+    if (!act) continue;
+    const cited = citedAct(act);
+    const seen = byKey.get(cited.key);
+    if (!seen) byKey.set(cited.key, cited);
+    else if (!seen.url && cited.url) byKey.set(cited.key, { ...seen, url: cited.url });
+  }
+  return [...byKey.values()];
+}
+
+/** Every act the changes cite, once: the constitutional amendments first, by number, then the others by label. */
+export function actsCitedBy(changes: ProvisionChange[]): CitedAct[] {
+  const byKey = new Map<string, CitedAct>();
+  for (const cited of changes.flatMap(citedActs)) {
+    const seen = byKey.get(cited.key);
+    if (!seen || (!seen.url && cited.url)) byKey.set(cited.key, cited);
+  }
+  const ec = (a: CitedAct) => (a.type === "emenda_constitucional" ? 0 : 1);
+  const number = (a: CitedAct) => Number(a.number.replace(/\./g, "").replace(/-.*$/, ""));
+  return [...byKey.values()].sort((a, b) => ec(a) - ec(b) || (ec(a) === 0 ? number(a) - number(b) : a.label < b.label ? -1 : a.label > b.label ? 1 : 0));
+}
+
+/** How acts may name the norms: the CF and the ADCT always, and every manifest's `citedAs`. */
+export function normNames(manifests: NormManifest[]): string[] {
+  return [...new Set([...NORM_NAMES, ...manifests.flatMap((m) => (m.citedAs ? [m.citedAs] : []))])];
 }
 
 function newPending(c: ProvisionChange): NonNullable<Provision["pending"]> {

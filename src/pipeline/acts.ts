@@ -1,7 +1,10 @@
-// Reads an amending act's official page (an EC on Planalto) for the changes it defers: its vigência clause says which
-// of its articles take effect later and when, its quoted blocks give the new wording, and its revocation article
-// lists what ends and when. Changes in force at publication are not returned: the compiled page already shows them.
-import type { ActCitation } from "../schema/dataset.ts";
+// Reads an amending act's official page on Planalto (an EC, a law, a lei complementar, a medida provisória) for the
+// changes it defers: its vigência clause says which of its articles take effect later and when, its quoted blocks give
+// the new wording, and its revocation article lists what ends and when. Changes in force at publication are not
+// returned: the compiled page already shows them. Every function takes the ways the acts name the corpus's norms (the
+// manifests' `citedAs`), so a law's "O art. 49 da Lei nº 8.078, de 11 de setembro de 1990, passa a vigorar…" reads
+// like an EC's "O art. 7º da Constituição Federal passa a vigorar…".
+import type { ActCitation, ActType } from "../schema/dataset.ts";
 import { peelAnnotations } from "./annotations.ts";
 import {
   matchAlinea,
@@ -40,18 +43,23 @@ export interface DeferredChange {
   vigencia: string;
 }
 
-/** The ways an act names the norms it amends, longest first so the ADCT is not read as "Constituição". */
-const NORM_NAMES = ["Ato das Disposições Constitucionais Transitórias", "Constituição Federal"];
+/** The ways acts name the CF and the ADCT (the default when no manifest names are given). */
+export const NORM_NAMES = ["Ato das Disposições Constitucionais Transitórias", "Constituição Federal"];
 
-export function readAmendingAct(html: string, url: string): AmendingAct {
+/** How an act calls itself: "Esta Emenda Constitucional", "Esta Lei", "desta Medida Provisória"… */
+const SELF = "(?:Emenda Constitucional|Emenda à Constituição|Lei Complementar|Lei|Medida Provisória|Decreto-Lei)";
+const VIGENCIA = new RegExp(`^Est[ae] ${SELF} entra em vigor\\s*(.+?)\\.?$`);
+
+export function readAmendingAct(html: string, url: string, names: string[] = NORM_NAMES): AmendingAct {
+  const norms = byLength(names);
   const lines = visibleLines(html, {}, url);
   const act = citationOf(lines, url);
   const published = publicationDate(lines, url);
   const articles = splitArticles(lines);
 
-  const vigenciaArticle = articles.find((a) => /^Esta Emenda (?:Constitucional|à Constituição) entra em vigor/.test(a.head));
+  const vigenciaArticle = articles.find((a) => VIGENCIA.test(a.head));
   if (!vigenciaArticle) throw new Error(`${url}: no vigência article found`);
-  const clauses = vigenciaClauses(vigenciaArticle, url);
+  const clauses = vigenciaClauses(vigenciaArticle, articles, norms, url);
 
   const changes: DeferredChange[] = [];
   for (const clause of clauses) {
@@ -62,25 +70,37 @@ export function readAmendingAct(html: string, url: string): AmendingAct {
       if (!article) throw new Error(`${url}: vigência cites art. ${subject.article}, which the act does not have`);
       // An autonomous article (a rule of its own, not a change to the norm's text) has nothing to stage.
       if (!isAlteration(article)) continue;
-      for (const change of quotedChanges(article, url)) {
+      for (const change of quotedChanges(article, norms, url)) {
         if (subject.only && !(change.norm === subject.only.norm && isUnder(change.id, subject.only.id))) continue;
         changes.push({ ...change, effectiveFrom, vigencia: clause.text });
       }
     }
   }
-  for (const article of articles.filter(isRevocation)) changes.push(...deferredRevocations(article, published, url));
+  for (const article of articles.filter(isRevocation)) changes.push(...deferredRevocations(article, published, norms, url));
 
   return { act, published, changes };
 }
 
 // --- Page anatomy -----------------------------------------------------------------------------------------
 
+/** The title line's kind of act → its type and how annotations cite it ("Lei nº 14.181, de 2021"). */
+const KINDS: { title: RegExp; type: ActType; name: string }[] = [
+  { title: /^EMENDA CONSTITUCIONAL$/i, type: "emenda_constitucional", name: "Emenda Constitucional" },
+  { title: /^LEI COMPLEMENTAR$/i, type: "lei_complementar", name: "Lei Complementar" },
+  { title: /^LEI$/i, type: "lei", name: "Lei" },
+  { title: /^MEDIDA PROVIS[ÓO]RIA$/i, type: "medida_provisoria", name: "Medida Provisória" },
+  { title: /^DECRETO-LEI$/i, type: "decreto_lei", name: "Decreto-Lei" },
+];
+
+/** "EMENDA CONSTITUCIONAL Nº 141, DE 16 DE OUTUBRO DE 2026", "LEI Nº 14.181, DE 1º DE JULHO DE 2021"… */
 function citationOf(lines: Line[], url: string): ActCitation {
-  const title = lines.map((l) => /^EMENDA CONSTITUCIONAL N[º°o]\s*(\d+),\s*DE\s+\d+\s+DE\s+\S+\s+DE\s+(\d{4})/i.exec(l.text)).find(Boolean);
-  if (!title) throw new Error(`${url}: not an Emenda Constitucional page (no title line)`);
-  const number = title[1]!;
-  const year = Number(title[2]);
-  return { citation: `Emenda Constitucional nº ${number}, de ${year}`, type: "emenda_constitucional", number, year, href: url };
+  const pattern = /^(EMENDA CONSTITUCIONAL|LEI COMPLEMENTAR|LEI|MEDIDA PROVIS[ÓO]RIA|DECRETO-LEI) N[º°o]\s*(\d[\d.]*(?:-\d+)?),\s*DE\s+\d+[º°o]?\s+DE\s+\S+\s+DE\s+(\d{4})/i;
+  const title = lines.map((l) => pattern.exec(l.text)).find(Boolean);
+  if (!title) throw new Error(`${url}: not the page of an amending act (no title line)`);
+  const kind = KINDS.find((k) => k.title.test(title[1]!))!;
+  const number = title[2]!;
+  const year = Number(title[3]);
+  return { citation: `${kind.name} nº ${number}, de ${year}`, type: kind.type, number, year, href: url };
 }
 
 /** "Este texto não substitui o publicado no DOU 16.10.2026 - Edição extra" → 2026-10-16. */
@@ -99,6 +119,8 @@ interface ActArticle {
 }
 
 const OPEN_QUOTE = /^["“]/;
+/** A quoted line without its quotes: a law nests single quotes for what it inserts ("“‘CAPÍTULO VI-A", "‘Art. 54-A."). */
+const unquoted = (text: string) => text.replace(/^["“‘]+/, "").replace(/\s*["”’]+\s*(?:\(NR\)?)?\s*$/, "");
 const CLOSE_QUOTE = /["”]\s*(?:\(NR\)?)?\s*\.?$/;
 
 /** The act's own articles, in order. Quoted dispositivos ("Art. 7º ......") belong to the article that quotes them. */
@@ -132,8 +154,26 @@ function isRevocation(article: ActArticle): boolean {
   return REVOKES.test(article.head);
 }
 
-function normNamed(text: string): string | undefined {
-  return NORM_NAMES.find((name) => text.includes(name));
+/** Longest first, so the ADCT is not read as "Constituição". */
+function byLength(names: string[]): string[] {
+  return [...new Set(names)].sort((a, b) => b.length - a.length);
+}
+
+/**
+ * Where `text` last names the norm `name`: as the manifest spells it, or, for a law named with its date ("Lei nº 8.078,
+ * de 11 de setembro de 1990"), by its type and number alone, since acts also write "Lei nº 8.078, de 1990". -1: nowhere.
+ */
+function lastAt(text: string, name: string): number {
+  const at = text.lastIndexOf(name);
+  if (at >= 0) return at;
+  const short = /^((?:Lei Complementar|Lei|Decreto-Lei|Medida Provisória) nº [\d.]+),/.exec(name)?.[1];
+  if (!short) return -1;
+  const matches = [...text.matchAll(new RegExp(`${short.replace(/\./g, "\\.")}(?![\\d.]*\\d)`, "g"))];
+  return matches.at(-1)?.index ?? -1;
+}
+
+function normNamed(text: string, names: string[]): string | undefined {
+  return names.find((name) => lastAt(text, name) >= 0);
 }
 
 // --- Vigência clause --------------------------------------------------------------------------------------
@@ -150,12 +190,13 @@ interface Clause {
   subjects: { article: number; only?: { norm: string; id: string } }[];
 }
 
-function vigenciaClauses(article: ActArticle, url: string): Clause[] {
-  const single = /^Esta Emenda (?:Constitucional|à Constituição) entra em vigor\s*(.+?)\.?$/.exec(article.head)!;
+function vigenciaClauses(article: ActArticle, articles: ActArticle[], names: string[], url: string): Clause[] {
+  const single = VIGENCIA.exec(article.head)!;
   if (!single[1]!.endsWith(":")) {
-    // "… entra em vigor na data de sua publicação." Anything else in one sentence is a form this reader doesn't know.
-    if (/^na data de sua publicação$/.test(single[1]!)) return [{ text: single[1]!, when: "publication", subjects: [] }];
-    throw new Error(`${url}: vigência clause not understood: "${article.head}"`);
+    // "… entra em vigor na data de sua publicação." A whole act deferred in one sentence ("Esta Lei entra em vigor após
+    // decorridos 180 (cento e oitenta) dias de sua publicação oficial.") covers every article.
+    const when = whenOf(single[1]!, url);
+    return [{ text: single[1]!, when, subjects: when === "publication" ? [] : articles.map((a) => ({ article: a.number })) }];
   }
   const clauses: Clause[] = [];
   for (const { text: line } of article.body) {
@@ -164,14 +205,14 @@ function vigenciaClauses(article: ActArticle, url: string): Clause[] {
     const text = item[1]!;
     const split = /^(.+?), (?:em relação|quanto) (.+)$/.exec(text);
     if (!split) throw new Error(`${url}: vigência item not understood: "${line}"`);
-    clauses.push({ text, when: whenOf(split[1]!, url), subjects: subjectsOf(split[2]!, url) });
+    clauses.push({ text, when: whenOf(split[1]!, url), subjects: subjectsOf(split[2]!, names, url) });
   }
   return clauses;
 }
 
 function whenOf(text: string, url: string): When {
-  if (/^na data de sua publicação$/.test(text)) return "publication";
-  const after = /^após decorridos (\d+) \([^)]*\) (dias|meses|anos) de sua publicação$/.exec(text);
+  if (/^na data de sua publicação(?: oficial)?$/.test(text)) return "publication";
+  const after = /^após decorridos (\d+) \([^)]*\) (dias|meses|anos) de sua publicação(?: oficial)?$/.exec(text);
   if (after) return { after: Number(after[1]), unit: after[2] as "dias" | "meses" | "anos" };
   const year = /^em (\d{4})$/.exec(text);
   if (year) return { year: Number(year[1]) };
@@ -180,13 +221,13 @@ function whenOf(text: string, url: string): When {
   throw new Error(`${url}: vigência "${text}" gives no computable date`);
 }
 
-function subjectsOf(text: string, url: string): Clause["subjects"] {
+function subjectsOf(text: string, names: string[], url: string): Clause["subjects"] {
   if (/^aos demais dispositivos$/.test(text)) return [];
   const articles = /^aos? arts?\. (.+)$/.exec(text);
   if (articles) return numberList(articles[1]!).map((article) => ({ article }));
-  const narrowed = /^à alteração promovida pelo art\. (\d+)[º°o]? desta Emenda Constitucional n[oa] (.+)$/.exec(text);
+  const narrowed = new RegExp(`^à alteração promovida pelo art\\. (\\d+)[º°o]? dest[ae] ${SELF} n[oa] (.+)$`).exec(text);
   if (narrowed) {
-    const { norm, id } = descending(narrowed[2]!, url);
+    const { norm, id } = descending(narrowed[2]!, names, url);
     return [{ article: Number(narrowed[1]), only: { norm, id } }];
   }
   throw new Error(`${url}: vigência subject not understood: "${text}"`);
@@ -200,10 +241,10 @@ function numberList(text: string): number[] {
 // --- Citations --------------------------------------------------------------------------------------------
 
 /** "inciso XV do caput do art. 7º da Constituição Federal": innermost unit first, chained by "do"/"da". */
-function descending(text: string, url: string): { norm: string; id: string } {
-  const norm = normNamed(text);
+function descending(text: string, names: string[], url: string): { norm: string; id: string } {
+  const norm = normNamed(text, names);
   if (!norm) throw new Error(`${url}: citation names no known norm: "${text}"`);
-  return { norm, id: descendingId(text.slice(0, text.lastIndexOf(norm)).replace(/\s+d[oa]\s*$/, ""), url) };
+  return { norm, id: descendingId(text.slice(0, lastAt(text, norm)).replace(/\s+d[oa]\s*$/, ""), url) };
 }
 
 /** The dispositivo part of a descending citation, without its norm: "inciso XV do caput do art. 7º" → art7_cpt_inc15. */
@@ -287,8 +328,8 @@ export function isUnder(id: string, root: string): boolean {
 // --- Quoted blocks ----------------------------------------------------------------------------------------
 
 /** The dispositivos an alteration article quotes with a wording (or "(Revogado)"), read with the parser's cursor. */
-function quotedChanges(article: ActArticle, url: string): Omit<DeferredChange, "effectiveFrom" | "vigencia">[] {
-  const norm = normNamed(article.head);
+function quotedChanges(article: ActArticle, names: string[], url: string): Omit<DeferredChange, "effectiveFrom" | "vigencia">[] {
+  const norm = normNamed(article.head, names);
   if (!norm) return []; // e.g. "O art. 3º da Emenda Constitucional nº 113 … passa a vigorar": outside the corpus.
   const out: Omit<DeferredChange, "effectiveFrom" | "vigencia">[] = [];
   let art: string | undefined;
@@ -300,7 +341,7 @@ function quotedChanges(article: ActArticle, url: string): Omit<DeferredChange, "
   let headingName = false;
   for (const line of article.body.filter((l) => l.quoted)) {
     // The block's closing quote follows the dispositivo's own final period: `… deste artigo." (NR)`.
-    const text = line.text.replace(OPEN_QUOTE, "").replace(/\s*["”]\s*(?:\(NR\)?)?\s*$/, "");
+    const text = unquoted(line.text);
     if (/^[.…\s]*$/.test(text)) continue;
     if (matchHeading(text)) {
       headingName = true;
@@ -360,7 +401,7 @@ function quotedChanges(article: ActArticle, url: string): Omit<DeferredChange, "
  * Items of a revocation article that carry their own later date ("I - em 2027, o art. 195, I, "b", … da Constituição
  * Federal;", "II - em 2033:" followed by alíneas). Items without a date take effect with the act and are skipped.
  */
-function deferredRevocations(article: ActArticle, published: string, url: string): DeferredChange[] {
+function deferredRevocations(article: ActArticle, published: string, names: string[], url: string): DeferredChange[] {
   const out: DeferredChange[] = [];
   let pending: { when: Exclude<When, "publication">; printed: string } | undefined;
   for (const { text: line } of article.body) {
@@ -375,9 +416,9 @@ function deferredRevocations(article: ActArticle, published: string, url: string
     }
     if (!pending || !body) continue; // undated items take effect with the act; "II - em 2033:" leaves it to its alíneas
     const citation = trimItem(body).replace(/^(?:o|os|a|as)\s+/, "");
-    const norm = normNamed(citation);
+    const norm = normNamed(citation, names);
     if (!norm) throw new Error(`${url}: revocation names no known norm: "${line}"`);
-    const cited = citation.slice(0, citation.lastIndexOf(norm)).replace(/,?\s+d[oa]\s*$/, "").trim();
+    const cited = citation.slice(0, lastAt(citation, norm)).replace(/,?\s+d[oa]\s*$/, "").trim();
     // As printed: the dated item, and for an alínea the item that dates it ("em 2033: a) os arts. 155, …").
     const vigencia = top ? pending.printed : `${pending.printed} ${trimItem(line)}`;
     const effectiveFrom = effectiveDate(pending.when, published);
@@ -420,7 +461,8 @@ export interface ActCommands {
  * Unlike `readAmendingAct`, an article it cannot read becomes a problem instead of an exception, so a review can
  * report it. Commands on texts outside the named norms (another EC, e.g. EC 136 on EC 113) are skipped.
  */
-export function readActCommands(html: string, url: string): ActCommands {
+export function readActCommands(html: string, url: string, names: string[] = NORM_NAMES): ActCommands {
+  const norms = byLength(names);
   const lines = visibleLines(html, {}, url);
   const act = citationOf(lines, url);
   const targets: ActTarget[] = [];
@@ -432,15 +474,15 @@ export function readActCommands(html: string, url: string): ActCommands {
   for (const article of splitArticles(lines)) {
     try {
       if (isAlteration(article)) {
-        for (const { norm, id } of quotedChanges(article, url)) add({ norm, id, article: article.number, how: "quoted" });
-        const norm = normNamed(article.head);
+        for (const { norm, id } of quotedChanges(article, norms, url)) add({ norm, id, article: article.number, how: "quoted" });
+        const norm = normNamed(article.head, norms);
         if (norm && /numerad[oa] o parágrafo único como § 1º/.test(article.head)) {
           const quoted = article.body.find((l) => l.quoted && matchArticle(l.text.replace(OPEN_QUOTE, "")));
           if (!quoted) throw new Error(`${url}: renumbers a parágrafo único but quotes no article`);
           add({ norm, id: `${matchArticle(quoted.text.replace(OPEN_QUOTE, ""))!.id}_par1`, article: article.number, how: "renumbered" });
         }
       } else if (isRevocation(article)) {
-        for (const { norm, id } of revokedTargets(article, url)) add({ norm, id, article: article.number, how: "revoked" });
+        for (const { norm, id } of revokedTargets(article, norms, url)) add({ norm, id, article: article.number, how: "revoked" });
       }
     } catch (error) {
       problems.push(`art. ${article.number}: ${(error as Error).message.replace(`${url}: `, "")}`);
@@ -455,22 +497,23 @@ export function readActCommands(html: string, url: string): ActCommands {
  * Federal;"). An item ending in ":" ("I - os seguintes dispositivos da Constituição Federal:") names the norm of the
  * alíneas under it.
  */
-function revokedTargets(article: ActArticle, url: string): { norm: string; id: string }[] {
+function revokedTargets(article: ActArticle, names: string[], url: string): { norm: string; id: string }[] {
   const out: { norm: string; id: string }[] = [];
   let inherited: string | undefined;
   const cite = (raw: string, item: boolean) => {
     let text = raw.replace(/\s*\(Vigência\)\s*$/, "").replace(/^em \d{4}[,:]?\s*/, "");
     if (!text) return;
     if (text.endsWith(":")) {
-      if (item) inherited = normNamed(text) ?? inherited;
+      if (item) inherited = normNamed(text, names) ?? inherited;
       return;
     }
     text = trimItem(text).replace(/^(?:o|os|a|as)\s+/, "");
-    const named = normNamed(text);
-    if (!named && /Emenda Constitucional nº/.test(text)) return; // another act's own text: outside the corpus
+    const named = normNamed(text, names);
+    // Another act's own text ("o art. 3º da Emenda Constitucional nº 113", "a Lei nº 9.999, de …"): outside the corpus.
+    if (!named && new RegExp(`${SELF} nº`).test(text)) return;
     const norm = named ?? inherited;
     if (!norm) throw new Error(`${url}: revocation names no known norm: "${raw}"`);
-    const path = named ? text.slice(0, text.lastIndexOf(named)).replace(/,?\s+d[oa]\s*$/, "").trim() : text;
+    const path = named ? text.slice(0, lastAt(text, named)).replace(/,?\s+d[oa]\s*$/, "").trim() : text;
     const ids = /^arts?\.\s*\d+[º°o]?(?:-[A-Z])*\s*,/.test(path) || /^arts\./.test(path) ? compact(path, url) : [descendingId(path, url)];
     for (const id of ids) out.push({ norm, id });
   };

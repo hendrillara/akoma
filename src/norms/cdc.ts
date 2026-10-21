@@ -9,6 +9,9 @@ export const cdc: NormManifest = {
   date: "1990-09-11",
   title: "Código de Defesa do Consumidor (Lei nº 8.078, de 11 de setembro de 1990)",
   primaryUrl: "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+  // As amending laws name it ("O art. 49 da Lei nº 8.078, de 11 de setembro de 1990, passa a vigorar…"); "Lei nº 8.078,
+  // de 1990" and "Lei nº 8.078" match too (src/pipeline/acts.ts).
+  citedAs: "Lei nº 8.078, de 11 de setembro de 1990",
   secondarySources: [
     {
       name: "camara-legin",

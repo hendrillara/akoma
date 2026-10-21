@@ -13,7 +13,7 @@ import { cf, emc } from "../src/norms/cf.ts";
 import { build } from "../src/pipeline/build.ts";
 import { detectChanges } from "../src/pipeline/changes.ts";
 import { claudeReviewer, DEFAULT_REVIEW_MODEL } from "../src/review/claude.ts";
-import { citedEcs } from "../src/review/gates.ts";
+import { citedActs } from "../src/review/gates.ts";
 import { reviewLlm, type LlmReviewer, type ReviewerResult } from "../src/review/llm.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
 
@@ -35,7 +35,7 @@ const source = await recordedSource(recorded, acts);
 const previous = await build({ manifests: [cfBefore, adct], source: await recordedSource(recorded, acts, before), datasetVersion: "before-ec141" });
 const next = await build({ manifests: [cf, adct], source, datasetVersion: "recorded" });
 const full = detectChanges(previous, next);
-const report = { ...full, changes: full.changes.filter((c) => citedEcs(c).includes("141")) };
+const report = { ...full, changes: full.changes.filter((c) => citedActs(c).some((a) => a.label === "EC 141")) };
 
 let answer: ReviewerResult | undefined;
 const real = claudeReviewer({ apiKey, model });
