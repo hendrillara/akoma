@@ -1,6 +1,6 @@
 # Akoma
 
-[![CI](https://github.com/hendrillara/akoma/actions/workflows/ci.yml/badge.svg)](https://github.com/hendrillara/akoma/actions/workflows/ci.yml) [![Akoma status](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhendrillara%2Fakoma%2Fstatus%2Fbadge.json)](https://github.com/hendrillara/akoma/blob/status/status.json)
+[![Akoma status](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhendrillara%2Fakoma%2Fstatus%2Fbadge.json)](https://github.com/hendrillara/akoma/blob/status/status.json)
 
 **Português** · [English](#english)
 
@@ -92,7 +92,7 @@ Os mesmos dados ficam também como arquivos estáticos, da pasta `dataset/` comm
 
 ## Garantias de precisão: o que é medido hoje
 
-Tudo isto roda em `pnpm verify`, o mesmo comando do CI (o badge acima):
+Tudo isto roda em `pnpm verify`, o mesmo comando do [CI](https://github.com/hendrillara/akoma/actions/workflows/ci.yml) e do job diário:
 
 - **Golden sets** conferidos à mão contra o HTML oficial: 62 dispositivos da CF e do ADCT e 60 do CDC (texto, id, caminho, situação, anotações).
 - **Invariantes estruturais** (ids únicos, numeração monotônica, contagens exatas de incisos, parágrafos e alíneas) e **snapshots do texto completo** de cada norma: qualquer mudança no texto falha o teste.
@@ -110,7 +110,7 @@ Tudo isto roda em `pnpm verify`, o mesmo comando do CI (o badge acima):
 
 ## Estado do serviço
 
-O primeiro badge acima é o do CI (os testes na branch principal). O segundo é o do job diário e mostra o resultado da última execução. O arquivo de estado dele fica no branch `status`, em [`status.json`](https://github.com/hendrillara/akoma/blob/status/status.json): última verificação, última mudança, atraso por fonte e resultado dos testes ([`docs/publishing.md`](docs/publishing.md)). O badge só aparece depois da primeira execução. Além disso, `GET /v1/status` e o `status.json` do dataset trazem a conferência entre fontes por norma e a atribuição ao Senado/LexML.
+O badge acima é o do job diário e mostra o resultado da última execução: "current" quando a última checagem passou, ou o problema (mudança aguardando revisão, testes falhando, fonte inacessível, job com falha). O arquivo de estado dele fica no branch `status`, em [`status.json`](https://github.com/hendrillara/akoma/blob/status/status.json): última verificação, última mudança, testes, recall da busca, invariantes e conjunto-ouro, versão do esquema, atraso por fonte (de busca e de conteúdo da fonte secundária) e a atribuição ao Senado/LexML, a cada execução ([`docs/publishing.md`](docs/publishing.md)). O badge só aparece depois da primeira execução. Além disso, `GET /v1/status` e o `status.json` do dataset trazem a conferência entre fontes por norma e a atribuição ao Senado/LexML.
 
 ## Licenças e atribuição
 
@@ -221,7 +221,7 @@ The same data is also served as static files, from the committed `dataset/` fold
 
 ### Accuracy guarantees: what is measured today
 
-All of this runs in `pnpm verify`, the same command CI runs (the badge above):
+All of this runs in `pnpm verify`, the same command [CI](https://github.com/hendrillara/akoma/actions/workflows/ci.yml) and the daily job run:
 
 - **Golden sets** hand-checked against the official HTML: 62 CF and ADCT dispositivos and 60 CDC ones (text, id, path, status, annotations).
 - **Structural invariants** (unique ids, monotonic numbering, exact counts of incisos, paragraphs and alíneas) and **full-text snapshots** of each norm: any change to the text fails the tests.
@@ -239,7 +239,7 @@ All of this runs in `pnpm verify`, the same command CI runs (the badge above):
 
 ### Service status
 
-The first badge above is CI's (the tests on the default branch). The second is the daily job's and shows its latest run. Its status file lives on the `status` branch, in [`status.json`](https://github.com/hendrillara/akoma/blob/status/status.json): last check, last change, per-source lag and test results ([`docs/publishing.md`](docs/publishing.md)). The badge appears after the first run. Separately, `GET /v1/status` and the dataset's `status.json` carry the per-norm cross-source results and the Senado/LexML attribution.
+The badge above is the daily job's and shows its latest run: "current" when the last check passed, or the trouble (a change awaiting review, failing tests, an unreachable source, a failed job). Its status file lives on the `status` branch, in [`status.json`](https://github.com/hendrillara/akoma/blob/status/status.json): last check, last change, the tests, search recall, invariants and golden sets, the schema version, per-source lag (fetch and the secondary source's content) and the Senado/LexML attribution, on every run ([`docs/publishing.md`](docs/publishing.md)). The badge appears after the first run. Separately, `GET /v1/status` and the dataset's `status.json` carry the per-norm cross-source results and the Senado/LexML attribution.
 
 ### Licences and attribution
 

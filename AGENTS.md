@@ -44,11 +44,11 @@ Check here before searching. When a listed path moves, update this Map in the sa
 - `fixtures/` — committed raw source captures (checksummed `index.json` per capture; normas.leg.br files are CC BY 4.0; `2026-10-21/` holds Câmara LEGIN's compiled CDC, the EC 132 page and the Lei 14.181/2021 page; `<day>-daily/` are the daily job's; all dated folders are `build:dataset`'s input; see its README)
 - `scripts/review-live.ts` — `pnpm review:live`: runs the real LLM reviewer once on the EC 141 diff (needs `ANTHROPIC_API_KEY`; paid; not in `pnpm verify`)
 - `wrangler.jsonc` — the Worker `hendril-dev-akoma` on the `akoma.hendril.dev` custom domain only: static assets from `dataset/`, Workers Cache, rate-limit binding
-- `docs/deploy.md` — deploy runbook (EN + PT): what is served where, caching and rate limiting, token permissions, first deploy, smoke and rollback
+- `docs/deploy.md` — deploy runbook (EN + PT): what is served where, caching and rate limiting, token permissions, first deploy, smoke and rollback, and the maintainer's follow-ups (the unpublished `akoma-mcp` npm package, ADRs 0005–0006)
 - `scripts/smoke.mjs` — post-deploy smoke check (`node scripts/smoke.mjs <base> [datasetVersion]`)
 - `.github/workflows/deploy.yml` — push to `main` (or a dispatch by the daily job after its merge) → `pnpm verify` → `wrangler deploy` → smoke; skipped while the `CLOUDFLARE_API_TOKEN` secret is absent
 - `scripts/probe-planalto.mjs` — checks whether Planalto serves a runner (Akoma UA, conditional GET, control UA); manual only since #12
-- `docs/adr/` — architecture decisions (0001: fetch Planalto directly from Actions; no R2 fallback in v1; 0002: Câmara LEGIN is the CDC's secondary source; 0003: deferred vigência from the amending acts, start-date counting; 0004: cross-source agreement, normalisation, outcomes, known divergences)
+- `docs/adr/` — architecture decisions (0001: fetch Planalto directly from Actions; no R2 fallback in v1; 0002: Câmara LEGIN is the CDC's secondary source; 0003: deferred vigência from the amending acts, start-date counting; 0004: cross-source agreement, normalisation, outcomes, known divergences; 0005: Workers static assets instead of Pages; 0006: the LLM reviewer's model, proposed, for the maintainer)
 - `docs/adding-a-norm.md` — how to add a norm: capture, manifest, golden set, invariants, snapshot; parser evolution over per-norm hooks
 - `docs/research/2026-10-20-sources.md` — source-of-truth research: Planalto, normas.leg.br, LEGIN, LexML IDs, parser traps, accuracy checks
 - `docs/agents/` — issue tracker, triage labels, domain-doc rules for the engineering skills

@@ -10,7 +10,7 @@ One deploy uploads two things, both from the committed `dataset/` folder (writte
 | `/llms.txt` and `/usage.md` | the Worker, since no dataset file takes these paths | agent discovery: the llms.txt index and the usage guide (`src/worker/discovery.ts`) |
 | every file in `dataset/`, at its own path (`/cf/art5.json`, `/cf/art5.md`, `/cf.md`, `/status.json`, `/search-index.json`, `/dataset.json`) | Workers static assets, without running the Worker | the downloadable dataset, with the headers in `dataset/_headers` (open CORS) |
 
-The spec said Cloudflare Pages. Workers static assets do the same job inside the same Worker: one deploy, one domain, and file requests are free and unlimited.
+The spec said Cloudflare Pages. Workers static assets do the same job inside the same Worker: one deploy, one domain, and file requests are free and unlimited ([ADR 0005](adr/0005-workers-static-assets-instead-of-pages.md)).
 
 ## How requests are handled
 
@@ -62,6 +62,12 @@ The account id is committed in `wrangler.jsonc`. It is not a secret. If you woul
 
 **Rollback:** `pnpm exec wrangler deployments list`, then `pnpm exec wrangler rollback [version-id]`. Each version has its own cache, so a rollback serves that version's answers.
 
+## Follow-ups for the maintainer
+
+- **The `akoma-mcp` npm package** that spec #1 lists is not built or published. Publishing needs the maintainer's npm account and a decision on the package name and its support promise; until then, clients connect to `https://akoma.hendril.dev/mcp` directly (README).
+- **Workers static assets instead of Pages** ([ADR 0005](adr/0005-workers-static-assets-instead-of-pages.md)): a deviation from the spec to confirm.
+- **The review model** ([ADR 0006](adr/0006-review-model.md)): keep `claude-opus-5` or switch, after a `pnpm review:live` run.
+
 ---
 
 # Deploy de akoma.hendril.dev (PT)
@@ -76,7 +82,7 @@ Um deploy envia duas coisas, ambas da pasta `dataset/` commitada (gerada por `pn
 | `/llms.txt` e `/usage.md` | o Worker, já que nenhum arquivo do dataset ocupa esses caminhos | descoberta por agentes: o índice llms.txt e o guia de uso (`src/worker/discovery.ts`) |
 | cada arquivo de `dataset/`, no próprio caminho (`/cf/art5.json`, `/cf/art5.md`, `/cf.md`, `/status.json`, `/search-index.json`, `/dataset.json`) | os static assets do Workers, sem rodar o Worker | o dataset para download, com os cabeçalhos de `dataset/_headers` (CORS aberto) |
 
-O spec dizia Cloudflare Pages. Os static assets do Workers fazem o mesmo papel dentro do mesmo Worker: um deploy, um domínio, e as requisições de arquivo são gratuitas e ilimitadas.
+O spec dizia Cloudflare Pages. Os static assets do Workers fazem o mesmo papel dentro do mesmo Worker: um deploy, um domínio, e as requisições de arquivo são gratuitas e ilimitadas ([ADR 0005](adr/0005-workers-static-assets-instead-of-pages.md)).
 
 ## Como as requisições são tratadas
 
@@ -127,3 +133,9 @@ O id da conta está commitado em `wrangler.jsonc`. Ele não é segredo. Se prefe
 8. **Ligue o deploy automático.** Crie o token acima e rode `gh secret set CLOUDFLARE_API_TOKEN -R hendrillara/akoma`. A partir daí, cada push em `main` roda `.github/workflows/deploy.yml`: `pnpm verify`, `wrangler deploy` da `dataset/` commitada e o smoke check. Dá para rodar à mão com *Run workflow*. Enquanto o secret não existir, o job de deploy é pulado com um aviso, e o de verify continua rodando.
 
 **Rollback:** `pnpm exec wrangler deployments list` e depois `pnpm exec wrangler rollback [version-id]`. Cada versão tem o próprio cache, então um rollback serve as respostas daquela versão.
+
+## Pendências para o mantenedor
+
+- **O pacote npm `akoma-mcp`** que o spec #1 lista não foi construído nem publicado. Publicar exige a conta npm do mantenedor e uma decisão sobre o nome do pacote e o suporte prometido; até lá, os clientes se conectam direto a `https://akoma.hendril.dev/mcp` (README).
+- **Static assets do Workers em vez do Pages** ([ADR 0005](adr/0005-workers-static-assets-instead-of-pages.md)): um desvio do spec a confirmar.
+- **O modelo revisor** ([ADR 0006](adr/0006-review-model.md)): manter o `claude-opus-5` ou trocar, depois de rodar o `pnpm review:live`.

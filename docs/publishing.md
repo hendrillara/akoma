@@ -68,7 +68,7 @@ The run status changes on every run, so it is not in `dataset/`, whose files onl
 - `status.json` holds `lastCheck` (instant, Brasília day, outcome, message, run link) and `lastChange` (the latest change: version, count, verdict, merged or not, PR). It also holds `openPullRequest` when a publish PR is still waiting, `tests` (the job's `pnpm verify`, which every run that does not crash runs: on the refreshed dataset, or on the published one when nothing changed), and, for the dataset the run ends with (the one it merged, or the published one): `schemaVersion`, `checks` (search recall@10 over `data/search-eval.json` against the thresholds `test/search.test.ts` enforces, the structural invariants as the gates check them, and whether the golden-set suites `test/cf-adct.test.ts` and `test/cdc.test.ts` passed in those tests), `attributions` (the Senado/LexML credit for the normas.leg.br aliases, CC BY 4.0) and `contentLag` (per norm, its secondary source, when it was fetched, how many dispositivos it is behind the primary on, layer 2's `secondary-stale`, and since which run). Then `sources`. Each source records its last attempt, last success, `failingSince`, last error and `lagHours`, the hours since the job last fetched it successfully. Primary pages are requested on every run; secondary sources and act pages only on runs that rebuild, so their lag also grows on quiet days.
 - `badge.json` is a [shields.io endpoint badge](https://shields.io/badges/endpoint-badge). It reads "current · checked <day>", "change awaiting review", "tests failing", "source unreachable", "source outage" or "job failed".
 
-README badge (in `README.md`, next to CI's):
+README badge (the one badge in `README.md`):
 
 ```markdown
 [![Akoma status](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhendrillara%2Fakoma%2Fstatus%2Fbadge.json)](https://github.com/hendrillara/akoma/blob/status/status.json)
@@ -150,7 +150,7 @@ O `dataset/` é gerado, nunca editado. O `pnpm build:dataset` o refaz a partir d
 O status muda a cada execução, então não fica no `dataset/`. O job o grava, com force-push de um único commit, no branch `status`:
 
 - `status.json` traz a última checagem e a última mudança, o PR ainda aberto, os testes (o `pnpm verify` do job, que toda execução que não quebra roda: sobre o dataset atualizado, ou sobre o publicado quando nada mudou) e, para o dataset com que a execução termina: `schemaVersion`, `checks` (recall@10 da busca sobre `data/search-eval.json` contra os limiares do `test/search.test.ts`, as invariantes estruturais e se as suítes do conjunto-ouro passaram), `attributions` (o crédito ao Senado/LexML pelos aliases do normas.leg.br, CC BY 4.0) e `contentLag` (por norma, a fonte secundária, quando foi lida, em quantos dispositivos está atrás da primária, o `secondary-stale` da camada 2, e desde qual execução). Depois, as fontes (último sucesso, `failingSince`, último erro, `lagHours`).
-- `badge.json` está no formato de badge endpoint do shields.io. O badge está no `README.md`, ao lado do badge do CI.
+- `badge.json` está no formato de badge endpoint do shields.io. É o único badge do `README.md`.
 
 ## O que o repositório precisa (mantenedor)
 
