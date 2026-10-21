@@ -12,6 +12,7 @@ import {
   type SecondarySourceName,
   type SourcePage,
 } from "../schema/dataset.ts";
+import { buildSearchIndex, loadSynonyms, type SynonymDictionary } from "../search/build-index.ts";
 import type { RawSnapshot, Source } from "../sources/source.ts";
 import { readAmendingAct, type AmendingAct } from "./acts.ts";
 import { parsePlanaltoPage, type PageLayout } from "./planalto.ts";
@@ -71,9 +72,11 @@ export interface BuildInput {
    * daily job (#12) passes the run's date explicitly.
    */
   today?: string;
+  /** The search synonym dictionary; `data/synonyms.json` when omitted. */
+  synonyms?: SynonymDictionary;
 }
 
-export async function build({ manifests, source, datasetVersion, today }: BuildInput): Promise<Dataset> {
+export async function build({ manifests, source, datasetVersion, today, synonyms }: BuildInput): Promise<Dataset> {
   if (today !== undefined && !isCalendarDate(today)) throw new Error(`build: today must be a YYYY-MM-DD date, got "${today}"`);
   const norms: NormEntry[] = [];
   const provisions: Provision[] = [];
@@ -159,7 +162,12 @@ export async function build({ manifests, source, datasetVersion, today }: BuildI
     });
   }
 
-  return { norms, provisions, groupings, articles, pages: [...pages.values()], status: { crossSource } };
+  const search = buildSearchIndex(
+    norms.map((n) => n.key),
+    provisions,
+    synonyms ?? (await loadSynonyms()),
+  );
+  return { norms, provisions, groupings, articles, pages: [...pages.values()], search, status: { crossSource } };
 }
 
 function sourcePage(snapshot: RawSnapshot, html: string): SourcePage {

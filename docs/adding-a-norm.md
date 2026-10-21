@@ -20,7 +20,8 @@ A norm is a declarative manifest plus its tests. The pipeline has no per-norm co
    - Exercise it through a golden-set entry or a scenario fixture in `test/fixtures/`.
    - Keep every other norm's golden set green and its snapshot unchanged. Comparing the full JSON of the CF compiled, CF full-history and hygiene builds before and after is a cheap extra check.
 5. **Per-norm hook: the last resort.** If a quirk truly can't be a generic rule, a norm may have at most one documented hook. Needing a second one means the generic parser should evolve instead. The CF, ADCT and CDC have none.
-6. **Update the Map** in `AGENTS.md` for new paths, then run `pnpm verify`.
+6. **Make it searchable.** The build indexes the new norm with no extra code. Add questions about it to `test/search-eval.json`, written from the law text and never from search results. Add `data/synonyms.json` entries for its everyday vocabulary when the questions need them. Keep the recall thresholds in `test/search.test.ts` (see `docs/search.md`).
+7. **Update the Map** in `AGENTS.md` for new paths, then run `pnpm verify`.
 
 ---
 
@@ -46,4 +47,5 @@ Uma norma é um manifesto declarativo mais os testes dela. O pipeline não tem c
    - Ela precisa ser exercitada por um item do golden set ou por uma fixture de cenário.
    - O golden set das outras normas tem de continuar verde, e os snapshots delas sem mudança.
 5. **Hook por norma é o último recurso:** no máximo um, documentado. Precisar de um segundo significa que o parser genérico deve evoluir. CF, ADCT e CDC não têm nenhum.
-6. **Atualize o Map** do `AGENTS.md` e rode `pnpm verify`.
+6. **Torne-a pesquisável.** O build indexa a norma nova sem código extra. Inclua perguntas sobre ela em `test/search-eval.json`, escritas a partir do texto da lei, nunca dos resultados da busca. Inclua entradas em `data/synonyms.json` para o vocabulário do dia a dia dela quando as perguntas precisarem. Mantenha os limites de recall de `test/search.test.ts` (veja `docs/search.md`).
+7. **Atualize o Map** do `AGENTS.md` e rode `pnpm verify`.
