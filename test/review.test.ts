@@ -14,19 +14,28 @@ import type { Source } from "../src/sources/source.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
 
 const recorded = new URL("../fixtures/2026-10-20/", import.meta.url);
+// The second capture (EC 132's page): every CF/ADCT build reads the acts in the manifests' `deferredActs` (ADR 0003).
+const acts = new URL("../fixtures/2026-10-21/", import.meta.url);
 const scenario = (name: string) => new URL(`./fixtures/refresh/${name}/`, import.meta.url);
+const manifests = [cf, adct];
 
-async function buildFrom(source: Source, datasetVersion: string): Promise<Dataset> {
-  return build({ manifests: [cf, adct], source, datasetVersion });
+/** The recorded captures, with a scenario folder's files served in place of theirs. */
+async function sourceWith(folder?: URL): Promise<Source> {
+  return folder ? recordedSource(recorded, acts, folder) : recordedSource(recorded, acts);
 }
 
-/** Builds `previous` and `next`, detects the changes and runs the gates, with the acts read from next's source. */
-async function review(previousFolder: URL, nextFolder: URL): Promise<{ report: ChangeReport; verdict: Verdict }> {
-  const nextSource = await recordedSource(nextFolder);
-  const previous = await buildFrom(await recordedSource(previousFolder), "previous-test");
-  const next = await buildFrom(nextSource, "next-test");
+/** Detects the changes between two builds and runs the gates, with the acts read from the new build's source. */
+async function reviewBuilds(previous: Dataset, next: Dataset, source: Source): Promise<{ report: ChangeReport; verdict: Verdict }> {
   const report = detectChanges(previous, next);
-  return { report, verdict: decide(await reviewGates({ previous, next, report, source: nextSource })) };
+  return { report, verdict: decide(await reviewGates({ manifests, previous, next, report, source })) };
+}
+
+/** Builds both sides from their scenario folders (none: the recorded captures as they are). */
+async function review(previousFolder: URL | undefined, nextFolder: URL | undefined) {
+  const source = await sourceWith(nextFolder);
+  const previous = await build({ manifests, source: await sourceWith(previousFolder), datasetVersion: "previous-test" });
+  const next = await build({ manifests, source, datasetVersion: "next-test" });
+  return reviewBuilds(previous, next, source);
 }
 
 describe("review: EC 140 and EC 141 against the CF as it read before them", () => {
@@ -34,7 +43,7 @@ describe("review: EC 140 and EC 141 against the CF as it read before them", () =
   let verdict: Verdict;
 
   beforeAll(async () => {
-    ({ report, verdict } = await review(scenario("before-ec140-141"), recorded));
+    ({ report, verdict } = await review(scenario("before-ec140-141"), undefined));
   });
 
   it("sees exactly the dispositivos the compiled page annotates with EC 140 or EC 141", () => {
@@ -66,7 +75,7 @@ describe("review: EC 140 and EC 141 against the CF as it read before them", () =
           severity: "note",
           act: "EC 140",
           message:
-            "targets 7 dispositivos, all changed: cf art40_par4, cf art40_par5-1, cf art198_cpt_inc4, cf art198_par4-1, cf art198_par4-2, cf art198_par10, cf art201_par8-1",
+            "targets 7 dispositivos, all applied: cf art40_par4, cf art40_par5-1, cf art198_cpt_inc4, cf art198_par4-1, cf art198_par4-2, cf art198_par10, cf art201_par8-1",
         },
         {
           layer: "gates",
@@ -75,7 +84,7 @@ describe("review: EC 140 and EC 141 against the CF as it read before them", () =
           act: "EC 141",
           // Art. 1º: XIII and XV quoted, § 1º by "numerado o parágrafo único como § 1º", §§ 2º and 3º quoted. XV takes
           // effect later (art. 10 I); it counts whether its change landed in the text in force or as pending (#6).
-          message: "targets 5 dispositivos, all changed: cf art7_cpt_inc13, cf art7_cpt_inc15, cf art7_par1, cf art7_par2, cf art7_par3",
+          message: "targets 5 dispositivos, all applied: cf art7_cpt_inc13, cf art7_cpt_inc15, cf art7_par1, cf art7_par2, cf art7_par3",
         },
       ],
     });
@@ -84,7 +93,7 @@ describe("review: EC 140 and EC 141 against the CF as it read before them", () =
 
 describe("review: the simulated EC 142 against the recorded CF", () => {
   it("merges, noting the one change no act explains: a new \"Vide ADI\" note that leaves the wording as it was", async () => {
-    const { verdict } = await review(recorded, scenario("ec142"));
+    const { verdict } = await review(undefined, scenario("ec142"));
     expect(verdict).toEqual({
       decision: "merge",
       findings: [
@@ -96,7 +105,7 @@ describe("review: the simulated EC 142 against the recorded CF", () => {
           // Art. 1º: the art. 6º caput quoted, the parágrafo único renumbered, § 2º quoted; art. 2º: art. 7º XIV
           // quoted as "(revogado)"; art. 3º: "Revoga-se o inciso XXVII do caput do art. 7º".
           message:
-            "targets 5 dispositivos, all changed: cf art6_cpt, cf art6_par1, cf art6_par2, cf art7_cpt_inc14, cf art7_cpt_inc27",
+            "targets 5 dispositivos, all applied: cf art6_cpt, cf art6_par1, cf art6_par2, cf art7_cpt_inc14, cf art7_cpt_inc27",
         },
         {
           layer: "gates",
@@ -113,7 +122,7 @@ describe("review: the simulated EC 142 against the recorded CF", () => {
 
 describe("review: a refetch with new headers and the same content", () => {
   it("merges with nothing to report", async () => {
-    expect((await review(recorded, scenario("etag-only"))).verdict).toEqual({ decision: "merge", findings: [] });
+    expect((await review(undefined, scenario("etag-only"))).verdict).toEqual({ decision: "merge", findings: [] });
   });
 });
 
@@ -122,7 +131,7 @@ describe("review: EC 142 with four faults the gates must stop (test/fixtures/ref
   let verdict: Verdict;
 
   beforeAll(async () => {
-    ({ report, verdict } = await review(recorded, scenario("ec142-faults")));
+    ({ report, verdict } = await review(undefined, scenario("ec142-faults")));
   });
 
   it("needs a human, with one specific reason per fault", () => {
@@ -191,5 +200,48 @@ describe("review: EC 142 with four faults the gates must stop (test/fixtures/ref
         "",
       ].join("\n"),
     );
+  });
+});
+
+// EC 141 art. 10 I defers art. 7º XV to 2026-12-17 (ADR 0003). The review must accept both later steps.
+describe("review: EC 141's deferred art. 7º XV, from pending to the page", () => {
+  const ec141Note = {
+    layer: "gates",
+    check: "target-matching",
+    severity: "note",
+    act: "EC 141",
+    message: "targets 5 dispositivos, all applied: cf art7_cpt_inc13, cf art7_cpt_inc15, cf art7_par1, cf art7_par2, cf art7_par3",
+  };
+
+  it("merges the build on its effective date, which promotes the pending wording", async () => {
+    const source = await sourceWith();
+    const eve = await build({ manifests, source, datasetVersion: "eve", today: "2026-12-16" });
+    const day = await build({ manifests, source, datasetVersion: "day", today: "2026-12-17" });
+    const { report, verdict } = await reviewBuilds(eve, day, source);
+    expect(report.changes.map((c) => `${c.kind} ${c.id}`)).toEqual(["pending-activated art7_cpt_inc15"]);
+    // XIII, § 1º and §§ 2º–3º did not change today: they already cite EC 141, which took effect for them in October.
+    expect(verdict).toEqual({ decision: "merge", findings: [ec141Note] });
+  });
+
+  it("merges the day Planalto prints the promoted wording itself, a change attributed to the same act", async () => {
+    const source = await sourceWith();
+    const promoted = await build({ manifests, source, datasetVersion: "promoted", today: "2026-12-17" });
+    // Edit, as in test/vigencia.test.ts: art. 7º XV's block gets the EC 141 wording and the annotation Planalto prints
+    // for an applied change, in place of the old wording and its "(Vide …) (Vigência)" notes.
+    const original = (await source.get(cf.primaryUrl))!;
+    const html = new TextDecoder(original.encoding)
+      .decode(original.body)
+      .replace(
+        /XV - repouso semanal remunerado, preferencialmente aos domingos;[\s\S]*?\(Vigência\)<\/a><\/font><\/p>/,
+        'XV - repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos; <a href="emendas/emc/emc141.htm#art1">(Redação dada pela Emenda Constitucional nº 141, de 2026)</a></font></p>',
+      );
+    const applied: Source = {
+      get: async (url) =>
+        url === cf.primaryUrl ? { ...original, body: new TextEncoder().encode(html), encoding: "utf-8" } : source.get(url),
+    };
+    const next = await build({ manifests, source: applied, datasetVersion: "applied", today: "2026-12-18" });
+    const { report, verdict } = await reviewBuilds(promoted, next, applied);
+    expect(report.changes.map((c) => `${c.kind} ${c.id} ${c.fields.join(",")}`)).toEqual(["changed art7_cpt_inc15 amendments,references"]);
+    expect(verdict).toEqual({ decision: "merge", findings: [ec141Note] });
   });
 });
