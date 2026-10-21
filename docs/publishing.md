@@ -6,7 +6,7 @@ Akoma keeps itself current with one scheduled GitHub Actions workflow, `.github/
 
 1. **Pre-filter.** It sends one conditional GET per primary page (`If-None-Match` / `If-Modified-Since`, with the validators the published dataset recorded in `dataset.json` `pages`). A page counts as moved only when its content without `<script>` elements differs, since Planalto's F5 WAF injects a fresh token into every response.
 2. **Rebuild.** It rebuilds when a page moved, or when a pending change without a hold `note` has reached its `effectiveFrom`. Nothing on Planalto moves on that date (ADR 0003). The build gets the run's date in Brasília explicitly, reads fresh full pages, and has `datasetVersion` = that date.
-3. **Detect and review.** It compares the new build with the committed dataset. If no dispositivo changed, the run ends (`no-change`). Otherwise it runs layer 1 (`reviewGates`), layer 2 (the outcomes the build recorded, `crossSourceFindings`) and layer 3 (`reviewLlm`). Without `ANTHROPIC_API_KEY`, layer 3 returns a blocking finding ("LLM review not run: no API key"); it never passes silently.
+3. **Detect and review.** It compares the new build with the committed dataset. If no dispositivo changed, the run ends (`no-change`). Otherwise it runs layer 1 (`reviewGates`, plus `reviewDeferredActs`: a constitutional amendment new to the dataset whose vigência clause defers a change that no manifest lists in `deferredActs` blocks, naming the act to add; the page shows such a change only as a "(Vigência)" note), layer 2 (the outcomes the build recorded, `crossSourceFindings`) and layer 3 (`reviewLlm`). Without `ANTHROPIC_API_KEY`, layer 3 returns a blocking finding ("LLM review not run: no API key"); it never passes silently.
 4. **Write.** It writes the new `dataset/` and the pages it read, as `fixtures/<day>-daily/` (the recorded-source format: `index.json` with checksums, headers and retrieval instants, plus a generated README). A page it could not fetch is listed under `unavailable`.
 5. **Test.** It runs `pnpm verify` itself. CI does not run on a PR opened with the workflow token, so the job's own run is the gate. A failure is a blocking finding.
 6. **Publish.** It force-pushes the branch `publish/daily`, then opens the PR or updates the one still open. It never opens a second one. On `merge` it merges the PR (squash) and dispatches `deploy.yml`, because a merge made with the workflow token starts no `push` workflow; `workflow_dispatch` is the exception. On `needs-human` it adds the `needs-human` label, so the maintainer is notified, and leaves the PR open.
@@ -34,13 +34,13 @@ The workflow's manual trigger has a `dry_run` input that runs it against the liv
 
 - a hand edit to generated data fails CI;
 - a parser, manifest or capture change must be followed by `pnpm build:dataset`, with the regenerated `dataset/` committed in the same PR. That includes merging a branch that touches them: regenerate after the merge;
-- the daily job's PR passes the check, because its capture holds the exact bytes it built from. Câmara LEGIN's `author`/`changedby` meta values are redacted at fetch time (`src/sources/http.ts`), so the build and the capture see the same page.
+- the daily job's PR passes the check, because its capture holds the exact bytes it built from. Personal data in page metadata (`<meta>` author/changedby/creator… in any attribute order or quoting, Office `<o:Author>`, `<o:LastAuthor>`, `<o:Manager>`; on LEGIN, a staff member's name) is redacted before anything reads a page (`src/sources/redact.ts`, applied by the job to every source), so the build, the capture, the reports and the artifacts never hold it.
 
 ## Run status and badge
 
 The run status changes on every run, so it is not in `dataset/`, whose files only change through a reviewed PR. The job force-pushes it, one commit, to the `status` branch:
 
-- `status.json` holds `lastCheck` (instant, Brasília day, outcome, message, run link) and `lastChange` (the latest change: version, count, verdict, merged or not, PR). It also holds `openPullRequest` when a publish PR is still waiting, `tests` (the latest `pnpm verify` the job ran) and `sources`. Each source records its last attempt, last success, `failingSince`, last error and `lagHours`, the hours since its last success.
+- `status.json` holds `lastCheck` (instant, Brasília day, outcome, message, run link) and `lastChange` (the latest change: version, count, verdict, merged or not, PR). It also holds `openPullRequest` when a publish PR is still waiting, `tests` (the latest `pnpm verify` the job ran) and `sources`. Each source records its last attempt, last success, `failingSince`, last error and `lagHours`, the hours since the job last fetched it successfully. Primary pages are requested on every run; secondary sources and act pages only on runs that rebuild, so their lag also grows on quiet days.
 - `badge.json` is a [shields.io endpoint badge](https://shields.io/badges/endpoint-badge). It reads "current · checked <day>", "change awaiting review", "tests failing", "source unreachable", "source outage" or "job failed".
 
 README badge (for #19):
@@ -57,6 +57,8 @@ The workflow changes no settings. It needs:
 - **`main` must accept a merge without required status checks** (no branch protection today). CI does not run on the bot's PR, so a required check would never report, and the job's own `pnpm verify` is the gate.
 - **Secret `ANTHROPIC_API_KEY`** (not set yet; the maintainer's choice) and, optionally, **variable `AKOMA_REVIEW_MODEL`** (default `claude-opus-5`). Without the key, every change that needs layer 3 goes to `needs-human`.
 - **Workflow token permissions**, declared in the workflow: `contents: write` (the `publish/daily` and `status` branches, the merge), `pull-requests: write`, `issues: write` (issues and the labels `needs-human`, `publish-failure` and `source-outage`, which the job creates when missing) and `actions: write` (dispatching `deploy.yml`). Every action is pinned to a commit SHA, and pnpm comes from `corepack`.
+- **Where the secrets reach.** `GH_TOKEN` (the workflow token) and `ANTHROPIC_API_KEY` are set on the publish step only, never on the install, and `scripts/publish.ts` runs `pnpm verify` without them. The checkout keeps no token (`persist-credentials: false`): git pushes through gh's credential helper (`gh auth setup-git`), which needs `GH_TOKEN` and so works only inside the publish step.
+- **What the guard does not prove.** `check:dataset` shows that `dataset/` is the regeneration of the committed captures, not that a capture is genuine. A PR that adds a crafted `-daily` folder with matching checksums would pass CI, so a capture folder in a PR that is not the job's own needs a human look.
 
 ---
 
@@ -68,7 +70,7 @@ O Akoma se mantém atualizado com um workflow agendado do GitHub Actions, `.gith
 
 1. **Pré-filtro:** uma requisição condicional por página principal, com os validadores gravados no `dataset.json` (`pages`). Uma página só conta como alterada se o conteúdo sem `<script>` mudou, porque o WAF do Planalto injeta um token novo em toda resposta.
 2. **Novo build** quando uma página mudou ou quando uma mudança pendente sem `note` de retenção chegou ao seu `effectiveFrom`; nessa data nada muda no Planalto (ADR 0003). O build recebe explicitamente a data da execução em Brasília, lê as páginas completas de novo e usa essa data como `datasetVersion`.
-3. **Detecção e revisão:** compara com o dataset commitado. Se nenhum dispositivo mudou, a execução termina (`no-change`). Senão, roda as camadas 1, 2 (os resultados gravados pelo build) e 3. Sem `ANTHROPIC_API_KEY`, a camada 3 gera um achado bloqueante ("LLM review not run: no API key"); nunca passa calada.
+3. **Detecção e revisão:** compara com o dataset commitado. Se nenhum dispositivo mudou, a execução termina (`no-change`). Senão, roda as camadas 1, 2 (os resultados gravados pelo build) e 3. A camada 1 inclui o `reviewDeferredActs`: uma emenda nova cuja cláusula de vigência adia uma mudança que nenhum manifesto lista em `deferredActs` bloqueia o merge e diz qual ato acrescentar, porque a página mostra essa mudança só como uma nota "(Vigência)". Sem `ANTHROPIC_API_KEY`, a camada 3 gera um achado bloqueante ("LLM review not run: no API key"); nunca passa calada.
 4. **Gravação:** grava o novo `dataset/` e as páginas lidas, em `fixtures/<dia>-daily/`, com `index.json` (checksums, headers, instantes) e um README gerado. Uma página inacessível fica listada em `unavailable`.
 5. **Testes:** roda o `pnpm verify` ele mesmo, porque o CI não roda num PR aberto com o token do workflow. Uma falha é um achado bloqueante.
 6. **Publicação:** faz force-push do branch `publish/daily` e abre o PR, ou atualiza o que ainda está aberto; nunca abre um segundo. Com `merge`, faz o merge (squash) e dispara o `deploy.yml`, porque um merge feito com o token do workflow não dispara workflows de `push` (o `workflow_dispatch` é a exceção). Com `needs-human`, põe o rótulo `needs-human`, o que notifica o mantenedor, e deixa o PR aberto.
@@ -90,7 +92,7 @@ O `dataset/` é gerado, nunca editado. O `pnpm build:dataset` o refaz a partir d
 
 - uma edição manual de dado gerado falha no CI;
 - uma mudança de parser, manifesto ou captura exige rodar o `pnpm build:dataset` e commitar o resultado no mesmo PR, inclusive depois de um merge que mexa neles;
-- o PR do job passa, porque a captura dele guarda exatamente os bytes que o build leu. No LEGIN, os metadados `author`/`changedby` são trocados por `[redacted]` já na busca.
+- o PR do job passa, porque a captura dele guarda exatamente os bytes que o build leu. Dados pessoais nos metadados da página (`<meta>` author, changedby, creator… em qualquer ordem de atributos, e `<o:Author>`, `<o:LastAuthor>`, `<o:Manager>` do Office) viram `[redacted]` antes de qualquer leitura (`src/sources/redact.ts`), então nem o build, nem a captura, nem os relatórios os guardam.
 
 ## Status da execução e badge
 
@@ -107,3 +109,5 @@ O workflow não altera configurações. Ele precisa de:
 - **`main` aceitando merge sem checks obrigatórios.** O CI não roda no PR do bot, e o `pnpm verify` do próprio job é o portão.
 - **O secret `ANTHROPIC_API_KEY`**, ainda não definido (decisão do mantenedor), e, opcionalmente, a variável `AKOMA_REVIEW_MODEL`.
 - **As permissões do token declaradas no workflow:** `contents`, `pull-requests`, `issues` e `actions`, todas com `write`. As actions estão fixadas por SHA de commit, e o pnpm vem do `corepack`.
+- **Onde os segredos chegam:** o `GH_TOKEN` e a `ANTHROPIC_API_KEY` só existem no passo de publicação, nunca na instalação, e o `pnpm verify` do job roda sem eles. O checkout não guarda token (`persist-credentials: false`); o git faz push pelo helper de credenciais do gh.
+- **O que a checagem não prova:** o `check:dataset` mostra que o `dataset/` é a regeneração das capturas commitadas, não que uma captura é autêntica. Uma pasta `-daily` forjada com checksums coerentes passaria no CI; por isso, uma pasta de captura num PR que não seja do job precisa de revisão humana.

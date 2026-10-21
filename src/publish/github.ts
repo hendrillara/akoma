@@ -153,13 +153,16 @@ export interface GhCliOptions {
 }
 
 /**
- * The workflow's adapter. `gh` reads `GH_TOKEN` (the workflow token); git pushes with the checkout's credentials.
+ * The workflow's adapter. `gh` reads `GH_TOKEN` (the workflow token), and git pushes through gh's credential helper.
  * Commits are authored by the GitHub Actions bot, never by a person.
  */
 export function ghCli({ cwd, statusBranch, base }: GhCliOptions): GitHub {
   const git = async (...args: string[]) => (await run("git", args, { cwd, maxBuffer: 64 * 1024 * 1024 })).stdout;
   const gh = async (...args: string[]) => (await run("gh", args, { cwd, maxBuffer: 64 * 1024 * 1024 })).stdout;
   const bot = ["-c", "user.name=github-actions[bot]", "-c", "user.email=41898282+github-actions[bot]@users.noreply.github.com"];
+  let gitAuth: Promise<unknown> | undefined;
+  /** git pushes with the workflow token through gh's credential helper; the checkout keeps no token of its own. */
+  const authGit = () => (gitAuth ??= gh("auth", "setup-git", "--hostname", "github.com"));
   const ensured = new Set<string>();
   const ensureLabel = async (label: string) => {
     if (ensured.has(label)) return;
@@ -183,6 +186,7 @@ export function ghCli({ cwd, statusBranch, base }: GhCliOptions): GitHub {
 
   return {
     async pushBranch(branch, paths, message) {
+      await authGit();
       const start = (await git("rev-parse", "HEAD")).trim();
       await git("checkout", "--quiet", "-B", branch);
       await git("add", "--all", "--", ...paths);
@@ -237,6 +241,7 @@ export function ghCli({ cwd, statusBranch, base }: GhCliOptions): GitHub {
       // A worktree on an orphan commit: the status branch holds only these files, one commit per run.
       const dir = await mkdtemp(join(tmpdir(), "akoma-status-"));
       try {
+        await authGit();
         await git("worktree", "add", "--quiet", "--detach", dir);
         const inTree = async (...args: string[]) => (await run("git", args, { cwd: dir })).stdout;
         await inTree("checkout", "--quiet", "--orphan", `akoma-status-${Date.now()}`);

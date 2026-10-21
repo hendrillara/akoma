@@ -3,9 +3,8 @@
 // pause between them, and a few retries on network errors and 5xx/429. Never called from tests (seam 1 replays
 // recorded captures); the daily job and its dry run use it.
 //
-// One edit is made to what is served: on HTML pages, `<meta name="author">` and `<meta name="changedby">` values (on
-// Câmara LEGIN pages, a staff member's name and ID) become `[redacted]` before anything reads the bytes, so the build
-// and the committed capture see the same page and no personal identifier is ever committed (fixtures/README.md).
+// It serves pages exactly as fetched: the daily job wraps it in `redacting` (redact.ts), which removes the personal
+// data in page metadata (LEGIN's author fields) before anything reads or keeps the bytes.
 import { readFileSync } from "node:fs";
 import type { Encoding, Probe, RawSnapshot, Source, Validators } from "./source.ts";
 
@@ -108,7 +107,7 @@ function snapshot(url: string, response: Response, body: Uint8Array): RawSnapsho
   const encoding = encodingOf(type, body);
   const date = response.headers.get("date");
   const retrievedAt = (date && !Number.isNaN(Date.parse(date)) ? new Date(date) : new Date()).toISOString().replace(/\.\d{3}Z$/, "Z");
-  return { url, body: /json/i.test(type) ? body : redacted(body), headers, encoding, retrievedAt };
+  return { url, body, headers, encoding, retrievedAt };
 }
 
 /** The declared charset; else a `<meta>` charset; else windows-1252, what Planalto serves without declaring it. */
@@ -117,13 +116,6 @@ function encodingOf(contentType: string, body: Uint8Array): Encoding {
   const head = Buffer.from(body.subarray(0, 4096)).toString("latin1");
   const meta = declared ?? /<meta[^>]+charset=["']?([\w-]+)/i.exec(head)?.[1];
   return meta && /^utf-?8$/i.test(meta) ? "utf-8" : "windows-1252";
-}
-
-/** Byte-exact except the two meta values: the page is read as latin1, which maps every byte to one character. */
-function redacted(body: Uint8Array): Uint8Array {
-  const text = Buffer.from(body).toString("latin1");
-  const edited = text.replace(/(<meta\s+name=["'](?:author|changedby)["']\s+content=["'])[^"']*(["'])/gi, "$1[redacted]$2");
-  return edited === text ? body : new Uint8Array(Buffer.from(edited, "latin1"));
 }
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));

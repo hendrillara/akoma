@@ -41,7 +41,10 @@ export interface SourceStatus {
   /** The first failed request since the last success: set while the source is unreachable. */
   failingSince?: string;
   lastError?: string;
-  /** Hours since the last success, as of the last check; `null` when it never succeeded. */
+  /**
+   * Hours since the job last fetched it successfully, as of the last check; `null` when it never did. Primary pages are
+   * requested on every run; the other sources only on runs that rebuild, so their lag also grows on quiet days.
+   */
   lagHours: number | null;
 }
 

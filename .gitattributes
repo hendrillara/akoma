@@ -2,3 +2,4 @@ fixtures/** -text -diff
 test/fixtures/**/*.htm -text -diff
 dataset/dataset.json -diff
 dataset/search-index.json -diff
+test/fixtures/**/*.html -text -diff

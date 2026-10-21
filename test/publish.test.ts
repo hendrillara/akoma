@@ -10,7 +10,7 @@ import { pathToFileURL } from "node:url";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { adct } from "../src/norms/adct.ts";
 import { cdc } from "../src/norms/cdc.ts";
-import { cf } from "../src/norms/cf.ts";
+import { cf, emc } from "../src/norms/cf.ts";
 import { build, type NormManifest } from "../src/pipeline/build.ts";
 import { memoryGitHub, type MemoryGitHub } from "../src/publish/github.ts";
 import { runDailyJob, type TestRunner } from "../src/publish/job.ts";
@@ -416,5 +416,71 @@ describe("daily job: the CDC reworded by a law (test/fixtures/refresh/cdc-law, s
     expect(github.pulls[0]!.body).toContain(
       "> **Why a change by a law needs a human.** 1 change cites only acts other than constitutional amendments (Lei nº 15.999, de 2026). In v1, target matching and the LLM reviewer read only constitutional amendments",
     );
+  });
+});
+
+describe("daily job: personal data in page metadata (test/fixtures/redaction)", () => {
+  it("never lets a planted name into anything it writes, whatever the markup", async () => {
+    // The CDC refresh of cdc-law, with a LEGIN page whose metadata names people in three forms.
+    const source = await recordedSource(recorded, acts, scenario("cdc-law"), new URL("test/fixtures/redaction/", root));
+    const before = await build({ manifests: [cdc], source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
+    const { result, github, workspace } = await run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before });
+    expect(result.outcome).toBe("published");
+
+    const written = [
+      ...[...workspace.files.values()].map((c) => (typeof c === "string" ? c : Buffer.from(c).toString("latin1"))),
+      ...github.pulls.map((p) => p.body),
+      ...github.issues.flatMap((i) => [i.body, ...i.comments]),
+      ...github.status.values(),
+    ].join("\n");
+    for (const name of ["Fulana", "Beltrano", "Sicrano"]) expect(written).not.toContain(name);
+
+    const legin = workspace.text("fixtures/2026-10-23-daily/camara-legin/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html");
+    expect(legin).toContain('<meta content="[redacted]" name="Author"/>');
+    expect(legin).toContain("<META NAME=changedby data-origin=word CONTENT=[redacted]>");
+    expect(legin).toContain("<o:Author>[redacted]</o:Author><o:LastAuthor>[redacted]</o:LastAuthor><o:Manager>[redacted]</o:Manager>");
+  });
+});
+
+describe("daily job: a new amendment that defers a change its manifest does not list (ADR 0003)", () => {
+  // EC 141 art. 10 I (fixtures/2026-10-20/planalto/emc141.htm): "após decorridos 2 (dois) meses de sua publicação, em
+  // relação à alteração promovida pelo art. 1º desta Emenda Constitucional no inciso XV do caput do art. 7º". The CF
+  // page shows only "(Vide Emenda Constitucional nº 141, de 2026) (Vigência)" there, so without EC 141 in the CF's
+  // `deferredActs` its pending wording would never be recorded. EC 140 art. 14: "entra em vigor na data de sua
+  // publicação", nothing deferred.
+  const cfBefore = { ...cf, deferredActs: cf.deferredActs!.filter((url) => url !== emc(141)) };
+  const mapped = (ids: string[], act: string) => ids.map((id) => ({ change: `cf/${id}`, act, command: "art. 1º", reason: "quoted" }));
+  // A reviewer that accounts for every change it is shown (the page annotates each with EC 140 or EC 141).
+  const reviewer = fakeReviewer({
+    mappings: [
+      ...mapped(["art7_cpt_inc13", "art7_par1", "art7_par2", "art7_par3"], "EC 141"),
+      ...mapped(["art40_par4", "art40_par5-1", "art198_cpt_inc4", "art198_par4-1", "art198_par4-2", "art198_par10", "art201_par8-1"], "EC 140"),
+    ],
+    orphanChanges: [],
+    unappliedCommands: [],
+  });
+
+  it("blocks the merge and says which act to add to which manifest", async () => {
+    const before = await build({ manifests: [cfBefore, adct], source: await sourceWith(scenario("before-ec140-141")), datasetVersion: "2026-10-15", today: "2026-10-15" });
+    const { result } = await run({ source: await sourceWith(), now: "2026-10-21T09:00:00Z", manifests: [cfBefore, adct], previous: before, reviewer });
+    expect(result.verdict?.findings.filter((f) => f.severity === "problem")).toEqual([
+      {
+        layer: "gates",
+        check: "deferred-act",
+        severity: "problem",
+        act: "EC 141",
+        message: `defers changes to dispositivos the manifests do not list it for: cf art7_cpt_inc15 (from 2026-12-17). Add ${emc(141)} to the deferredActs of cf, or its pending wordings are never recorded`,
+      },
+      // Here layer 2 sees it too, but only because normas.leg.br dates EC 141's change from publication (ADR 0004);
+      // a secondary source that follows the vigência would agree with the page, and only the gate above would remain.
+      {
+        layer: "cross-source",
+        check: "divergence",
+        severity: "problem",
+        norm: "cf",
+        id: "art7_cpt_inc15",
+        message: "The wording differs from normas.leg.br and no amending act or reviewed known divergence explains it; held for review.",
+      },
+    ]);
   });
 });

@@ -7,10 +7,11 @@ import { build, pageContentHash, type NormManifest } from "../pipeline/build.ts"
 import { detectChanges, type ChangeReport } from "../pipeline/changes.ts";
 import { datasetFiles } from "../pipeline/files.ts";
 import { crossSourceFindings } from "../review/cross-source.ts";
-import { reviewGates } from "../review/gates.ts";
+import { reviewDeferredActs, reviewGates } from "../review/gates.ts";
 import { reviewLlm, type LlmReviewer } from "../review/llm.ts";
 import { decide, type Finding, type Verdict } from "../review/verdict.ts";
 import type { Dataset } from "../schema/dataset.ts";
+import { redacting } from "../sources/redact.ts";
 import type { Source } from "../sources/source.ts";
 import { captureFiles, recording, type RecordingSource } from "./capture.ts";
 import type { GitHub, Numbered } from "./github.ts";
@@ -80,7 +81,8 @@ export async function runDailyJob(input: JobInput): Promise<JobResult> {
   const { github, now } = input;
   const today = brasiliaDay(now);
   const previousStatus = parseStatus(await github.readStatus());
-  const source = recording(input.source);
+  // Personal data in page metadata is redacted before the build, the capture or any report sees a page.
+  const source = recording(redacting(input.source));
 
   let core: Core;
   let error: string | undefined;
@@ -177,7 +179,10 @@ async function publish(input: JobInput, source: RecordingSource, today: string):
   if (!report.changes.length) return { outcome: "no-change", message: `Rebuilt (${why}); no dispositivo changed.` };
 
   // 3. Review: deterministic gates, cross-source agreement (recorded by the build), the LLM reviewer.
-  const gates = await reviewGates({ manifests, previous, next, report, source });
+  const gates = [
+    ...(await reviewGates({ manifests, previous, next, report, source })),
+    ...(await reviewDeferredActs({ manifests, previous, report, source, today })),
+  ];
   const llm = await reviewLlm({ manifests, previous, report, source, reviewer: input.reviewer ?? NO_API_KEY });
 
   // 4. The new dataset and the pages it was built from, so CI can regenerate it from committed files.

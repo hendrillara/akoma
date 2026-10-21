@@ -1,7 +1,7 @@
 // Review layer 1: deterministic gates over a new build and its change report. Each gate returns findings; a problem
 // from any of them makes the verdict `needs-human` (see verdict.ts).
 import { createHash } from "node:crypto";
-import { isUnder, readActCommands, type ActTarget } from "../pipeline/acts.ts";
+import { isUnder, readActCommands, readAmendingAct, type ActTarget } from "../pipeline/acts.ts";
 import { emc } from "../norms/cf.ts";
 import type { NormManifest } from "../pipeline/build.ts";
 import type { ChangeReport, ProvisionChange } from "../pipeline/changes.ts";
@@ -249,6 +249,56 @@ async function targetMatching(
         about,
       ),
     );
+  }
+  return findings;
+}
+
+// --- Deferring acts the manifests do not list ------------------------------------------------------------
+
+export interface DeferredActInput {
+  manifests: NormManifest[];
+  previous: Dataset;
+  report: ChangeReport;
+  source: Source;
+  /** The build's date (YYYY-MM-DD, Brasília): only changes still to come need the manifest entry. */
+  today: string;
+}
+
+/**
+ * A constitutional amendment new to the dataset whose vigência clause defers changes that no manifest lists it for
+ * in `deferredActs` (ADR 0003). The compiled page shows such a change only as a "(Vigência)" note, so without the
+ * manifest entry its pending wording is never recorded, and the other layers may not notice: the gates accept a
+ * references-only change on a target, and the LLM reviewer is not shown one. Each such act blocks with the fix.
+ * An act whose page is missing is target matching's to report.
+ */
+export async function reviewDeferredActs({ manifests, previous, report, source, today }: DeferredActInput): Promise<Finding[]> {
+  const known = new Set(previous.provisions.flatMap(citedByRecord));
+  const listed = new Set(manifests.flatMap((m) => m.deferredActs ?? []));
+  const numbers = [...new Set(report.changes.filter((c) => c.kind !== "removed").flatMap(citedEcs))].sort((a, b) => Number(a) - Number(b));
+  const findings: Finding[] = [];
+  for (const number of numbers) {
+    const url = emc(Number(number));
+    if (known.has(number) || listed.has(url)) continue;
+    const act = `EC ${number}`;
+    const snapshot = await source.get(url);
+    if (!snapshot) continue;
+    let changes;
+    try {
+      changes = readAmendingAct(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url).changes;
+    } catch (error) {
+      const message = `its vigência clause could not be read (${(error as Error).message}); if it defers changes, add ${url} to the deferredActs of the norms it changes`;
+      findings.push(gate("deferred-act", "problem", message, { act }));
+      continue;
+    }
+    const due = changes.flatMap((c) => {
+      const norm = manifests.find((m) => m.citedAs === c.norm);
+      return norm && c.effectiveFrom > today ? [{ norm: norm.key, id: c.id, from: c.effectiveFrom }] : [];
+    });
+    if (!due.length) continue;
+    const list = due.map((d) => `${d.norm} ${d.id} (from ${d.from})`).join(", ");
+    const norms = [...new Set(due.map((d) => d.norm))].join(" and ");
+    const message = `defers changes to dispositivos the manifests do not list it for: ${list}. Add ${url} to the deferredActs of ${norms}, or its pending wordings are never recorded`;
+    findings.push(gate("deferred-act", "problem", message, { act }));
   }
   return findings;
 }

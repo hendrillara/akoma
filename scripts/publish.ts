@@ -97,7 +97,9 @@ process.exit(result.outcome === "failed" ? 1 : 0);
 /** `pnpm verify` on the written dataset: typecheck, both seams, the Map check and the regeneration guard. */
 function verify(): Promise<{ passed: boolean; summary: string }> {
   return new Promise((resolve) => {
-    const child = spawn("pnpm", ["verify"], { cwd: fileURLToPath(root), stdio: ["ignore", "pipe", "pipe"] });
+    // The tests and their dependencies never see the write token or the API key.
+    const { GH_TOKEN: _token, GITHUB_TOKEN: _github, ANTHROPIC_API_KEY: _key, ...env } = process.env;
+    const child = spawn("pnpm", ["verify"], { cwd: fileURLToPath(root), env, stdio: ["ignore", "pipe", "pipe"] });
     let output = "";
     child.stdout.on("data", (d) => (output += d));
     child.stderr.on("data", (d) => (output += d));
