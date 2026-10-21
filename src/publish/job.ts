@@ -7,17 +7,30 @@ import { build, pageContentHash, type NormManifest } from "../pipeline/build.ts"
 import { detectChanges, type ChangeReport } from "../pipeline/changes.ts";
 import { datasetFiles } from "../pipeline/files.ts";
 import { crossSourceFindings } from "../review/cross-source.ts";
-import { reviewDeferredActs, reviewGates } from "../review/gates.ts";
+import { invariants, reviewDeferredActs, reviewGates } from "../review/gates.ts";
 import { reviewLlm, type LlmReviewer } from "../review/llm.ts";
 import { decide, type Finding, type Verdict } from "../review/verdict.ts";
 import type { Dataset } from "../schema/dataset.ts";
+import { loadEvalSet, searchRecall } from "../search/eval.ts";
 import { redacting } from "../sources/redact.ts";
 import type { Source } from "../sources/source.ts";
 import { captureFiles, recording, type RecordingSource } from "./capture.ts";
 import { brasiliaMidnight, inTarget, marker, pendingRechecks, type PendingRecheck } from "./divergence.ts";
 import type { GitHub, Numbered } from "./github.ts";
 import { fitBody, prBody } from "./pr-body.ts";
-import { badge, nextSources, outages, OUTAGE_HOURS, parseStatus, type Badge, type Outcome, type RunStatus } from "./status.ts";
+import {
+  badge,
+  hours,
+  nextSources,
+  outages,
+  OUTAGE_HOURS,
+  parseStatus,
+  type Badge,
+  type Checks,
+  type ContentLag,
+  type Outcome,
+  type RunStatus,
+} from "./status.ts";
 import type { Workspace } from "./workspace.ts";
 
 export interface TestResult {
@@ -26,6 +39,8 @@ export interface TestResult {
   ran?: boolean;
   /** One line for the PR body and the status file. */
   summary: string;
+  /** The test files that failed, when the run got that far (`FAIL  test/….test.ts` in vitest's output). */
+  failedFiles?: string[];
 }
 
 /** Runs `pnpm verify` over the written dataset (in the workflow, a child process). */
@@ -100,12 +115,22 @@ export async function runDailyJob(input: JobInput): Promise<JobResult> {
   }
 
   const open = core.pullRequest && !core.pullRequest.merged ? core.pullRequest.url : core.outcome === "failed" ? previousStatus?.openPullRequest : (await github.findOpenPullRequest(PUBLISH_BRANCH))?.url;
+  // Every run that did not crash runs the tests: on a run with no change, over the published dataset/ in the checkout.
+  let tested = core.testResult;
+  if (!tested && core.outcome !== "failed") tested = await input.tests.verify();
+  const tests = core.tests ?? (tested && { at: now.toISOString(), ...tested });
+  // The dataset the run ends with: the one it merged, or the published one.
+  const final = core.published ?? input.previous;
   const status: RunStatus = {
     version: 1,
     lastCheck: { at: now.toISOString(), today, outcome: core.outcome, message: core.message, ...(input.runUrl && { run: input.runUrl }) },
     ...(core.lastChange ? { lastChange: core.lastChange } : previousStatus?.lastChange && { lastChange: previousStatus.lastChange }),
     ...(open && { openPullRequest: open }),
-    ...(core.tests ? { tests: core.tests } : previousStatus?.tests && { tests: previousStatus.tests }),
+    ...(tests ? { tests } : previousStatus?.tests && { tests: previousStatus.tests }),
+    ...(final.schemaVersion && { schemaVersion: final.schemaVersion }),
+    checks: await checks(final, tested, now),
+    ...(final.status?.attributions?.length && { attributions: final.status.attributions }),
+    contentLag: contentLag(final, previousStatus?.contentLag ?? [], now),
     sources: nextSources(previousStatus?.sources ?? [], source.attempts, now),
   };
 
@@ -133,6 +158,10 @@ export async function runDailyJob(input: JobInput): Promise<JobResult> {
 }
 
 interface Core {
+  /** The dataset this run merged, when it merged one. */
+  published?: Dataset;
+  /** The tests the run ran on its refreshed dataset. */
+  testResult?: TestResult;
   outcome: Outcome;
   message: string;
   report?: ChangeReport;
@@ -245,6 +274,8 @@ async function publish(input: JobInput, source: RecordingSource, today: string):
 
   const at = now.toISOString();
   return {
+    ...(merged && { published: next }),
+    testResult: tests,
     outcome: "published",
     message: `${title}; verdict ${verdict.decision}${merged ? ", merged" : ", labelled needs-human"} (${why}).`,
     report,
@@ -327,6 +358,44 @@ function followUpNothing(p: PendingRecheck, today: string, runUrl: string | unde
     ...(runUrl ? ["", `Run: ${runUrl}`] : []),
     "",
   ].join("\n");
+}
+
+/** The golden-set suites (hand-verified dispositivos) among the job's tests. */
+const GOLDEN_SUITES = ["test/cf-adct.test.ts", "test/cdc.test.ts"];
+
+/** The run status's checks of `dataset`: search recall, structural invariants, and the golden sets from the tests. */
+async function checks(dataset: Dataset, tests: TestResult | undefined, now: Date): Promise<Checks> {
+  const search = searchRecall(dataset, await loadEvalSet());
+  const problems = invariants(dataset).length;
+  const golden =
+    !tests || tests.ran === false ? null : tests.passed ? true : tests.failedFiles ? !tests.failedFiles.some((f) => GOLDEN_SUITES.includes(f)) : null;
+  return {
+    at: now.toISOString(),
+    datasetVersion: dataset.provisions[0]?.provenance.datasetVersion ?? "",
+    ...(search && { search }),
+    invariants: { problems, passed: problems === 0 },
+    golden: { suites: GOLDEN_SUITES, passed: golden },
+  };
+}
+
+/** Each norm's secondary source, and how many dispositivos it is behind on, since the first run that saw it behind. */
+function contentLag(dataset: Dataset, previous: ContentLag[], now: Date): ContentLag[] {
+  return (dataset.status?.crossSource ?? []).flatMap((s) => {
+    if (!s.source) return [];
+    const stale = s.outcomes["secondary-stale"] ?? 0;
+    const was = previous.find((p) => p.norm === s.norm && p.url === s.source!.url);
+    const since = stale > 0 ? (was?.since ?? now.toISOString()) : undefined;
+    return [
+      {
+        norm: s.norm,
+        source: s.source.name,
+        url: s.source.url,
+        retrievedAt: s.source.retrievedAt,
+        secondaryStale: stale,
+        ...(since && { since, hours: hours(since, now) }),
+      },
+    ];
+  });
 }
 
 /** The calendar day in Brasília, where a norm takes effect at the start of the day. */

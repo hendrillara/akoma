@@ -1,6 +1,8 @@
 // The run status: what the latest daily run saw (last check, last change, per-source reachability and lag, the
 // latest test results), and the README badge made from it. It changes on every run, so it lives outside dataset/
 // (whose files only change through a reviewed PR): the job rewrites it on its own branch (docs/publishing.md).
+import type { SecondarySourceName } from "../schema/dataset.ts";
+import type { SearchRecall } from "../search/eval.ts";
 import type { Attempt } from "./capture.ts";
 
 export type Outcome = "no-change" | "published" | "unreachable" | "failed";
@@ -28,10 +30,42 @@ export interface RunStatus {
   };
   /** The publish PR still open (one the review escalated, until the maintainer merges or closes it). */
   openPullRequest?: string;
-  /** The latest `pnpm verify` the job ran (only runs that found a change run it). */
+  /** The latest `pnpm verify` the job ran: every run runs it (on the refreshed dataset, or on the published one). */
   tests?: { at: string; passed: boolean; summary: string };
+  /** `SCHEMA_VERSION` of the dataset the run ended with (the published one, or the one it merged). */
+  schemaVersion?: string;
+  /** The checks of the dataset the run ended with, made on every run. */
+  checks?: Checks;
+  /** Credit owed for third-party data in that dataset (the normas.leg.br aliases: Senado/LexML, CC BY 4.0). */
+  attributions?: string[];
+  /** Per norm, how far its secondary source is behind the primary (layer 2's `secondary-stale` outcomes). */
+  contentLag?: ContentLag[];
   /** Every source the job has requested, by URL. */
   sources: SourceStatus[];
+}
+
+export interface Checks {
+  at: string;
+  datasetVersion: string;
+  /** recall@10 over the search evaluation set (data/search-eval.json), against its thresholds. */
+  search?: SearchRecall;
+  /** The structural invariants (siblings in order), as the gates check a refresh. */
+  invariants: { problems: number; passed: boolean };
+  /** The golden-set suites in the job's `pnpm verify`: `null` when the tests did not run or stopped before them. */
+  golden: { suites: string[]; passed: boolean | null };
+}
+
+export interface ContentLag {
+  norm: string;
+  source: SecondarySourceName;
+  url: string;
+  /** When the secondary was fetched for the dataset. */
+  retrievedAt: string;
+  /** Dispositivos the secondary has not caught up with (the primary cites an act it does not record). */
+  secondaryStale: number;
+  /** The first run that saw it behind, while it still is, and the hours since. */
+  since?: string;
+  hours?: number;
 }
 
 export interface SourceStatus {
@@ -66,7 +100,7 @@ export function parseStatus(text: string | undefined): RunStatus | undefined {
   return status;
 }
 
-const hours = (from: string, to: Date) => Math.round(((to.getTime() - new Date(from).getTime()) / 3_600_000) * 10) / 10;
+export const hours = (from: string, to: Date) => Math.round(((to.getTime() - new Date(from).getTime()) / 3_600_000) * 10) / 10;
 
 /** Folds this run's requests into the per-source record; sources not requested keep their record, lag updated. */
 export function nextSources(previous: SourceStatus[], attempts: Attempt[], now: Date): SourceStatus[] {

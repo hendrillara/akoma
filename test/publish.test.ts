@@ -11,6 +11,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { adct } from "../src/norms/adct.ts";
 import { cdc } from "../src/norms/cdc.ts";
 import { cf, emc } from "../src/norms/cf.ts";
+import { norms } from "../src/norms/index.ts";
 import { build, type NormManifest } from "../src/pipeline/build.ts";
 import { memoryGitHub, type MemoryGitHub } from "../src/publish/github.ts";
 import { runDailyJob, type TestRunner } from "../src/publish/job.ts";
@@ -351,6 +352,46 @@ function crashing(): Source {
     },
   };
 }
+
+describe("daily job: the run status's checks, on every run", () => {
+  it("reports the tests, search recall, invariants, golden sets, schema, attribution and each secondary's lag even with no change", async () => {
+    // The whole registry, as the workflow runs it: the evaluation set's questions are about all three norms.
+    const github = memoryGitHub();
+    const published = await build({ manifests: norms, source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
+    const source = await sourceWith();
+    const day = (now: string) => run({ source, now, github, manifests: norms, previous: published });
+    await day("2026-10-22T09:00:00Z");
+    const { result } = await day("2026-10-23T09:00:00Z");
+    expect(result.outcome).toBe("no-change");
+    const status = result.status;
+    // The tests ran although nothing changed (the checkout's dataset/ is the published one).
+    expect(status.tests).toEqual({ at: "2026-10-23T09:00:00.000Z", passed: true, summary: "pnpm verify passed" });
+    expect(status.schemaVersion).toBe("1.0.0");
+    expect(status.checks).toMatchObject({
+      at: "2026-10-23T09:00:00.000Z",
+      datasetVersion: "2026-10-21",
+      // data/search-eval.json, against the thresholds test/search.test.ts enforces.
+      search: { k: 10, questions: 184, passed: true },
+      invariants: { problems: 0, passed: true },
+      golden: { suites: ["test/cf-adct.test.ts", "test/cdc.test.ts"], passed: true },
+    });
+    expect(status.checks!.search!.all).toBeGreaterThanOrEqual(0.85);
+    expect(status.attributions).toEqual([expect.stringMatching(/normas\.leg\.br \/ LexML Brasil, © Senado Federal, CC BY 4\.0/)]);
+    // normas.leg.br is behind Planalto on one CF dispositivo (art. 100 § 5º, EC 136/2025; test/cross-source.test.ts),
+    // seen since the first run; on none of the ADCT's.
+    expect(status.contentLag).toEqual([
+      { norm: "cf", source: "normas.leg.br", url: cf.secondarySources[0]!.url, retrievedAt: "2026-10-20", secondaryStale: 1, since: "2026-10-22T09:00:00.000Z", hours: 24 },
+      { norm: "adct", source: "normas.leg.br", url: adct.secondarySources[0]!.url, retrievedAt: "2026-10-20", secondaryStale: 0 },
+      { norm: "cdc", source: "camara-legin", url: cdc.secondarySources[0]!.url, retrievedAt: "2026-10-21T04:48:50Z", secondaryStale: 0 },
+    ]);
+  });
+
+  it("says the golden sets failed when their suites fail in the job's tests", async () => {
+    const failing: TestRunner = { async verify() { return { passed: false, summary: "1 failed", failedFiles: ["test/cdc.test.ts"] }; } };
+    const { result } = await run({ source: await sourceWith(), now: "2026-10-23T09:00:00Z", tests: failing });
+    expect(result.status.checks!.golden).toEqual({ suites: ["test/cf-adct.test.ts", "test/cdc.test.ts"], passed: false });
+  });
+});
 
 describe("daily job: Planalto unreachable for days", () => {
   const github = memoryGitHub();

@@ -1,11 +1,11 @@
 // Seam 2: GET /v1/search over the dataset built from the recorded fixtures (seam 1's output).
 // Expected top hits come from reading the law text, never from running the search.
-import { readFileSync } from "node:fs";
 import { beforeAll, describe, expect, it } from "vitest";
 import { norms } from "../src/norms/index.ts";
 import { build } from "../src/pipeline/build.ts";
 import type { Dataset, Provision } from "../src/schema/dataset.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
+import { loadEvalSet, RECALL_K, RECALL_THRESHOLDS, type EvalQuestion } from "../src/search/eval.ts";
 import { createHandler } from "../src/worker/handler.ts";
 
 const api = "https://akoma.hendril.dev";
@@ -167,22 +167,13 @@ describe("GET /v1/search over a dataset without a search index", () => {
   });
 });
 
-// The evaluation set (test/search-eval.json): recall@10 = the share of a question's expected dispositivos among the
-// first 10 results, averaged over questions. Thresholds are the first baseline (2026-10-21) rounded down: a change
-// that loses a question fails; one that gains questions should raise them.
-const K = 10;
-const THRESHOLDS = { all: 0.85, holdout: 0.69, colloquial: 0.82 };
-
-interface EvalQuestion {
-  q: string;
-  expected: string[];
-  colloquial: boolean;
-  holdout?: boolean;
-}
-
-const questions = (
-  JSON.parse(readFileSync(new URL("./search-eval.json", import.meta.url), "utf8")) as { questions: EvalQuestion[] }
-).questions;
+// The evaluation set (data/search-eval.json): recall@10 = the share of a question's expected dispositivos among the
+// first 10 results, averaged over questions, measured here through GET /v1/search. The thresholds (src/search/eval.ts,
+// which the daily job's run status reports with the same set) are the first baseline (2026-10-21) rounded down: a
+// change that loses a question fails; one that gains questions should raise them.
+const K = RECALL_K;
+const THRESHOLDS = RECALL_THRESHOLDS;
+const questions = await loadEvalSet();
 
 describe("search evaluation set", () => {
   let dataset: Dataset;

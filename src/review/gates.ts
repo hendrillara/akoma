@@ -111,8 +111,11 @@ function idReuse(report: ChangeReport): Finding[] {
 
 // --- Structural invariants --------------------------------------------------------------------------------
 
-/** Siblings are numbered monotonically, letter suffixes after their base (29, 29-A, 30; § 1º, § 1º-A, § 2º). */
-function invariants(next: Dataset): Finding[] {
+/**
+ * Siblings are numbered monotonically, letter suffixes after their base (29, 29-A, 30; § 1º, § 1º-A, § 2º). Exported
+ * for the run status, which reports them for the published dataset on every run.
+ */
+export function invariants(next: Dataset): Finding[] {
   const findings: Finding[] = [];
   const last = new Map<string, { numbers: number[]; id: string }>();
   for (const { norm, id } of next.provisions) {

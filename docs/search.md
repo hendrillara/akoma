@@ -17,7 +17,7 @@
 
 ## Evaluation
 
-`test/search-eval.json` holds 184 questions, each mapped to the dispositivos that answer it: 101 touch the CF, 29 the ADCT and 56 the CDC (some questions expect dispositivos from two norms). 90 of them are colloquial.
+`data/search-eval.json` holds 184 questions, each mapped to the dispositivos that answer it: 101 touch the CF, 29 the ADCT and 56 the CDC (some questions expect dispositivos from two norms). 90 of them are colloquial.
 
 - **146 authored questions.** Written by reading the law text before any search code existed, and committed alone first.
 - **38 holdout questions.** Written by a second author (a separate agent session) from the law text, without the dictionary or the code. Two near-verbatim copies of authored questions were dropped.
@@ -82,7 +82,7 @@ Warm queries have a wide margin under the 10 ms Workers Free limit. The cold pat
 
 ## Avaliação
 
-`test/search-eval.json` tem 184 perguntas, cada uma ligada aos dispositivos que a respondem: 101 tocam a CF, 29 o ADCT e 56 o CDC (algumas perguntas esperam dispositivos de duas normas). 90 delas são coloquiais.
+`data/search-eval.json` tem 184 perguntas, cada uma ligada aos dispositivos que a respondem: 101 tocam a CF, 29 o ADCT e 56 o CDC (algumas perguntas esperam dispositivos de duas normas). 90 delas são coloquiais.
 
 - **146 perguntas autorais.** Escritas a partir da leitura do texto da lei antes de existir qualquer código de busca, e commitadas sozinhas, primeiro.
 - **38 perguntas de holdout.** Escritas por um segundo autor (outra sessão de agente) a partir do texto da lei, sem o dicionário e sem o código. Duas cópias quase literais de perguntas autorais foram descartadas.

@@ -20,7 +20,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { norms } from "../src/norms/index.ts";
 import { ghCli, memoryGitHub } from "../src/publish/github.ts";
-import { runDailyJob, type TestRunner } from "../src/publish/job.ts";
+import { runDailyJob, type TestResult, type TestRunner } from "../src/publish/job.ts";
 import { readPublished } from "../src/publish/published.ts";
 import { diskWorkspace, memoryWorkspace } from "../src/publish/workspace.ts";
 import { claudeReviewer, DEFAULT_REVIEW_MODEL } from "../src/review/claude.ts";
@@ -97,8 +97,12 @@ if (dryRun) {
 }
 process.exit(result.outcome === "failed" ? 1 : 0);
 
-/** `pnpm verify` on the written dataset: typecheck, both seams, the Map check and the regeneration guard. */
-function verify(): Promise<{ passed: boolean; summary: string }> {
+/**
+ * `pnpm verify` on the checkout (the written dataset, or the published one on a run with no change): typecheck, both
+ * seams, the Map check and the regeneration guard. The failed test files, from vitest's "FAIL  test/…" lines, let the
+ * run status say whether the golden sets passed.
+ */
+function verify(): Promise<TestResult> {
   return new Promise((resolve) => {
     // The tests and their dependencies never see the write token or the API key.
     const { GH_TOKEN: _token, GITHUB_TOKEN: _github, ANTHROPIC_API_KEY: _key, ...env } = process.env;
@@ -110,7 +114,12 @@ function verify(): Promise<{ passed: boolean; summary: string }> {
       process.stdout.write(output);
       const tests = /Tests\s+(.+)/.exec(output)?.[1]?.trim();
       const tail = output.trim().split("\n").slice(-15).join("\n");
-      resolve(code === 0 ? { passed: true, summary: `pnpm verify passed${tests ? ` (tests: ${tests})` : ""}.` } : { passed: false, summary: `exit code ${code}. Last lines:\n\n\`\`\`\n${tail}\n\`\`\`` });
+      const failedFiles = [...new Set([...output.matchAll(/FAIL\s+(test\/[\w./-]+\.test\.ts)/g)].map((m) => m[1]!))];
+      resolve(
+        code === 0
+          ? { passed: true, summary: `pnpm verify passed${tests ? ` (tests: ${tests})` : ""}.` }
+          : { passed: false, summary: `exit code ${code}. Last lines:\n\n\`\`\`\n${tail}\n\`\`\``, ...(tests && { failedFiles }) },
+      );
     });
   });
 }
