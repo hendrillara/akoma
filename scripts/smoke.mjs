@@ -1,4 +1,4 @@
-// Post-deploy smoke check (docs/deploy.md): the API and the static dataset answer from production, with open CORS.
+// Post-deploy smoke check (docs/deploy.md): the API, MCP and the static dataset answer from production, with open CORS.
 // Usage: node scripts/smoke.mjs [base URL] [expected datasetVersion, e.g. the one in dataset/dataset.json]
 // Retries for up to a minute while the new version reaches the edge, then fails with what it saw.
 const base = process.argv[2] ?? "https://akoma.hendril.dev";
@@ -32,6 +32,13 @@ async function run() {
     throw new Error(`serving dataset ${status.datasetVersion}, expected ${expected}`);
   }
   for (const [path, type] of checks.slice(1)) await get(path, type);
+  const mcp = await fetch(`${base}/mcp`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json, text/event-stream", "mcp-protocol-version": "2025-11-25" },
+    body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/list" }),
+    signal: AbortSignal.timeout(10_000),
+  });
+  if (mcp.status !== 200 || !(await mcp.text()).includes('"get_provision"')) throw new Error(`/mcp tools/list: HTTP ${mcp.status}`);
   // A second identical GET should come from Workers Cache (HIT) once it is enabled; reported, not enforced.
   const again = await fetch(`${base}/v1/status`, { signal: AbortSignal.timeout(10_000) });
   console.log(`smoke: ok, dataset ${status.datasetVersion}; repeat GET cf-cache-status=${again.headers.get("cf-cache-status")} age=${again.headers.get("age")}`);

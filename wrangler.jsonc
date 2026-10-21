@@ -14,11 +14,13 @@
   "routes": [{ "pattern": "akoma.hendril.dev", "custom_domain": true }],
   // The committed dataset (written by `pnpm build:dataset`, #12), deployed as it was reviewed and merged. Files are
   // matched first and served without running the Worker (free, unlimited), with the headers in dataset/_headers; any
-  // other path (/v1/norms, /v1/search…) runs the Worker. No API route is a file name, so nothing is shadowed.
+  // other path runs the Worker, and /v1/* and /mcp always do.
   // No `binding`: the API is bundled with the same dataset (below) and never reads a file.
   "assets": {
     "directory": "./dataset",
     "not_found_handling": "none",
+    // The API and MCP always run the Worker, even if a dataset file ever took one of their paths.
+    "run_worker_first": ["/v1/*", "/mcp"],
   },
   // The API's copy of the dataset: dataset/dataset.json, bundled into the Worker (src/worker/main.ts).
   "alias": { "akoma-dataset": "./dataset/dataset.json" },

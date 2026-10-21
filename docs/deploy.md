@@ -6,18 +6,18 @@ One deploy uploads two things, both from the committed `dataset/` folder (writte
 
 | Path | Served by | What |
 |---|---|---|
-| `/v1/…` (`norms`, `provisions`, `search`, `status`) | the Worker (`src/worker/main.ts`) | the REST API, bundled with `dataset/dataset.json` |
+| `/v1/…` (`norms`, `provisions`, `search`, `status`) and `/mcp` | the Worker (`src/worker/main.ts`), always (`run_worker_first`) | the REST API and the remote MCP endpoint, bundled with `dataset/dataset.json` |
 | every file in `dataset/`, at its own path (`/cf/art5.json`, `/cf/art5.md`, `/cf.md`, `/status.json`, `/search-index.json`, `/dataset.json`) | Workers static assets, without running the Worker | the downloadable dataset, with the headers in `dataset/_headers` (open CORS) |
 
 The spec said Cloudflare Pages. Workers static assets do the same job inside the same Worker: one deploy, one domain, and file requests are free and unlimited.
 
 ## How requests are handled
 
-- **Edge cache.** The CDN does not cache a Worker's answers on its own, because a Worker runs in front of the cache. Workers Cache (`"cache": { "enabled": true }`, wrangler ≥ 4.69) stores them by their `Cache-Control` alone: no Cache API code is needed. Successful answers are `public, max-age=300, s-maxage=3600`, misses `public, max-age=60`. A 429 and every HEAD answer are `no-store`, because GET and HEAD share one cache entry and an empty HEAD body must never reach a GET. The cache key includes the Worker version, so each deploy, and so each dataset, starts with an empty cache.
+- **Edge cache.** The CDN does not cache a Worker's answers on its own, because a Worker runs in front of the cache. Workers Cache (`"cache": { "enabled": true }`, wrangler ≥ 4.69) stores them by their `Cache-Control` alone: no Cache API code is needed. Successful answers are `public, max-age=300, s-maxage=3600`, misses `public, max-age=60`. A 429, every HEAD answer and every `/mcp` answer are `no-store`. GET and HEAD share one cache entry, and an empty HEAD body must never reach a GET. MCP calls are POSTs, which are never cached anyway. The cache key includes the Worker version, so each deploy, and so each dataset, starts with an empty cache.
 - **Cached hits skip the rate limiter.** A hit is answered without running the Worker, so it costs no CPU and is never counted. It is still a billed request: Free gives 100,000 a day, and requests for static files are not counted. The limiter therefore bounds the uncached path, which is where CPU is spent. A new query string is a new cache key, so it is a miss and is limited.
-- **Rate limiting.** 120 requests a minute per IP (`RATE_LIMIT` in `src/worker/worker.ts`; `ratelimits` in `wrangler.jsonc` repeats it). The Workers rate-limit binding counts per Cloudflare location. If it is not bound, the Worker falls back to an in-memory window per isolate, which is looser but never absent.
-- **CPU.** The dataset is evaluated and indexed at global scope, once per isolate. That costs 21–30 ms in `wrangler check startup` (bundle 5.8 MB, 753 KB gzip). It counts toward the 1 s startup limit, not toward a request's 10 ms of CPU on Free. Warm requests measured 0.5–1.5 ms of CPU in Node, search included. Neither number is a production measurement: step 7 below checks it.
-- **Locally**, `pnpm dev` (`wrangler dev`, after `dataset/` exists) simulates the rate-limit binding but not Workers Cache: no `cf-cache-status` header appears.
+- **Rate limiting.** 120 requests a minute per IP (`RATE_LIMIT` in `src/worker/worker.ts`; `ratelimits` in `wrangler.jsonc` repeats it). The Workers rate-limit binding counts per Cloudflare location. If it is not bound, the Worker falls back to an in-memory window per isolate, which is looser but never absent. `/mcp` has its own budget of the same size per IP (key `mcp:<ip>`). A 2025-protocol MCP session spends about four requests on its handshake, and REST and MCP use from the same IP must not starve each other.
+- **CPU.** The dataset is evaluated and indexed at global scope, once per isolate. That costs 43–47 ms in `wrangler check startup` (bundle 6.5 MB, 889 KB gzip, MCP SDK included). It counts toward the 1 s startup limit, not toward a request's 10 ms of CPU on Free. In Node, warm REST requests measured 0.5–1.5 ms of CPU and warm MCP tool calls 2–3 ms. The first MCP call in a fresh process measured about 30 ms, which is the SDK's own warm-up. Cloudflare tolerates infrequent overruns, but this is the request most likely to go over the limit. None of these numbers is a production measurement: step 7 below checks them.
+- **Locally**, `pnpm dev` (`wrangler dev`, after `dataset/` exists) simulates the rate-limit binding but not Workers Cache: no `cf-cache-status` header appears. `/mcp` answers there in both protocol eras (checked with raw JSON-RPC).
 
 ## Deploy credentials
 
@@ -44,7 +44,7 @@ The account id is committed in `wrangler.jsonc`. It is not a secret. If you woul
    - **Custom domain**: an `akoma` DNS record already exists, or the token lacks permission (see above).
 4. **Smoke check.** Run
    `node scripts/smoke.mjs https://akoma.hendril.dev "$(node -p 'JSON.parse(require("fs").readFileSync("dataset/dataset.json","utf8")).provisions[0].provenance.datasetVersion')"`.
-   It checks `/v1/status` (and its dataset version), a provision in Markdown, search and a static file, each with open CORS. It retries for a minute.
+   It checks `/v1/status` (and its dataset version), a provision in Markdown, search and a static file, each with open CORS, and MCP `tools/list`. It retries for a minute.
 5. **Edge cache.** Run `curl -sI https://akoma.hendril.dev/v1/norms` twice. The second answer should show `cf-cache-status: HIT` and an `age`.
    - **Never HIT:** Workers Cache is not active on this account. The API still works.
    - **`age` never above 300:** the edge ignores `s-maxage` and uses `max-age`. That is harmless.
@@ -55,7 +55,8 @@ The account id is committed in `wrangler.jsonc`. It is not a secret. If you woul
    - Add `akoma.hendril.dev` → `hendril-dev-akoma` → `~/Developer/akoma` to the route map in `hendril-portfolio/README.md`.
 7. **Limits in production.**
    - Rate limit: `for i in $(seq 1 130); do curl -s -o /dev/null -w "%{http_code}\n" "https://akoma.hendril.dev/v1/norms?n=$i"; done | sort | uniq -c`. Expect some `429`. The varying query string avoids the cache.
-   - CPU: Workers → hendril-dev-akoma → Observability should show no "Exceeded CPU" errors (error 1102), and CPU time per request well under 10 ms.
+   - CPU: Workers → hendril-dev-akoma → Observability should show no "Exceeded CPU" errors (error 1102), and CPU time per request well under 10 ms. Look at `/mcp` calls in particular.
+   - MCP: add `https://akoma.hendril.dev/mcp` to an MCP client and call `list_norms`.
 8. **Turn on automatic deploys.** Create the token above, then run `gh secret set CLOUDFLARE_API_TOKEN -R hendrillara/akoma`. From then on, every push to `main` runs `.github/workflows/deploy.yml`: `pnpm verify`, `wrangler deploy` of the committed `dataset/`, then the smoke check. You can run it by hand with *Run workflow*. Until the secret exists, the deploy job skips with a notice and the verify job still runs.
 
 **Rollback:** `pnpm exec wrangler deployments list`, then `pnpm exec wrangler rollback [version-id]`. Each version has its own cache, so a rollback serves that version's answers.
@@ -70,18 +71,18 @@ Um deploy envia duas coisas, ambas da pasta `dataset/` commitada (gerada por `pn
 
 | Caminho | Quem atende | O quê |
 |---|---|---|
-| `/v1/…` (`norms`, `provisions`, `search`, `status`) | o Worker (`src/worker/main.ts`) | a API REST, empacotada com `dataset/dataset.json` |
+| `/v1/…` (`norms`, `provisions`, `search`, `status`) e `/mcp` | o Worker (`src/worker/main.ts`), sempre (`run_worker_first`) | a API REST e o endpoint MCP remoto, empacotados com `dataset/dataset.json` |
 | cada arquivo de `dataset/`, no próprio caminho (`/cf/art5.json`, `/cf/art5.md`, `/cf.md`, `/status.json`, `/search-index.json`, `/dataset.json`) | os static assets do Workers, sem rodar o Worker | o dataset para download, com os cabeçalhos de `dataset/_headers` (CORS aberto) |
 
 O spec dizia Cloudflare Pages. Os static assets do Workers fazem o mesmo papel dentro do mesmo Worker: um deploy, um domínio, e as requisições de arquivo são gratuitas e ilimitadas.
 
 ## Como as requisições são tratadas
 
-- **Cache na borda.** A CDN não guarda sozinha as respostas de um Worker, porque o Worker roda antes do cache. O Workers Cache (`"cache": { "enabled": true }`, wrangler ≥ 4.69) guarda essas respostas só pelo `Cache-Control`, sem código da Cache API. Respostas de sucesso levam `public, max-age=300, s-maxage=3600`; as que não acham nada, `public, max-age=60`. Um 429 e toda resposta a HEAD levam `no-store`, porque GET e HEAD dividem a mesma entrada de cache e um corpo vazio de HEAD nunca pode chegar a um GET. A chave do cache inclui a versão do Worker, então cada deploy, e portanto cada dataset, começa com o cache vazio.
+- **Cache na borda.** A CDN não guarda sozinha as respostas de um Worker, porque o Worker roda antes do cache. O Workers Cache (`"cache": { "enabled": true }`, wrangler ≥ 4.69) guarda essas respostas só pelo `Cache-Control`, sem código da Cache API. Respostas de sucesso levam `public, max-age=300, s-maxage=3600`; as que não acham nada, `public, max-age=60`. Um 429, toda resposta a HEAD e toda resposta de `/mcp` levam `no-store`. GET e HEAD dividem a mesma entrada de cache, e um corpo vazio de HEAD nunca pode chegar a um GET. Chamadas MCP são POSTs, que nunca entram no cache. A chave do cache inclui a versão do Worker, então cada deploy, e portanto cada dataset, começa com o cache vazio.
 - **Acertos de cache não passam pelo rate limiter.** Um acerto é respondido sem rodar o Worker: não gasta CPU e não é contado. Mesmo assim é uma requisição cobrada: o Free dá 100.000 por dia, e as requisições de arquivos estáticos não entram nessa conta. O limitador, portanto, limita o caminho sem cache, que é onde se gasta CPU. Uma query string nova é uma chave nova: não está no cache e é limitada.
-- **Rate limiting.** São 120 requisições por minuto por IP (`RATE_LIMIT` em `src/worker/worker.ts`; `ratelimits` em `wrangler.jsonc` repete o valor). O binding de rate limit do Workers conta por local da Cloudflare. Se não houver binding, o Worker recorre a uma janela em memória por isolate, mais frouxa, mas nunca ausente.
-- **CPU.** O dataset é avaliado e indexado no escopo global, uma vez por isolate. Isso leva 21–30 ms em `wrangler check startup` (bundle de 5,8 MB, 753 KB gzip). Esse tempo conta no limite de 1 s de inicialização, não nos 10 ms de CPU por requisição do Free. Requisições já aquecidas mediram 0,5–1,5 ms de CPU no Node, busca incluída. Nenhum desses números é medição de produção: o passo 7 abaixo confere.
-- **Localmente**, `pnpm dev` (`wrangler dev`, depois que `dataset/` existir) simula o binding de rate limit, mas não o Workers Cache: o cabeçalho `cf-cache-status` não aparece.
+- **Rate limiting.** São 120 requisições por minuto por IP (`RATE_LIMIT` em `src/worker/worker.ts`; `ratelimits` em `wrangler.jsonc` repete o valor). O binding de rate limit do Workers conta por local da Cloudflare. Se não houver binding, o Worker recorre a uma janela em memória por isolate, mais frouxa, mas nunca ausente. `/mcp` tem um orçamento próprio, do mesmo tamanho, por IP (chave `mcp:<ip>`). Uma sessão MCP do protocolo 2025 gasta umas quatro requisições no handshake, e o uso de REST e de MCP pelo mesmo IP não pode sufocar um ao outro.
+- **CPU.** O dataset é avaliado e indexado no escopo global, uma vez por isolate. Isso leva 43–47 ms em `wrangler check startup` (bundle de 6,5 MB, 889 KB gzip, SDK do MCP incluído). Esse tempo conta no limite de 1 s de inicialização, não nos 10 ms de CPU por requisição do Free. No Node, requisições REST já aquecidas mediram 0,5–1,5 ms de CPU, e chamadas de ferramenta MCP aquecidas, 2–3 ms. A primeira chamada MCP num processo novo mediu uns 30 ms, que é o aquecimento do próprio SDK. A Cloudflare tolera estouros esporádicos, mas é essa a requisição com mais chance de passar do limite. Nenhum desses números é medição de produção: o passo 7 abaixo confere.
+- **Localmente**, `pnpm dev` (`wrangler dev`, depois que `dataset/` existir) simula o binding de rate limit, mas não o Workers Cache: o cabeçalho `cf-cache-status` não aparece. O `/mcp` responde lá nas duas gerações do protocolo (conferido com JSON-RPC cru).
 
 ## Credenciais de deploy
 
@@ -108,7 +109,7 @@ O id da conta está commitado em `wrangler.jsonc`. Ele não é segredo. Se prefe
    - **Domínio próprio**: já existe um registro DNS `akoma`, ou falta permissão ao token (veja acima).
 4. **Smoke check.** Rode
    `node scripts/smoke.mjs https://akoma.hendril.dev "$(node -p 'JSON.parse(require("fs").readFileSync("dataset/dataset.json","utf8")).provisions[0].provenance.datasetVersion')"`.
-   Ele confere `/v1/status` (e a versão do dataset), um dispositivo em Markdown, a busca e um arquivo estático, todos com CORS aberto. Tenta de novo durante um minuto.
+   Ele confere `/v1/status` (e a versão do dataset), um dispositivo em Markdown, a busca e um arquivo estático, todos com CORS aberto, e o `tools/list` do MCP. Tenta de novo durante um minuto.
 5. **Cache na borda.** Rode `curl -sI https://akoma.hendril.dev/v1/norms` duas vezes. A segunda resposta deve mostrar `cf-cache-status: HIT` e um `age`.
    - **Nunca dá HIT:** o Workers Cache não está ativo na conta. A API continua funcionando.
    - **`age` nunca passa de 300:** a borda ignora `s-maxage` e usa `max-age`. Não faz mal.
@@ -119,7 +120,8 @@ O id da conta está commitado em `wrangler.jsonc`. Ele não é segredo. Se prefe
    - Adicione `akoma.hendril.dev` → `hendril-dev-akoma` → `~/Developer/akoma` ao mapa de rotas em `hendril-portfolio/README.md`.
 7. **Limites em produção.**
    - Rate limit: `for i in $(seq 1 130); do curl -s -o /dev/null -w "%{http_code}\n" "https://akoma.hendril.dev/v1/norms?n=$i"; done | sort | uniq -c`. Espere alguns `429`. A query string variada evita o cache.
-   - CPU: em Workers → hendril-dev-akoma → Observability não deve aparecer nenhum erro "Exceeded CPU" (erro 1102), e o tempo de CPU por requisição deve ficar bem abaixo de 10 ms.
+   - CPU: em Workers → hendril-dev-akoma → Observability não deve aparecer nenhum erro "Exceeded CPU" (erro 1102), e o tempo de CPU por requisição deve ficar bem abaixo de 10 ms. Olhe em especial as chamadas a `/mcp`.
+   - MCP: adicione `https://akoma.hendril.dev/mcp` a um cliente MCP e chame `list_norms`.
 8. **Ligue o deploy automático.** Crie o token acima e rode `gh secret set CLOUDFLARE_API_TOKEN -R hendrillara/akoma`. A partir daí, cada push em `main` roda `.github/workflows/deploy.yml`: `pnpm verify`, `wrangler deploy` da `dataset/` commitada e o smoke check. Dá para rodar à mão com *Run workflow*. Enquanto o secret não existir, o job de deploy é pulado com um aviso, e o de verify continua rodando.
 
 **Rollback:** `pnpm exec wrangler deployments list` e depois `pnpm exec wrangler rollback [version-id]`. Cada versão tem o próprio cache, então um rollback serve as respostas daquela versão.
