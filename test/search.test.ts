@@ -63,6 +63,17 @@ describe("GET /v1/search over CF, ADCT and CDC", () => {
     expect(scores).toEqual([...scores].sort((a, b) => b - a));
   });
 
+  it("credits Senado/LexML when a result carries normas.leg.br aliases, and only then", async () => {
+    // CF art. 1º parágrafo único is "art1_par1u" in normas.leg.br, kept as its alias.
+    const withAlias = (await search({ q: "todo o poder emana do povo", norm: "cf", limit: "1" })) as SearchResponse & { attribution?: string };
+    expect(withAlias.results[0]!.provision).toMatchObject({ id: "art1_par1", aliases: ["art1_par1u"] });
+    expect(withAlias.attribution).toMatch(/normas\.leg\.br \/ LexML Brasil, © Senado Federal, CC BY 4\.0/);
+
+    const without = await search({ q: "direito de arrependimento", norm: "cdc" });
+    expect(without.results.some((r) => r.provision.aliases?.length)).toBe(false);
+    expect(without).not.toHaveProperty("attribution");
+  });
+
   it("renders the results as compact Markdown with each dispositivo's path, id and a provenance footer", async () => {
     const response = await handle(new Request(`${api}/v1/search?q=comunidades+dos+quilombos&limit=1&format=md`));
 

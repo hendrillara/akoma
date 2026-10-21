@@ -15,6 +15,7 @@ export function createSearch(dataset: Dataset): (params: URLSearchParams) => Vie
   const index = dataset.search;
   const norms = new Set(dataset.norms.map((n) => n.key));
   const provisions = new Map(dataset.provisions.map((p) => [`${p.norm}/${p.id}`, p]));
+  const credit = new Map(dataset.norms.flatMap((n) => (n.attribution ? [[n.key, n.attribution] as const] : [])));
 
   return (params) => {
     // An index from another analyzer would hold terms this Worker's queries never produce: refuse it, loudly.
@@ -34,7 +35,10 @@ export function createSearch(dataset: Dataset): (params: URLSearchParams) => Vie
 
     const hits = searchIndex(index, query, { limit, ...(norm !== null && { norm }) });
     const results = hits.map((hit) => ({ score: Math.round(hit.score * 1000) / 1000, provision: provisions.get(hit.doc)! }));
-    return { status: 200, json: { norm, limit, results, notice: NOTICE }, md: () => markdown(results.map((r) => r.provision)) };
+    // The normas.leg.br aliases (CC BY 4.0) travel with their credit, as on the provision view.
+    const owed = [...new Set(results.flatMap(({ provision: p }) => (p.aliases?.length && credit.has(p.norm) ? [credit.get(p.norm)!] : [])))];
+    const json = { norm, limit, results, ...(owed.length && { attribution: owed.join(" ") }), notice: NOTICE };
+    return { status: 200, json, md: () => markdown(results.map((r) => r.provision)) };
   };
 }
 
