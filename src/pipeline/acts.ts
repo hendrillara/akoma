@@ -126,8 +126,10 @@ function isAlteration(article: ActArticle): boolean {
   return /\bpassa(?:m)? a vigorar\b/.test(article.head);
 }
 
+const REVOKES = /^(?:Revoga(?:m)?-se|Fica(?:m)? revogad[oa]s?)\b/;
+
 function isRevocation(article: ActArticle): boolean {
-  return /^(?:Revogam-se|Ficam revogad[oa]s)\b/.test(article.head);
+  return REVOKES.test(article.head);
 }
 
 function normNamed(text: string): string | undefined {
@@ -201,14 +203,21 @@ function numberList(text: string): number[] {
 function descending(text: string, url: string): { norm: string; id: string } {
   const norm = normNamed(text);
   if (!norm) throw new Error(`${url}: citation names no known norm: "${text}"`);
-  const units = text.slice(0, text.lastIndexOf(norm)).replace(/\s+d[oa]\s*$/, "").split(/\s+d[oa]\s+/).reverse();
+  return { norm, id: descendingId(text.slice(0, text.lastIndexOf(norm)).replace(/\s+d[oa]\s*$/, ""), url) };
+}
+
+/** The dispositivo part of a descending citation, without its norm: "inciso XV do caput do art. 7º" → art7_cpt_inc15. */
+function descendingId(text: string, url: string): string {
+  const units = text.split(/\s+d[oa]\s+/).reverse();
   const parts: string[] = [];
   for (const unit of units) {
     const part = unitId(unit.trim());
     if (!part) throw new Error(`${url}: citation unit not understood: "${unit}" in "${text}"`);
     parts.push(part);
   }
-  return { norm, id: parts.join("_") };
+  // A caput inciso is often cited without "do caput" ("o inciso XV do art. 7º"): LexML still hangs it under `_cpt`.
+  if (parts.length > 1 && /^inc/.test(parts[1]!)) parts.splice(1, 0, "cpt");
+  return parts.join("_");
 }
 
 function unitId(unit: string): string | undefined {
@@ -287,10 +296,19 @@ function quotedChanges(article: ActArticle, url: string): Omit<DeferredChange, "
   let inciso: string | undefined;
   let alinea: string | undefined;
 
+  // A quoted grouping heading ("Seção V-A") is followed by its name ("Do Imposto de Competência Compartilhada …").
+  let headingName = false;
   for (const line of article.body.filter((l) => l.quoted)) {
     // The block's closing quote follows the dispositivo's own final period: `… deste artigo." (NR)`.
     const text = line.text.replace(OPEN_QUOTE, "").replace(/\s*["”]\s*(?:\(NR\)?)?\s*$/, "");
-    if (/^[.…\s]*$/.test(text) || matchHeading(text)) continue;
+    if (/^[.…\s]*$/.test(text)) continue;
+    if (matchHeading(text)) {
+      headingName = true;
+      continue;
+    }
+    const named = headingName;
+    headingName = false;
+    if (named && !matchArticle(text) && !matchParagraphs(text) && !matchInciso(text) && !matchAlinea(text)) continue;
     const record = (id: string, numbered: Numbered) => {
       const peeled = peelAnnotations(numbered.rest, line.links);
       if (/^[.…\s]*$/.test(peeled.text)) return; // a placeholder ("III - ......"): it only moves the cursor
@@ -371,4 +389,95 @@ function deferredRevocations(article: ActArticle, published: string, url: string
 /** An enumerated item without its closing punctuation ("…;", "…; e", "….") */
 function trimItem(text: string): string {
   return text.replace(/\s*(?:;\s*e|;|\.)$/, "").trim();
+}
+
+// --- Every command, for target matching (review, #10) -------------------------------------------------------
+
+/** A dispositivo an act's commands target, whenever the change takes effect. */
+export interface ActTarget {
+  /** How the act names the norm, e.g. "Constituição Federal"; matched against the manifests' `citedAs`. */
+  norm: string;
+  id: string;
+  /** The act's own article holding the command. */
+  article: number;
+  /**
+   * `quoted`: given a wording (or "(Revogado)") in quotes; `renumbered`: the parágrafo único the command sentence
+   * renumbers ("numerado o parágrafo único como § 1º", same LexML id); `revoked`: cited by a revocation article.
+   */
+  how: "quoted" | "renumbered" | "revoked";
+}
+
+export interface ActCommands {
+  act: ActCitation;
+  /** In the order the act gives them, each dispositivo once. */
+  targets: ActTarget[];
+  /** Commands this reader does not understand, one per article: a review must never pass over them. */
+  problems: string[];
+}
+
+/**
+ * Every dispositivo the act's alteration and revocation articles target, in force at publication or deferred.
+ * Unlike `readAmendingAct`, an article it cannot read becomes a problem instead of an exception, so a review can
+ * report it. Commands on texts outside the named norms (another EC, e.g. EC 136 on EC 113) are skipped.
+ */
+export function readActCommands(html: string, url: string): ActCommands {
+  const lines = visibleLines(html, {}, url);
+  const act = citationOf(lines, url);
+  const targets: ActTarget[] = [];
+  const problems: string[] = [];
+  const add = (target: ActTarget) => {
+    if (!targets.some((t) => t.norm === target.norm && t.id === target.id)) targets.push(target);
+  };
+
+  for (const article of splitArticles(lines)) {
+    try {
+      if (isAlteration(article)) {
+        for (const { norm, id } of quotedChanges(article, url)) add({ norm, id, article: article.number, how: "quoted" });
+        const norm = normNamed(article.head);
+        if (norm && /numerad[oa] o parágrafo único como § 1º/.test(article.head)) {
+          const quoted = article.body.find((l) => l.quoted && matchArticle(l.text.replace(OPEN_QUOTE, "")));
+          if (!quoted) throw new Error(`${url}: renumbers a parágrafo único but quotes no article`);
+          add({ norm, id: `${matchArticle(quoted.text.replace(OPEN_QUOTE, ""))!.id}_par1`, article: article.number, how: "renumbered" });
+        }
+      } else if (isRevocation(article)) {
+        for (const { norm, id } of revokedTargets(article, url)) add({ norm, id, article: article.number, how: "revoked" });
+      }
+    } catch (error) {
+      problems.push(`art. ${article.number}: ${(error as Error).message.replace(`${url}: `, "")}`);
+    }
+  }
+  return { act, targets, problems };
+}
+
+/**
+ * What a revocation article cites, dated or not: in its own sentence ("Revoga-se o inciso XXVII do caput do art. 7º
+ * da Constituição Federal.") or in its items ("I - em 2027, o art. 195, I, "b", e IV, e § 12, da Constituição
+ * Federal;"). An item ending in ":" ("I - os seguintes dispositivos da Constituição Federal:") names the norm of the
+ * alíneas under it.
+ */
+function revokedTargets(article: ActArticle, url: string): { norm: string; id: string }[] {
+  const out: { norm: string; id: string }[] = [];
+  let inherited: string | undefined;
+  const cite = (raw: string, item: boolean) => {
+    let text = raw.replace(/\s*\(Vigência\)\s*$/, "").replace(/^em \d{4}[,:]?\s*/, "");
+    if (!text) return;
+    if (text.endsWith(":")) {
+      if (item) inherited = normNamed(text) ?? inherited;
+      return;
+    }
+    text = trimItem(text).replace(/^(?:o|os|a|as)\s+/, "");
+    const named = normNamed(text);
+    if (!named && /Emenda Constitucional nº/.test(text)) return; // another act's own text: outside the corpus
+    const norm = named ?? inherited;
+    if (!norm) throw new Error(`${url}: revocation names no known norm: "${raw}"`);
+    const path = named ? text.slice(0, text.lastIndexOf(named)).replace(/,?\s+d[oa]\s*$/, "").trim() : text;
+    const ids = /^arts?\.\s*\d+[º°o]?(?:-[A-Z])*\s*,/.test(path) || /^arts\./.test(path) ? compact(path, url) : [descendingId(path, url)];
+    for (const id of ids) out.push({ norm, id });
+  };
+  cite(article.head.replace(REVOKES, "").replace(/^\s*:?\s*/, ""), false);
+  for (const { text } of article.body) {
+    const item = /^(?:[IVX]+\s*-|[a-z]\))\s*(.+)$/.exec(text);
+    if (item) cite(item[1]!, true);
+  }
+  return out;
 }

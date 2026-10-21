@@ -402,7 +402,7 @@ function suffixId(suffix: string): string {
 
 const ROMAN: Record<string, number> = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
 
-function romanToNumber(numeral: string): number | undefined {
+export function romanToNumber(numeral: string): number | undefined {
   let total = 0;
   for (let i = 0; i < numeral.length; i++) {
     const value = ROMAN[numeral[i]!]!;

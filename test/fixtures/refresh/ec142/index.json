@@ -12,6 +12,15 @@
       "retrievedAt": "2026-10-23T01:30:00Z",
       "sha256": "867304e0c5224fe68bd3442a32d1f8a5f172b780cf4e3b548422e26539a8cbd8",
       "bytes": 1507691
+    },
+    {
+      "file": "emc142.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc142.htm",
+      "encoding": "windows-1252",
+      "headers": {},
+      "retrievedAt": "2026-10-23T01:30:00Z",
+      "sha256": "ad59e83f7bd117277c05f7ecf90fb5b23b7b4bc4edfa9d4c4717553213860f98",
+      "bytes": 4808
     }
   ]
 }

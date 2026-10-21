@@ -1,6 +1,7 @@
 // Change detection: compares a new build with the previous dataset and describes what changed, per dispositivo, with
 // the amending act behind each change. The report is data (for the review gates) and Markdown (for the PR body).
 import { createHash } from "node:crypto";
+import type { Finding, ReviewLayer, Verdict } from "../review/verdict.ts";
 import type { Amendment, Dataset, PathSegment, Provision, Reference } from "../schema/dataset.ts";
 import { escape } from "./files.ts";
 
@@ -133,8 +134,11 @@ const SECTIONS: Record<ChangeKind, { heading: string; summary: string }> = {
   removed: { heading: "Removed without a revocation mark", summary: "removed without a revocation mark" },
 };
 
-/** The report as a PR body: a summary, the page pre-filter table, then one section per kind of change. */
-export function renderChangeReport(report: ChangeReport): string {
+/**
+ * The report as a PR body: a summary, the review verdict with its reasons (when given), the page pre-filter table,
+ * then one section per kind of change.
+ */
+export function renderChangeReport(report: ChangeReport, verdict?: Verdict): string {
   const kinds = (Object.keys(SECTIONS) as ChangeKind[])
     .map((kind) => ({ kind, changes: report.changes.filter((c) => c.kind === kind) }))
     .filter((s) => s.changes.length);
@@ -144,6 +148,7 @@ export function renderChangeReport(report: ChangeReport): string {
     : "No dispositivo changed.";
 
   const out = ["## Change report", "", summary, ""];
+  if (verdict) out.push(...verdictLines(verdict), "");
   if (report.pages.length) {
     out.push("| Page | ETag | Last-Modified | Content (without scripts) |", "| --- | --- | --- | --- |");
     for (const p of report.pages) out.push(`| ${p.url} | ${p.etag} | ${p.lastModified} | ${p.content} |`);
@@ -155,6 +160,27 @@ export function renderChangeReport(report: ChangeReport): string {
     out.push("");
   }
   return out.join("\n");
+}
+
+const LAYERS: Record<ReviewLayer, string> = {
+  gates: "the deterministic gates",
+  "cross-source": "the cross-source check",
+  llm: "the LLM reviewer",
+};
+
+function verdictLines({ decision, findings }: Verdict): string[] {
+  const count = (n: number, one: string) => `${n} ${one}${n === 1 ? "" : "s"}`;
+  const problems = findings.filter((f) => f.severity === "problem").length;
+  const layers = [...new Set(findings.map((f) => LAYERS[f.layer]))];
+  const tally = findings.length
+    ? `${count(problems, "problem")} and ${count(findings.length - problems, "note")} from ${layers.join(", ")}.`
+    : "Nothing to report.";
+  return [`### Verdict: ${decision}`, "", `${tally} Any problem stops the automatic merge.`, "", ...findings.map(findingLine)];
+}
+
+function findingLine(f: Finding): string {
+  const subject = [f.act, f.norm !== undefined && f.id !== undefined ? `${f.norm} \`${f.id}\`` : undefined].filter(Boolean).join(" ");
+  return `- ${f.severity === "problem" ? "**Problem**" : "Note"} · ${f.check}${subject ? ` · ${subject}` : ""}: ${escape(f.message)}`;
 }
 
 function changeLines(c: ProvisionChange): string[] {
