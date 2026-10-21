@@ -199,6 +199,11 @@ export interface Line {
 
 /** Stands where struck text was cut out, so punctuation it leaves doubled can be collapsed. */
 const CUT = "\uE000";
+/**
+ * Stands at the edge of an inline element spaced only by CSS margins (pasted DOU HTML: "o<strong style="margin-left:
+ * 4px">de cujus</strong>"): a browser shows a gap there, so between two words it becomes a space.
+ */
+const GAP = "\uE001";
 
 /** The page's text as a browser would show it, one line per block, with struck wording removed. */
 export function visibleLines(html: string, { startAnchor, endAnchor }: PageLayout, baseUrl: string): Line[] {
@@ -248,11 +253,14 @@ export function visibleLines(html: string, { startAnchor, endAnchor }: PageLayou
     }
     const block = element !== undefined && BLOCKS.has(element.tagName);
     if (block) flush();
+    const margins = element && !block ? marginGaps(element) : { left: false, right: false };
+    if (margins.left) current += GAP;
     const href = element?.tagName === "a" ? attribute(element, "href") : undefined;
     const start = current.length;
     const before = flushed;
     for (const child of node.childNodes) walk(child);
     if (href && flushed === before) links.push({ start, end: current.length, href: resolve(href, baseUrl) });
+    if (margins.right) current += GAP;
     if (block) flush();
   };
 
@@ -261,9 +269,11 @@ export function visibleLines(html: string, { startAnchor, endAnchor }: PageLayou
   return lines;
 }
 
-/** Whitespace collapsed; ", <cut>, " left by struck text mid-sentence becomes ", ". */
+/** Whitespace collapsed; ", <cut>, " left by struck text mid-sentence becomes ", "; a margin gap between words, " ". */
 function collapse(text: string): string {
   return text
+    .replace(new RegExp(`(?<=[\\p{L}\\p{N}])\\s*${GAP}[\\s${GAP}]*(?=[\\p{L}\\p{N}])`, "gu"), " ")
+    .replaceAll(GAP, "")
     .replace(/\s+/g, " ")
     .replace(new RegExp(`([,;])\\s*${CUT}\\s*\\1`, "g"), "$1")
     .replaceAll(CUT, "")
@@ -281,6 +291,13 @@ function resolve(href: string, baseUrl: string): string {
 
 function attribute(element: Element, name: string): string | undefined {
   return element.attrs.find((a) => a.name === name)?.value;
+}
+
+/** Whether an inline element's CSS puts a horizontal margin on its left or right edge. */
+function marginGaps(element: Element): { left: boolean; right: boolean } {
+  const style = attribute(element, "style") ?? "";
+  const set = (side: string) => new RegExp(`margin-${side}\\s*:\\s*(?!0(?![.\\d]))[\\d.]+`, "i").test(style);
+  return { left: set("left"), right: set("right") };
 }
 
 function isLineThrough(element: Element): boolean {
