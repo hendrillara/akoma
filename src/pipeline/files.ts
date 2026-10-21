@@ -18,7 +18,8 @@ export interface ArticleFile {
 /**
  * Per norm: `<norm>/<article>.json` and `<norm>/<article>.md` for each article, plus `<norm>.md` with the whole text.
  * Then `search-index.json`, the prebuilt search index, compact since the Worker parses it, and `status.json` with the
- * build's own checks (today review layer 2's outcomes per norm; #12 adds the rest).
+ * build's own checks (today review layer 2's outcomes per norm; #12 adds the rest). Last `dataset.json`, the whole
+ * dataset, and `_headers`, the static-asset headers of the deployed folder.
  */
 export function datasetFiles(dataset: Dataset): DatasetFile[] {
   const files: DatasetFile[] = [];
@@ -33,6 +34,12 @@ export function datasetFiles(dataset: Dataset): DatasetFile[] {
   }
   if (dataset.search) files.push({ path: "search-index.json", content: `${JSON.stringify(dataset.search)}\n` });
   if (dataset.status) files.push({ path: "status.json", content: `${JSON.stringify(dataset.status, null, 2)}\n` });
+  // The whole dataset in one file: a one-file download, and what the deployed Worker's API is bundled from
+  // (src/worker/main.ts), so the API serves exactly the committed files.
+  files.push({ path: "dataset.json", content: `${JSON.stringify(dataset)}\n` });
+  // Read, not served, by Workers static assets (wrangler.jsonc `assets.directory` is this folder): any origin may
+  // fetch the files.
+  files.push({ path: "_headers", content: "/*\n  Access-Control-Allow-Origin: *\n  X-Content-Type-Options: nosniff\n" });
   return files;
 }
 

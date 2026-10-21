@@ -1,0 +1,73 @@
+name: Deploy
+
+# Every push to main (a merged PR, including the daily refresh's) redeploys akoma.hendril.dev after `pnpm verify`.
+# Runbook, first deploy and token permissions: docs/deploy.md.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One deploy at a time, in push order; a newer push waits instead of cancelling a deploy halfway.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm verify
+
+  deploy:
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      WRANGLER_SEND_METRICS: "false"
+    steps:
+      # Only a yes/no leaves this step: the token itself reaches the deploy step alone, not the install scripts.
+      - name: Check for deploy credentials
+        id: credentials
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -n "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Deploy skipped::The CLOUDFLARE_API_TOKEN repository secret is not set (docs/deploy.md)."
+          fi
+      - uses: actions/checkout@v7
+        if: steps.credentials.outputs.present == 'true'
+      - uses: pnpm/action-setup@v6
+        if: steps.credentials.outputs.present == 'true'
+      - uses: actions/setup-node@v7
+        if: steps.credentials.outputs.present == 'true'
+        with:
+          node-version: 24
+          cache: pnpm
+      - if: steps.credentials.outputs.present == 'true'
+        run: pnpm install --frozen-lockfile
+      - name: Check the committed dataset
+        if: steps.credentials.outputs.present == 'true'
+        run: |
+          test -f dataset/dataset.json || { echo "::error::dataset/dataset.json is missing: the deploy serves the committed dataset/ (pnpm build:dataset, #12)."; exit 1; }
+          echo "DATASET_VERSION=$(node -p 'JSON.parse(require("fs").readFileSync("dataset/dataset.json","utf8")).provisions[0].provenance.datasetVersion')" >> "$GITHUB_ENV"
+      - name: Deploy
+        if: steps.credentials.outputs.present == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: pnpm exec wrangler deploy --message "${GITHUB_SHA::7} (${GITHUB_EVENT_NAME})"
+      - name: Smoke check
+        if: steps.credentials.outputs.present == 'true'
+        run: node scripts/smoke.mjs https://akoma.hendril.dev "$DATASET_VERSION"
