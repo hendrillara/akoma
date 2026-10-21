@@ -444,6 +444,20 @@ describe("API v1", () => {
         notice: STF_NOTICE,
       });
     });
+
+    it("serves normas.leg.br's id aliases only with their CC BY 4.0 credit", async () => {
+      // normas.leg.br calls CF art. 100 § 5º "art100_par1" (it never renumbers); review layer 2 keeps that as an alias.
+      const one = await (await get("/v1/provisions/cf/art100_par5")).json();
+      expect(one).toMatchObject({ id: "art100_par5", aliases: ["art100_par1"] });
+      expect(one.attribution).toMatch(/normas\.leg\.br.*Senado Federal.*CC BY 4\.0/);
+      const article = await (await get("/v1/provisions/cf/art100")).json();
+      expect(article.attribution).toMatch(/normas\.leg\.br.*Senado Federal.*CC BY 4\.0/);
+      // A dispositivo with no alias carries no credit.
+      expect(await (await get("/v1/provisions/cf/art1_cpt_inc4")).json()).not.toHaveProperty("attribution");
+      // An alias that is no Akoma id answers 404 with the canonical id (normas.leg.br "art7_par1u" is § 1º since EC 141).
+      // "art100_par1" is not one: it is also Akoma's own id for art. 100 § 1º, which it keeps addressing.
+      expect(await (await get("/v1/provisions/cf/art7_par1u")).json()).toMatchObject({ suggestion: { id: "art7_par1" } });
+    });
   });
 
   describe("aliases", () => {

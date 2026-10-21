@@ -155,7 +155,15 @@ function compare(
       record(p.id, "unconfirmed", "Not yet in force: there is no wording in force to confirm.", "not-yet-in-force");
       continue;
     }
+    // A change the build promoted itself on its start date (ADR 0003): Planalto does not show it yet, so no secondary
+    // can be expected to; layer 1 checks it against the amending act instead.
+    const promoted = p.amendments.find((a) => a.effectiveFrom !== undefined && a.act);
+    const promotedNote = promoted && promotedStale(promoted.act!.citation, promoted.effectiveFrom!, source);
     if (!s) {
+      if (promotedNote) {
+        record(p.id, "secondary-stale", promotedNote, "secondary-stale", promoted!.act!.citation);
+        continue;
+      }
       const nearest = above(p.id).map((id) => byId.get(id)?.[0]).find((x) => x !== undefined);
       const missing = uncitedActs(p, nearest?.acts ?? new Set());
       if (missing.length && p.amendments.some((a) => a.effect === "inserted")) {
@@ -180,6 +188,10 @@ function compare(
         "secondary-misdates-vigencia",
         ahead.citation,
       );
+      continue;
+    }
+    if (promotedNote) {
+      record(p.id, "secondary-stale", promotedNote, "secondary-stale", promoted!.act!.citation);
       continue;
     }
     const missing = uncitedActs(p, s.acts);
@@ -247,6 +259,10 @@ function counts(agreement: Map<string, SecondaryAgreement>): Record<SecondaryOut
   const out = { agrees: 0, "secondary-stale": 0, unconfirmed: 0 };
   for (const a of agreement.values()) out[a.outcome]++;
   return out;
+}
+
+function promotedStale(citation: string, effectiveFrom: string, source: string): string {
+  return `This build applied the change by ${citation} that took effect on ${effectiveFrom} (deferred vigência); neither Planalto's page nor ${source} shows it yet.`;
 }
 
 function staleNote(citation: string, source: string): string {

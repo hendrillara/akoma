@@ -220,6 +220,18 @@ describe("scenarios derived from the recorded sources", () => {
     expect(problems(dataset)).toEqual([]);
   });
 
+  it("does not block the changes a build promotes on their start date, which no source shows yet (EC 132, 2027)", async () => {
+    const dataset = await build({ manifests: [cf, adct], source: await source(), datasetVersion, today: "2027-01-01" });
+    const note =
+      "This build applied the change by Emenda Constitucional nº 132, de 2023 that took effect on 2027-01-01 (deferred vigência); neither Planalto's page nor normas.leg.br shows it yet.";
+    // Art. 146 III d: the build's 2027 wording ends "… previstas no art. 195, I e V." (vigencia.test.ts); normas.leg.br's
+    // last version (EC 132, dated 2023-12-20) ends "… art. 195, I e V, e § 12 e da contribuição a que se refere o art. 239."
+    expect(find(dataset, "art146_cpt_inc3_ali4")?.provenance.secondary).toEqual({ source: "normas.leg.br", outcome: "secondary-stale", note });
+    // Art. 37 § 18, inserted for 2027: normas.leg.br has no art. 37 § 17 or § 18.
+    expect(find(dataset, "art37_par18")?.provenance.secondary).toEqual({ source: "normas.leg.br", outcome: "secondary-stale", note });
+    expect(problems(dataset)).toEqual([]);
+  });
+
   it("blocks a wording the secondary does not share when no amending act explains it", async () => {
     // One word of CF art. 1º IV changed on the Planalto page, with no annotation.
     const page = await edited(cf.primaryUrl, [["IV - os valores sociais do trabalho e da livre iniciativa;", "IV - os valores sociais do trabalho e da iniciativa;"]]);
