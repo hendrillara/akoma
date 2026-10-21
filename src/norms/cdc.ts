@@ -23,7 +23,7 @@ export const cdc: NormManifest = {
   ],
   knownQuirks: [
     "No anchors at all: the text is found by its labels only",
-    "Ordinal chaos: \"Art. 1°\" with a degree sign, \"Art. 4º\", \"§ 3o\" with a letter o, \"§ 1<s>º</s>\" (an ordinal inside <s>, not struck text)",
+    "Ordinal chaos: \"Art. 1°\" with a degree sign, \"Art. 4º\", \"§ 3o\" with a letter o, \"§ 1<s>º</s>\" (art. 8º §§ 1º–2º: the ordinal inside <s> is cut as struck text, harmless because labels are rebuilt from the number)",
     "\"SEÇÃO I\" headings in upper case; \"CAPÍTULO VI-A\"",
     "(Vetado) / (VETADO) marks instead of revocations, some on dispositivos an amending law inserted",
     "\"Pena\" lines (arts. 63–74), with or without a dash, that belong to the dispositivo above them",
