@@ -17,18 +17,24 @@
 
 ## Evaluation
 
-`test/search-eval.json` holds 186 questions, each mapped to the dispositivos that answer it: 103 touch the CF, 29 the ADCT and 56 the CDC (some questions expect dispositivos from two norms). 90 of them are colloquial.
+`test/search-eval.json` holds 184 questions, each mapped to the dispositivos that answer it: 101 touch the CF, 29 the ADCT and 56 the CDC (some questions expect dispositivos from two norms). 90 of them are colloquial.
 
 - **146 authored questions.** Written by reading the law text before any search code existed, and committed alone first.
-- **40 holdout questions.** Written by a second author who saw only the law text: not the dictionary and not the code. Recall on them estimates how the dictionary generalises to phrasings it was not written for. Some of their topics overlap the authored ones.
+- **38 holdout questions.** Written by a second author (a separate agent session) from the law text, without the dictionary or the code. Two near-verbatim copies of authored questions were dropped.
+
+How independent the numbers are:
+
+- The dictionary was written with the authored questions in view, so authored colloquial recall is in-sample.
+- The holdout set is the better estimate, but only partly independent. Its author's brief listed example everyday words (patrão, demitido, carteira assinada, INSS, ICMS…) that are also dictionary entries. Two holdout questions were seen before the dictionary was written. Several holdout topics overlap authored ones (CIPA, unsolicited card, small print, medical error, advertised price).
+- Fresh questions from someone who never saw this file would give a cleaner number.
 
 `test/search.test.ts` runs every question through `GET /v1/search` and measures **recall@10**: the share of a question's expected dispositivos among the first 10 results, averaged over questions. It fails below the first baseline (2026-10-21), rounded down:
 
 | Set | recall@10 | without the dictionary | threshold |
 |---|---|---|---|
-| all (186) | 0.860 | 0.677 | 0.86 |
+| all (184) | 0.859 | 0.674 | 0.85 |
 | authored (146) | 0.901 | 0.709 | – |
-| holdout (40) | 0.713 | 0.563 | 0.71 |
+| holdout (38) | 0.697 | 0.540 | 0.69 |
 | colloquial (90) | 0.822 | 0.478 | 0.82, and at least 0.25 above the run without the dictionary |
 
 When a change gains questions, raise the thresholds in the same commit. Never edit a question to match what the search returns.
@@ -50,9 +56,10 @@ A synonym weight of 0.5 never scored higher than 1. A plural-only stemmer beats 
 
 - **Index.** 903 KiB JSON (224 KiB gzip): 3,732 documents, 5,634 terms, 94 synonym entries.
 - **`JSON.parse` of the index:** 3.3 ms, once per isolate.
-- **Per query, through the handler and JSON response:** p50 0.16 ms, p95 0.33 ms, max 1.1 ms (930 queries).
+- **Per query, warm, through the handler and JSON response:** p50 0.16 ms, p95 0.33 ms, max 1.1 ms (930 queries).
+- **Cold isolate:** about 17 ms in total. That covers `JSON.parse` of the whole 4.8 MiB dataset including the index (about 10 ms of it outside search), `createHandler` (3.6 ms, mostly the other views; search adds its own map of the dispositivos) and the first query. Search's own share is about 4 ms.
 
-Workers CPUs may be slower than this machine, but the margin under 10 ms is wide. Measure with `wrangler dev` once the Worker is deployed.
+Warm queries have a wide margin under the 10 ms Workers Free limit. The cold path does not. Load the dataset in the Worker's global scope, which runs under the 1 s startup limit instead of a request's CPU budget, or split it per norm. Measure with `wrangler dev` once the Worker is deployed; Workers CPUs may be slower than this machine.
 
 ---
 
@@ -75,12 +82,18 @@ Workers CPUs may be slower than this machine, but the margin under 10 ms is wide
 
 ## Avaliação
 
-`test/search-eval.json` tem 186 perguntas, cada uma ligada aos dispositivos que a respondem: 103 tocam a CF, 29 o ADCT e 56 o CDC (algumas perguntas esperam dispositivos de duas normas). 90 delas são coloquiais.
+`test/search-eval.json` tem 184 perguntas, cada uma ligada aos dispositivos que a respondem: 101 tocam a CF, 29 o ADCT e 56 o CDC (algumas perguntas esperam dispositivos de duas normas). 90 delas são coloquiais.
 
 - **146 perguntas autorais.** Escritas a partir da leitura do texto da lei antes de existir qualquer código de busca, e commitadas sozinhas, primeiro.
-- **40 perguntas de holdout.** Escritas por um segundo autor que viu só o texto da lei, sem o dicionário e sem o código. O recall nelas estima o quanto o dicionário generaliza para formulações que ele não previu. Parte dos temas se sobrepõe aos das perguntas autorais.
+- **38 perguntas de holdout.** Escritas por um segundo autor (outra sessão de agente) a partir do texto da lei, sem o dicionário e sem o código. Duas cópias quase literais de perguntas autorais foram descartadas.
 
-`test/search.test.ts` roda cada pergunta por `GET /v1/search` e mede o **recall@10**: a fração dos dispositivos esperados de cada pergunta que aparece entre os 10 primeiros resultados, na média das perguntas. O teste falha abaixo da primeira linha de base (21/10/2026), arredondada para baixo: geral 0,86; holdout 0,71; coloquiais 0,82, e pelo menos 0,25 acima da rodada sem o dicionário. As tabelas de medição estão na seção em inglês acima.
+O quanto os números são independentes:
+
+- O dicionário foi escrito com as perguntas autorais à vista, então o recall coloquial delas é medido dentro da amostra.
+- O holdout é a estimativa melhor, mas só em parte independente. As instruções do segundo autor citavam exemplos de palavras do dia a dia (patrão, demitido, carteira assinada, INSS, ICMS…) que também são entradas do dicionário. Duas perguntas do holdout foram vistas antes de o dicionário ser escrito. Vários temas do holdout se sobrepõem aos autorais.
+- Perguntas novas, de alguém que nunca viu este arquivo, dariam um número mais limpo.
+
+`test/search.test.ts` roda cada pergunta por `GET /v1/search` e mede o **recall@10**: a fração dos dispositivos esperados de cada pergunta que aparece entre os 10 primeiros resultados, na média das perguntas. O teste falha abaixo da primeira linha de base (21/10/2026), arredondada para baixo: geral 0,85; holdout 0,69; coloquiais 0,82, e pelo menos 0,25 acima da rodada sem o dicionário. As tabelas de medição estão na seção em inglês acima.
 
 Quando uma mudança acerta mais perguntas, suba os limites no mesmo commit. Nunca edite uma pergunta para ela bater com o que a busca devolve.
 
@@ -90,6 +103,7 @@ Custo medido no Node 24 (Apple M1 Pro), com o índice completo da CF, do ADCT e 
 
 - **Índice:** 903 KiB de JSON (224 KiB com gzip).
 - **`JSON.parse` do índice:** 3,3 ms, uma vez por isolate.
-- **Por consulta:** p50 0,16 ms, p95 0,33 ms, máximo 1,1 ms.
+- **Por consulta, com o isolate já aquecido:** p50 0,16 ms, p95 0,33 ms, máximo 1,1 ms.
+- **Isolate frio:** cerca de 17 ms no total. Isso inclui o `JSON.parse` do dataset inteiro de 4,8 MiB com o índice (uns 10 ms disso fora da busca), o `createHandler` (3,6 ms) e a primeira consulta. A parte da busca é de uns 4 ms.
 
-Folga ampla sob os 10 ms. Medir de novo com `wrangler dev` quando o Worker for publicado.
+Consultas a quente têm folga ampla sob os 10 ms do plano gratuito do Workers. O caminho frio não tem. Carregue o dataset no escopo global do Worker, que roda sob o limite de 1 s de inicialização e não no orçamento de CPU da requisição, ou divida-o por norma. Medir de novo com `wrangler dev` quando o Worker for publicado.
