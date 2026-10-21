@@ -124,14 +124,19 @@ describe("recheck: the sources print what the dataset holds", () => {
     const result = await recheck(github, issue);
 
     expect(result.outcome).toBe("not-confirmed");
-    // The recheck claims its slot with a comment, then turns that comment into the answer.
-    expect(github.log).toEqual(["comment on issue #1", "edit comment on issue #1"]);
+    // The recheck claims its slot with a comment, then turns that comment into the answer, and puts the issue in the
+    // maintainer's triage queue: a misreading by the parser would look the same on both sides.
+    expect(github.log).toEqual(["comment on issue #1", "edit comment on issue #1", "label issue #1 needs-triage"]);
+    expect(github.issues[0]!.labelsAdded).toEqual(["needs-triage"]);
     expect(github.issues[0]!.comments).toHaveLength(1);
     const comment = github.issues[0]!.comments[0]!;
     expect(comment).toContain("**Divergência não confirmada / Divergence not confirmed**");
     expect(comment).toContain("`cf` `art5_cpt_inc10`");
     expect(comment).toContain(ART5_X);
     expect(comment).toContain("normas.leg.br: confere / agrees");
+    expect(comment).toContain(
+      "The recheck reads Planalto's page with the same parser that built the dataset, so an error in Akoma's own reading would look the same on both sides and cannot be seen here. That is why this issue now has the `needs-triage` label: a maintainer will review the report",
+    );
     expect(comment).toContain(`Run: ${RUN}`);
     expect(github.pulls).toEqual([]);
   });

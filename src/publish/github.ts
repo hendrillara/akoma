@@ -21,6 +21,11 @@ export interface GitHub {
   updatePullRequest(number: number, pr: { title: string; body: string }): Promise<void>;
   /** Adds (`on`) or removes a label, creating the label first when the repository lacks it. */
   setLabel(number: number, label: string, on: boolean): Promise<void>;
+  /**
+   * Adds an existing label to an issue (the triage labels of docs/agents/triage-labels.md, which the job never creates
+   * or edits).
+   */
+  labelIssue(number: number, label: string): Promise<void>;
   mergePullRequest(number: number): Promise<void>;
   /** Starts a `workflow_dispatch` workflow on the default branch, with these inputs. */
   dispatchWorkflow(workflow: string, inputs?: Record<string, string>): Promise<void>;
@@ -73,6 +78,8 @@ export interface MemoryIssue extends Numbered {
   title: string;
   body: string;
   label: string;
+  /** Labels the job added after the issue was opened. */
+  labelsAdded: string[];
   state: "open" | "closed";
   comments: string[];
 }
@@ -139,7 +146,7 @@ export function memoryGitHub(repo = "https://github.com/hendrillara/akoma"): Mem
     },
     openedByUser({ title, body, label }) {
       const number = ++counter;
-      issues.push({ number, url: `${repo}/issues/${number}`, title, body, label, state: "open", comments: [] });
+      issues.push({ number, url: `${repo}/issues/${number}`, title, body, label, labelsAdded: [], state: "open", comments: [] });
       return issue(number);
     },
     async ownComments() {
@@ -148,9 +155,15 @@ export function memoryGitHub(repo = "https://github.com/hendrillara/akoma"): Mem
     async findOpenIssue(label) {
       return issues.find((i) => i.label === label && i.state === "open");
     },
+    async labelIssue(number, label) {
+      const issue = issues.find((i) => i.number === number);
+      if (!issue) throw new Error(`no issue #${number}`);
+      if (!issue.labelsAdded.includes(label)) issue.labelsAdded.push(label);
+      log.push(`label issue #${number} ${label}`);
+    },
     async createIssue({ title, body, label }) {
       const number = ++counter;
-      issues.push({ number, url: `${repo}/issues/${number}`, title, body, label, state: "open", comments: [] });
+      issues.push({ number, url: `${repo}/issues/${number}`, title, body, label, labelsAdded: [], state: "open", comments: [] });
       log.push(`create issue #${number} [${label}]: ${title}`);
       return issue(number);
     },
@@ -267,6 +280,9 @@ export function ghCli({ cwd, statusBranch, base }: GhCliOptions): GitHub {
     },
     async findOpenIssue(label) {
       return numbered(await gh("issue", "list", "--label", label, "--state", "open", "--json", "number,url", "--limit", "1"));
+    },
+    async labelIssue(number, label) {
+      await gh("issue", "edit", String(number), "--add-label", label);
     },
     async createIssue({ title, body, label }) {
       await ensureLabel(label);

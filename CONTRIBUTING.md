@@ -18,7 +18,7 @@ Para o resto (Worker, camadas de revisão, o dicionário de sinônimos em `data/
 
 Se um dispositivo parece diferente do texto oficial, abra uma issue com o modelo **"Divergência de texto / Text divergence"**: a norma, o dispositivo (o id, como `art5_cpt_inc10`, ou como impresso, como art. 5º, inciso X) e o que parece errado.
 
-Abrir a issue dispara uma nova conferência automática daquele dispositivo: o Akoma lê de novo a página do Planalto, compara com o dataset publicado e com a fonte secundária, e publica o resultado na própria issue. Uma divergência confirmada vira um PR de correção pelo job diário, com a revisão normal de três camadas; uma não confirmada recebe um comentário dizendo o que as fontes mostram. Cada dispositivo é reconferido no máximo uma vez por dia. Os detalhes estão em [`docs/publishing.md`](docs/publishing.md).
+Abrir a issue dispara uma nova conferência automática daquele dispositivo: o Akoma lê de novo a página do Planalto, compara com o dataset publicado e com a fonte secundária, e publica o resultado na própria issue. Uma divergência confirmada vira um PR de correção pelo job diário, com a revisão normal de três camadas; uma não confirmada recebe um comentário dizendo o que as fontes mostram e o rótulo `needs-triage`, porque a reconferência usa o mesmo leitor que montou o dataset e não enxerga um erro dele: o mantenedor revisa o relato. Cada dispositivo é reconferido no máximo uma vez por dia. Os detalhes estão em [`docs/publishing.md`](docs/publishing.md).
 
 ## Como trabalhar
 
@@ -54,7 +54,7 @@ For anything else (the Worker, the review layers, the synonym dictionary in `dat
 
 If a dispositivo looks different from the official text, open an issue from the **"Divergência de texto / Text divergence"** template: the norm, the dispositivo (its id, such as `art5_cpt_inc10`, or as printed, such as art. 5º, inciso X) and what looks wrong.
 
-Opening the issue starts an automatic recheck of that dispositivo: Akoma reads Planalto's page again, compares it with the published dataset and with the secondary source, and posts the result on the issue. A confirmed divergence becomes a correction PR from the daily job, through the normal three-layer review; an unconfirmed one gets a comment explaining what the sources say. Each dispositivo is rechecked at most once a day. The details are in [`docs/publishing.md`](docs/publishing.md).
+Opening the issue starts an automatic recheck of that dispositivo: Akoma reads Planalto's page again, compares it with the published dataset and with the secondary source, and posts the result on the issue. A confirmed divergence becomes a correction PR from the daily job, through the normal three-layer review; an unconfirmed one gets a comment explaining what the sources say and the `needs-triage` label, since the recheck uses the parser that built the dataset and cannot see that parser's own errors: the maintainer reviews the report. Each dispositivo is rechecked at most once a day. The details are in [`docs/publishing.md`](docs/publishing.md).
 
 ### How to work
 
