@@ -53,6 +53,8 @@ const STATUS: Record<string, string> = {
   not_yet_in_force: "ainda não vigente / not yet in force",
 };
 
+export type Views = ReturnType<typeof createViews>;
+
 export function createViews(dataset: Dataset) {
   const norms = new Map(dataset.norms.map((n) => [n.key, n]));
   const provisions = new Map<string, Provision>();
@@ -291,7 +293,7 @@ function ok(json: unknown, md: () => string): View {
  * "art5_cpt_inc79,emc-115-2022-02-10"). Agents read these responses as trusted legal text, so raw request input
  * (backticks, newlines, markup) must never reach a response body.
  */
-const ID = /^[a-z0-9][a-z0-9_.,-]{0,119}$/;
+export const ID = /^[a-z0-9][a-z0-9_.,-]{0,119}$/;
 
 /**
  * 404. `named` (a known norm key and an id that passed `ID`) is named back; omit it for anything else. The canonical
