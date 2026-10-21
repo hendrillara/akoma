@@ -70,7 +70,7 @@ function articleMarkdown(provisions: Provision[]): string[] {
 const GROUPINGS = new Set(["parte", "livro", "titulo", "capitulo", "secao", "subsecao"]);
 
 /** A dispositivo's line, then a quoted line per pending change: "> **Pendente a partir de 2026-12-17** (EC …): …". */
-function lines(provision: Provision): string[] {
+export function lines(provision: Provision): string[] {
   return [line(provision), ...(provision.pending ?? []).map(pendingLine)];
 }
 
@@ -87,7 +87,7 @@ const MARKER: Partial<Record<Provision["status"], string>> = {
 };
 
 /** One dispositivo as printed: "Art. 5º …", "§ 1º …", "Parágrafo único. …", "X - …", "a) …", "1) …". */
-function line(provision: Provision): string {
+export function line(provision: Provision): string {
   const label = printedLabel(provision);
   const shown = provision.text || MARKER[provision.status] || "";
   const notes = [...provision.amendments.map((a) => a.annotation), ...provision.references.map((r) => r.annotation)];
