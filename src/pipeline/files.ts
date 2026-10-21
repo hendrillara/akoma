@@ -18,7 +18,7 @@ export interface ArticleFile {
 /**
  * Per norm: `<norm>/<article>.json` and `<norm>/<article>.md` for each article, plus `<norm>.md` with the whole text.
  * Then `search-index.json`, the prebuilt search index, compact since the Worker parses it, and `status.json` with the
- * build's own checks (today review layer 2's outcomes per norm; #12 adds the rest). Last `dataset.json`, the whole
+ * build's own checks (today review layer 2's outcomes per norm and the credit owed for the aliases; #12 adds the rest). Last `dataset.json`, the whole
  * dataset, and `_headers`, the static-asset headers of the deployed folder.
  */
 export function datasetFiles(dataset: Dataset): DatasetFile[] {

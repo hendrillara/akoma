@@ -1,5 +1,6 @@
 // The served API: HTTP request in, response out, over a built dataset (test seam 2).
 import type { Dataset } from "../schema/dataset.ts";
+import { discoveryFiles } from "./discovery.ts";
 import { createMcp, mcpRateLimited } from "./mcp.ts";
 import type { RateLimiter } from "./rate-limit.ts";
 import { createSearch } from "./search.ts";
@@ -37,6 +38,8 @@ export function createHandler(dataset: Dataset, options: HandlerOptions = {}): (
   const search = createSearch(dataset);
   // The remote MCP endpoint answers with the same views; it has its own methods (POST) and error envelope (JSON-RPC).
   const mcp = createMcp({ dataset, views, search });
+  // `/llms.txt` and the usage guide: fixed texts, written once.
+  const discovery = discoveryFiles(dataset);
 
   return async (request) => {
     const url = new URL(request.url);
@@ -56,6 +59,12 @@ export function createHandler(dataset: Dataset, options: HandlerOptions = {}): (
       return respond({ status: 405, json: { error: "method_not_allowed" }, md: () => "Método não permitido / Method not allowed.\n" }, format, {
         allow: "GET, HEAD",
       });
+    }
+    const file = discovery.get(url.pathname);
+    if (file) {
+      const headers = { "content-type": file.contentType, "cache-control": CACHE_OK, "access-control-allow-origin": "*" };
+      if (request.method === "HEAD") return new Response(null, { headers: { ...headers, "cache-control": "no-store" } });
+      return new Response(file.body, { headers });
     }
     if (asked !== "json" && asked !== "md") {
       const message = "format must be json or md";

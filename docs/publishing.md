@@ -43,7 +43,7 @@ The run status changes on every run, so it is not in `dataset/`, whose files onl
 - `status.json` holds `lastCheck` (instant, Brasília day, outcome, message, run link) and `lastChange` (the latest change: version, count, verdict, merged or not, PR). It also holds `openPullRequest` when a publish PR is still waiting, `tests` (the latest `pnpm verify` the job ran) and `sources`. Each source records its last attempt, last success, `failingSince`, last error and `lagHours`, the hours since the job last fetched it successfully. Primary pages are requested on every run; secondary sources and act pages only on runs that rebuild, so their lag also grows on quiet days.
 - `badge.json` is a [shields.io endpoint badge](https://shields.io/badges/endpoint-badge). It reads "current · checked <day>", "change awaiting review", "tests failing", "source unreachable", "source outage" or "job failed".
 
-README badge (for #19):
+README badge (in `README.md`, next to CI's):
 
 ```markdown
 [![Akoma status](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhendrillara%2Fakoma%2Fstatus%2Fbadge.json)](https://github.com/hendrillara/akoma/blob/status/status.json)
@@ -99,7 +99,7 @@ O `dataset/` é gerado, nunca editado. O `pnpm build:dataset` o refaz a partir d
 O status muda a cada execução, então não fica no `dataset/`. O job o grava, com force-push de um único commit, no branch `status`:
 
 - `status.json` traz a última checagem e a última mudança, o PR ainda aberto, os últimos testes e as fontes (último sucesso, `failingSince`, último erro, `lagHours`).
-- `badge.json` está no formato de badge endpoint do shields.io. O trecho do README está na seção em inglês acima, para o #19.
+- `badge.json` está no formato de badge endpoint do shields.io. O badge está no `README.md`, ao lado do badge do CI.
 
 ## O que o repositório precisa (mantenedor)
 
