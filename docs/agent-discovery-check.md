@@ -2,7 +2,7 @@
 
 **Question:** can an agent that is given only the MCP URL discover Akoma's tools and use them correctly?
 
-**Status:** passed locally on 2026-10-21, against `wrangler dev`. **Production verification is pending:** the service is not deployed yet. Repeat this check after the first deploy ([`deploy.md`](deploy.md) step 7, "MCP"), with `https://akoma.hendril.dev/mcp` in place of the local URL.
+**Status:** passed locally on 2026-10-21 against `wrangler dev`, and **passed in production on 2026-10-21** against `https://akoma.hendril.dev/mcp` (see "Production run" below).
 
 ## Setup
 
@@ -33,6 +33,15 @@ Before the agent runs, `/llms.txt`, `/usage.md`, `/v1/status`, `/status.json` (w
 - **Agent caution:** the agent noted that §§ 2º and 3º (also inserted by EC 141) are served as in force, without a pending date, and said it could not confirm whether they also wait for 2026-12-17. The data is right: EC 141's vigência clause (art. 10) defers only the change to inciso XV, and `test/vigencia.test.ts` covers this. The caution is reasonable. It also suggests that answers could quote the act's vigência clause, which is already in the JSON `pending[].vigencia` but not in the Markdown.
 - **Cost:** 6 turns, about 30 s.
 
+## Production run (2026-10-21)
+
+After the first deploy (Worker version `f1422443`, dataset 2026-10-21), the same two prompts ran against `{"akoma": {"type": "http", "url": "https://akoma.hendril.dev/mcp"}}` with the same flags.
+
+- **Discovery:** the agent listed `search`, `get_provision`, `get_structure` and `list_norms`.
+- **Run 1 (CDC):** one call, `get_provision {norm: "cdc", id: "art49"}`; 7 days, refund at once with monetary correction; art. 49 quoted verbatim with its source line. 2 turns, about 9 s.
+- **Run 2 (CF):** found art. 7º XV through `search`, quoted the wording in force and the EC 141 pending wording from 2026-12-17. The answer now quotes the act's vigência clause, so the earlier doubt about §§ 2º and 3º was answered from the data. 5 turns, about 25 s.
+- No call failed. In `wrangler tail` during the run, every request ended `ok`; MCP calls used 4–21 ms of CPU and search 1–2 ms.
+
 ## Conclusion
 
 Given only the MCP URL, the agent found the four tools. It chose `search` when it had no article number and `get_provision` for the exact text. It quoted the text verbatim, kept the source line and repeated the notice. No call failed. What this check does not cover: production behaviour (edge cache, rate-limit binding, CPU limits), other MCP clients, and the `/llms.txt` route discovered by an agent on its own. The seam 2 tests (`test/mcp.test.ts`, `test/discovery.test.ts`) cover the protocol in both eras and every example in `/llms.txt`, `/usage.md` and the README.
@@ -43,7 +52,7 @@ Given only the MCP URL, the agent found the four tools. It chose `search` when i
 
 **Pergunta:** um agente que recebe só a URL do MCP consegue descobrir as ferramentas do Akoma e usá-las direito?
 
-**Situação:** aprovada localmente em 2026-10-21, contra o `wrangler dev`. **A verificação em produção está pendente:** o serviço ainda não foi publicado. Repita esta verificação depois do primeiro deploy ([`deploy.md`](deploy.md), passo 7, "MCP"), com `https://akoma.hendril.dev/mcp` no lugar da URL local.
+**Situação:** aprovada localmente em 2026-10-21, contra o `wrangler dev`, e **aprovada em produção em 2026-10-21**, contra `https://akoma.hendril.dev/mcp` (veja "Rodada em produção" abaixo).
 
 ## Montagem
 
@@ -73,6 +82,15 @@ Antes das rodadas do agente, `/llms.txt`, `/usage.md`, `/v1/status`, `/status.js
 - **Resposta:** a redação em vigor ("repouso semanal remunerado, preferencialmente aos domingos;") e depois a redação pendente da EC 141/2026, a partir de 2026-12-17 ("…de 2 (dois) dias, um dos quais preferencialmente aos domingos;"). As duas foram citadas literalmente, com a linha da fonte, e a resposta explicou que a redação atual vale até essa data.
 - **Cautela do agente:** o agente notou que os §§ 2º e 3º (também incluídos pela EC 141) aparecem como em vigor, sem data pendente, e disse que não conseguia confirmar se eles também esperam 2026-12-17. O dado está certo: a cláusula de vigência da EC 141 (art. 10) só adia a mudança do inciso XV, e o `test/vigencia.test.ts` cobre isso. A cautela é razoável. Ela também sugere que as respostas poderiam citar a cláusula de vigência do ato, que já está no JSON (`pending[].vigencia`), mas não no Markdown.
 - **Custo:** 6 turnos, cerca de 30 s.
+
+## Rodada em produção (2026-10-21)
+
+Depois do primeiro deploy (versão `f1422443` do Worker, dataset 2026-10-21), os mesmos dois prompts rodaram contra `{"akoma": {"type": "http", "url": "https://akoma.hendril.dev/mcp"}}`, com as mesmas flags.
+
+- **Descoberta:** o agente listou `search`, `get_provision`, `get_structure` e `list_norms`.
+- **Rodada 1 (CDC):** uma chamada, `get_provision {norm: "cdc", id: "art49"}`; 7 dias, devolução imediata com correção monetária; art. 49 citado literalmente, com a linha da fonte. 2 turnos, cerca de 9 s.
+- **Rodada 2 (CF):** achou o art. 7º XV pela `search`, citou a redação em vigor e a redação pendente da EC 141 a partir de 2026-12-17. A resposta agora cita a cláusula de vigência do ato, então a dúvida anterior sobre os §§ 2º e 3º foi respondida pelos próprios dados. 5 turnos, cerca de 25 s.
+- Nenhuma chamada falhou. No `wrangler tail` durante a rodada, todas as requisições terminaram `ok`; as chamadas MCP usaram 4–21 ms de CPU e a busca, 1–2 ms.
 
 ## Conclusão
 
