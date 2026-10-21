@@ -1,6 +1,6 @@
 // The build pipeline: raw snapshots + norm manifests in, canonical dataset out.
 import { createHash } from "node:crypto";
-import type { Dataset, NormEntry, Provision } from "../schema/dataset.ts";
+import { NOTICE, type Dataset, type NormEntry, type Provision } from "../schema/dataset.ts";
 import type { Source } from "../sources/source.ts";
 import { parsePlanaltoPage, type PageLayout } from "./planalto.ts";
 
@@ -27,20 +27,26 @@ export async function build({ manifests, source, datasetVersion }: BuildInput): 
 
     const html = new TextDecoder(snapshot.encoding).decode(snapshot.body);
     const seen = new Set<string>();
-    for (const parsed of parsePlanaltoPage(html, manifest)) {
+    for (const parsed of parsePlanaltoPage(html, manifest, snapshot.url)) {
       // A duplicate means the parser misread the page (e.g. struck old wording kept); never let one shadow the other.
       if (seen.has(parsed.id)) throw new Error(`${manifest.key}: dispositivo id ${parsed.id} parsed twice`);
       seen.add(parsed.id);
       provisions.push({
         id: parsed.id,
         norm: manifest.key,
+        kind: parsed.kind,
+        label: parsed.label,
         path: parsed.path,
         text: parsed.text,
+        status: parsed.status,
+        amendments: parsed.amendments,
+        references: parsed.references,
         provenance: {
           sourceUrl: snapshot.url,
           retrievedAt: snapshot.retrievedAt,
           contentHash: `sha256:${createHash("sha256").update(parsed.text, "utf8").digest("hex")}`,
           datasetVersion,
+          notice: NOTICE,
         },
       });
     }

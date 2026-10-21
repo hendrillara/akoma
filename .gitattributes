@@ -1,1 +1,2 @@
 fixtures/** -text -diff
+test/fixtures/**/*.htm -text -diff

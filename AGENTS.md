@@ -5,11 +5,14 @@ Akoma mirrors Brazilian federal legislation (CF + ADCT first, then CDC, CLT…) 
 ## Map
 Check here before searching. When a listed path moves, update this Map in the same commit (the map check fails otherwise).
 - `src/schema/` — dataset types shared by the pipeline (producer) and the Worker (consumer)
-- `src/pipeline/` — the build: raw snapshots + norm manifests → dataset (test seam 1)
-- `src/norms/` — one declarative manifest per norm (`cf.ts` today: identity, primary Planalto URL, page quirks)
+- `src/pipeline/` — the build: raw snapshots + norm manifests → dataset (test seam 1); `planalto.ts` page → dispositivos, `annotations.ts` annotations → metadata, `files.ts` dataset → per-article JSON + Markdown mirrors
+- `src/norms/` — one declarative manifest per norm (`cf.ts`, `adct.ts`: identity, primary Planalto URL, page quirks)
 - `src/sources/` — the `Source` port and its adapters (recorded fixtures today; live HTTP next, per ADR 0001)
 - `src/worker/` — the served API: HTTP request → response over a dataset (test seam 2)
-- `test/` — seam tests only (`build.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
+- `test/` — seam tests only (`build.test.ts` and `cf-adct.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
+- `test/cf-adct.test.ts` — CF/ADCT golden set (hand-verified against the fixture HTML), structural invariants, full-text snapshot
+- `test/snapshots/` — committed full-text Markdown mirrors of the CF and ADCT (generated; never hand-edited)
+- `test/fixtures/` — scenario fixtures derived from real pages (`hygiene/`: cp1252 parser-hygiene page, see its README)
 - `fixtures/` — committed raw source captures (checksummed `index.json` per capture; normas.leg.br files are CC BY 4.0, see its README)
 - `scripts/probe-planalto.mjs` — checks whether Planalto serves a runner (Akoma UA, conditional GET, control UA)
 - `docs/adr/` — architecture decisions (0001: fetch Planalto directly from Actions; no R2 fallback in v1)
@@ -21,6 +24,7 @@ The full 2026-10-20 raw capture (all codes, 40 MB) is local-only in the git-igno
 
 ## Verify
 `pnpm verify` must pass before calling work done: typecheck, both seam test suites and the Map check (the same command CI runs). It needs no server and no network.
+A failing full-text snapshot (`test/snapshots/*.md`) means the CF/ADCT text changed: regenerate with `pnpm vitest run -u` only when a parser fix or a new fixture explains every line of the diff.
 
 ## Rules
 - Never hand-edit generated legal data (JSON/MD): fix the parser, manifest or tests and regenerate. Text corrections come from the source, never from a person.
