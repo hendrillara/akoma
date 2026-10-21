@@ -8,7 +8,7 @@
 
 1. Dataset: built from the committed fixtures (`fixtures/2026-10-20/`, `fixtures/2026-10-21/`) with `build()` and `datasetFiles()` into a local, uncommitted `dataset/` (version `2026.10.21-local`). It was deleted afterwards.
 2. Server: `pnpm dev --port 8787 --ip 127.0.0.1` (wrangler 4.151.2). This runs the real Worker bundle (`src/worker/main.ts` with the bundled `dataset.json`), with static assets in front.
-3. Agent: Claude Code in headless mode (`claude -p`, model Claude Opus 5.5), run from an empty directory. Its only configuration was an MCP config naming one server, `{"akoma": {"type": "http", "url": "http://127.0.0.1:8787/mcp"}}`, with `--strict-mcp-config`, `--tools ""` (no built-in tools) and `--allowedTools mcp__akoma`. The prompts gave no tool names, ids or article numbers.
+3. Agent: Claude Code in headless mode (`claude -p`, model Claude Opus 5.5), run from a scratch directory outside the repository. Its MCP servers were limited to one, `{"akoma": {"type": "http", "url": "http://127.0.0.1:8787/mcp"}}`, with `--strict-mcp-config`, `--tools ""` (no built-in tools, so it could read no files) and `--allowedTools mcp__akoma`. It was not run with `--bare`, so the operator's user-level Claude Code settings and instructions still loaded; none of them mentions Akoma. The prompts gave no tool names, ids or article numbers.
 
 Before the agent runs, `/llms.txt`, `/usage.md`, `/v1/status`, `/status.json` (with the Senado/LexML attribution) and a static file (`/cf/art5.json`) all answered 200 through the same server. A raw `initialize` returned the server's name and its bilingual instructions.
 
@@ -49,7 +49,7 @@ Given only the MCP URL, the agent found the four tools. It chose `search` when i
 
 1. Dataset: gerado das fixtures commitadas (`fixtures/2026-10-20/`, `fixtures/2026-10-21/`) com `build()` e `datasetFiles()` numa `dataset/` local, fora do commit (versão `2026.10.21-local`). Depois foi apagada.
 2. Servidor: `pnpm dev --port 8787 --ip 127.0.0.1` (wrangler 4.151.2). Isso roda o bundle real do Worker (`src/worker/main.ts` com o `dataset.json` empacotado), com os static assets na frente.
-3. Agente: Claude Code em modo headless (`claude -p`, modelo Claude Opus 5.5), rodando numa pasta vazia. A única configuração foi um MCP config com um servidor, `{"akoma": {"type": "http", "url": "http://127.0.0.1:8787/mcp"}}`, mais `--strict-mcp-config`, `--tools ""` (nenhuma ferramenta embutida) e `--allowedTools mcp__akoma`. Os prompts não deram nome de ferramenta, id nem número de artigo.
+3. Agente: Claude Code em modo headless (`claude -p`, modelo Claude Opus 5.5), rodando numa pasta de rascunho fora do repositório. Os servidores MCP ficaram limitados a um, `{"akoma": {"type": "http", "url": "http://127.0.0.1:8787/mcp"}}`, com `--strict-mcp-config`, `--tools ""` (nenhuma ferramenta embutida, então não podia ler arquivos) e `--allowedTools mcp__akoma`. Não rodou com `--bare`, então as configurações e instruções de usuário do Claude Code do operador ainda foram carregadas; nenhuma delas menciona o Akoma. Os prompts não deram nome de ferramenta, id nem número de artigo.
 
 Antes das rodadas do agente, `/llms.txt`, `/usage.md`, `/v1/status`, `/status.json` (com a atribuição ao Senado/LexML) e um arquivo estático (`/cf/art5.json`) responderam 200 pelo mesmo servidor. Um `initialize` cru devolveu o nome do servidor e as instruções bilíngues.
 

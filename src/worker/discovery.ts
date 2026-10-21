@@ -68,9 +68,9 @@ ${norms}
 function usage(norms: string, limits: string): string {
   return `# Akoma usage guide
 
-Base URL: ${BASE}. Read-only, no authentication. Everything below is also reachable over MCP at ${MCP_URL}.
+Base URL: ${BASE}. Read-only, no authentication. The MCP endpoint ${MCP_URL} serves the same data through four tools.
 
-PT: guia de uso para agentes. A API é só de leitura e sem autenticação; o mesmo conteúdo está no MCP em ${MCP_URL}. Cite o texto como veio e mantenha a linha da fonte: é texto não oficial, e a vigência não é verificada contra decisões do STF.
+PT: guia de uso para agentes. A API é só de leitura e sem autenticação; o MCP em ${MCP_URL} serve os mesmos dados por quatro ferramentas. Cite o texto como veio e mantenha a linha da fonte: é texto não oficial, e a vigência não é verificada contra decisões do STF.
 
 ## Norms
 
@@ -93,7 +93,7 @@ JSON by default; add \`format=md\` for the same Markdown the MCP tools return.
 - \`GET /v1/norms/{norm}\`: one norm with its counts.
 - \`GET /v1/norms/{norm}/structure\`: its outline.
 - \`GET /v1/provisions/{norm}/{id}\`: a dispositivo (\`/v1/provisions/cf/art5_cpt_inc10\`) or a whole article (\`/v1/provisions/cdc/art49\`).
-- \`GET /v1/search?q={query}[&norm={norm}][&limit=1–${MAX_LIMIT}]\`: ranked results (default ${DEFAULT_LIMIT}; \`q\` up to ${MAX_QUERY_LENGTH} characters), e.g. \`/v1/search?q=direito%20de%20arrependimento&norm=cdc\`.
+- \`GET /v1/search?q={query}[&norm={norm}][&limit=1–${MAX_LIMIT}]\`: ranked results (default ${DEFAULT_LIMIT}; \`q\` up to ${MAX_QUERY_LENGTH} characters), e.g. \`/v1/search?q=direito%20de%20arrependimento&norm=cdc\`. Each result is \`{score, provision}\`; \`attribution\` is added when a result carries aliases.
 - \`GET /v1/status\`: dataset version, per-norm counts and the source pages read.
 
 ## Ids

@@ -8,9 +8,9 @@ O **dataset do Akoma** é o que o build gera e o serviço publica: os arquivos d
 
 ## CC0 1.0, exceto os aliases
 
-Na medida do possível pela lei, os Akoma contributors renunciam a todos os direitos autorais e conexos sobre o dataset, sob a [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/legalcode.pt). Use, copie, modifique e redistribua sem pedir permissão nem dar crédito.
+Na medida do possível pela lei, os Akoma contributors renunciam a todos os direitos autorais e conexos sobre o dataset, sob a [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/legalcode). Use, copie, modifique e redistribua sem pedir permissão nem dar crédito.
 
-**Exceção: os campos `aliases`.** Eles são fragmentos de URN do **normas.leg.br / LexML Brasil, © Senado Federal**, sob a [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt-br). A CC0 não os cobre. Quem os redistribuir deve dar o crédito, que já vai junto: no campo `attribution` de cada norma que tem aliases, em toda resposta da API que traz aliases, no `status.json` e em `/v1/status`. O dataset não republica texto nem histórico do normas.leg.br, só esses ids.
+**Exceção: os campos `aliases`.** Eles são fragmentos de URN do **normas.leg.br / LexML Brasil, © Senado Federal**, sob a [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). A CC0 não os cobre. Quem os redistribuir deve dar o crédito, que já vai junto: no campo `attribution` de cada norma que tem aliases, em toda resposta da API que traz aliases, no `status.json` e em `/v1/status`. O dataset não republica texto nem histórico do normas.leg.br, só esses ids.
 
 ## O texto das leis
 
