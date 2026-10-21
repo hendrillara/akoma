@@ -1,0 +1,4 @@
+<!-- Título II › Art. 69 -->
+
+**Art. 69** Deixar de organizar dados fáticos, técnicos e científicos que dão base à publicidade:
+Pena Detenção de um a seis meses ou multa.

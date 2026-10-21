@@ -1,0 +1,49 @@
+<!-- Título II › Capítulo III › Art. 12 -->
+
+**Art. 12** São brasileiros:
+
+I - natos:
+
+a) os nascidos na República Federativa do Brasil, ainda que de pais estrangeiros, desde que estes não estejam a serviço de seu país;
+
+b) os nascidos no estrangeiro, de pai brasileiro ou mãe brasileira, desde que qualquer deles esteja a serviço da República Federativa do Brasil;
+
+c) os nascidos no estrangeiro de pai brasileiro ou de mãe brasileira, desde que sejam registrados em repartição brasileira competente ou venham a residir na República Federativa do Brasil e optem, em qualquer tempo, depois de atingida a maioridade, pela nacionalidade brasileira; *(Redação dada pela Emenda Constitucional nº 54, de 2007)*
+
+II - naturalizados:
+
+a) os que, na forma da lei, adquiram a nacionalidade brasileira, exigidas aos originários de países de língua portuguesa apenas residência por um ano ininterrupto e idoneidade moral;
+
+b) os estrangeiros de qualquer nacionalidade, residentes na República Federativa do Brasil há mais de quinze anos ininterruptos e sem condenação penal, desde que requeiram a nacionalidade brasileira. *(Redação dada pela Emenda Constitucional de Revisão nº 3, de 1994)*
+
+§ 1º Aos portugueses com residência permanente no País, se houver reciprocidade em favor de brasileiros, serão atribuídos os direitos inerentes ao brasileiro, salvo os casos previstos nesta Constituição. *(Redação dada pela Emenda Constitucional de Revisão nº 3, de 1994)*
+
+§ 2º A lei não poderá estabelecer distinção entre brasileiros natos e naturalizados, salvo nos casos previstos nesta Constituição.
+
+§ 3º São privativos de brasileiro nato os cargos:
+
+I - de Presidente e Vice-Presidente da República;
+
+II - de Presidente da Câmara dos Deputados;
+
+III - de Presidente do Senado Federal;
+
+IV - de Ministro do Supremo Tribunal Federal;
+
+V - da carreira diplomática;
+
+VI - de oficial das Forças Armadas.
+
+VII - de Ministro de Estado da Defesa. *(Incluído pela Emenda Constitucional nº 23, de 1999)*
+
+§ 4º Será declarada a perda da nacionalidade do brasileiro que:
+
+I - tiver cancelada sua naturalização, por sentença judicial, em virtude de fraude relacionada ao processo de naturalização ou de atentado contra a ordem constitucional e o Estado Democrático; *(Redação dada pela Emenda Constitucional nº 131, de 2023)*
+
+II - fizer pedido expresso de perda da nacionalidade brasileira perante autoridade brasileira competente, ressalvadas situações que acarretem apatridia. *(Redação dada pela Emenda Constitucional nº 131, de 2023)*
+
+a) revogada; *(Redação dada pela Emenda Constitucional nº 131, de 2023)*
+
+b) revogada. *(Redação dada pela Emenda Constitucional nº 131, de 2023)*
+
+§ 5º A renúncia da nacionalidade, nos termos do inciso II do § 4º deste artigo, não impede o interessado de readquirir sua nacionalidade brasileira originária, nos termos da lei. *(Incluído pela Emenda Constitucional nº 131, de 2023)*

@@ -1,0 +1,859 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art107-1",
+  "provisions": [
+    {
+      "id": "art107-1_cpt",
+      "aliases": [
+        "art107-1_cpt,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Até o fim de 2026, fica estabelecido, para cada exercício financeiro, limite para alocação na proposta orçamentária das despesas com pagamentos em virtude de sentença judiciária de que trata o art. 100 da Constituição Federal, equivalente ao valor da despesa paga no exercício de 2016, incluídos os restos a pagar pagos, corrigido, para o exercício de 2017, em 7,2% (sete inteiros e dois décimos por cento) e, para os exercícios posteriores, pela variação do Índice Nacional de Preços ao Consumidor Amplo (IPCA), publicado pela Fundação Instituto Brasileiro de Geografia e Estatística, ou de outro índice que vier a substituí-lo, apurado no exercício anterior a que se refere a lei orçamentária, devendo o espaço fiscal decorrente da diferença entre o valor dos precatórios expedidos e o respectivo limite ser destinado ao programa previsto no parágrafo único do art. 6º e à seguridade social, nos termos do art. 194, ambos da Constituição Federal, a ser calculado da seguinte forma:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 126, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 126, de 2022",
+            "type": "emenda_constitucional",
+            "number": "126",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc126.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:081e0e679f6c98380b364016e63dd611414ca971b9aa6b1f99366d0e9167d56a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_cpt_inc1",
+      "aliases": [
+        "art107-1_cpt_inc1,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "no exercício de 2022, o espaço fiscal decorrente da diferença entre o valor dos precatórios expedidos e o limite estabelecido no caput deste artigo deverá ser destinado ao programa previsto no parágrafo único do art. 6º e à seguridade social, nos termos do art. 194, ambos da Constituição Federal;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b34d65376fcfccf257b3096b26387c067d2a287c9425439033e353f28077a3af",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_cpt_inc2",
+      "aliases": [
+        "art107-1_cpt_inc2,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "no exercício de 2023, pela diferença entre o total de precatórios expedidos entre 2 de julho de 2021 e 2 de abril de 2022 e o limite de que trata o caput deste artigo válido para o exercício de 2023; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI 7064",
+          "number": "7064",
+          "href": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=6330822"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c3a48f3340a31db80a4f22caccbf8e3befef4d3abc39a0f019be634978a7a89b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_cpt_inc3",
+      "aliases": [
+        "art107-1_cpt_inc3,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "nos exercícios de 2024 a 2026, pela diferença entre o total de precatórios expedidos entre 3 de abril de dois anos anteriores e 2 de abril do ano anterior ao exercício e o limite de que trata o caput deste artigo válido para o mesmo exercício.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI 7064",
+          "number": "7064",
+          "href": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=6330822"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:25a276bb2a9684a83d45d75d04ccc8df6b58b105851117b303c987a6281c3f10",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_par1",
+      "aliases": [
+        "art107-1_par1,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "O limite para o pagamento de precatórios corresponderá, em cada exercício, ao limite previsto no caput deste artigo, reduzido da projeção para a despesa com o pagamento de requisições de pequeno valor para o mesmo exercício, que terão prioridade no pagamento.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f33552f13ffcdb84aa0e8adba4e1b210f0a4aae6246ff77ed7aec676a99560d2",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_par2",
+      "aliases": [
+        "art107-1_par2,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Os precatórios que não forem pagos em razão do previsto neste artigo terão prioridade para pagamento em exercícios seguintes, observada a ordem cronológica e o disposto no § 8º deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:914ed5e832b2011f2924ba84869fa43bca518c28cd6c100e4600c0eb41bb59ca",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_par3",
+      "aliases": [
+        "art107-1_par3,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "É facultado ao credor de precatório que não tenha sido pago em razão do disposto neste artigo, além das hipóteses previstas no § 11 do art. 100 da Constituição Federal e sem prejuízo dos procedimentos previstos nos §§ 9º e 21 do referido artigo, optar pelo recebimento, mediante acordos diretos perante Juízos Auxiliares de Conciliação de Pagamento de Condenações Judiciais contra a Fazenda Pública Federal, em parcela única, até o final do exercício seguinte, com renúncia de 40% (quarenta por cento) do valor desse crédito.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI 7064",
+          "number": "7064",
+          "href": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=6330822"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ed33fc4bfdf59e7e99d493e18ec62b54171b3930a31ac5ba18515954a04a0606",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_par4",
+      "aliases": [
+        "art107-1_par4,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "O Conselho Nacional de Justiça regulamentará a atuação dos Presidentes dos Tribunais competentes para o cumprimento deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:484eedac9d57f040ded803c04e89c6d400cc2a6a8ae652d8724689c7f069a322",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_par5",
+      "aliases": [
+        "art107-1_par5,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "Não se incluem no limite estabelecido neste artigo as despesas para fins de cumprimento do disposto nos §§ 11, 20 e 21 do art. 100 da Constituição Federal e no § 3º deste artigo, bem como a atualização monetária dos precatórios inscritos no exercício.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI 7064",
+          "number": "7064",
+          "href": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=6330822"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:37cd9c534945104efc7815be4061cf3df75cd063c8573d70a3ea1979dcbc8b05",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_par6",
+      "aliases": [
+        "art107-1_par6,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 6º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 6º"
+        }
+      ],
+      "text": "Não se incluem nos limites estabelecidos no art. 107 deste Ato das Disposições Constitucionais Transitórias o previsto nos §§ 11, 20 e 21 do art. 100 da Constituição Federal e no § 3º deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI 7064",
+          "number": "7064",
+          "href": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=6330822"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:20081479f06d1c2e398dcd73d3f11982577197cd5229863668caed2d3b054d7b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_par7",
+      "aliases": [
+        "art107-1_par7,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 7º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 7º"
+        }
+      ],
+      "text": "Na situação prevista no § 3º deste artigo, para os precatórios não incluídos na proposta orçamentária de 2022, os valores necessários à sua quitação serão providenciados pela abertura de créditos adicionais durante o exercício de 2022.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:dba52ec6f6b4817388c250d24e958d946f3d54d3a6c0b12d5c01761c9c9ded4d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_par8",
+      "aliases": [
+        "art107-1_par8,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 8º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        }
+      ],
+      "text": "Os pagamentos em virtude de sentença judiciária de que trata o art. 100 da Constituição Federal serão realizados na seguinte ordem:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:245cca4c8f806d467b96e92cfd82eff67a5b78dd182d380cf8b12ee4aeeafb15",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_par8_inc1",
+      "aliases": [
+        "art107-1_par8_inc1,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "obrigações definidas em lei como de pequeno valor, previstas no § 3º do art. 100 da Constituição Federal;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:257f80a91b248231314b18c79a64735c8cad26b683ddb00be5303421a12baaf3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_par8_inc2",
+      "aliases": [
+        "art107-1_par8_inc2,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "precatórios de natureza alimentícia cujos titulares, originários ou por sucessão hereditária, tenham no mínimo 60 (sessenta) anos de idade, ou sejam portadores de doença grave ou pessoas com deficiência, assim definidos na forma da lei, até o valor equivalente ao triplo do montante fixado em lei como obrigação de pequeno valor;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:048d10fdde41e3606c1eae34e7cbf8bc9dfb450c7d435afc42916cef53ff856e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_par8_inc3",
+      "aliases": [
+        "art107-1_par8_inc3,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "demais precatórios de natureza alimentícia até o valor equivalente ao triplo do montante fixado em lei como obrigação de pequeno valor;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        },
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b9ac63b1d659b972d727e2c06fde2201f0e5ef7a329d4261eb0733c69c4825d3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_par8_inc4",
+      "aliases": [
+        "art107-1_par8_inc4,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "demais precatórios de natureza alimentícia além do valor previsto no inciso III deste parágrafo;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:27b90e52863d52544d5f22dcff0006f4ebdc31c1452fe789f92eabc6d696269b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107-1_par8_inc5",
+      "aliases": [
+        "art107-1_par8_inc5,emc-114-2021-12-16"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 107-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "demais precatórios.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 114, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 114, de 2021",
+            "type": "emenda_constitucional",
+            "number": "114",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc114.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7ac720f7021f55ac33df9d38cdeec9a71a03affd5973618e94edf555704c4d80",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

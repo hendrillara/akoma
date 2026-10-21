@@ -1,0 +1,5 @@
+<!-- Título IV › Capítulo I › Seção VIII › Subseção III › Art. 65 -->
+
+**Art. 65** O projeto de lei aprovado por uma Casa será revisto pela outra, em um só turno de discussão e votação, e enviado à sanção ou promulgação, se a Casa revisora o aprovar, ou arquivado, se o rejeitar.
+
+Parágrafo único. Sendo o projeto emendado, voltará à Casa iniciadora.

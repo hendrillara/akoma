@@ -6,49 +6,79 @@
       "file": "planalto/constituicaocompilado.htm",
       "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
       "encoding": "windows-1252",
-      "headers": { "etag": "\"16f927-65e33e3582f2c\"", "last-modified": "Mon, 19 Oct 2026 16:20:10 GMT" },
-      "sha256": "6ca43f8d860d1f438f25e293f45e531f12346333474f4b8fba4f43dd511d1949",
-      "bytes": 1507134
+      "headers": {
+        "etag": "\"16f927-65e33e3582f2c\"",
+        "last-modified": "Mon, 19 Oct 2026 16:20:10 GMT"
+      },
+      "retrievedAt": "2026-10-21T01:26:39Z",
+      "sha256": "d15d3a8a4330e3d87ff8a3f16f0233af82f46ec23e5b00ed9f7f68542dcd32c5",
+      "bytes": 1505553,
+      "edits": "Page metadata redacted by src/sources/redact.ts (every <meta> but the charset declaration, every comment and every script, style and title content blanked: here the FrontPage GENERATOR/ProgId metas, the title, the inline CSS and the scripts, including the F5 WAF token); see README.",
+      "servedSha256": "6ca43f8d860d1f438f25e293f45e531f12346333474f4b8fba4f43dd511d1949",
+      "servedBytes": 1507134
     },
     {
       "file": "planalto/constituicao.htm",
       "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
       "encoding": "windows-1252",
-      "headers": { "etag": "\"1c2b8c-65e33e305558b\"", "last-modified": "Mon, 19 Oct 2026 16:20:05 GMT" },
-      "sha256": "ad2b0e00353765061381e6259f89e92c85561b95b1330f6f4f9b56823852927e",
-      "bytes": 1847715
+      "headers": {
+        "etag": "\"1c2b8c-65e33e305558b\"",
+        "last-modified": "Mon, 19 Oct 2026 16:20:05 GMT"
+      },
+      "sha256": "f1e771de7ec0ac394bd001433b17cf6464af113cef42773f5e1df05435eb0caf",
+      "bytes": 1846010,
+      "edits": "Page metadata redacted by src/sources/redact.ts (every <meta> but the charset declaration, every comment and every script, style and title content blanked: here the FrontPage GENERATOR/ProgId metas, the title, the inline CSS and the scripts, including the F5 WAF token); see README.",
+      "servedSha256": "ad2b0e00353765061381e6259f89e92c85561b95b1330f6f4f9b56823852927e",
+      "servedBytes": 1847715
     },
     {
       "file": "planalto/l8078compilado.htm",
       "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
       "encoding": "windows-1252",
-      "headers": { "last-modified": "Tue, 13 Oct 2026 09:50:35 GMT" },
-      "sha256": "b0f83f0970199e735362c55ee6a623512a4febce8943759632676845b7c74309",
-      "bytes": 170672
+      "headers": {
+        "last-modified": "Tue, 13 Oct 2026 09:50:35 GMT"
+      },
+      "sha256": "08ade3ccfe548bab29ef4f96865188eb137b267eb042391ca7dd3f6f9a630026",
+      "bytes": 169099,
+      "edits": "Page metadata redacted by src/sources/redact.ts (every <meta> but the charset declaration, every comment and every script, style and title content blanked: here the FrontPage GENERATOR/ProgId metas, the title, the inline CSS and the scripts, including the F5 WAF token); see README.",
+      "servedSha256": "b0f83f0970199e735362c55ee6a623512a4febce8943759632676845b7c74309",
+      "servedBytes": 170672
     },
     {
       "file": "planalto/quadro_emc.htm",
       "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/quadro_emc.htm",
       "encoding": "windows-1252",
-      "headers": { "etag": "\"147d6-65df8bee18252\"", "last-modified": "Fri, 16 Oct 2026 17:46:35 GMT" },
-      "sha256": "4fc0dce2c8e206b5cc6a8cb479d691655f6a3ea5d09bdc8a8241f73e75f2ebcf",
-      "bytes": 85485
+      "headers": {
+        "etag": "\"147d6-65df8bee18252\"",
+        "last-modified": "Fri, 16 Oct 2026 17:46:35 GMT"
+      },
+      "sha256": "8e366c156b920b9dc1aef5ea23217621f4e906ff62f5f7cb9f9aaa75aa7cf87a",
+      "bytes": 83916,
+      "edits": "Page metadata redacted by src/sources/redact.ts (every <meta> but the charset declaration, every comment and every script, style and title content blanked: here the FrontPage GENERATOR/ProgId metas, the title, the inline CSS and the scripts, including the F5 WAF token); see README.",
+      "servedSha256": "4fc0dce2c8e206b5cc6a8cb479d691655f6a3ea5d09bdc8a8241f73e75f2ebcf",
+      "servedBytes": 85485
     },
     {
       "file": "planalto/emc140.htm",
       "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc140.htm",
       "encoding": "windows-1252",
       "headers": {},
-      "sha256": "a3d3ae25c27c276f9e73ae2fcaeee889d6a5b41e59202fd9599a601d481b3af5",
-      "bytes": 49669
+      "sha256": "96a31efefd330c08af7590f0f2efb1c68634a6eebadb61932009286bb90fb44c",
+      "bytes": 47911,
+      "edits": "Page metadata redacted by src/sources/redact.ts (every <meta> but the charset declaration, every comment and every script, style and title content blanked: here the FrontPage GENERATOR/ProgId metas, the title, the inline CSS and the scripts, including the F5 WAF token); see README.",
+      "servedSha256": "a3d3ae25c27c276f9e73ae2fcaeee889d6a5b41e59202fd9599a601d481b3af5",
+      "servedBytes": 49669
     },
     {
       "file": "planalto/emc141.htm",
       "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm",
       "encoding": "windows-1252",
       "headers": {},
-      "sha256": "3072130815300659c529bc85f9b6d190dfcb9fe9c07032584002c348ee9df056",
-      "bytes": 32333
+      "sha256": "d50ea58f2f317e2936d36a4d45d3d687e72e73f5597fad71574cd025a506abf8",
+      "bytes": 30575,
+      "edits": "Page metadata redacted by src/sources/redact.ts (every <meta> but the charset declaration, every comment and every script, style and title content blanked: here the FrontPage GENERATOR/ProgId metas, the title, the inline CSS and the scripts, including the F5 WAF token); see README.",
+      "servedSha256": "3072130815300659c529bc85f9b6d190dfcb9fe9c07032584002c348ee9df056",
+      "servedBytes": 32333
     },
     {
       "file": "normas-leg-br/constituicao.json",

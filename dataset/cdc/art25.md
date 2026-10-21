@@ -1,0 +1,7 @@
+<!-- Título I › Capítulo IV › Seção III › Art. 25 -->
+
+**Art. 25** É vedada a estipulação contratual de cláusula que impossibilite, exonere ou atenue a obrigação de indenizar prevista nesta e nas seções anteriores.
+
+§ 1º Havendo mais de um responsável pela causação do dano, todos responderão solidariamente pela reparação prevista nesta e nas seções anteriores.
+
+§ 2º Sendo o dano causado por componente ou peça incorporada ao produto ou serviço, são responsáveis solidários seu fabricante, construtor ou importador e o que realizou a incorporação.

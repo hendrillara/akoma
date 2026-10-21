@@ -1,0 +1,244 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art74",
+  "provisions": [
+    {
+      "id": "art74_cpt",
+      "aliases": [
+        "art74_cpt,emc-12-1996-08-15"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 74"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "A União poderá instituir contribuição provisória sobre movimentação ou transmissão de valores e de créditos e direitos de natureza financeira.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 12, de 1996",
+          "act": {
+            "citation": "Emenda Constitucional nº 12, de 1996",
+            "type": "emenda_constitucional",
+            "number": "12",
+            "year": 1996,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc12.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:83680fbbf736b4adb175499f10cdef684a4b96984c9eafd4231a2f694863c367",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art74_par1",
+      "aliases": [
+        "art74_par1,emc-12-1996-08-15"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 74"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "A alíquota da contribuição de que trata este artigo não excederá a vinte e cinco centésimos por cento, facultado ao Poder Executivo reduzi-la ou restabelecê-la, total ou parcialmente, nas condições e limites fixados em lei.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 12, de 1996",
+          "act": {
+            "citation": "Emenda Constitucional nº 12, de 1996",
+            "type": "emenda_constitucional",
+            "number": "12",
+            "year": 1996,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc12.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:50967ad0a01add8adb4a3e10ac16fbef5da5c2557d637a3ad2c15149c3843ab5",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br",
+          "note": "Known divergence, reviewed: normas.leg.br leaves the ordinal mark of the label \"§ 1º\" glued to the start of the text."
+        }
+      }
+    },
+    {
+      "id": "art74_par2",
+      "aliases": [
+        "art74_par2,emc-12-1996-08-15"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 74"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "A contribuição de que trata este artigo não se aplica o disposto nos arts. 153, § 5º, e 154, I, da Constituição.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 12, de 1996",
+          "act": {
+            "citation": "Emenda Constitucional nº 12, de 1996",
+            "type": "emenda_constitucional",
+            "number": "12",
+            "year": 1996,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc12.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e5742e2f048114a6f8e49efee9b1e52367f82b96ebc848fc18fd005f3dc0688c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br",
+          "note": "Known divergence, reviewed: normas.leg.br leaves the ordinal mark of the label \"§ 2º\" glued to the start of the text."
+        }
+      }
+    },
+    {
+      "id": "art74_par3",
+      "aliases": [
+        "art74_par3,emc-12-1996-08-15"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 74"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "O produto da arrecadação da contribuição de que trata este artigo será destinado integralmente ao Fundo Nacional de Saúde, para financiamento das ações e serviços de saúde.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 12, de 1996",
+          "act": {
+            "citation": "Emenda Constitucional nº 12, de 1996",
+            "type": "emenda_constitucional",
+            "number": "12",
+            "year": 1996,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc12.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f55d1c74fc7df90b64fc66a7cdb04ffd4761f1601e48b633d34fafa5b768bc06",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art74_par4",
+      "aliases": [
+        "art74_par4,emc-12-1996-08-15"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 74"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "A contribuição de que trata este artigo terá sua exigibilidade subordinada ao disposto no art. 195, § 6º, da Constituição, e não poderá ser cobrada por prazo superior a dois anos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 12, de 1996",
+          "act": {
+            "citation": "Emenda Constitucional nº 12, de 1996",
+            "type": "emenda_constitucional",
+            "number": "12",
+            "year": 1996,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc12.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:685da4c6e98238c797a6b585d086a154dedd54c767b6a3bef9a4d098336a38ee",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br",
+          "note": "Known divergence, reviewed: normas.leg.br leaves the ordinal mark of the label \"§ 4º\" glued to the start of the text."
+        }
+      }
+    }
+  ]
+}

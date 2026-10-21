@@ -1,0 +1,3 @@
+<!-- Título II › Art. 61 -->
+
+**Art. 61** Constituem crimes contra as relações de consumo previstas neste código, sem prejuízo do disposto no Código Penal e leis especiais, as condutas tipificadas nos artigos seguintes.

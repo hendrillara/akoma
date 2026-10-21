@@ -1,0 +1,57 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art122",
+  "provisions": [
+    {
+      "id": "art122_cpt",
+      "aliases": [
+        "art122_cpt,emc-126-2022-12-21"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 122"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "As transferências financeiras realizadas pelo Fundo Nacional de Saúde e pelo Fundo Nacional de Assistência Social diretamente aos fundos de saúde e assistência social estaduais, municipais e distritais, para enfrentamento da pandemia da Covid-19, poderão ser executadas pelos entes federativos até 31 de dezembro de 2023.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 126, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 126, de 2022",
+            "type": "emenda_constitucional",
+            "number": "126",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc126.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a79fbc94ab8ac7bbfde0402a78d4f857949919c30b5b220839c010eee0aadf14",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

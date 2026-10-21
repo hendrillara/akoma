@@ -1,0 +1,25 @@
+{
+  "capturedOn": "2026-10-23",
+  "snapshots": [
+    {
+      "file": "page.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+      "encoding": "windows-1252",
+      "headers": {
+        "last-modified": "Thu, 22 Oct 2026 09:50:35 GMT"
+      },
+      "retrievedAt": "2026-10-23T01:30:00Z",
+      "sha256": "9ed180a6727713c4640206cf709e1b33c80abd8f119096ca43b709c0236eda5a",
+      "bytes": 169376
+    },
+    {
+      "file": "L15999.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/L15999.htm",
+      "encoding": "windows-1252",
+      "headers": {},
+      "retrievedAt": "2026-10-23T01:30:00Z",
+      "sha256": "b69a42032d7afa148b5ac89b7bb0e7b26608a550f444afd727f28f8ff3504280",
+      "bytes": 2751
+    }
+  ]
+}

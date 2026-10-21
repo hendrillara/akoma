@@ -1,0 +1,25 @@
+<!-- Art. 72 -->
+
+**Art. 72** Integram o Fundo Social de Emergência: *(Incluído pela Emenda Constitucional de Revisão nº 1, de 1994)*
+
+I - o produto da arrecadação do imposto sobre renda e proventos de qualquer natureza incidente na fonte sobre pagamentos efetuados, a qualquer título, pela União, inclusive suas autarquias e fundações; *(Incluído pela Emenda Constitucional de Revisão nº 1, de 1994)* *(Vide Emenda Constitucional nº 17, de 1997)*
+
+II - a parcela do produto da arrecadação do imposto sobre renda e proventos de qualquer natureza e do imposto sobre operações de crédito, câmbio e seguro, ou relativas a títulos e valores mobiliários, decorrente das alterações produzidas pela Lei nº 8.894, de 21 de junho de 1994 , e pelas Leis nºs 8.849 e 8.848, ambas de 28 de janeiro de 1994 , e modificações posteriores; *(Redação dada pela Emenda Constitucional nº 10, de 1996)*
+
+III - a parcela do produto da arrecadação resultante da elevação da alíquota da contribuição social sobre o lucro dos contribuintes a que se refere o § 1º do Art. 22 da Lei nº 8.212, de 24 de julho de 1991 , a qual, nos exercícios financeiros de 1994 e 1995, bem assim no período de 1º de janeiro de 1996 a 30 de junho de 1997, passa a ser de trinta por cento, sujeita a alteração por lei ordinária, mantidas as demais normas da Lei nº 7.689, de 15 de dezembro de 1988 ; *(Redação dada pela Emenda Constitucional nº 10, de 1996)*
+
+IV - vinte por cento do produto da arrecadação de todos os impostos e contribuições da União, já instituídos ou a serem criados, excetuado o previsto nos incisos I, II e III, observado o disposto nos §§ 3º e 4º; *(Redação dada pela Emenda Constitucional nº 10, de 1996)*
+
+V - a parcela do produto da arrecadação da contribuição de que trata a Lei Complementar nº 7, de 7 de setembro de 1970, devida pelas pessoas jurídicas a que se refere o inciso III deste artigo, a qual será calculada, nos exercícios financeiros de 1994 a 1995, bem assim nos períodos de 1º de janeiro de 1996 a 30 de junho de 1997 e de 1º de julho de 1997 a 31 de dezembro de 1999, mediante a aplicação da alíquota de setenta e cinco centésimos por cento, sujeita a alteração por lei ordinária posterior, sobre a receita bruta operacional, como definida na legislação do imposto sobre renda e proventos de qualquer natureza. *(Redação dada pela Emenda Constitucional nº 17, de 1997)* *(Vide Emenda Constitucional nº 17, de 1997)*
+
+VI - outras receitas previstas em lei específica. *(Incluído pela Emenda Constitucional de Revisão nº 1, de 1994)*
+
+§ 1º As alíquotas e a base de cálculo previstas nos incisos III e V aplicar-se-ão a partir do primeiro dia do mês seguinte aos noventa dias posteriores à promulgação desta Emenda. *(Incluído pela Emenda Constitucional de Revisão nº 1, de 1994)*
+
+§ 2º As parcelas de que tratam os incisos I, II, III e V serão previamente deduzidas da base de cálculo de qualquer vinculação ou participação constitucional ou legal, não se lhes aplicando o disposto nos artigos, 159, 212 e 239 da Constituição. *(Redação dada pela Emenda Constitucional nº 10, de 1996)*
+
+§ 3º A parcela de que trata o inciso IV será previamente deduzida da base de cálculo das vinculações ou participações constitucionais previstas nos artigos 153, § 5º, 157, II, 212 e 239 da Constituição. *(Redação dada pela Emenda Constitucional nº 10, de 1996)*
+
+§ 4º O disposto no parágrafo anterior não se aplica aos recursos previstos nos Artigos 158, II e 159 da Constituição. *(Redação dada pela Emenda Constitucional nº 10, de 1996)*
+
+§ 5º A parcela dos recursos provenientes do imposto sobre renda e proventos de qualquer natureza, destinada ao Fundo Social de Emergência, nos termos do inciso II deste artigo, não poderá exceder a cinco inteiros e seis décimos por cento do total do produto da sua arrecadação. *(Redação dada pela Emenda Constitucional nº 10, de 1996)*

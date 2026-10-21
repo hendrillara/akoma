@@ -1,0 +1,16 @@
+{
+  "capturedOn": "2026-10-15",
+  "snapshots": [
+    {
+      "file": "page.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+      "encoding": "windows-1252",
+      "headers": {
+        "last-modified": "Mon, 05 Oct 2026 09:50:35 GMT"
+      },
+      "retrievedAt": "2026-10-15T01:30:00Z",
+      "sha256": "92e31d0592d9de4444eb83e783d7cec821dd320732d83a14e4c7d2a82aca1049",
+      "bytes": 168772
+    }
+  ]
+}

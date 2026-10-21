@@ -1,0 +1,9 @@
+<!-- Art. 71 -->
+
+**Art. 71** É instituído, nos exercícios financeiros de 1994 e 1995, bem assim nos períodos de 01/01/1996 a 30/06/97 e 01/07/97 a 31/12/1999, o Fundo Social de Emergência, com o objetivo de saneamento financeiro da Fazenda Pública Federal e de estabilização econômica, cujos recursos serão aplicados prioritariamente no custeio das ações dos sistemas de saúde e educação, incluindo a complementação de recursos de que trata o § 3º do art. 60 do Ato das Disposições Constitucionais Transitórias, benefícios previdenciários e auxílios assistenciais de prestação continuada, inclusive liquidação de passivo previdenciário, e despesas orçamentárias associadas a programas de relevante interesse econômico e social. *(Redação dada pela Emenda Constitucional nº 17, de 1997)* *(Vide Emenda Constitucional nº 17, de 1997)*
+
+§ 1º Ao Fundo criado por este artigo não se aplica o disposto na parte final do inciso II do § 9º do art. 165 da Constituição. *(Renumerado do parágrafo único, pela Emenda Constitucional nº 10, de 1996)*
+
+§ 2º O Fundo criado por este artigo passa a ser denominado Fundo de Estabilização Fiscal a partir do início do exercício financeiro de 1996. *(Incluído pela Emenda Constitucional nº 10, de 1996)*
+
+§ 3º O Poder Executivo publicará demonstrativo da execução orçamentária, de periodicidade bimestral, no qual se discriminarão as fontes e usos do Fundo criado por este artigo. *(Incluído pela Emenda Constitucional nº 10, de 1996)*

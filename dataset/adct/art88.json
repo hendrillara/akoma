@@ -1,0 +1,149 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art88",
+  "provisions": [
+    {
+      "id": "art88_cpt",
+      "aliases": [
+        "art88_cpt,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 88"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Enquanto lei complementar não disciplinar o disposto nos incisos I e III do § 3º do art. 156 da Constituição Federal, o imposto a que se refere o inciso III do caput do mesmo artigo:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f71e8b522ad50b68c1efd6d3d921cff6f406501c3976041528a9da503194db49",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art88_cpt_inc1",
+      "aliases": [
+        "art88_cpt_inc1,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 88"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "terá alíquota mínima de dois por cento, exceto para os serviços a que se referem os itens 32, 33 e 34 da Lista de Serviços anexa ao Decreto-Lei nº 406, de 31 de dezembro de 1968;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ce23f34b928829a374f373c4d66649cf0f5a1dbe3e2834894bfd97fd0c4b4930",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art88_cpt_inc2",
+      "aliases": [
+        "art88_cpt_inc2,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 88"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "não será objeto de concessão de isenções, incentivos e benefícios fiscais, que resulte, direta ou indiretamente, na redução da alíquota mínima estabelecida no inciso I.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7d69f4d7562fa92052cf922a4aa7a973fcf952195f87d709173429c1af9e9cf8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

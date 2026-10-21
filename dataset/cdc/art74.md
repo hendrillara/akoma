@@ -1,0 +1,4 @@
+<!-- Título II › Art. 74 -->
+
+**Art. 74** Deixar de entregar ao consumidor o termo de garantia adequadamente preenchido e com especificação clara de seu conteúdo;
+Pena Detenção de um a seis meses ou multa.

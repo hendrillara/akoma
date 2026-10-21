@@ -1,0 +1,19 @@
+<!-- Título I › Capítulo VI › Seção II › Art. 52 -->
+
+**Art. 52** No fornecimento de produtos ou serviços que envolva outorga de crédito ou concessão de financiamento ao consumidor, o fornecedor deverá, entre outros requisitos, informá-lo prévia e adequadamente sobre:
+
+I - preço do produto ou serviço em moeda corrente nacional;
+
+II - montante dos juros de mora e da taxa efetiva anual de juros;
+
+III - acréscimos legalmente previstos;
+
+IV - número e periodicidade das prestações;
+
+V - soma total a pagar, com e sem financiamento.
+
+§ 1º As multas de mora decorrentes do inadimplemento de obrigações no seu termo não poderão ser superiores a dois por cento do valor da prestação. *(Redação dada pela Lei nº 9.298, de 1º.8.1996)*
+
+§ 2º É assegurado ao consumidor a liquidação antecipada do débito, total ou parcialmente, mediante redução proporcional dos juros e demais acréscimos.
+
+§ 3º (Vetado).

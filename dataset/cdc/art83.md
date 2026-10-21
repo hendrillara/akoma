@@ -1,0 +1,5 @@
+<!-- Título III › Capítulo I › Art. 83 -->
+
+**Art. 83** Para a defesa dos direitos e interesses protegidos por este código são admissíveis todas as espécies de ações capazes de propiciar sua adequada e efetiva tutela.
+
+Parágrafo único. (Vetado).

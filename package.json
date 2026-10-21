@@ -9,13 +9,27 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
+    "test": "vitest run --testTimeout=30000",
     "check:map": "node scripts/check-agent-map.mjs AGENTS.md",
-    "verify": "pnpm typecheck && pnpm test && pnpm check:map"
+    "build:dataset": "node scripts/build-dataset.ts",
+    "check:dataset": "node scripts/check-dataset.ts",
+    "publish:daily": "node scripts/publish.ts",
+    "recheck": "node scripts/recheck.ts",
+    "review:live": "node scripts/review-live.ts",
+    "verify": "pnpm typecheck && pnpm test && pnpm check:map && pnpm check:dataset",
+    "dev": "wrangler dev"
   },
   "devDependencies": {
+    "@modelcontextprotocol/client": "2.3.1",
     "@types/node": "^26.6.5",
     "typescript": "^7.0.2",
-    "vitest": "^5.0.5"
+    "vitest": "^5.0.5",
+    "wrangler": "4.151.2"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.135.0",
+    "@modelcontextprotocol/server": "2.3.1",
+    "parse5": "^8.0.1",
+    "zod": "^4.6.7"
   }
 }

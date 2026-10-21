@@ -1,0 +1,83 @@
+<!-- Título II › Capítulo II › Art. 7º -->
+
+**Art. 7º** São direitos dos trabalhadores urbanos e rurais, além de outros que visem à melhoria de sua condição social:
+
+I - relação de emprego protegida contra despedida arbitrária ou sem justa causa, nos termos de lei complementar, que preverá indenização compensatória, dentre outros direitos;
+
+II - seguro-desemprego, em caso de desemprego involuntário;
+
+III - fundo de garantia do tempo de serviço;
+
+IV - salário mínimo , fixado em lei, nacionalmente unificado, capaz de atender a suas necessidades vitais básicas e às de sua família com moradia, alimentação, educação, saúde, lazer, vestuário, higiene, transporte e previdência social, com reajustes periódicos que lhe preservem o poder aquisitivo, sendo vedada sua vinculação para qualquer fim;
+
+V - piso salarial proporcional à extensão e à complexidade do trabalho;
+
+VI - irredutibilidade do salário, salvo o disposto em convenção ou acordo coletivo;
+
+VII - garantia de salário, nunca inferior ao mínimo, para os que percebem remuneração variável;
+
+VIII - décimo terceiro salário com base na remuneração integral ou no valor da aposentadoria;
+
+IX - remuneração do trabalho noturno superior à do diurno;
+
+X - proteção do salário na forma da lei, constituindo crime sua retenção dolosa;
+
+XI - participação nos lucros, ou resultados, desvinculada da remuneração, e, excepcionalmente, participação na gestão da empresa, conforme definido em lei;
+
+XII - salário-família pago em razão do dependente do trabalhador de baixa renda nos termos da lei; *(Redação dada pela Emenda Constitucional nº 20, de 1998)*
+
+XIII - duração do trabalho normal não superior a 8 (oito) horas diárias e 40 (quarenta) horas semanais, facultada a compensação de horários e a redução da jornada, mediante acordo ou convenção coletiva de trabalho; *(Redação dada pela Emenda Constitucional nº 141, de 2026)*
+
+XIV - jornada de seis horas para o trabalho realizado em turnos ininterruptos de revezamento, salvo negociação coletiva;
+
+XV - repouso semanal remunerado, preferencialmente aos domingos; *(Vide Emenda Constitucional nº 141, de 2026)* *(Vigência)*
+
+> **Pendente a partir de 2026-12-17** (Emenda Constitucional nº 141, de 2026; cláusula de vigência: "após decorridos 2 (dois) meses de sua publicação, em relação à alteração promovida pelo art. 1º desta Emenda Constitucional no inciso XV do caput do art. 7º da Constituição Federal"): repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;
+
+XVI - remuneração do serviço extraordinário superior, no mínimo, em cinqüenta por cento à do normal; *(Vide Del 5.452, art. 59 § 1º)*
+
+XVII - gozo de férias anuais remuneradas com, pelo menos, um terço a mais do que o salário normal;
+
+XVIII - licença à gestante, sem prejuízo do emprego e do salário, com a duração de cento e vinte dias;
+
+XIX - licença-paternidade, nos termos fixados em lei;
+
+XX - proteção do mercado de trabalho da mulher, mediante incentivos específicos, nos termos da lei;
+
+XXI - aviso prévio proporcional ao tempo de serviço, sendo no mínimo de trinta dias, nos termos da lei;
+
+XXII - redução dos riscos inerentes ao trabalho, por meio de normas de saúde, higiene e segurança;
+
+XXIII - adicional de remuneração para as atividades penosas, insalubres ou perigosas, na forma da lei;
+
+XXIV - aposentadoria;
+
+XXV - assistência gratuita aos filhos e dependentes desde o nascimento até 5 (cinco) anos de idade em creches e pré-escolas; *(Redação dada pela Emenda Constitucional nº 53, de 2006)*
+
+XXVI - reconhecimento das convenções e acordos coletivos de trabalho;
+
+XXVII - proteção em face da automação, na forma da lei;
+
+XXVIII - seguro contra acidentes de trabalho, a cargo do empregador, sem excluir a indenização a que este está obrigado, quando incorrer em dolo ou culpa;
+
+XXIX - ação, quanto aos créditos resultantes das relações de trabalho, com prazo prescricional de cinco anos para os trabalhadores urbanos e rurais, até o limite de dois anos após a extinção do contrato de trabalho; *(Redação dada pela Emenda Constitucional nº 28, de 2000)*
+
+a) (Revogada). *(Redação dada pela Emenda Constitucional nº 28, de 2000)*
+
+b) (Revogada). *(Redação dada pela Emenda Constitucional nº 28, de 2000)*
+
+XXX - proibição de diferença de salários, de exercício de funções e de critério de admissão por motivo de sexo, idade, cor ou estado civil;
+
+XXXI - proibição de qualquer discriminação no tocante a salário e critérios de admissão do trabalhador portador de deficiência;
+
+XXXII - proibição de distinção entre trabalho manual, técnico e intelectual ou entre os profissionais respectivos;
+
+XXXIII - proibição de trabalho noturno, perigoso ou insalubre a menores de dezoito e de qualquer trabalho a menores de dezesseis anos, salvo na condição de aprendiz, a partir de quatorze anos; *(Redação dada pela Emenda Constitucional nº 20, de 1998)*
+
+XXXIV - igualdade de direitos entre o trabalhador com vínculo empregatício permanente e o trabalhador avulso.
+
+§ 1º São assegurados à categoria dos trabalhadores domésticos os direitos previstos nos incisos IV, VI, VII, VIII, X, XIII, XV, XVI, XVII, XVIII, XIX, XXI, XXII, XXIV, XXVI, XXX, XXXI e XXXIII e, atendidas as condições estabelecidas em lei e observada a simplificação do cumprimento das obrigações tributárias, principais e acessórias, decorrentes da relação de trabalho e suas peculiaridades, os previstos nos incisos I, II, III, IX, XII, XXV e XXVIII, bem como a sua integração à previdência social. *(Redação dada pela Emenda Constitucional nº 141, de 2026)*
+
+§ 2º Excepcionalmente, convenção ou acordo coletivo de trabalho poderão, inclusive para os trabalhadores sujeitos a regimes diferenciados de trabalho estabelecidos em lei ou norma regulamentadora, estabelecer regime compensatório que assegure, na média, 2 (dois) dias de repouso semanal remunerado dentro do mês-calendário, garantido o gozo de pelo menos 1 (um) dos dias dentro do período máximo de 1 (uma) semana de trabalho. *(Incluído pela Emenda Constitucional nº 141, de 2026)*
+
+§ 3º Lei poderá dispor sobre hipóteses e condições em que a duração do trabalho e os dias de repouso semanal remunerado poderão observar regimes diferenciados, respeitados os limites previstos nos incisos XIII, XIV e XV do caput deste artigo. *(Incluído pela Emenda Constitucional nº 141, de 2026)*

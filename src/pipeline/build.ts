@@ -1,15 +1,206 @@
 // The build pipeline: raw snapshots + norm manifests in, canonical dataset out.
-import type { Dataset, NormEntry } from "../schema/dataset.ts";
-import type { Source } from "../sources/source.ts";
+import { createHash } from "node:crypto";
+import { crossCheck, NORMAS_ATTRIBUTION } from "../review/cross-source.ts";
+import {
+  NOTICE,
+  SCHEMA_VERSION,
+  type Article,
+  type CrossSourceStatus,
+  type Dataset,
+  type Grouping,
+  type NormEntry,
+  type Provision,
+  type SecondarySourceName,
+  type SourcePage,
+} from "../schema/dataset.ts";
+import { buildSearchIndex, loadSynonyms, type SynonymDictionary } from "../search/build-index.ts";
+import type { RawSnapshot, Source } from "../sources/source.ts";
+import { NORM_NAMES, readAmendingAct, type AmendingAct } from "./acts.ts";
+import { parsePlanaltoPage, type PageLayout } from "./planalto.ts";
+import { applyDeferredChanges, type Draft } from "./vigencia.ts";
+import { brasiliaDay, isCalendarDate } from "./vigencia-dates.ts";
 
-/** Declarative description of one norm: its dataset identity, plus sources and quirks as norms are plugged in. */
-export interface NormManifest extends NormEntry {}
+/**
+ * Declarative description of one norm: its dataset identity, where its text comes from, the sources it is
+ * cross-checked against, and its page quirks. Adding a norm means adding one of these plus its tests
+ * (docs/adding-a-norm.md); the pipeline has no per-norm code.
+ */
+export interface NormManifest extends NormEntry, PageLayout {
+  /** LexML type of the norm as its URN spells it, e.g. "constituicao", "lei", "decreto.lei". */
+  type: string;
+  /** The norm's date as its URN spells it (YYYY-MM-DD). */
+  date: string;
+  /** Planalto page holding the text in force (the primary source). */
+  primaryUrl: string;
+  /** How amending acts name this norm, e.g. "Constituição Federal" (needed with `deferredActs`). */
+  citedAs?: string;
+  /**
+   * Official pages of the amending acts whose vigência clause defers changes to this norm (ADR 0003). The build reads
+   * each one for its pending wordings; one missing from the source fails the build.
+   */
+  deferredActs?: string[];
+  /** Sources the primary text is cross-checked against, each with the outcome of checking whether it is usable. */
+  secondarySources: SecondarySource[];
+  /**
+   * The page quirks this norm is known to have, as found when it was added. A record, not switches: the generic
+   * parser handles every one of them, and the norm's golden set holds a dispositivo for each.
+   */
+  knownQuirks: string[];
+}
+
+/** A cross-check source for a norm's text (review layer 2). */
+export interface SecondarySource {
+  name: SecondarySourceName;
+  /** The page or API response holding the norm's text. */
+  url: string;
+  /**
+   * `dispositivo`: articulated, with ids of its own (kept as aliases); `article`: a page of text with no ids. Either
+   * way, review layer 2 matches each dispositivo by the id its printed labels give it (ADR 0004).
+   */
+  granularity: "dispositivo" | "article";
+  /** Whether it was found usable as a cross-check, when, and why (or why not). */
+  verified: { on: string; usable: boolean; note: string };
+}
 
 export interface BuildInput {
   manifests: NormManifest[];
   source: Source;
+  /** Stamped into every record's provenance; chosen by the caller so the build stays deterministic. */
+  datasetVersion: string;
+  /**
+   * The build's date (YYYY-MM-DD, Brasília): deferred changes starting on or before it are promoted to in force.
+   * Defaults to the day each norm's primary page was retrieved, so a build of recorded pages is deterministic; the
+   * daily job (#12) passes the run's date explicitly.
+   */
+  today?: string;
+  /** The search synonym dictionary; `data/synonyms.json` when omitted. */
+  synonyms?: SynonymDictionary;
 }
 
-export async function build(_input: BuildInput): Promise<Dataset> {
-  return { norms: [] };
+export async function build({ manifests, source, datasetVersion, today, synonyms }: BuildInput): Promise<Dataset> {
+  if (today !== undefined && !isCalendarDate(today)) throw new Error(`build: today must be a YYYY-MM-DD date, got "${today}"`);
+  const norms: NormEntry[] = [];
+  const provisions: Provision[] = [];
+  const groupings: Grouping[] = [];
+  const articles: Article[] = [];
+  const pages = new Map<string, SourcePage>();
+  const crossSource: CrossSourceStatus[] = [];
+  const acts = new Map<string, Promise<{ act: AmendingAct; retrievedAt: string; url: string }>>();
+  const names = [...new Set([...NORM_NAMES, ...manifests.flatMap((m) => (m.citedAs ? [m.citedAs] : []))])];
+  const actAt = (url: string) => {
+    if (!acts.has(url)) acts.set(url, readAct(source, url, names));
+    return acts.get(url)!;
+  };
+
+  for (const manifest of manifests) {
+    // The URN is the norm's public identity; a type or date that disagrees with it means the manifest has a typo.
+    if (!manifest.urn.startsWith(`urn:lex:br:federal:${manifest.type}:${manifest.date};`)) {
+      throw new Error(`${manifest.key}: URN ${manifest.urn} does not match type ${manifest.type} and date ${manifest.date}`);
+    }
+    const snapshot = await source.get(manifest.primaryUrl);
+    if (!snapshot) throw new Error(`${manifest.key}: primary source ${manifest.primaryUrl} is unavailable`);
+
+    const html = new TextDecoder(snapshot.encoding).decode(snapshot.body);
+    if (!pages.has(snapshot.url)) pages.set(snapshot.url, sourcePage(snapshot, html));
+    const seen = new Set<string>();
+    const page = parsePlanaltoPage(html, manifest, snapshot.url);
+    const groupingIds = new Set<string>();
+    for (const parsed of page.groupings) {
+      // Two headings with one id mean a heading was misread (or a struck old one kept): the outline would be ambiguous.
+      if (groupingIds.has(parsed.id)) throw new Error(`${manifest.key}: grouping id ${parsed.id} parsed twice`);
+      groupingIds.add(parsed.id);
+      groupings.push({ norm: manifest.key, ...parsed });
+    }
+    for (const parsed of page.articles) articles.push({ norm: manifest.key, ...parsed });
+    const drafts: Draft[] = [];
+    for (const parsed of page.provisions) {
+      // A duplicate means the parser misread the page (e.g. struck old wording kept); never let one shadow the other.
+      if (seen.has(parsed.id)) throw new Error(`${manifest.key}: dispositivo id ${parsed.id} parsed twice`);
+      seen.add(parsed.id);
+      drafts.push({
+        id: parsed.id,
+        norm: manifest.key,
+        kind: parsed.kind,
+        label: parsed.label,
+        path: parsed.path,
+        text: parsed.text,
+        status: parsed.status,
+        amendments: parsed.amendments,
+        references: parsed.references,
+        provenance: { sourceUrl: snapshot.url, retrievedAt: snapshot.retrievedAt, datasetVersion, notice: NOTICE },
+      });
+    }
+
+    if (manifest.deferredActs?.length) {
+      if (!manifest.citedAs) throw new Error(`${manifest.key}: deferredActs needs citedAs`);
+      const read = await Promise.all(manifest.deferredActs.map(actAt));
+      applyDeferredChanges(drafts, read, manifest.citedAs, today ?? brasiliaDay(snapshot.retrievedAt), ({ act, retrievedAt }) => ({
+        sourceUrl: act.act.href!,
+        retrievedAt,
+        datasetVersion,
+        notice: NOTICE,
+      }));
+    }
+
+    // Review layer 2: every dispositivo gets its secondary-source outcome; normas.leg.br's own ids become aliases.
+    const checked = await crossCheck(manifest, drafts, source);
+    crossSource.push(checked.status);
+    for (const draft of drafts) {
+      const { id, provenance, pending, ...rest } = draft;
+      const aliases = checked.aliases.get(id);
+      provisions.push({
+        id,
+        ...(aliases && { aliases }),
+        ...rest,
+        ...(pending && { pending }),
+        provenance: { ...provenance, contentHash: sha256(draft.text), secondary: checked.agreement.get(id)! },
+      } as Provision);
+    }
+    norms.push({
+      key: manifest.key,
+      urn: manifest.urn,
+      title: manifest.title,
+      ...(checked.aliases.size && { attribution: NORMAS_ATTRIBUTION }),
+    });
+  }
+
+  const search = buildSearchIndex(
+    norms.map((n) => n.key),
+    provisions,
+    synonyms ?? (await loadSynonyms()),
+  );
+  const attributions = [...new Set(norms.flatMap((n) => (n.attribution ? [n.attribution] : [])))];
+  const status = { schemaVersion: SCHEMA_VERSION, crossSource, ...(attributions.length && { attributions }) };
+  return { schemaVersion: SCHEMA_VERSION, norms, provisions, groupings, articles, pages: [...pages.values()], search, status };
+}
+
+function sourcePage(snapshot: RawSnapshot, html: string): SourcePage {
+  const { etag, "last-modified": lastModified } = snapshot.headers;
+  return {
+    url: snapshot.url,
+    retrievedAt: snapshot.retrievedAt,
+    ...(etag !== undefined && { etag }),
+    ...(lastModified !== undefined && { lastModified }),
+    contentHash: pageContentHash(html),
+  };
+}
+
+/**
+ * `SourcePage.contentHash`: the decoded page with every `<script>` element removed, since Planalto's F5 WAF injects a
+ * script with a random token into every response. The daily job's pre-filter compares pages by it.
+ */
+export function pageContentHash(html: string): string {
+  // Script content is raw text up to the first "</script", so a lazy match removes exactly one element.
+  return sha256(html.replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi, ""));
+}
+
+function sha256(text: string): string {
+  return `sha256:${createHash("sha256").update(text, "utf8").digest("hex")}`;
+}
+
+async function readAct(source: Source, url: string, names: string[]): Promise<{ act: AmendingAct; retrievedAt: string; url: string }> {
+  const snapshot = await source.get(url);
+  if (!snapshot) throw new Error(`amending act ${url} is unavailable`);
+  const act = readAmendingAct(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url, names);
+  return { act, retrievedAt: snapshot.retrievedAt, url };
 }

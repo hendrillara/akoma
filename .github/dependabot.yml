@@ -1,0 +1,12 @@
+# Keeps the SHA-pinned GitHub Actions current: Dependabot opens a PR that moves each pin (and its version comment) to
+# the action's latest release. npm dependencies are not listed: the lockfile changes through reviewed PRs only.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      actions:
+        patterns: ["*"]

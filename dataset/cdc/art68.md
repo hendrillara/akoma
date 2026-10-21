@@ -1,0 +1,6 @@
+<!-- Título II › Art. 68 -->
+
+**Art. 68** Fazer ou promover publicidade que sabe ou deveria saber ser capaz de induzir o consumidor a se comportar de forma prejudicial ou perigosa a sua saúde ou segurança:
+Pena - Detenção de seis meses a dois anos e multa:
+
+Parágrafo único. (Vetado).
