@@ -619,6 +619,27 @@ const golden: Golden[] = [
       amendments: [ec("revoked", "109", 2021, "Revogado pela Emenda Constitucional nº 109, de 2021")],
     },
   },
+  // Found by the cross-source check (#8): text where the page and normas.leg.br disagreed because of our parser.
+  {
+    id: "art155_par1_inc2",
+    why: "pasted DOU HTML spaces a word only with CSS margins (\"o<strong style=\\\"margin-left: 4px…\\\">de cujus</strong>,\")",
+    expected: {
+      text: "relativamente a bens móveis, títulos e créditos, compete ao Estado onde era domiciliado o de cujus, ou tiver domicílio o doador, ou ao Distrito Federal;",
+      amendments: [ec("wording", "132", 2023, "Redação dada pela Emenda Constitucional nº 132, de 2023")],
+    },
+  },
+  {
+    norm: "adct",
+    id: "art105_par1",
+    why: "\"Numerado do parágrafo único pela …\" is a renumbering annotation, not wording",
+    expected: {
+      label: "§ 1º",
+      text: "Não se aplica às compensações referidas no caput deste artigo qualquer tipo de vinculação, como as transferências a outros entes e as destinadas à educação, à saúde e a outras finalidades.",
+      amendments: [
+        ec("renumbered", "99", 2017, "Numerado do parágrafo único pela Emenda constitucional nº 99, de 2017", emc("Emendas/Emc/emc99.htm#art1")),
+      ],
+    },
+  },
 ];
 
 describe("CF and ADCT golden set", () => {

@@ -153,7 +153,7 @@ export function createViews(dataset: Dataset) {
       if (!norms.has(key) || !ID.test(id)) return notFound();
       const provision = provisions.get(`${key}/${id}`);
       if (provision) {
-        return ok(provision, () => {
+        return ok(credited(provision, [provision], norms.get(key)!), () => {
           const status = STATUS[provision.status] ?? (provision.status === "in_force" ? undefined : provision.status);
           const where = `*${provision.path.map((s) => s.label).join(" › ")}* · \`${key}\` \`${id}\`${status ? ` · ${status}` : ""}`;
           return document([...lines(provision), where], footer(provision.provenance));
@@ -163,7 +163,7 @@ export function createViews(dataset: Dataset) {
       if (members && /^art\d/.test(id)) {
         // An article a deferred act inserts exists only as its pending dispositivos, with no Article record yet.
         const label = members[0]!.path.find((segment) => segment.kind === "artigo")?.label ?? id;
-        return wholeArticle(articles.get(`${key}/${id}`) ?? { norm: key, id, label }, members);
+        return wholeArticle(articles.get(`${key}/${id}`) ?? { norm: key, id, label }, members, norms.get(key)!);
       }
       const suggested = aliases.get(`${key}/${id}`);
       return notFound([key, id], suggested ? { id: suggested, url: `/v1/provisions/${key}/${suggested}` } : undefined);
@@ -197,12 +197,20 @@ export function createViews(dataset: Dataset) {
   };
 }
 
-function wholeArticle(article: Article, members: Provision[]): View {
+/**
+ * A JSON body with the norm's `attribution` added when its records carry third-party data (the normas.leg.br id
+ * aliases, CC BY 4.0): the credit travels with the aliases wherever they are served.
+ */
+function credited<T extends object>(json: T, records: Provision[], norm: NormEntry): T | (T & { attribution: string }) {
+  return norm.attribution && records.some((r) => r.aliases?.length) ? { ...json, attribution: norm.attribution } : json;
+}
+
+function wholeArticle(article: Article, members: Provision[], norm: NormEntry): View {
   const caput = members[0]!;
   // The caput's path ends with the article and then its own "caput" segment.
   const path: PathSegment[] = caput.path.slice(0, -1);
   const { sourceUrl, retrievedAt, datasetVersion, notice } = caput.provenance;
-  const json = { article, path, provisions: members, provenance: { sourceUrl, retrievedAt, datasetVersion, notice } };
+  const json = credited({ article, path, provisions: members, provenance: { sourceUrl, retrievedAt, datasetVersion, notice } }, members, norm);
   return ok(json, () => {
     const groups = path.slice(0, -1).map((s) => s.label);
     const ids = `\`${article.norm}\` \`${article.id}\``;

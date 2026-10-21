@@ -10,7 +10,7 @@ import type {
   ProvisionStatus,
   Reference,
 } from "../schema/dataset.ts";
-import { peelAnnotations, type Link } from "./annotations.ts";
+import { peelAnnotations, type Link, type Peeled } from "./annotations.ts";
 
 type Node = DefaultTreeAdapterMap["node"];
 type Element = DefaultTreeAdapterMap["element"];
@@ -64,8 +64,20 @@ interface Open {
   path: PathSegment[];
 }
 
-/** @param baseUrl the page's URL, against which annotation links are resolved. */
-export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: string): ParsedPage {
+/** Peels a source's trailing annotations off a line, keeping the wording verbatim and the annotations as metadata. */
+export type AnnotationPeeler = (raw: string, links: Link[]) => Peeled;
+
+/**
+ * @param baseUrl the page's URL, against which annotation links are resolved.
+ * @param peel the page's annotation style: Planalto's by default; a page laid out like Planalto's but annotated in
+ * another style (Câmara LEGIN, review layer 2) brings its own.
+ */
+export function parsePlanaltoPage(
+  html: string,
+  layout: PageLayout,
+  baseUrl: string,
+  peel: AnnotationPeeler = peelAnnotations,
+): ParsedPage {
   const out: ParsedProvision[] = [];
   const groupings: ParsedGrouping[] = [];
   const articles: ParsedArticle[] = [];
@@ -88,7 +100,7 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
      * whose text is struck ("IX - <strike>…</strike>"), possibly with the old wording's annotation outside the strike.
      */
     const emit = (parent: Open, kind: ProvisionKind, segment: PathSegment, id: string, rest: string): Open | undefined => {
-      const peeled = peelAnnotations(rest, links);
+      const peeled = peel(rest, links);
       const status = statusOf(peeled.text, peeled.amendments);
       if (status === "in_force" && /^[\s.,;:–-]*$/.test(peeled.text)) return undefined;
       const path = [...parent.path, segment];
@@ -101,8 +113,8 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
     // Quoted text of another act ("Acrescente-se … à Lei nº 7.347 …:", then "§ 4.° …", "§ 5.° …", "… extrajudicial".)
     // is part of the commanding dispositivo: inside it nothing is a heading, an article or a label of this norm.
     if (quoting) {
-      append(out.at(-1)!, line, links);
-      quoting = !closesQuote(line, links);
+      append(out.at(-1)!, line, links, peel);
+      quoting = !closesQuote(line, links, peel);
       continue;
     }
 
@@ -148,8 +160,8 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
     if (/^[\s.,;:–-]*$/.test(line)) continue;
     // A block opening with a quote mark quotes another act; it stays open until a block ends with the closing mark.
     if (!struck && /^["“]/.test(line)) {
-      append(out.at(-1)!, line, links);
-      quoting = !closesQuote(line, links);
+      append(out.at(-1)!, line, links, peel);
+      quoting = !closesQuote(line, links, peel);
       continue;
     }
     // LexML Parte 3: children of the caput hang under `_cpt`; the caput adds no segment to their path.
@@ -191,7 +203,7 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
     // A penal sanction ("Pena - Detenção de…", often with no dash) completes the dispositivo above it: LexML gives it
     // no id of its own (it is the dispositivo's <Pena>), so it joins that dispositivo's text on a line of its own.
     if (/^Pena\b/.test(line)) {
-      append(out.at(-1)!, line, links);
+      append(out.at(-1)!, line, links, peel);
       continue;
     }
 
@@ -260,13 +272,13 @@ function nameLine(grouping: ParsedGrouping, line: string, links: Link[]): void {
 }
 
 /** Whether a line ends a quote: a closing mark at its end, before any "(NR)", final punctuation or annotations. */
-function closesQuote(line: string, links: Link[]): boolean {
-  return /["”]\s*(?:\(NR\))?\s*[.;]?$/.test(peelAnnotations(line, links).text);
+function closesQuote(line: string, links: Link[], peel: AnnotationPeeler): boolean {
+  return /["”]\s*(?:\(NR\))?\s*[.;]?$/.test(peel(line, links).text);
 }
 
 /** Adds a line that belongs to a dispositivo already recorded (a Pena line, quoted text) to its text and metadata. */
-function append(provision: ParsedProvision, line: string, links: Link[]): void {
-  const peeled = peelAnnotations(line, links);
+function append(provision: ParsedProvision, line: string, links: Link[], peel: AnnotationPeeler): void {
+  const peeled = peel(line, links);
   provision.text = provision.text ? `${provision.text}\n${peeled.text}` : peeled.text;
   provision.amendments.push(...peeled.amendments);
   provision.references.push(...peeled.references);
@@ -304,6 +316,11 @@ export interface Line {
 
 /** Stands where struck text was cut out, so punctuation it leaves doubled can be collapsed. */
 const CUT = "\uE000";
+/**
+ * Stands at the edge of an inline element spaced only by CSS margins (pasted DOU HTML: "o<strong style="margin-left:
+ * 4px">de cujus</strong>"): a browser shows a gap there, so between two words it becomes a space.
+ */
+const GAP = "\uE001";
 
 /** The page's text as a browser would show it, one line per block, with struck wording removed. */
 export function visibleLines(html: string, { startAnchor, endAnchor }: PageLayout, baseUrl: string): Line[] {
@@ -353,11 +370,14 @@ export function visibleLines(html: string, { startAnchor, endAnchor }: PageLayou
     }
     const block = element !== undefined && BLOCKS.has(element.tagName);
     if (block) flush();
+    const margins = element && !block ? marginGaps(element) : { left: false, right: false };
+    if (margins.left) current += GAP;
     const href = element?.tagName === "a" ? attribute(element, "href") : undefined;
     const start = current.length;
     const before = flushed;
     for (const child of node.childNodes) walk(child);
     if (href && flushed === before) links.push({ start, end: current.length, href: resolve(href, baseUrl) });
+    if (margins.right) current += GAP;
     if (block) flush();
   };
 
@@ -366,9 +386,11 @@ export function visibleLines(html: string, { startAnchor, endAnchor }: PageLayou
   return lines;
 }
 
-/** Whitespace collapsed; ", <cut>, " left by struck text mid-sentence becomes ", ". */
+/** Whitespace collapsed; ", <cut>, " left by struck text mid-sentence becomes ", "; a margin gap between words, " ". */
 function collapse(text: string): string {
   return text
+    .replace(new RegExp(`(?<=[\\p{L}\\p{N}])\\s*${GAP}[\\s${GAP}]*(?=[\\p{L}\\p{N}])`, "gu"), " ")
+    .replaceAll(GAP, "")
     .replace(/\s+/g, " ")
     .replace(new RegExp(`([,;])\\s*${CUT}\\s*\\1`, "g"), "$1")
     .replaceAll(CUT, "")
@@ -386,6 +408,13 @@ function resolve(href: string, baseUrl: string): string {
 
 function attribute(element: Element, name: string): string | undefined {
   return element.attrs.find((a) => a.name === name)?.value;
+}
+
+/** Whether an inline element's CSS puts a horizontal margin on its left or right edge. */
+function marginGaps(element: Element): { left: boolean; right: boolean } {
+  const style = attribute(element, "style") ?? "";
+  const set = (side: string) => new RegExp(`margin-${side}\\s*:\\s*(?!0(?![.\\d]))[\\d.]+`, "i").test(style);
+  return { left: set("left"), right: set("right") };
 }
 
 function isLineThrough(element: Element): boolean {

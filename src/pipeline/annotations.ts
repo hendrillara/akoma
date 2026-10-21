@@ -19,7 +19,7 @@ export interface Peeled {
 
 /** Words that open an annotation. "(Revogado)" alone is not one: it is the wording a revoked dispositivo keeps. */
 const ANNOTATION =
-  /^(?:Redação dada|Incluíd[oa]s?|Revogad[oa]s?\s+pel[oa]|Vide\b|Vigência|Produção de efeitos?|Renumerad[oa]s?|Transformad[oa]|Parágrafo único renumerado|Regulamento)/i;
+  /^(?:Redação dada|Incluíd[oa]s?|Revogad[oa]s?\s+pel[oa]|Vide\b|Vigência|Produção de efeitos?|(?:Re)?numerad[oa]s?|Transformad[oa]|Parágrafo único renumerado|Regulamento)/i;
 
 /** The editorial note Planalto prints in place of a dispositivo whose content was moved to another number. */
 const MOVED = /^Dispositivo\s+incluíd[oa]\s+pel[oa]\b.*\btransformad[oa]\s+em\b/i;
@@ -106,7 +106,7 @@ const EFFECTS: [RegExp, Amendment["effect"]][] = [
   [/^Redação dada/i, "wording"],
   [/^Incluíd[oa]s?/i, "inserted"],
   [/^Revogad[oa]s?/i, "revoked"],
-  [/^(?:Renumerad[oa]s?|Transformad[oa]|Parágrafo único renumerado)/i, "renumbered"],
+  [/^(?:(?:Re)?numerad[oa]s?|Transformad[oa]|Parágrafo único renumerado)/i, "renumbered"],
   [MOVED, "renumbered"],
 ];
 

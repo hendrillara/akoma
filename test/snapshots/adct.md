@@ -822,7 +822,7 @@ II - preverá a possibilidade de utilização dos recursos do Fundo para compens
 
 § 6º Lei complementar instituirá Fundo de Desenvolvimento Sustentável dos Estados da Amazônia Ocidental e do Amapá, que será constituído com recursos da União e por ela gerido, com a efetiva participação desses Estados na definição das políticas, com o objetivo de fomentar o desenvolvimento e a diversificação de suas atividades econômicas. *(Incluído pela Emenda Constitucional nº 132, de 2023)*
 
-§ 7º O Fundo de que trata o § 6º será integrado pelos Estados onde estão localizadas as áreas de livre comércio de que trata ocapute observará, no que couber, o disposto no § 3º, I e II, sendo, quanto a este inciso, considerados os respectivos Estados, e no § 4º. *(Incluído pela Emenda Constitucional nº 132, de 2023)*
+§ 7º O Fundo de que trata o § 6º será integrado pelos Estados onde estão localizadas as áreas de livre comércio de que trata o caput e observará, no que couber, o disposto no § 3º, I e II, sendo, quanto a este inciso, considerados os respectivos Estados, e no § 4º. *(Incluído pela Emenda Constitucional nº 132, de 2023)*
 
 **Art. 93** A vigência do disposto no art. 159, III, e § 4º, iniciará somente após a edição da lei de que trata o referido inciso III. *(Incluído pela Emenda Constitucional nº 42, de 19.12.2003)*
 
@@ -994,7 +994,7 @@ IV - (revogado). *(Redação dada pela Emenda Constitucional nº 109, de 2021)*
 
 **Art. 102** Enquanto viger o regime especial previsto nesta Emenda Constitucional, pelo menos 50% (cinquenta por cento) dos recursos que, nos termos do art. 101 deste Ato das Disposições Constitucionais Transitórias, forem destinados ao pagamento dos precatórios em mora serão utilizados no pagamento segundo a ordem cronológica de apresentação, respeitadas as preferências dos créditos alimentares, e, nessas, as relativas à idade, ao estado de saúde e à deficiência, nos termos do § 2º do art. 100 da Constituição Federal, sobre todos os demais créditos de todos os anos. *(Incluído pela Emenda Constitucional nº 94, de 2016)*
 
-§ 1º A aplicação dos recursos remanescentes, por opção a ser exercida por Estados, Distrito Federal e Municípios, por ato do respectivo Poder Executivo, observada a ordem de preferência dos credores, poderá ser destinada ao pagamento mediante acordos diretos, perante Juízos Auxiliares de Conciliação de Precatórios, com redução máxima de 40% (quarenta por cento) do valor do crédito atualizado, desde que em relação ao crédito não penda recurso ou defesa judicial e que sejam observados os requisitos definidos na regulamentação editada pelo ente federado. (Numerado do parágrafo único pela Emenda constitucional nº 99, de 2017)
+§ 1º A aplicação dos recursos remanescentes, por opção a ser exercida por Estados, Distrito Federal e Municípios, por ato do respectivo Poder Executivo, observada a ordem de preferência dos credores, poderá ser destinada ao pagamento mediante acordos diretos, perante Juízos Auxiliares de Conciliação de Precatórios, com redução máxima de 40% (quarenta por cento) do valor do crédito atualizado, desde que em relação ao crédito não penda recurso ou defesa judicial e que sejam observados os requisitos definidos na regulamentação editada pelo ente federado. *(Numerado do parágrafo único pela Emenda constitucional nº 99, de 2017)*
 
 § 2º Na vigência do regime especial previsto no art. 101 deste Ato das Disposições Constitucionais Transitórias, as preferências relativas à idade, ao estado de saúde e à deficiência serão atendidas até o valor equivalente ao quíntuplo fixado em lei para os fins do disposto no § 3º do art. 100 da Constituição Federal, admitido o fracionamento para essa finalidade, e o restante será pago em ordem cronológica de apresentação do precatório. *(Incluído pela Emenda constitucional nº 99, de 2017)*
 
@@ -1018,7 +1018,7 @@ Parágrafo único. Enquanto perdurar a omissão, o ente federado não poderá co
 
 **Art. 105** Enquanto viger o regime de pagamento de precatórios previsto no art. 101 deste Ato das Disposições Constitucionais Transitórias, é facultada aos credores de precatórios, próprios ou de terceiros, a compensação com débitos de natureza tributária ou de outra natureza que até 25 de março de 2015 tenham sido inscritos na dívida ativa dos Estados, do Distrito Federal ou dos Municípios, observados os requisitos definidos em lei própria do ente federado. *(Incluído pela Emenda Constitucional nº 94, de 2016)*
 
-§ 1º Não se aplica às compensações referidas no caput deste artigo qualquer tipo de vinculação, como as transferências a outros entes e as destinadas à educação, à saúde e a outras finalidades. (Numerado do parágrafo único pela Emenda constitucional nº 99, de 2017)
+§ 1º Não se aplica às compensações referidas no caput deste artigo qualquer tipo de vinculação, como as transferências a outros entes e as destinadas à educação, à saúde e a outras finalidades. *(Numerado do parágrafo único pela Emenda constitucional nº 99, de 2017)*
 
 § 2º Os Estados, o Distrito Federal e os Municípios regulamentarão nas respectivas leis o disposto no caput deste artigo em até cento e vinte dias a partir de 1º de janeiro de 2018. *(Incluído pela Emenda constitucional nº 99, de 2017)*
 

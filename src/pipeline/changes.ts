@@ -13,8 +13,11 @@ import { escape } from "./files.ts";
  */
 export type ChangeKind = "added" | "changed" | "pending-activated" | "revoked" | "removed";
 
-/** A record's fields that take part in change detection: everything but its provenance (retrieval time, version…). */
-export type RecordField = Exclude<keyof Provision, "provenance">;
+/**
+ * A record's fields that take part in change detection: everything but its provenance (retrieval time, version,
+ * secondary-source outcome…) and its aliases, which come from the secondary source and change with it.
+ */
+export type RecordField = Exclude<keyof Provision, "provenance" | "aliases">;
 
 export interface ProvisionChange {
   kind: ChangeKind;
@@ -91,15 +94,16 @@ function change(before: Provision | undefined, after: Provision | undefined): Pr
   };
 }
 
-/** Both records' fields, provenance excluded, in the new record's order; fields added later (e.g. `pending`) count. */
+/** Both records' fields but provenance and aliases, in the new record's order; fields added later (e.g. `pending`) count. */
 function recordFields(before: Provision, after: Provision): RecordField[] {
   const keys = new Set([...Object.keys(after), ...Object.keys(before)]);
   keys.delete("provenance");
+  keys.delete("aliases");
   return [...keys] as RecordField[];
 }
 
 function fingerprint(provision: Provision): string {
-  const { provenance: _, ...record } = provision;
+  const { provenance: _, aliases: __, ...record } = provision;
   return createHash("sha256").update(canonical(record), "utf8").digest("hex");
 }
 
