@@ -72,8 +72,12 @@ function shows(draft: Draft, change: DeferredChange): boolean {
   return draft.status === "in_force" && normalise(draft.text) === normalise(change.text!);
 }
 
+/**
+ * What the page and the act's quote must share for the page to count as showing a wording. Planalto's printing of the
+ * same text varies in spacing ("docaputdeste"), quote marks and case, so those are ignored; words and punctuation count.
+ */
 function normalise(text: string): string {
-  return text.replace(/\s+/g, " ").trim();
+  return text.replace(/[“”«»]/g, '"').replace(/[‘’]/g, "'").replace(/\s+/g, "").toLowerCase();
 }
 
 /** @param afterAnother whether an earlier change to the same dispositivo is still pending (it inserts, this rewords). */

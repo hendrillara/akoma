@@ -54,6 +54,9 @@ So the CF page's markers cannot tell which dispositivos have a pending change, o
 - Every build of the CF or the ADCT now needs the EC 132 and EC 141 pages in its source. Tests load the `2026-10-20` and `2026-10-21` captures together.
 - EC 132 art. 11 is in the 2027 clause, but it is a rule of its own, not CF text, so nothing is staged for it.
 - Planalto's own `(Vigência)` markers are kept as references, but they trigger nothing; those pointing to past acts (CPC, EC 103, EC 109) stay plain references.
+- **Promotion needs a build on the day.** Nothing on Planalto changes on 2026-12-17: not the ETag, not the content, not the amendment index. The daily job (#12) must therefore build whenever some pending `effectiveFrom` ≤ today, even when the page pre-filter (#9) says nothing changed. The amending-act pages are not in `dataset.pages`, so the pre-filter would not see a correction to them either.
+- **Catch-up day churn.** When Planalto applies a promoted change, the record changes again even though its text doesn't: the amendment loses `effectiveFrom`, its link gains `#artN`, and the `Vide`/`Vigência` references probably drop. The change report then shows a `changed` record attributed to the same act, and the review gates (#10) should accept that. They should also treat pending targets as not changed.
+- **"Shows" is a near-exact comparison.** The page counts as showing a wording when the two agree, ignoring spacing, quote marks and case. If Planalto prints the applied text with other differences (a comma, a corrected word), the build keeps promoting the act's quote over the page, and nothing in the change report reveals it. A divergence check against the page belongs to #10.
 - Open for the maintainer: confirm "em 2027" = 2027-01-01, and decide art. 239 § 3º before 2027-01-01.
 
 ---
@@ -95,4 +98,7 @@ As marcas da página da CF, portanto, não dizem quais dispositivos têm mudanç
 - Com as capturas de 20 e 21/10, a CF e o ADCT têm 86 entradas pendentes em 82 dispositivos, mais 4 dispositivos ainda não vigentes.
 - `deferredActs` é um dado a manter: uma emenda nova com vigência diferida entra na lista (o #12 vê cada EC nova pelo quadro de emendas), e sai quando a página já mostra todas as suas fases.
 - Todo build da CF ou do ADCT precisa das páginas das EC 132 e 141.
+- **A promoção depende de um build no dia.** Em 17/12/2026 nada muda no Planalto (ETag, conteúdo, quadro de emendas). O job diário (#12) precisa montar o dataset sempre que houver `effectiveFrom` ≤ hoje, mesmo se o pré-filtro de páginas (#9) disser que nada mudou. As páginas das emendas não estão em `dataset.pages`.
+- **Mudança extra quando o Planalto alcança.** Quando o Planalto aplica uma mudança já promovida, o registro muda de novo sem mudar o texto: a alteração perde `effectiveFrom`, o link ganha `#artN`, e as referências `Vide`/`Vigência` provavelmente somem. Os gates de revisão (#10) devem aceitar isso e tratar alvos pendentes como não alterados.
+- **"Mostrar" é uma comparação quase exata.** Ela ignora espaços, tipo de aspas e caixa. Outras diferenças de impressão no texto aplicado (uma vírgula, uma palavra corrigida) fariam o build continuar promovendo a citação da emenda por cima da página; a checagem de divergência cabe ao #10.
 - Fica para o mantenedor confirmar "em 2027" = 2027-01-01 e decidir o art. 239, § 3º, antes de 1º/1/2027.

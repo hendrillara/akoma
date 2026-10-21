@@ -388,6 +388,18 @@ describe("deferred vigência once the page shows it", () => {
     }
   });
 
+  it("takes the page's printing of the wording even when its spacing differs from the act's", async () => {
+    // Edit: as above, but printed with a space missing after the comma, a slip Planalto's pages make ("docaputdeste").
+    const printed = "repouso semanal remunerado de 2 (dois) dias,um dos quais preferencialmente aos domingos;";
+    const after = await edited(compiledCf, (html) =>
+      html.replace(/XV - repouso semanal remunerado, preferencialmente aos domingos;[\s\S]*?\(Vigência\)<\/a><\/font><\/p>/, `XV - ${printed}</font></p>`),
+    );
+    const dataset = await build({ manifests: [cf], source: after, datasetVersion: "vigencia", today: "2026-12-18" });
+
+    expect(find(dataset, "art7_cpt_inc15")).toMatchObject({ text: printed, amendments: [] });
+    expect(find(dataset, "art7_cpt_inc15")?.pending).toBeUndefined();
+  });
+
   it("never lets a 2027 wording overwrite the 2033 one the page already shows", async () => {
     // Edit: art. 146 III "d" gets the wording of EC 132 art. 4 (2033), as Planalto will print it from 2033.
     const in2033 =
