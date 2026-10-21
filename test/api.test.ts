@@ -429,6 +429,8 @@ describe("API v1", () => {
 
       expect(body).toMatchObject({
         datasetVersion: "2026.10.21-test",
+        // The dataset format's semantic version (src/schema/dataset.ts SCHEMA_VERSION; the bump rule is in README.md).
+        schemaVersion: "1.0.0",
         norms: [
           { key: "cf", sourceUrl: compiledCf, retrievedAt: "2026-10-21T01:26:39Z", articles: 276 },
           { key: "adct", sourceUrl: compiledCf, retrievedAt: "2026-10-21T01:26:39Z", articles: 148 },
@@ -444,6 +446,10 @@ describe("API v1", () => {
         ],
         notice: STF_NOTICE,
       });
+    });
+
+    it("states the schema version in the Markdown status too", async () => {
+      expect(await (await get("/v1/status?format=md")).text()).toContain("\nEsquema / schema 1.0.0\n");
     });
 
     it("credits Senado/LexML in the status, in JSON and Markdown, since the dataset carries normas.leg.br aliases", async () => {

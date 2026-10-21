@@ -291,6 +291,9 @@ describe("parser hygiene", () => {
       "dataset.json",
     ]);
     expect(JSON.parse(files.find((f) => f.path === "search-index.json")!.content)).toEqual(dataset.search);
+    // The dataset format's semantic version, in the whole-dataset file and the public status file.
+    expect(JSON.parse(files.find((f) => f.path === "dataset.json")!.content).schemaVersion).toBe("1.0.0");
+    expect(JSON.parse(files.find((f) => f.path === "status.json")!.content).schemaVersion).toBe("1.0.0");
     expect(paths.filter((p) => p.endsWith(".md"))).toEqual([
       ...["art1", "art2", "art3", "art4-1", "art10-2", "art11"].map((a) => `hygiene/${a}.md`),
       "hygiene.md",

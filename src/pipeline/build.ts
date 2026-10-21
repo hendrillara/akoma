@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { crossCheck, NORMAS_ATTRIBUTION } from "../review/cross-source.ts";
 import {
   NOTICE,
+  SCHEMA_VERSION,
   type Article,
   type CrossSourceStatus,
   type Dataset,
@@ -169,8 +170,8 @@ export async function build({ manifests, source, datasetVersion, today, synonyms
     synonyms ?? (await loadSynonyms()),
   );
   const attributions = [...new Set(norms.flatMap((n) => (n.attribution ? [n.attribution] : [])))];
-  const status = { crossSource, ...(attributions.length && { attributions }) };
-  return { norms, provisions, groupings, articles, pages: [...pages.values()], search, status };
+  const status = { schemaVersion: SCHEMA_VERSION, crossSource, ...(attributions.length && { attributions }) };
+  return { schemaVersion: SCHEMA_VERSION, norms, provisions, groupings, articles, pages: [...pages.values()], search, status };
 }
 
 function sourcePage(snapshot: RawSnapshot, html: string): SourcePage {

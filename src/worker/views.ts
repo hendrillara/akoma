@@ -179,6 +179,7 @@ export function createViews(dataset: Dataset) {
       const attributions = [...new Set(dataset.norms.flatMap((n) => (n.attribution ? [n.attribution] : [])))];
       const json = {
         ...(datasetVersion && { datasetVersion }),
+        ...(dataset.schemaVersion && { schemaVersion: dataset.schemaVersion }),
         norms: perNorm,
         pages,
         ...(attributions.length && { attributions }),
@@ -196,7 +197,11 @@ export function createViews(dataset: Dataset) {
             (p.etag ? ` · ETag \`${p.etag}\`` : "") +
             (p.lastModified ? ` · Last-Modified ${p.lastModified}` : ""),
         );
-        const body = ["# Status", ...(datasetVersion ? [`Dataset ${datasetVersion}`] : [])];
+        const body = [
+          "# Status",
+          ...(datasetVersion ? [`Dataset ${datasetVersion}`] : []),
+          ...(dataset.schemaVersion ? [`Esquema / schema ${dataset.schemaVersion}`] : []),
+        ];
         if (normLines.length) body.push(normLines.join("\n"));
         if (pageLines.length) body.push(`Páginas de origem / source pages:\n${pageLines.join("\n")}`);
         for (const text of attributions) body.push(`Atribuição / attribution: ${escape(text)}`);

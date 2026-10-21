@@ -88,6 +88,8 @@ Os mesmos dados ficam também como arquivos estáticos, da pasta `dataset/` comm
 
 `id`, `norm`, `kind`, `label`, o caminho na hierarquia, o `text` literal, `status` (`in_force`, `revoked`, `vetoed`, `renumbered`, `not_yet_in_force`), `amendments` (os atos que o incluíram, alteraram ou revogaram), `references` (notas "Vide", inclusive ADI/ADPF), `pending` (redação com vigência diferida e `effectiveFrom`), `aliases` (ids do normas.leg.br, com atribuição) e `provenance`: URL da fonte, data de obtenção, hash do conteúdo, versão do dataset, o resultado da conferência com uma segunda fonte (`agrees`, `secondary-stale`, `unconfirmed`) e o aviso fixo.
 
+**Versão do esquema.** `schemaVersion` (semver, hoje `1.0.0`) está no `dataset.json`, no `status.json`, em `GET /v1/status` e no arquivo de estado do job. Muda o MAJOR quando um campo some ou muda de nome, de tipo ou de sentido, ou quando muda o esquema de ids (o consumidor precisa se adaptar); o MINOR quando entra um campo, um endpoint ou um valor novo num conjunto aberto (o consumidor pode ignorar); o PATCH quando só a documentação ou uma correção muda, sem mexer na forma nem no sentido de nenhum campo. O texto legal mudar nunca muda o esquema: isso é o `datasetVersion`.
+
 ## Garantias de precisão: o que é medido hoje
 
 Tudo isto roda em `pnpm verify`, o mesmo comando do CI (o badge acima):
@@ -214,6 +216,8 @@ The same data is also served as static files, from the committed `dataset/` fold
 ### What each dispositivo carries
 
 `id`, `norm`, `kind`, `label`, its hierarchy path, the verbatim `text`, `status` (`in_force`, `revoked`, `vetoed`, `renumbered`, `not_yet_in_force`), `amendments` (the acts that inserted, reworded or revoked it), `references` ("Vide" notes, including ADI/ADPF), `pending` (deferred-vigência wording with `effectiveFrom`), `aliases` (normas.leg.br ids, with attribution) and `provenance`: source URL, retrieval time, content hash, dataset version, the outcome of the check against a second source (`agrees`, `secondary-stale`, `unconfirmed`) and the fixed notice.
+
+**Schema version.** `schemaVersion` (semver, `1.0.0` today) is in `dataset.json`, `status.json`, `GET /v1/status` and the job's run status. MAJOR changes when a field is removed or renamed, changes type or meaning, or the id scheme changes (a consumer must adapt); MINOR when a field, an endpoint or a value of an open set is added (a consumer may ignore it); PATCH when only documentation or a fix changes, leaving every field's shape and meaning as documented. The legal text changing is never a schema change: that is `datasetVersion`.
 
 ### Accuracy guarantees: what is measured today
 
