@@ -13,7 +13,7 @@ export interface Numbered {
 }
 
 export interface GitHub {
-  /** Commits `paths` of the working tree onto the default branch's tip as `branch`, and force-pushes it. */
+  /** Commits `paths` of the working tree onto HEAD as `branch`, force-pushes it, and returns to HEAD. */
   pushBranch(branch: string, paths: string[], message: string): Promise<void>;
   /** The open PR from `branch`, if any. */
   findOpenPullRequest(branch: string): Promise<Numbered | undefined>;
@@ -148,7 +148,7 @@ export interface GhCliOptions {
   cwd: string;
   /** Branch holding the run status files (pushed by the job, never merged). */
   statusBranch: string;
-  /** The default branch the publish branch starts from. */
+  /** The default branch: the PR's base and where workflows are dispatched. The publish branch starts from HEAD. */
   base: string;
 }
 
@@ -183,11 +183,12 @@ export function ghCli({ cwd, statusBranch, base }: GhCliOptions): GitHub {
 
   return {
     async pushBranch(branch, paths, message) {
-      await git("checkout", "-B", branch);
+      const start = (await git("rev-parse", "HEAD")).trim();
+      await git("checkout", "--quiet", "-B", branch);
       await git("add", "--all", "--", ...paths);
       await git(...bot, "commit", "--quiet", "-m", message);
-      await git("push", "--force", "origin", `${branch}:refs/heads/${branch}`);
-      await git("checkout", "--quiet", base);
+      await git("push", "--quiet", "--force", "origin", `${branch}:refs/heads/${branch}`);
+      await git("checkout", "--quiet", start);
     },
     async findOpenPullRequest(branch) {
       return numbered(await gh("pr", "list", "--head", branch, "--state", "open", "--json", "number,url", "--limit", "1"));

@@ -20,6 +20,8 @@ import type { Workspace } from "./workspace.ts";
 
 export interface TestResult {
   passed: boolean;
+  /** `false` when the tests were not run (a dry run). */
+  ran?: boolean;
   /** One line for the PR body and the status file. */
   summary: string;
 }

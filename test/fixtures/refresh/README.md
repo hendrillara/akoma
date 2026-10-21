@@ -54,6 +54,15 @@ The recorded page as it read before EC 140 and EC 141 (both of 16.10.2026), so t
 
 Expected: building it, then the recorded capture, shows exactly the 12 dispositivos the recorded page annotates with EC 140 or EC 141, and the review verdict is `merge`.
 
+## `cdc-law/`: the CDC reworded by a simulated ordinary law
+
+The one scenario on another page: the recorded compiled CDC page (`fixtures/2026-10-20/planalto/l8078compilado.htm`), served under its Planalto URL, with:
+
+1. **Art. 49 caput, new wording:** "no prazo de 7 dias" becomes "no prazo de 14 dias", followed by `<a href="_ato2023-2026/2026/lei/L15999.htm#art1">(Redação dada pela Lei nº 15.999, de 2026)</a>`, the CDC's own annotation form (art. 4º, Lei 9.008). Lei nº 15.999, de 2026, does not exist.
+2. A comment at the top saying so, a new `Last-Modified` (`Thu, 22 Oct 2026 09:50:35 GMT`; the CDC page has no ETag) and retrieval time `2026-10-23T01:30:00Z`.
+
+The page keeps its windows-1252 bytes 0x80–0x9F (curly quotes) as captured. Expected (test/publish.test.ts): the daily job escalates (`needs-human`), since v1's target matching and LLM reviewer read only constitutional amendments, and the PR body says why.
+
 ---
 
 # Fixtures de cenário de atualização (PT)
@@ -68,5 +77,6 @@ O `make.mjs` gera todas as pastas a partir da página gravada; para alterar um c
 - **`ec142/`:** uma Emenda Constitucional nº 142, de 2026, simulada: nova redação do caput do art. 6º; parágrafo único do art. 6º renumerado como § 1º (mesmo texto); § 2º incluído no art. 6º; art. 7º XIV revogado por nova redação "(revogado);"; nova nota "(Vide ADI 9999)" no art. 7º XVIII, com número de ADI inventado; art. 7º XXVII revogado só por anotação; e token F5, headers e horário de captura novos. A pasta traz também `emc142.htm`, a página simulada do próprio ato, no formato das páginas de EC do Planalto: seus comandos visam exatamente os dispositivos alterados (art. 1º: caput do art. 6º, parágrafo único renumerado como § 1º, § 2º; art. 2º: art. 7º XIV "(revogado)"; art. 3º: "Revoga-se o inciso XXVII do caput do art. 7º"). Veredito esperado: `merge`, com uma nota para a nova "Vide ADI", que nenhum ato explica e que não muda a redação.
 - **`ec142-faults/`:** a página `ec142` (e a mesma `emc142.htm`) com quatro falhas: art. 7º XVI com nova redação atribuída à EC 142, que não o visa; art. 7º XXXIV some da página sem marca de revogação; incisos I e II do art. 1º trocados de ordem; art. 7º XXVII sem a revogação que a EC 142 manda. Veredito esperado: `needs-human`, com um motivo por falha.
 - **`before-ec140-141/`:** a página gravada como era antes das EC 140 e 141 (ambas de 16/10/2026), com cada redação antiga tirada do texto riscado da página com histórico completo (`fixtures/2026-10-20/planalto/constituicao.htm`). Montar esta página e depois a captura gravada mostra exatamente os 12 dispositivos que a página gravada anota com a EC 140 ou a EC 141, e o veredito da revisão é `merge`.
+- **`cdc-law/`:** o único cenário em outra página: o CDC compilado gravado, com nova redação do caput do art. 49 ("7 dias" → "14 dias") atribuída a uma Lei nº 15.999, de 2026, que não existe, no formato de anotação do próprio CDC; um comentário no topo avisando isso, `Last-Modified` e horário de captura novos. Esperado: o job diário escala (`needs-human`), porque na v1 a conferência de alvos e o revisor LLM só leem emendas constitucionais, e o corpo do PR explica o motivo.
 
 Os textos exatos estão na seção em inglês acima.

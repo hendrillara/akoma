@@ -30,7 +30,9 @@ export function prBody({ today, report, verdict, tests, reviewer, capture, runUr
       ? "**Verdict: merge.** Every review layer passed, so the job merges this PR."
       : `**Verdict: needs-human.** ${problems} ${problems === 1 ? "problem stops" : "problems stop"} the automatic merge; the job labels this PR \`needs-human\` and leaves it open for the maintainer. The problems are listed under the verdict below.`,
     "",
-    `- Tests (\`pnpm verify\`, run by the job on this branch): ${tests.passed ? "passed" : "**failed**"}. ${tests.summary}`,
+    tests.ran === false
+      ? `- Tests (\`pnpm verify\`): not run. ${tests.summary}`
+      : `- Tests (\`pnpm verify\`, run by the job on this branch): ${tests.passed ? "passed" : "**failed**"}. ${tests.summary}`,
     `- LLM reviewer (layer 3): ${reviewer ? `\`${reviewer}\`` : "**not run: no API key** (`ANTHROPIC_API_KEY` is not set), which blocks the merge"}.`,
   ];
 

@@ -9,11 +9,12 @@ import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { adct } from "../src/norms/adct.ts";
+import { cdc } from "../src/norms/cdc.ts";
 import { cf } from "../src/norms/cf.ts";
-import { build } from "../src/pipeline/build.ts";
+import { build, type NormManifest } from "../src/pipeline/build.ts";
 import { memoryGitHub, type MemoryGitHub } from "../src/publish/github.ts";
 import { runDailyJob, type TestRunner } from "../src/publish/job.ts";
-import { diffPublished, publishedBuild, type PublishedBuild } from "../src/publish/published.ts";
+import { diffPublished, publishedBuild, writePublished, type PublishedBuild } from "../src/publish/published.ts";
 import { diskWorkspace, memoryWorkspace } from "../src/publish/workspace.ts";
 import type { LlmReviewer, ReviewerOutput } from "../src/review/llm.ts";
 import type { Dataset, Provision } from "../src/schema/dataset.ts";
@@ -24,17 +25,21 @@ const root = new URL("../", import.meta.url);
 const fixtures = new URL("fixtures/", root);
 
 describe("the published dataset: dataset/ is the regeneration of the committed captures", () => {
+  // A copy of the two hand-made captures, so the daily captures the job commits later never move these expectations.
+  // `pnpm check:dataset` (in `pnpm verify`) runs the same comparison on the repository's own fixtures/ and dataset/.
   let published: PublishedBuild;
+  let dir: string;
   let copy: URL;
 
   beforeAll(async () => {
-    published = await publishedBuild(fixtures);
-    const dir = await mkdtemp(join(tmpdir(), "akoma-dataset-"));
-    copy = pathToFileURL(`${dir}/`);
-    await cp(new URL("dataset/", root), dir, { recursive: true });
+    dir = await mkdtemp(join(tmpdir(), "akoma-dataset-"));
+    for (const day of ["2026-10-20", "2026-10-21"]) await cp(new URL(`fixtures/${day}/`, root), join(dir, "fixtures", day), { recursive: true });
+    published = await publishedBuild(pathToFileURL(`${dir}/fixtures/`));
+    copy = pathToFileURL(`${dir}/dataset/`);
+    await writePublished(published.files, copy);
   });
   afterAll(async () => {
-    await rm(copy, { recursive: true, force: true });
+    await rm(dir, { recursive: true, force: true });
   });
 
   it("is dated and versioned by the latest capture, never by the clock", () => {
@@ -44,13 +49,11 @@ describe("the published dataset: dataset/ is the regeneration of the committed c
       version: "2026-10-21",
       captures: ["2026-10-20", "2026-10-21"],
     });
-  });
-
-  it("matches the committed files exactly", async () => {
-    expect(await diffPublished(published.files, copy)).toEqual({ changed: [], missing: [], extra: [] });
+    expect(published.files.map((f) => f.path)).toContain("dataset.json");
   });
 
   it("names every hand edit: a changed text, a deleted mirror and an added file", async () => {
+    expect(await diffPublished(published.files, copy)).toEqual({ changed: [], missing: [], extra: [] });
     const art5 = new URL("cf/art5.json", copy);
     const json = await readFile(art5, "utf8");
     await writeFile(art5, json.replace("Todos são iguais perante a lei", "Todos são iguais perante a lei e o rei"));
@@ -106,12 +109,17 @@ beforeAll(async () => {
 });
 
 /** One run of the job, in dry-run: GitHub and the working tree are in memory. */
-async function run(options: { source: Source; now: string; github?: MemoryGitHub; reviewer?: LlmReviewer | undefined; tests?: TestRunner; bodyLimit?: number }) {
+async function run(options: {
+  source: Source;
+  now: string;
+  manifests?: NormManifest[];
+  previous?: Dataset;
+  github?: MemoryGitHub; reviewer?: LlmReviewer | undefined; tests?: TestRunner; bodyLimit?: number }) {
   const github = options.github ?? memoryGitHub();
   const workspace = memoryWorkspace();
   const result = await runDailyJob({
-    manifests,
-    previous,
+    manifests: options.manifests ?? manifests,
+    previous: options.previous ?? previous,
     source: options.source,
     now: new Date(options.now),
     reviewer: "reviewer" in options ? options.reviewer : fakeReviewer(ec142Mapping),
@@ -395,5 +403,18 @@ describe("daily job: what it writes regenerates to the same dataset", () => {
     const index = JSON.parse(workspace.text("fixtures/2026-10-23-daily/index.json")) as { unavailable: string[]; snapshots: { url: string }[] };
     expect(index.unavailable).toEqual([normas]);
     expect(index.snapshots.map((s) => s.url)).not.toContain(normas);
+  });
+});
+
+describe("daily job: the CDC reworded by a law (test/fixtures/refresh/cdc-law, simulated Lei 15.999/2026)", () => {
+  it("escalates, and the PR body explains that v1 reviews only constitutional amendments", async () => {
+    const source = await recordedSource(recorded, acts, scenario("cdc-law"));
+    const before = await build({ manifests: [cdc], source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
+    const { result, github } = await run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before });
+    expect(result.report?.changes.map((c) => `${c.kind} ${c.norm} ${c.id}`)).toEqual(["changed cdc art49_cpt"]);
+    expect(result.verdict?.decision).toBe("needs-human");
+    expect(github.pulls[0]!.body).toContain(
+      "> **Why a change by a law needs a human.** 1 change cites only acts other than constitutional amendments (Lei nº 15.999, de 2026). In v1, target matching and the LLM reviewer read only constitutional amendments",
+    );
   });
 });
