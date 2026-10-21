@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Akoma's own Worker. Naming follows the other hendril.dev Workers (hendril-dev-<project>).
+  "name": "hendril-dev-akoma",
+  // Account IDs are not secrets; the deploy token (CLOUDFLARE_API_TOKEN) is.
+  "account_id": "ce0bad49ab80bfc182bd8c54044aaa36",
+  "main": "src/worker/main.ts",
+  "compatibility_date": "2026-10-20",
+  "workers_dev": false,
+  "preview_urls": false,
+  // Only this hostname. Every hendril.dev path route belongs to another Worker; the zone's route map is
+  // ~/Developer/hendril-portfolio/README.md "Deployment boundaries" (add akoma.hendril.dev there after the first deploy).
+  // A custom domain creates its own DNS record on deploy, and fails if an `akoma` record already exists.
+  "routes": [{ "pattern": "akoma.hendril.dev", "custom_domain": true }],
+  // The committed dataset (written by `pnpm build:dataset`, #12), deployed as it was reviewed and merged. Files are
+  // matched first and served without running the Worker (free, unlimited), with the headers in dataset/_headers; any
+  // other path (/v1/norms, /v1/search…) runs the Worker. No API route is a file name, so nothing is shadowed.
+  // No `binding`: the API is bundled with the same dataset (below) and never reads a file.
+  "assets": {
+    "directory": "./dataset",
+    "not_found_handling": "none",
+  },
+  // The API's copy of the dataset: dataset/dataset.json, bundled into the Worker (src/worker/main.ts).
+  "alias": { "akoma-dataset": "./dataset/dataset.json" },
+  // Workers Cache (wrangler >= 4.69): the edge stores the Worker's answers by their Cache-Control and serves hits
+  // without running the Worker, so a hit skips the rate limiter and costs no CPU (it is still a billed request). The
+  // key includes the Worker version, so every deploy, which carries a new dataset, starts with an empty cache.
+  "cache": { "enabled": true },
+  // Per-client limit (IP), counted per Cloudflare location. Must equal RATE_LIMIT in src/worker/worker.ts.
+  // Not confirmed on the Free plan; without it the Worker falls back to an in-memory window (docs/deploy.md).
+  "ratelimits": [{ "name": "RATE_LIMITER", "namespace_id": "1701", "simple": { "limit": 120, "period": 60 } }],
+  "observability": { "enabled": true },
+}

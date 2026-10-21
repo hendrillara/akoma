@@ -12,12 +12,14 @@
     "test": "vitest run",
     "check:map": "node scripts/check-agent-map.mjs AGENTS.md",
     "review:live": "node scripts/review-live.ts",
-    "verify": "pnpm typecheck && pnpm test && pnpm check:map"
+    "verify": "pnpm typecheck && pnpm test && pnpm check:map",
+    "dev": "wrangler dev"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",
     "typescript": "^7.0.2",
-    "vitest": "^5.0.5"
+    "vitest": "^5.0.5",
+    "wrangler": "4.151.2"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.135.0",
