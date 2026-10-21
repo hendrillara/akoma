@@ -10,6 +10,7 @@ Check here before searching. When a listed path moves, update this Map in the sa
 - `src/worker/` — the served API: HTTP request → response over a dataset (test seam 2)
 - `test/` — seam tests only (`build.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
 - `fixtures/` — committed raw source captures (checksummed `index.json` per capture; normas.leg.br files are CC BY 4.0, see its README)
+- `scripts/probe-planalto.mjs` — checks whether Planalto serves a runner (Akoma UA, conditional GET, control UA)
 - `docs/research/2026-10-20-sources.md` — source-of-truth research: Planalto, normas.leg.br, LEGIN, LexML IDs, parser traps, accuracy checks
 - `docs/agents/` — issue tracker, triage labels, domain-doc rules for the engineering skills
 - GitHub Issues — the spec (#1) and tickets live there (see `docs/agents/issue-tracker.md`)
