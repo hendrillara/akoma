@@ -24,38 +24,19 @@ import { runDailyJob, type TestResult, type TestRunner } from "../src/publish/jo
 import { readPublished } from "../src/publish/published.ts";
 import { diskWorkspace, memoryWorkspace } from "../src/publish/workspace.ts";
 import { claudeReviewer, DEFAULT_REVIEW_MODEL } from "../src/review/claude.ts";
-import { httpSource } from "../src/sources/http.ts";
-import { recordedSource } from "../src/sources/recorded.ts";
+import { cli, nowFrom, runUrlFromEnv, sourceFrom } from "./cli.ts";
 
 const root = new URL("../", import.meta.url);
-const args = process.argv.slice(2);
-const dryRun = args.includes("--dry-run");
-const option = (name: string) => {
-  const i = args.indexOf(name);
-  return i >= 0 ? args[i + 1] : undefined;
-};
-const list = (name: string) => {
-  const i = args.indexOf(name);
-  if (i < 0) return [];
-  const values: string[] = [];
-  for (const value of args.slice(i + 1)) {
-    if (value.startsWith("--")) break;
-    values.push(value);
-  }
-  return values;
-};
+const args = cli();
+const { dryRun } = args;
+const option = args.option;
 
-const recorded = list("--recorded");
-const source = recorded.length
-  ? await recordedSource(...recorded.map((folder) => new URL(`${folder.replace(/\/?$/, "/")}`, `file://${process.cwd()}/`)))
-  : httpSource({ log: (line) => console.log(line) });
-const now = option("--now") ? new Date(option("--now")!) : new Date();
-if (Number.isNaN(now.getTime())) throw new Error(`--now: not an instant: ${option("--now")}`);
+const source = await sourceFrom(args);
+const now = nowFrom(args);
 
 const apiKey = process.env.ANTHROPIC_API_KEY || undefined;
 const model = process.env.AKOMA_REVIEW_MODEL || DEFAULT_REVIEW_MODEL;
-const { GITHUB_SERVER_URL, GITHUB_REPOSITORY, GITHUB_RUN_ID } = process.env;
-const runUrl = GITHUB_SERVER_URL && GITHUB_REPOSITORY && GITHUB_RUN_ID ? `${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}` : undefined;
+const runUrl = runUrlFromEnv();
 
 const github = dryRun ? memoryGitHub() : ghCli({ cwd: fileURLToPath(root), statusBranch: "status", base: "main" });
 if (dryRun && option("--status")) await github.writeStatus([{ path: "status.json", content: readFileSync(option("--status")!, "utf8") }]);
@@ -73,7 +54,7 @@ const result = await runDailyJob({
   workspace,
   tests,
   ...(runUrl && { runUrl }),
-  ...(args.includes("--rebuild") && { rebuild: true }),
+  ...(args.has("--rebuild") && { rebuild: true }),
   // A merge made with the workflow token starts no `push` workflow; `workflow_dispatch` is the exception.
   ...(existsSync(new URL(".github/workflows/deploy.yml", root)) && { deployWorkflow: "deploy.yml" }),
 });

@@ -18,7 +18,7 @@ import type { RawSnapshot, Source } from "../sources/source.ts";
 import { NORM_NAMES, readAmendingAct, type AmendingAct } from "./acts.ts";
 import { parsePlanaltoPage, type PageLayout } from "./planalto.ts";
 import { applyDeferredChanges, type Draft } from "./vigencia.ts";
-import { isCalendarDate } from "./vigencia-dates.ts";
+import { brasiliaDay, isCalendarDate } from "./vigencia-dates.ts";
 
 /**
  * Declarative description of one norm: its dataset identity, where its text comes from, the sources it is
@@ -134,7 +134,7 @@ export async function build({ manifests, source, datasetVersion, today, synonyms
     if (manifest.deferredActs?.length) {
       if (!manifest.citedAs) throw new Error(`${manifest.key}: deferredActs needs citedAs`);
       const read = await Promise.all(manifest.deferredActs.map(actAt));
-      applyDeferredChanges(drafts, read, manifest.citedAs, today ?? brasiliaDay(snapshot), ({ act, retrievedAt }) => ({
+      applyDeferredChanges(drafts, read, manifest.citedAs, today ?? brasiliaDay(snapshot.retrievedAt), ({ act, retrievedAt }) => ({
         sourceUrl: act.act.href!,
         retrievedAt,
         datasetVersion,
@@ -203,10 +203,4 @@ async function readAct(source: Source, url: string, names: string[]): Promise<{ 
   if (!snapshot) throw new Error(`amending act ${url} is unavailable`);
   const act = readAmendingAct(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url, names);
   return { act, retrievedAt: snapshot.retrievedAt, url };
-}
-
-/** The calendar day, in Brasília, on which a snapshot was retrieved. */
-function brasiliaDay(snapshot: RawSnapshot): string {
-  if (/^\d{4}-\d{2}-\d{2}$/.test(snapshot.retrievedAt)) return snapshot.retrievedAt;
-  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date(snapshot.retrievedAt));
 }

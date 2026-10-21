@@ -5,6 +5,7 @@
 // dataset ids, and a reason code when the form cannot be read.
 import type { Dataset } from "../schema/dataset.ts";
 import type { OwnComment } from "./github.ts";
+import { articleOf } from "../schema/lexml.ts";
 
 /** The label the issue form applies; the recheck workflow runs only for issues that carry it. */
 export const DIVERGENCE_LABEL = "text-divergence";
@@ -75,7 +76,7 @@ function sections(body: string): Map<string, string> {
 
 function resolve(given: string, norm: string, dataset: Dataset): Target | { reason: "dispositivo" | "ambiguous" } {
   const provisions = dataset.provisions.filter((p) => p.norm === norm);
-  const articles = new Set(provisions.map((p) => p.id.split("_")[0]!));
+  const articles = new Set(provisions.map((p) => articleOf(p.id)));
   const lower = given.toLowerCase();
   if (provisions.some((p) => p.id === lower)) return { kind: "provision", id: lower };
   if (articles.has(lower)) return { kind: "article", id: lower };
@@ -91,7 +92,7 @@ function resolve(given: string, norm: string, dataset: Dataset): Target | { reas
     if (from < 0) continue;
     const labels = p.path.slice(from).map((s) => s.label);
     if (citationKey(labels.join(" ")) === wanted) matches.add(`provision:${p.id}`);
-    if (citationKey(labels[0]!) === wanted) matches.add(`article:${p.id.split("_")[0]}`);
+    if (citationKey(labels[0]!) === wanted) matches.add(`article:${articleOf(p.id)}`);
   }
   if (matches.size > 1) return { reason: "ambiguous" };
   const [match] = matches;
@@ -219,7 +220,7 @@ export function brasiliaMidnight(day: string): string {
 
 /** Whether a dataset id belongs to a target id: the id itself, or a dispositivo of the article (ids without "_"). */
 export function inTarget(target: string, id: string): boolean {
-  return target.includes("_") ? id === target : id.split("_")[0] === target;
+  return target.includes("_") ? id === target : articleOf(id) === target;
 }
 
 /** A fence longer than any run of backticks in `text`, so quoted text can never close it. */

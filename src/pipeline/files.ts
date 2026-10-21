@@ -1,6 +1,8 @@
 // The dataset as published files: canonical JSON per article, and generated Markdown mirrors for humans and diffs.
 // The JSON is canonical; the Markdown is always generated from it, never edited.
-import type { Dataset, NormEntry, PendingChange, Provision } from "../schema/dataset.ts";
+import { lines } from "../render/markdown.ts";
+import type { Dataset, NormEntry, Provision } from "../schema/dataset.ts";
+import { articleOf, pathLabel } from "../schema/lexml.ts";
 
 export interface DatasetFile {
   /** Path inside the published dataset, e.g. "cf/art5.json". */
@@ -46,7 +48,7 @@ export function datasetFiles(dataset: Dataset): DatasetFile[] {
 function byArticle(provisions: Provision[]): Map<string, Provision[]> {
   const articles = new Map<string, Provision[]>();
   for (const provision of provisions) {
-    const article = provision.id.split("_")[0]!;
+    const article = articleOf(provision.id);
     articles.set(article, [...(articles.get(article) ?? []), provision]);
   }
   return articles;
@@ -76,53 +78,8 @@ export function normMarkdown(norm: NormEntry, provisions: Provision[]): string {
 }
 
 function articleMarkdown(provisions: Provision[]): string[] {
-  const path = provisions[0]!.path.map((s) => s.label).slice(0, -1).join(" › ");
+  const path = pathLabel(provisions[0]!.path.slice(0, -1));
   return [`<!-- ${path} -->`, ...provisions.flatMap(lines)];
 }
 
 const GROUPINGS = new Set(["parte", "livro", "titulo", "capitulo", "secao", "subsecao"]);
-
-/**
- * A dispositivo's line, then a quoted line per pending change, with the act's vigência clause for it, so a reader sees
- * which change waits for which date: "> **Pendente a partir de 2026-12-17** (Emenda Constitucional nº 141, de 2026;
- * cláusula de vigência: "após decorridos 2 (dois) meses …"): …".
- */
-export function lines(provision: Provision): string[] {
-  return [line(provision), ...(provision.pending ?? []).map(pendingLine)];
-}
-
-function pendingLine(entry: PendingChange): string {
-  const shown = entry.effect === "revoked" ? "(Revogado)" : escape(entry.text ?? "");
-  const note = entry.note ? ` *${escape(entry.note)}*` : "";
-  return `> **Pendente a partir de ${entry.effectiveFrom}** (${entry.act.citation}; cláusula de vigência: "${escape(entry.vigencia)}"): ${shown}${note}`;
-}
-
-const MARKER: Partial<Record<Provision["status"], string>> = {
-  vetoed: "(Vetado)",
-  revoked: "(Revogado)",
-  not_yet_in_force: "(Ainda não vigente)",
-};
-
-/** One dispositivo as printed: "Art. 5º …", "§ 1º …", "Parágrafo único. …", "X - …", "a) …", "1) …". */
-export function line(provision: Provision): string {
-  const label = printedLabel(provision);
-  const shown = provision.text || MARKER[provision.status] || "";
-  const notes = [...provision.amendments.map((a) => a.annotation), ...provision.references.map((r) => r.annotation)];
-  const annotations = notes.length ? ` ${notes.map((n) => `*(${n})*`).join(" ")}` : "";
-  // A renumbered dispositivo has no wording left: its label is followed by the note alone.
-  return `${[label, escape(shown)].filter(Boolean).join(" ")}${annotations}`.trim();
-}
-
-function printedLabel(provision: Provision): string {
-  const { kind, label } = provision;
-  if (kind === "caput") return `**${provision.path.at(-2)!.label}**`;
-  if (kind === "paragrafo") return label === "parágrafo único" ? "Parágrafo único." : label;
-  if (kind === "inciso") return `${label.replace(/^inciso /, "")} -`;
-  if (kind === "alinea") return `${label.replace(/^alínea /, "")})`;
-  return `${label.replace(/^item /, "")})`;
-}
-
-/** Keeps legal text from turning into Markdown syntax ("*" or "_" emphasis, inline code, HTML). */
-export function escape(text: string): string {
-  return text.replace(/([\\*_`<])/g, "\\$1");
-}

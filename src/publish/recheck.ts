@@ -26,8 +26,9 @@ import {
   type RecheckOutcome,
 } from "./divergence.ts";
 import type { GitHub } from "./github.ts";
-import { brasiliaDay } from "./job.ts";
+import { brasiliaDay } from "../pipeline/vigencia-dates.ts";
 import { BODY_LIMIT } from "./pr-body.ts";
+import { articleOf, pathLabel } from "../schema/lexml.ts";
 
 /** The parts of GitHub's `issues` event payload the recheck reads. */
 export interface IssueEvent {
@@ -109,7 +110,7 @@ export async function runRecheck(input: RecheckInput): Promise<RecheckResult> {
   type Entry = (typeof todays)[number];
   /** A recheck today that covers this target: the same target, or the article holding this dispositivo. */
   const covers = (e: Entry) =>
-    e.kind === "recheck" && e.norm === norm && BLOCKING.has(e.outcome!) && (e.target === target.id || (target.kind === "provision" && e.target === target.id.split("_")[0]));
+    e.kind === "recheck" && e.norm === norm && BLOCKING.has(e.outcome!) && (e.target === target.id || (target.kind === "provision" && e.target === articleOf(target.id)));
   /** Rechecks that fetched (or are fetching) today, all issues together. */
   const fetched = (entries: Entry[]) => new Set(entries.filter((e) => e.kind === "recheck" && COUNTED.has(e.outcome!)).map((e) => e.id)).size;
 
@@ -233,7 +234,7 @@ function wording(p: Provision): string {
 }
 
 function heading(norm: string, p: Provision): string {
-  return `#### ${code(norm, p.id)} · ${p.path.map((s) => s.label).join(" › ")}`;
+  return `#### ${code(norm, p.id)} · ${pathLabel(p.path)}`;
 }
 
 function linksLine(manifest: NormManifest, norm: string, id: string): string {

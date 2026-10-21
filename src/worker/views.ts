@@ -1,6 +1,6 @@
 // What each endpoint answers, over an index of the dataset built once per handler: a JSON body and its compact
 // Markdown rendering. Every successful view carries the notice (unofficial text, vigência not verified against STF).
-import { escape, lines } from "../pipeline/files.ts";
+import { escape, lines } from "../render/markdown.ts";
 import {
   NOTICE,
   type Article,
@@ -9,8 +9,10 @@ import {
   type NormEntry,
   type PathSegment,
   type Provision,
+  type ProvisionStatus,
   type SourcePage,
 } from "../schema/dataset.ts";
+import { articleOf, pathLabel } from "../schema/lexml.ts";
 
 /** An endpoint's answer before content negotiation: `md` is rendered only when Markdown is asked for. */
 export interface View {
@@ -46,7 +48,8 @@ interface OutlineNode {
   children: OutlineNode[];
 }
 
-const STATUS: Record<string, string> = {
+/** How a dispositivo's status is shown; in force shows nothing. */
+const STATUS: Record<Exclude<ProvisionStatus, "in_force">, string> = {
   revoked: "revogado / revoked",
   vetoed: "vetado / vetoed",
   renumbered: "renumerado / renumbered",
@@ -63,7 +66,7 @@ export function createViews(dataset: Dataset) {
   const aliases = new Map<string, string | null>();
   for (const p of dataset.provisions) {
     provisions.set(`${p.norm}/${p.id}`, p);
-    const article = `${p.norm}/${p.id.split("_")[0]}`;
+    const article = `${p.norm}/${articleOf(p.id)}`;
     const members = byArticle.get(article);
     if (members) members.push(p);
     else byArticle.set(article, [p]);
@@ -154,8 +157,8 @@ export function createViews(dataset: Dataset) {
       const provision = provisions.get(`${key}/${id}`);
       if (provision) {
         return ok(credited(provision, [provision], norms.get(key)!), () => {
-          const status = STATUS[provision.status] ?? (provision.status === "in_force" ? undefined : provision.status);
-          const where = `*${provision.path.map((s) => s.label).join(" › ")}* · \`${key}\` \`${id}\`${status ? ` · ${status}` : ""}`;
+          const status = provision.status === "in_force" ? undefined : STATUS[provision.status];
+          const where = `*${pathLabel(provision.path)}* · \`${key}\` \`${id}\`${status ? ` · ${status}` : ""}`;
           return document([...lines(provision), where], footer(provision.provenance));
         });
       }

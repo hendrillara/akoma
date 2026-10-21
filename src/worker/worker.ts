@@ -2,19 +2,13 @@
 // wrangler.jsonc when they are bound. main.ts builds one at global scope; seam 2 builds them with fake bindings.
 import type { Dataset } from "../schema/dataset.ts";
 import { createHandler } from "./handler.ts";
-import { bindingRateLimiter, memoryRateLimiter, type RateLimitBinding } from "./rate-limit.ts";
+import { bindingRateLimiter, memoryRateLimiter, RATE_LIMIT, type RateLimitBinding } from "./rate-limit.ts";
 
 /** The bindings wrangler.jsonc declares; each may be missing (see docs/deploy.md, "If the first deploy fails"). */
 export interface Env {
   /** wrangler.jsonc `ratelimits`; its `simple` limit and period must equal RATE_LIMIT. */
   RATE_LIMITER?: RateLimitBinding;
 }
-
-/**
- * Requests per client (IP) per period. The single source of these numbers: wrangler.jsonc `ratelimits[0].simple`
- * repeats them for the binding, and the in-memory fallback uses them directly.
- */
-export const RATE_LIMIT = { limit: 120, periodSeconds: 60 } as const;
 
 export interface Worker {
   fetch(request: Request): Promise<Response>;

@@ -1,11 +1,12 @@
 // GET /v1/search?q=…[&norm=…][&limit=…]: ranked dispositivos, each with its full record and provenance.
 // Agents read these bodies as legal text from a trusted domain, so nothing the request typed is ever echoed back: the
 // query is not repeated, and `norm` and `limit` appear only after they are validated against known values.
-import { lines } from "../pipeline/files.ts";
+import { lines } from "../render/markdown.ts";
 import { NOTICE, type Dataset, type Provision } from "../schema/dataset.ts";
 import { ANALYZER } from "../search/analyze.ts";
 import { searchIndex } from "../search/query.ts";
 import { document, sourceLine, type View } from "./views.ts";
+import { pathLabel } from "../schema/lexml.ts";
 
 export const DEFAULT_LIMIT = 10;
 export const MAX_LIMIT = 50;
@@ -47,7 +48,7 @@ function markdown(found: Provision[]): string {
   if (found.length === 0) return document(["# Busca / Search", "Nenhum resultado / No results."], `---\n${NOTICE}`);
   const blocks = found.flatMap((p) => [
     ...lines(p),
-    `*${p.path.map((s) => s.label).join(" › ")}* · \`${p.norm}\` \`${p.id}\``,
+    `*${pathLabel(p.path)}* · \`${p.norm}\` \`${p.id}\``,
   ]);
   const sources = [...new Map(found.map((p) => [p.provenance.sourceUrl, p.provenance])).values()];
   return document(["# Busca / Search", ...blocks], `---\n${[...sources.map(sourceLine), NOTICE].join("\n")}`);

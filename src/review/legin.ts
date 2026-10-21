@@ -2,9 +2,10 @@
 // one block per dispositivo, so the generic parser reads it; only its annotations are in Câmara's own style:
 // "(Inciso acrescido pela Lei nº 14.181, de 1º/7/2021)", "("Caput" do artigo com redação dada pela …)",
 // "(VETADO na Lei nº 14.368, de 14/6/2022)", "(Retificado no DOU de 10/1/2007)".
-import type { ActCitation, ActType, Amendment, Reference } from "../schema/dataset.ts";
-import type { Link, Peeled } from "../pipeline/annotations.ts";
+import { matchingParen, type Link, type Peeled } from "../pipeline/annotations.ts";
 import { parsePlanaltoPage } from "../pipeline/planalto.ts";
+import type { ActCitation, ActType, Amendment, Reference } from "../schema/dataset.ts";
+import { articleOf } from "../schema/lexml.ts";
 import { actKey, type SecondaryDispositivo } from "./secondary.ts";
 
 /** What opens a Câmara annotation: the kind of dispositivo it is about, or a retificação or veto note. */
@@ -25,7 +26,7 @@ export function readLegin(html: string, url: string): SecondaryDispositivo[] {
   // the last inciso), so the acts it records are read per article: the page is compared per article (ADR 0002).
   const byArticle = new Map<string, Set<string>>();
   for (const p of parsed) {
-    const article = p.id.split("_")[0]!;
+    const article = articleOf(p.id);
     const acts = byArticle.get(article) ?? new Set<string>();
     for (const act of [...p.amendments.map((a) => a.act), ...p.references.map((r) => r.act)]) {
       if (act) acts.add(actKey(act.type, act.number));
@@ -36,7 +37,7 @@ export function readLegin(html: string, url: string): SecondaryDispositivo[] {
     id: p.id,
     text: p.text,
     status: p.status === "vetoed" || p.status === "revoked" ? p.status : "in_force",
-    acts: byArticle.get(p.id.split("_")[0]!)!,
+    acts: byArticle.get(articleOf(p.id))!,
   }));
 }
 
@@ -86,11 +87,3 @@ function actsIn(annotation: string): ActCitation[] {
   }));
 }
 
-function matchingParen(text: string, close: number): number | undefined {
-  let depth = 0;
-  for (let i = close; i >= 0; i--) {
-    if (text[i] === ")") depth++;
-    else if (text[i] === "(" && --depth === 0) return i;
-  }
-  return undefined;
-}

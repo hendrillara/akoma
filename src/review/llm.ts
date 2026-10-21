@@ -12,6 +12,7 @@ import { readActCitation } from "../pipeline/acts.ts";
 import { verifyActPage } from "./act-pages.ts";
 import { actsCitedBy, knownActs } from "./gates.ts";
 import type { Finding } from "./verdict.ts";
+import { pathLabel } from "../schema/lexml.ts";
 
 /** What the reviewer must answer: the schema its structured output is constrained to and validated against. */
 export const ReviewerOutputSchema = z.object({
@@ -243,7 +244,7 @@ function view(c: ProvisionChange, manifests: NormManifest[]): ReviewedChange {
     norm: c.norm,
     normName: manifest?.citedAs ?? manifest?.title ?? c.norm,
     id: c.id,
-    path: record.path.map((s) => s.label).join(" › "),
+    path: pathLabel(record.path),
     fields: c.fields,
     annotations: c.amendments.map((a) => a.annotation),
     ...(c.before && { before: side(c.before) }),

@@ -3,7 +3,7 @@
 // The base URL is fixed, never read from the request: no request input reaches a response body.
 import type { Dataset } from "../schema/dataset.ts";
 import { DEFAULT_LIMIT, MAX_LIMIT, MAX_QUERY_LENGTH } from "./search.ts";
-import { RATE_LIMIT } from "./worker.ts";
+import { RATE_LIMIT } from "./rate-limit.ts";
 
 export const BASE = "https://akoma.hendril.dev";
 export const MCP_URL = `${BASE}/mcp`;
@@ -24,7 +24,6 @@ export function discoveryFiles(dataset: Dataset): Map<string, DiscoveryFile> {
   ]);
 }
 
-/** Read when a handler is created, not at import: worker.ts imports the handler, which imports this module. */
 function rateLimitText(): string {
   const { limit, periodSeconds } = RATE_LIMIT;
   return `Rate limit: ${limit} requests per ${periodSeconds} s per IP for the REST API, and a separate ${limit} for \`/mcp\`; over it, HTTP 429 with \`Retry-After\`.`;

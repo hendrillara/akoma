@@ -5,6 +5,7 @@
 // does everything but touch GitHub and the checkout (docs/publishing.md).
 import { build, pageContentHash, type NormManifest } from "../pipeline/build.ts";
 import { detectChanges, type ChangeReport } from "../pipeline/changes.ts";
+import { brasiliaDay } from "../pipeline/vigencia-dates.ts";
 import { datasetFiles } from "../pipeline/files.ts";
 import { crossSourceFindings } from "../review/cross-source.ts";
 import { invariants, reviewDeferredActs, reviewGates } from "../review/gates.ts";
@@ -398,7 +399,3 @@ function contentLag(dataset: Dataset, previous: ContentLag[], now: Date): Conten
   });
 }
 
-/** The calendar day in Brasília, where a norm takes effect at the start of the day. */
-export function brasiliaDay(instant: Date): string {
-  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(instant);
-}

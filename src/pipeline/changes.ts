@@ -3,7 +3,8 @@
 import { createHash } from "node:crypto";
 import type { Finding, ReviewLayer, Verdict } from "../review/verdict.ts";
 import type { Amendment, Dataset, PathSegment, Provision, Reference } from "../schema/dataset.ts";
-import { escape } from "./files.ts";
+import { escape } from "../render/markdown.ts";
+import { pathLabel } from "../schema/lexml.ts";
 
 /**
  * `added`: a new id. `changed`: any part of the record moved (text, label, status, annotations…). `revoked`: the
@@ -245,5 +246,5 @@ function pendingText(provision: Provision): string {
 }
 
 function pathText(path: PathSegment[]): string {
-  return path.map((s) => s.label).join(" › ");
+  return pathLabel(path);
 }

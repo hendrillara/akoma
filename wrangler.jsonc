@@ -28,7 +28,7 @@
   // without running the Worker, so a hit skips the rate limiter and costs no CPU (it is still a billed request). The
   // key includes the Worker version, so every deploy, which carries a new dataset, starts with an empty cache.
   "cache": { "enabled": true },
-  // Per-client limit (IP), counted per Cloudflare location. Must equal RATE_LIMIT in src/worker/worker.ts.
+  // Per-client limit (IP), counted per Cloudflare location. Must equal RATE_LIMIT in src/worker/rate-limit.ts.
   // Not confirmed on the Free plan; without it the Worker falls back to an in-memory window (docs/deploy.md).
   "ratelimits": [{ "name": "RATE_LIMITER", "namespace_id": "1701", "simple": { "limit": 120, "period": 60 } }],
   "observability": { "enabled": true },
