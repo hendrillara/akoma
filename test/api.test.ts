@@ -33,7 +33,9 @@ describe("API v1", () => {
 
     beforeAll(async () => {
       const fixtures = new URL("../fixtures/2026-10-20/", import.meta.url);
-      const dataset = await build({ manifests: [cf], source: await recordedSource(fixtures), datasetVersion: "2026.10.21-test" });
+      const actFixtures = new URL("../fixtures/2026-10-21/", import.meta.url);
+      const source = await recordedSource(fixtures, actFixtures);
+      const dataset = await build({ manifests: [cf], source, datasetVersion: "2026.10.21-test" });
       handle = createHandler(dataset);
     });
 

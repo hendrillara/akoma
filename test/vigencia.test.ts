@@ -83,3 +83,242 @@ describe("deferred vigência: EC 141/2026, art. 7º XV", () => {
     expect(xv.provenance.contentHash).toBe("sha256:9418747eaefb72b609af710e2dd080b85dc4e356be85741f7aa8bf962469cf15");
   });
 });
+
+// EC 132/2023 (tax reform), DOU 21.12.2023. Art. 23: "I - em 2027, em relação aos arts. 3º e 11; II - em 2033, em
+// relação aos arts. 4º e 5º; e III - na data de sua publicação, em relação aos demais dispositivos." Art. 22 revokes
+// "I - em 2027, o art. 195, I, "b", e IV, e § 12, da Constituição Federal; II - em 2033: a) os arts. 155, II, e §§ 2º a
+// 5º, 156, III, e § 3º, 158, IV, "a", e § 1º, e 161, I, da Constituição Federal; e b) os arts. 80, II, 82, § 2º, e 83
+// do Ato das Disposições Constitucionais Transitórias." Planalto marks almost none of the reworded dispositivos, so the
+// pending set comes from the act. "em 2027" is read as 1 January 2027 (ADR 0002).
+describe("deferred vigência: EC 132/2023, phased to 2027 and 2033", () => {
+  const emc132 = "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm";
+  const ec132 = { citation: "Emenda Constitucional nº 132, de 2023", type: "emenda_constitucional", number: "132", year: 2023, href: emc132 };
+  const y2027 = "2027-01-01";
+  const y2033 = "2033-01-01";
+  const art23i = "em 2027, em relação aos arts. 3º e 11";
+  const art23ii = "em 2033, em relação aos arts. 4º e 5º";
+
+  // Every dispositivo EC 132 changes later, read by hand from its arts. 3, 4, 5 and 22: [norm, id, effect, date].
+  // A revoked § or article takes everything under it along.
+  const roots: [string, string, string, string][] = [
+    // art. 3 (2027)
+    ["cf", "art37_par17", "inserted", y2027],
+    ["cf", "art37_par18", "inserted", y2027],
+    ["cf", "art146_cpt_inc3_ali4", "wording", y2027],
+    ["cf", "art153_cpt_inc5", "wording", y2027],
+    ["cf", "art156-1_par1_inc9", "wording", y2027],
+    ["cf", "art195_par9", "wording", y2027],
+    ["cf", "art195_par17", "wording", y2027],
+    ["cf", "art195_par19", "wording", y2027],
+    ["cf", "art195_par19_inc1", "inserted", y2027],
+    ["cf", "art195_par19_inc2", "inserted", y2027],
+    ["cf", "art225_par1_inc8", "wording", y2027],
+    ["cf", "art239_cpt", "wording", y2027],
+    ["cf", "art239_par3", "wording", y2027],
+    // art. 4 (2033)
+    ["cf", "art146_cpt_inc3_ali4", "wording", y2033],
+    ["cf", "art150_par6", "wording", y2033],
+    ["cf", "art153_par6_inc4", "wording", y2033],
+    ["cf", "art156-1_par1_inc9", "wording", y2033],
+    ["cf", "art159_par3", "wording", y2033],
+    ["cf", "art195_par17", "wording", y2033],
+    ["cf", "art212-1_cpt_inc2_ali3", "wording", y2033],
+    ["cf", "art225_par1_inc8", "wording", y2033],
+    // art. 5 (2033, ADCT)
+    ["adct", "art82_cpt", "wording", y2033],
+    ["adct", "art82_par1", "wording", y2033],
+    ["adct", "art82_par2", "revoked", y2033],
+    ["adct", "art104_cpt_inc4", "wording", y2033],
+    // art. 22 I (2027)
+    ["cf", "art195_cpt_inc1_ali2", "revoked", y2027],
+    ["cf", "art195_cpt_inc4", "revoked", y2027],
+    ["cf", "art195_par12", "revoked", y2027],
+    // art. 22 II a (2033)
+    ["cf", "art155_cpt_inc2", "revoked", y2033],
+    ...[2, 3, 4, 5].map((n): [string, string, string, string] => ["cf", `art155_par${n}`, "revoked", y2033]),
+    ["cf", "art156_cpt_inc3", "revoked", y2033],
+    ["cf", "art156_par3", "revoked", y2033],
+    ["cf", "art158_cpt_inc4_ali1", "revoked", y2033],
+    ["cf", "art158_par1", "revoked", y2033],
+    ["cf", "art161_cpt_inc1", "revoked", y2033],
+    // art. 22 II b (2033, ADCT)
+    ["adct", "art80_cpt_inc2", "revoked", y2033],
+    ["adct", "art83", "revoked", y2033],
+  ];
+  const under = (id: string, root: string) => id === root || id.startsWith(`${root}_`);
+  const of132 = (p: Provision) => (p.pending ?? []).filter((e) => e.act.number === "132");
+
+  let dataset: Dataset;
+
+  beforeAll(async () => {
+    dataset = await build({ manifests: [cf, adct], source: await source(), datasetVersion: "vigencia" });
+  });
+
+  it("stages exactly the dispositivos the act changes later, revocations reaching everything under them", () => {
+    for (const [norm, id, effect, date] of roots) {
+      const named = dataset.provisions.filter((p) => p.norm === norm && (effect === "revoked" ? under(p.id, id) : p.id === id));
+      expect(named.length, `${norm} ${id}`).toBeGreaterThan(0);
+      // A dispositivo the page already shows revoked (art. 155 § 2º VII "a) (revogada);", EC 87/2015) has nothing left to end.
+      const reached = named.filter((p) => !(effect === "revoked" && p.status === "revoked"));
+      for (const p of reached) {
+        expect(of132(p).map((e) => [e.effect, e.effectiveFrom]), `${norm} ${p.id}`).toContainEqual([effect, date]);
+      }
+    }
+    // Nothing else carries an EC 132 pending change.
+    for (const p of dataset.provisions) {
+      for (const e of of132(p)) {
+        const root = roots.find(
+          ([norm, id, effect, date]) =>
+            norm === p.norm && effect === e.effect && date === e.effectiveFrom && (effect === "revoked" ? under(p.id, id) : p.id === id),
+        );
+        expect(root, `${p.norm} ${p.id} ${e.effect} ${e.effectiveFrom}`).toBeDefined();
+      }
+    }
+    // Art. 155 § 2º, its 12 incisos and their alíneas: 36 dispositivos, 2 of them already revoked (VII "a" and "b").
+    const par2 = dataset.provisions.filter((p) => p.norm === "cf" && under(p.id, "art155_par2"));
+    expect(par2).toHaveLength(36);
+    expect(par2.filter((p) => of132(p).length === 1).map((p) => p.id)).toHaveLength(34);
+  });
+
+  it("includes every dispositivo Planalto itself flags with an EC 132 vigência pointer", () => {
+    const flagged = dataset.provisions.filter((p) => p.references.some((r) => r.kind === "vigencia" && /emc132\.htm/i.test(r.href ?? "")));
+    expect(flagged).toHaveLength(14);
+    for (const p of flagged) expect(of132(p).length, `${p.norm} ${p.id}`).toBeGreaterThan(0);
+  });
+
+  it("keeps today's wording of art. 153 V in force, with the 2027 wording pending", () => {
+    expect(find(dataset, "art153_cpt_inc5")).toMatchObject({
+      text: "operações de crédito, câmbio e seguro, ou relativas a títulos ou valores mobiliários;",
+      status: "in_force",
+      pending: [
+        { effect: "wording", text: "operações de crédito e câmbio ou relativas a títulos ou valores mobiliários;", effectiveFrom: y2027, vigencia: art23i, act: ec132 },
+      ],
+    });
+  });
+
+  it("lists both phases of a dispositivo reworded in 2027 and again in 2033, earliest first", () => {
+    expect(find(dataset, "art146_cpt_inc3_ali4")?.pending).toEqual([
+      {
+        effect: "wording",
+        text: "definição de tratamento diferenciado e favorecido para as microempresas e para as empresas de pequeno porte, inclusive regimes especiais ou simplificados no caso dos impostos previstos nos arts. 155, II, e 156-A e das contribuições previstas no art. 195, I e V.",
+        effectiveFrom: y2027,
+        vigencia: art23i,
+        act: ec132,
+      },
+      {
+        effect: "wording",
+        text: "definição de tratamento diferenciado e favorecido para as microempresas e para as empresas de pequeno porte, inclusive regimes especiais ou simplificados no caso do imposto previsto no art. 156-A e das contribuições sociais previstas no art. 195, I e V.",
+        effectiveFrom: y2033,
+        vigencia: art23ii,
+        act: ec132,
+      },
+    ]);
+  });
+
+  it("adds a dispositivo inserted in 2027 as not yet in force, in its place in the article", () => {
+    const par17 = find(dataset, "art37_par17");
+    expect(par17).toMatchObject({
+      kind: "paragrafo",
+      label: "§ 17",
+      path: [
+        { kind: "titulo", label: "Título III" },
+        { kind: "capitulo", label: "Capítulo VII" },
+        { kind: "secao", label: "Seção I" },
+        { kind: "artigo", label: "Art. 37" },
+        { kind: "paragrafo", label: "§ 17" },
+      ],
+      text: "",
+      status: "not_yet_in_force",
+      amendments: [],
+      pending: [
+        {
+          effect: "inserted",
+          text: "Lei complementar estabelecerá normas gerais aplicáveis às administrações tributárias da União, dos Estados, do Distrito Federal e dos Municípios, dispondo sobre deveres, direitos e garantias dos servidores das carreiras de que trata o inciso XXII do caput.",
+          effectiveFrom: y2027,
+          act: ec132,
+        },
+      ],
+      provenance: { sourceUrl: emc132, retrievedAt: "2026-10-21" },
+    });
+    const ids = dataset.provisions.filter((p) => p.norm === "cf").map((p) => p.id);
+    expect(ids.slice(ids.indexOf("art37_par16"), ids.indexOf("art37_par16") + 3)).toEqual(["art37_par16", "art37_par17", "art37_par18"]);
+    expect(ids.slice(ids.indexOf("art195_par19"), ids.indexOf("art195_par19") + 3)).toEqual(["art195_par19", "art195_par19_inc1", "art195_par19_inc2"]);
+  });
+
+  it("keeps a dispositivo revoked in 2027 in force until then, its revocation pending", () => {
+    expect(find(dataset, "art195_cpt_inc1_ali2")).toMatchObject({
+      text: "a receita ou o faturamento;",
+      status: "in_force",
+      pending: [
+        {
+          effect: "revoked",
+          effectiveFrom: y2027,
+          vigencia: 'em 2027, o art. 195, I, "b", e IV, e § 12, da Constituição Federal',
+          act: ec132,
+        },
+      ],
+    });
+    expect(find(dataset, "art195_cpt_inc1_ali2")?.pending?.[0]).not.toHaveProperty("text");
+    expect(find(dataset, "art83_cpt", "adct")?.pending).toEqual([
+      {
+        effect: "revoked",
+        effectiveFrom: y2033,
+        vigencia: "em 2033: b) os arts. 80, II, 82, § 2º, e 83 do Ato das Disposições Constitucionais Transitórias",
+        act: ec132,
+      },
+    ]);
+  });
+
+  it("flags, and never promotes, a wording the page shows reworded since by a later act", async () => {
+    // Art. 239 § 3º: EC 132 art. 3 rewrites it for 2027, but EC 135/2024 has reworded it since.
+    const flagged = find(dataset, "art239_par3")?.pending;
+    expect(flagged).toMatchObject([{ effect: "wording", effectiveFrom: y2027, note: expect.stringContaining("Emenda Constitucional nº 135, de 2024") }]);
+
+    const later = await build({ manifests: [cf], source: await source(), datasetVersion: "vigencia", today: "2027-06-01" });
+    expect(find(later, "art239_par3")).toMatchObject({
+      text: expect.stringMatching(/^Aos empregados que percebam de empregadores que contribuem para o Programa de Integração Social/),
+      pending: [{ effectiveFrom: y2027, note: expect.any(String) }],
+    });
+  });
+
+  describe("built on 2027-01-01", () => {
+    let in2027: Dataset;
+
+    beforeAll(async () => {
+      in2027 = await build({ manifests: [cf, adct], source: await source(), datasetVersion: "vigencia", today: y2027 });
+    });
+
+    it("promotes the 2027 wordings and leaves the 2033 ones pending", () => {
+      expect(find(in2027, "art153_cpt_inc5")).toMatchObject({
+        text: "operações de crédito e câmbio ou relativas a títulos ou valores mobiliários;",
+        status: "in_force",
+      });
+      expect(find(in2027, "art153_cpt_inc5")?.pending).toBeUndefined();
+      const d = find(in2027, "art146_cpt_inc3_ali4")!;
+      expect(d.text).toMatch(/no caso dos impostos previstos nos arts\. 155, II, e 156-A e das contribuições previstas no art\. 195, I e V\.$/);
+      expect(d.amendments.at(-1)).toEqual({
+        effect: "wording",
+        annotation: "Redação dada pela Emenda Constitucional nº 132, de 2023",
+        act: ec132,
+        effectiveFrom: y2027,
+      });
+      expect(d.pending).toMatchObject([{ effectiveFrom: y2033 }]);
+    });
+
+    it("brings the 2027 insertions into force and revokes what ends in 2027", () => {
+      expect(find(in2027, "art37_par18")).toMatchObject({
+        status: "in_force",
+        text: "Para os fins do disposto no inciso XI do caput deste artigo, os servidores de carreira das administrações tributárias dos Estados, do Distrito Federal e dos Municípios sujeitam-se ao limite aplicável aos servidores da União.",
+        amendments: [{ effect: "inserted", annotation: "Incluído pela Emenda Constitucional nº 132, de 2023", effectiveFrom: y2027 }],
+      });
+      expect(find(in2027, "art195_par12")).toMatchObject({
+        status: "revoked",
+        text: "",
+        amendments: expect.arrayContaining([{ effect: "revoked", annotation: "Revogado pela Emenda Constitucional nº 132, de 2023", act: ec132, effectiveFrom: y2027 }]),
+      });
+      expect(find(in2027, "art195_par12")?.pending).toBeUndefined();
+      // What ends in 2033 is still in force.
+      expect(find(in2027, "art155_cpt_inc2")).toMatchObject({ status: "in_force", pending: [{ effect: "revoked", effectiveFrom: y2033 }] });
+    });
+  });
+});

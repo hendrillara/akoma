@@ -133,10 +133,11 @@ function insert(drafts: Draft[], change: DeferredChange, act: ActCitation, prove
   const segments = change.id.split("_");
   const own = segments.at(-1)!;
   const kind = KIND_OF[own.replace(/[\d-]+$/, "")];
-  const parentId = segments.slice(0, -1).join("_");
-  if (!kind || kind === "caput" || !parentId) {
+  if (!kind || kind === "caput" || segments.length < 2) {
     throw new Error(`${act.citation} inserts ${change.id}: inserting a whole article is not supported yet`);
   }
+  // An article has no record of its own: its caput stands for it as the parent of its parágrafos.
+  const parentId = segments.length === 2 ? `${segments[0]}_cpt` : segments.slice(0, -1).join("_");
   const parent = drafts.find((d) => d.id === parentId);
   if (!parent) throw new Error(`${act.citation} inserts ${change.id}, but its parent ${parentId} is not on the page`);
   // Children of the caput hang under `_cpt`, which adds no segment to their path.
