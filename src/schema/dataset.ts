@@ -100,6 +100,12 @@ export interface Provision {
   amendments: Amendment[];
   /** "Vide" notes (other acts, STF cases such as ADI/ADPF) and vigência/effect notes the page attaches. */
   references: Reference[];
+  /**
+   * Other ids that name this dispositivo elsewhere (normas.leg.br fragments such as "art1_par1u" or
+   * "art5_cpt_inc79,emc-115-2022-02-10"), with attribution to Senado/LexML. Never an address: the API answers an alias
+   * with 404 and this record's `id` as the suggestion.
+   */
+  aliases?: string[];
   provenance: Provenance;
 }
 

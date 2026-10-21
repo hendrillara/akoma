@@ -8,7 +8,7 @@ Check here before searching. When a listed path moves, update this Map in the sa
 - `src/pipeline/` — the build: raw snapshots + norm manifests → dataset (test seam 1); `planalto.ts` page → dispositivos, `annotations.ts` annotations → metadata, `files.ts` dataset → per-article JSON + Markdown mirrors, `changes.ts` previous + new dataset → change report (data + Markdown PR body)
 - `src/norms/` — one declarative manifest per norm (`cf.ts`, `adct.ts`, `cdc.ts`: identity, primary Planalto URL, secondary sources, known quirks); `index.ts` is the registry of all norms
 - `src/sources/` — the `Source` port and its adapters (recorded fixtures today; live HTTP next, per ADR 0001)
-- `src/worker/` — the served API: HTTP request → response over a dataset (test seam 2)
+- `src/worker/` — the served API: HTTP request → response over a dataset (test seam 2); `handler.ts` routes `/v1/` (flat route table, `format=md`, CDN cache headers, 429), `views.ts` each endpoint's JSON + Markdown, `rate-limit.ts` the limiter port (Workers binding adapter, in-memory window)
 - `test/` — seam tests only (`build.test.ts`, `cf-adct.test.ts`, `cdc.test.ts`, `changes.test.ts` and `structure.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
 - `test/structure.test.ts` — groupings (LexML ids, verbatim heading names and annotations) and article records, hand-checked against the fixture HTML
 - `test/cf-adct.test.ts` — CF/ADCT golden set (hand-verified against the fixture HTML), structural invariants, full-text snapshot

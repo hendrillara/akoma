@@ -70,7 +70,7 @@ function articleMarkdown(provisions: Provision[]): string[] {
 const GROUPINGS = new Set(["parte", "livro", "titulo", "capitulo", "secao", "subsecao"]);
 
 /** One dispositivo as printed: "Art. 5º …", "§ 1º …", "Parágrafo único. …", "X - …", "a) …", "1) …". */
-function line(provision: Provision): string {
+export function line(provision: Provision): string {
   const label = printedLabel(provision);
   const shown = provision.text || (provision.status === "vetoed" ? "(Vetado)" : provision.status === "revoked" ? "(Revogado)" : "");
   const notes = [...provision.amendments.map((a) => a.annotation), ...provision.references.map((r) => r.annotation)];
