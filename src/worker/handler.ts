@@ -1,5 +1,6 @@
 // The served API: HTTP request in, response out, over a built dataset (test seam 2).
 import type { Dataset } from "../schema/dataset.ts";
+import { createMcp, mcpRateLimited } from "./mcp.ts";
 import type { RateLimiter } from "./rate-limit.ts";
 import { createSearch } from "./search.ts";
 import { createViews, notFound, type View } from "./views.ts";
@@ -31,6 +32,8 @@ export function createHandler(dataset: Dataset, options: HandlerOptions = {}): (
   ];
   // Search reads its query string, so it sits outside the path-only route table.
   const search = createSearch(dataset);
+  // The remote MCP endpoint answers with the same views; it has its own methods (POST) and error envelope (JSON-RPC).
+  const mcp = createMcp({ dataset, views, search });
 
   return async (request) => {
     const url = new URL(request.url);
@@ -39,8 +42,11 @@ export function createHandler(dataset: Dataset, options: HandlerOptions = {}): (
 
     if (options.rateLimiter) {
       const verdict = await options.rateLimiter.limit(request.headers.get("cf-connecting-ip") ?? "unknown");
-      if (!verdict.allowed) return rateLimited(verdict.retryAfterSeconds, format);
+      if (!verdict.allowed) {
+        return url.pathname === "/mcp" ? mcpRateLimited(verdict.retryAfterSeconds) : rateLimited(verdict.retryAfterSeconds, format);
+      }
     }
+    if (url.pathname === "/mcp") return mcp(request);
     if (request.method !== "GET" && request.method !== "HEAD") {
       return respond({ status: 405, json: { error: "method_not_allowed" }, md: () => "Método não permitido / Method not allowed.\n" }, format, {
         allow: "GET, HEAD",
