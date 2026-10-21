@@ -9,6 +9,8 @@ export interface RawSnapshot {
   /** Lower-cased response headers that matter for change detection (etag, last-modified). */
   headers: Record<string, string>;
   encoding: Encoding;
+  /** When the response was retrieved: an ISO 8601 instant, or a date when only the capture day is known. */
+  retrievedAt: string;
 }
 
 export interface Source {

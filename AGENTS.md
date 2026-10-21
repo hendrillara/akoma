@@ -6,6 +6,7 @@ Akoma mirrors Brazilian federal legislation (CF + ADCT first, then CDC, CLT…) 
 Check here before searching. When a listed path moves, update this Map in the same commit (the map check fails otherwise).
 - `src/schema/` — dataset types shared by the pipeline (producer) and the Worker (consumer)
 - `src/pipeline/` — the build: raw snapshots + norm manifests → dataset (test seam 1)
+- `src/norms/` — one declarative manifest per norm (`cf.ts` today: identity, primary Planalto URL, page quirks)
 - `src/sources/` — the `Source` port and its adapters (recorded fixtures today; live HTTP next, per ADR 0001)
 - `src/worker/` — the served API: HTTP request → response over a dataset (test seam 2)
 - `test/` — seam tests only (`build.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
