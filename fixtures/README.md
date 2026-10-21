@@ -23,6 +23,22 @@ Source URLs:
 - `normas-leg-br/constituicao.json` ← https://normas.leg.br/api/public/normas?urn=urn:lex:br:federal:constituicao:1988-10-05;1988&tipo_documento=maior-detalhe
 - `normas-leg-br/adct.json` ← the same endpoint with `urn=urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988`
 
+## 2026-10-21
+
+Captured on 2026-10-21 at 04:48 UTC from a residential connection, with one anonymous GET (`Mozilla/5.0 (compatible; akoma/0.0.0)`, no personal identifier). It holds the CDC's secondary source (ADR 0002):
+
+- `camara-legin/lei-8078-1990-normaatualizada-pl.html` ← https://www2.camara.leg.br/legin/fed/lei/1990/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html. This is Câmara dos Deputados LEGIN's compiled text of Lei 8.078/1990, in UTF-8 as served, with no ETag or Last-Modified.
+
+**One documented edit.** The page's `<meta name="author">` and `<meta name="changedby">` values held a Câmara staff member's name and staff ID. Both are replaced with `[redacted]`, so no personal identifier is committed; nothing else changed. `index.json` records the stored file's SHA-256 and size, plus the served bytes' (`servedSha256`, `servedBytes`), so the capture can be re-verified against a fresh GET once the two meta values are redacted the same way.
+
+**Licence.** The legal text is not protected by copyright (Lei 9.610/1998, art. 8º, IV). The page states no licence for Câmara's compilation and annotations. normas.leg.br lists a "Compilação Monovigente na CD" of this law under CC BY 4.0, but that it is this same file has not been shown. The capture is kept only as a test input for the cross-check (#8). The published dataset does not republish its text.
+
+**The EC 132 page.** The page of EC 132/2023 (the tax reform), the amending act whose vigência clause defers changes to the CF and the ADCT to 2027 and 2033 (ADR 0003). It was fetched during research on 2026-10-21 (Brasília time), about three hours after the 2026-10-20 capture and separately from the LEGIN page, with one anonymous GET, UA `Mozilla/5.0 (compatible; akoma/0.0.0)` and no personal identifier, and is stored byte for byte as served. The response headers and the exact retrieval instant were not recorded, so `headers` is empty and its provenance carries the capture day.
+
+It was checked offline before being committed: it is the FrontPage page Planalto serves (`GENERATOR` Microsoft FrontPage 6.0, the F5 `f5_cspm` script after `</html>`, footer `Este texto não substitui o publicado no DOU 21.12.2023`), and the wordings quoted in its art. 1 for CF art. 146 III "d", 156-A § 1º IX, 159 § 3º, 195 § 17 and 225 § 1º VIII are identical to the ones the 2026-10-20 compiled CF shows as given by EC 132. SHA-256 `bee37a51c439d37d261c859ffd7992a4164257e6017f12cdf5c4ab2ca44eed4c`, 510,399 bytes. Public domain (Lei 9.610/1998, art. 8º, IV).
+
+- `planalto/emc132.htm` ← https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm
+
 Scenario fixtures (a simulated new amendment, a stale secondary source…) are derived from these files by documented edits and live next to the tests that use them.
 
 ---
@@ -43,5 +59,17 @@ Capturada na noite de 20/10/2026, horário de Brasília (madrugada de 21/10 em U
 Os arquivos do normas.leg.br são © Senado Federal, sob licença [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Fonte: normas.leg.br / LexML Brasil. Ficam aqui sem alteração e servem só como entrada de teste. O dataset publicado pelo Akoma não republica o texto nem o histórico deles.
 
 As URLs de origem estão listadas na seção em inglês acima.
+
+## 2026-10-21
+
+Capturada em 21/10/2026, às 04:48 UTC, de uma conexão residencial, com um GET anônimo (`Mozilla/5.0 (compatible; akoma/0.0.0)`, sem identificador pessoal). Contém a fonte secundária do CDC (ADR 0002): `camara-legin/lei-8078-1990-normaatualizada-pl.html`, o texto compilado da Lei 8.078/1990 no LEGIN da Câmara dos Deputados, em UTF-8 como foi servido, sem ETag nem Last-Modified.
+
+**Uma edição documentada:** os valores de `<meta name="author">` e `<meta name="changedby">` traziam o nome e a matrícula de um servidor da Câmara e foram trocados por `[redacted]`, para não versionar identificador pessoal; nada mais mudou. O `index.json` registra o SHA-256 e o tamanho do arquivo gravado e também os dos bytes servidos (`servedSha256`, `servedBytes`).
+
+**Licença:** o texto legal não tem proteção autoral (Lei 9.610/1998, art. 8º, IV). A página não declara licença para a compilação e as anotações da Câmara. O normas.leg.br lista uma "Compilação Monovigente na CD" desta lei sob CC BY 4.0, mas não foi comprovado que seja o mesmo arquivo. A captura serve só de entrada de teste para a conferência entre fontes (#8), e o dataset publicado não republica o texto.
+
+**A página da EC 132.** A página da EC 132/2023 (reforma tributária), a emenda cuja cláusula de vigência adia para 2027 e 2033 mudanças na CF e no ADCT (ADR 0003). Foi baixada durante a pesquisa em 21/10/2026 (horário de Brasília), cerca de três horas depois da captura de 20/10 e separadamente da página do LEGIN, com um único GET anônimo, UA `Mozilla/5.0 (compatible; akoma/0.0.0)` e sem identificador pessoal, e está guardada byte a byte como foi servida. Os headers da resposta e o instante exato não foram registrados; por isso `headers` está vazio e a proveniência mostra o dia da captura.
+
+Antes do commit, foi conferida offline: é a página FrontPage que o Planalto serve (`GENERATOR` Microsoft FrontPage 6.0, o script `f5_cspm` do F5 depois de `</html>`, rodapé `Este texto não substitui o publicado no DOU 21.12.2023`), e as redações citadas no art. 1º dela para os arts. 146, III, "d", 156-A, § 1º, IX, 159, § 3º, 195, § 17, e 225, § 1º, VIII, da CF são idênticas às que a CF compilada de 20/10 mostra como dadas pela EC 132. SHA-256 `bee37a51c439d37d261c859ffd7992a4164257e6017f12cdf5c4ab2ca44eed4c`, 510.399 bytes. Domínio público (Lei 9.610/1998, art. 8º, IV).
 
 Fixtures de cenário (uma emenda nova simulada, uma fonte secundária defasada…) são derivadas destes arquivos por edições documentadas e ficam ao lado dos testes que as usam.

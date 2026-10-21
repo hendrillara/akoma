@@ -1,0 +1,13 @@
+{
+  "capturedOn": "2026-10-21",
+  "snapshots": [
+    {
+      "file": "page.htm",
+      "url": "https://example.invalid/ccivil_03/leis/unclosed-quote.htm",
+      "encoding": "windows-1252",
+      "headers": {},
+      "sha256": "4ce4039f7ab1b8f9167ec91f6bea2594d1bf130d025b23252a42d954e0a3a7e6",
+      "bytes": 457
+    }
+  ]
+}

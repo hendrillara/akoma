@@ -3,12 +3,15 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { adct } from "../src/norms/adct.ts";
 import { cf } from "../src/norms/cf.ts";
+import { norms } from "../src/norms/index.ts";
 import { build } from "../src/pipeline/build.ts";
 import { datasetFiles } from "../src/pipeline/files.ts";
 import type { Dataset, Provision } from "../src/schema/dataset.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
 
 const fixtures = new URL("../fixtures/2026-10-20/", import.meta.url);
+// The EC 132 page the CF/ADCT manifests read for deferred vigência was captured a day later.
+const actFixtures = new URL("../fixtures/2026-10-21/", import.meta.url);
 const compiledCf = "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm";
 const datasetVersion = "2026.10.21-test";
 // The spec's notice: unofficial text, check the source, vigência not verified against STF decisions.
@@ -21,24 +24,39 @@ function provision(dataset: Dataset, id: string, norm = "cf"): Provision | undef
 
 describe("build", () => {
   it("yields an empty dataset when no norm manifests are registered", async () => {
-    const dataset = await build({ manifests: [], source: await recordedSource(fixtures), datasetVersion });
+    const dataset = await build({ manifests: [], source: await recordedSource(fixtures, actFixtures), datasetVersion });
 
     expect(dataset.norms).toEqual([]);
+  });
+
+  it("builds every registered norm from its manifest alone", async () => {
+    const dataset = await build({ manifests: norms, source: await recordedSource(fixtures, actFixtures), datasetVersion });
+
+    expect(dataset.norms.map((n) => n.key)).toEqual(["cf", "adct", "cdc"]);
+    expect(provision(dataset, "art49_cpt", "cdc")?.text).toMatch(/^O consumidor pode desistir do contrato, no prazo de 7 dias/);
   });
 
   it("fails loudly when a norm's primary page is not in the source", async () => {
     const missing = { ...cf, primaryUrl: "https://www.planalto.gov.br/ccivil_03/constituicao/nao-existe.htm" };
 
     await expect(
-      build({ manifests: [missing], source: await recordedSource(fixtures), datasetVersion }),
+      build({ manifests: [missing], source: await recordedSource(fixtures, actFixtures), datasetVersion }),
     ).rejects.toThrow(/unavailable/);
+  });
+
+  it("fails loudly when a manifest's type or date disagrees with its URN", async () => {
+    const typo = { ...cf, date: "1988-10-15" };
+
+    await expect(build({ manifests: [typo], source: await recordedSource(fixtures, actFixtures), datasetVersion })).rejects.toThrow(
+      /does not match type constituicao and date 1988-10-15/,
+    );
   });
 
   describe("CF and ADCT from the compiled Planalto page", () => {
     let dataset: Dataset;
 
     beforeAll(async () => {
-      dataset = await build({ manifests: [cf, adct], source: await recordedSource(fixtures), datasetVersion });
+      dataset = await build({ manifests: [cf, adct], source: await recordedSource(fixtures, actFixtures), datasetVersion });
     });
 
     it("reads the ADCT that follows the CF on the same page as a separate norm, numbered from its own art. 1", () => {
@@ -112,7 +130,7 @@ describe("build", () => {
 
     beforeAll(async () => {
       const fullHistory = { ...cf, primaryUrl: "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm" };
-      dataset = await build({ manifests: [fullHistory], source: await recordedSource(fixtures), datasetVersion });
+      dataset = await build({ manifests: [fullHistory], source: await recordedSource(fixtures, actFixtures), datasetVersion });
     });
 
     it("keeps only the wording in force when old wordings are struck before it", () => {
@@ -153,8 +171,12 @@ describe("parser hygiene", () => {
   const hygiene = {
     key: "hygiene",
     urn: "urn:lex:br:federal:lei:1990-09-11;99999",
+    type: "lei",
+    date: "1990-09-11",
     title: "Hygiene fixture",
     primaryUrl: "https://example.invalid/ccivil_03/leis/hygiene.htm",
+    secondarySources: [],
+    knownQuirks: [],
   };
   let dataset: Dataset;
   const get = (id: string) => provision(dataset, id, "hygiene");
@@ -305,6 +327,26 @@ describe("parser hygiene", () => {
     expect(get("art4-1_cpt_inc9")).toMatchObject({ status: "vetoed", text: "(Vetado);" });
     expect(get("art11_cpt")).toMatchObject({ status: "vetoed", text: "(Vetado)." });
     expect(get("art3_cpt")?.status).toBe("in_force");
+  });
+});
+
+// Quoted text of another act belongs to the dispositivo that quotes it until its closing mark; one that never closes
+// would swallow the rest of the norm (test/fixtures/unclosed-quote/README.md).
+describe("quoted text", () => {
+  it("fails the build when a quotation never closes", async () => {
+    const manifest = {
+      key: "unclosed",
+      urn: "urn:lex:br:federal:lei:1990-09-11;99998",
+      type: "lei",
+      date: "1990-09-11",
+      title: "Unclosed-quote fixture",
+      primaryUrl: "https://example.invalid/ccivil_03/leis/unclosed-quote.htm",
+      secondarySources: [],
+      knownQuirks: [],
+    };
+    const source = await recordedSource(new URL("./fixtures/unclosed-quote/", import.meta.url));
+
+    await expect(build({ manifests: [manifest], source, datasetVersion })).rejects.toThrow(/Quoted text opened in art110_cpt is never closed/);
   });
 });
 
