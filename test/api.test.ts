@@ -68,6 +68,26 @@ describe("API v1", () => {
       });
     });
 
+    it("returns a dispositivo with deferred vigência with its wording in force and its pending wording", async () => {
+      // EC 141/2026: art. 7º XV keeps its wording until 2026-12-17 (EC 141 art. 10 I; ADR 0002).
+      const response = await handle(new Request(`${api}/v1/provisions/cf/art7_cpt_inc15`));
+
+      expect(response.status).toBe(200);
+      expect(await response.json()).toMatchObject({
+        id: "art7_cpt_inc15",
+        text: "repouso semanal remunerado, preferencialmente aos domingos;",
+        status: "in_force",
+        pending: [
+          {
+            effect: "wording",
+            text: "repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;",
+            effectiveFrom: "2026-12-17",
+            act: { citation: "Emenda Constitucional nº 141, de 2026", number: "141", year: 2026 },
+          },
+        ],
+      });
+    });
+
     it("answers 404 for an unknown dispositivo id", async () => {
       const response = await handle(new Request(`${api}/v1/provisions/cf/art5_cpt_inc999`));
 

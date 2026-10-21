@@ -1,0 +1,14 @@
+{
+  "capturedOn": "2026-10-21",
+  "timeZone": "America/Sao_Paulo",
+  "snapshots": [
+    {
+      "file": "planalto/emc132.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm",
+      "encoding": "windows-1252",
+      "headers": {},
+      "sha256": "bee37a51c439d37d261c859ffd7992a4164257e6017f12cdf5c4ab2ca44eed4c",
+      "bytes": 510399
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-// Replays captured responses from a fixture folder described by its index.json.
+// Replays captured responses from fixture folders, each described by its index.json.
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import type { Encoding, RawSnapshot, Source } from "./source.ts";
@@ -17,11 +17,22 @@ interface FixtureIndex {
   }[];
 }
 
-export async function recordedSource(folder: URL): Promise<Source> {
-  const index = JSON.parse(await readFile(new URL("index.json", folder), "utf8")) as FixtureIndex;
+/** One source over several captures (e.g. the CF of one day and an amending act fetched the next); a URL recorded twice fails. */
+export async function recordedSource(...folders: URL[]): Promise<Source> {
   const byUrl = new Map<string, RawSnapshot>();
+  for (const folder of folders) await load(folder, byUrl);
 
+  return {
+    async get(url) {
+      return byUrl.get(url);
+    },
+  };
+}
+
+async function load(folder: URL, byUrl: Map<string, RawSnapshot>): Promise<void> {
+  const index = JSON.parse(await readFile(new URL("index.json", folder), "utf8")) as FixtureIndex;
   for (const entry of index.snapshots) {
+    if (byUrl.has(entry.url)) throw new Error(`Fixture ${entry.file}: ${entry.url} is already recorded in another capture`);
     const body = new Uint8Array(await readFile(new URL(entry.file, folder)));
     const sha256 = createHash("sha256").update(body).digest("hex");
     if (sha256 !== entry.sha256) {
@@ -35,10 +46,4 @@ export async function recordedSource(folder: URL): Promise<Source> {
       retrievedAt: entry.retrievedAt ?? index.capturedOn,
     });
   }
-
-  return {
-    async get(url) {
-      return byUrl.get(url);
-    },
-  };
 }
