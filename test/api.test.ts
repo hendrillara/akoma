@@ -45,6 +45,8 @@ describe("API v1", () => {
       expect(await response.json()).toEqual({
         id: "art5_cpt_inc10",
         norm: "cf",
+        kind: "inciso",
+        label: "inciso X",
         path: [
           { kind: "titulo", label: "Título II" },
           { kind: "capitulo", label: "Capítulo I" },
@@ -52,12 +54,16 @@ describe("API v1", () => {
           { kind: "inciso", label: "inciso X" },
         ],
         text: "são invioláveis a intimidade, a vida privada, a honra e a imagem das pessoas, assegurado o direito a indenização pelo dano material ou moral decorrente de sua violação;",
+        status: "in_force",
+        amendments: [],
+        references: [],
         provenance: {
           sourceUrl: "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
           retrievedAt: "2026-10-21T01:26:39Z",
           // SHA-256 of the UTF-8 text above, computed with shasum from the hand-copied text.
           contentHash: "sha256:ac4a37222107e533c0f2e9e78ea6de045a0d5d5d8b0cec8a6a3ed1ee9e73e0f0",
           datasetVersion: "2026.10.21-test",
+          notice: expect.stringContaining("Vigência is not verified against STF decisions"),
         },
       });
     });

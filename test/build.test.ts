@@ -1,6 +1,7 @@
 // Seam 1: the build pipeline, end to end (raw snapshots + manifests in, dataset out).
 // Expected texts are copied by hand from the recorded Planalto pages, never produced by the parser.
 import { beforeAll, describe, expect, it } from "vitest";
+import { adct } from "../src/norms/adct.ts";
 import { cf } from "../src/norms/cf.ts";
 import { build } from "../src/pipeline/build.ts";
 import type { Dataset, Provision } from "../src/schema/dataset.ts";
@@ -9,9 +10,12 @@ import { recordedSource } from "../src/sources/recorded.ts";
 const fixtures = new URL("../fixtures/2026-10-20/", import.meta.url);
 const compiledCf = "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm";
 const datasetVersion = "2026.10.21-test";
+// The spec's notice: unofficial text, check the source, vigência not verified against STF decisions.
+const STF_NOTICE =
+  "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.";
 
-function provision(dataset: Dataset, id: string): Provision | undefined {
-  return dataset.provisions.find((p) => p.norm === "cf" && p.id === id);
+function provision(dataset: Dataset, id: string, norm = "cf"): Provision | undefined {
+  return dataset.provisions.find((p) => p.norm === norm && p.id === id);
 }
 
 describe("build", () => {
@@ -29,23 +33,58 @@ describe("build", () => {
     ).rejects.toThrow(/unavailable/);
   });
 
-  describe("CF from the compiled Planalto page", () => {
+  describe("CF and ADCT from the compiled Planalto page", () => {
     let dataset: Dataset;
 
     beforeAll(async () => {
-      dataset = await build({ manifests: [cf], source: await recordedSource(fixtures), datasetVersion });
+      dataset = await build({ manifests: [cf, adct], source: await recordedSource(fixtures), datasetVersion });
     });
 
-    it("gives an inciso its LexML id, path, verbatim text without label or annotations, and provenance", () => {
+    it("reads the ADCT that follows the CF on the same page as a separate norm, numbered from its own art. 1", () => {
+      expect(dataset.norms.map((n) => n.key)).toEqual(["cf", "adct"]);
+      expect(provision(dataset, "art2_cpt", "adct")).toMatchObject({
+        norm: "adct",
+        path: [{ kind: "artigo", label: "Art. 2º" }, { kind: "caput", label: "caput" }],
+        text: "No dia 7 de setembro de 1993 o eleitorado definirá, através de plebiscito, a forma (república ou monarquia constitucional) e o sistema de governo (parlamentarismo ou presidencialismo) que devem vigorar no País.",
+        provenance: { sourceUrl: compiledCf },
+      });
+      // The CF's own art. 2 is untouched by the ADCT's.
+      expect(provision(dataset, "art2_cpt")?.text).toBe(
+        "São Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário.",
+      );
+      // Both have an art. 138; each keeps its own.
+      expect(provision(dataset, "art138_cpt", "adct")?.text).toMatch(/^Até 2032, qualquer criação/);
+      expect(provision(dataset, "art138_cpt")?.text).toMatch(/^O decreto do estado de sítio indicará/);
+    });
+
+    it("gives an inciso its LexML id, path, verbatim text, its annotations as metadata, and provenance", () => {
       expect(provision(dataset, "art1_cpt_inc4")).toEqual({
         id: "art1_cpt_inc4",
         norm: "cf",
+        kind: "inciso",
+        label: "inciso IV",
         path: [
           { kind: "titulo", label: "Título I" },
           { kind: "artigo", label: "Art. 1º" },
           { kind: "inciso", label: "inciso IV" },
         ],
         text: "os valores sociais do trabalho e da livre iniciativa;",
+        status: "in_force",
+        amendments: [],
+        // "(Vide Lei nº 13.874, de 2019)", linked to "../_Ato2019-2022/2019/Lei/L13874.htm#art1" on the page.
+        references: [
+          {
+            kind: "act",
+            annotation: "Vide Lei nº 13.874, de 2019",
+            act: {
+              citation: "Lei nº 13.874, de 2019",
+              type: "lei",
+              number: "13.874",
+              year: 2019,
+              href: "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2019/Lei/L13874.htm#art1",
+            },
+          },
+        ],
         provenance: {
           sourceUrl: compiledCf,
           // The Date header of the recorded response.
@@ -53,6 +92,7 @@ describe("build", () => {
           // SHA-256 of the UTF-8 text above, computed with shasum from the hand-copied text.
           contentHash: "sha256:9b297737a232926510d14e28c0bc7fa48fc891bc5a553e8b440902d461a9cab3",
           datasetVersion,
+          notice: STF_NOTICE,
         },
       });
     });
@@ -136,6 +176,28 @@ describe("build", () => {
         path,
         text,
         provenance: { sourceUrl: compiledCf, retrievedAt: "2026-10-21T01:26:39Z", datasetVersion },
+      });
+    });
+
+    it("reads alíneas under their inciso, with kind, label and status", () => {
+      const xxxiv = [...art5, inciso("XXXIV")];
+      expect(provision(dataset, "art5_cpt_inc34_ali1")).toMatchObject({
+        kind: "alinea",
+        label: "alínea a",
+        path: [...xxxiv, { kind: "alinea", label: "alínea a" }],
+        text: "o direito de petição aos Poderes Públicos em defesa de direitos ou contra ilegalidade ou abuso de poder;",
+        status: "in_force",
+      });
+      expect(provision(dataset, "art5_cpt_inc34_ali2")).toMatchObject({
+        kind: "alinea",
+        label: "alínea b",
+        path: [...xxxiv, { kind: "alinea", label: "alínea b" }],
+        text: "a obtenção de certidões em repartições públicas, para defesa de direitos e esclarecimento de situações de interesse pessoal;",
+      });
+      expect(provision(dataset, "art5_cpt_inc35")).toMatchObject({
+        kind: "inciso",
+        label: "inciso XXXV",
+        text: "a lei não excluirá da apreciação do Poder Judiciário lesão ou ameaça a direito;",
       });
     });
 
