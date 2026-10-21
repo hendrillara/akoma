@@ -11,12 +11,12 @@ const URLS = [
   "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/quadro_emc.htm",
 ];
 
-async function request(url, userAgent, extraHeaders = {}) {
+async function request(url, userAgent, { headers = {}, timeoutMs = 30_000 } = {}) {
   const started = Date.now();
   try {
     const response = await fetch(url, {
-      headers: { "user-agent": userAgent, ...extraHeaders },
-      signal: AbortSignal.timeout(userAgent === CONTROL_UA ? 15_000 : 30_000),
+      headers: { "user-agent": userAgent, ...headers },
+      signal: AbortSignal.timeout(timeoutMs),
     });
     const body = new Uint8Array(await response.arrayBuffer());
     return {
@@ -36,23 +36,23 @@ const results = [];
 for (const url of URLS) {
   const plain = await request(url, AKOMA_UA);
   const conditional = plain.etag
-    ? await request(url, AKOMA_UA, { "if-none-match": plain.etag })
+    ? await request(url, AKOMA_UA, { headers: { "if-none-match": plain.etag } })
     : { error: "skipped: no ETag on plain GET" };
-  const control = await request(url, CONTROL_UA);
+  const control = await request(url, CONTROL_UA, { timeoutMs: 15_000 });
   results.push({ url, plain, conditional, control });
 }
 
-const fmt = (r) => (r.error ? `❌ ${r.error}` : `${r.status} · ${r.bytes} B · ${r.ms} ms`);
+const describe = (r) => (r.error ? `❌ ${r.error}` : `${r.status} · ${r.bytes} B · ${r.ms} ms`);
 const lines = [
   `## Planalto probe — ${new Date().toISOString()}`,
   "",
   `Runner: ${process.env.RUNNER_OS ?? "local"} · UA: \`${AKOMA_UA}\``,
   "",
-  "| URL | GET (Akoma UA) | Conditional GET | Control (curl UA) | ETag |",
-  "|---|---|---|---|---|",
+  "| URL | GET (Akoma UA) | Conditional GET | Control (curl UA) | ETag | Last-Modified |",
+  "|---|---|---|---|---|---|",
   ...results.map(
     (r) =>
-      `| ${r.url.split("/").pop()} | ${fmt(r.plain)} | ${fmt(r.conditional)} | ${fmt(r.control)} | \`${r.plain.etag ?? "–"}\` |`,
+      `| ${r.url.split("/").pop()} | ${describe(r.plain)} | ${describe(r.conditional)} | ${describe(r.control)} | \`${r.plain.etag ?? "–"}\` | ${r.plain.lastModified ?? "–"} |`,
   ),
 ];
 const report = lines.join("\n") + "\n";

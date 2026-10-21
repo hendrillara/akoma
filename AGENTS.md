@@ -6,7 +6,7 @@ Akoma mirrors Brazilian federal legislation (CF + ADCT first, then CDC, CLT…) 
 Check here before searching. When a listed path moves, update this Map in the same commit (the map check fails otherwise).
 - `src/schema/` — dataset types shared by the pipeline (producer) and the Worker (consumer)
 - `src/pipeline/` — the build: raw snapshots + norm manifests → dataset (test seam 1)
-- `src/sources/` — the `Source` port and its adapters (recorded fixtures today; live HTTP / R2 later)
+- `src/sources/` — the `Source` port and its adapters (recorded fixtures today; live HTTP next, per ADR 0001)
 - `src/worker/` — the served API: HTTP request → response over a dataset (test seam 2)
 - `test/` — seam tests only (`build.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
 - `fixtures/` — committed raw source captures (checksummed `index.json` per capture; normas.leg.br files are CC BY 4.0, see its README)
@@ -24,7 +24,7 @@ The full 2026-10-20 raw capture (all codes, 40 MB) is local-only in the git-igno
 ## Rules
 - Never hand-edit generated legal data (JSON/MD): fix the parser, manifest or tests and regenerate. Text corrections come from the source, never from a person.
 - Planalto is the primary text source; normas.leg.br and Câmara LEGIN are cross-checks only. normas.leg.br is CC BY 4.0: the published dataset must not republish its text or history (only ID aliases, with attribution); committed test fixtures from it carry attribution in their README.
-- Requests to government sites use `Mozilla/5.0 (compatible; akoma/<ver>)`, conditional GETs and low rates. Never put a personal identifier (email, name) in a request.
+- Requests to government sites use `Mozilla/5.0 (compatible; akoma/<ver>)`, conditional GETs and low rates. Never put a personal identifier (email, name) in a request. Only exception: the probe's control request uses curl's default UA on purpose, to detect UA filtering (ADR 0001).
 - Docs: technical docs in English and Portuguese; code and schema in English; legal content verbatim in Portuguese.
 
 ## Gotchas

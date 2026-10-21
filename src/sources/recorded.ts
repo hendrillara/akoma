@@ -1,17 +1,15 @@
 // Replays captured responses from a fixture folder described by its index.json.
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
-import type { RawSnapshot, Source } from "./source.ts";
+import type { Encoding, RawSnapshot, Source } from "./source.ts";
 
 interface FixtureIndex {
-  capturedOn: string;
   snapshots: {
     file: string;
     url: string;
-    encoding: string;
+    encoding: Encoding;
     headers: Record<string, string>;
     sha256: string;
-    bytes: number;
   }[];
 }
 

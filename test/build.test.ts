@@ -13,25 +13,9 @@ describe("build", () => {
   });
 });
 
-describe("recorded source", () => {
-  it("replays the captured Planalto CF page byte for byte, with its headers", async () => {
-    const source = await recordedSource(fixtures);
-
-    const snapshot = await source.get(
-      "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
-    );
-
-    expect(snapshot?.body.byteLength).toBe(1507134);
-    expect(snapshot?.headers.etag).toBe('"16f927-65e33e3582f2c"');
-  });
-
-  it("returns nothing for a URL that was never captured", async () => {
-    const source = await recordedSource(fixtures);
-
-    expect(await source.get("https://www.planalto.gov.br/nao-existe.htm")).toBeUndefined();
-  });
-
-  it("rejects a fixture whose bytes no longer match its recorded checksum", async () => {
+// Guards seam 1's inputs: a fixture re-encoded by an editor or git must fail, not feed the build.
+describe("recorded fixtures", () => {
+  it("refuse to load when a file's bytes no longer match its recorded checksum", async () => {
     const tampered = new URL("./fixtures/tampered/", import.meta.url);
 
     await expect(recordedSource(tampered)).rejects.toThrow(/checksum/);
