@@ -94,11 +94,12 @@ describe("API v1", () => {
         expect((await response.text()).trimEnd()).toMatch(new RegExp(`${escapeRegExp(STF_NOTICE)}$`));
       });
 
-      it("answers HEAD with the headers and no body", async () => {
+      it("answers HEAD with the headers and no body, never stored by the edge (GET shares its cache entry)", async () => {
         const response = await handle(new Request(`${api}${path}`, { method: "HEAD" }));
 
         expect(response.status).toBe(200);
-        expect(response.headers.get("cache-control")).toBe("public, max-age=300, s-maxage=3600");
+        expect(response.headers.get("content-type")).toMatch(/^application\/json/);
+        expect(response.headers.get("cache-control")).toBe("no-store");
         expect(await response.text()).toBe("");
       });
     });

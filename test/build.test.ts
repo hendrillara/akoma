@@ -288,6 +288,7 @@ describe("parser hygiene", () => {
       ...["art1", "art2", "art3", "art4-1", "art10-2", "art11"].map((a) => `hygiene/${a}.json`),
       "search-index.json",
       "status.json",
+      "dataset.json",
     ]);
     expect(JSON.parse(files.find((f) => f.path === "search-index.json")!.content)).toEqual(dataset.search);
     expect(paths.filter((p) => p.endsWith(".md"))).toEqual([
@@ -325,6 +326,14 @@ describe("parser hygiene", () => {
     expect(mirror).toContain("##### Capítulo II\n\n**Art. 10-B** Constituem justa causa");
     expect(mirror).toContain("§ 3º (Vetado).\n");
     expect(mirror).toMatch(/\*\*Art\. 11\*\* \(Vetado\)\.\n$/);
+  });
+
+  it("publishes the whole dataset in one file, the one the deployed Worker's API is bundled from", () => {
+    const files = datasetFiles(dataset);
+
+    expect(JSON.parse(files.find((f) => f.path === "dataset.json")!.content)).toEqual(dataset);
+    // Workers static assets read `_headers` at the root of the deployed folder: any origin may fetch the files.
+    expect(files.find((f) => f.path === "_headers")!.content).toBe("/*\n  Access-Control-Allow-Origin: *\n  X-Content-Type-Options: nosniff\n");
   });
 
   it("keeps vetoed dispositivos with their ids and the page's own marker", () => {
