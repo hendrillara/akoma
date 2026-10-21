@@ -296,10 +296,19 @@ function quotedChanges(article: ActArticle, url: string): Omit<DeferredChange, "
   let inciso: string | undefined;
   let alinea: string | undefined;
 
+  // A quoted grouping heading ("Seção V-A") is followed by its name ("Do Imposto de Competência Compartilhada …").
+  let headingName = false;
   for (const line of article.body.filter((l) => l.quoted)) {
     // The block's closing quote follows the dispositivo's own final period: `… deste artigo." (NR)`.
     const text = line.text.replace(OPEN_QUOTE, "").replace(/\s*["”]\s*(?:\(NR\)?)?\s*$/, "");
-    if (/^[.…\s]*$/.test(text) || matchHeading(text)) continue;
+    if (/^[.…\s]*$/.test(text)) continue;
+    if (matchHeading(text)) {
+      headingName = true;
+      continue;
+    }
+    const named = headingName;
+    headingName = false;
+    if (named && !matchArticle(text) && !matchParagraphs(text) && !matchInciso(text) && !matchAlinea(text)) continue;
     const record = (id: string, numbered: Numbered) => {
       const peeled = peelAnnotations(numbered.rest, line.links);
       if (/^[.…\s]*$/.test(peeled.text)) return; // a placeholder ("III - ......"): it only moves the cursor

@@ -2,11 +2,13 @@
 // from any of them makes the verdict `needs-human` (see verdict.ts).
 import { createHash } from "node:crypto";
 import { isUnder, readActCommands, type ActTarget } from "../pipeline/acts.ts";
+import { emc } from "../norms/cf.ts";
 import type { NormManifest } from "../pipeline/build.ts";
 import type { ChangeReport, ProvisionChange } from "../pipeline/changes.ts";
 import {
   NOTICE,
   type ActCitation,
+  type Amendment,
   type Dataset,
   type Provision,
   type ProvisionKind,
@@ -27,23 +29,19 @@ export interface GateInput {
 }
 
 /**
- * Schema, id stability (no removal without a revocation mark, no revoked id back in force), structural invariants and
- * target matching, in that order. The golden set and the full-text snapshot are test suites over the recorded
+ * Schema, id stability (no removal without a revocation mark, no revoked id back in force), structural invariants, a
+ * promoted wording the page prints differently, and target matching, in that order. The golden set and the full-text snapshot are test suites over the recorded
  * fixtures and gate every PR through `pnpm verify`; on a refresh, target matching is what explains each changed text.
  */
-export async function reviewGates({ manifests, next, report, source }: GateInput): Promise<Finding[]> {
+export async function reviewGates({ manifests, previous, next, report, source }: GateInput): Promise<Finding[]> {
   return [
     ...schema(next),
     ...removals(report),
     ...idReuse(report),
     ...invariants(next),
-    ...(await targetMatching(report, next, manifests, source)),
+    ...pageDivergence(report),
+    ...(await targetMatching(report, previous, next, manifests, source)),
   ];
-}
-
-/** Planalto's page for an Emenda Constitucional. */
-function ecPageUrl(number: string): string {
-  return `https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc${number}.htm`;
 }
 
 const gate = (check: string, severity: Finding["severity"], message: string, about: Partial<Finding> = {}): Finding => ({
@@ -140,28 +138,57 @@ function compare(a: number[], b: number[]): number {
   return 0;
 }
 
+// --- Promoted wording against the page -------------------------------------------------------------------
+
+/**
+ * The build promotes an act's quoted wording until the page shows it (ADR 0003). When a change brings a new page
+ * annotation of an act's change (no `effectiveFrom`) while the record keeps the build-applied one of the same act
+ * (`effectiveFrom`), the page has caught up, but in a wording other than the act's quote, which the dataset still
+ * holds. Only new annotations count: an act can change a dispositivo in force at publication and again later
+ * (EC 132 on art. 146 III "d": 2023, then 2027), and then both annotations are rightly there.
+ */
+function pageDivergence(report: ChangeReport): Finding[] {
+  const same = (a: Amendment, b: Amendment) => a.effect === b.effect && a.act?.type === b.act?.type && a.act?.number === b.act?.number;
+  const findings: Finding[] = [];
+  for (const c of report.changes) {
+    const built = c.after?.amendments.find((b) => b.effectiveFrom && c.amendments.some((page) => !page.effectiveFrom && same(page, b)));
+    if (!built) continue;
+    const message = `the page now shows the change by ${built.act!.citation}, but not in the act's wording, which the build kept`;
+    findings.push(gate("page-divergence", "problem", message, { norm: c.norm, id: c.id }));
+  }
+  return findings;
+}
+
 // --- Target matching --------------------------------------------------------------------------------------
 
 /**
- * The changed dispositivos must be exactly the ones the amending acts' commands target, both ways.
- * - A change is explained when an act it cites targets it (a revocation, or a whole article, also covers everything
- *   under it).
- * - A target is applied when its record changed in this report, whatever changed on it: the text in force, or a
- *   pending wording (deferred vigência, #6). It is also applied when the new record already cites the act, as an
- *   amendment or a pending change: the act took effect earlier, and the page is only catching up (ADR 0003).
- * - A dispositivo that vanished is the removal gate's; it counts as touched here, so it is reported once.
+ * Every changed dispositivo must be targeted by an act it cites (a revocation, or a whole article, also covers
+ * everything under it). For an act new to the dataset, the converse holds too: each of its targets must have changed,
+ * whatever changed on it: the text in force, or a pending wording (deferred vigência, #6).
+ * An act the previous dataset already cites (as an amendment or a pending change) is checked one way only: today's
+ * changes are a later step of it (a deferred wording promoted, the page catching up with a promotion, ADR 0003) or
+ * a new note on it, so most of its targets rightly stay as they were. Its unreadable articles are noted, not blocking:
+ * a change they would explain still shows up as untargeted.
+ * A dispositivo that vanished is the removal gate's, not reported here.
  */
-async function targetMatching(report: ChangeReport, next: Dataset, manifests: NormManifest[], source: Source): Promise<Finding[]> {
+async function targetMatching(
+  report: ChangeReport,
+  previous: Dataset,
+  next: Dataset,
+  manifests: NormManifest[],
+  source: Source,
+): Promise<Finding[]> {
   const findings: Finding[] = [];
   const position = new Map(next.provisions.map((p, i) => [`${p.norm}/${p.id}`, i]));
-  const records = new Map(next.provisions.map((p) => [`${p.norm}/${p.id}`, p]));
+  const known = new Set(previous.provisions.flatMap(citedByRecord));
   const changes = report.changes.filter((c) => c.kind !== "removed");
   const numbers = [...new Set(changes.flatMap(citedEcs))].sort((a, b) => Number(a) - Number(b));
 
   const targetsOf = new Map<string, { norm: string; target: ActTarget }[]>();
   for (const number of numbers) {
     const act = `EC ${number}`;
-    const url = ecPageUrl(number);
+    const isNew = !known.has(number);
+    const url = emc(Number(number));
     const snapshot = await source.get(url);
     if (!snapshot) {
       findings.push(gate("target-matching", "problem", `its page ${url} is not in the source`, { act }));
@@ -174,29 +201,30 @@ async function targetMatching(report: ChangeReport, next: Dataset, manifests: No
       findings.push(gate("target-matching", "problem", `its page could not be read: ${(error as Error).message}`, { act }));
       continue;
     }
-    const problems = commands.problems.map((p) => `could not read its commands: ${p}`);
+    const unread = commands.problems.map((p) => `could not read its commands: ${p}`);
     const targets: { norm: string; target: ActTarget }[] = [];
     for (const target of commands.targets) {
       const norm = manifests.find((m) => m.citedAs === target.norm)?.key;
       if (norm) targets.push({ norm, target });
-      else problems.push(`its art. ${target.article} targets ${target.id} of "${target.norm}", a norm this build does not have`);
+      else unread.push(`its art. ${target.article} targets ${target.id} of "${target.norm}", a norm this build does not have`);
     }
     // Page order: the order a reader of the change report meets them.
     targets.sort((a, b) => (position.get(`${a.norm}/${a.target.id}`) ?? Infinity) - (position.get(`${b.norm}/${b.target.id}`) ?? Infinity));
     targetsOf.set(number, targets);
-    for (const problem of problems) findings.push(gate("target-matching", "problem", problem, { act }));
+    for (const message of unread) findings.push(gate("target-matching", isNew ? "problem" : "note", message, { act }));
+    if (!isNew) {
+      const message = `already in the dataset: each change citing it must be one of its ${targets.length} targets; the others may stay as they are`;
+      findings.push(gate("target-matching", "note", message, { act }));
+      continue;
+    }
 
-    const unapplied = targets.filter(
-      ({ norm, target }) =>
-        !report.changes.some((c) => c.norm === norm && covers(target, c.id)) &&
-        !citesAct(records.get(`${norm}/${target.id}`), number),
-    );
+    const unapplied = targets.filter(({ norm, target }) => !report.changes.some((c) => c.norm === norm && covers(target, c.id)));
     for (const { norm, target } of unapplied) {
       findings.push(gate("target-matching", "problem", `its art. ${target.article} targets it, but it did not change`, { act, norm, id: target.id }));
     }
-    if (!unapplied.length && !problems.length) {
+    if (!unapplied.length && !unread.length) {
       const list = targets.map(({ norm, target }) => `${norm} ${target.id}`).join(", ");
-      findings.push(gate("target-matching", "note", `targets ${targets.length} dispositivos, all applied: ${list}`, { act }));
+      findings.push(gate("target-matching", "note", `targets ${targets.length} dispositivos, all changed: ${list}`, { act }));
     }
   }
 
@@ -230,10 +258,10 @@ function covers(target: ActTarget, id: string): boolean {
   return target.how === "revoked" || !target.id.includes("_") ? isUnder(id, target.id) : id === target.id;
 }
 
-/** Whether a record already carries EC `number`: as an amendment it took effect by, or as a pending change. */
-function citesAct(record: Provision | undefined, number: string): boolean {
-  const ec = (a: ActCitation | undefined) => a?.type === "emenda_constitucional" && a.number === number;
-  return !!record && (record.amendments.some((a) => ec(a.act)) || (record.pending ?? []).some((p) => ec(p.act)));
+/** The constitutional amendments a record carries: those it took effect by, and pending ones. */
+function citedByRecord(record: Provision): string[] {
+  const acts = [...record.amendments.map((a) => a.act), ...(record.pending ?? []).map((p) => p.act)];
+  return acts.filter((a) => a?.type === "emenda_constitucional").map((a) => a!.number);
 }
 
 /** The constitutional amendments a change cites anew: new amendment annotations, "Vide" notes or pending changes. */
