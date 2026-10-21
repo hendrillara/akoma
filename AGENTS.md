@@ -6,13 +6,14 @@ Akoma mirrors Brazilian federal legislation (CF + ADCT first, then CDC, CLT…) 
 Check here before searching. When a listed path moves, update this Map in the same commit (the map check fails otherwise).
 - `src/schema/` — dataset types shared by the pipeline (producer) and the Worker (consumer)
 - `src/pipeline/` — the build: raw snapshots + norm manifests → dataset (test seam 1); `planalto.ts` page → dispositivos, `annotations.ts` annotations → metadata, `files.ts` dataset → per-article JSON + Markdown mirrors, `changes.ts` previous + new dataset → change report (data + Markdown PR body)
+- `src/review/` — the review of a refresh: `verdict.ts` findings from every layer → `merge` | `needs-human`; `gates.ts` layer 1 (schema, id stability, invariants, target matching); `acts.ts` an amending act's Planalto page → the dispositivos its commands target
 - `src/norms/` — one declarative manifest per norm (`cf.ts`, `adct.ts`: identity, primary Planalto URL, page quirks)
 - `src/sources/` — the `Source` port and its adapters (recorded fixtures today; live HTTP next, per ADR 0001)
 - `src/worker/` — the served API: HTTP request → response over a dataset (test seam 2)
-- `test/` — seam tests only (`build.test.ts`, `cf-adct.test.ts` and `changes.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
+- `test/` — seam tests only (`build.test.ts`, `cf-adct.test.ts`, `changes.test.ts` and `review.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
 - `test/cf-adct.test.ts` — CF/ADCT golden set (hand-verified against the fixture HTML), structural invariants, full-text snapshot
 - `test/snapshots/` — committed full-text Markdown mirrors of the CF and ADCT (generated; never hand-edited)
-- `test/fixtures/` — scenario fixtures derived from real pages (`hygiene/`: cp1252 parser-hygiene page; `refresh/`: a simulated EC and an ETag-only refresh of the CF page, made by its `make.mjs`; see their READMEs)
+- `test/fixtures/` — scenario fixtures derived from real pages (`hygiene/`: cp1252 parser-hygiene page; `refresh/`: refreshes of the CF page (a simulated EC 142 with its act page, the same with planted faults, the CF before EC 140/141, an ETag-only refetch), made by its `make.mjs`; see their READMEs)
 - `fixtures/` — committed raw source captures (checksummed `index.json` per capture; normas.leg.br files are CC BY 4.0, see its README)
 - `scripts/probe-planalto.mjs` — checks whether Planalto serves a runner (Akoma UA, conditional GET, control UA)
 - `docs/adr/` — architecture decisions (0001: fetch Planalto directly from Actions; no R2 fallback in v1)

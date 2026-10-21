@@ -148,7 +148,7 @@ const SKIPPED = new Set(["head", "script", "style", "template"]);
 /** Old wording: Planalto strikes it with any of these tags, or with CSS line-through, even on "compilado" pages. */
 const STRUCK = new Set(["strike", "s", "del"]);
 
-interface Line {
+export interface Line {
   text: string;
   links: Link[];
   /** Whether struck text was cut out of this line. */
@@ -159,7 +159,7 @@ interface Line {
 const CUT = "\uE000";
 
 /** The page's text as a browser would show it, one line per block, with struck wording removed. */
-function visibleLines(html: string, { startAnchor, endAnchor }: PageLayout, baseUrl: string): Line[] {
+export function visibleLines(html: string, { startAnchor, endAnchor }: PageLayout, baseUrl: string): Line[] {
   const lines: Line[] = [];
   let current = "";
   let links: { start: number; end: number; href: string }[] = [];
@@ -273,7 +273,7 @@ function capitalise(word: string): string {
   return `${word[0]!.toUpperCase()}${word.slice(1)}`;
 }
 
-interface Numbered {
+export interface Numbered {
   /** LexML id fragment, e.g. "art103-1", "par1", "inc10". */
   id: string;
   label: string;
@@ -281,7 +281,7 @@ interface Numbered {
   rest: string;
 }
 
-function matchArticle(line: string): Numbered | undefined {
+export function matchArticle(line: string): Numbered | undefined {
   const m = /^Art\.\s*(\d+)(.*)$/.exec(line);
   if (!m) return undefined;
   const n = Number(m[1]);
@@ -290,7 +290,7 @@ function matchArticle(line: string): Numbered | undefined {
 }
 
 /** One parágrafo, or several when the page groups them ("§§ 1º a 3º. (Revogados pela …)"). */
-function matchParagraphs(line: string): Numbered[] | undefined {
+export function matchParagraphs(line: string): Numbered[] | undefined {
   const group = /^§§\s*(\d+)\s*[º°o]?\s*a\s*(\d+)\s*[º°o]?\s*\.?\s*(.*)$/.exec(line);
   if (group) {
     const out: Numbered[] = [];
@@ -313,7 +313,7 @@ function paragraphLabel(n: number, suffix: string): string {
   return `§ ${n}${n < 10 ? "º" : ""}${suffix}`;
 }
 
-function matchInciso(line: string): Numbered | undefined {
+export function matchInciso(line: string): Numbered | undefined {
   // The letter suffix is glued to the numeral ("II-A - …"), so "I - A República…" stays an inciso I.
   // 66 CF incisos lack the separator ("IV as ilhas fluviais…", "I-A o Conselho Nacional de Justiça"): without one,
   // the text must start in lower case, so a line of prose that opens with a capital "I" is not read as an inciso.
@@ -325,7 +325,7 @@ function matchInciso(line: string): Numbered | undefined {
   return { id: `inc${n}${suffixId(suffix)}`, label: `inciso ${m[1]}${suffix}`, rest: m[3]! };
 }
 
-function matchAlinea(line: string): Numbered | undefined {
+export function matchAlinea(line: string): Numbered | undefined {
   // Two alíneas on the CF page lack the space after the parenthesis ("a)sobre a entrada…").
   const m = /^([a-z])((?:-[A-Z])*)\)\s*(.*)$/.exec(line);
   if (!m) return undefined;
@@ -333,7 +333,7 @@ function matchAlinea(line: string): Numbered | undefined {
   return { id: `ali${m[1]!.charCodeAt(0) - 96}${suffixId(suffix)}`, label: `alínea ${m[1]}${suffix}`, rest: m[3]! };
 }
 
-function matchItem(line: string): Numbered | undefined {
+export function matchItem(line: string): Numbered | undefined {
   const m = /^(\d+)((?:-[A-Z])*)\)\s*(.*)$/.exec(line);
   if (!m) return undefined;
   const suffix = m[2]!;
@@ -360,7 +360,7 @@ function suffixId(suffix: string): string {
 
 const ROMAN: Record<string, number> = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
 
-function romanToNumber(numeral: string): number | undefined {
+export function romanToNumber(numeral: string): number | undefined {
   let total = 0;
   for (let i = 0; i < numeral.length; i++) {
     const value = ROMAN[numeral[i]!]!;
