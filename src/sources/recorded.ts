@@ -17,7 +17,10 @@ interface FixtureIndex {
   }[];
 }
 
-/** One source over several captures (e.g. the CF of one day and an amending act fetched the next); a URL recorded twice fails. */
+/**
+ * One source over several captures, e.g. the CF of one day and an amending act fetched the next. When two captures
+ * record the same URL, the later folder wins, so a scenario folder can stand in for one page of a base capture.
+ */
 export async function recordedSource(...folders: URL[]): Promise<Source> {
   const byUrl = new Map<string, RawSnapshot>();
   for (const folder of folders) await load(folder, byUrl);
@@ -32,7 +35,6 @@ export async function recordedSource(...folders: URL[]): Promise<Source> {
 async function load(folder: URL, byUrl: Map<string, RawSnapshot>): Promise<void> {
   const index = JSON.parse(await readFile(new URL("index.json", folder), "utf8")) as FixtureIndex;
   for (const entry of index.snapshots) {
-    if (byUrl.has(entry.url)) throw new Error(`Fixture ${entry.file}: ${entry.url} is already recorded in another capture`);
     const body = new Uint8Array(await readFile(new URL(entry.file, folder)));
     const sha256 = createHash("sha256").update(body).digest("hex");
     if (sha256 !== entry.sha256) {

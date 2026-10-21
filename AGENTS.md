@@ -5,15 +5,15 @@ Akoma mirrors Brazilian federal legislation (CF + ADCT first, then CDC, CLT…) 
 ## Map
 Check here before searching. When a listed path moves, update this Map in the same commit (the map check fails otherwise).
 - `src/schema/` — dataset types shared by the pipeline (producer) and the Worker (consumer)
-- `src/pipeline/` — the build: raw snapshots + norm manifests → dataset (test seam 1); `planalto.ts` page → dispositivos, `annotations.ts` annotations → metadata, `acts.ts` amending-act page → deferred changes, `vigencia.ts` + `vigencia-dates.ts` pending wordings, start dates and promotion (ADR 0002), `files.ts` dataset → per-article JSON + Markdown mirrors
+- `src/pipeline/` — the build: raw snapshots + norm manifests → dataset (test seam 1); `planalto.ts` page → dispositivos, `annotations.ts` annotations → metadata, `acts.ts` amending-act page → deferred changes, `vigencia.ts` + `vigencia-dates.ts` pending wordings, start dates and promotion (ADR 0002), `files.ts` dataset → per-article JSON + Markdown mirrors, `changes.ts` previous + new dataset → change report (data + Markdown PR body)
 - `src/norms/` — one declarative manifest per norm (`cf.ts`, `adct.ts`: identity, primary Planalto URL, page quirks, `deferredActs` with pending vigência)
 - `src/sources/` — the `Source` port and its adapters (recorded fixtures today; live HTTP next, per ADR 0001)
 - `src/worker/` — the served API: HTTP request → response over a dataset (test seam 2)
-- `test/` — seam tests only (`build.test.ts`, `cf-adct.test.ts` and `vigencia.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
+- `test/` — seam tests only (`build.test.ts`, `cf-adct.test.ts`, `changes.test.ts` and `vigencia.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
 - `test/vigencia.test.ts` — deferred vigência: EC 141 and EC 132 pending wordings, promotion by build date, page-already-applied scenarios
 - `test/cf-adct.test.ts` — CF/ADCT golden set (hand-verified against the fixture HTML), structural invariants, full-text snapshot
 - `test/snapshots/` — committed full-text Markdown mirrors of the CF and ADCT (generated; never hand-edited)
-- `test/fixtures/` — scenario fixtures derived from real pages (`hygiene/`: cp1252 parser-hygiene page, see its README)
+- `test/fixtures/` — scenario fixtures derived from real pages (`hygiene/`: cp1252 parser-hygiene page; `refresh/`: a simulated EC and an ETag-only refresh of the CF page, made by its `make.mjs`; see their READMEs)
 - `fixtures/` — committed raw source captures (checksummed `index.json` per capture; `2026-10-21/` = the EC 132 page; normas.leg.br files are CC BY 4.0, see its README)
 - `scripts/probe-planalto.mjs` — checks whether Planalto serves a runner (Akoma UA, conditional GET, control UA)
 - `docs/adr/` — architecture decisions (0001: fetch Planalto directly from Actions; no R2 fallback in v1; 0002: deferred vigência from the amending acts, start-date counting)
@@ -35,6 +35,7 @@ A failing full-text snapshot (`test/snapshots/*.md`) means the CF/ADCT text chan
 
 ## Gotchas
 - Planalto resets connections from non-browser user agents (curl default, python-requests, empty UA).
+- Planalto's F5 WAF injects a `<script>` with a random token after `</html>` in every response: hash a page only with its scripts removed, and treat ETag/Last-Modified as a pre-filter.
 - Planalto pages are cp1252 with no charset declared; struck text appears as `<strike>`, `<s>` or CSS line-through, even on "compilado" pages.
 
 ## Git & deploy

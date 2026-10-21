@@ -6,6 +6,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import { adct } from "../src/norms/adct.ts";
 import { cf } from "../src/norms/cf.ts";
 import { build } from "../src/pipeline/build.ts";
+import { detectChanges, renderChangeReport } from "../src/pipeline/changes.ts";
 import type { Dataset, Provision } from "../src/schema/dataset.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
 import type { Source } from "../src/sources/source.ts";
@@ -98,6 +99,27 @@ describe("deferred vigência: EC 141/2026, art. 7º XV", () => {
     ]);
     // SHA-256 of the hand-copied new wording, computed with shasum: the change signal moves with the text.
     expect(xv.provenance.contentHash).toBe("sha256:9418747eaefb72b609af710e2dd080b85dc4e356be85741f7aa8bf962469cf15");
+  });
+
+  it("shows up in the change report as \"pending activated\", with the act behind it", async () => {
+    const eve = await build({ manifests: [cf], source: await source(), datasetVersion: "eve", today: "2026-12-16" });
+    const day = await build({ manifests: [cf], source: await source(), datasetVersion: "day", today: effectiveFrom });
+    const report = detectChanges(eve, day);
+
+    expect(report.changes.map((c) => [c.kind, c.id])).toEqual([["pending-activated", "art7_cpt_inc15"]]);
+    expect(renderChangeReport(report)).toContain(
+      [
+        "### Pending activated (1)",
+        "",
+        "- **cf `art7_cpt_inc15`** · Título II › Capítulo II › Art. 7º › inciso XV",
+        "  - Act: Redação dada pela Emenda Constitucional nº 141, de 2026",
+        `  - Text before: ${inForce}`,
+        `  - Text after: ${upcoming}`,
+        "  - Pending: wording from 2026-12-17 → none",
+        "",
+      ].join("\n"),
+    );
+    expect(renderChangeReport(report)).toContain("1 dispositivo changed: 1 pending activated.");
   });
 });
 

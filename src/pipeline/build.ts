@@ -1,6 +1,6 @@
 // The build pipeline: raw snapshots + norm manifests in, canonical dataset out.
 import { createHash } from "node:crypto";
-import { NOTICE, type Dataset, type NormEntry, type Provision } from "../schema/dataset.ts";
+import { NOTICE, type Dataset, type NormEntry, type Provision, type SourcePage } from "../schema/dataset.ts";
 import type { RawSnapshot, Source } from "../sources/source.ts";
 import { readAmendingAct, type AmendingAct } from "./acts.ts";
 import { parsePlanaltoPage, type PageLayout } from "./planalto.ts";
@@ -37,6 +37,7 @@ export async function build({ manifests, source, datasetVersion, today }: BuildI
   if (today !== undefined && !isCalendarDate(today)) throw new Error(`build: today must be a YYYY-MM-DD date, got "${today}"`);
   const norms: NormEntry[] = [];
   const provisions: Provision[] = [];
+  const pages = new Map<string, SourcePage>();
   const acts = new Map<string, Promise<{ act: AmendingAct; retrievedAt: string; url: string }>>();
   const actAt = (url: string) => {
     if (!acts.has(url)) acts.set(url, readAct(source, url));
@@ -48,6 +49,7 @@ export async function build({ manifests, source, datasetVersion, today }: BuildI
     if (!snapshot) throw new Error(`${manifest.key}: primary source ${manifest.primaryUrl} is unavailable`);
 
     const html = new TextDecoder(snapshot.encoding).decode(snapshot.body);
+    if (!pages.has(snapshot.url)) pages.set(snapshot.url, sourcePage(snapshot, html));
     const seen = new Set<string>();
     const drafts: Draft[] = [];
     for (const parsed of parsePlanaltoPage(html, manifest, snapshot.url)) {
@@ -80,14 +82,30 @@ export async function build({ manifests, source, datasetVersion, today }: BuildI
     }
 
     for (const draft of drafts) {
-      const contentHash = `sha256:${createHash("sha256").update(draft.text, "utf8").digest("hex")}`;
       const { provenance, pending, ...rest } = draft;
-      provisions.push({ ...rest, ...(pending && { pending }), provenance: { ...provenance, contentHash } } as Provision);
+      provisions.push({ ...rest, ...(pending && { pending }), provenance: { ...provenance, contentHash: sha256(draft.text) } } as Provision);
     }
     norms.push({ key: manifest.key, urn: manifest.urn, title: manifest.title });
   }
 
-  return { norms, provisions };
+  return { norms, provisions, pages: [...pages.values()] };
+}
+
+function sourcePage(snapshot: RawSnapshot, html: string): SourcePage {
+  const { etag, "last-modified": lastModified } = snapshot.headers;
+  // Script content is raw text up to the first "</script", so a lazy match removes exactly one element.
+  const content = html.replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi, "");
+  return {
+    url: snapshot.url,
+    retrievedAt: snapshot.retrievedAt,
+    ...(etag !== undefined && { etag }),
+    ...(lastModified !== undefined && { lastModified }),
+    contentHash: sha256(content),
+  };
+}
+
+function sha256(text: string): string {
+  return `sha256:${createHash("sha256").update(text, "utf8").digest("hex")}`;
 }
 
 async function readAct(source: Source, url: string): Promise<{ act: AmendingAct; retrievedAt: string; url: string }> {
