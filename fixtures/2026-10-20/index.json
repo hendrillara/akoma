@@ -1,0 +1,72 @@
+{
+  "capturedOn": "2026-10-20",
+  "timeZone": "America/Sao_Paulo",
+  "snapshots": [
+    {
+      "file": "planalto/constituicaocompilado.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+      "encoding": "windows-1252",
+      "headers": { "etag": "\"16f927-65e33e3582f2c\"", "last-modified": "Mon, 19 Oct 2026 16:20:10 GMT" },
+      "sha256": "6ca43f8d860d1f438f25e293f45e531f12346333474f4b8fba4f43dd511d1949",
+      "bytes": 1507134
+    },
+    {
+      "file": "planalto/constituicao.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+      "encoding": "windows-1252",
+      "headers": { "etag": "\"1c2b8c-65e33e305558b\"", "last-modified": "Mon, 19 Oct 2026 16:20:05 GMT" },
+      "sha256": "ad2b0e00353765061381e6259f89e92c85561b95b1330f6f4f9b56823852927e",
+      "bytes": 1847715
+    },
+    {
+      "file": "planalto/l8078compilado.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+      "encoding": "windows-1252",
+      "headers": { "last-modified": "Tue, 13 Oct 2026 09:50:35 GMT" },
+      "sha256": "b0f83f0970199e735362c55ee6a623512a4febce8943759632676845b7c74309",
+      "bytes": 170672
+    },
+    {
+      "file": "planalto/quadro_emc.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/quadro_emc.htm",
+      "encoding": "windows-1252",
+      "headers": { "etag": "\"147d6-65df8bee18252\"", "last-modified": "Fri, 16 Oct 2026 17:46:35 GMT" },
+      "sha256": "4fc0dce2c8e206b5cc6a8cb479d691655f6a3ea5d09bdc8a8241f73e75f2ebcf",
+      "bytes": 85485
+    },
+    {
+      "file": "planalto/emc140.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc140.htm",
+      "encoding": "windows-1252",
+      "headers": {},
+      "sha256": "a3d3ae25c27c276f9e73ae2fcaeee889d6a5b41e59202fd9599a601d481b3af5",
+      "bytes": 49669
+    },
+    {
+      "file": "planalto/emc141.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm",
+      "encoding": "windows-1252",
+      "headers": {},
+      "sha256": "3072130815300659c529bc85f9b6d190dfcb9fe9c07032584002c348ee9df056",
+      "bytes": 32333
+    },
+    {
+      "file": "normas-leg-br/constituicao.json",
+      "url": "https://normas.leg.br/api/public/normas?urn=urn:lex:br:federal:constituicao:1988-10-05;1988&tipo_documento=maior-detalhe",
+      "encoding": "utf-8",
+      "headers": {},
+      "license": "CC-BY-4.0",
+      "sha256": "cc29bb692a403a94a0b12398bd9c38ef5920e955ffd7bdfbddd1dc45cdc0e122",
+      "bytes": 4798138
+    },
+    {
+      "file": "normas-leg-br/adct.json",
+      "url": "https://normas.leg.br/api/public/normas?urn=urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988&tipo_documento=maior-detalhe",
+      "encoding": "utf-8",
+      "headers": {},
+      "license": "CC-BY-4.0",
+      "sha256": "4731e3a46ff5ca81b342f6701c5ddb9189b427126145c7679080eef005c61b4d",
+      "bytes": 1708379
+    }
+  ]
+}
