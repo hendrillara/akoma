@@ -20,7 +20,7 @@ const ACTS: [RegExp, ActType][] = [
 ];
 
 export function readLegin(html: string, url: string): SecondaryDispositivo[] {
-  const parsed = parsePlanaltoPage(html, {}, url, peelCamaraAnnotations);
+  const parsed = parsePlanaltoPage(html, {}, url, peelCamaraAnnotations).provisions;
   // Câmara annotates a whole article once, on whichever of its lines it chose ("(Artigo acrescido pela …)" can follow
   // the last inciso), so the acts it records are read per article: the page is compared per article (ADR 0002).
   const byArticle = new Map<string, Set<string>>();

@@ -1,0 +1,17 @@
+{
+  "capturedOn": "2026-10-15",
+  "snapshots": [
+    {
+      "file": "page.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+      "encoding": "windows-1252",
+      "headers": {
+        "etag": "\"16e780-65e1a0b1c2d3e\"",
+        "last-modified": "Tue, 13 Oct 2026 16:20:10 GMT"
+      },
+      "retrievedAt": "2026-10-15T01:30:00Z",
+      "sha256": "94becab64e1474d19e37905571058ef72e583643622a463e2904f3c3a9e81564",
+      "bytes": 1502615
+    }
+  ]
+}
