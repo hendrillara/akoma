@@ -16,6 +16,11 @@
 // `<head>`, scripts, styles or templates, and the law is never inside a comment, a meta or an Office property element.
 // One limit, on pages the build could not read either: an element that swallows the rest of the page (`<plaintext>`,
 // or a `<title>`/`<textarea>`… never closed) keeps that text, which the build reads as the page's text.
+// It fails closed: bytes the parser leaves outside its tree (a tag cut off by the end of the page, attributes on an
+// end tag), a body that is not windows-1252 or UTF-8 text (NUL bytes, a UTF-16 byte-order mark), a node without a
+// source location, or a result that is not a fixpoint of the redaction throw `RedactionError`, so nothing from the page
+// is kept: the daily job fails into its failure issue instead. Only a known JSON endpoint's body that parses as JSON
+// (normas.leg.br's API) is passed through unread; any other body, whatever it starts with, is redacted as HTML.
 // The daily job and the recheck wrap every source in `redacting`, so the build, the review, the committed capture and
 // every report see the same redacted page, and a regeneration from the capture reads exactly what the run read.
 import { parse, type DefaultTreeAdapterMap } from "parse5";
@@ -23,6 +28,16 @@ import type { Probe, RawSnapshot, Source, Validators } from "./source.ts";
 
 type Node = DefaultTreeAdapterMap["node"];
 type Element = DefaultTreeAdapterMap["element"];
+
+/** The endpoints that serve JSON (review layer 2's normas.leg.br reader), whose bodies are not HTML. */
+const JSON_ENDPOINTS = ["https://normas.leg.br/api/"];
+/** Tokenizer errors after which bytes of the page are in no node of the tree, so no edit could reach them. */
+const UNREPRESENTED = new Set(["eof-in-tag", "end-tag-with-attributes", "unexpected-null-character"]);
+
+/** The page could not be redacted with certainty; its message names only the page, never its content. */
+export class RedactionError extends Error {
+  override name = "RedactionError";
+}
 
 /** Elements whose content the tokenizer reads as raw text or RCDATA (no tags, no comments inside). */
 const RAW_TEXT = new Set(["script", "style", "title", "textarea", "xmp", "iframe", "noembed", "noframes", "noscript"]);
@@ -49,40 +64,55 @@ interface Context {
 }
 
 /**
- * The page with its metadata redacted, byte for byte elsewhere: the bytes are read as latin1, which maps each byte to
- * one character, so offsets are byte offsets and any encoding round-trips (markup is ASCII in windows-1252 and UTF-8
- * alike, so parse5 finds the same tags in the latin1 reading as in the decoded page). A JSON body is left alone.
- * Idempotent: a redacted page comes back unchanged.
+ * An HTML page with its metadata redacted, byte for byte elsewhere: the bytes are read as latin1, which maps each byte
+ * to one character, so offsets are byte offsets and any encoding round-trips (markup is ASCII in windows-1252 and UTF-8
+ * alike, so parse5 finds the same tags in the latin1 reading as in the decoded page). Idempotent: a redacted page comes
+ * back unchanged, and the result is checked to be one. Throws `RedactionError` rather than return a page it is not sure
+ * of (see the header).
  */
 export function redactPersonalData(body: Uint8Array): Uint8Array {
+  if (!(body instanceof Uint8Array)) throw new RedactionError("redact: the body is not bytes");
+  if (body.includes(0) || (body[0] === 0xfe && body[1] === 0xff) || (body[0] === 0xff && body[1] === 0xfe)) {
+    throw new RedactionError("redact: the body is not windows-1252 or UTF-8 text (NUL bytes or a UTF-16 byte-order mark)");
+  }
   const text = Buffer.from(body).toString("latin1");
-  if (/^\s*[[{]/.test(text)) return body;
-
-  const context: Context = { text, repaired: [], edits: [] };
-  const document = parse(text, {
-    sourceCodeLocationInfo: true,
-    onParseError: (error) => {
-      if (error.code === "duplicate-attribute") context.repaired.push(error.startOffset);
-    },
-  });
-  walk(document, context, false);
-
-  const changed = context.edits.filter((e) => text.slice(e.start, e.end) !== e.text).sort((a, b) => a.start - b.start);
+  const changed = edits(text);
   if (!changed.length) return body;
   let out = "";
   let at = 0;
   for (const edit of changed) {
-    if (edit.start < at) throw new Error("redact: overlapping edits");
+    if (edit.start < at) throw new RedactionError("redact: overlapping edits");
     out += text.slice(at, edit.start) + edit.text;
     at = edit.end;
   }
-  return new Uint8Array(Buffer.from(out + text.slice(at), "latin1"));
+  out += text.slice(at);
+  // The redacted page must be a fixpoint: one more pass would change nothing.
+  if (edits(out).length) throw new RedactionError("redact: the redacted page still has something to redact");
+  return new Uint8Array(Buffer.from(out, "latin1"));
+}
+
+/** The edits a page needs, in page order: none for a page already redacted. */
+function edits(text: string): Edit[] {
+  const context: Context = { text, repaired: [], edits: [] };
+  const document = parse(text, {
+    sourceCodeLocationInfo: true,
+    onParseError: (error) => {
+      if (UNREPRESENTED.has(error.code)) throw new RedactionError(`redact: bytes the parser keeps in no node (${error.code} at offset ${error.startOffset})`);
+      if (error.code === "duplicate-attribute") context.repaired.push(error.startOffset);
+    },
+  });
+  walk(document, context, false);
+  return context.edits.filter((e) => text.slice(e.start, e.end) !== e.text).sort((a, b) => a.start - b.start);
 }
 
 function walk(node: Node, context: Context, inXml: boolean): void {
   if (node.nodeName === "#comment") {
-    const at = (node as DefaultTreeAdapterMap["commentNode"]).sourceCodeLocation;
-    if (at) context.edits.push({ start: at.startOffset, end: at.endOffset, text: "<!---->" });
+    context.edits.push({ ...located(node), text: "<!---->" });
+    return;
+  }
+  if (node.nodeName === "#documentType") {
+    const doctype = node as DefaultTreeAdapterMap["documentType"];
+    if (!isStandardDoctype(doctype)) context.edits.push({ ...located(node), text: "<!DOCTYPE html>" });
     return;
   }
   if (!("tagName" in node)) {
@@ -121,7 +151,7 @@ function walk(node: Node, context: Context, inXml: boolean): void {
  */
 function innerSpan(element: Element, toEnd: boolean): { start: number; end: number } | undefined {
   const at = element.sourceCodeLocation;
-  if (!at?.startTag) return undefined;
+  if (!at?.startTag) throw new RedactionError(`redact: a <${element.tagName}> without a source location`);
   if (at.endTag) return { start: at.startTag.endOffset, end: at.endTag.startOffset };
   return toEnd ? { start: at.startTag.endOffset, end: at.endOffset } : undefined;
 }
@@ -129,12 +159,28 @@ function innerSpan(element: Element, toEnd: boolean): { start: number; end: numb
 /** A `<meta>` or `<link>` kept as served when it is known to be harmless, else replaced by a fixed tag. */
 function startTagEdit(element: Element, { text, repaired }: Context): Edit | undefined {
   const tag = element.sourceCodeLocation?.startTag;
-  if (!tag) return undefined;
+  if (!tag) throw new RedactionError(`redact: a <${element.tagName}> without a source location`);
   const wasRepaired = repaired.some((offset) => offset >= tag.startOffset && offset < tag.endOffset);
   const harmless = element.tagName === "meta" ? isCharsetDeclaration(element) : isStyleLink(element);
   if (harmless && !wasRepaired) return undefined;
   const close = text.slice(tag.startOffset, tag.endOffset).endsWith("/>") ? "/>" : ">";
   return { start: tag.startOffset, end: tag.endOffset, text: element.tagName === "meta" ? `<meta content="[redacted]"${close}` : `<link${close}` };
+}
+
+/** Where a comment or doctype sits in the page; every node read from the page has a location. */
+function located(node: Node): { start: number; end: number } {
+  const at = (node as DefaultTreeAdapterMap["commentNode"]).sourceCodeLocation;
+  if (!at) throw new RedactionError(`redact: a ${node.nodeName} without a source location`);
+  return { start: at.startOffset, end: at.endOffset };
+}
+
+/** `<!DOCTYPE html>` or a W3C public identifier with a w3.org system identifier: nothing that could hold a name. */
+function isStandardDoctype({ name, publicId, systemId }: DefaultTreeAdapterMap["documentType"]): boolean {
+  return (
+    /^html$/i.test(name) &&
+    (publicId === "" || /^-\/\/W3C\/\/DTD [\w .\/-]{1,60}\/\/EN$/.test(publicId)) &&
+    (systemId === "" || /^https?:\/\/www\.w3\.org\/[\w.\/-]{1,100}$/.test(systemId))
+  );
 }
 
 /** `<meta charset="utf-8">` or `<meta http-equiv="Content-Type" content="text/html; charset=…">`, and nothing else. */
@@ -164,9 +210,42 @@ function isStyleLink(element: Element): boolean {
   );
 }
 
-/** `source` with `redactPersonalData` applied to every page it serves. */
+/**
+ * A snapshot as the rest of the job may see it. A body from a known JSON endpoint passes through only when it is JSON
+ * (no HTML media type, and it parses); every other body is redacted as HTML, whatever its first bytes are.
+ */
+export function redactSnapshot(snapshot: RawSnapshot): RawSnapshot {
+  if (snapshot.encoding !== "utf-8" && snapshot.encoding !== "windows-1252") throw new RedactionError(`redact: ${snapshot.url}: unknown encoding`);
+  if (JSON_ENDPOINTS.some((prefix) => snapshot.url.startsWith(prefix)) && isJson(snapshot)) return snapshot;
+  try {
+    return { ...snapshot, body: redactPersonalData(snapshot.body) };
+  } catch (error) {
+    // Only our own fixed messages, and the URL: never the page's bytes.
+    const reason = error instanceof RedactionError ? error.message.replace(/^redact: /, "") : "the redactor failed";
+    throw new RedactionError(`redact: ${snapshot.url}: ${reason}; nothing from this page is kept`);
+  }
+}
+
+function isJson(snapshot: RawSnapshot): boolean {
+  if (snapshot.contentType !== undefined && !/^application\/(?:[\w.+-]+\+)?json$/.test(snapshot.contentType)) return false;
+  try {
+    JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(snapshot.body));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** `source` with `redactSnapshot` applied to every page it serves (once per body: a source may serve one twice). */
 export function redacting(source: Source): Source {
-  const clean = (snapshot: RawSnapshot): RawSnapshot => ({ ...snapshot, body: redactPersonalData(snapshot.body) });
+  const done = new WeakMap<Uint8Array, RawSnapshot>();
+  const clean = (snapshot: RawSnapshot): RawSnapshot => {
+    const known = done.get(snapshot.body);
+    if (known && known.url === snapshot.url) return { ...snapshot, body: known.body };
+    const redacted = redactSnapshot(snapshot);
+    done.set(snapshot.body, redacted);
+    return redacted;
+  };
   return {
     async get(url) {
       const snapshot = await source.get(url);

@@ -107,7 +107,8 @@ function snapshot(url: string, response: Response, body: Uint8Array): RawSnapsho
   const encoding = encodingOf(type, body);
   const date = response.headers.get("date");
   const retrievedAt = (date && !Number.isNaN(Date.parse(date)) ? new Date(date) : new Date()).toISOString().replace(/\.\d{3}Z$/, "Z");
-  return { url, body, headers, encoding, retrievedAt };
+  const contentType = type.split(";")[0]!.trim().toLowerCase();
+  return { url, body, headers, encoding, retrievedAt, ...(contentType && { contentType }) };
 }
 
 /** The declared charset; else a `<meta>` charset; else windows-1252, what Planalto serves without declaring it. */

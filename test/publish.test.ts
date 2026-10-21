@@ -428,22 +428,50 @@ describe("daily job: personal data in page metadata (test/fixtures/redaction)", 
   const plantedPage = new URL("test/fixtures/redaction/legin.html", root);
   const captured = "fixtures/2026-10-23-daily/camara-legin/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html";
 
-  async function redactionRun() {
-    const source = await recordedSource(recorded, acts, scenario("cdc-law"), new URL("test/fixtures/redaction/", root));
+  async function redactionRun(folder = "") {
+    const source = await recordedSource(recorded, acts, scenario("cdc-law"), new URL(`test/fixtures/redaction/${folder}`, root));
     const before = await build({ manifests: [cdc], source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
     return run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before });
   }
 
-  it("never lets a planted name into anything it writes, whatever the markup", async () => {
-    const { result, github, workspace } = await redactionRun();
-    expect(result.outcome).toBe("published");
-    const written = [
+  /** Everything the job wrote or sent anywhere: files, PR bodies, issues and comments, the run status. */
+  function everything({ github, workspace }: Awaited<ReturnType<typeof redactionRun>>): string {
+    return [
       ...[...workspace.files.values()].map((c) => (typeof c === "string" ? c : Buffer.from(c).toString("latin1"))),
       ...github.pulls.map((p) => p.body),
-      ...github.issues.flatMap((i) => [i.body, ...i.comments]),
+      ...github.issues.flatMap((i) => [i.title, i.body, ...i.comments]),
       ...github.status.values(),
     ].join("\n");
+  }
+
+  it("never lets a planted name into anything it writes, whatever the markup", async () => {
+    const ran = await redactionRun();
+    expect(ran.result.outcome).toBe("published");
+    const written = everything(ran);
     for (const name of names) expect(written).not.toContain(name);
+  });
+
+  it("fails closed on a page it cannot redact with certainty: nothing from it is kept, the job fails", async () => {
+    // A tag cut off by the end of the page, which the parser keeps in no node; a NUL byte (not windows-1252 or UTF-8
+    // text). The job stops before the build, so no capture, dataset or PR exists, and the failure issue names the page.
+    for (const folder of ["malformed/", "nul/"]) {
+      const ran = await redactionRun(folder);
+      expect(ran.result.outcome).toBe("failed");
+      expect(ran.result.error).toMatch(/^RedactionError: redact: https:\/\/www2\.camara\.leg\.br\/legin\/.*: .*; nothing from this page is kept/);
+      expect(ran.github.pulls).toEqual([]);
+      expect([...ran.workspace.files.keys()]).toEqual(["out/failure-reported"]);
+      const written = everything(ran);
+      for (const name of names) expect(written).not.toContain(name);
+    }
+  });
+
+  it("redacts a body that starts like JSON as HTML: only a known JSON endpoint's JSON passes through unread", async () => {
+    const ran = await redactionRun("json-prefix/");
+    expect(ran.result.outcome).toBe("published");
+    expect(ran.workspace.text(captured).startsWith('{"autor": 1}\n<!DOCTYPE HTML')).toBe(true);
+    const written = everything(ran);
+    for (const name of names) expect(written).not.toContain(name);
+    // The normas.leg.br API's JSON is a known JSON endpoint's: the CF build reads it as served (cross-source.test.ts).
   });
 
   it("keeps only the charset declaration and blanks every meta, comment, raw-text content and Office block", async () => {

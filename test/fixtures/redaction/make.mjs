@@ -2,7 +2,7 @@
 //   node test/fixtures/redaction/make.mjs
 // The names planted here are invented placeholders; the recorded page's own metadata was redacted at capture.
 import { createHash } from "node:crypto";
-import { readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 const here = new URL("./", import.meta.url);
 const url = "https://www2.camara.leg.br/legin/fed/lei/1990/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html";
@@ -64,20 +64,33 @@ edit(
   ].join("\n"),
 );
 
-const bytes = Buffer.from(page, "latin1");
-writeFileSync(new URL("legin.html", here), bytes);
-const index = {
-  capturedOn: "2026-10-23",
-  snapshots: [
-    {
-      file: "legin.html",
-      url,
-      encoding: "utf-8",
-      headers: {},
-      retrievedAt: "2026-10-23T01:30:00Z",
-      sha256: createHash("sha256").update(bytes).digest("hex"),
-      bytes: bytes.length,
-    },
-  ],
-};
-writeFileSync(new URL("index.json", here), `${JSON.stringify(index, null, 2)}\n`);
+/** One folder serving `content` (latin1) under the LEGIN URL. */
+function write(folder, content) {
+  const bytes = Buffer.from(content, "latin1");
+  mkdirSync(new URL(folder, here), { recursive: true });
+  writeFileSync(new URL(`${folder}legin.html`, here), bytes);
+  const index = {
+    capturedOn: "2026-10-23",
+    snapshots: [
+      {
+        file: "legin.html",
+        url,
+        encoding: "utf-8",
+        headers: {},
+        retrievedAt: "2026-10-23T01:30:00Z",
+        sha256: createHash("sha256").update(bytes).digest("hex"),
+        bytes: bytes.length,
+      },
+    ],
+  };
+  writeFileSync(new URL(`${folder}index.json`, here), `${JSON.stringify(index, null, 2)}\n`);
+}
+
+write("", page);
+// The fail-closed cases, each with the planted page's metadata and one more name where it is planted:
+// a tag cut off by the end of the page (the parser keeps it in no node),
+write("malformed/", `${page}<meta name="author" content="Mevio Ticio`);
+// a body that starts like JSON but is the HTML page (only a known JSON endpoint's JSON passes through unread),
+write("json-prefix/", `{"autor": 1}\n${page}`);
+// and a body that is not windows-1252 or UTF-8 text (a NUL byte in it), where the redactor cannot be sure.
+write("nul/", page.replace("</head>", "\u0000</head>"));
