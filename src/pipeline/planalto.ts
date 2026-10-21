@@ -41,6 +41,8 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
   let paragraph: Open | undefined;
   let inciso: Open | undefined;
   let alinea: Open | undefined;
+  // Inside text quoted from another act, which belongs to the dispositivo that quotes it.
+  let quoting = false;
 
   for (const { text: line, links, struck } of visibleLines(html, layout, baseUrl)) {
     /**
@@ -57,6 +59,14 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
     };
     const child = (parent: Open, kind: ProvisionKind, numbered: Numbered) =>
       emit(parent, kind, { kind, label: numbered.label }, `${parent.id}_${numbered.id}`, numbered.rest);
+
+    // Quoted text of another act ("Acrescente-se … à Lei nº 7.347 …:", then "§ 4.° …", "§ 5.° …", "… extrajudicial".)
+    // is part of the commanding dispositivo: inside it nothing is a heading, an article or a label of this norm.
+    if (quoting) {
+      append(out.at(-1)!, line, links);
+      quoting = !closesQuote(line, links);
+      continue;
+    }
 
     const heading = matchHeading(line);
     if (heading) {
@@ -86,6 +96,12 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
     if (!article) continue;
     // Punctuation left behind by struck wording ("- ;").
     if (/^[\s.,;:–-]*$/.test(line)) continue;
+    // A block opening with a quote mark quotes another act; it stays open until a block ends with the closing mark.
+    if (!struck && /^["“]/.test(line)) {
+      append(out.at(-1)!, line, links);
+      quoting = !closesQuote(line, links);
+      continue;
+    }
     // LexML Parte 3: children of the caput hang under `_cpt`; the caput adds no segment to their path.
     const caput: Open = { id: `${article.id}_cpt`, path: article.path };
 
@@ -122,19 +138,45 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
       continue;
     }
 
+    // A penal sanction ("Pena - Detenção de…", often with no dash) completes the dispositivo above it: LexML gives it
+    // no id of its own (it is the dispositivo's <Pena>), so it joins that dispositivo's text on a line of its own.
+    if (/^Pena\b/.test(line)) {
+      append(out.at(-1)!, line, links);
+      continue;
+    }
+
     // What is left of a line whose label or text was struck (the full-history page): an old wording, not a dispositivo.
     if (struck) continue;
     throw new Error(`Unrecognised line inside ${article.id}: "${line.slice(0, 120)}"`);
   }
 
+  if (quoting) throw new Error(`Quoted text opened in ${out.at(-1)!.id} is never closed`);
   return out;
 }
 
-/** Revoked or vetoed when the page says so in the wording ("(revogado);", "revogada;", "(VETADO)") or in an annotation. */
+/** Whether a line ends a quote: a closing mark at its end, before any "(NR)", final punctuation or annotations. */
+function closesQuote(line: string, links: Link[]): boolean {
+  return /["”]\s*(?:\(NR\))?\s*[.;]?$/.test(peelAnnotations(line, links).text);
+}
+
+/** Adds a line that belongs to a dispositivo already recorded (a Pena line, quoted text) to its text and metadata. */
+function append(provision: ParsedProvision, line: string, links: Link[]): void {
+  const peeled = peelAnnotations(line, links);
+  provision.text = provision.text ? `${provision.text}\n${peeled.text}` : peeled.text;
+  provision.amendments.push(...peeled.amendments);
+  provision.references.push(...peeled.references);
+}
+
+/**
+ * Revoked or vetoed when the page says so in the wording ("(revogado);", "revogada;", "(VETADO)") or in an annotation;
+ * renumbered when only the note that its content moved is left.
+ */
 function statusOf(text: string, amendments: Amendment[]): ProvisionStatus {
   if (/^\(?\s*vetad[oa]s?\s*\)?\s*[.;]?$/i.test(text)) return "vetoed";
   if (/^\(?\s*revogad[oa]s?\s*\)?\s*[.;]?$/i.test(text)) return "revoked";
   if (amendments.some((a) => a.effect === "revoked")) return "revoked";
+  // Nothing left but the note that the content moved to another number (CDC art. 39 XI → XIII).
+  if (text === "" && amendments.some((a) => a.effect === "renumbered")) return "renumbered";
   return "in_force";
 }
 

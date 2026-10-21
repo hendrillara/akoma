@@ -92,7 +92,8 @@ function line(provision: Provision): string {
   const shown = provision.text || MARKER[provision.status] || "";
   const notes = [...provision.amendments.map((a) => a.annotation), ...provision.references.map((r) => r.annotation)];
   const annotations = notes.length ? ` ${notes.map((n) => `*(${n})*`).join(" ")}` : "";
-  return `${label} ${escape(shown)}${annotations}`.trim();
+  // A renumbered dispositivo has no wording left: its label is followed by the note alone.
+  return `${[label, escape(shown)].filter(Boolean).join(" ")}${annotations}`.trim();
 }
 
 function printedLabel(provision: Provision): string {

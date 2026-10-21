@@ -3,6 +3,18 @@
   "timeZone": "America/Sao_Paulo",
   "snapshots": [
     {
+      "file": "camara-legin/lei-8078-1990-normaatualizada-pl.html",
+      "url": "https://www2.camara.leg.br/legin/fed/lei/1990/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html",
+      "encoding": "utf-8",
+      "headers": {},
+      "retrievedAt": "2026-10-21T04:48:50Z",
+      "sha256": "3f1b532e3c274a8629ddf31b19987d388110897681d5c39b74ebcfd3b90b0f08",
+      "bytes": 220585,
+      "edits": "The <meta> author and changedby values (a Câmara staff member's name and staff ID) replaced with [redacted]; see README.",
+      "servedSha256": "0f46ff9e5738563d855ff61d4d914017a7f265de248f331239da36d30af3a39d",
+      "servedBytes": 220597
+    },
+    {
       "file": "planalto/emc132.htm",
       "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm",
       "encoding": "windows-1252",

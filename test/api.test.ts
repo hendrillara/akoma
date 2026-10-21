@@ -71,7 +71,7 @@ describe("API v1", () => {
     });
 
     it("returns a dispositivo with deferred vigência with its wording in force and its pending wording", async () => {
-      // EC 141/2026: art. 7º XV keeps its wording until 2026-12-17 (EC 141 art. 10 I; ADR 0002).
+      // EC 141/2026: art. 7º XV keeps its wording until 2026-12-17 (EC 141 art. 10 I; ADR 0003).
       const response = await handle(new Request(`${api}/v1/provisions/cf/art7_cpt_inc15`));
 
       expect(response.status).toBe(200);

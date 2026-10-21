@@ -60,7 +60,7 @@ export interface Provision {
   /**
    * Changes an amending act has made to this dispositivo that take effect later (deferred vigência), earliest first.
    * Absent when none is pending. `text` and `status` stay the wording in force until the build's date reaches an
-   * entry's `effectiveFrom`; that build promotes it (ADR 0002). A list, not one entry, because an act can phase its
+   * entry's `effectiveFrom`; that build promotes it (ADR 0003). A list, not one entry, because an act can phase its
    * changes: EC 132/2023 rewords some dispositivos in 2027 and again in 2033.
    */
   pending?: PendingChange[];
@@ -157,9 +157,11 @@ export type ProvisionKind = "caput" | "paragrafo" | "inciso" | "alinea" | "item"
  * `in_force`: the wording in `text` applies (changes still to come are in `pending`). `revoked` / `vetoed`: as the
  * page marks it, or as a promoted revocation. `not_yet_in_force`: inserted by an act whose vigência is deferred; its
  * `text` is empty and its wording is the `inserted` entry of `pending`.
- * Revoked and vetoed dispositivos keep their id and label (LC 95 art. 12 III c).
+ * Revoked and vetoed dispositivos keep their id and label (LC 95 art. 12 III c). `renumbered`: the page keeps the label
+ * only to say its content moved to another number (CDC art. 39 XI, "transformado em inciso XIII"); its text is empty
+ * and the note is its `renumbered` amendment.
  */
-export type ProvisionStatus = "in_force" | "revoked" | "vetoed" | "not_yet_in_force";
+export type ProvisionStatus = "in_force" | "revoked" | "vetoed" | "renumbered" | "not_yet_in_force";
 
 export type PathKind = "parte" | "livro" | "titulo" | "capitulo" | "secao" | "subsecao" | "artigo" | ProvisionKind;
 

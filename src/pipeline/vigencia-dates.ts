@@ -1,4 +1,4 @@
-// When a deferred change takes effect, from the act's DOU publication date and its vigência clause (ADR 0002).
+// When a deferred change takes effect, from the act's DOU publication date and its vigência clause (ADR 0003).
 // Dates are calendar days in Brasília, handled as plain year/month/day numbers: no time zone can shift them.
 import type { When } from "./acts.ts";
 
@@ -8,7 +8,7 @@ import type { When } from "./acts.ts";
  * - "após decorridos N meses/anos": the period ends on the corresponding day N months/years later (Lei 810/1949
  *   arts. 2º–3º: the first day after it when that month has no such day), and the act is in force on the next day.
  *   EC 141, DOU 16.10.2026, 2 months: ends 16.12.2026, in force 2026-12-17.
- * - "em 2027": 1 January of that year, the first day the clause allows (an interpretation, flagged in ADR 0002).
+ * - "em 2027": 1 January of that year, the first day the clause allows (an interpretation, flagged in ADR 0003).
  */
 export function effectiveDate(when: Exclude<When, "publication">, published: string): string {
   if ("year" in when) return `${when.year}-01-01`;

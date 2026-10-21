@@ -1,4 +1,4 @@
-// Deferred vigência (ADR 0002): stages an amending act's later changes on the dispositivos of the page, as `pending`
+// Deferred vigência (ADR 0003): stages an amending act's later changes on the dispositivos of the page, as `pending`
 // entries, and promotes those whose start date the build's date has reached.
 import type { ActCitation, Amendment, PendingChange, Provision } from "../schema/dataset.ts";
 import { isUnder, type AmendingAct, type DeferredChange } from "./acts.ts";

@@ -1,4 +1,4 @@
-# ADR 0002: Deferred vigência from the amending acts, with counted start dates
+# ADR 0003: Deferred vigência from the amending acts, with counted start dates
 
 **Status:** accepted for v1 (2026-10-21); the "em 2027" reading and the art. 239 § 3º hold await the maintainer's confirmation · **Ticket:** #6
 
@@ -61,7 +61,7 @@ So the CF page's markers cannot tell which dispositivos have a pending change, o
 
 ---
 
-# ADR 0002 (PT): Vigência diferida a partir das emendas, com datas contadas
+# ADR 0003 (PT): Vigência diferida a partir das emendas, com datas contadas
 
 **Status:** aceita para a v1 (21/10/2026); a leitura de "em 2027" e a retenção do art. 239, § 3º, aguardam confirmação do mantenedor · **Ticket:** #6
 

@@ -7,7 +7,7 @@ import { escape } from "./files.ts";
 /**
  * `added`: a new id. `changed`: any part of the record moved (text, label, status, annotations…). `revoked`: the
  * record became `revoked`. `removed`: the id vanished with no revocation mark, which the review gates must stop.
- * `pending-activated`: the build promoted a pending change because its start date came (deferred vigência, ADR 0002):
+ * `pending-activated`: the build promoted a pending change because its start date came (deferred vigência, ADR 0003):
  * the record gained an amendment carrying `effectiveFrom`. It takes precedence over `changed` and `revoked`.
  */
 export type ChangeKind = "added" | "changed" | "pending-activated" | "revoked" | "removed";

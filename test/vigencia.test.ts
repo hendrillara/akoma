@@ -1,7 +1,7 @@
 // Seam 1: deferred vigência. An amending act whose vigência clause defers some of its changes leaves the wording in
 // force on the page and adds a pending wording with its start date; a build on or after that date promotes it.
 // Expected texts are copied by hand from the recorded pages (the EC 141 page's art. 1 quoted block and art. 10, the
-// compiled CF), and the dates follow ADR 0002, worked out by hand, never by the code under test.
+// compiled CF), and the dates follow ADR 0003, worked out by hand, never by the code under test.
 import { beforeAll, describe, expect, it } from "vitest";
 import { adct } from "../src/norms/adct.ts";
 import { cf } from "../src/norms/cf.ts";
@@ -54,7 +54,7 @@ describe("deferred vigência: EC 141/2026, art. 7º XV", () => {
   const clause =
     "após decorridos 2 (dois) meses de sua publicação, em relação à alteração promovida pelo art. 1º desta Emenda Constitucional no inciso XV do caput do art. 7º da Constituição Federal";
   // Published in the DOU of 16.10.2026; two months counted to the corresponding day (16.12.2026), in force the day
-  // after (LC 95/1998 art. 8º § 1º; ADR 0002).
+  // after (LC 95/1998 art. 8º § 1º; ADR 0003).
   const effectiveFrom = "2026-12-17";
 
   describe("before the effective date", () => {
@@ -128,7 +128,7 @@ describe("deferred vigência: EC 141/2026, art. 7º XV", () => {
 // "I - em 2027, o art. 195, I, "b", e IV, e § 12, da Constituição Federal; II - em 2033: a) os arts. 155, II, e §§ 2º a
 // 5º, 156, III, e § 3º, 158, IV, "a", e § 1º, e 161, I, da Constituição Federal; e b) os arts. 80, II, 82, § 2º, e 83
 // do Ato das Disposições Constitucionais Transitórias." Planalto marks almost none of the reworded dispositivos, so the
-// pending set comes from the act. "em 2027" is read as 1 January 2027 (ADR 0002).
+// pending set comes from the act. "em 2027" is read as 1 January 2027 (ADR 0003).
 describe("deferred vigência: EC 132/2023, phased to 2027 and 2033", () => {
   const emc132 = "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm";
   const ec132 = { citation: "Emenda Constitucional nº 132, de 2023", type: "emenda_constitucional", number: "132", year: 2023, href: emc132 };
