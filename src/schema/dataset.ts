@@ -127,9 +127,11 @@ export type ProvisionKind = "caput" | "paragrafo" | "inciso" | "alinea" | "item"
  * The page's revoked/vetoed markers, and nothing more: `in_force` means the page does not mark the dispositivo revoked
  * or vetoed, not that its wording has taken effect. When a change takes effect later (EC 132's 2027/2033 phases,
  * EC 141 art. 7º XV) the page says so only through `references` of kind `vigencia`/`producao_de_efeito`.
- * Revoked and vetoed dispositivos keep their id and label (LC 95 art. 12 III c).
+ * Revoked and vetoed dispositivos keep their id and label (LC 95 art. 12 III c). `renumbered`: the page keeps the label
+ * only to say its content moved to another number (CDC art. 39 XI, "transformado em inciso XIII"); its text is empty
+ * and the note is its `renumbered` amendment.
  */
-export type ProvisionStatus = "in_force" | "revoked" | "vetoed";
+export type ProvisionStatus = "in_force" | "revoked" | "vetoed" | "renumbered";
 
 export type PathKind = "parte" | "livro" | "titulo" | "capitulo" | "secao" | "subsecao" | "artigo" | ProvisionKind;
 

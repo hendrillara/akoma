@@ -23,6 +23,16 @@ Source URLs:
 - `normas-leg-br/constituicao.json` ← https://normas.leg.br/api/public/normas?urn=urn:lex:br:federal:constituicao:1988-10-05;1988&tipo_documento=maior-detalhe
 - `normas-leg-br/adct.json` ← the same endpoint with `urn=urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988`
 
+## 2026-10-21
+
+Captured on 2026-10-21 at 04:48 UTC from a residential connection, with one anonymous GET (`Mozilla/5.0 (compatible; akoma/0.0.0)`, no personal identifier). It holds the CDC's secondary source (ADR 0002):
+
+- `camara-legin/lei-8078-1990-normaatualizada-pl.html` ← https://www2.camara.leg.br/legin/fed/lei/1990/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html. This is Câmara dos Deputados LEGIN's compiled text of Lei 8.078/1990, in UTF-8 as served, with no ETag or Last-Modified.
+
+**One documented edit.** The page's `<meta name="author">` and `<meta name="changedby">` values held a Câmara staff member's name and staff ID. Both are replaced with `[redacted]`, so no personal identifier is committed; nothing else changed. `index.json` records the stored file's SHA-256 and size, plus the served bytes' (`servedSha256`, `servedBytes`), so the capture can be re-verified against a fresh GET once the two meta values are redacted the same way.
+
+**Licence.** The legal text is not protected by copyright (Lei 9.610/1998, art. 8º, IV). The page states no licence for Câmara's compilation and annotations. normas.leg.br lists a "Compilação Monovigente na CD" of this law under CC BY 4.0, but that it is this same file has not been shown. The capture is kept only as a test input for the cross-check (#8). The published dataset does not republish its text.
+
 Scenario fixtures (a simulated new amendment, a stale secondary source…) are derived from these files by documented edits and live next to the tests that use them.
 
 ---
@@ -43,5 +53,13 @@ Capturada na noite de 20/10/2026, horário de Brasília (madrugada de 21/10 em U
 Os arquivos do normas.leg.br são © Senado Federal, sob licença [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Fonte: normas.leg.br / LexML Brasil. Ficam aqui sem alteração e servem só como entrada de teste. O dataset publicado pelo Akoma não republica o texto nem o histórico deles.
 
 As URLs de origem estão listadas na seção em inglês acima.
+
+## 2026-10-21
+
+Capturada em 21/10/2026, às 04:48 UTC, de uma conexão residencial, com um GET anônimo (`Mozilla/5.0 (compatible; akoma/0.0.0)`, sem identificador pessoal). Contém a fonte secundária do CDC (ADR 0002): `camara-legin/lei-8078-1990-normaatualizada-pl.html`, o texto compilado da Lei 8.078/1990 no LEGIN da Câmara dos Deputados, em UTF-8 como foi servido, sem ETag nem Last-Modified.
+
+**Uma edição documentada:** os valores de `<meta name="author">` e `<meta name="changedby">` traziam o nome e a matrícula de um servidor da Câmara e foram trocados por `[redacted]`, para não versionar identificador pessoal; nada mais mudou. O `index.json` registra o SHA-256 e o tamanho do arquivo gravado e também os dos bytes servidos (`servedSha256`, `servedBytes`).
+
+**Licença:** o texto legal não tem proteção autoral (Lei 9.610/1998, art. 8º, IV). A página não declara licença para a compilação e as anotações da Câmara. O normas.leg.br lista uma "Compilação Monovigente na CD" desta lei sob CC BY 4.0, mas não foi comprovado que seja o mesmo arquivo. A captura serve só de entrada de teste para a conferência entre fontes (#8), e o dataset publicado não republica o texto.
 
 Fixtures de cenário (uma emenda nova simulada, uma fonte secundária defasada…) são derivadas destes arquivos por edições documentadas e ficam ao lado dos testes que as usam.

@@ -21,6 +21,9 @@ export interface Peeled {
 const ANNOTATION =
   /^(?:Redação dada|Incluíd[oa]s?|Revogad[oa]s?\s+pel[oa]|Vide\b|Vigência|Produção de efeitos?|Renumerad[oa]s?|Transformad[oa]|Parágrafo único renumerado|Regulamento)/i;
 
+/** The editorial note Planalto prints in place of a dispositivo whose content was moved to another number. */
+const MOVED = /^Dispositivo\s+incluíd[oa]\s+pel[oa]\b.*\btransformad[oa]\s+em\b/i;
+
 export function peelAnnotations(raw: string, links: Link[]): Peeled {
   let text = raw.trim();
   const found: { annotation: string; href: string | undefined }[] = [];
@@ -67,6 +70,13 @@ export function peelAnnotations(raw: string, links: Link[]): Peeled {
     break;
   }
 
+  // A label kept only to say where its content went ("XI - Dispositivo incluído pela MPV nº 1.890-67, …, transformado
+  // em inciso XIII, …"): the whole wording is an editorial note, so it becomes metadata and no wording is left.
+  if (MOVED.test(text)) {
+    found.unshift({ annotation: text, href: hrefFor(text) });
+    text = "";
+  }
+
   const amendments: Amendment[] = [];
   const references: Reference[] = [];
   for (const { annotation, href } of found) {
@@ -97,6 +107,7 @@ const EFFECTS: [RegExp, Amendment["effect"]][] = [
   [/^Incluíd[oa]s?/i, "inserted"],
   [/^Revogad[oa]s?/i, "revoked"],
   [/^(?:Renumerad[oa]s?|Transformad[oa]|Parágrafo único renumerado)/i, "renumbered"],
+  [MOVED, "renumbered"],
 ];
 
 function toAmendment(annotation: string, href: string | undefined): Amendment | undefined {
@@ -141,20 +152,23 @@ const ACT_TYPES: [RegExp, ActType][] = [
   [/^(?:Decreto-Lei|Del)\b/i, "decreto_lei"],
   [/^Decreto Legislativo/i, "decreto_legislativo"],
   [/^Decreto/i, "decreto"],
-  [/^Medida Provisória/i, "medida_provisoria"],
+  [/^(?:Medida Provisória|MPV?\b)/i, "medida_provisoria"],
   [/^Lei/i, "lei"],
 ];
 
 /** The act cited by an annotation, e.g. "Emenda Constitucional nº 45, de 2004" or "Lei nº 13.105, de 2015". */
 function actIn(annotation: string, href: string | undefined): ActCitation | undefined {
-  const at = /(?:\bpel[oa]\s+|^Vide\s+|,\s*pel[oa]\s+)(?=Emenda|Lei|Decreto|Del\b|Medida)/i.exec(annotation);
+  const at = /(?:\bpel[oa]\s+|^Vide\s+|,\s*pel[oa]\s+)(?=Emenda|Lei|Decreto|Del\b|Medida|MPV?\b|n[º°]\s*\d)/i.exec(annotation);
   if (!at) return undefined;
   const citation = annotation.slice(at.index + at[0].length).trim();
   const match = ACT_TYPES.find(([pattern]) => pattern.test(citation));
-  if (!match) return undefined;
-  const [pattern, type] = match;
-  const after = citation.replace(pattern, "");
-  const numbered = /^\s*(?:n[º°o]\.?\s*)?([\d.]+)(?:\s*,\s*(?:de\s+)?(\d{1,2}[./]\d{1,2}[./]\d{2,4}|\d{4}))?/i.exec(after);
+  // "Redação dada pela nº 11.785, de 2008": the page left out the act's type; its link still says what it is.
+  const type = match?.[1] ?? typeFromHref(href);
+  if (!type) return undefined;
+  const after = match ? citation.replace(match[0], "") : citation;
+  // Numbers such as "1.890-67" (a reissued MP); dates such as "de 2008", "de 21.3.1995", "de 1º.8.1996".
+  const numbered =
+    /^\s*(?:n[º°o]\.?\s*)?([\d.]+(?:-\d+)?)(?:\s*,\s*(?:de\s+)?(\d{1,2}[º°]?[./]\d{1,2}[./]\d{2,4}|\d{4}))?/i.exec(after);
   if (!numbered) return undefined;
   const year = yearOf(numbered[2]);
   return {
@@ -164,6 +178,12 @@ function actIn(annotation: string, href: string | undefined): ActCitation | unde
     ...(year !== undefined && { year }),
     ...(href && { href }),
   };
+}
+
+/** The act type a Planalto link points to, e.g. "…/_Ato2007-2010/2008/Lei/L11785.htm#art1" → "lei". */
+function typeFromHref(href: string | undefined): ActType | undefined {
+  if (href && /\/Lei\/L\d/i.test(new URL(href).pathname)) return "lei";
+  return undefined;
 }
 
 function yearOf(date: string | undefined): number | undefined {
