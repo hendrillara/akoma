@@ -1,6 +1,7 @@
 // The served API: HTTP request in, response out, over a built dataset (test seam 2).
 import type { Dataset } from "../schema/dataset.ts";
 import type { RateLimiter } from "./rate-limit.ts";
+import { createSearch } from "./search.ts";
 import { createViews, notFound, type View } from "./views.ts";
 
 export interface HandlerOptions {
@@ -28,6 +29,8 @@ export function createHandler(dataset: Dataset, options: HandlerOptions = {}): (
     [/^\/v1\/provisions\/([^/]+)\/([^/]+)$/, (norm, id) => views.provision(norm, id)],
     [/^\/v1\/status$/, () => views.status()],
   ];
+  // Search reads its query string, so it sits outside the path-only route table.
+  const search = createSearch(dataset);
 
   return async (request) => {
     const url = new URL(request.url);
@@ -48,7 +51,8 @@ export function createHandler(dataset: Dataset, options: HandlerOptions = {}): (
       return respond({ status: 400, json: { error: "bad_request", message }, md: () => `${message}\n` }, "json");
     }
 
-    const response = respond(route(routes, url.pathname), format);
+    const view = url.pathname === "/v1/search" ? search(url.searchParams) : route(routes, url.pathname);
+    const response = respond(view, format);
     return request.method === "HEAD" ? new Response(null, response) : response;
   };
 }
