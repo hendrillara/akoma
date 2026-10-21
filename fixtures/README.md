@@ -1,6 +1,6 @@
 # Fixtures
 
-Recorded responses from the official sources, replayed by the build pipeline's tests (seam 1). Each dated folder holds one capture; its `index.json` lists every file with its source URL, encoding, the response headers that matter for change detection, its SHA-256 and its size. The recorded source refuses to load a file whose checksum no longer matches, so an editor or a git setting that re-encodes the bytes fails loudly. `.gitattributes` marks these files as binary for the same reason.
+Recorded responses from the official sources, replayed by the build pipeline's tests (seam 1). Each dated folder holds one capture; its `index.json` lists every file with its source URL, encoding, the response headers that matter for change detection, its SHA-256 and its size. A file may also carry `retrievedAt`, the exact retrieval instant taken from the response's `Date` header; files without it are dated by the capture day (`capturedOn`), which is what their provenance then shows. The recorded source refuses to load a file whose checksum no longer matches, so an editor or a git setting that re-encodes the bytes fails loudly. `.gitattributes` marks these files as binary for the same reason.
 
 Files are stored exactly as served: Planalto pages are windows-1252 with no charset declared.
 
@@ -29,7 +29,7 @@ Scenario fixtures (a simulated new amendment, a stale secondary source…) are d
 
 # Fixtures (PT)
 
-Respostas gravadas das fontes oficiais, reproduzidas nos testes do pipeline de build (seam 1). Cada pasta datada guarda uma captura. O `index.json` dela lista cada arquivo com a URL de origem, a codificação, os headers relevantes para detectar mudança, o SHA-256 e o tamanho. Se o checksum de um arquivo não bater mais, a fonte gravada se recusa a carregá-lo; assim, um editor ou uma configuração do git que recodifique os bytes faz o teste falhar na hora. Pelo mesmo motivo, o `.gitattributes` marca esses arquivos como binários.
+Respostas gravadas das fontes oficiais, reproduzidas nos testes do pipeline de build (seam 1). Cada pasta datada guarda uma captura. O `index.json` dela lista cada arquivo com a URL de origem, a codificação, os headers relevantes para detectar mudança, o SHA-256 e o tamanho. Um arquivo pode trazer também `retrievedAt`, o instante exato da captura tirado do header `Date` da resposta; os que não têm esse campo são datados pelo dia da captura (`capturedOn`), e é isso que a proveniência deles mostra. Se o checksum de um arquivo não bater mais, a fonte gravada se recusa a carregá-lo; assim, um editor ou uma configuração do git que recodifique os bytes faz o teste falhar na hora. Pelo mesmo motivo, o `.gitattributes` marca esses arquivos como binários.
 
 Os arquivos ficam exatamente como foram servidos: as páginas do Planalto vêm em windows-1252, sem charset declarado.
 
