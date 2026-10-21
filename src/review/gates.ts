@@ -259,13 +259,13 @@ function covers(target: ActTarget, id: string): boolean {
 }
 
 /** The constitutional amendments a record carries: those it took effect by, and pending ones. */
-function citedByRecord(record: Provision): string[] {
+export function citedByRecord(record: Provision): string[] {
   const acts = [...record.amendments.map((a) => a.act), ...(record.pending ?? []).map((p) => p.act)];
   return acts.filter((a) => a?.type === "emenda_constitucional").map((a) => a!.number);
 }
 
 /** The constitutional amendments a change cites anew: new amendment annotations, "Vide" notes or pending changes. */
-function citedEcs(c: ProvisionChange): string[] {
+export function citedEcs(c: ProvisionChange): string[] {
   const acts: (ActCitation | undefined)[] = [
     ...c.amendments.map((a) => a.act),
     ...newReferences(c).map((r) => r.act),
