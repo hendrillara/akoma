@@ -3,6 +3,25 @@
 export interface Dataset {
   norms: NormEntry[];
   provisions: Provision[];
+  /** The source pages the build read, once each (the CF and the ADCT share one): change detection's pre-filter. */
+  pages?: SourcePage[];
+}
+
+/**
+ * A source page as the build saw it. ETag and Last-Modified are only a pre-filter: they move without the text moving.
+ * The per-dispositivo records are the real change signal.
+ */
+export interface SourcePage {
+  url: string;
+  /** When the page was retrieved: an ISO 8601 instant, or a date when only the capture day is known. */
+  retrievedAt: string;
+  etag?: string;
+  lastModified?: string;
+  /**
+   * "sha256:<hex>" of the decoded page with every `<script>` element removed: Planalto's F5 WAF injects a script with
+   * a random token into every response, so the raw bytes differ on every fetch.
+   */
+  contentHash: string;
 }
 
 export interface NormEntry {

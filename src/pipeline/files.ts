@@ -89,6 +89,6 @@ function printedLabel(provision: Provision): string {
 }
 
 /** Keeps legal text from turning into Markdown syntax ("*" or "_" emphasis, inline code, HTML). */
-function escape(text: string): string {
+export function escape(text: string): string {
   return text.replace(/([\\*_`<])/g, "\\$1");
 }

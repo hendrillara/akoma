@@ -5,15 +5,15 @@ Akoma mirrors Brazilian federal legislation (CF + ADCT first, then CDC, CLT…) 
 ## Map
 Check here before searching. When a listed path moves, update this Map in the same commit (the map check fails otherwise).
 - `src/schema/` — dataset types shared by the pipeline (producer) and the Worker (consumer)
-- `src/pipeline/` — the build: raw snapshots + norm manifests → dataset (test seam 1); `planalto.ts` page → dispositivos, `annotations.ts` annotations → metadata, `files.ts` dataset → per-article JSON + Markdown mirrors
+- `src/pipeline/` — the build: raw snapshots + norm manifests → dataset (test seam 1); `planalto.ts` page → dispositivos, `annotations.ts` annotations → metadata, `files.ts` dataset → per-article JSON + Markdown mirrors, `changes.ts` previous + new dataset → change report (data + Markdown PR body)
 - `src/norms/` — one declarative manifest per norm (`cf.ts`, `adct.ts`, `cdc.ts`: identity, primary Planalto URL, secondary sources, known quirks); `index.ts` is the registry of all norms
 - `src/sources/` — the `Source` port and its adapters (recorded fixtures today; live HTTP next, per ADR 0001)
 - `src/worker/` — the served API: HTTP request → response over a dataset (test seam 2)
-- `test/` — seam tests only (`build.test.ts`, `cf-adct.test.ts` and `cdc.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
+- `test/` — seam tests only (`build.test.ts`, `cf-adct.test.ts`, `cdc.test.ts` and `changes.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
 - `test/cf-adct.test.ts` — CF/ADCT golden set (hand-verified against the fixture HTML), structural invariants, full-text snapshot
 - `test/cdc.test.ts` — CDC golden set (hand-verified against the fixture HTML), structural invariants, full-text snapshot, secondary source
 - `test/snapshots/` — committed full-text Markdown mirrors of the CF, ADCT and CDC (generated; never hand-edited)
-- `test/fixtures/` — scenario fixtures derived from real pages (`hygiene/`: cp1252 parser-hygiene page; `unclosed-quote/`: a quotation that never closes; see their READMEs)
+- `test/fixtures/` — scenario fixtures derived from real pages (`hygiene/`: cp1252 parser-hygiene page; `refresh/`: a simulated EC and an ETag-only refresh of the CF page, made by its `make.mjs`; `unclosed-quote/`: a quotation that never closes; see their READMEs)
 - `fixtures/` — committed raw source captures (checksummed `index.json` per capture; normas.leg.br files are CC BY 4.0; `2026-10-21/` holds Câmara LEGIN's compiled CDC; see its README)
 - `scripts/probe-planalto.mjs` — checks whether Planalto serves a runner (Akoma UA, conditional GET, control UA)
 - `docs/adr/` — architecture decisions (0001: fetch Planalto directly from Actions; no R2 fallback in v1; 0002: Câmara LEGIN is the CDC's secondary source)
@@ -36,6 +36,7 @@ A failing full-text snapshot (`test/snapshots/*.md`) means the CF/ADCT text chan
 
 ## Gotchas
 - Planalto resets connections from non-browser user agents (curl default, python-requests, empty UA).
+- Planalto's F5 WAF injects a `<script>` with a random token after `</html>` in every response: hash a page only with its scripts removed, and treat ETag/Last-Modified as a pre-filter.
 - Planalto pages are cp1252 with no charset declared; struck text appears as `<strike>`, `<s>` or CSS line-through, even on "compilado" pages.
 - Lines that belong to the dispositivo above them: "Pena" sanction lines (CDC arts. 63–74) and text quoted from another act (CDC arts. 110–117, EC pages). Inside a quote nothing is a label of the norm.
 
