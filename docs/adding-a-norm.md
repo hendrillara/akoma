@@ -10,6 +10,7 @@ A norm is a declarative manifest plus its tests. The pipeline has no per-norm co
    - `primaryUrl`: the Planalto page. Add `startAnchor`/`endAnchor` only when the norm shares its page with another norm (CF/ADCT).
    - `secondarySources`: each cross-check source (normas.leg.br when it articulates the norm, otherwise Câmara LEGIN), with `verified` (date, usable or not, why). Record the verification in an ADR when it decides something (ADR 0002 for the CDC). With none usable, the norm runs under the `unconfirmed` rule.
    - `knownQuirks`: what is odd about this page, as found. It is a record, not a switch: each quirk gets a golden-set dispositivo.
+   - `citedAs` and `deferredActs`, only when an amending act still defers changes to the norm: how acts name it ("Constituição Federal") and the official pages of those acts, which then must be in every source that builds the norm (ADR 0003).
 3. **Write `test/<key>.test.ts`** (seam 1, through `build()` only):
    - **Golden set:** about 50 dispositivos. Read each expected value (text, label, path, status, annotations and their links) from the raw HTML, never from the parser. Cover each quirk, the first and last article, lettered articles, vetoed or revoked items, and the most-cited articles.
    - **Invariants:** unique ids; monotonic numbering; exact counts of caputs, parágrafos, incisos and alíneas, counted by hand on the page; vetoed/revoked counts; no annotation residue; every amending act recognised.
@@ -35,6 +36,7 @@ Uma norma é um manifesto declarativo mais os testes dela. O pipeline não tem c
    - `primaryUrl`: a página do Planalto. `startAnchor`/`endAnchor` só quando a norma divide a página com outra.
    - `secondarySources`: cada fonte de conferência, com `verified` (data, utilizável ou não, por quê). Registre a verificação numa ADR quando ela decidir algo. Sem fonte utilizável, vale a regra `unconfirmed`.
    - `knownQuirks`: as peculiaridades da página. É registro, não chave: cada uma ganha um dispositivo no golden set.
+   - `citedAs` e `deferredActs`, só quando uma emenda ainda adia mudanças na norma: como os atos a nomeiam e as páginas oficiais desses atos, que passam a ser exigidas em toda fonte que monta a norma (ADR 0003).
 3. **Escreva `test/<chave>.test.ts`** (seam 1, só via `build()`):
    - **Golden set:** cerca de 50 dispositivos, com valores esperados lidos do HTML bruto, nunca do parser.
    - **Invariantes:** ids únicos, numeração monotônica, contagens exatas feitas à mão na página, vetados/revogados, nenhum resíduo de anotação, todo ato reconhecido.

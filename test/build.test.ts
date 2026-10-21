@@ -10,6 +10,8 @@ import type { Dataset, Provision } from "../src/schema/dataset.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
 
 const fixtures = new URL("../fixtures/2026-10-20/", import.meta.url);
+// The EC 132 page the CF/ADCT manifests read for deferred vigência was captured a day later.
+const actFixtures = new URL("../fixtures/2026-10-21/", import.meta.url);
 const compiledCf = "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm";
 const datasetVersion = "2026.10.21-test";
 // The spec's notice: unofficial text, check the source, vigência not verified against STF decisions.
@@ -22,13 +24,13 @@ function provision(dataset: Dataset, id: string, norm = "cf"): Provision | undef
 
 describe("build", () => {
   it("yields an empty dataset when no norm manifests are registered", async () => {
-    const dataset = await build({ manifests: [], source: await recordedSource(fixtures), datasetVersion });
+    const dataset = await build({ manifests: [], source: await recordedSource(fixtures, actFixtures), datasetVersion });
 
     expect(dataset.norms).toEqual([]);
   });
 
   it("builds every registered norm from its manifest alone", async () => {
-    const dataset = await build({ manifests: norms, source: await recordedSource(fixtures), datasetVersion });
+    const dataset = await build({ manifests: norms, source: await recordedSource(fixtures, actFixtures), datasetVersion });
 
     expect(dataset.norms.map((n) => n.key)).toEqual(["cf", "adct", "cdc"]);
     expect(provision(dataset, "art49_cpt", "cdc")?.text).toMatch(/^O consumidor pode desistir do contrato, no prazo de 7 dias/);
@@ -38,14 +40,14 @@ describe("build", () => {
     const missing = { ...cf, primaryUrl: "https://www.planalto.gov.br/ccivil_03/constituicao/nao-existe.htm" };
 
     await expect(
-      build({ manifests: [missing], source: await recordedSource(fixtures), datasetVersion }),
+      build({ manifests: [missing], source: await recordedSource(fixtures, actFixtures), datasetVersion }),
     ).rejects.toThrow(/unavailable/);
   });
 
   it("fails loudly when a manifest's type or date disagrees with its URN", async () => {
     const typo = { ...cf, date: "1988-10-15" };
 
-    await expect(build({ manifests: [typo], source: await recordedSource(fixtures), datasetVersion })).rejects.toThrow(
+    await expect(build({ manifests: [typo], source: await recordedSource(fixtures, actFixtures), datasetVersion })).rejects.toThrow(
       /does not match type constituicao and date 1988-10-15/,
     );
   });
@@ -54,7 +56,7 @@ describe("build", () => {
     let dataset: Dataset;
 
     beforeAll(async () => {
-      dataset = await build({ manifests: [cf, adct], source: await recordedSource(fixtures), datasetVersion });
+      dataset = await build({ manifests: [cf, adct], source: await recordedSource(fixtures, actFixtures), datasetVersion });
     });
 
     it("reads the ADCT that follows the CF on the same page as a separate norm, numbered from its own art. 1", () => {
@@ -128,7 +130,7 @@ describe("build", () => {
 
     beforeAll(async () => {
       const fullHistory = { ...cf, primaryUrl: "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm" };
-      dataset = await build({ manifests: [fullHistory], source: await recordedSource(fixtures), datasetVersion });
+      dataset = await build({ manifests: [fullHistory], source: await recordedSource(fixtures, actFixtures), datasetVersion });
     });
 
     it("keeps only the wording in force when old wordings are struck before it", () => {

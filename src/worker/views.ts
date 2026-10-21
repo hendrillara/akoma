@@ -1,6 +1,6 @@
 // What each endpoint answers, over an index of the dataset built once per handler: a JSON body and its compact
 // Markdown rendering. Every successful view carries the notice (unofficial text, vigência not verified against STF).
-import { escape, line } from "../pipeline/files.ts";
+import { escape, lines } from "../pipeline/files.ts";
 import {
   NOTICE,
   type Article,
@@ -50,6 +50,7 @@ const STATUS: Record<string, string> = {
   revoked: "revogado / revoked",
   vetoed: "vetado / vetoed",
   renumbered: "renumerado / renumbered",
+  not_yet_in_force: "ainda não vigente / not yet in force",
 };
 
 export function createViews(dataset: Dataset) {
@@ -151,12 +152,15 @@ export function createViews(dataset: Dataset) {
         return ok(provision, () => {
           const status = STATUS[provision.status] ?? (provision.status === "in_force" ? undefined : provision.status);
           const where = `*${provision.path.map((s) => s.label).join(" › ")}* · \`${key}\` \`${id}\`${status ? ` · ${status}` : ""}`;
-          return document([line(provision), where], footer(provision.provenance));
+          return document([...lines(provision), where], footer(provision.provenance));
         });
       }
-      const article = articles.get(`${key}/${id}`);
       const members = byArticle.get(`${key}/${id}`);
-      if (article && members) return wholeArticle(article, members);
+      if (members && /^art\d/.test(id)) {
+        // An article a deferred act inserts exists only as its pending dispositivos, with no Article record yet.
+        const label = members[0]!.path.find((segment) => segment.kind === "artigo")?.label ?? id;
+        return wholeArticle(articles.get(`${key}/${id}`) ?? { norm: key, id, label }, members);
+      }
       const suggested = aliases.get(`${key}/${id}`);
       return notFound([key, id], suggested ? { id: suggested, url: `/v1/provisions/${key}/${suggested}` } : undefined);
     },
@@ -198,7 +202,7 @@ function wholeArticle(article: Article, members: Provision[]): View {
   return ok(json, () => {
     const groups = path.slice(0, -1).map((s) => s.label);
     const ids = `\`${article.norm}\` \`${article.id}\``;
-    return document([groups.length ? `*${groups.join(" › ")}* · ${ids}` : ids, ...members.map(line)], footer(caput.provenance));
+    return document([groups.length ? `*${groups.join(" › ")}* · ${ids}` : ids, ...members.flatMap(lines)], footer(caput.provenance));
   });
 }
 

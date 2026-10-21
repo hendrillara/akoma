@@ -12,10 +12,13 @@ import { recordedSource } from "../src/sources/recorded.ts";
 
 const page = "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm";
 const recorded = new URL("../fixtures/2026-10-20/", import.meta.url);
+// The amending acts the CF/ADCT manifests read for deferred vigência (EC 132; EC 141 is in the 2026-10-20 capture).
+const acts = new URL("../fixtures/2026-10-21/", import.meta.url);
 const scenario = (name: string) => new URL(`./fixtures/refresh/${name}/`, import.meta.url);
 
+/** A build from the recorded captures, with a scenario folder's page standing in for the recorded one. */
 async function buildFrom(folder: URL, datasetVersion: string): Promise<Dataset> {
-  return build({ manifests: [cf, adct], source: await recordedSource(folder), datasetVersion });
+  return build({ manifests: [cf, adct], source: await recordedSource(recorded, acts, folder), datasetVersion });
 }
 
 async function indexedSha256(folder: URL, url: string): Promise<string> {

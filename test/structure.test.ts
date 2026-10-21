@@ -9,11 +9,13 @@ import type { Dataset } from "../src/schema/dataset.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
 
 const fixtures = new URL("../fixtures/2026-10-20/", import.meta.url);
+// The amending acts the CF/ADCT manifests read for deferred vigência.
+const actFixtures = new URL("../fixtures/2026-10-21/", import.meta.url);
 
 let dataset: Dataset;
 
 beforeAll(async () => {
-  dataset = await build({ manifests: [cf, adct, cdc], source: await recordedSource(fixtures), datasetVersion: "2026.10.21-test" });
+  dataset = await build({ manifests: [cf, adct, cdc], source: await recordedSource(fixtures, actFixtures), datasetVersion: "2026.10.21-test" });
 });
 
 const grouping = (norm: string, id: string) => dataset.groupings?.find((g) => g.norm === norm && g.id === id);
