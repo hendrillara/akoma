@@ -4,7 +4,7 @@
 // awaits the daily job's PR). Nothing here returns text from the issue: a request holds a registered norm key and
 // dataset ids, and a reason code when the form cannot be read.
 import type { Dataset } from "../schema/dataset.ts";
-import type { LabelledIssue } from "./github.ts";
+import type { OwnComment } from "./github.ts";
 
 /** The label the issue form applies; the recheck workflow runs only for issues that carry it. */
 export const DIVERGENCE_LABEL = "text-divergence";
@@ -154,8 +154,11 @@ export function citationKey(text: string): string | undefined {
 
 // --- Markers: the intake's state, in the job's own comments ----------------------------------------------------
 
-/** What a recheck ended with; `duplicate`, `limited` and `invalid` fetched nothing. */
-export type RecheckOutcome = "confirmed" | "not-confirmed" | "unreachable" | "invalid" | "duplicate" | "limited";
+/**
+ * What a recheck ended with; `duplicate`, `limited` and `invalid` fetched nothing. `claimed`: the recheck has taken its
+ * slot and is running (its comment is then edited into the result); `failed`: it crashed after claiming.
+ */
+export type RecheckOutcome = "claimed" | "confirmed" | "not-confirmed" | "unreachable" | "failed" | "invalid" | "duplicate" | "limited";
 
 export interface Marker {
   kind: "recheck" | "followup";
@@ -189,21 +192,29 @@ export function markers(comment: string): Marker[] {
 export const sameMarker = (a: Marker, b: Marker) =>
   a.kind === b.kind && a.day === b.day && a.norm === b.norm && a.target === b.target && a.outcome === b.outcome;
 
-/** A confirmed divergence still waiting for the daily job's PR: an open issue whose latest marker is that confirmation. */
+/** A confirmed divergence still waiting for the daily job's PR: an issue whose latest marker is that confirmation. */
 export interface PendingRecheck {
   issue: number;
   norm: string;
   target: string;
 }
 
-export function pendingRechecks(issues: LabelledIssue[]): PendingRecheck[] {
-  return issues
-    .filter((i) => i.state === "open")
-    .flatMap((i) => {
-      const last = i.ownComments.flatMap(markers).at(-1);
-      return last?.kind === "recheck" && last.outcome === "confirmed" ? [{ issue: i.number, norm: last.norm, target: last.target }] : [];
-    })
+/** The job's own comments → the issues whose recheck confirmed a divergence that no later comment answered. */
+export function pendingRechecks(comments: OwnComment[]): PendingRecheck[] {
+  const last = new Map<number, Marker>();
+  for (const c of [...comments].sort((a, b) => a.id - b.id)) {
+    const m = markers(c.body).at(-1);
+    if (m) last.set(c.issue, m);
+  }
+  return [...last]
+    .filter(([, m]) => m.kind === "recheck" && m.outcome === "confirmed")
+    .map(([issue, m]) => ({ issue, norm: m.norm, target: m.target }))
     .sort((a, b) => a.issue - b.issue);
+}
+
+/** Midnight of a Brasília day as an instant (UTC−3 all year since 2019). */
+export function brasiliaMidnight(day: string): string {
+  return `${day}T03:00:00Z`;
 }
 
 /** Whether a dataset id belongs to a target id: the id itself, or a dispositivo of the article (ids without "_"). */

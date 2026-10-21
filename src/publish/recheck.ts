@@ -14,6 +14,7 @@ import { BASE } from "../worker/discovery.ts";
 import { recording } from "./capture.ts";
 import {
   DIVERGENCE_LABEL,
+  brasiliaMidnight,
   fenced,
   inTarget,
   marker,
@@ -72,62 +73,100 @@ export async function runRecheck(input: RecheckInput): Promise<RecheckResult> {
   if (!issue.labels?.some((l) => l.name === DIVERGENCE_LABEL) || issue.user?.type === "Bot") return { outcome: "ignored" };
   if (!Number.isSafeInteger(issue.number) || issue.number < 1) throw new Error("recheck: the event has no issue number");
   const today = brasiliaDay(now);
+  const since = brasiliaMidnight(today);
+  const n = issue.number;
 
-  // The intake's state: the markers in the job's own comments on divergence issues (today's, for dedupe and the cap).
-  const issues = await github.labelledIssues(DIVERGENCE_LABEL, today);
-  const own = issues.find((i) => i.number === issue.number)?.ownComments.flatMap(markers) ?? [];
-  const todays = issues.flatMap((i) => i.ownComments.flatMap(markers).filter((m) => m.day === today).map((m) => ({ ...m, issue: i.number })));
-
-  const answer = async (m: Marker, text: string): Promise<RecheckResult> => {
-    const result = { ...(m.norm !== "-" && { norm: m.norm }), ...(m.target !== "-" && { target: m.target }) };
-    // An edit that changes nothing the recheck reads gets no second, identical answer.
-    if (own.some((o) => sameMarker(o, m))) return { outcome: "repeat", ...result };
-    const comment = fit(`${marker(m)}\n${text}${input.runUrl ? `\n\nRun: ${input.runUrl}` : ""}\n`);
-    await github.commentOnIssue(issue.number, comment);
-    return { outcome: m.outcome!, ...result, comment };
+  /** Today's markers in the job's own comments (the intake's only state), each with its comment's id and issue. */
+  const state = async () =>
+    (await github.ownComments(since)).flatMap((c) => markers(c.body).filter((m) => m.day === today).map((m) => ({ ...m, id: c.id, issue: c.issue })));
+  const todays = await state();
+  const result = (m: Marker, comment?: string): RecheckResult => ({
+    outcome: m.outcome!,
+    ...(m.norm !== "-" && { norm: m.norm }),
+    ...(m.target !== "-" && { target: m.target }),
+    ...(comment && { comment }),
+  });
+  const body = (m: Marker, text: string) => fit(`${marker(m)}\n${text}${input.runUrl ? `\n\nRun: ${input.runUrl}` : ""}\n`);
+  /** A new comment, unless this issue already has this very answer today (an edit that changes nothing it reads). */
+  const post = async (m: Marker, text: string): Promise<RecheckResult> => {
+    if (todays.some((o) => o.issue === n && sameMarker(o, m))) return { ...result(m), outcome: "repeat" };
+    const comment = body(m, text);
+    await github.commentOnIssue(n, comment);
+    return result(m, comment);
   };
 
   const request = readRequest(issue.body, manifests.map((m) => m.key), previous);
   if (!request.ok) {
-    return answer({ kind: "recheck", day: today, norm: request.norm ?? "-", target: "-", outcome: "invalid" }, invalidText(request.reason, manifests));
+    return post({ kind: "recheck", day: today, norm: request.norm ?? "-", target: "-", outcome: "invalid" }, invalidText(request.reason, manifests));
   }
+  // The canonical key: a registered norm and a dataset id (an alias, a label or another spelling resolves to the id).
   const { norm, target } = request;
   const base = { kind: "recheck" as const, day: today, norm, target: target.id };
-
-  const done = todays.find((m) => m.kind === "recheck" && m.norm === norm && m.target === target.id && (m.outcome === "confirmed" || m.outcome === "not-confirmed"));
-  if (done?.issue === issue.number) return { outcome: "repeat", norm, target: target.id };
-  if (done) return answer({ ...base, outcome: "duplicate" }, duplicateText(norm, target.id, done.issue));
-  const ran = new Set(todays.filter((m) => m.kind === "recheck" && ["confirmed", "not-confirmed", "unreachable"].includes(m.outcome ?? "")).map((m) => `${m.issue} ${m.norm} ${m.target}`));
   const perDay = input.limits?.perDay ?? RECHECKS_PER_DAY;
-  if (ran.size >= perDay) return answer({ ...base, outcome: "limited" }, limitedText(perDay));
+  type Entry = (typeof todays)[number];
+  /** A recheck today that covers this target: the same target, or the article holding this dispositivo. */
+  const covers = (e: Entry) =>
+    e.kind === "recheck" && e.norm === norm && BLOCKING.has(e.outcome!) && (e.target === target.id || (target.kind === "provision" && e.target === target.id.split("_")[0]));
+  /** Rechecks that fetched (or are fetching) today, all issues together. */
+  const fetched = (entries: Entry[]) => new Set(entries.filter((e) => e.kind === "recheck" && COUNTED.has(e.outcome!)).map((e) => e.id)).size;
 
-  // The recheck: the norm rebuilt from fresh pages, as the daily job builds it (redacted before anything reads them).
-  const manifest = manifests.find((m) => m.key === norm)!;
-  const source = recording(redacting(input.source));
-  let fresh: Dataset;
+  // Fast path: answered without fetching anything.
+  const done = todays.find(covers);
+  if (done?.issue === n) return { outcome: "repeat", norm, target: target.id };
+  if (done) return post({ ...base, outcome: "duplicate" }, duplicateText(norm, target.id, done.issue));
+  if (fetched(todays) >= perDay) return post({ ...base, outcome: "limited" }, limitedText(perDay));
+
+  // Check and record in one step: claim a slot with a comment, then read the state again. GitHub numbers comments in
+  // the order it creates them, so among rechecks running at once only the earliest claim for a key, and only the
+  // first `perDay` claims of the day, go on; the others turn their claim into the duplicate or limit answer.
+  const claimed = { ...base, outcome: "claimed" as const };
+  const id = await github.commentOnIssue(n, body(claimed, claimText(norm, target.id)));
+  const finish = async (m: Marker, text: string): Promise<RecheckResult> => {
+    const comment = body(m, text);
+    await github.editComment(id, comment);
+    return result(m, comment);
+  };
+  const earlier = (await state()).filter((e) => e.id < id);
+  const first = earlier.find(covers);
+  if (first) return finish({ ...base, outcome: "duplicate" }, duplicateText(norm, target.id, first.issue));
+  if (fetched(earlier) >= perDay) return finish({ ...base, outcome: "limited" }, limitedText(perDay));
+
   try {
-    fresh = await build({ manifests: [manifest], source, datasetVersion: today, today });
+    // The recheck: the norm rebuilt from fresh pages, as the daily job builds it (redacted before anything reads them).
+    const manifest = manifests.find((m) => m.key === norm)!;
+    const source = recording(redacting(input.source));
+    let fresh: Dataset;
+    try {
+      fresh = await build({ manifests: [manifest], source, datasetVersion: today, today });
+    } catch (error) {
+      if (source.unavailable().length) return await finish({ ...base, outcome: "unreachable" }, unreachableText(norm, target.id));
+      throw error;
+    }
+
+    const ids = [...new Set([...previous.provisions, ...fresh.provisions].filter((p) => p.norm === norm && inTarget(target.id, p.id)).map((p) => p.id))];
+    const before = new Map(previous.provisions.filter((p) => p.norm === norm).map((p) => [p.id, p]));
+    const after = new Map(fresh.provisions.map((p) => [p.id, p]));
+    const compared: Compared[] = ids.map((id) => ({ id, before: before.get(id), after: after.get(id) }));
+    const differing = compared.filter(({ before: b, after: a }) => !b || !a || b.text !== a.text || b.status !== a.status);
+    const version = previous.provisions[0]?.provenance.datasetVersion ?? "?";
+    const links = linksLine(manifest, norm, target.id);
+
+    if (!differing.length) return await finish({ ...base, outcome: "not-confirmed" }, notConfirmedText(norm, target.id, version, compared, links));
+    const answer = await finish({ ...base, outcome: "confirmed" }, confirmedText(norm, target.id, version, differing, links));
+    // The correction is the daily job's: a forced rebuild, its three-layer review and its one PR.
+    if (input.publishWorkflow) await github.dispatchWorkflow(input.publishWorkflow, { rebuild: "true" });
+    return answer;
   } catch (error) {
-    if (source.unavailable().length) return answer({ ...base, outcome: "unreachable" }, unreachableText(norm, target.id));
+    // A crash frees the slot's dispositivo (a `failed` recheck blocks nothing) but still counts against the day's cap.
+    await finish({ ...base, outcome: "failed" }, failedText(norm, target.id));
     throw error;
   }
-
-  const ids = [...new Set([...previous.provisions, ...fresh.provisions].filter((p) => p.norm === norm && inTarget(target.id, p.id)).map((p) => p.id))];
-  const before = new Map(previous.provisions.filter((p) => p.norm === norm).map((p) => [p.id, p]));
-  const after = new Map(fresh.provisions.map((p) => [p.id, p]));
-  const compared: Compared[] = ids.map((id) => ({ id, before: before.get(id), after: after.get(id) }));
-  const differing = compared.filter(({ before: b, after: a }) => !b || !a || b.text !== a.text || b.status !== a.status);
-  const version = previous.provisions[0]?.provenance.datasetVersion ?? "?";
-  const links = linksLine(manifest, norm, target.id);
-
-  if (differing.length) {
-    const result = await answer({ ...base, outcome: "confirmed" }, confirmedText(norm, target.id, version, differing, links));
-    // The correction is the daily job's: a forced rebuild, its three-layer review and its one PR.
-    if (result.outcome === "confirmed" && input.publishWorkflow) await github.dispatchWorkflow(input.publishWorkflow, { rebuild: "true" });
-    return result;
-  }
-  return answer({ ...base, outcome: "not-confirmed" }, notConfirmedText(norm, target.id, version, compared, links));
 }
+
+/** Outcomes that hold a dispositivo's slot for the day. */
+const BLOCKING = new Set(["claimed", "confirmed", "not-confirmed"]);
+/** Outcomes of a recheck that fetched the sources (or set out to), counted against the daily cap. */
+const COUNTED = new Set(["claimed", "confirmed", "not-confirmed", "unreachable", "failed"]);
 
 /** A comment cut at a line to GitHub's body limit (only a long article's wordings could reach it). */
 function fit(comment: string): string {
@@ -161,6 +200,25 @@ function secondaryLine(agreement: SecondaryAgreement | undefined): string {
   return `- ${name}: não confirma / unconfirmed.${note}`;
 }
 
+/**
+ * Where the rebuilt wording comes from: Planalto's page, or (ADR 0003) a deferred change the build applied because its
+ * start date has come, which the page does not print yet.
+ */
+function rebuiltLabel(before: Provision | undefined, after: Provision): string {
+  const promoted = after.amendments.find((a) => a.effectiveFrom && !before?.amendments.some((b) => b.effectiveFrom === a.effectiveFrom && b.annotation === a.annotation));
+  if (!promoted) return `- Planalto, lido agora / read now (${after.provenance.retrievedAt})`;
+  const act = promoted.act?.citation ?? promoted.annotation;
+  return `- Em vigor desde / In force since ${promoted.effectiveFrom}, pela / by ${act} (vigência diferida: a página do Planalto ainda não mostra esta redação; o Akoma a aplica na data de início / deferred vigência: Planalto's page does not print this wording yet; Akoma applies it on its start date)`;
+}
+
+/** Changes an act has made that take effect later (ADR 0003): the likeliest answer to "the text should already say X". */
+function pendingLines(p: Provision): string[] {
+  return (p.pending ?? []).map(
+    (c) =>
+      `- Mudança pendente / Pending change (${c.effect}), a partir de / from ${c.effectiveFrom}, ${c.act.citation}${c.note ? ` (${c.note})` : ""}${c.text ? `:\n\n${fenced(c.text)}` : "."}`,
+  );
+}
+
 function wording(p: Provision): string {
   return p.text ? fenced(p.text) : "_(sem texto / no text)_";
 }
@@ -192,9 +250,7 @@ function confirmedText(norm: string, id: string, version: string, differing: Com
       "",
       before ? `- Dataset publicado / Published dataset (${version}), ${STATUS[before.status]}:\n\n${wording(before)}` : "- Dataset publicado / Published dataset: _(ausente / absent)_",
       "",
-      after
-        ? `- Planalto, lido agora / read now (${after.provenance.retrievedAt}), ${STATUS[after.status]}:\n\n${wording(after)}`
-        : "- Planalto, lido agora / read now: _(a página não traz mais este dispositivo / the page no longer has this dispositivo)_",
+      after ? `${rebuiltLabel(before, after)}, ${STATUS[after.status]}:\n\n${wording(after)}` : "- Planalto, lido agora / read now: _(a página não traz mais este dispositivo / the page no longer has this dispositivo)_",
       "",
       secondaryLine(after?.provenance.secondary),
     ].join("\n");
@@ -217,7 +273,14 @@ function notConfirmedText(norm: string, id: string, version: string, compared: C
   const records = compared.flatMap((c) => (c.after ? [c.after] : []));
   const detailed = records.length <= DETAILED ? records : records.filter((p) => p.provenance.secondary.outcome !== "agrees").slice(0, DETAILED);
   const shown = detailed.map((p) =>
-    [heading(norm, p), "", `- Dataset publicado e Planalto / Published dataset and Planalto, ${STATUS[p.status]}:\n\n${wording(p)}`, "", secondaryLine(p.provenance.secondary)].join("\n"),
+    [
+      heading(norm, p),
+      "",
+      `- Dataset publicado e Planalto / Published dataset and Planalto, ${STATUS[p.status]}:\n\n${wording(p)}`,
+      "",
+      ...pendingLines(p).flatMap((l) => [l, ""]),
+      secondaryLine(p.provenance.secondary),
+    ].join("\n"),
   );
   const summary =
     records.length > DETAILED
@@ -264,6 +327,14 @@ function duplicateText(norm: string, id: string, earlier: number): string {
 
 function limitedText(perDay: number): string {
   return `**Limite diário atingido / Daily limit reached**\n\nPT: Hoje já foram feitas ${perDay} reconferências, o limite diário, para não sobrecarregar as fontes oficiais. Edite a issue amanhã para tentar de novo; o mantenedor também vê esta issue. / EN: ${perDay} rechecks, the daily limit, have already run today, so as not to overload the official sources. Edit the issue tomorrow to try again; the maintainer sees this issue too.`;
+}
+
+function claimText(norm: string, id: string): string {
+  return `**Reconferindo / Rechecking** · ${code(norm, id)}\n\nPT: Lendo de novo as fontes oficiais; este comentário vai trazer o resultado. / EN: Reading the official sources again; this comment will hold the result.`;
+}
+
+function failedText(norm: string, id: string): string {
+  return `**A reconferência falhou / The recheck failed** · ${code(norm, id)}\n\nPT: Um erro interrompeu a reconferência; o mantenedor vê o registro da execução. Edite a issue mais tarde para tentar de novo. / EN: An error stopped the recheck; the maintainer sees the run's log. Edit the issue later to try again.`;
 }
 
 function unreachableText(norm: string, id: string): string {

@@ -14,7 +14,7 @@ import type { Dataset } from "../schema/dataset.ts";
 import { redacting } from "../sources/redact.ts";
 import type { Source } from "../sources/source.ts";
 import { captureFiles, recording, type RecordingSource } from "./capture.ts";
-import { DIVERGENCE_LABEL, inTarget, marker, pendingRechecks, type PendingRecheck } from "./divergence.ts";
+import { brasiliaMidnight, inTarget, marker, pendingRechecks, type PendingRecheck } from "./divergence.ts";
 import type { GitHub, Numbered } from "./github.ts";
 import { fitBody, prBody } from "./pr-body.ts";
 import { badge, nextSources, outages, OUTAGE_HOURS, parseStatus, type Badge, type Outcome, type RunStatus } from "./status.ts";
@@ -189,7 +189,7 @@ async function publish(input: JobInput, source: RecordingSource, today: string):
   }
   const report = detectChanges(previous, next);
   // Divergence issues whose recheck confirmed a difference and still wait for this job's answer (#18).
-  const pending = pendingRechecks(await github.labelledIssues(DIVERGENCE_LABEL, daysBefore(today, PENDING_DAYS)));
+  const pending = pendingRechecks(await github.ownComments(brasiliaMidnight(daysBefore(today, PENDING_DAYS))));
   if (!report.changes.length) {
     for (const p of pending) await github.commentOnIssue(p.issue, followUpNothing(p, today, runUrl));
     return { outcome: "no-change", message: `Rebuilt (${why}); no dispositivo changed.` };

@@ -27,24 +27,29 @@ export interface GitHub {
   /** The open issue carrying `label` (the job's dedupe key), if any. */
   findOpenIssue(label: string): Promise<Numbered | undefined>;
   createIssue(issue: { title: string; body: string; label: string }): Promise<Numbered>;
-  commentOnIssue(number: number, body: string): Promise<void>;
+  /** Comments on an issue; returns the comment's id (GitHub numbers comments in the order it creates them). */
+  commentOnIssue(number: number, body: string): Promise<number>;
+  /** Replaces the body of a comment the job wrote. */
+  editComment(id: number, body: string): Promise<void>;
   closeIssue(number: number, comment: string): Promise<void>;
   /**
-   * Issues carrying `label`, open and closed, updated on or after `since` (YYYY-MM-DD; a narrowing only), each with
-   * the comments the job itself wrote on them, oldest first. Comments by anyone else are never returned: anyone can
-   * comment, so only the job's own comments can hold its state (the divergence recheck's markers).
+   * The comments the job itself wrote on issues and last updated at or after `since` (an ISO instant), oldest first
+   * (by id). Comments by anyone else are never returned: anyone can comment, so only the job's own comments, checked
+   * by author, can hold its state (the divergence recheck's markers).
    */
-  labelledIssues(label: string, since: string): Promise<LabelledIssue[]>;
+  ownComments(since: string): Promise<OwnComment[]>;
   /** The run status file as the previous run left it (`undefined` before the first run). */
   readStatus(): Promise<string | undefined>;
   /** Replaces the run status files (`status.json`, `badge.json`) with these. */
   writeStatus(files: { path: string; content: string }[]): Promise<void>;
 }
 
-export interface LabelledIssue extends Numbered {
-  state: "open" | "closed";
-  /** The job's own comments, oldest first. */
-  ownComments: string[];
+export interface OwnComment {
+  /** GitHub's comment id: later comments have larger ones. */
+  id: number;
+  /** The issue it is on. */
+  issue: number;
+  body: string;
 }
 
 /** Labels the job manages, with the colour and description it creates them with. */
@@ -88,6 +93,9 @@ export interface MemoryGitHub extends GitHub {
 /** A GitHub that keeps everything in memory: the dry run's port, and the tests'. Reuse it across runs to chain them. */
 export function memoryGitHub(repo = "https://github.com/hendrillara/akoma"): MemoryGitHub {
   let counter = 0;
+  /** Comment ids, in creation order, and where each comment sits. */
+  let commentCounter = 1000;
+  const commentAt = new Map<number, { issue: number; index: number }>();
   const pulls: MemoryPull[] = [];
   const issues: MemoryIssue[] = [];
   const log: string[] = [];
@@ -134,8 +142,8 @@ export function memoryGitHub(repo = "https://github.com/hendrillara/akoma"): Mem
       issues.push({ number, url: `${repo}/issues/${number}`, title, body, label, state: "open", comments: [] });
       return issue(number);
     },
-    async labelledIssues(label) {
-      return issues.filter((i) => i.label === label).map((i) => ({ number: i.number, url: i.url, state: i.state, ownComments: [...i.comments] }));
+    async ownComments() {
+      return [...commentAt].map(([id, at]) => ({ id, issue: at.issue, body: issue(at.issue).comments[at.index]! }));
     },
     async findOpenIssue(label) {
       return issues.find((i) => i.label === label && i.state === "open");
@@ -147,9 +155,20 @@ export function memoryGitHub(repo = "https://github.com/hendrillara/akoma"): Mem
       return issue(number);
     },
     async commentOnIssue(number, body) {
+      const id = ++commentCounter;
       // A dry run of the recheck comments on an issue that exists only on GitHub: logged, nothing to keep it on.
-      issues.find((i) => i.number === number)?.comments.push(body);
+      const on = issues.find((i) => i.number === number);
+      if (on) {
+        on.comments.push(body);
+        commentAt.set(id, { issue: number, index: on.comments.length - 1 });
+      }
       log.push(`comment on issue #${number}`);
+      return id;
+    },
+    async editComment(id, body) {
+      const at = commentAt.get(id);
+      if (at) issue(at.issue).comments[at.index] = body;
+      log.push(`edit comment on issue #${at?.issue ?? "?"}`);
     },
     async closeIssue(number, comment) {
       issue(number).comments.push(comment);
@@ -169,7 +188,11 @@ export function memoryGitHub(repo = "https://github.com/hendrillara/akoma"): Mem
 // --- git + gh CLI -------------------------------------------------------------------------------------------
 
 const run = promisify(execFile);
-const BOT_LOGINS = new Set(["github-actions", "github-actions[bot]"]);
+/**
+ * The workflow token comments as the GitHub Actions bot: "github-actions[bot]" in REST, "github-actions" in GraphQL
+ * (checked with gh on 2026-10-21), "app/github-actions" in some gh output.
+ */
+const isBot = (login: string | undefined) => login?.replace(/^app\//, "").replace(/\[bot\]$/, "") === "github-actions";
 
 export interface GhCliOptions {
   /** The repository checkout the job runs in. */
@@ -251,25 +274,28 @@ export function ghCli({ cwd, statusBranch, base }: GhCliOptions): GitHub {
       return { number: Number(url.split("/").at(-1)), url };
     },
     async commentOnIssue(number, body) {
-      await withBody(body, (file) => gh("issue", "comment", String(number), "--body-file", file));
+      const url = await withBody(body, (file) => gh("issue", "comment", String(number), "--body-file", file));
+      const id = Number(/#issuecomment-(\d+)/.exec(url)?.[1]);
+      if (!Number.isSafeInteger(id)) throw new Error("gh issue comment: no comment id in its output");
+      return id;
+    },
+    async editComment(id, body) {
+      await withBody(body, (file) => gh("api", "--method", "PATCH", `repos/{owner}/{repo}/issues/comments/${id}`, "-F", `body=@${file}`));
     },
     async closeIssue(number, comment) {
       await withBody(comment, (file) => gh("issue", "comment", String(number), "--body-file", file));
       await gh("issue", "close", String(number));
     },
-    async labelledIssues(label, since) {
-      const json = await gh("issue", "list", "--label", label, "--state", "all", "--search", `updated:>=${since}`, "--json", "number,url,state,comments", "--limit", "500");
-      const listed = JSON.parse(json) as { number: number; url: string; state: string; comments: { author?: { login?: string }; body: string; createdAt: string }[] }[];
-      return listed.map((i) => ({
-        number: i.number,
-        url: i.url,
-        state: i.state.toLowerCase() === "open" ? "open" : "closed",
-        // The workflow token comments as the GitHub Actions bot ("github-actions" in GraphQL, "github-actions[bot]" in REST).
-        ownComments: i.comments
-          .filter((c) => BOT_LOGINS.has(c.author?.login ?? ""))
-          .sort((a, b) => (a.createdAt < b.createdAt ? -1 : a.createdAt > b.createdAt ? 1 : 0))
-          .map((c) => c.body),
-      }));
+    async ownComments(since) {
+      // The repository's issue comments by update time (not the search index, which lags): read-after-write consistent.
+      const lines = await gh("api", "--paginate", `repos/{owner}/{repo}/issues/comments?since=${encodeURIComponent(since)}&sort=created&direction=asc&per_page=100`, "--jq", ".[] | {id, issue_url, login: .user.login, body}");
+      return lines
+        .split("\n")
+        .filter(Boolean)
+        .map((line) => JSON.parse(line) as { id: number; issue_url: string; login?: string; body: string })
+        .filter((c) => isBot(c.login))
+        .map((c) => ({ id: c.id, issue: Number(c.issue_url.split("/").at(-1)), body: c.body }))
+        .sort((a, b) => a.id - b.id);
     },
     async readStatus() {
       try {

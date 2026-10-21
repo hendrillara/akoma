@@ -124,7 +124,9 @@ describe("recheck: the sources print what the dataset holds", () => {
     const result = await recheck(github, issue);
 
     expect(result.outcome).toBe("not-confirmed");
-    expect(github.log).toEqual(["comment on issue #1"]);
+    // The recheck claims its slot with a comment, then turns that comment into the answer.
+    expect(github.log).toEqual(["comment on issue #1", "edit comment on issue #1"]);
+    expect(github.issues[0]!.comments).toHaveLength(1);
     const comment = github.issues[0]!.comments[0]!;
     expect(comment).toContain("**Divergência não confirmada / Divergence not confirmed**");
     expect(comment).toContain("`cf` `art5_cpt_inc10`");
@@ -180,7 +182,7 @@ describe("recheck: Planalto's page now prints the dispositivo differently (the s
     const result = await recheck(github, issue, { source: await recordedSource(recorded, acts, ec142) });
 
     expect(result).toMatchObject({ outcome: "confirmed", norm: "cf", target: "art6_cpt" });
-    expect(github.log).toEqual(["comment on issue #1", "dispatch publish.yml (rebuild=true)"]);
+    expect(github.log).toEqual(["comment on issue #1", "edit comment on issue #1", "dispatch publish.yml (rebuild=true)"]);
     comment = github.issues[0]!.comments[0]!;
     expect(comment).toContain("**Divergência confirmada / Divergence confirmed** · `cf` `art6_cpt`");
     expect(comment).toContain(`- Dataset publicado / Published dataset (2026-10-21), em vigor / in force:\n\n\`\`\`text\n${ART6_BEFORE}\n\`\`\``);
@@ -193,7 +195,7 @@ describe("recheck: Planalto's page now prints the dispositivo differently (the s
     const result = await dailyJob(github, "2026-10-23T13:05:00Z");
     expect(result.outcome).toBe("published");
     expect(result.verdict?.decision).toBe("merge");
-    expect(github.log.slice(2)).toEqual([
+    expect(github.log.slice(3)).toEqual([
       "push publish/daily: dataset/, fixtures/2026-10-23-daily/",
       "create PR #2 from publish/daily: Daily refresh 2026-10-23: 6 dispositivos changed",
       "merge PR #2",
@@ -372,8 +374,88 @@ describe("recheck: one per dispositivo per day, and a daily cap", () => {
     const first = await recheck(github, opens(github, { norm: option("cf"), dispositivo: "art5_cpt_inc10", what: "." }), { source: down });
     expect(first.outcome).toBe("unreachable");
     expect(github.issues[0]!.comments[0]).toContain("Não foi possível ler as páginas oficiais agora");
-    expect(github.log).toEqual(["comment on issue #1"]);
+    expect(github.log).toEqual(["comment on issue #1", "edit comment on issue #1"]);
     const again = await recheck(github, event(1, github.issues[0]!.body, "edited"), { now: "2026-10-23T18:00:00Z" });
     expect(again.outcome).toBe("not-confirmed");
+  });
+});
+
+describe("recheck: the limits hold whatever the spelling, the edits or the timing", () => {
+  it("keys the dedupe by the dataset id: another case, spacing, alias, label or line ending is the same dispositivo", async () => {
+    const github = memoryGitHub();
+    await recheck(github, opens(github, { norm: option("cf"), dispositivo: "art1_par1", what: "." }));
+    const source = counted(await recordedSource(recorded, acts));
+    const variants = ["ART1_PAR1", "  art1_par1  ", "art1_par1u", "art. 1º, parágrafo único", "Art 1o paragrafo unico"];
+    for (const dispositivo of variants) {
+      expect(await recheck(github, opens(github, { norm: "cf", dispositivo, what: "." }), { source })).toMatchObject({ outcome: "duplicate", target: "art1_par1" });
+    }
+    const crlf = github.openedByUser({ title: "t", body: formBody({ norm: option("cf"), dispositivo: "art1_par1", what: "." }).replaceAll("\n", "\r\n"), label: "text-divergence" });
+    expect(await recheck(github, event(crlf.number, crlf.body), { source })).toMatchObject({ outcome: "duplicate", target: "art1_par1" });
+    expect(source.requests).toEqual([]);
+  });
+
+  it("counts a dispositivo as rechecked when its whole article was", async () => {
+    const github = memoryGitHub();
+    await recheck(github, opens(github, { norm: option("cf"), dispositivo: "art. 6º", what: "." }));
+    expect(await recheck(github, opens(github, { norm: option("cf"), dispositivo: "art6_cpt", what: "." }))).toMatchObject({ outcome: "duplicate" });
+  });
+
+  it("lets an edit recheck another dispositivo only within the daily cap, and never resets it", async () => {
+    const github = memoryGitHub();
+    await recheck(github, opens(github, { norm: option("cf"), dispositivo: "art5_cpt_inc10", what: "." }), { perDay: 2 });
+    // The author edits the issue to another dispositivo: a new recheck, the day's second.
+    const edited = formBody({ norm: option("cf"), dispositivo: "art6_cpt", what: "." });
+    github.issues[0]!.body = edited;
+    expect((await recheck(github, event(1, edited, "edited"), { perDay: 2 })).outcome).toBe("not-confirmed");
+    // And back again: the first answer still stands, and the cap is spent for everyone.
+    const back = formBody({ norm: option("cf"), dispositivo: "art5_cpt_inc10", what: "." });
+    expect((await recheck(github, event(1, back, "edited"), { perDay: 2 })).outcome).toBe("repeat");
+    expect((await recheck(github, opens(github, { norm: option("cf"), dispositivo: "art1_cpt", what: "." }), { perDay: 2 })).outcome).toBe("limited");
+    expect(github.issues[0]!.comments).toHaveLength(2);
+  });
+
+  it("runs one of two simultaneous rechecks of a dispositivo, and turns the other's claim into a pointer to it", async () => {
+    const github = memoryGitHub();
+    const source = counted(await recordedSource(recorded, acts));
+    const a = opens(github, { norm: option("cf"), dispositivo: "art5_cpt_inc10", what: "." });
+    const b = opens(github, { norm: option("cf"), dispositivo: "art. 5º, inciso X", what: "." });
+    const results = await Promise.all([recheck(github, a, { source }), recheck(github, b, { source })]);
+    expect(results.map((r) => r.outcome)).toEqual(["not-confirmed", "duplicate"]);
+    expect(github.issues[1]!.comments).toEqual([expect.stringContaining("Este dispositivo já foi reconferido hoje, na #1")]);
+    // One recheck's requests: the CF page, the two deferring acts' pages (EC 132, EC 141) and normas.leg.br.
+    expect(source.requests).toHaveLength(4);
+  });
+
+  it("holds the daily cap against simultaneous rechecks of different dispositivos", async () => {
+    const github = memoryGitHub();
+    const source = counted(await recordedSource(recorded, acts));
+    const issues = ["art5_cpt_inc10", "art6_cpt", "art1_cpt"].map((dispositivo) => opens(github, { norm: option("cf"), dispositivo, what: "." }));
+    const results = await Promise.all(issues.map((issue) => recheck(github, issue, { source, perDay: 1 })));
+    expect(results.map((r) => r.outcome)).toEqual(["not-confirmed", "limited", "limited"]);
+    expect(source.requests).toHaveLength(4);
+  });
+});
+
+describe("recheck: a deferred change that has come into force (ADR 0003)", () => {
+  // EC 141 art. 1º (fixtures/2026-10-20/planalto/emc141.htm) rewords art. 7º XV; art. 10 I defers it to 2026-12-17.
+  const XV_EC141 = "repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;";
+
+  it("before its start date, shows the pending wording next to the one in force", async () => {
+    const github = memoryGitHub();
+    const result = await recheck(github, opens(github, { norm: option("cf"), dispositivo: "art7_cpt_inc15", what: "." }));
+    expect(result.outcome).toBe("not-confirmed");
+    const comment = github.issues[0]!.comments[0]!;
+    expect(comment).toContain("- Mudança pendente / Pending change (wording), a partir de / from 2026-12-17, Emenda Constitucional nº 141, de 2026:");
+    expect(comment).toContain(XV_EC141);
+  });
+
+  it("from its start date, confirms the difference and says the wording comes from the act, not from Planalto's page", async () => {
+    const github = memoryGitHub();
+    const result = await recheck(github, opens(github, { norm: option("cf"), dispositivo: "art7_cpt_inc15", what: "." }), { now: "2026-12-17T13:00:00Z" });
+    expect(result.outcome).toBe("confirmed");
+    const comment = github.issues[0]!.comments[0]!;
+    expect(comment).toContain(`- Em vigor desde / In force since 2026-12-17, pela / by Emenda Constitucional nº 141, de 2026 (vigência diferida`);
+    expect(comment).toContain(XV_EC141);
+    expect(comment).not.toContain("- Planalto, lido agora / read now");
   });
 });
