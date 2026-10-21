@@ -22,17 +22,34 @@ export interface GitHub {
   /** Adds (`on`) or removes a label, creating the label first when the repository lacks it. */
   setLabel(number: number, label: string, on: boolean): Promise<void>;
   mergePullRequest(number: number): Promise<void>;
-  /** Starts a `workflow_dispatch` workflow on the default branch. */
-  dispatchWorkflow(workflow: string): Promise<void>;
+  /** Starts a `workflow_dispatch` workflow on the default branch, with these inputs. */
+  dispatchWorkflow(workflow: string, inputs?: Record<string, string>): Promise<void>;
   /** The open issue carrying `label` (the job's dedupe key), if any. */
   findOpenIssue(label: string): Promise<Numbered | undefined>;
   createIssue(issue: { title: string; body: string; label: string }): Promise<Numbered>;
-  commentOnIssue(number: number, body: string): Promise<void>;
+  /** Comments on an issue; returns the comment's id (GitHub numbers comments in the order it creates them). */
+  commentOnIssue(number: number, body: string): Promise<number>;
+  /** Replaces the body of a comment the job wrote. */
+  editComment(id: number, body: string): Promise<void>;
   closeIssue(number: number, comment: string): Promise<void>;
+  /**
+   * The comments the job itself wrote on issues and last updated at or after `since` (an ISO instant), oldest first
+   * (by id). Comments by anyone else are never returned: anyone can comment, so only the job's own comments, checked
+   * by author, can hold its state (the divergence recheck's markers).
+   */
+  ownComments(since: string): Promise<OwnComment[]>;
   /** The run status file as the previous run left it (`undefined` before the first run). */
   readStatus(): Promise<string | undefined>;
   /** Replaces the run status files (`status.json`, `badge.json`) with these. */
   writeStatus(files: { path: string; content: string }[]): Promise<void>;
+}
+
+export interface OwnComment {
+  /** GitHub's comment id: later comments have larger ones. */
+  id: number;
+  /** The issue it is on. */
+  issue: number;
+  body: string;
 }
 
 /** Labels the job manages, with the colour and description it creates them with. */
@@ -63,6 +80,11 @@ export interface MemoryIssue extends Numbered {
 export interface MemoryGitHub extends GitHub {
   /** Every action, one line each, in order (status writes aside). */
   log: string[];
+  /**
+   * An issue someone else opens (not logged: it is not the job's action). `comments` holds only the job's own, so the
+   * issue starts with none.
+   */
+  openedByUser(issue: { title: string; body: string; label: string }): MemoryIssue;
   pulls: MemoryPull[];
   issues: MemoryIssue[];
   status: Map<string, string>;
@@ -71,6 +93,9 @@ export interface MemoryGitHub extends GitHub {
 /** A GitHub that keeps everything in memory: the dry run's port, and the tests'. Reuse it across runs to chain them. */
 export function memoryGitHub(repo = "https://github.com/hendrillara/akoma"): MemoryGitHub {
   let counter = 0;
+  /** Comment ids, in creation order, and where each comment sits. */
+  let commentCounter = 1000;
+  const commentAt = new Map<number, { issue: number; index: number }>();
   const pulls: MemoryPull[] = [];
   const issues: MemoryIssue[] = [];
   const log: string[] = [];
@@ -108,8 +133,17 @@ export function memoryGitHub(repo = "https://github.com/hendrillara/akoma"): Mem
       pull(number).state = "merged";
       log.push(`merge PR #${number}`);
     },
-    async dispatchWorkflow(workflow) {
-      log.push(`dispatch ${workflow}`);
+    async dispatchWorkflow(workflow, inputs) {
+      const given = Object.entries(inputs ?? {}).map(([k, v]) => `${k}=${v}`);
+      log.push(`dispatch ${workflow}${given.length ? ` (${given.join(", ")})` : ""}`);
+    },
+    openedByUser({ title, body, label }) {
+      const number = ++counter;
+      issues.push({ number, url: `${repo}/issues/${number}`, title, body, label, state: "open", comments: [] });
+      return issue(number);
+    },
+    async ownComments() {
+      return [...commentAt].map(([id, at]) => ({ id, issue: at.issue, body: issue(at.issue).comments[at.index]! }));
     },
     async findOpenIssue(label) {
       return issues.find((i) => i.label === label && i.state === "open");
@@ -121,8 +155,20 @@ export function memoryGitHub(repo = "https://github.com/hendrillara/akoma"): Mem
       return issue(number);
     },
     async commentOnIssue(number, body) {
-      issue(number).comments.push(body);
+      const id = ++commentCounter;
+      // A dry run of the recheck comments on an issue that exists only on GitHub: logged, nothing to keep it on.
+      const on = issues.find((i) => i.number === number);
+      if (on) {
+        on.comments.push(body);
+        commentAt.set(id, { issue: number, index: on.comments.length - 1 });
+      }
       log.push(`comment on issue #${number}`);
+      return id;
+    },
+    async editComment(id, body) {
+      const at = commentAt.get(id);
+      if (at) issue(at.issue).comments[at.index] = body;
+      log.push(`edit comment on issue #${at?.issue ?? "?"}`);
     },
     async closeIssue(number, comment) {
       issue(number).comments.push(comment);
@@ -142,6 +188,11 @@ export function memoryGitHub(repo = "https://github.com/hendrillara/akoma"): Mem
 // --- git + gh CLI -------------------------------------------------------------------------------------------
 
 const run = promisify(execFile);
+/**
+ * The workflow token comments as the GitHub Actions bot: "github-actions[bot]" in REST, "github-actions" in GraphQL
+ * (checked with gh on 2026-10-21), "app/github-actions" in some gh output.
+ */
+const isBot = (login: string | undefined) => login?.replace(/^app\//, "").replace(/\[bot\]$/, "") === "github-actions";
 
 export interface GhCliOptions {
   /** The repository checkout the job runs in. */
@@ -211,8 +262,8 @@ export function ghCli({ cwd, statusBranch, base }: GhCliOptions): GitHub {
     async mergePullRequest(number) {
       await gh("pr", "merge", String(number), "--squash", "--delete-branch");
     },
-    async dispatchWorkflow(workflow) {
-      await gh("workflow", "run", workflow, "--ref", base);
+    async dispatchWorkflow(workflow, inputs) {
+      await gh("workflow", "run", workflow, "--ref", base, ...Object.entries(inputs ?? {}).flatMap(([k, v]) => ["-f", `${k}=${v}`]));
     },
     async findOpenIssue(label) {
       return numbered(await gh("issue", "list", "--label", label, "--state", "open", "--json", "number,url", "--limit", "1"));
@@ -223,11 +274,28 @@ export function ghCli({ cwd, statusBranch, base }: GhCliOptions): GitHub {
       return { number: Number(url.split("/").at(-1)), url };
     },
     async commentOnIssue(number, body) {
-      await withBody(body, (file) => gh("issue", "comment", String(number), "--body-file", file));
+      const url = await withBody(body, (file) => gh("issue", "comment", String(number), "--body-file", file));
+      const id = Number(/#issuecomment-(\d+)/.exec(url)?.[1]);
+      if (!Number.isSafeInteger(id)) throw new Error("gh issue comment: no comment id in its output");
+      return id;
+    },
+    async editComment(id, body) {
+      await withBody(body, (file) => gh("api", "--method", "PATCH", `repos/{owner}/{repo}/issues/comments/${id}`, "-F", `body=@${file}`));
     },
     async closeIssue(number, comment) {
       await withBody(comment, (file) => gh("issue", "comment", String(number), "--body-file", file));
       await gh("issue", "close", String(number));
+    },
+    async ownComments(since) {
+      // The repository's issue comments by update time (not the search index, which lags): read-after-write consistent.
+      const lines = await gh("api", "--paginate", `repos/{owner}/{repo}/issues/comments?since=${encodeURIComponent(since)}&sort=created&direction=asc&per_page=100`, "--jq", ".[] | {id, issue_url, login: .user.login, body}");
+      return lines
+        .split("\n")
+        .filter(Boolean)
+        .map((line) => JSON.parse(line) as { id: number; issue_url: string; login?: string; body: string })
+        .filter((c) => isBot(c.login))
+        .map((c) => ({ id: c.id, issue: Number(c.issue_url.split("/").at(-1)), body: c.body }))
+        .sort((a, b) => a.id - b.id);
     },
     async readStatus() {
       try {

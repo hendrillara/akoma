@@ -1,0 +1,36 @@
+name: "Divergência de texto / Text divergence"
+description: "O texto de um dispositivo parece diferente do oficial / A dispositivo's text looks different from the official one"
+title: "Divergência de texto / Text divergence"
+labels: ["text-divergence"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **PT.** Abrir esta issue dispara uma nova conferência automática do dispositivo: o Akoma lê de novo a página do Planalto (a fonte principal), monta o dispositivo, compara com o dataset publicado e com a fonte secundária (normas.leg.br para a CF e o ADCT, o LEGIN da Câmara para o CDC), e responde aqui. Se o Planalto imprime outro texto, o job diário de publicação abre um PR de correção, que passa pela revisão normal. Ninguém edita o dado à mão. O robô lê só a norma e o dispositivo; o campo "O que parece errado" é para o mantenedor. Cada dispositivo é reconferido no máximo uma vez por dia.
+
+        **EN.** Opening this issue starts an automatic recheck of the dispositivo: Akoma reads Planalto's page (the primary source) again, builds the dispositivo, compares it with the published dataset and with the secondary source (normas.leg.br for the CF and the ADCT, Câmara's LEGIN for the CDC), and answers here. If Planalto prints another text, the daily publish job opens a correction PR, which goes through the normal review. Nobody edits the data by hand. The bot reads only the norm and the dispositivo; the "What looks wrong" field is for the maintainer. Each dispositivo is rechecked at most once a day.
+  - type: dropdown
+    id: norm
+    attributes:
+      label: "Norma / Norm"
+      options:
+        - "cf — Constituição Federal"
+        - "adct — Ato das Disposições Constitucionais Transitórias"
+        - "cdc — Código de Defesa do Consumidor (Lei nº 8.078/1990)"
+    validations:
+      required: true
+  - type: input
+    id: dispositivo
+    attributes:
+      label: "Dispositivo / Provision"
+      description: "O id do Akoma (como art5_cpt_inc10) ou o dispositivo como impresso (como art. 5º, inciso X); um artigo inteiro (art. 6º) também vale. / Akoma's id (such as art5_cpt_inc10) or the dispositivo as printed (such as art. 5º, inciso X); a whole article (art. 6º) works too."
+      placeholder: "art5_cpt_inc10"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: "O que parece errado / What looks wrong"
+      description: "Para o mantenedor; o robô não lê este campo. / For the maintainer; the bot does not read this field."
+    validations:
+      required: true

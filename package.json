@@ -14,6 +14,7 @@
     "build:dataset": "node scripts/build-dataset.ts",
     "check:dataset": "node scripts/check-dataset.ts",
     "publish:daily": "node scripts/publish.ts",
+    "recheck": "node scripts/recheck.ts",
     "review:live": "node scripts/review-live.ts",
     "verify": "pnpm typecheck && pnpm test && pnpm check:map && pnpm check:dataset",
     "dev": "wrangler dev"
