@@ -16,9 +16,9 @@ Para o resto (Worker, camadas de revisão, o dicionário de sinônimos em `data/
 
 ## Texto errado? A issue de divergência
 
-Se um dispositivo parece diferente do texto oficial, abra uma issue com a norma, o id do dispositivo (por exemplo `cf` `art5_cpt_inc10`) e o que parece errado.
+Se um dispositivo parece diferente do texto oficial, abra uma issue com o modelo **"Divergência de texto / Text divergence"**: a norma, o dispositivo (o id, como `art5_cpt_inc10`, ou como impresso, como art. 5º, inciso X) e o que parece errado.
 
-Um modelo de issue "divergência de texto" (PT + EN) está sendo construído no #18. Quando existir, abrir a issue vai disparar uma nova conferência daquele dispositivo contra as fontes, e o resultado será publicado na própria issue. Uma divergência confirmada vira um PR de correção pelo pipeline normal de revisão; uma não confirmada recebe um comentário dizendo o que as fontes mostram. Até lá, use uma issue comum com as mesmas informações.
+Abrir a issue dispara uma nova conferência automática daquele dispositivo: o Akoma lê de novo a página do Planalto, compara com o dataset publicado e com a fonte secundária, e publica o resultado na própria issue. Uma divergência confirmada vira um PR de correção pelo job diário, com a revisão normal de três camadas; uma não confirmada recebe um comentário dizendo o que as fontes mostram. Cada dispositivo é reconferido no máximo uma vez por dia. Os detalhes estão em [`docs/publishing.md`](docs/publishing.md).
 
 ## Como trabalhar
 
@@ -52,9 +52,9 @@ For anything else (the Worker, the review layers, the synonym dictionary in `dat
 
 ### Wrong text? The divergence issue
 
-If a dispositivo looks different from the official text, open an issue with the norm, the dispositivo id (e.g. `cf` `art5_cpt_inc10`) and what looks wrong.
+If a dispositivo looks different from the official text, open an issue from the **"Divergência de texto / Text divergence"** template: the norm, the dispositivo (its id, such as `art5_cpt_inc10`, or as printed, such as art. 5º, inciso X) and what looks wrong.
 
-A "text divergence" issue template (PT + EN) is being built in #18. Once it exists, opening such an issue will trigger a recheck of that dispositivo against the sources, and the result will be posted on the issue. A confirmed divergence becomes a correction PR through the normal review pipeline; an unconfirmed one gets a comment explaining what the sources say. Until then, use a plain issue with the same details.
+Opening the issue starts an automatic recheck of that dispositivo: Akoma reads Planalto's page again, compares it with the published dataset and with the secondary source, and posts the result on the issue. A confirmed divergence becomes a correction PR from the daily job, through the normal three-layer review; an unconfirmed one gets a comment explaining what the sources say. Each dispositivo is rechecked at most once a day. The details are in [`docs/publishing.md`](docs/publishing.md).
 
 ### How to work
 

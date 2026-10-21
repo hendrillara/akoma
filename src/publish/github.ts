@@ -22,17 +22,29 @@ export interface GitHub {
   /** Adds (`on`) or removes a label, creating the label first when the repository lacks it. */
   setLabel(number: number, label: string, on: boolean): Promise<void>;
   mergePullRequest(number: number): Promise<void>;
-  /** Starts a `workflow_dispatch` workflow on the default branch. */
-  dispatchWorkflow(workflow: string): Promise<void>;
+  /** Starts a `workflow_dispatch` workflow on the default branch, with these inputs. */
+  dispatchWorkflow(workflow: string, inputs?: Record<string, string>): Promise<void>;
   /** The open issue carrying `label` (the job's dedupe key), if any. */
   findOpenIssue(label: string): Promise<Numbered | undefined>;
   createIssue(issue: { title: string; body: string; label: string }): Promise<Numbered>;
   commentOnIssue(number: number, body: string): Promise<void>;
   closeIssue(number: number, comment: string): Promise<void>;
+  /**
+   * Issues carrying `label`, open and closed, updated on or after `since` (YYYY-MM-DD; a narrowing only), each with
+   * the comments the job itself wrote on them, oldest first. Comments by anyone else are never returned: anyone can
+   * comment, so only the job's own comments can hold its state (the divergence recheck's markers).
+   */
+  labelledIssues(label: string, since: string): Promise<LabelledIssue[]>;
   /** The run status file as the previous run left it (`undefined` before the first run). */
   readStatus(): Promise<string | undefined>;
   /** Replaces the run status files (`status.json`, `badge.json`) with these. */
   writeStatus(files: { path: string; content: string }[]): Promise<void>;
+}
+
+export interface LabelledIssue extends Numbered {
+  state: "open" | "closed";
+  /** The job's own comments, oldest first. */
+  ownComments: string[];
 }
 
 /** Labels the job manages, with the colour and description it creates them with. */
@@ -63,6 +75,11 @@ export interface MemoryIssue extends Numbered {
 export interface MemoryGitHub extends GitHub {
   /** Every action, one line each, in order (status writes aside). */
   log: string[];
+  /**
+   * An issue someone else opens (not logged: it is not the job's action). `comments` holds only the job's own, so the
+   * issue starts with none.
+   */
+  openedByUser(issue: { title: string; body: string; label: string }): MemoryIssue;
   pulls: MemoryPull[];
   issues: MemoryIssue[];
   status: Map<string, string>;
@@ -108,8 +125,17 @@ export function memoryGitHub(repo = "https://github.com/hendrillara/akoma"): Mem
       pull(number).state = "merged";
       log.push(`merge PR #${number}`);
     },
-    async dispatchWorkflow(workflow) {
-      log.push(`dispatch ${workflow}`);
+    async dispatchWorkflow(workflow, inputs) {
+      const given = Object.entries(inputs ?? {}).map(([k, v]) => `${k}=${v}`);
+      log.push(`dispatch ${workflow}${given.length ? ` (${given.join(", ")})` : ""}`);
+    },
+    openedByUser({ title, body, label }) {
+      const number = ++counter;
+      issues.push({ number, url: `${repo}/issues/${number}`, title, body, label, state: "open", comments: [] });
+      return issue(number);
+    },
+    async labelledIssues(label) {
+      return issues.filter((i) => i.label === label).map((i) => ({ number: i.number, url: i.url, state: i.state, ownComments: [...i.comments] }));
     },
     async findOpenIssue(label) {
       return issues.find((i) => i.label === label && i.state === "open");
@@ -121,7 +147,8 @@ export function memoryGitHub(repo = "https://github.com/hendrillara/akoma"): Mem
       return issue(number);
     },
     async commentOnIssue(number, body) {
-      issue(number).comments.push(body);
+      // A dry run of the recheck comments on an issue that exists only on GitHub: logged, nothing to keep it on.
+      issues.find((i) => i.number === number)?.comments.push(body);
       log.push(`comment on issue #${number}`);
     },
     async closeIssue(number, comment) {
@@ -142,6 +169,7 @@ export function memoryGitHub(repo = "https://github.com/hendrillara/akoma"): Mem
 // --- git + gh CLI -------------------------------------------------------------------------------------------
 
 const run = promisify(execFile);
+const BOT_LOGINS = new Set(["github-actions", "github-actions[bot]"]);
 
 export interface GhCliOptions {
   /** The repository checkout the job runs in. */
@@ -211,8 +239,8 @@ export function ghCli({ cwd, statusBranch, base }: GhCliOptions): GitHub {
     async mergePullRequest(number) {
       await gh("pr", "merge", String(number), "--squash", "--delete-branch");
     },
-    async dispatchWorkflow(workflow) {
-      await gh("workflow", "run", workflow, "--ref", base);
+    async dispatchWorkflow(workflow, inputs) {
+      await gh("workflow", "run", workflow, "--ref", base, ...Object.entries(inputs ?? {}).flatMap(([k, v]) => ["-f", `${k}=${v}`]));
     },
     async findOpenIssue(label) {
       return numbered(await gh("issue", "list", "--label", label, "--state", "open", "--json", "number,url", "--limit", "1"));
@@ -228,6 +256,20 @@ export function ghCli({ cwd, statusBranch, base }: GhCliOptions): GitHub {
     async closeIssue(number, comment) {
       await withBody(comment, (file) => gh("issue", "comment", String(number), "--body-file", file));
       await gh("issue", "close", String(number));
+    },
+    async labelledIssues(label, since) {
+      const json = await gh("issue", "list", "--label", label, "--state", "all", "--search", `updated:>=${since}`, "--json", "number,url,state,comments", "--limit", "500");
+      const listed = JSON.parse(json) as { number: number; url: string; state: string; comments: { author?: { login?: string }; body: string; createdAt: string }[] }[];
+      return listed.map((i) => ({
+        number: i.number,
+        url: i.url,
+        state: i.state.toLowerCase() === "open" ? "open" : "closed",
+        // The workflow token comments as the GitHub Actions bot ("github-actions" in GraphQL, "github-actions[bot]" in REST).
+        ownComments: i.comments
+          .filter((c) => BOT_LOGINS.has(c.author?.login ?? ""))
+          .sort((a, b) => (a.createdAt < b.createdAt ? -1 : a.createdAt > b.createdAt ? 1 : 0))
+          .map((c) => c.body),
+      }));
     },
     async readStatus() {
       try {

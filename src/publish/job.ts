@@ -14,6 +14,7 @@ import type { Dataset } from "../schema/dataset.ts";
 import { redacting } from "../sources/redact.ts";
 import type { Source } from "../sources/source.ts";
 import { captureFiles, recording, type RecordingSource } from "./capture.ts";
+import { DIVERGENCE_LABEL, inTarget, marker, pendingRechecks, type PendingRecheck } from "./divergence.ts";
 import type { GitHub, Numbered } from "./github.ts";
 import { fitBody, prBody } from "./pr-body.ts";
 import { badge, nextSources, outages, OUTAGE_HOURS, parseStatus, type Badge, type Outcome, type RunStatus } from "./status.ts";
@@ -53,6 +54,11 @@ export interface JobInput {
   bodyLimit?: number;
   /** The deploy workflow to dispatch after a merge: a merge made with the workflow token triggers no push workflow. */
   deployWorkflow?: string;
+  /**
+   * Rebuild even when no page moved and nothing is due: a divergence recheck (#18) saw Planalto print a dispositivo
+   * differently from the published record and started this run.
+   */
+  rebuild?: boolean;
 }
 
 export interface JobResult {
@@ -161,10 +167,16 @@ async function publish(input: JobInput, source: RecordingSource, today: string):
   const due = previous.provisions.flatMap((p) =>
     (p.pending ?? []).filter((e) => !e.note && e.effectiveFrom <= today).map((e) => `${p.norm} ${p.id} (${e.act.citation}, from ${e.effectiveFrom})`),
   );
-  if (!moved.length && !due.length) {
+  if (!moved.length && !due.length && !input.rebuild) {
     return { outcome: "no-change", message: "No primary page changed (ETag, Last-Modified or content without scripts), and no pending change is due." };
   }
-  const why = [moved.length && `pages changed: ${moved.join(", ")}`, due.length && `pending changes due: ${due.join("; ")}`].filter(Boolean).join("; ");
+  const why = [
+    moved.length && `pages changed: ${moved.join(", ")}`,
+    due.length && `pending changes due: ${due.join("; ")}`,
+    input.rebuild && "rebuild requested by a divergence recheck",
+  ]
+    .filter(Boolean)
+    .join("; ");
 
   // 2. Build with the run's date, from fresh full pages.
   let next: Dataset;
@@ -176,7 +188,12 @@ async function publish(input: JobInput, source: RecordingSource, today: string):
     return { outcome: "unreachable", message: `Rebuilt for ${why}, but could not fetch ${failed.join(", ")}: ${(error as Error).message}` };
   }
   const report = detectChanges(previous, next);
-  if (!report.changes.length) return { outcome: "no-change", message: `Rebuilt (${why}); no dispositivo changed.` };
+  // Divergence issues whose recheck confirmed a difference and still wait for this job's answer (#18).
+  const pending = pendingRechecks(await github.labelledIssues(DIVERGENCE_LABEL, daysBefore(today, PENDING_DAYS)));
+  if (!report.changes.length) {
+    for (const p of pending) await github.commentOnIssue(p.issue, followUpNothing(p, today, runUrl));
+    return { outcome: "no-change", message: `Rebuilt (${why}); no dispositivo changed.` };
+  }
 
   // 3. Review: deterministic gates, cross-source agreement (recorded by the build), the LLM reviewer.
   const gates = [
@@ -198,7 +215,16 @@ async function publish(input: JobInput, source: RecordingSource, today: string):
   const verdict = decide(gates, crossSourceFindings(next), llm, testFindings);
 
   // 6. The PR: one branch, updated while open; merged on `merge`, labelled on `needs-human`.
-  const fullReport = prBody({ today, report, verdict, tests, ...(input.reviewer && { reviewer: input.reviewerModel ?? "unnamed model" }), capture, ...(runUrl && { runUrl }) });
+  const fullReport = prBody({
+    today,
+    report,
+    verdict,
+    tests,
+    ...(input.reviewer && { reviewer: input.reviewerModel ?? "unnamed model" }),
+    capture,
+    ...(runUrl && { runUrl }),
+    ...(pending.length && { answers: pending.map((p) => p.issue) }),
+  });
   await workspace.write("out/change-report.md", fullReport);
   const body = fitBody(fullReport, runUrl, input.bodyLimit);
   const count = report.changes.length;
@@ -215,6 +241,7 @@ async function publish(input: JobInput, source: RecordingSource, today: string):
     await github.mergePullRequest(pr.number);
     if (input.deployWorkflow) await github.dispatchWorkflow(input.deployWorkflow);
   } else await github.setLabel(pr.number, NEEDS_HUMAN, true);
+  for (const p of pending) await github.commentOnIssue(p.issue, followUpPr(p, today, pr.url, merged, report));
 
   const at = now.toISOString();
   return {
@@ -264,6 +291,42 @@ async function reportOutage({ github, runUrl, now }: JobInput, status: RunStatus
   } else if (!down.length && open) {
     await github.closeIssue(open.number, `Every source is reachable again (or no longer failing for more than ${OUTAGE_HOURS} hours).${runUrl ? ` Run: ${runUrl}` : ""}`);
   }
+}
+
+/** How far back the job looks for confirmed divergences still waiting for its answer. */
+const PENDING_DAYS = 30;
+
+function daysBefore(day: string, days: number): string {
+  return new Date(Date.parse(`${day}T00:00:00Z`) - days * 86_400_000).toISOString().slice(0, 10);
+}
+
+/** The answer to a confirmed divergence: the PR, whether it touches the dispositivo, and what the review decided. */
+function followUpPr(p: PendingRecheck, today: string, url: string, merged: boolean, report: ChangeReport): string {
+  const touched = report.changes.some((c) => c.norm === p.norm && inTarget(p.target, c.id));
+  const which = `\`${p.norm}\` \`${p.target}\``;
+  return [
+    marker({ kind: "followup", day: today, norm: p.norm, target: p.target }),
+    `**PR de correção / Correction PR:** ${url}`,
+    "",
+    `PT: O job diário reconstruiu o dataset e abriu este PR, que ${touched ? "muda" : "**não muda**"} ${which}. Veredito da revisão: ${merged ? "merge (mesclado)" : "needs-human (aguarda o mantenedor)"}.`,
+    "",
+    `EN: The daily job rebuilt the dataset and opened this PR, which ${touched ? "changes" : "**does not change**"} ${which}. Review verdict: ${merged ? "merge (merged)" : "needs-human (waiting for the maintainer)"}.`,
+    "",
+  ].join("\n");
+}
+
+/** The answer to a confirmed divergence when the rebuild found nothing to publish. */
+function followUpNothing(p: PendingRecheck, today: string, runUrl: string | undefined): string {
+  return [
+    marker({ kind: "followup", day: today, norm: p.norm, target: p.target }),
+    "**Nada a publicar / Nothing to publish**",
+    "",
+    "PT: O job diário reconstruiu o dataset a partir das páginas oficiais e o resultado é igual ao dataset publicado, então nenhum PR foi aberto.",
+    "",
+    "EN: The daily job rebuilt the dataset from the official pages and the result equals the published dataset, so no PR was opened.",
+    ...(runUrl ? ["", `Run: ${runUrl}`] : []),
+    "",
+  ].join("\n");
 }
 
 /** The calendar day in Brasília, where a norm takes effect at the start of the day. */

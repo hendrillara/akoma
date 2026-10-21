@@ -1,6 +1,8 @@
 // `pnpm publish:daily`: the daily publish job (src/publish/job.ts; docs/publishing.md).
 //
 //   node scripts/publish.ts                      the workflow's run: live sources, git + gh, `pnpm verify`
+//   node scripts/publish.ts --rebuild            the same, rebuilding even when no page moved (a divergence recheck
+//                                                confirmed a difference and started the run; #18)
 //   node scripts/publish.ts --dry-run [options]  everything but GitHub and the checkout: writes out/dry-run/ (the
 //                                                PR body, the actions it would take, the status, and in workspace/
 //                                                the capture and dataset/ it would commit)
@@ -71,6 +73,7 @@ const result = await runDailyJob({
   workspace,
   tests,
   ...(runUrl && { runUrl }),
+  ...(args.includes("--rebuild") && { rebuild: true }),
   // A merge made with the workflow token starts no `push` workflow; `workflow_dispatch` is the exception.
   ...(existsSync(new URL(".github/workflows/deploy.yml", root)) && { deployWorkflow: "deploy.yml" }),
 });

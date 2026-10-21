@@ -28,6 +28,31 @@ The PR body states the verdict and what the job did with it, the test result and
 
 The workflow's manual trigger has a `dry_run` input that runs it against the live sources. `test/publish.test.ts` runs the job through the same entry point with these in-memory ports.
 
+## Text-divergence issues: the automatic recheck (#18)
+
+Anyone who thinks a dispositivo's text is wrong opens an issue from the "Divergência de texto / Text divergence" template (`.github/ISSUE_TEMPLATE/text-divergence.yml`, PT + EN). It asks for the norm, the dispositivo and what looks wrong, and applies the `text-divergence` label. Opening or editing such an issue runs `.github/workflows/recheck.yml`, which runs `node scripts/recheck.ts`, around `runRecheck` (`src/publish/recheck.ts`):
+
+1. **Read the form.** Only two fields are read: the norm, which must be a registered key, and the dispositivo. The dispositivo can be given as its id (`art5_cpt_inc10`), an article id (`art6`, every dispositivo of the article), a normas.leg.br alias, or a label as printed (`art. 5º, inciso X`, `inciso X do caput do art. 5º`). A label is matched against the dataset's own path labels and must match exactly one record. "What looks wrong" is for the maintainer and is never read. A form that cannot be read gets a comment saying what is needed.
+2. **Recheck.** It fetches the norm's pages again, with the same redaction and HTTP client as the daily job, and builds that norm with the run's date. Then it compares each dispositivo of the target with the committed `dataset/` (text and status) and reads layer 2's outcome for it against the secondary source.
+3. **Answer.**
+   - *Confirmed* (Planalto's page now prints something other than the published record): the comment quotes both wordings and the secondary source's outcome, then the recheck starts `publish.yml` with `rebuild: true`. That is the daily job described above, forced past the pre-filter. Its PR lists the issues it answers ("Answers the text-divergence reports #n"). After publishing, it comments on each issue with the PR, whether the PR changes that dispositivo, and the verdict. If the rebuild finds nothing to publish, it says that instead. Any later run of the daily job gives the same answer, so a dispatch that GitHub's concurrency drops still gets one.
+   - *Not confirmed*: the comment quotes the wording Planalto and the dataset share and what the secondary source says. No PR is opened, and the maintainer reads the issue.
+   - *Unreachable*: Planalto or another page could not be fetched. Nothing was rechecked, and editing the issue later tries again.
+
+**The issue is untrusted input.** No `${{ github.event.issue.* }}` expression appears in a `run:` script or in the environment. The script reads the event file (`GITHUB_EVENT_PATH`) as data. Field values are length-capped before any pattern runs. Every comment is fixed wording around validated values (a norm key, dataset ids, issue numbers) and the sources' text; the issue's own text is never echoed, nor written to the log (Actions logs are public), the PR or anything else. The secondary source's text is never quoted either: only layer 2's outcome and note (normas.leg.br is CC BY 4.0). Seam 1 (`test/recheck.test.ts`) covers each case: a body with backticks, `$(…)`, `${{ … }}`, newlines, mentions, HTML, a forged marker and "ignore previous instructions" in every field.
+
+**Limits.** Anyone can open issues, so:
+
+- each dispositivo (or article) is rechecked at most once per Brasília day. A second report the same day gets a comment pointing to the first, and an edit that changes nothing the recheck reads gets no second answer;
+- all rechecks together run at most 20 times a day (`RECHECKS_PER_DAY`), so strangers cannot make Akoma hammer Planalto (ADR 0001);
+- an issue can trigger nothing but a recheck and, when Planalto really prints another text, the normal reviewed daily job.
+
+The state behind these limits is a hidden marker (`<!-- akoma:recheck day=… norm=… target=… outcome=… -->`) at the top of the job's own comments, read back through `gh issue list` and only from comments written by the workflow token's bot account. A marker anyone else writes, in an issue body or a comment, is never read.
+
+**Permissions.** The recheck has `contents: read`, `issues: write` (its comment) and `actions: write` (starting `publish.yml`). It has no secrets: `GH_TOKEN` is set on the recheck step only, the checkout keeps no token, and the code comes from the default branch, never from the issue's author.
+
+`node scripts/recheck.ts --dry-run --event <event.json> [--recorded <folders…>] [--now <instant>]` runs it without GitHub and prints the comment and the actions it would take.
+
 ## The published dataset is a regeneration
 
 `dataset/` (the output of `datasetFiles()`: per-article JSON and Markdown, `dataset.json`, `search-index.json`, `status.json`, `_headers`) is generated, never edited. `pnpm build:dataset` rebuilds it from the committed captures: every dated folder under `fixtures/` (`YYYY-MM-DD` or `YYYY-MM-DD-daily`), later folders winning for the same URL. The build date and the version come from the latest capture's `capturedOn`, never from the clock or git. `pnpm check:dataset`, part of `pnpm verify` and so of CI, fails when the committed `dataset/` differs from that regeneration, and names every changed, missing or extra file. So:
@@ -57,6 +82,7 @@ The workflow changes no settings. It needs:
 - **`main` must accept a merge without required status checks** (no branch protection today). CI does not run on the bot's PR, so a required check would never report, and the job's own `pnpm verify` is the gate.
 - **Secret `ANTHROPIC_API_KEY`** (not set yet; the maintainer's choice) and, optionally, **variable `AKOMA_REVIEW_MODEL`** (default `claude-opus-5`). Without the key, every change that needs layer 3 goes to `needs-human`.
 - **Workflow token permissions**, declared in the workflow: `contents: write` (the `publish/daily` and `status` branches, the merge), `pull-requests: write`, `issues: write` (issues and the labels `needs-human`, `publish-failure` and `source-outage`, which the job creates when missing) and `actions: write` (dispatching `deploy.yml`). Every action is pinned to a commit SHA, and pnpm comes from `corepack`.
+- **The `text-divergence` label** (create it once: `gh label create text-divergence --color 0e8a16 --description "A reported text divergence: rechecked automatically (#18)"`). An issue form applies only labels that already exist, and the recheck runs only for issues that carry it.
 - **Where the secrets reach.** `GH_TOKEN` (the workflow token) and `ANTHROPIC_API_KEY` are set on the publish step only, never on the install, and `scripts/publish.ts` runs `pnpm verify` without them. The checkout keeps no token (`persist-credentials: false`): git pushes through gh's credential helper (`gh auth setup-git`), which needs `GH_TOKEN` and so works only inside the publish step.
 - **What the guard does not prove.** `check:dataset` shows that `dataset/` is the regeneration of the committed captures, not that a capture is genuine. A PR that adds a crafted `-daily` folder with matching checksums would pass CI, so a capture folder in a PR that is not the job's own needs a human look.
 
@@ -86,6 +112,31 @@ O corpo do PR traz o veredito e o que o job fez com ele, o resultado dos testes 
 
 `node scripts/publish.ts --dry-run` faz tudo, menos push, PR, merge ou comentário: o GitHub e a árvore de trabalho ficam em memória. O resultado vai para `out/dry-run/`: corpo do PR, relatório, ações que faria, status, badge e, em `workspace/`, a captura e o `dataset/` que commitaria. As opções são as mesmas da seção em inglês: `--recorded <pastas…>`, `--now <instante>` e `--status <arquivo>`. O disparo manual do workflow tem a entrada `dry_run`, que roda contra as fontes reais.
 
+## Issues de divergência de texto: a nova conferência automática (#18)
+
+Quem acha que o texto de um dispositivo está errado abre uma issue com o modelo "Divergência de texto / Text divergence" (`.github/ISSUE_TEMPLATE/text-divergence.yml`, PT + EN). Ele pede a norma, o dispositivo e o que parece errado, e aplica o rótulo `text-divergence`. Abrir ou editar uma issue assim dispara o `.github/workflows/recheck.yml`, que chama `node scripts/recheck.ts`, em torno do `runRecheck` (`src/publish/recheck.ts`):
+
+1. **Leitura do formulário.** Só dois campos são lidos: a norma, que precisa ser uma chave registrada, e o dispositivo. O dispositivo pode vir como id (`art5_cpt_inc10`), id de artigo (`art6`: todos os dispositivos do artigo), alias do normas.leg.br ou rótulo impresso (`art. 5º, inciso X`, `inciso X do caput do art. 5º`). O rótulo é comparado com os rótulos do próprio dataset e precisa corresponder a exatamente um registro. "O que parece errado" é para o mantenedor e nunca é lido. Um formulário ilegível recebe um comentário dizendo o que falta.
+2. **Nova conferência.** Busca de novo as páginas da norma, com a mesma redação de dados pessoais e o mesmo cliente HTTP do job diário, e monta a norma com a data da execução. Depois compara cada dispositivo do alvo com o `dataset/` commitado (texto e status) e lê o resultado da camada 2 contra a fonte secundária.
+3. **Resposta.**
+   - *Confirmada* (a página do Planalto agora imprime outra coisa que o registro publicado): o comentário cita as duas redações e o resultado da fonte secundária, e a conferência dispara o `publish.yml` com `rebuild: true`. É o job diário descrito acima, que então não para no pré-filtro. O PR dele lista as issues que responde. Depois de publicar, o job comenta em cada issue o PR, se ele muda aquele dispositivo e o veredito. Se a reconstrução não tiver nada a publicar, o comentário diz isso. Qualquer execução posterior do job diário dá a mesma resposta, então um disparo descartado pela concorrência do GitHub também recebe a sua.
+   - *Não confirmada*: o comentário cita a redação comum ao Planalto e ao dataset e o que diz a fonte secundária. Nenhum PR é aberto, e o mantenedor lê a issue.
+   - *Inacessível*: o Planalto ou outra página não respondeu. Nada foi conferido, e editar a issue mais tarde tenta de novo.
+
+**A issue é entrada não confiável.** Nenhuma expressão `${{ github.event.issue.* }}` aparece num script `run:` nem no ambiente: o script lê o arquivo do evento (`GITHUB_EVENT_PATH`) como dado. Os campos têm tamanho máximo, verificado antes de qualquer padrão rodar. Todo comentário é texto fixo em torno de valores validados (chave de norma, ids do dataset, números de issue) e do texto das fontes. O texto da issue nunca é repetido, nem no log (os logs do Actions são públicos), nem no PR, nem em lugar nenhum. O texto da fonte secundária também nunca é citado, só o resultado e a nota da camada 2 (o normas.leg.br é CC BY 4.0). O `test/recheck.test.ts` (fronteira 1) cobre cada caso: crases, `$(…)`, `${{ … }}`, quebras de linha, menções, HTML, um marcador forjado e "ignore previous instructions" em cada campo.
+
+**Limites.** Qualquer pessoa abre issues, então:
+
+- cada dispositivo (ou artigo) é reconferido no máximo uma vez por dia de Brasília. Uma segunda issue no mesmo dia recebe um comentário apontando para a primeira, e uma edição que não muda o que a conferência lê não recebe outra resposta;
+- todas as conferências juntas rodam no máximo 20 vezes por dia (`RECHECKS_PER_DAY`), para que estranhos não façam o Akoma sobrecarregar o Planalto (ADR 0001);
+- uma issue não dispara nada além da conferência e, quando o Planalto de fato imprime outro texto, do job diário normal, com revisão.
+
+O estado por trás desses limites é um marcador oculto (`<!-- akoma:recheck … -->`) no topo dos comentários do próprio job. Ele é lido pelo `gh issue list`, só em comentários escritos pela conta de bot do token do workflow. Um marcador escrito por outra pessoa, no corpo ou num comentário, nunca é lido.
+
+**Permissões.** A conferência tem `contents: read`, `issues: write` (o comentário) e `actions: write` (disparar o `publish.yml`). Ela não usa segredos: o `GH_TOKEN` só existe no passo da conferência, o checkout não guarda token, e o código vem do branch padrão, nunca do autor da issue.
+
+`node scripts/recheck.ts --dry-run --event <event.json> [--recorded <pastas…>] [--now <instante>]` roda sem GitHub e mostra o comentário e as ações que faria.
+
 ## O dataset publicado é uma regeneração
 
 O `dataset/` é gerado, nunca editado. O `pnpm build:dataset` o refaz a partir das capturas commitadas: todas as pastas datadas de `fixtures/`, e a mais recente prevalece para a mesma URL. A data e a versão vêm do `capturedOn` da captura mais recente, nunca do relógio nem do git. O `pnpm check:dataset`, que faz parte do `pnpm verify` e portanto do CI, falha quando o `dataset/` commitado difere dessa regeneração, e nomeia cada arquivo alterado, ausente ou sobrando. Assim:
@@ -109,5 +160,6 @@ O workflow não altera configurações. Ele precisa de:
 - **`main` aceitando merge sem checks obrigatórios.** O CI não roda no PR do bot, e o `pnpm verify` do próprio job é o portão.
 - **O secret `ANTHROPIC_API_KEY`**, ainda não definido (decisão do mantenedor), e, opcionalmente, a variável `AKOMA_REVIEW_MODEL`.
 - **As permissões do token declaradas no workflow:** `contents`, `pull-requests`, `issues` e `actions`, todas com `write`. As actions estão fixadas por SHA de commit, e o pnpm vem do `corepack`.
+- **O rótulo `text-divergence`**, criado uma vez (o comando está na seção em inglês). Um formulário de issue só aplica rótulos que já existem, e a conferência só roda em issues que o têm.
 - **Onde os segredos chegam:** o `GH_TOKEN` e a `ANTHROPIC_API_KEY` só existem no passo de publicação, nunca na instalação, e o `pnpm verify` do job roda sem eles. O checkout não guarda token (`persist-credentials: false`); o git faz push pelo helper de credenciais do gh.
 - **O que a checagem não prova:** o `check:dataset` mostra que o `dataset/` é a regeneração das capturas commitadas, não que uma captura é autêntica. Uma pasta `-daily` forjada com checksums coerentes passaria no CI; por isso, uma pasta de captura num PR que não seja do job precisa de revisão humana.

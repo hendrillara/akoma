@@ -15,6 +15,10 @@ on:
         description: "Dry run: fetch, build and review, but push, open and merge nothing (the reports are the run's artifacts)"
         type: boolean
         default: false
+      rebuild:
+        description: "Rebuild even if no page moved (the divergence recheck sets it when it confirms a difference; #18)"
+        type: boolean
+        default: false
 
 # One run at a time; a run that starts while another is going waits for it instead of cancelling it.
 concurrency:
@@ -53,7 +57,8 @@ jobs:
           # Review layer 3. Without the secret, every change the reviewer must see is blocked (needs-human), never passed.
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           AKOMA_REVIEW_MODEL: ${{ vars.AKOMA_REVIEW_MODEL }}
-        run: node scripts/publish.ts ${{ inputs.dry_run && '--dry-run' || '' }}
+        # Both inputs are booleans: each expression yields a fixed flag or nothing, never text from outside.
+        run: node scripts/publish.ts ${{ inputs.dry_run && '--dry-run' || '' }} ${{ inputs.rebuild && '--rebuild' || '' }}
       # The full change report (a PR body is cut at 65,536 characters) and the dry run's outputs.
       - if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

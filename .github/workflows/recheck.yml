@@ -1,0 +1,47 @@
+name: Divergence recheck
+
+# The text-divergence intake (#18; docs/publishing.md): an issue opened (or edited) from the "Text divergence" template,
+# which applies the `text-divergence` label, gets an automatic recheck of its dispositivo against the sources, and the
+# result as a comment. A confirmed divergence starts publish.yml with a forced rebuild, so the correction is that
+# job's reviewed PR; this workflow itself can only comment and start that job.
+#
+# Anyone can open an issue, so the issue is untrusted input:
+# - no `${{ github.event.issue.* }}` expression reaches a `run:` script or the environment: scripts/recheck.ts reads
+#   the event from GITHUB_EVENT_PATH and parses it as data (only the issue number, an integer, keys the concurrency);
+# - it validates the norm and the dispositivo against the dataset and never echoes the issue's text;
+# - each dispositivo is rechecked at most once per day, and all rechecks together at most 20 times per day;
+# - no secrets: the workflow token, with the permissions below, only on the step that needs it.
+on:
+  issues:
+    types: [opened, edited]
+
+# Edits of one issue queue behind its running recheck (a newer edit replaces a waiting one); issues run in parallel.
+concurrency:
+  group: divergence-recheck-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  recheck:
+    if: contains(github.event.issue.labels.*.name, 'text-divergence') && github.event.issue.user.type != 'Bot'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read # the checkout (the committed dataset and the pipeline)
+      issues: write # the answer on the issue
+      actions: write # start publish.yml with a forced rebuild on a confirmed divergence
+    steps:
+      # The default branch's code, never the issue author's; no token left in .git/config.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - name: Recheck
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/recheck.ts
