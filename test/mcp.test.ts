@@ -338,6 +338,33 @@ describe("the /mcp endpoint over HTTP", () => {
     });
   });
 
+  it("echoes a JSON-RPC id only when it is a number or a short plain string, and rejects any other with a fixed error", async () => {
+    const withId = (id: unknown) => JSON.stringify({ jsonrpc: "2.0", id, method: "server/discover", params: modern });
+    const discover = (body: string) => post(body, { "mcp-protocol-version": "2026-07-28", "mcp-method": "server/discover" });
+    // Accepted, and echoed as given: an integer, and a client's usual string ids.
+    for (const id of [7, "req-1", "a1b2c3d4-0000-4000-8000-000000000000", "call:3.1"]) {
+      const response = await discover(withId(id));
+      expect(response.status).toBe(200);
+      expect(await response.json()).toMatchObject({ jsonrpc: "2.0", id, result: { supportedVersions: ["2026-07-28"] } });
+    }
+    // Rejected before the SDK sees the request: text that could be read as an instruction, markup, a long string, an
+    // object, a fraction, and one bad id in a batch. The answer is the fixed invalid-request error with a null id.
+    const rejected = [
+      withId(INJECTED),
+      withId("<b>x</b>"),
+      withId("x".repeat(65)),
+      withId({ text: INJECTED }),
+      withId(1.5),
+      JSON.stringify([JSON.parse(withId(1)), JSON.parse(withId(INJECTED))]),
+    ];
+    for (const body of rejected) {
+      const response = await discover(body);
+      expect(response.status).toBe(400);
+      expect(response.headers.get("cache-control")).toBe("no-store");
+      expect(await response.json()).toEqual({ jsonrpc: "2.0", id: null, error: { code: -32600, message: "Requisição inválida / Invalid request." } });
+    }
+  });
+
   it("answers methods other than POST with 405, and a CORS preflight with the fixed allowed headers", async () => {
     const handle = createHandler(dataset);
 
