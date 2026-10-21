@@ -54,6 +54,43 @@ describe("Worker entry", () => {
       // Other clients keep their own window.
       expect((await worker.fetch(from("198.51.100.7"))).status).toBe(200);
     });
+
+    // An MCP session spends requests on its handshake that a REST client never makes; neither may starve the other.
+    it("gives a client's MCP requests a budget of their own, apart from its REST requests", async () => {
+      const worker = createWorker(dataset, {});
+      const mcp = (ip: string) =>
+        worker.fetch(
+          new Request(`${api}/mcp`, {
+            method: "POST",
+            headers: { "content-type": "application/json", accept: "application/json, text/event-stream", "cf-connecting-ip": ip },
+            body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/list" }),
+          }),
+        );
+
+      for (let i = 0; i < 120; i++) await worker.fetch(from("203.0.113.1"));
+      expect((await worker.fetch(from("203.0.113.1"))).status).toBe(429);
+      expect((await mcp("203.0.113.1")).status).not.toBe(429);
+
+      for (let i = 0; i < 120; i++) await mcp("198.51.100.7");
+      expect((await mcp("198.51.100.7")).status).toBe(429);
+      expect((await worker.fetch(from("198.51.100.7"))).status).toBe(200);
+    });
+
+    it("counts MCP requests under their own key when the binding is bound", async () => {
+      const keys: string[] = [];
+      const RATE_LIMITER = {
+        async limit({ key }: { key: string }) {
+          keys.push(key);
+          return { success: true };
+        },
+      };
+      const worker = createWorker(dataset, { RATE_LIMITER });
+
+      await worker.fetch(new Request(`${api}/mcp`, { method: "POST", headers: { "cf-connecting-ip": "203.0.113.1" }, body: "{}" }));
+      await worker.fetch(from("203.0.113.1"));
+
+      expect(keys).toEqual(["mcp:203.0.113.1", "203.0.113.1"]);
+    });
   });
 
   // Workers Cache (wrangler.jsonc `cache`) stores the Worker's answers from their headers alone and serves hits
@@ -66,6 +103,18 @@ describe("Worker entry", () => {
       // Either would make the edge bypass or split the cache.
       expect(response.headers.get("set-cookie")).toBeNull();
       expect(response.headers.get("vary")).toBeNull();
+    });
+
+    it("never lets the edge store an MCP answer, which is per call", async () => {
+      const response = await createWorker(dataset, {}).fetch(
+        new Request(`${api}/mcp`, {
+          method: "POST",
+          headers: { "content-type": "application/json", accept: "application/json, text/event-stream" },
+          body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/list" }),
+        }),
+      );
+
+      expect(response.headers.get("cache-control")).toBe("no-store");
     });
 
     it("never lets the edge store a HEAD answer, whose empty body a later GET would get", async () => {

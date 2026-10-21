@@ -6,7 +6,10 @@ import { createSearch } from "./search.ts";
 import { createViews, notFound, type View } from "./views.ts";
 
 export interface HandlerOptions {
-  /** Per-client limit; none means unlimited (tests, local runs). The client is its `CF-Connecting-IP`. */
+  /**
+   * Per-client limit; none means unlimited (tests, local runs). The client is its `CF-Connecting-IP`; `/mcp` requests
+   * count under `mcp:<ip>`, a budget apart from the client's REST requests.
+   */
   rateLimiter?: RateLimiter;
 }
 
@@ -41,7 +44,9 @@ export function createHandler(dataset: Dataset, options: HandlerOptions = {}): (
     const format: Format = asked === "md" ? "md" : "json";
 
     if (options.rateLimiter) {
-      const verdict = await options.rateLimiter.limit(request.headers.get("cf-connecting-ip") ?? "unknown");
+      // MCP has a budget of its own per client: a session spends requests on its handshake that REST never makes.
+      const client = request.headers.get("cf-connecting-ip") ?? "unknown";
+      const verdict = await options.rateLimiter.limit(url.pathname === "/mcp" ? `mcp:${client}` : client);
       if (!verdict.allowed) {
         return url.pathname === "/mcp" ? mcpRateLimited(verdict.retryAfterSeconds) : rateLimited(verdict.retryAfterSeconds, format);
       }

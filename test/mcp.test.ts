@@ -453,7 +453,8 @@ describe("rate limiting on /mcp", () => {
     expect(response.status).toBe(429);
     expect(response.headers.get("retry-after")).toBe("30");
     expect(response.headers.get("cache-control")).toBe("no-store");
-    expect(keys).toEqual(["203.0.113.9"]);
+    // Its own budget, apart from the client's REST requests.
+    expect(keys).toEqual(["mcp:203.0.113.9"]);
     expect(await response.json()).toEqual({
       jsonrpc: "2.0",
       id: null,
