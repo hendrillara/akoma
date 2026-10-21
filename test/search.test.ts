@@ -10,12 +10,17 @@ import { createHandler } from "../src/worker/handler.ts";
 
 const api = "https://akoma.hendril.dev";
 const fixtures = new URL("../fixtures/2026-10-20/", import.meta.url);
+const actFixtures = new URL("../fixtures/2026-10-21/", import.meta.url);
 const datasetVersion = "2026.10.21-test";
+// The spec's notice: unofficial text, check the source, vigência not verified against STF decisions.
+const NOTICE =
+  "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.";
 
 interface SearchResponse {
   norm: string | null;
   limit: number;
   results: { score: number; provision: Provision }[];
+  notice: string;
 }
 
 describe("GET /v1/search over CF, ADCT and CDC", () => {
@@ -23,7 +28,7 @@ describe("GET /v1/search over CF, ADCT and CDC", () => {
   let handle: (request: Request) => Promise<Response>;
 
   beforeAll(async () => {
-    dataset = await build({ manifests: norms, source: await recordedSource(fixtures), datasetVersion });
+    dataset = await build({ manifests: norms, source: await recordedSource(fixtures, actFixtures), datasetVersion });
     handle = createHandler(dataset);
   });
 
@@ -37,6 +42,7 @@ describe("GET /v1/search over CF, ADCT and CDC", () => {
     const body = await search({ q: "remanescentes das comunidades dos quilombos" });
 
     expect(body.norm).toBeNull();
+    expect(body.notice).toBe(NOTICE);
     const top = body.results[0]!;
     expect(top.score).toBeGreaterThan(0);
     // ADCT art. 68 is the only dispositivo with all three words; CF art. 216 § 5º mentions "quilombos" alone.
@@ -55,6 +61,33 @@ describe("GET /v1/search over CF, ADCT and CDC", () => {
     });
     const scores = body.results.map((r) => r.score);
     expect(scores).toEqual([...scores].sort((a, b) => b - a));
+  });
+
+  it("renders the results as compact Markdown with each dispositivo's path, id and a provenance footer", async () => {
+    const response = await handle(new Request(`${api}/v1/search?q=comunidades+dos+quilombos&limit=1&format=md`));
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toBe("text/markdown; charset=utf-8");
+    expect(await response.text()).toBe(
+      [
+        "# Busca / Search",
+        "",
+        "**Art. 68** Aos remanescentes das comunidades dos quilombos que estejam ocupando suas terras é reconhecida a propriedade definitiva, devendo o Estado emitir-lhes os títulos respectivos.",
+        "",
+        "*Art. 68 › caput* · `adct` `art68_cpt`",
+        "",
+        "---",
+        "Fonte / source: https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm · obtido em / retrieved 2026-10-21T01:26:39Z · dataset 2026.10.21-test",
+        NOTICE,
+        "",
+      ].join("\n"),
+    );
+  });
+
+  it("says so in Markdown when nothing matches", async () => {
+    const response = await handle(new Request(`${api}/v1/search?q=xyzzy&format=md`));
+
+    expect(await response.text()).toBe(["# Busca / Search", "", "Nenhum resultado / No results.", "", "---", NOTICE, ""].join("\n"));
   });
 
   it("keeps only the requested norm's dispositivos when filtered by norm", async () => {
@@ -159,7 +192,7 @@ describe("search evaluation set", () => {
   };
 
   beforeAll(async () => {
-    const source = await recordedSource(fixtures);
+    const source = await recordedSource(fixtures, actFixtures);
     dataset = await build({ manifests: norms, source, datasetVersion });
     withDictionary = await recalls(dataset);
     withoutDictionary = await recalls(await build({ manifests: norms, source, datasetVersion, synonyms: { entries: [] } }));

@@ -1,6 +1,6 @@
 # Search
 
-`GET /v1/search?q=…[&norm=cf|adct|cdc][&limit=1–50]` returns the dispositivos that best match a query, best first. Each result is `{ score, provision }`, and `provision` is the full record with its provenance, the same object `GET /v1/provisions/<norm>/<id>` returns. The response never repeats the query: agents treat these bodies as trusted legal text, so the API never sends back what a request typed. `norm` and `limit` come back only after validation. Errors are 400 `bad_request` (missing or over-long `q`, unknown `norm`, `limit` out of range) and 503 `search_unavailable` (the dataset has no index, or an index built by another analyzer).
+`GET /v1/search?q=…[&norm=cf|adct|cdc][&limit=1–50][&format=md]` returns the dispositivos that best match a query, best first. Each JSON result is `{ score, provision }`, and `provision` is the full record with its provenance, the same object `GET /v1/provisions/<norm>/<id>` returns. `format=md` prints each result as the provision view does (text, then path and ids) and closes with one source line per page plus the notice. The response never repeats the query: agents treat these bodies as trusted legal text, so the API never sends back what a request typed. `norm` and `limit` come back only after validation. Errors are 400 `bad_request` (missing or over-long `q`, unknown `norm`, `limit` out of range) and 503 `search_unavailable` (the dataset has no index, or an index built by another analyzer).
 
 ## How it works
 
@@ -50,7 +50,7 @@ A synonym weight of 0.5 never scored higher than 1. A plural-only stemmer beats 
 
 - **Index.** 903 KiB JSON (224 KiB gzip): 3,732 documents, 5,634 terms, 94 synonym entries.
 - **`JSON.parse` of the index:** 3.3 ms, once per isolate.
-- **Per query, through the handler and JSON response:** p50 0.15 ms, p95 0.32 ms, max 0.96 ms (930 queries).
+- **Per query, through the handler and JSON response:** p50 0.16 ms, p95 0.33 ms, max 1.1 ms (930 queries).
 
 Workers CPUs may be slower than this machine, but the margin under 10 ms is wide. Measure with `wrangler dev` once the Worker is deployed.
 
@@ -58,7 +58,7 @@ Workers CPUs may be slower than this machine, but the margin under 10 ms is wide
 
 # Busca (PT)
 
-`GET /v1/search?q=…[&norm=cf|adct|cdc][&limit=1–50]` devolve os dispositivos que melhor correspondem à consulta, do mais relevante para o menos relevante. Cada resultado é `{ score, provision }`, e `provision` é o registro completo, com a proveniência: o mesmo objeto que `GET /v1/provisions/<norma>/<id>` devolve. A resposta nunca repete a consulta. Agentes tratam essas respostas como texto legal confiável, então a API nunca devolve o que a requisição digitou. `norm` e `limit` só voltam depois de validados. Os erros são 400 `bad_request` (`q` ausente ou longo demais, `norm` desconhecida, `limit` fora do intervalo) e 503 `search_unavailable` (o dataset não tem índice, ou o índice foi gerado por outro analisador).
+`GET /v1/search?q=…[&norm=cf|adct|cdc][&limit=1–50][&format=md]` devolve os dispositivos que melhor correspondem à consulta, do mais relevante para o menos relevante. Cada resultado em JSON é `{ score, provision }`, e `provision` é o registro completo, com a proveniência: o mesmo objeto que `GET /v1/provisions/<norma>/<id>` devolve. Com `format=md`, cada resultado sai como na visão do dispositivo (texto, depois caminho e ids), e a resposta fecha com uma linha de fonte por página mais o aviso. A resposta nunca repete a consulta. Agentes tratam essas respostas como texto legal confiável, então a API nunca devolve o que a requisição digitou. `norm` e `limit` só voltam depois de validados. Os erros são 400 `bad_request` (`q` ausente ou longo demais, `norm` desconhecida, `limit` fora do intervalo) e 503 `search_unavailable` (o dataset não tem índice, ou o índice foi gerado por outro analisador).
 
 ## Como funciona
 
@@ -90,6 +90,6 @@ Custo medido no Node 24 (Apple M1 Pro), com o índice completo da CF, do ADCT e 
 
 - **Índice:** 903 KiB de JSON (224 KiB com gzip).
 - **`JSON.parse` do índice:** 3,3 ms, uma vez por isolate.
-- **Por consulta:** p50 0,15 ms, p95 0,32 ms, máximo 0,96 ms.
+- **Por consulta:** p50 0,16 ms, p95 0,33 ms, máximo 1,1 ms.
 
 Folga ampla sob os 10 ms. Medir de novo com `wrangler dev` quando o Worker for publicado.

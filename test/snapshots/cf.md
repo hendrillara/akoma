@@ -314,6 +314,8 @@ XIV - jornada de seis horas para o trabalho realizado em turnos ininterruptos de
 
 XV - repouso semanal remunerado, preferencialmente aos domingos; *(Vide Emenda Constitucional nº 141, de 2026)* *(Vigência)*
 
+> **Pendente a partir de 2026-12-17** (Emenda Constitucional nº 141, de 2026): repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;
+
 XVI - remuneração do serviço extraordinário superior, no mínimo, em cinqüenta por cento à do normal; *(Vide Del 5.452, art. 59 § 1º)*
 
 XVII - gozo de férias anuais remuneradas com, pelo menos, um terço a mais do que o salário normal;
@@ -1193,6 +1195,14 @@ III - a remuneração do pessoal. *(Incluído pela Emenda Constitucional nº 19,
 § 15 É vedada a complementação de aposentadorias de servidores públicos e de pensões por morte a seus dependentes que não seja decorrente do disposto nos §§ 14 a 16 do art. 40 ou que não seja prevista em lei que extinga regime próprio de previdência social. *(Incluído pela Emenda Constitucional nº 103, de 2019)*
 
 § 16 Os órgãos e entidades da administração pública, individual ou conjuntamente, devem realizar avaliação das políticas públicas, inclusive com divulgação do objeto a ser avaliado e dos resultados alcançados, na forma da lei. *(Incluído pela Emenda Constitucional nº 109, de 2021)*
+
+§ 17 (Ainda não vigente)
+
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): Lei complementar estabelecerá normas gerais aplicáveis às administrações tributárias da União, dos Estados, do Distrito Federal e dos Municípios, dispondo sobre deveres, direitos e garantias dos servidores das carreiras de que trata o inciso XXII do caput.
+
+§ 18 (Ainda não vigente)
+
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): Para os fins do disposto no inciso XI do caput deste artigo, os servidores de carreira das administrações tributárias dos Estados, do Distrito Federal e dos Municípios sujeitam-se ao limite aplicável aos servidores da União.
 
 **Art. 38** Ao servidor público da administração direta, autárquica e fundacional, no exercício de mandato eletivo, aplicam-se as seguintes disposições: *(Redação dada pela Emenda Constitucional nº 19, de 1998)*
 
@@ -3274,6 +3284,10 @@ c) adequado tratamento tributário ao ato cooperativo praticado pelas sociedades
 
 d) definição de tratamento diferenciado e favorecido para as microempresas e para as empresas de pequeno porte, inclusive regimes especiais ou simplificados no caso dos impostos previstos nos arts. 155, II, e 156-A, das contribuições sociais previstas no art. 195, I e V, e § 12 e da contribuição a que se refere o art. 239. *(Redação dada pela Emenda Constitucional nº 132, de 2023)*
 
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): definição de tratamento diferenciado e favorecido para as microempresas e para as empresas de pequeno porte, inclusive regimes especiais ou simplificados no caso dos impostos previstos nos arts. 155, II, e 156-A e das contribuições previstas no art. 195, I e V.
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): definição de tratamento diferenciado e favorecido para as microempresas e para as empresas de pequeno porte, inclusive regimes especiais ou simplificados no caso do imposto previsto no art. 156-A e das contribuições sociais previstas no art. 195, I e V.
+
 § 1º A lei complementar de que trata o inciso III, d, também poderá instituir um regime único de arrecadação dos impostos e contribuições da União, dos Estados, do Distrito Federal e dos Municípios, observado que: *(Incluído pela Emenda Constitucional nº 132, de 2023)*
 
 I - será opcional para o contribuinte; *(Incluído pela Emenda Constitucional nº 132, de 2023)*
@@ -3398,6 +3412,8 @@ e) fonogramas e videofonogramas musicais produzidos no Brasil contendo obras mus
 
 § 6º Qualquer subsídio ou isenção, redução de base de cálculo, concessão de crédito presumido, anistia ou remissão, relativos a impostos, taxas ou contribuições, só poderá ser concedido mediante lei específica, federal, estadual ou municipal, que regule exclusivamente as matérias acima enumeradas ou o correspondente tributo ou contribuição, sem prejuízo do disposto no art. 155, § 2.º, XII, g. *(Redação dada pela Emenda Constitucional nº 3, de 1993)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): Qualquer subsídio ou isenção, redução de base de cálculo, concessão de crédito presumido, anistia ou remissão, relativos a impostos, taxas ou contribuições, só poderá ser concedido mediante lei específica, federal, estadual ou municipal, que regule exclusivamente as matérias acima enumeradas ou o correspondente tributo ou contribuição.
+
 § 7º A lei poderá atribuir a sujeito passivo de obrigação tributária a condição de responsável pelo pagamento de imposto ou contribuição, cujo fato gerador deva ocorrer posteriormente, assegurada a imediata e preferencial restituição da quantia paga, caso não se realize o fato gerador presumido. *(Incluído pela Emenda Constitucional nº 3, de 1993)*
 
 **Art. 151** É vedado à União:
@@ -3423,6 +3439,8 @@ III - renda e proventos de qualquer natureza;
 IV - produtos industrializados;
 
 V - operações de crédito, câmbio e seguro, ou relativas a títulos ou valores mobiliários;
+
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): operações de crédito e câmbio ou relativas a títulos ou valores mobiliários;
 
 VI - propriedade territorial rural;
 
@@ -3472,6 +3490,8 @@ III - não integrará sua própria base de cálculo; *(Incluído pela Emenda Con
 
 IV - integrará a base de cálculo dos tributos previstos nos arts. 155, II, 156, III, 156-A e 195, V; *(Incluído pela Emenda Constitucional nº 132, de 2023)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): integrará a base de cálculo dos tributos previstos nos arts. 156-A e 195, V;
+
 V - poderá ter o mesmo fato gerador e base de cálculo de outros tributos; *(Incluído pela Emenda Constitucional nº 132, de 2023)*
 
 VI - terá suas alíquotas fixadas em lei ordinária, podendo ser específicas, por unidade de medida adotada, ou ad valorem; *(Incluído pela Emenda Constitucional nº 132, de 2023)*
@@ -3491,6 +3511,8 @@ II - na iminência ou no caso de guerra externa, impostos extraordinários, comp
 I - transmissão causa mortis e doação, de quaisquer bens ou direitos; *(Redação dada pela Emenda Constitucional nº 3, de 1993)*
 
 II - operações relativas à circulação de mercadorias e sobre prestações de serviços de transporte interestadual e intermunicipal e de comunicação, ainda que as operações e as prestações se iniciem no exterior; *(Redação dada pela Emenda Constitucional nº 3, de 1993)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 III - propriedade de veículos automotores. *(Redação dada pela Emenda Constitucional nº 3, de 1993)*
 
@@ -3516,27 +3538,51 @@ VII - não incidirá sobre as transmissões e as doações para as instituiçõe
 
 § 2º O imposto previsto no inciso II atenderá ao seguinte: *(Redação dada pela Emenda Constitucional nº 3, de 1993)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 I - será não-cumulativo, compensando-se o que for devido em cada operação relativa à circulação de mercadorias ou prestação de serviços com o montante cobrado nas anteriores pelo mesmo ou outro Estado ou pelo Distrito Federal;
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 II - a isenção ou não-incidência, salvo determinação em contrário da legislação:
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 a) não implicará crédito para compensação com o montante devido nas operações ou prestações seguintes;
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 b) acarretará a anulação do crédito relativo às operações anteriores;
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 III - poderá ser seletivo, em função da essencialidade das mercadorias e dos serviços;
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 IV - resolução do Senado Federal, de iniciativa do Presidente da República ou de um terço dos Senadores, aprovada pela maioria absoluta de seus membros, estabelecerá as alíquotas aplicáveis às operações e prestações, interestaduais e de exportação;
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 V - é facultado ao Senado Federal:
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 a) estabelecer alíquotas mínimas nas operações internas, mediante resolução de iniciativa de um terço e aprovada pela maioria absoluta de seus membros;
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 b) fixar alíquotas máximas nas mesmas operações para resolver conflito específico que envolva interesse de Estados, mediante resolução de iniciativa da maioria absoluta e aprovada por dois terços de seus membros;
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 VI - salvo deliberação em contrário dos Estados e do Distrito Federal, nos termos do disposto no inciso XII, "g", as alíquotas internas, nas operações relativas à circulação de mercadorias e nas prestações de serviços, não poderão ser inferiores às previstas para as operações interestaduais;
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 VII - nas operações e prestações que destinem bens e serviços a consumidor final, contribuinte ou não do imposto, localizado em outro Estado, adotar-se-á a alíquota interestadual e caberá ao Estado de localização do destinatário o imposto correspondente à diferença entre a alíquota interna do Estado destinatário e a alíquota interestadual; *(Redação dada pela Emenda Constitucional nº 87, de 2015)* *(Produção de efeito)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 a) (revogada); *(Redação dada pela Emenda Constitucional nº 87, de 2015)*
 
@@ -3544,67 +3590,131 @@ b) (revogada); *(Redação dada pela Emenda Constitucional nº 87, de 2015)*
 
 VIII - a responsabilidade pelo recolhimento do imposto correspondente à diferença entre a alíquota interna e a interestadual de que trata o inciso VII será atribuída: *(Redação dada pela Emenda Constitucional nº 87, de 2015)* *(Produção de efeito)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 a) ao destinatário, quando este for contribuinte do imposto; *(Incluído pela Emenda Constitucional nº 87, de 2015)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 b) ao remetente, quando o destinatário não for contribuinte do imposto; *(Incluído pela Emenda Constitucional nº 87, de 2015)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 IX - incidirá também:
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 a) sobre a entrada de bem ou mercadoria importados do exterior por pessoa física ou jurídica, ainda que não seja contribuinte habitual do imposto, qualquer que seja a sua finalidade, assim como sobre o serviço prestado no exterior, cabendo o imposto ao Estado onde estiver situado o domicílio ou o estabelecimento do destinatário da mercadoria, bem ou serviço; *(Redação dada pela Emenda Constitucional nº 33, de 2001)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 b) sobre o valor total da operação, quando mercadorias forem fornecidas com serviços não compreendidos na competência tributária dos Municípios;
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 X - não incidirá:
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 a) sobre operações que destinem mercadorias para o exterior, nem sobre serviços prestados a destinatários no exterior, assegurada a manutenção e o aproveitamento do montante do imposto cobrado nas operações e prestações anteriores; *(Redação dada pela Emenda Constitucional nº 42, de 19.12.2003)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 b) sobre operações que destinem a outros Estados petróleo, inclusive lubrificantes, combustíveis líquidos e gasosos dele derivados, e energia elétrica;
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 c) sobre o ouro, nas hipóteses definidas no art. 153, § 5º;
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 d) nas prestações de serviço de comunicação nas modalidades de radiodifusão sonora e de sons e imagens de recepção livre e gratuita; *(Incluído pela Emenda Constitucional nº 42, de 19.12.2003)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 XI - não compreenderá, em sua base de cálculo, o montante do imposto sobre produtos industrializados, quando a operação, realizada entre contribuintes e relativa a produto destinado à industrialização ou à comercialização, configure fato gerador dos dois impostos;
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 XII - cabe à lei complementar:
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 a) definir seus contribuintes;
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 b) dispor sobre substituição tributária;
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 c) disciplinar o regime de compensação do imposto;
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 d) fixar, para efeito de sua cobrança e definição do estabelecimento responsável, o local das operações relativas à circulação de mercadorias e das prestações de serviços;
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 e) excluir da incidência do imposto, nas exportações para o exterior, serviços e outros produtos além dos mencionados no inciso X, "a";
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 f) prever casos de manutenção de crédito, relativamente à remessa para outro Estado e exportação para o exterior, de serviços e de mercadorias;
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 g) regular a forma como, mediante deliberação dos Estados e do Distrito Federal, isenções, incentivos e benefícios fiscais serão concedidos e revogados.
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 h) definir os combustíveis e lubrificantes sobre os quais o imposto incidirá uma única vez, qualquer que seja a sua finalidade, hipótese em que não se aplicará o disposto no inciso X, b; *(Incluída pela Emenda Constitucional nº 33, de 2001)* *(Vide Emenda Constitucional nº 33, de 2001)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 i) fixar a base de cálculo, de modo que o montante do imposto a integre, também na importação do exterior de bem, mercadoria ou serviço. *(Incluída pela Emenda Constitucional nº 33, de 2001)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 § 3º À exceção dos impostos de que tratam o inciso II do caput deste artigo e os arts. 153, I e II, e 156-A, nenhum outro imposto poderá incidir sobre operações relativas a energia elétrica e serviços de telecomunicações e, à exceção destes e do previsto no art. 153, VIII, nenhum outro imposto poderá incidir sobre operações relativas a derivados de petróleo, combustíveis e minerais do País. *(Redação dada pela Emenda Constitucional nº 132, de 2023)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 § 4º Na hipótese do inciso XII, h, observar-se-á o seguinte: *(Incluído pela Emenda Constitucional nº 33, de 2001)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 I - nas operações com os lubrificantes e combustíveis derivados de petróleo, o imposto caberá ao Estado onde ocorrer o consumo; *(Incluído pela Emenda Constitucional nº 33, de 2001)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 II - nas operações interestaduais, entre contribuintes, com gás natural e seus derivados, e lubrificantes e combustíveis não incluídos no inciso I deste parágrafo, o imposto será repartido entre os Estados de origem e de destino, mantendo-se a mesma proporcionalidade que ocorre nas operações com as demais mercadorias; *(Incluído pela Emenda Constitucional nº 33, de 2001)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 III - nas operações interestaduais com gás natural e seus derivados, e lubrificantes e combustíveis não incluídos no inciso I deste parágrafo, destinadas a não contribuinte, o imposto caberá ao Estado de origem; *(Incluído pela Emenda Constitucional nº 33, de 2001)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 IV - as alíquotas do imposto serão definidas mediante deliberação dos Estados e Distrito Federal, nos termos do § 2º, XII, g, observando-se o seguinte: *(Incluído pela Emenda Constitucional nº 33, de 2001)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 a) serão uniformes em todo o território nacional, podendo ser diferenciadas por produto; *(Incluído pela Emenda Constitucional nº 33, de 2001)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 b) poderão ser específicas, por unidade de medida adotada, ou ad valorem, incidindo sobre o valor da operação ou sobre o preço que o produto ou seu similar alcançaria em uma venda em condições de livre concorrência; *(Incluído pela Emenda Constitucional nº 33, de 2001)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 c) poderão ser reduzidas e restabelecidas, não se lhes aplicando o disposto no art. 150, III, b. *(Incluído pela Emenda Constitucional nº 33, de 2001)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 § 5º As regras necessárias à aplicação do disposto no § 4º, inclusive as relativas à apuração e à destinação do imposto, serão estabelecidas mediante deliberação dos Estados e do Distrito Federal, nos termos do § 2º, XII, g. *(Incluído pela Emenda Constitucional nº 33, de 2001)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 § 6º O imposto previsto no inciso III: *(Incluído pela Emenda Constitucional nº 42, de 19.12.2003)*
 
@@ -3634,6 +3744,8 @@ II - transmissão "inter vivos", a qualquer título, por ato oneroso, de bens im
 
 III - serviços de qualquer natureza, não compreendidos no art. 155, II, definidos em lei complementar. *(Redação dada pela Emenda Constitucional nº 3, de 1993)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 IV - (Revogado) *(Revogado pela Emenda Constitucional nº 3, de 1993)*
 
 § 1º Sem prejuízo da progressividade no tempo a que se refere o art. 182, § 4º, inciso II, o imposto previsto no inciso I poderá: *(Redação dada pela Emenda Constitucional nº 29, de 2000)*
@@ -3654,11 +3766,19 @@ II - compete ao Município da situação do bem.
 
 § 3º Em relação ao imposto previsto no inciso III do caput deste artigo, cabe à lei complementar: *(Redação dada pela Emenda Constitucional nº 37, de 2002)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 I - fixar as suas alíquotas máximas e mínimas; *(Redação dada pela Emenda Constitucional nº 37, de 2002)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 II - excluir da sua incidência exportações de serviços para o exterior. *(Incluído pela Emenda Constitucional nº 3, de 1993)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 III - regular a forma e as condições como isenções, incentivos e benefícios fiscais serão concedidos e revogados. *(Incluído pela Emenda Constitucional nº 3, de 1993)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 § 4º (Revogado) *(Revogado pela Emenda Constitucional nº 3, de 1993)*
 
@@ -3685,6 +3805,10 @@ VII - será cobrado pelo somatório das alíquotas do Estado e do Município de 
 VIII - será não cumulativo, compensando-se o imposto devido pelo contribuinte com o montante cobrado sobre todas as operações nas quais seja adquirente de bem material ou imaterial, inclusive direito, ou de serviço, excetuadas exclusivamente as consideradas de uso ou consumo pessoal especificadas em lei complementar e as hipóteses previstas nesta Constituição; *(Incluído pela Emenda Constitucional nº 132, de 2023)*
 
 IX - não integrará sua própria base de cálculo nem a dos tributos previstos nos arts. 153, VIII, e 195, I, "b", IV e V, e da contribuição para o Programa de Integração Social de que trata o art. 239; *(Incluído pela Emenda Constitucional nº 132, de 2023)*
+
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): não integrará sua própria base de cálculo nem a dos tributos previstos nos arts. 153, VIII, e 195, V;
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): não integrará sua própria base de cálculo nem a dos tributos previstos nos arts. 153, VIII, e 195, V;
 
 X - não será objeto de concessão de incentivos e benefícios financeiros ou fiscais relativos ao imposto ou de regimes específicos, diferenciados ou favorecidos de tributação, excetuadas as hipóteses previstas nesta Constituição; *(Incluído pela Emenda Constitucional nº 132, de 2023)*
 
@@ -3864,13 +3988,21 @@ IV - 25% (vinte e cinco por cento): *(Redação dada pela Emenda Constitucional 
 
 a) do produto da arrecadação do imposto do Estado sobre operações relativas à circulação de mercadorias e sobre prestações de serviços de transporte interestadual e intermunicipal e de comunicação; *(Incluído pela Emenda Constitucional nº 132, de 2023)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 b) do produto da arrecadação do imposto previsto no art. 156-A distribuída aos Estados. *(Incluído pela Emenda Constitucional nº 132, de 2023)*
 
 § 1º As parcelas de receita pertencentes aos Municípios mencionadas no inciso IV, "a", serão creditadas conforme os seguintes critérios: *(Incluído pela Emenda Constitucional nº 132, de 2023)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 I - 65% (sessenta e cinco por cento), no mínimo, na proporção do valor adicionado nas operações relativas à circulação de mercadorias e nas prestações de serviços, realizadas em seus territórios; *(Redação dada pela Emenda Constitucional nº 108, de 2020)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 II - até 35% (trinta e cinco por cento), de acordo com o que dispuser lei estadual, observada, obrigatoriamente, a distribuição de, no mínimo, 10 (dez) pontos percentuais com base em indicadores de melhoria nos resultados de aprendizagem e de aumento da equidade, considerado o nível socioeconômico dos educandos. *(Redação dada pela Emenda Constitucional nº 108, de 2020)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 § 2º As parcelas de receita pertencentes aos Municípios mencionadas no inciso IV, "b", serão creditadas conforme os seguintes critérios: *(Incluído pela Emenda Constitucional nº 132, de 2023)*
 
@@ -3907,6 +4039,8 @@ III - do produto da arrecadação da contribuição de intervenção no domínio
 § 2º A nenhuma unidade federada poderá ser destinada parcela superior a vinte por cento do montante a que se refere o inciso II, devendo o eventual excedente ser distribuído entre os demais participantes, mantido, em relação a esses, o critério de partilha nele estabelecido.
 
 § 3º Os Estados entregarão aos respectivos Municípios 25% (vinte e cinco por cento) dos recursos que receberem nos termos do inciso II docaputdeste artigo, observados os critérios estabelecidos no art. 158, § 1º, para a parcela relativa ao imposto sobre produtos industrializados, e no art. 158, § 2º, para a parcela relativa ao imposto previsto no art. 153, VIII. *(Redação dada pela Emenda Constitucional nº 132, de 2023)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): Os Estados entregarão aos respectivos Municípios 25% (vinte e cinco por cento) dos recursos que receberem nos termos do inciso II docaputdeste artigo, observados os critérios estabelecidos no art. 158, § 2º.
 
 § 4º Do montante de recursos de que trata o inciso III que cabe a cada Estado, vinte e cinco por cento serão destinados aos seus Municípios, na forma da lei a que se refere o mencionado inciso. *(Incluído pela Emenda Constitucional nº 42, de 19.12.2003)*
 
@@ -3945,6 +4079,8 @@ II - ao cumprimento do disposto no art. 198, § 2º, incisos II e III. *(Incluí
 **Art. 161** Cabe à lei complementar:
 
 I - definir valor adicionado para fins do disposto no art. 158, § 1º, I; *(Redação dada pela Emenda Constitucional nº 132, de 2023)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 II - estabelecer normas sobre a entrega dos recursos de que trata o art. 159, especialmente sobre os critérios de rateio dos fundos previstos em seu inciso I, objetivando promover o equilíbrio sócio-econômico entre Estados e entre Municípios;
 
@@ -4644,6 +4780,8 @@ a) a folha de salários e demais rendimentos do trabalho pagos ou creditados, a 
 
 b) a receita ou o faturamento; *(Incluído pela Emenda Constitucional nº 20, de 1998)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
 
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 c) o lucro; *(Incluído pela Emenda Constitucional nº 20, de 1998)*
 
 II - do trabalhador e dos demais segurados da previdência social, podendo ser adotadas alíquotas progressivas de acordo com o valor do salário de contribuição, não incidindo contribuição sobre aposentadoria e pensão concedidas pelo Regime Geral de Previdência Social; *(Redação dada pela Emenda Constitucional nº 103, de 2019)*
@@ -4651,6 +4789,8 @@ II - do trabalhador e dos demais segurados da previdência social, podendo ser a
 III - sobre a receita de concursos de prognósticos.
 
 IV - do importador de bens ou serviços do exterior, ou de quem a lei a ele equiparar. *(Incluído pela Emenda Constitucional nº 42, de 19.12.2003)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
+
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 V - sobre bens e serviços, nos termos de lei complementar. *(Incluído pela Emenda Constitucional nº 132, de 2023)* *(Vide Lei Complementar nº 214, de 2026)*
 
@@ -4672,11 +4812,15 @@ V - sobre bens e serviços, nos termos de lei complementar. *(Incluído pela Eme
 
 § 9º As contribuições sociais previstas no inciso I do caput deste artigo poderão ter alíquotas diferenciadas em razão da atividade econômica, da utilização intensiva de mão de obra, do porte da empresa ou da condição estrutural do mercado de trabalho, sendo também autorizada a adoção de bases de cálculo diferenciadas apenas no caso das alíneas "b" e "c" do inciso I do caput. *(Redação dada pela Emenda Constitucional nº 103, de 2019)*
 
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): As contribuições sociais previstas no inciso I do caput deste artigo poderão ter alíquotas diferenciadas em razão da atividade econômica, da utilização intensiva de mão de obra, do porte da empresa ou da condição estrutural do mercado de trabalho, sendo também autorizada a adoção de bases de cálculo diferenciadas apenas no caso da alínea "c" do inciso I do caput.
+
 § 10 A lei definirá os critérios de transferência de recursos para o sistema único de saúde e ações de assistência social da União para os Estados, o Distrito Federal e os Municípios, e dos Estados para os Municípios, observada a respectiva contrapartida de recursos. *(Incluído pela Emenda Constitucional nº 20, de 1998)*
 
 § 11 São vedados a moratória e o parcelamento em prazo superior a 60 (sessenta) meses e, na forma de lei complementar, a remissão e a anistia das contribuições sociais de que tratam a alínea "a" do inciso I e o inciso II do caput. *(Redação dada pela Emenda Constitucional nº 103, de 2019)*
 
 § 12 A lei definirá os setores de atividade econômica para os quais as contribuições incidentes na forma dos incisos I, b; e IV do caput, serão não-cumulativas. *(Incluído pela Emenda Constitucional nº 42, de 19.12.2003)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
+
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 § 13 (Revogado). *(Redação dada pela Emenda Constitucional nº 103, de 2019)*
 
@@ -4688,9 +4832,23 @@ V - sobre bens e serviços, nos termos de lei complementar. *(Incluído pela Eme
 
 § 17 A contribuição prevista no inciso V do caput não integrará sua própria base de cálculo nem a dos tributos previstos nos arts. 153, VIII, 156-A e 195, I, "b", e IV, e da contribuição para o Programa de Integração Social de que trata o art. 239. *(Incluído pela Emenda Constitucional nº 132, de 2023)*
 
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): A contribuição prevista no inciso V do caput não integrará sua própria base de cálculo nem a dos impostos previstos nos arts. 153, VIII, e 156-A.
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): A contribuição prevista no inciso V do caput não integrará sua própria base de cálculo nem a dos impostos previstos nos arts. 153, VIII, e 156-A.
+
 § 18 Lei estabelecerá as hipóteses de devolução da contribuição prevista no inciso V do caput a pessoas físicas, inclusive em relação a limites e beneficiários, com o objetivo de reduzir as desigualdades de renda. *(Incluído pela Emenda Constitucional nº 132, de 2023)*
 
 § 19 A devolução de que trata o § 18 não será computada na receita corrente líquida da União para os fins do disposto nos arts. 100, § 15, 166, §§ 9º, 12 e 17, e 198, § 2º. *(Incluído pela Emenda Constitucional nº 132, de 2023)*
+
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): A devolução de que trata o § 18:
+
+I - (Ainda não vigente)
+
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): não será computada na receita corrente líquida da União para os fins do disposto nos arts. 100, § 15, 166, §§ 9º, 12 e 17, e 198, § 2º;
+
+II - (Ainda não vigente)
+
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): não integrará a base de cálculo para fins do disposto no art. 239.
 
 #### Seção II
 
@@ -5002,6 +5160,8 @@ b) da parcela do Distrito Federal no imposto de que trata o art. 156-A, relativa
 
 c) dos recursos a que se referem os incisos I, II e III do caput do art. 155, o inciso II do caput do art. 157, os incisos II, III e IV do caput do art. 158 e as alíneas "a" e "b" do inciso I e o inciso II do caput do art. 159 desta Constituição; *(Incluído pela Emenda Constitucional nº 132, de 2023)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): dos recursos a que se referem os incisos I e III do caput do art. 155, o inciso II do caput do art. 157, os incisos II, III e IV do caput do art. 158 e as alíneas "a" e "b" do inciso I e o inciso II do caput do art. 159 desta Constituição;
+
 III - os recursos referidos no inciso II do caput deste artigo serão distribuídos entre cada Estado e seus Municípios, proporcionalmente ao número de alunos das diversas etapas e modalidades da educação básica presencial matriculados nas respectivas redes, nos âmbitos de atuação prioritária, conforme estabelecido nos §§ 2º e 3º do art. 211 desta Constituição, observadas as ponderações referidas na alínea "a" do inciso X do caput e no § 2º deste artigo; *(Incluído pela Emenda Constitucional nº 108, de 2020)*
 
 IV - a União complementará os recursos dos fundos a que se refere o inciso II do caput deste artigo; *(Incluído pela Emenda Constitucional nº 108, de 2020)*
@@ -5308,6 +5468,10 @@ VII - proteger a fauna e a flora, vedadas, na forma da lei, as práticas que col
 
 VIII - manter regime fiscal favorecido para os biocombustíveis e para o hidrogênio de baixa emissão de carbono, na forma de lei complementar, a fim de assegurar-lhes tributação inferior à incidente sobre os combustíveis fósseis, capaz de garantir diferencial competitivo em relação a estes, especialmente em relação às contribuições de que tratam o art. 195, I, "b", IV e V, e o art. 239 e aos impostos a que se referem os arts. 155, II, e 156-A. *(Redação dada pela Emenda Constitucional nº 132, de 2023)*
 
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): manter regime fiscal favorecido para os biocombustíveis e para o hidrogênio de baixa emissão de carbono, na forma de lei complementar, a fim de assegurar-lhes tributação inferior à incidente sobre os combustíveis fósseis, capaz de garantir diferencial competitivo em relação a estes, especialmente em relação à contribuição de que trata o art. 195, V, e aos impostos a que se referem os arts. 155, II, e 156-A.
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): manter regime fiscal favorecido para os biocombustíveis e para o hidrogênio de baixa emissão de carbono, na forma de lei complementar, a fim de assegurar-lhes tributação inferior à incidente sobre os combustíveis fósseis, capaz de garantir diferencial competitivo em relação a estes, especialmente em relação à contribuição de que trata o art. 195, V, e ao imposto a que se refere o art. 156-A.
+
 § 2º Aquele que explorar recursos minerais fica obrigado a recuperar o meio ambiente degradado, de acordo com solução técnica exigida pelo órgão público competente, na forma da lei.
 
 § 3º As condutas e atividades consideradas lesivas ao meio ambiente sujeitarão os infratores, pessoas físicas ou jurídicas, a sanções penais e administrativas, independentemente da obrigação de reparar os danos causados.
@@ -5462,11 +5626,15 @@ XI - as despesas orçamentárias com pessoal não poderão ultrapassar cinqüent
 
 **Art. 239** A arrecadação decorrente das contribuições para o Programa de Integração Social, criado pela Lei Complementar nº 7, de 7 de setembro de 1970, e para o Programa de Formação do Patrimônio do Servidor Público, criado pela Lei Complementar nº 8, de 3 de dezembro de 1970, passa, a partir da promulgação desta Constituição, a financiar, nos termos que a lei dispuser, o programa do seguro-desemprego, outras ações da previdência social e o abono de que trata o § 3º deste artigo. *(Redação dada pela Emenda Constitucional nº 103, de 2019)*
 
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): A arrecadação correspondente a 18% (dezoito por cento) da contribuição prevista no art. 195, V, e a decorrente da contribuição para o Programa de Formação do Patrimônio do Servidor Público, criado pela Lei Complementar nº 8, de 3 de dezembro de 1970, financiarão, nos termos em que a lei dispuser, o programa do seguro-desemprego, outras ações da previdência social e o abono de que trata o § 3º deste artigo.
+
 § 1º Dos recursos mencionados no caput, no mínimo 28% (vinte e oito por cento) serão destinados para o financiamento de programas de desenvolvimento econômico, por meio do Banco Nacional de Desenvolvimento Econômico e Social, com critérios de remuneração que preservem o seu valor. *(Redação dada pela Emenda Constitucional nº 103, de 2019)*
 
 § 2º Os patrimônios acumulados do Programa de Integração Social e do Programa de Formação do Patrimônio do Servidor Público são preservados, mantendo-se os critérios de saque nas situações previstas nas leis específicas, com exceção da retirada por motivo de casamento, ficando vedada a distribuição da arrecadação de que trata o "caput" deste artigo, para depósito nas contas individuais dos participantes.
 
 § 3º Aos empregados que percebam de empregadores que contribuem para o Programa de Integração Social ou para o Programa de Formação do Patrimônio do Servidor Público remuneração mensal de até 2 (duas) vezes o salário mínimo do ano-base para pagamento em 2025, corrigida, a partir de 2026, pela variação anual do Índice Nacional de Preços ao Consumidor (INPC), calculado e divulgado pela Fundação Instituto Brasileiro de Geografia e Estatística (IBGE), ou de outro índice que vier a substituí-lo, acumulada no segundo exercício anterior ao de pagamento do benefício, é assegurado o pagamento de 1 (um) salário mínimo anual, computado nesse valor o rendimento das contas individuais, no caso daqueles que já participavam dos referidos Programas, até a data de promulgação desta Constituição. *(Redação dada pela Emenda Constitucional nº 135, de 2024)*
+
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): Aos empregados que percebam de empregadores que recolhem a contribuição prevista no art. 195, V, ou a contribuição para o Programa de Formação do Patrimônio do Servidor Público até 2 (dois) salários mínimos de remuneração mensal é assegurado o pagamento de 1 (um) salário mínimo anual, computado neste valor o rendimento das contas individuais, no caso daqueles que já participavam dos referidos programas, até a data de promulgação desta Constituição. *Alterado depois pela Emenda Constitucional nº 135, de 2024: não se sabe se esta mudança ainda entra em vigor como redigida. / Amended since by Emenda Constitucional nº 135, de 2024: whether this change still takes effect as written is not settled.*
 
 § 3º-A O limite para elegibilidade do benefício de que trata o § 3º deste artigo não será inferior ao valor equivalente ao salário mínimo do período trabalhado multiplicado pelo índice de 1,5 (um inteiro e cinco décimos). *(Incluído pela Emenda Constitucional nº 135, de 2024)*
 

@@ -1,7 +1,15 @@
 // Parses a Planalto page (hand-edited FrontPage/Word HTML) into dispositivos placed in the LC 95 hierarchy:
 // Parte › Livro › Título › Capítulo › Seção › Subseção › Artigo › Parágrafo › Inciso › Alínea › Item.
 import { parse, type DefaultTreeAdapterMap } from "parse5";
-import type { Amendment, PathKind, PathSegment, ProvisionKind, ProvisionStatus, Reference } from "../schema/dataset.ts";
+import type {
+  Amendment,
+  GroupingKind,
+  PathKind,
+  PathSegment,
+  ProvisionKind,
+  ProvisionStatus,
+  Reference,
+} from "../schema/dataset.ts";
 import { peelAnnotations, type Link } from "./annotations.ts";
 
 type Node = DefaultTreeAdapterMap["node"];
@@ -25,6 +33,30 @@ export interface ParsedProvision {
   references: Reference[];
 }
 
+/** A heading as the page prints it: its LexML id, label, name and annotations (Dataset `Grouping` without its norm). */
+export interface ParsedGrouping {
+  id: string;
+  kind: GroupingKind;
+  label: string;
+  name: string;
+  parent?: string;
+  amendments: Amendment[];
+  references: Reference[];
+}
+
+/** An article (Dataset `Article` without its norm). */
+export interface ParsedArticle {
+  id: string;
+  label: string;
+  grouping?: string;
+}
+
+export interface ParsedPage {
+  provisions: ParsedProvision[];
+  groupings: ParsedGrouping[];
+  articles: ParsedArticle[];
+}
+
 /** A dispositivo open on the cursor: the parent of whatever follows it at a lower level. */
 interface Open {
   id: string;
@@ -33,9 +65,15 @@ interface Open {
 }
 
 /** @param baseUrl the page's URL, against which annotation links are resolved. */
-export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: string): ParsedProvision[] {
+export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: string): ParsedPage {
   const out: ParsedProvision[] = [];
+  const groupings: ParsedGrouping[] = [];
+  const articles: ParsedArticle[] = [];
   const groups: PathSegment[] = [];
+  // The open groupings, outermost first, in step with `groups`.
+  const openGroupings: ParsedGrouping[] = [];
+  // The heading whose name is being read: the lines between its label and the next heading or article.
+  let naming: ParsedGrouping | undefined;
   let article: Open | undefined;
   // The open dispositivo at each level below the article; a deeper level closes when a shallower one opens.
   let paragraph: Open | undefined;
@@ -71,8 +109,14 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
     const heading = matchHeading(line);
     if (heading) {
       const depth = GROUPINGS.indexOf(heading.kind);
-      while (groups.length && GROUPINGS.indexOf(groups.at(-1)!.kind) >= depth) groups.pop();
+      while (groups.length && GROUPINGS.indexOf(groups.at(-1)!.kind) >= depth) {
+        groups.pop();
+        openGroupings.pop();
+      }
       groups.push(heading);
+      naming = openGrouping(heading, openGroupings, groupings);
+      // A name printed on the label's own line ("CAPÍTULO VI-A DA PREVENÇÃO…").
+      nameLine(naming, line.replace(/^\S+\s+\S+\s*/, ""), links);
       article = paragraph = inciso = alinea = undefined;
       continue;
     }
@@ -85,6 +129,9 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
       const rest = withSole ? withSole[1]! : art.rest;
       const caput = emit(opened, "caput", { kind: "caput", label: "caput" }, `${art.id}_cpt`, rest);
       if (!caput) continue;
+      naming = undefined;
+      const inner = openGroupings.at(-1);
+      articles.push({ id: art.id, label: art.label, ...(inner && { grouping: inner.id }) });
       article = opened;
       paragraph = inciso = alinea = undefined;
       if (withSole) child(article, "paragrafo", { id: "par1", label: "parágrafo único", rest });
@@ -93,7 +140,10 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
     // The closing formula ("Brasília, 5 de outubro de 1988.") ends the articulated text; signatures follow.
     if (/^Brasília,\s+\d/.test(line)) break;
     // Before the first article of a grouping: heading names, the preamble, page furniture.
-    if (!article) continue;
+    if (!article) {
+      if (naming) nameLine(naming, line, links);
+      continue;
+    }
     // Punctuation left behind by struck wording ("- ;").
     if (/^[\s.,;:–-]*$/.test(line)) continue;
     // A block opening with a quote mark quotes another act; it stays open until a block ends with the closing mark.
@@ -151,7 +201,62 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
   }
 
   if (quoting) throw new Error(`Quoted text opened in ${out.at(-1)!.id} is never closed`);
-  return out;
+  return { provisions: out, groupings, articles };
+}
+
+/** Records a heading under the groupings still open (LexML Parte 3: ids concatenated from the top level down). */
+function openGrouping(heading: PathSegment, open: ParsedGrouping[], all: ParsedGrouping[]): ParsedGrouping {
+  const parent = open.at(-1);
+  const kind = heading.kind as GroupingKind;
+  const own = `${GROUPING_IDS[kind]}${groupingNumber(heading, kind, parent, all)}`;
+  const grouping: ParsedGrouping = {
+    id: parent ? `${parent.id}_${own}` : own,
+    kind,
+    label: heading.label,
+    name: "",
+    ...(parent && { parent: parent.id }),
+    amendments: [],
+    references: [],
+  };
+  open.push(grouping);
+  all.push(grouping);
+  return grouping;
+}
+
+const GROUPING_IDS: Record<GroupingKind, string> = {
+  parte: "prt",
+  livro: "liv",
+  titulo: "tit",
+  capitulo: "cap",
+  secao: "sec",
+  subsecao: "sub",
+};
+
+const ORDINALS = ["primeir", "segund", "terceir", "quart", "quint", "sext", "sétim", "oitav", "non", "décim"];
+
+/**
+ * The number part of a grouping id: roman numerals and letter suffixes become arabic ("V-A" → "5-1"), written-out
+ * ordinals their number ("Livro Primeiro" → 1), "Único" 1; an unnumbered Parte ("Parte Geral") counts from 1.
+ */
+function groupingNumber(heading: PathSegment, kind: GroupingKind, parent: ParsedGrouping | undefined, all: ParsedGrouping[]): string {
+  const word = heading.label.slice(heading.label.indexOf(" ") + 1);
+  const roman = /^([IVXLCDM]+)((?:-[A-Z])*)$/.exec(word);
+  if (roman) return `${romanToNumber(roman[1]!)}${suffixId(roman[2]!)}`;
+  const ordinal = ORDINALS.findIndex((stem) => word.toLowerCase().startsWith(stem));
+  if (ordinal >= 0) return `${ordinal + 1}`;
+  if (/^únic[oa]$/i.test(word)) return "1";
+  // "Parte Geral", "Parte Especial": numbered in order among their siblings.
+  return `${all.filter((g) => g.kind === kind && g.parent === parent?.id).length + 1}`;
+}
+
+/** Adds a line to a heading's name, its annotations ("(Incluído pela …)", a bare "Regulamento" link) to its metadata. */
+function nameLine(grouping: ParsedGrouping, line: string, links: Link[]): void {
+  // Punctuation or spacing left on its own line is page furniture, not part of the name.
+  if (!/[\p{L}\d]/u.test(line)) return;
+  const peeled = peelAnnotations(line, links);
+  if (peeled.text) grouping.name = grouping.name ? `${grouping.name} ${peeled.text}` : peeled.text;
+  grouping.amendments.push(...peeled.amendments);
+  grouping.references.push(...peeled.references);
 }
 
 /** Whether a line ends a quote: a closing mark at its end, before any "(NR)", final punctuation or annotations. */
@@ -190,7 +295,7 @@ const SKIPPED = new Set(["head", "script", "style", "template"]);
 /** Old wording: Planalto strikes it with any of these tags, or with CSS line-through, even on "compilado" pages. */
 const STRUCK = new Set(["strike", "s", "del"]);
 
-interface Line {
+export interface Line {
   text: string;
   links: Link[];
   /** Whether struck text was cut out of this line. */
@@ -201,7 +306,7 @@ interface Line {
 const CUT = "\uE000";
 
 /** The page's text as a browser would show it, one line per block, with struck wording removed. */
-function visibleLines(html: string, { startAnchor, endAnchor }: PageLayout, baseUrl: string): Line[] {
+export function visibleLines(html: string, { startAnchor, endAnchor }: PageLayout, baseUrl: string): Line[] {
   const lines: Line[] = [];
   let current = "";
   let links: { start: number; end: number; href: string }[] = [];
@@ -299,7 +404,7 @@ const HEADING_KINDS: Record<string, PathKind> = {
   subseção: "subsecao",
 };
 
-function matchHeading(line: string): PathSegment | undefined {
+export function matchHeading(line: string): PathSegment | undefined {
   // Roman numerals with letter suffixes ("Seção V-A"), or the written-out forms of codes ("PARTE GERAL", "LIVRO PRIMEIRO").
   const m =
     /^(parte|livro|título|capítulo|seção|subseção)\s+([IVXLCDM]+(?:-[A-Z])*|geral|especial|únic[oa]|(?:primeir|segund|terceir|quart|quint|sext|sétim|oitav|non|décim)[oa])(?=\s|$)/i.exec(
@@ -315,7 +420,7 @@ function capitalise(word: string): string {
   return `${word[0]!.toUpperCase()}${word.slice(1)}`;
 }
 
-interface Numbered {
+export interface Numbered {
   /** LexML id fragment, e.g. "art103-1", "par1", "inc10". */
   id: string;
   label: string;
@@ -323,7 +428,7 @@ interface Numbered {
   rest: string;
 }
 
-function matchArticle(line: string): Numbered | undefined {
+export function matchArticle(line: string): Numbered | undefined {
   const m = /^Art\.\s*(\d+)(.*)$/.exec(line);
   if (!m) return undefined;
   const n = Number(m[1]);
@@ -332,7 +437,7 @@ function matchArticle(line: string): Numbered | undefined {
 }
 
 /** One parágrafo, or several when the page groups them ("§§ 1º a 3º. (Revogados pela …)"). */
-function matchParagraphs(line: string): Numbered[] | undefined {
+export function matchParagraphs(line: string): Numbered[] | undefined {
   const group = /^§§\s*(\d+)\s*[º°o]?\s*a\s*(\d+)\s*[º°o]?\s*\.?\s*(.*)$/.exec(line);
   if (group) {
     const out: Numbered[] = [];
@@ -355,7 +460,7 @@ function paragraphLabel(n: number, suffix: string): string {
   return `§ ${n}${n < 10 ? "º" : ""}${suffix}`;
 }
 
-function matchInciso(line: string): Numbered | undefined {
+export function matchInciso(line: string): Numbered | undefined {
   // The letter suffix is glued to the numeral ("II-A - …"), so "I - A República…" stays an inciso I.
   // 66 CF incisos lack the separator ("IV as ilhas fluviais…", "I-A o Conselho Nacional de Justiça"): without one,
   // the text must start in lower case, so a line of prose that opens with a capital "I" is not read as an inciso.
@@ -367,7 +472,7 @@ function matchInciso(line: string): Numbered | undefined {
   return { id: `inc${n}${suffixId(suffix)}`, label: `inciso ${m[1]}${suffix}`, rest: m[3]! };
 }
 
-function matchAlinea(line: string): Numbered | undefined {
+export function matchAlinea(line: string): Numbered | undefined {
   // Two alíneas on the CF page lack the space after the parenthesis ("a)sobre a entrada…").
   const m = /^([a-z])((?:-[A-Z])*)\)\s*(.*)$/.exec(line);
   if (!m) return undefined;
@@ -375,7 +480,7 @@ function matchAlinea(line: string): Numbered | undefined {
   return { id: `ali${m[1]!.charCodeAt(0) - 96}${suffixId(suffix)}`, label: `alínea ${m[1]}${suffix}`, rest: m[3]! };
 }
 
-function matchItem(line: string): Numbered | undefined {
+export function matchItem(line: string): Numbered | undefined {
   const m = /^(\d+)((?:-[A-Z])*)\)\s*(.*)$/.exec(line);
   if (!m) return undefined;
   const suffix = m[2]!;
@@ -402,7 +507,7 @@ function suffixId(suffix: string): string {
 
 const ROMAN: Record<string, number> = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
 
-function romanToNumber(numeral: string): number | undefined {
+export function romanToNumber(numeral: string): number | undefined {
   let total = 0;
   for (let i = 0; i < numeral.length; i++) {
     const value = ROMAN[numeral[i]!]!;

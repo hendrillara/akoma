@@ -678,6 +678,8 @@ I - a parcela do produto da arrecadação correspondente a um adicional de oito 
 
 II - a parcela do produto da arrecadação correspondente a um adicional de cinco pontos percentuais na alíquota do Imposto sobre Produtos Industrializados – IPI, ou do imposto que vier a substituí-lo, incidente sobre produtos supérfluos e aplicável até a extinção do Fundo; *(Incluído pela Emenda Constitucional nº 31, de 2000)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 III - o produto da arrecadação do imposto de que trata o art. 153, inciso VII, da Constituição; *(Incluído pela Emenda Constitucional nº 31, de 2000)*
 
 IV - dotações orçamentárias; *(Incluído pela Emenda Constitucional nº 31, de 2000)*
@@ -700,11 +702,19 @@ VI - outras receitas, a serem definidas na regulamentação do referido Fundo. *
 
 **Art. 82** Os Estados, o Distrito Federal e os Municípios devem instituir Fundos de Combate à Pobreza, com os recursos de que trata este artigo e outros que vierem a destinar, devendo os referidos Fundos ser geridos por entidades que contem com a participação da sociedade civil. *(Incluído pela Emenda Constitucional nº 31, de 2000)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): Os Estados, o Distrito Federal e os Municípios devem instituir Fundos de Combate à Pobreza, devendo os referidos Fundos ser geridos por entidades que contem com a participação da sociedade civil.
+
 § 1º Para o financiamento dos Fundos Estaduais e Distrital, poderá ser criado adicional de até dois pontos percentuais na alíquota do Imposto sobre Circulação de Mercadorias e Serviços - ICMS, sobre os produtos e serviços supérfluos e nas condições definidas na lei complementar de que trata o art. 155, § 2º, XII, da Constituição, não se aplicando, sobre este percentual, o disposto no art. 158, IV, da Constituição. *(Redação dada pela Emenda Constitucional nº 42, de 19.12.2003)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): Para o financiamento dos Fundos Estaduais, Distrital e Municipais, poderá ser destinado percentual do imposto previsto no art. 156-A da Constituição Federal e dos recursos distribuídos nos termos dos arts. 131 e 132 deste Ato das Disposições Constitucionais Transitórias, nos limites definidos em lei complementar, não se aplicando, sobre estes valores, o disposto no art. 158, IV, da Constituição Federal.
 
 § 2º Para o financiamento dos Fundos Municipais, poderá ser criado adicional de até meio ponto percentual na alíquota do Imposto sobre serviços ou do imposto que vier a substituí-lo, sobre serviços supérfluos. *(Incluído pela Emenda Constitucional nº 31, de 2000)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
 
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+
 **Art. 83** Lei federal definirá os produtos e serviços supérfluos a que se referem os arts. 80, II, e 82, § 2º . *(Redação dada pela Emenda Constitucional nº 42, de 19.12.2003)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
 
 **Art. 84** A contribuição provisória sobre movimentação ou transmissão de valores e de créditos e direitos de natureza financeira, prevista nos arts. 74, 75 e 80, I, deste Ato das Disposições Constitucionais Transitórias, será cobrada até 31 de dezembro de 2004. *(Incluído pela Emenda Constitucional nº 37, de 2002)*
 
@@ -1001,6 +1011,8 @@ II - o chefe do Poder Executivo do ente federado inadimplente responderá, na fo
 III - a União reterá os recursos referentes aos repasses ao Fundo de Participação dos Estados e do Distrito Federal e ao Fundo de Participação dos Municípios e os depositará na conta especial referida no art. 101 deste Ato das Disposições Constitucionais Transitórias, para utilização como nele previsto; *(Incluído pela Emenda Constitucional nº 94, de 2016)*
 
 IV - os Estados e o Comitê Gestor do Imposto sobre Bens e Serviços reterão os repasses previstos, respectivamente, nos §§ 1º e 2º do art. 158 da Constituição Federal e os depositarão na conta especial referida no art. 101 deste Ato das Disposições Constitucionais Transitórias, para utilização como nele previsto. *(Redação dada pela Emenda Constitucional nº 132, de 2023)*
+
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): o Comitê Gestor do Imposto sobre Bens e Serviços reterá os repasses previstos no § 2º do art. 158 da Constituição Federal e os depositará na conta especial referida no art. 101 deste Ato das Disposições Constitucionais Transitórias, para utilização como nele previsto.
 
 Parágrafo único. Enquanto perdurar a omissão, o ente federado não poderá contrair empréstimo externo ou interno, exceto para os fins previstos no § 2º do art. 101 deste Ato das Disposições Constitucionais Transitórias, e ficará impedido de receber transferências voluntárias. *(Incluído pela Emenda Constitucional nº 94, de 2016)*
 
