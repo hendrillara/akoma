@@ -104,7 +104,12 @@ export type ReferenceKind =
  */
 export type ProvisionKind = "caput" | "paragrafo" | "inciso" | "alinea" | "item";
 
-/** Whether the dispositivo is law today. Revoked and vetoed dispositivos keep their id and label (LC 95 art. 12 III c). */
+/**
+ * The page's revoked/vetoed markers, and nothing more: `in_force` means the page does not mark the dispositivo revoked
+ * or vetoed, not that its wording has taken effect. When a change takes effect later (EC 132's 2027/2033 phases,
+ * EC 141 art. 7º XV) the page says so only through `references` of kind `vigencia`/`producao_de_efeito`.
+ * Revoked and vetoed dispositivos keep their id and label (LC 95 art. 12 III c).
+ */
 export type ProvisionStatus = "in_force" | "revoked" | "vetoed";
 
 export type PathKind = "parte" | "livro" | "titulo" | "capitulo" | "secao" | "subsecao" | "artigo" | ProvisionKind;

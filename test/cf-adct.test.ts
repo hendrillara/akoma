@@ -1,11 +1,13 @@
-// Seam 1: the CF and ADCT golden set, hand-verified against the recorded compiled Planalto page.
+// Seam 1: fidelity of the CF and ADCT built from the recorded compiled Planalto page: a hand-verified golden set,
+// structural invariants and a full-text snapshot.
 // Every expected value was read from the raw HTML of fixtures/2026-10-20/planalto/constituicaocompilado.htm (labels,
 // text, annotations and their links), never produced by the parser. Whitespace is collapsed as a browser shows it.
 import { beforeAll, describe, expect, it } from "vitest";
 import { adct } from "../src/norms/adct.ts";
 import { cf } from "../src/norms/cf.ts";
 import { build } from "../src/pipeline/build.ts";
-import type { Dataset } from "../src/schema/dataset.ts";
+import { datasetFiles } from "../src/pipeline/files.ts";
+import type { Dataset, Provision } from "../src/schema/dataset.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
 
 const fixtures = new URL("../fixtures/2026-10-20/", import.meta.url);
@@ -638,3 +640,119 @@ describe("CF and ADCT golden set", () => {
     expect(dataset.provisions.find((p) => p.norm === "cf" && p.id === "art91_cpt")?.status).toBe("in_force");
   });
 });
+
+describe("CF and ADCT structural invariants", () => {
+  let dataset: Dataset;
+  const of = (norm: string) => dataset.provisions.filter((p) => p.norm === norm);
+  const count = (norm: string, kind: string) => of(norm).filter((p) => p.kind === kind).length;
+
+  beforeAll(async () => {
+    dataset = await build({ manifests: [cf, adct], source: await recordedSource(fixtures), datasetVersion: "invariants" });
+  });
+
+  it("never gives two dispositivos of a norm the same id", () => {
+    for (const norm of ["cf", "adct"]) {
+      const ids = of(norm).map((p) => p.id);
+      expect(new Set(ids).size, norm).toBe(ids.length);
+    }
+  });
+
+  it("numbers siblings monotonically, letter suffixes after their base (29, 29-A, 30; § 1º, § 1º-A, § 2º)", () => {
+    for (const norm of ["cf", "adct"]) {
+      const last = new Map<string, number[]>();
+      for (const { id } of of(norm)) {
+        // Every level of the id: "art29-1_par1-1" → parents "", "art29-1"; numbers [29, 1], [1, 1].
+        const parts = id.split("_");
+        for (let depth = 0; depth < parts.length; depth++) {
+          const part = parts[depth]!;
+          if (part === "cpt") continue;
+          const kind = part.replace(/[\d-]+$/, "");
+          const numbers = part.slice(kind.length).split("-").map(Number);
+          const key = `${parts.slice(0, depth).join("_")}|${kind}`;
+          const previous = last.get(key);
+          if (previous && compare(previous, numbers) > 0) {
+            throw new Error(`${norm}: ${id} comes after ${kind}${previous.join("-")} under "${key}"`);
+          }
+          last.set(key, numbers);
+        }
+      }
+    }
+  });
+
+  it("counts articles exactly and incisos/parágrafos/alíneas near the normas.leg.br reference", () => {
+    // Articles in force on the page: CF 250 + 26 lettered, ADCT 138 + 10 lettered. normas.leg.br says 278 for the CF
+    // because it also counts the moved originals of arts. 134/135.
+    expect(count("cf", "caput")).toBe(276);
+    expect(count("adct", "caput")).toBe(148);
+    // normas.leg.br (2026-10-20 fixture): CF 1,298 incisos, 816 parágrafos, 318 alíneas; ADCT 269, 312, 71. It runs
+    // higher because it keeps the children of articles Planalto collapses into one revoked line (CF art. 171,
+    // §§ of art. 233; ADCT arts. 106–114), so Planalto's counts sit a little below it, never above.
+    const near = (actual: number, reference: number, tolerance: number) => {
+      expect(actual).toBeLessThanOrEqual(reference);
+      expect(actual).toBeGreaterThanOrEqual(Math.floor(reference * (1 - tolerance)));
+    };
+    near(count("cf", "inciso"), 1298, 0.03);
+    near(count("cf", "paragrafo"), 816, 0.03);
+    near(count("cf", "alinea"), 318, 0.04);
+    near(count("adct", "inciso"), 269, 0.2);
+    near(count("adct", "paragrafo"), 312, 0.1);
+    near(count("adct", "alinea"), 71, 0.3);
+    expect(count("cf", "item") + count("adct", "item")).toBe(0);
+  });
+
+  it("keeps every revoked dispositivo the page marks, with its id", () => {
+    // Hand count on the page: CF 39 lines carry a revocation marker, one of them "§§ 1º a 3º" (3 dispositivos) and one
+    // "Art. 117. e Parágrafo único" (2), so 42; ADCT 18 lines, 18 dispositivos. Neither has a vetoed dispositivo.
+    expect(of("cf").filter((p) => p.status === "revoked")).toHaveLength(42);
+    expect(of("adct").filter((p) => p.status === "revoked")).toHaveLength(18);
+    expect(dataset.provisions.filter((p) => p.status === "vetoed")).toEqual([]);
+    for (const p of dataset.provisions.filter((p) => p.status === "revoked")) {
+      // The wording a revoked dispositivo keeps is the page's marker or nothing (the revocation is then an annotation).
+      expect(p.text, p.id).toMatch(/^(\(?revogad[oa]s?\)?[.;]?)?$/i);
+    }
+  });
+
+  it("leaves no annotation, entity or struck-text residue in any text", () => {
+    const residue =
+      /\((?:Redação dada|Incluíd|Revogad[oa]s? pel|Vide|Vigência|Produção de efeito|Renumerad)|\bVide\s|Incluíd[oa] pel[oa]|&#|&nbsp|&quot|\uFFFD|\uE000|, ,|\s{2}|^\s|\s$/i;
+    const leaks = dataset.provisions.filter((p) => residue.test(p.text)).map((p) => `${p.norm} ${p.id}: ${p.text}`);
+    expect(leaks).toEqual([]);
+  });
+
+  it("recognises the amending act of every amendment annotation (the CF and ADCT are amended only by ECs)", () => {
+    const unparsed = dataset.provisions.flatMap((p) => p.amendments.filter((a) => !a.act).map((a) => `${p.id}: ${a.annotation}`));
+    expect(unparsed).toEqual([]);
+    const types = new Set(dataset.provisions.flatMap((p) => p.amendments.map((a) => a.act?.type)));
+    expect(types).toEqual(new Set(["emenda_constitucional", "emenda_constitucional_de_revisao"]));
+  });
+
+  it("surfaces every \"Vide ADI/ADIN\" on the page as an ADI reference on its dispositivo", () => {
+    // Counted on the page text: 40 "(Vide ADI …)" and 17 "(Vide ADIN …)" annotations, all trailing a dispositivo.
+    const adis = dataset.provisions.flatMap((p) => p.references.filter((r) => r.kind === "adi"));
+    expect(adis.length).toBe(57);
+    for (const reference of adis) expect(reference.number).toMatch(/^\d[\d.]*(-\d+)?$/);
+  });
+
+  it("carries the STF notice in every dispositivo's provenance", () => {
+    const notices = new Set(dataset.provisions.map((p) => p.provenance.notice));
+    expect([...notices]).toEqual([expect.stringContaining("não é verificada contra decisões do STF")]);
+  });
+});
+
+// Any change to the text of the CF or the ADCT shows up as a diff of these committed Markdown mirrors. Regenerate them
+// with `pnpm vitest run -u` only when the change is explained (a parser fix, or a new amending act in the fixtures).
+describe("CF and ADCT full-text snapshot", () => {
+  it.each(["cf", "adct"])("%s matches its committed Markdown mirror", async (norm) => {
+    const dataset = await build({ manifests: [cf, adct], source: await recordedSource(fixtures), datasetVersion: "snapshot" });
+    const mirror = datasetFiles(dataset).find((f) => f.path === `${norm}.md`)!.content;
+    await expect(mirror).toMatchFileSnapshot(`./snapshots/${norm}.md`);
+  });
+});
+
+function compare(a: number[], b: number[]): number {
+  for (let i = 0; i < Math.max(a.length, b.length); i++) {
+    const d = (a[i] ?? 0) - (b[i] ?? 0);
+    if (d !== 0) return d;
+  }
+  return 0;
+}

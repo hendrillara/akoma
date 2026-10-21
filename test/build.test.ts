@@ -4,6 +4,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import { adct } from "../src/norms/adct.ts";
 import { cf } from "../src/norms/cf.ts";
 import { build } from "../src/pipeline/build.ts";
+import { datasetFiles } from "../src/pipeline/files.ts";
 import type { Dataset, Provision } from "../src/schema/dataset.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
 
@@ -254,6 +255,49 @@ describe("parser hygiene", () => {
       path: [...top, { kind: "capitulo", label: "Capítulo II" }, { kind: "artigo", label: "Art. 10-B" }, { kind: "alinea", label: "alínea a" }],
       text: "ato de improbidade;",
     });
+  });
+
+  it("publishes one canonical JSON and one Markdown mirror per article, plus a Markdown mirror of the whole norm", () => {
+    const files = datasetFiles(dataset);
+    const paths = files.map((f) => f.path);
+    expect(paths.filter((p) => p.endsWith(".json"))).toEqual(
+      ["art1", "art2", "art3", "art4-1", "art10-2", "art11"].map((a) => `hygiene/${a}.json`),
+    );
+    expect(paths.filter((p) => p.endsWith(".md"))).toEqual([
+      ...["art1", "art2", "art3", "art4-1", "art10-2", "art11"].map((a) => `hygiene/${a}.md`),
+      "hygiene.md",
+    ]);
+
+    const json = JSON.parse(files.find((f) => f.path === "hygiene/art10-2.json")!.content);
+    expect(json.article).toBe("art10-2");
+    expect(json.norm).toEqual({ key: "hygiene", urn: hygiene.urn, title: hygiene.title });
+    expect(json.provisions).toEqual(dataset.provisions.filter((p) => p.id.startsWith("art10-2_")));
+
+    expect(files.find((f) => f.path === "hygiene/art10-2.md")!.content).toBe(
+      [
+        "<!-- Parte Geral › Livro Primeiro › Título I › Capítulo II › Art. 10-B -->",
+        "**Art. 10-B** Constituem justa causa para rescisão do contrato de trabalho pelo empregador:",
+        "a) ato de improbidade;",
+        "b) incontinência de conduta ou mau procedimento;",
+      ].join("\n\n") + "\n",
+    );
+    const mirror = files.find((f) => f.path === "hygiene.md")!.content;
+    expect(mirror).toMatch(/^# Hygiene fixture\n\n> Texto não oficial/);
+    expect(mirror).toContain(
+      [
+        "## Parte Geral",
+        "### Livro Primeiro",
+        "#### Título I",
+        "##### Capítulo I",
+        "**Art. 1º** O presente código estabelece normas",
+      ].join("\n\n"),
+    );
+    expect(mirror).toContain(
+      "III - harmonização dos interesses dos participantes das relações de consumo; *(Redação dada pela Lei nº 9.999, de 1999)*",
+    );
+    expect(mirror).toContain("##### Capítulo II\n\n**Art. 10-B** Constituem justa causa");
+    expect(mirror).toContain("§ 3º (Vetado).\n");
+    expect(mirror).toMatch(/\*\*Art\. 11\*\* \(Vetado\)\.\n$/);
   });
 
   it("keeps vetoed dispositivos with their ids and the page's own marker", () => {
