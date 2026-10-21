@@ -1,0 +1,13 @@
+{
+  "capturedOn": "2026-10-21",
+  "snapshots": [
+    {
+      "file": "page.htm",
+      "url": "https://example.invalid/page.htm",
+      "encoding": "windows-1252",
+      "headers": {},
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "bytes": 22
+    }
+  ]
+}
