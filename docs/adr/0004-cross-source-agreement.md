@@ -24,7 +24,7 @@ LEGIN has no ids at all, annotates in its own style, and has defects of its own.
    - `unconfirmed` + note: the norm has no usable secondary source, the source is unreachable on this run, the dispositivo is not yet in force, or the secondary has no dispositivo with that label. In the last case the build also records a `problem` finding, unless the dispositivo is revoked or vetoed.
    - **Unexplained divergence:** `unconfirmed` in provenance plus a `problem` finding, which blocks the merge. Nothing else blocks.
 4. **Dispositivos only the secondary has:** under a dispositivo the primary marks revoked (normas.leg.br keeps a revoked article's subtree; Planalto prints one line), they produce one aggregated note. A revoked or vetoed one gets a note of its own (LEGIN's art. 11-A and art. 39 XV, vetoed insertions Planalto omits). One in force is a `problem`, because the parser may have dropped it.
-5. **Findings** have the shape every review layer reports: `{ layer: "cross-source", check, severity: "problem" | "note", norm, id?, act?, message }`. They live in `dataset.status.crossSource[].findings`, ready for the verdict (#10). Messages and reasons never quote text that only the secondary has.
+5. **Findings** have the shape every review layer reports: `{ layer: "cross-source", check, severity: "problem" | "note", norm, id?, act?, message }`. They live in `dataset.status.crossSource[].findings`; `crossSourceFindings(dataset)` hands them to `decide()` (src/review/verdict.ts, #10). Messages and reasons never quote text that only the secondary has.
 6. **The build fails when normas.leg.br's undocumented API changes shape.** The guard fails on:
    - a licence other than CC BY 4.0;
    - another URN, a missing articulated root, or an unknown node kind;
@@ -80,7 +80,7 @@ O LEGIN não tem ids, anota no estilo da Câmara e tem defeitos próprios.
    - `unconfirmed` com nota: norma sem fonte utilizável, fonte inacessível nesta execução, dispositivo ainda não vigente, ou dispositivo ausente na secundária. No último caso há também um achado `problem`, salvo se o dispositivo for revogado ou vetado.
    - **Divergência sem explicação:** `unconfirmed` na proveniência e um achado `problem`, que bloqueia o merge. Nada mais bloqueia.
 4. **Dispositivos só na secundária:** sob um dispositivo revogado no principal, viram uma nota agregada. Um revogado ou vetado ganha nota própria (os vetos que só o LEGIN imprime: art. 11-A e art. 39, XV). Um vigente é `problem`, porque o parser pode tê-lo perdido.
-5. **Achados** têm o formato de toda camada de revisão (`layer`, `check`, `severity`, `norm`, `id`, `act`, `message`) e ficam em `dataset.status.crossSource[].findings`, prontos para o veredito (#10). Mensagens e motivos nunca citam texto que só a secundária tem.
+5. **Achados** têm o formato de toda camada de revisão (`layer`, `check`, `severity`, `norm`, `id`, `act`, `message`) e ficam em `dataset.status.crossSource[].findings`; `crossSourceFindings(dataset)` os entrega ao `decide()` (src/review/verdict.ts, #10). Mensagens e motivos nunca citam texto que só a secundária tem.
 6. **O build falha quando a API não documentada do normas.leg.br muda de formato.** O guarda falha em:
    - licença diferente de CC BY 4.0;
    - outra URN, raiz articulada ausente ou tipo de nó desconhecido;

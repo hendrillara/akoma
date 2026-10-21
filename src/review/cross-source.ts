@@ -4,6 +4,7 @@
 import type {
   CrossSourceFinding,
   CrossSourceStatus,
+  Dataset,
   Provision,
   SecondaryAgreement,
   SecondaryOutcome,
@@ -15,6 +16,7 @@ import { KNOWN_DIVERGENCES, type KnownDivergence } from "./known-divergences.ts"
 import { readLegin } from "./legin.ts";
 import { readNormas } from "./normas.ts";
 import { actKey, type SecondaryDispositivo } from "./secondary.ts";
+import type { Finding } from "./verdict.ts";
 
 /** The parts of a dispositivo the check reads. */
 export type Checked = Pick<Provision, "id" | "text" | "status" | "amendments" | "pending">;
@@ -39,6 +41,11 @@ const AGREEMENT_FLOOR = 0.8;
 
 export const NORMAS_ATTRIBUTION =
   "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).";
+
+/** Layer 2's findings for the verdict: `decide(gateFindings, crossSourceFindings(next), …)`. */
+export function crossSourceFindings(dataset: Dataset): Finding[] {
+  return (dataset.status?.crossSource ?? []).flatMap((s) => s.findings);
+}
 
 export async function crossCheck(manifest: NormManifest, provisions: Checked[], source: Source, kept = KNOWN_DIVERGENCES): Promise<CrossCheck> {
   const declared = manifest.secondarySources.find((s) => s.verified.usable);

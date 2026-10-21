@@ -11,6 +11,8 @@ import { build } from "../src/pipeline/build.ts";
 import { detectChanges } from "../src/pipeline/changes.ts";
 import { datasetFiles } from "../src/pipeline/files.ts";
 import type { CrossSourceFinding, Dataset, Provision } from "../src/schema/dataset.ts";
+import { crossSourceFindings } from "../src/review/cross-source.ts";
+import { decide } from "../src/review/verdict.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
 import type { Source } from "../src/sources/source.ts";
 
@@ -117,6 +119,7 @@ describe("every norm from the recorded sources", () => {
 
   it("finds no unexplained divergence, and every reviewed known divergence still applies", () => {
     expect(problems(dataset)).toEqual([]);
+    expect(decide(crossSourceFindings(dataset)).decision).toBe("merge");
     expect(dataset.status!.crossSource.flatMap((s) => s.findings).filter((f) => f.check === "known-divergence-unused")).toEqual([]);
   });
 
@@ -236,6 +239,7 @@ describe("scenarios derived from the recorded sources", () => {
         message: "The wording differs from normas.leg.br and no amending act or reviewed known divergence explains it; held for review.",
       },
     ]);
+    expect(decide(crossSourceFindings(dataset)).decision).toBe("needs-human");
   });
 
   it("blocks a dispositivo in force in the secondary that the primary build lacks", async () => {
