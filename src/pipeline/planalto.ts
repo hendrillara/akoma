@@ -2,7 +2,7 @@
 // Parte › Livro › Título › Capítulo › Seção › Subseção › Artigo › Parágrafo › Inciso › Alínea › Item.
 import { parse, type DefaultTreeAdapterMap } from "parse5";
 import type { Amendment, PathKind, PathSegment, ProvisionKind, ProvisionStatus, Reference } from "../schema/dataset.ts";
-import { peelAnnotations, type Link } from "./annotations.ts";
+import { peelAnnotations, type Link, type Peeled } from "./annotations.ts";
 
 type Node = DefaultTreeAdapterMap["node"];
 type Element = DefaultTreeAdapterMap["element"];
@@ -32,8 +32,20 @@ interface Open {
   path: PathSegment[];
 }
 
-/** @param baseUrl the page's URL, against which annotation links are resolved. */
-export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: string): ParsedProvision[] {
+/** Peels a source's trailing annotations off a line, keeping the wording verbatim and the annotations as metadata. */
+export type AnnotationPeeler = (raw: string, links: Link[]) => Peeled;
+
+/**
+ * @param baseUrl the page's URL, against which annotation links are resolved.
+ * @param peel the page's annotation style: Planalto's by default; a page laid out like Planalto's but annotated in
+ * another style (Câmara LEGIN, review layer 2) brings its own.
+ */
+export function parsePlanaltoPage(
+  html: string,
+  layout: PageLayout,
+  baseUrl: string,
+  peel: AnnotationPeeler = peelAnnotations,
+): ParsedProvision[] {
   const out: ParsedProvision[] = [];
   const groups: PathSegment[] = [];
   let article: Open | undefined;
@@ -50,7 +62,7 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
      * whose text is struck ("IX - <strike>…</strike>"), possibly with the old wording's annotation outside the strike.
      */
     const emit = (parent: Open, kind: ProvisionKind, segment: PathSegment, id: string, rest: string): Open | undefined => {
-      const peeled = peelAnnotations(rest, links);
+      const peeled = peel(rest, links);
       const status = statusOf(peeled.text, peeled.amendments);
       if (status === "in_force" && /^[\s.,;:–-]*$/.test(peeled.text)) return undefined;
       const path = [...parent.path, segment];
@@ -63,8 +75,8 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
     // Quoted text of another act ("Acrescente-se … à Lei nº 7.347 …:", then "§ 4.° …", "§ 5.° …", "… extrajudicial".)
     // is part of the commanding dispositivo: inside it nothing is a heading, an article or a label of this norm.
     if (quoting) {
-      append(out.at(-1)!, line, links);
-      quoting = !closesQuote(line, links);
+      append(out.at(-1)!, line, links, peel);
+      quoting = !closesQuote(line, links, peel);
       continue;
     }
 
@@ -98,8 +110,8 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
     if (/^[\s.,;:–-]*$/.test(line)) continue;
     // A block opening with a quote mark quotes another act; it stays open until a block ends with the closing mark.
     if (!struck && /^["“]/.test(line)) {
-      append(out.at(-1)!, line, links);
-      quoting = !closesQuote(line, links);
+      append(out.at(-1)!, line, links, peel);
+      quoting = !closesQuote(line, links, peel);
       continue;
     }
     // LexML Parte 3: children of the caput hang under `_cpt`; the caput adds no segment to their path.
@@ -141,7 +153,7 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
     // A penal sanction ("Pena - Detenção de…", often with no dash) completes the dispositivo above it: LexML gives it
     // no id of its own (it is the dispositivo's <Pena>), so it joins that dispositivo's text on a line of its own.
     if (/^Pena\b/.test(line)) {
-      append(out.at(-1)!, line, links);
+      append(out.at(-1)!, line, links, peel);
       continue;
     }
 
@@ -155,13 +167,13 @@ export function parsePlanaltoPage(html: string, layout: PageLayout, baseUrl: str
 }
 
 /** Whether a line ends a quote: a closing mark at its end, before any "(NR)", final punctuation or annotations. */
-function closesQuote(line: string, links: Link[]): boolean {
-  return /["”]\s*(?:\(NR\))?\s*[.;]?$/.test(peelAnnotations(line, links).text);
+function closesQuote(line: string, links: Link[], peel: AnnotationPeeler): boolean {
+  return /["”]\s*(?:\(NR\))?\s*[.;]?$/.test(peel(line, links).text);
 }
 
 /** Adds a line that belongs to a dispositivo already recorded (a Pena line, quoted text) to its text and metadata. */
-function append(provision: ParsedProvision, line: string, links: Link[]): void {
-  const peeled = peelAnnotations(line, links);
+function append(provision: ParsedProvision, line: string, links: Link[], peel: AnnotationPeeler): void {
+  const peeled = peel(line, links);
   provision.text = provision.text ? `${provision.text}\n${peeled.text}` : peeled.text;
   provision.amendments.push(...peeled.amendments);
   provision.references.push(...peeled.references);

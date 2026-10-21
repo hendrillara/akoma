@@ -15,7 +15,10 @@ export interface ArticleFile {
   provisions: Provision[];
 }
 
-/** Per norm: `<norm>/<article>.json` and `<norm>/<article>.md` for each article, plus `<norm>.md` with the whole text. */
+/**
+ * Per norm: `<norm>/<article>.json` and `<norm>/<article>.md` for each article, plus `<norm>.md` with the whole text;
+ * then `status.json` with the build's own checks (today review layer 2's outcomes per norm; #12 adds the rest).
+ */
 export function datasetFiles(dataset: Dataset): DatasetFile[] {
   const files: DatasetFile[] = [];
   for (const norm of dataset.norms) {
@@ -27,6 +30,7 @@ export function datasetFiles(dataset: Dataset): DatasetFile[] {
     }
     files.push({ path: `${norm.key}.md`, content: normMarkdown(norm, [...articles.values()].flat()) });
   }
+  if (dataset.status) files.push({ path: "status.json", content: `${JSON.stringify(dataset.status, null, 2)}\n` });
   return files;
 }
 

@@ -8,7 +8,7 @@ A norm is a declarative manifest plus its tests. The pipeline has no per-norm co
 2. **Write the manifest** in `src/norms/<key>.ts` and add it to `src/norms/index.ts`:
    - `key`, `title`, the LexML `urn`, plus its `type` and `date`. The build fails if they disagree with the URN.
    - `primaryUrl`: the Planalto page. Add `startAnchor`/`endAnchor` only when the norm shares its page with another norm (CF/ADCT).
-   - `secondarySources`: each cross-check source (normas.leg.br when it articulates the norm, otherwise Câmara LEGIN), with `verified` (date, usable or not, why). Record the verification in an ADR when it decides something (ADR 0002 for the CDC). With none usable, the norm runs under the `unconfirmed` rule.
+   - `secondarySources`: each cross-check source (normas.leg.br when it articulates the norm, otherwise Câmara LEGIN), with `verified` (date, usable or not, why). Record the verification in an ADR when it decides something (ADR 0002 for the CDC). With none usable, the norm runs under the `unconfirmed` rule. Build the norm once and read its cross-source findings (ADR 0004): fix the parser for every difference that is ours, and add each remaining source difference to `src/review/known-divergences.ts` with its reason, until the build has no `problem`.
    - `knownQuirks`: what is odd about this page, as found. It is a record, not a switch: each quirk gets a golden-set dispositivo.
    - `citedAs` and `deferredActs`, only when an amending act still defers changes to the norm: how acts name it ("Constituição Federal") and the official pages of those acts, which then must be in every source that builds the norm (ADR 0003).
 3. **Write `test/<key>.test.ts`** (seam 1, through `build()` only):
@@ -34,7 +34,7 @@ Uma norma é um manifesto declarativo mais os testes dela. O pipeline não tem c
 2. **Escreva o manifesto** em `src/norms/<chave>.ts` e inclua-o em `src/norms/index.ts`:
    - `key`, `title`, a `urn` LexML, mais `type` e `date`. O build falha se não baterem com a URN.
    - `primaryUrl`: a página do Planalto. `startAnchor`/`endAnchor` só quando a norma divide a página com outra.
-   - `secondarySources`: cada fonte de conferência, com `verified` (data, utilizável ou não, por quê). Registre a verificação numa ADR quando ela decidir algo. Sem fonte utilizável, vale a regra `unconfirmed`.
+   - `secondarySources`: cada fonte de conferência, com `verified` (data, utilizável ou não, por quê). Registre a verificação numa ADR quando ela decidir algo. Sem fonte utilizável, vale a regra `unconfirmed`. Monte a norma uma vez e leia os achados da conferência entre fontes (ADR 0004): corrija o parser em toda diferença que for nossa e registre cada diferença restante entre as fontes em `src/review/known-divergences.ts`, com o motivo, até o build não ter nenhum `problem`.
    - `knownQuirks`: as peculiaridades da página. É registro, não chave: cada uma ganha um dispositivo no golden set.
    - `citedAs` e `deferredActs`, só quando uma emenda ainda adia mudanças na norma: como os atos a nomeiam e as páginas oficiais desses atos, que passam a ser exigidas em toda fonte que monta a norma (ADR 0003).
 3. **Escreva `test/<chave>.test.ts`** (seam 1, só via `build()`):

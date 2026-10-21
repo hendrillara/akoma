@@ -112,6 +112,8 @@ describe("build", () => {
           contentHash: "sha256:9b297737a232926510d14e28c0bc7fa48fc891bc5a553e8b440902d461a9cab3",
           datasetVersion,
           notice: STF_NOTICE,
+          // normas.leg.br "art1_cpt_inc4" (Original_Version): the same wording, word for word.
+          secondary: { source: "normas.leg.br", outcome: "agrees" },
         },
       });
     });
@@ -282,9 +284,10 @@ describe("parser hygiene", () => {
   it("publishes one canonical JSON and one Markdown mirror per article, plus a Markdown mirror of the whole norm", () => {
     const files = datasetFiles(dataset);
     const paths = files.map((f) => f.path);
-    expect(paths.filter((p) => p.endsWith(".json"))).toEqual(
-      ["art1", "art2", "art3", "art4-1", "art10-2", "art11"].map((a) => `hygiene/${a}.json`),
-    );
+    expect(paths.filter((p) => p.endsWith(".json"))).toEqual([
+      ...["art1", "art2", "art3", "art4-1", "art10-2", "art11"].map((a) => `hygiene/${a}.json`),
+      "status.json",
+    ]);
     expect(paths.filter((p) => p.endsWith(".md"))).toEqual([
       ...["art1", "art2", "art3", "art4-1", "art10-2", "art11"].map((a) => `hygiene/${a}.md`),
       "hygiene.md",

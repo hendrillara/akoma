@@ -17,7 +17,7 @@ export const cdc: NormManifest = {
       verified: {
         on: "2026-10-21",
         usable: true,
-        note: "Compiled text current to MP 1.393/2026, like Planalto; not articulated, so compared per article. Known divergences (annotation style, vetoed-in-amending-law items, a few wording differences, one duplicated phrase) are listed in ADR 0002.",
+        note: "Compiled text current to MP 1.393/2026, like Planalto; not articulated: matched by printed labels, its annotations read per article (ADR 0002, ADR 0004). Its wording differences are reviewed in src/review/known-divergences.ts.",
       },
     },
   ],

@@ -3,8 +3,8 @@
 import type { ActCitation, Amendment, PendingChange, Provision } from "../schema/dataset.ts";
 import { isUnder, type AmendingAct, type DeferredChange } from "./acts.ts";
 
-/** A provision before hashing: the build computes `provenance.contentHash` once the text is final. */
-export type Draft = Omit<Provision, "provenance"> & { provenance: Omit<Provision["provenance"], "contentHash"> };
+/** A provision before hashing and review: the build adds `provenance.contentHash` and `.secondary` once the text is final. */
+export type Draft = Omit<Provision, "provenance"> & { provenance: Omit<Provision["provenance"], "contentHash" | "secondary"> };
 
 /**
  * Applies the changes `acts` defer for one norm (those cited as `citedAs`) to its `drafts`, in place.

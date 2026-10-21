@@ -66,6 +66,8 @@ describe("API v1", () => {
           contentHash: "sha256:ac4a37222107e533c0f2e9e78ea6de045a0d5d5d8b0cec8a6a3ed1ee9e73e0f0",
           datasetVersion: "2026.10.21-test",
           notice: expect.stringContaining("Vigência is not verified against STF decisions"),
+          // normas.leg.br "art5_cpt_inc10", its only version: the same wording, word for word.
+          secondary: { source: "normas.leg.br", outcome: "agrees" },
         },
       });
     });
@@ -112,6 +114,8 @@ describe("API v1", () => {
             key: "cf",
             urn: "urn:lex:br:federal:constituicao:1988-10-05;1988",
             title: "Constituição da República Federativa do Brasil de 1988",
+            // Its records carry normas.leg.br ids as aliases, which CC BY 4.0 requires to be credited.
+            attribution: expect.stringMatching(/normas\.leg\.br.*Senado Federal.*CC BY 4\.0/),
           },
         ],
       });
