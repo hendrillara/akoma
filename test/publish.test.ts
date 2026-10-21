@@ -423,8 +423,8 @@ describe("daily job: the CDC reworded by a law (test/fixtures/refresh/cdc-law, s
 });
 
 describe("daily job: personal data in page metadata (test/fixtures/redaction)", () => {
-  // The CDC refresh of cdc-law, with a LEGIN page whose metadata names people in ten forms (its README lists them).
-  const names = ["Fulana", "Beltrano", "Sicrano", "Mevio", "Ticio", "Sempronio", "Graco", "Tizio", "Fulano"];
+  // The CDC refresh of cdc-law, with a LEGIN page whose metadata names people in every form its README lists.
+  const names = ["Fulana", "Beltrano", "Sicrano", "Mevio", "Ticio", "Sempronio", "Graco", "Tizio", "Fulano", "Zutano", "Mengano", "Perengano", "Tertius", "Quartus"];
   const plantedPage = new URL("test/fixtures/redaction/legin.html", root);
   const captured = "fixtures/2026-10-23-daily/camara-legin/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html";
 
@@ -446,24 +446,31 @@ describe("daily job: personal data in page metadata (test/fixtures/redaction)", 
     for (const name of names) expect(written).not.toContain(name);
   });
 
-  it("keeps only the charset metas, blanks every other meta's values, every comment and the Office XML block", async () => {
+  it("keeps only the charset declaration and blanks every meta, comment, raw-text content and Office block", async () => {
     const { workspace } = await redactionRun();
     const legin = workspace.text(captured);
-    // Kept as served: the charset declaration.
+    // Kept as served: the charset declaration, and the plain stylesheet link (none on this page).
     expect(legin).toContain('<meta http-equiv="content-type" content="text/html; charset=utf-8"/>');
-    // Every other meta keeps its key (name, property, itemprop) and its content is redacted, in any markup; any
-    // other attribute goes, an attribute name written with a character reference included.
-    expect(legin).toContain('<meta name="generator" content="[redacted]"/>');
-    expect(legin).toContain('<meta content="[redacted]" name="Author"/>');
-    expect(legin).toContain("<META NAME=changedby CONTENT=[redacted]>");
-    expect(legin).toContain('<meta name="author" content="[redacted]"/>\n<meta content="[redacted]"/>');
-    expect(legin).toContain('<meta property="article:author" content="[redacted]"/>');
-    expect(legin).toContain('<meta itemprop="editor" content="[redacted]"/>');
-    // A repeated attribute, which the parser drops, is rewritten from what the parser reads.
-    expect(legin).toContain('<meta name="description" content="[redacted]"/>');
-    // Comments (the conditional one with Word's properties too) and the bare XML block are emptied.
-    expect(legin).toContain("<!---->\n<meta");
-    expect(legin).toContain("<!---->\n<xml></xml>\n</head>");
+    // Every other meta, in any markup (reversed or repeated attributes, a ">" in a value, an encoded attribute name,
+    // property and itemprop, inside raw text), and the charset-shaped ones carrying other values: a fixed tag.
+    const metas = [...legin.matchAll(/<meta\b[^>]*>/gi)].map((m) => m[0]);
+    expect(new Set(metas)).toEqual(
+      new Set(['<meta http-equiv="content-type" content="text/html; charset=utf-8"/>', '<meta content="[redacted]"/>', '<meta content="[redacted]">']),
+    );
+    // The page's own 13 metas (one the charset), 7 planted ones and the 2 charset-shaped ones; the 2 inside raw text
+    // are gone with its content.
+    expect(metas.length).toBe(13 + 7 + 2);
+    expect(legin).toContain("\n<link/>\n");
+    // Every comment (the conditional one with Word's properties, CDATA, <![if …]>, <?…?>) is emptied.
+    expect([...legin.matchAll(/<!--[\s\S]*?-->/g)].map((m) => m[0]).every((c) => c === "<!---->")).toBe(true);
+    // Raw-text and RCDATA elements keep their tags and lose their content.
+    for (const tag of ["script", "style", "title", "noscript", "noframes", "textarea", "xmp", "iframe", "noembed"]) {
+      expect(legin).toContain(`<${tag}></${tag}>`);
+    }
+    // The Office blocks keep their tags and lose their content.
+    expect(legin).toContain("<xml></xml>");
+    expect(legin).toContain("<cp:coreProperties></cp:coreProperties>");
+    expect(legin).toContain("<o:Author></o:Author>");
   });
 
   it("leaves every byte outside the head as served, so the build reads the same law", async () => {

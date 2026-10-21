@@ -1,29 +1,51 @@
 // Personal data in page metadata never gets past the source. Document properties can name a person (on Câmara LEGIN
-// pages, the staff member who edited the file), so the redactor keeps an allowlist instead of hunting for names: of the
-// page's metadata, only the charset declaration stays as served. Every other `<meta>` keeps its key (name, property,
-// itemprop, http-equiv), has its `content` replaced with "[redacted]" and loses any other attribute; every HTML
-// comment (Word's conditional ones hold its document properties) is emptied; and every Office XML block (`<xml>`,
-// `<o:DocumentProperties>`) loses its content. The page is read with parse5, the parser the build reads it with, so the redactor sees exactly the
-// elements, attributes and comments the build would: no regex over markup, no parser differential.
-// The daily job wraps every source in `redacting`, so the build, the review, the committed capture and every report
-// see the same redacted page, and a regeneration from the capture reads exactly what the run read.
+// pages, the staff member who edited the file), so instead of hunting for names the redactor keeps only what is known
+// to be harmless and blanks the rest of every place where metadata lives:
+// - every `<meta>` but a charset declaration (a known charset label, nothing else) becomes `<meta content="[redacted]">`;
+// - every `<link>` but a plain stylesheet or icon link becomes `<link>`;
+// - every HTML comment becomes `<!---->` (Word's conditional comments hold its document properties; a CDATA section
+//   or a `<?…?>`/`<![…]>` block in HTML is a comment too);
+// - the content of every raw-text or RCDATA element (`script`, `style`, `title`, `textarea`, `xmp`, `iframe`,
+//   `noembed`, `noframes`, `noscript`), of every `<template>`, of every Office XML island (`<xml>`,
+//   `<o:DocumentProperties>`) and of every Office property element (`o:*` but `<o:p>`, `dc:*`, `dcterms:*`, `cp:*`) is
+//   removed.
+// The page is read with parse5, the parser the build reads it with, and every edit is made at parse5's source
+// locations, so the redactor sees exactly the elements, attributes and comments the build does: a `>` inside a quoted
+// value, an attribute name written with a character reference, a repeated attribute or markup inside raw text cannot
+// put a value where one reader sees it and the other does not. The build's own text is untouched: it never reads
+// `<head>`, scripts, styles or templates, and the law is never inside a comment, a meta or an Office property element.
+// One limit, on pages the build could not read either: an element that swallows the rest of the page (`<plaintext>`,
+// or a `<title>`/`<textarea>`… never closed) keeps that text, which the build reads as the page's text.
+// The daily job and the recheck wrap every source in `redacting`, so the build, the review, the committed capture and
+// every report see the same redacted page, and a regeneration from the capture reads exactly what the run read.
 import { parse, type DefaultTreeAdapterMap } from "parse5";
 import type { Probe, RawSnapshot, Source, Validators } from "./source.ts";
 
 type Node = DefaultTreeAdapterMap["node"];
 type Element = DefaultTreeAdapterMap["element"];
 
-const REDACTED = "[redacted]";
-/** The attributes that say what a meta is: kept as written. `content` becomes "[redacted]"; any other attribute is dropped. */
-const META_KEYS = new Set(["name", "property", "itemprop", "http-equiv"]);
-/** A charset declaration's values, when they are nothing but that. */
-const CHARSET = /^[\w.:-]{1,40}$/;
-const CONTENT_TYPE = /^[\w.+-]+\/[\w.+-]+\s*(?:;\s*charset\s*=\s*[\w.:-]{1,40}\s*)?$/i;
+/** Elements whose content the tokenizer reads as raw text or RCDATA (no tags, no comments inside). */
+const RAW_TEXT = new Set(["script", "style", "title", "textarea", "xmp", "iframe", "noembed", "noframes", "noscript"]);
+/** Of those, the ones the build never reads: blanked to the end of the page when they are never closed. */
+const NEVER_READ = new Set(["script", "style"]);
+/** Office's document-property namespaces (Word HTML, OOXML core properties). `o:p` is Word's paragraph, kept. */
+const OFFICE_PREFIX = /^(?:o|dc|dcterms|cp):/;
+const CHARSET_LABEL = "(?:utf-?8|windows-125[0-8]|iso-8859-(?:1|15)|us-ascii|latin1)";
+const CHARSET = new RegExp(`^${CHARSET_LABEL}$`, "i");
+const CONTENT_TYPE = new RegExp(`^text/html\\s*(?:;\\s*charset\\s*=\\s*${CHARSET_LABEL}\\s*)?$`, "i");
+const LINK_RELS = new Set(["stylesheet", "icon", "shortcut icon"]);
 
 interface Edit {
   start: number;
   end: number;
   text: string;
+}
+
+interface Context {
+  text: string;
+  /** Offsets of the start tags the parser had to repair (a repeated attribute, which it drops but the bytes keep). */
+  repaired: number[];
+  edits: Edit[];
 }
 
 /**
@@ -36,129 +58,110 @@ export function redactPersonalData(body: Uint8Array): Uint8Array {
   const text = Buffer.from(body).toString("latin1");
   if (/^\s*[[{]/.test(text)) return body;
 
-  // Start tags the parser had to repair (a repeated attribute, which it drops but the bytes keep).
-  const repaired: number[] = [];
+  const context: Context = { text, repaired: [], edits: [] };
   const document = parse(text, {
     sourceCodeLocationInfo: true,
     onParseError: (error) => {
-      if (error.code === "duplicate-attribute") repaired.push(error.startOffset);
+      if (error.code === "duplicate-attribute") context.repaired.push(error.startOffset);
     },
   });
-  const edits: Edit[] = [];
-  walk(document, text, repaired, edits);
-  if (!edits.length) return body;
+  walk(document, context, false);
 
-  edits.sort((a, b) => a.start - b.start);
+  const changed = context.edits.filter((e) => text.slice(e.start, e.end) !== e.text).sort((a, b) => a.start - b.start);
+  if (!changed.length) return body;
   let out = "";
   let at = 0;
-  for (const edit of edits) {
+  for (const edit of changed) {
     if (edit.start < at) throw new Error("redact: overlapping edits");
     out += text.slice(at, edit.start) + edit.text;
     at = edit.end;
   }
-  out += text.slice(at);
-  return out === text ? body : new Uint8Array(Buffer.from(out, "latin1"));
+  return new Uint8Array(Buffer.from(out + text.slice(at), "latin1"));
 }
 
-function walk(node: Node, text: string, repaired: number[], edits: Edit[], inXml = false): void {
+function walk(node: Node, context: Context, inXml: boolean): void {
   if (node.nodeName === "#comment") {
     const at = (node as DefaultTreeAdapterMap["commentNode"]).sourceCodeLocation;
-    if (at && text.slice(at.startOffset, at.endOffset) !== "<!---->") edits.push({ start: at.startOffset, end: at.endOffset, text: "<!---->" });
+    if (at) context.edits.push({ start: at.startOffset, end: at.endOffset, text: "<!---->" });
     return;
   }
   if (!("tagName" in node)) {
-    if ("childNodes" in node) for (const child of node.childNodes) walk(child, text, repaired, edits, inXml);
+    if ("childNodes" in node) for (const child of node.childNodes) walk(child, context, inXml);
     return;
   }
   const element = node as Element;
-  if (element.tagName === "meta") {
-    const edit = metaEdit(element, text, repaired);
-    if (edit) edits.push(edit);
+  const name = element.tagName;
+  if (name === "meta" || name === "link") {
+    const edit = startTagEdit(element, context);
+    if (edit) context.edits.push(edit);
     return;
   }
-  // An `<xml>` the page never closes swallows what follows, which the build reads as text too: then only the Office
-  // elements inside it are emptied.
-  if (isOfficeBlock(element) || (inXml && element.tagName.includes(":") && element.tagName !== "o:p")) {
-    const inner = innerSpan(element);
+  const blanked =
+    RAW_TEXT.has(name) ||
+    name === "template" ||
+    name === "xml" ||
+    /:(?:custom)?documentproperties$/.test(name) ||
+    (OFFICE_PREFIX.test(name) && name !== "o:p") ||
+    // Inside an `<xml>` the page never closes, every namespaced element is Office's.
+    (inXml && name.includes(":") && name !== "o:p");
+  if (blanked) {
+    const inner = innerSpan(element, NEVER_READ.has(name));
     if (inner) {
-      if (inner.end > inner.start) edits.push({ ...inner, text: "" });
+      context.edits.push({ ...inner, text: "" });
       return;
     }
   }
-  const children = element.tagName === "template" ? (element as DefaultTreeAdapterMap["template"]).content.childNodes : element.childNodes;
-  for (const child of children) walk(child, text, repaired, edits, inXml || element.tagName === "xml");
-}
-
-/** `<xml>` (Word's data island) and the document-property elements Office writes, wherever they are. */
-function isOfficeBlock(element: Element): boolean {
-  return element.tagName === "xml" || /:(?:custom)?documentproperties$/.test(element.tagName);
-}
-
-/** Between the start tag and the end tag; `undefined` when the page does not close the element. */
-function innerSpan(element: Element): { start: number; end: number } | undefined {
-  const at = element.sourceCodeLocation;
-  if (!at?.startTag || !at.endTag) return undefined;
-  return { start: at.startTag.endOffset, end: at.endTag.startOffset };
+  const children = name === "template" ? (element as DefaultTreeAdapterMap["template"]).content.childNodes : element.childNodes;
+  for (const child of children) walk(child, context, inXml || name === "xml");
 }
 
 /**
- * A charset declaration made of nothing else stays as served. Any other meta keeps its key attributes, gets
- * "[redacted]" as its `content` and loses its other attributes, in place; one whose start tag the parser repaired (a
- * repeated attribute) is written again from what the parser read.
+ * Between the start tag and the end tag. An element the page never closes runs to the end of what the parser gave it:
+ * blanked that far only when the build never reads it (`toEnd`), else `undefined` (its children are walked instead).
  */
-function metaEdit(element: Element, text: string, repaired: number[]): Edit | undefined {
+function innerSpan(element: Element, toEnd: boolean): { start: number; end: number } | undefined {
+  const at = element.sourceCodeLocation;
+  if (!at?.startTag) return undefined;
+  if (at.endTag) return { start: at.startTag.endOffset, end: at.endTag.startOffset };
+  return toEnd ? { start: at.startTag.endOffset, end: at.endOffset } : undefined;
+}
+
+/** A `<meta>` or `<link>` kept as served when it is known to be harmless, else replaced by a fixed tag. */
+function startTagEdit(element: Element, { text, repaired }: Context): Edit | undefined {
   const tag = element.sourceCodeLocation?.startTag;
-  const locations = element.sourceCodeLocation?.attrs;
   if (!tag) return undefined;
-  const raw = text.slice(tag.startOffset, tag.endOffset);
   const wasRepaired = repaired.some((offset) => offset >= tag.startOffset && offset < tag.endOffset);
-  if (!wasRepaired && isCharsetDeclaration(element)) return undefined;
-
-  if (wasRepaired || !locations) {
-    const attributes = element.attrs
-      .filter((a) => META_KEYS.has(a.name) || a.name === "content")
-      .map((a) => ` ${a.name}="${META_KEYS.has(a.name) ? escapeAttribute(a.value) : REDACTED}"`);
-    return { start: tag.startOffset, end: tag.endOffset, text: `<meta${attributes.join("")}${raw.endsWith("/>") ? "/" : ""}>` };
-  }
-  // In place: the key attributes stay as written, `content` gets "[redacted]" in its own quotes, and any other
-  // attribute goes with the space before it; everything else (case, spacing, "/") is kept.
-  const spans: Edit[] = [];
-  for (const attribute of element.attrs) {
-    const at = locations[attribute.name];
-    if (!at || META_KEYS.has(attribute.name)) continue;
-    const start = at.startOffset - tag.startOffset;
-    const end = at.endOffset - tag.startOffset;
-    const written = raw.slice(start, end);
-    if (attribute.name !== "content") {
-      const space = /\s*$/.exec(raw.slice(0, start))![0].length;
-      spans.push({ start: start - space, end, text: "" });
-      continue;
-    }
-    const value = /^(\s*=\s*)(["']?)/.exec(written.slice(attribute.name.length));
-    const name = written.slice(0, attribute.name.length);
-    const replaced = value ? `${name}${value[1]}${value[2]}${REDACTED}${value[2]}` : `${name}="${REDACTED}"`;
-    if (replaced !== written) spans.push({ start, end, text: replaced });
-  }
-  if (!spans.length) return undefined;
-  let out = "";
-  let at = 0;
-  for (const span of spans.sort((a, b) => a.start - b.start)) {
-    out += raw.slice(at, span.start) + span.text;
-    at = span.end;
-  }
-  return { start: tag.startOffset, end: tag.endOffset, text: out + raw.slice(at) };
+  const harmless = element.tagName === "meta" ? isCharsetDeclaration(element) : isStyleLink(element);
+  if (harmless && !wasRepaired) return undefined;
+  const close = text.slice(tag.startOffset, tag.endOffset).endsWith("/>") ? "/>" : ">";
+  return { start: tag.startOffset, end: tag.endOffset, text: element.tagName === "meta" ? `<meta content="[redacted]"${close}` : `<link${close}` };
 }
 
+/** `<meta charset="utf-8">` or `<meta http-equiv="Content-Type" content="text/html; charset=…">`, and nothing else. */
 function isCharsetDeclaration(element: Element): boolean {
-  const attributes = new Map(element.attrs.map((a) => [a.name, a.value]));
-  if ([...attributes.keys()].some((name) => !["charset", "http-equiv", "content"].includes(name))) return false;
-  const charset = attributes.get("charset");
-  if (charset !== undefined) return CHARSET.test(charset) && !attributes.has("content") && !attributes.has("http-equiv");
-  return attributes.get("http-equiv")?.toLowerCase() === "content-type" && CONTENT_TYPE.test(attributes.get("content") ?? "");
+  const attributes = new Map(element.attrs.map((a) => [a.name, a.value.trim()]));
+  const names = [...attributes.keys()].sort().join(" ");
+  if (names === "charset") return CHARSET.test(attributes.get("charset")!);
+  if (names === "content http-equiv") {
+    return attributes.get("http-equiv")!.toLowerCase() === "content-type" && CONTENT_TYPE.test(attributes.get("content")!);
+  }
+  return false;
 }
 
-function escapeAttribute(value: string): string {
-  return value.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+/** A stylesheet or icon link: `rel`, `href` and optionally `type`/`media`, with nothing that could hold a name. */
+function isStyleLink(element: Element): boolean {
+  const attributes = new Map(element.attrs.map((a) => [a.name, a.value.trim()]));
+  if ([...attributes.keys()].some((n) => !["rel", "href", "type", "media"].includes(n))) return false;
+  const rel = attributes.get("rel")?.toLowerCase().replace(/\s+/g, " ");
+  const type = attributes.get("type");
+  const media = attributes.get("media");
+  return (
+    rel !== undefined &&
+    LINK_RELS.has(rel) &&
+    /^[\w./-]{1,200}$/.test(attributes.get("href") ?? "") &&
+    (type === undefined || /^[\w.+-]+\/[\w.+-]+$/.test(type)) &&
+    (media === undefined || /^[\w ,():.-]{1,60}$/.test(media))
+  );
 }
 
 /** `source` with `redactPersonalData` applied to every page it serves. */

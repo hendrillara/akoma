@@ -10,8 +10,8 @@ Pages that a daily run could receive for the compiled CF page, derived from the 
 
 The recorded page, with:
 
-- the token Planalto's F5 WAF injects after `</html>` on every response (`f5_p:'…'`) reversed, so the bytes differ as they would on any new fetch;
-- a new `ETag` (`"16f927-65e4f0a1b2c3d"`: same size prefix, new suffix) and `Last-Modified` (`Wed, 21 Oct 2026 16:20:10 GMT`);
+- a token in the script Planalto's F5 WAF injects after `</html>` on every response (`f5_p:'…'`), so the bytes differ as they would on any new fetch (the recorded capture keeps that script empty, since the redaction blanks every script; `make.mjs` writes a token from a fixed seed into it, reversed here, and the daily job blanks it again);
+- a new `ETag` (its size prefix the byte count before the injected script, a new suffix) and `Last-Modified` (`Wed, 21 Oct 2026 16:20:10 GMT`);
 - retrieval time `2026-10-22T01:30:00Z`.
 
 Expected: no dispositivo changes; the page shows its headers changed and its content (without scripts) the same.
@@ -26,7 +26,7 @@ The recorded page, with these edits (annotations copy forms that already occur o
 4. **Art. 7º XIV revoked by new wording:** "XIV - (revogado); (Redação dada pela Emenda Constitucional nº 142, de 2026)" (`#art2`), the form of art. 167 § 4º's incisos (EC 109).
 5. **Art. 7º XVIII, a new "Vide" note only:** "(Vide ADI 9999)" appended, unlinked; the ADI number is invented. The wording is unchanged.
 6. **Art. 7º XXVII revoked by an annotation alone:** "XXVII - (Revogado pela Emenda Constitucional nº 142, de 2026)" (`#art3`), the form of art. 36 IV (EC 45).
-7. The F5 token shifted one letter (A→B … P→A), a new `ETag` (`"16fb54-65e6b2c3d4e5f"`, its size prefix the new byte count before the injected script) and `Last-Modified` (`Thu, 22 Oct 2026 16:20:05 GMT`), and retrieval time `2026-10-23T01:30:00Z`.
+7. An F5 token (the fixed seed shifted one letter, A→B … P→A), a new `ETag` (its size prefix the new byte count before the injected script) and `Last-Modified` (`Thu, 22 Oct 2026 16:20:05 GMT`), and retrieval time `2026-10-23T01:30:00Z`.
 
 The ADCT is untouched.
 
@@ -73,7 +73,7 @@ O `make.mjs` gera todas as pastas a partir da página gravada; para alterar um c
 
 **Estas páginas não são textos oficiais.** A EC 142 não existia quando foram feitas; toda página editada avisa isso num comentário HTML no topo.
 
-- **`etag-only/`:** a página gravada com o token que o WAF F5 do Planalto injeta em toda resposta invertido, `ETag` e `Last-Modified` novos e horário de captura novo. Esperado: nenhum dispositivo muda; a página aparece com headers alterados e conteúdo (sem scripts) igual.
+- **`etag-only/`:** a página gravada com um token no script que o WAF F5 do Planalto injeta em toda resposta (a captura gravada guarda esse script vazio, porque a redação esvazia todo script; o `make.mjs` escreve nele um token de semente fixa, e o job diário o esvazia de novo), `ETag` e `Last-Modified` novos e horário de captura novo. Esperado: nenhum dispositivo muda; a página aparece com headers alterados e conteúdo (sem scripts) igual.
 - **`ec142/`:** uma Emenda Constitucional nº 142, de 2026, simulada: nova redação do caput do art. 6º; parágrafo único do art. 6º renumerado como § 1º (mesmo texto); § 2º incluído no art. 6º; art. 7º XIV revogado por nova redação "(revogado);"; nova nota "(Vide ADI 9999)" no art. 7º XVIII, com número de ADI inventado; art. 7º XXVII revogado só por anotação; e token F5, headers e horário de captura novos. A pasta traz também `emc142.htm`, a página simulada do próprio ato, no formato das páginas de EC do Planalto: seus comandos visam exatamente os dispositivos alterados (art. 1º: caput do art. 6º, parágrafo único renumerado como § 1º, § 2º; art. 2º: art. 7º XIV "(revogado)"; art. 3º: "Revoga-se o inciso XXVII do caput do art. 7º"). Veredito esperado: `merge`, com uma nota para a nova "Vide ADI", que nenhum ato explica e que não muda a redação.
 - **`ec142-faults/`:** a página `ec142` (e a mesma `emc142.htm`) com quatro falhas: art. 7º XVI com nova redação atribuída à EC 142, que não o visa; art. 7º XXXIV some da página sem marca de revogação; incisos I e II do art. 1º trocados de ordem; art. 7º XXVII sem a revogação que a EC 142 manda. Veredito esperado: `needs-human`, com um motivo por falha.
 - **`before-ec140-141/`:** a página gravada como era antes das EC 140 e 141 (ambas de 16/10/2026), com cada redação antiga tirada do texto riscado da página com histórico completo (`fixtures/2026-10-20/planalto/constituicao.htm`). Montar esta página e depois a captura gravada mostra exatamente os 12 dispositivos que a página gravada anota com a EC 140 ou a EC 141, e o veredito da revisão é `merge`.

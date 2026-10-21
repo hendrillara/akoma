@@ -18,10 +18,16 @@ function edit(page, find, replace) {
   return page.replace(find, () => replace);
 }
 
-/** The token Planalto's F5 WAF injects into every response (`f5_p:'…'`), replaced by another of the same length. */
+/**
+ * The token Planalto's F5 WAF injects into every response (`f5_p:'…'`), as a new fetch would bring it. The recorded
+ * capture keeps the WAF's script empty (the redaction blanks every script, fixtures/README.md), so the scenario page
+ * gets a token of its own in it, made from a fixed seed (a page derived from another scenario's gets that token
+ * changed); the daily job blanks it again, like any fetched page's.
+ */
 function newF5Token(page, transform) {
-  const token = /f5_p:'([A-P]+)'/.exec(page)[1];
-  return edit(page, `f5_p:'${token}'`, `f5_p:'${transform(token)}'`);
+  const token = /f5_p:'([A-P]+)'/.exec(page)?.[1];
+  if (token) return edit(page, `f5_p:'${token}'`, `f5_p:'${transform(token)}'`); // a scenario page derived from another
+  return edit(page, '<script id="f5_cspm"></script>', `<script id="f5_cspm">window.f5_cspm={f5_p:'${transform("FMNOPGHIJKLABCDE")}'}</script>`);
 }
 
 /** Planalto's ETag starts with the size of the file it serves in hex: the bytes before the injected F5 script. */
