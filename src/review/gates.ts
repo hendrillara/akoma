@@ -31,8 +31,9 @@ export interface GateInput {
 }
 
 /**
- * Schema, id stability (no removal without a revocation mark, no revoked id back in force), structural invariants, a
- * promoted wording the page prints differently, and target matching, in that order. The golden set and the full-text snapshot are test suites over the recorded
+ * Schema, id stability (no removal without a revocation mark, no revoked id back in force), structural invariants,
+ * dispositivo counts against the previous dataset, a promoted wording the page prints differently, and target
+ * matching, in that order. The golden set and the full-text snapshot are test suites over the recorded
  * fixtures and gate every PR through `pnpm verify`; on a refresh, target matching is what explains each changed text.
  */
 export async function reviewGates({ manifests, previous, next, report, source }: GateInput): Promise<Finding[]> {
@@ -41,6 +42,7 @@ export async function reviewGates({ manifests, previous, next, report, source }:
     ...removals(report),
     ...idReuse(report),
     ...invariants(next),
+    ...counts(previous, next),
     ...pageDivergence(report),
     ...(await targetMatching(report, previous, next, manifests, source)),
   ];
@@ -138,6 +140,39 @@ function compare(a: number[], b: number[]): number {
     if (d !== 0) return d;
   }
   return 0;
+}
+
+// --- Counts against the previous dataset -----------------------------------------------------------------
+
+/**
+ * How far a norm's count of one kind of dispositivo (caput, parágrafo, inciso…) may move in one refresh: 2% of the
+ * previous count, and at least 5. A parser regression shows up as dozens of dispositivos found or lost at once; a real
+ * act that inserts that many (Lei 14.181/2021 put 69 into the CDC) deserves a person's look anyway.
+ */
+export const COUNT_TOLERANCE = { relative: 0.02, absolute: 5 } as const;
+
+function counts(previous: Dataset, next: Dataset): Finding[] {
+  const tally = (dataset: Dataset) => {
+    const byKey = new Map<string, number>();
+    for (const p of dataset.provisions) byKey.set(`${p.norm}|${p.kind}`, (byKey.get(`${p.norm}|${p.kind}`) ?? 0) + 1);
+    return byKey;
+  };
+  const before = tally(previous);
+  const after = tally(next);
+  const findings: Finding[] = [];
+  for (const key of [...new Set([...before.keys(), ...after.keys()])]) {
+    const [norm, kind] = key.split("|") as [string, ProvisionKind];
+    // A norm new to the dataset (or gone from it) has nothing to compare with.
+    if (!previous.norms.some((n) => n.key === norm) || !next.norms.some((n) => n.key === norm)) continue;
+    const was = before.get(key) ?? 0;
+    const is = after.get(key) ?? 0;
+    const allowed = Math.max(COUNT_TOLERANCE.absolute, Math.round(was * COUNT_TOLERANCE.relative));
+    if (Math.abs(is - was) <= allowed) continue;
+    const delta = is - was > 0 ? `+${is - was}` : `−${was - is}`;
+    const message = `${kind}: ${was} → ${is} (${delta}), beyond the tolerance of ±${allowed} (2% of ${was}, at least 5)`;
+    findings.push(gate("counts", "problem", message, { norm }));
+  }
+  return findings;
 }
 
 // --- Promoted wording against the page -------------------------------------------------------------------

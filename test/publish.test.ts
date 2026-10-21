@@ -162,6 +162,44 @@ describe("daily job: the simulated EC 142 arrives, and every review layer passes
     const art6 = JSON.parse(out.workspace.text("dataset/cf/art6.json")) as { provisions: Provision[] };
     expect(art6.provisions.find((p) => p.id === "art6_par2")?.text).toBe("O cuidado é direito de todos e dever do Estado, da família e da sociedade, na forma da lei.");
   });
+
+  it("keeps every dispositivo EC 142 does not touch byte for byte, golden set included, but its version and fetch time", () => {
+    // The six EC 142 changes (test/fixtures/refresh/README.md, edits 1–6); everything else must come through as it was.
+    const touched = new Set(["art6_cpt", "art6_par1", "art6_par2", "art7_cpt_inc14", "art7_cpt_inc18", "art7_cpt_inc27"].map((id) => `cf/${id}`));
+    const next = JSON.parse(out.workspace.text("dataset/dataset.json")) as Dataset;
+    const after = new Map(next.provisions.map((p) => [`${p.norm}/${p.id}`, p]));
+    const comparable = (p: Provision) => JSON.stringify({ ...p, provenance: { ...p.provenance, datasetVersion: "", retrievedAt: "" } });
+    const untouched = previous.provisions.filter((p) => !touched.has(`${p.norm}/${p.id}`));
+    expect(untouched.length).toBe(previous.provisions.length - 5); // art6_par2 is new
+    const moved = untouched.filter((p) => !after.has(`${p.norm}/${p.id}`) || comparable(after.get(`${p.norm}/${p.id}`)!) !== comparable(p));
+    expect(moved.map((p) => `${p.norm}/${p.id}`)).toEqual([]);
+    // Two of the golden set's dispositivos (test/cf-adct.test.ts), by their text in the recorded page.
+    expect(after.get("cf/art5_cpt_inc10")!.text).toBe(
+      "são invioláveis a intimidade, a vida privada, a honra e a imagem das pessoas, assegurado o direito a indenização pelo dano material ou moral decorrente de sua violação;",
+    );
+    expect(after.get("adct/art1_cpt")!.provenance.datasetVersion).toBe("2026-10-23");
+  });
+
+  it("finds every count of dispositivos per norm and kind within the tolerance", () => {
+    expect(out.result.verdict?.findings.filter((f) => f.check === "counts")).toEqual([]);
+  });
+});
+
+describe("daily job: dispositivo counts against the previous dataset", () => {
+  it("escalates when a norm's count of one kind moves beyond the tolerance", async () => {
+    // A previous dataset without art. 5º's 79 incisos (I to LXXIX): the refresh reads them all again, as a parser that
+    // suddenly finds (or loses) dozens of dispositivos would. Each is also an untargeted change, but the count gate
+    // names the scale of it on its own.
+    const art5 = /^art5_cpt_inc\d+$/;
+    const shrunk = { ...previous, provisions: previous.provisions.filter((p) => !(p.norm === "cf" && art5.test(p.id))) };
+    expect(previous.provisions.length - shrunk.provisions.length).toBe(79);
+    const { result } = await run({ source: await sourceWith(scenario("ec142")), now: "2026-10-23T09:00:00Z", previous: shrunk });
+    expect(result.verdict?.decision).toBe("needs-human");
+    const counts = result.verdict?.findings.filter((f) => f.check === "counts");
+    expect(counts).toHaveLength(1);
+    expect(counts![0]).toMatchObject({ layer: "gates", severity: "problem", norm: "cf" });
+    expect(counts![0]!.message).toMatch(/^inciso: (\d+) → \d+ \(\+79\), beyond the tolerance of ±\d+ \(2% of \1, at least 5\)$/);
+  });
 });
 
 describe("daily job: a report longer than GitHub allows in a PR body", () => {
