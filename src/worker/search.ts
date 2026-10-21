@@ -7,9 +7,9 @@ import { ANALYZER } from "../search/analyze.ts";
 import { searchIndex } from "../search/query.ts";
 import { document, sourceLine, type View } from "./views.ts";
 
-const DEFAULT_LIMIT = 10;
-const MAX_LIMIT = 50;
-const MAX_QUERY_LENGTH = 500;
+export const DEFAULT_LIMIT = 10;
+export const MAX_LIMIT = 50;
+export const MAX_QUERY_LENGTH = 500;
 
 export function createSearch(dataset: Dataset): (params: URLSearchParams) => View {
   const index = dataset.search;

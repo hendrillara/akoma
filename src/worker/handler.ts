@@ -1,11 +1,15 @@
 // The served API: HTTP request in, response out, over a built dataset (test seam 2).
 import type { Dataset } from "../schema/dataset.ts";
+import { createMcp, mcpRateLimited } from "./mcp.ts";
 import type { RateLimiter } from "./rate-limit.ts";
 import { createSearch } from "./search.ts";
 import { createViews, notFound, type View } from "./views.ts";
 
 export interface HandlerOptions {
-  /** Per-client limit; none means unlimited (tests, local runs). The client is its `CF-Connecting-IP`. */
+  /**
+   * Per-client limit; none means unlimited (tests, local runs). The client is its `CF-Connecting-IP`; `/mcp` requests
+   * count under `mcp:<ip>`, a budget apart from the client's REST requests.
+   */
   rateLimiter?: RateLimiter;
 }
 
@@ -31,6 +35,8 @@ export function createHandler(dataset: Dataset, options: HandlerOptions = {}): (
   ];
   // Search reads its query string, so it sits outside the path-only route table.
   const search = createSearch(dataset);
+  // The remote MCP endpoint answers with the same views; it has its own methods (POST) and error envelope (JSON-RPC).
+  const mcp = createMcp({ dataset, views, search });
 
   return async (request) => {
     const url = new URL(request.url);
@@ -38,9 +44,14 @@ export function createHandler(dataset: Dataset, options: HandlerOptions = {}): (
     const format: Format = asked === "md" ? "md" : "json";
 
     if (options.rateLimiter) {
-      const verdict = await options.rateLimiter.limit(request.headers.get("cf-connecting-ip") ?? "unknown");
-      if (!verdict.allowed) return rateLimited(verdict.retryAfterSeconds, format);
+      // MCP has a budget of its own per client: a session spends requests on its handshake that REST never makes.
+      const client = request.headers.get("cf-connecting-ip") ?? "unknown";
+      const verdict = await options.rateLimiter.limit(url.pathname === "/mcp" ? `mcp:${client}` : client);
+      if (!verdict.allowed) {
+        return url.pathname === "/mcp" ? mcpRateLimited(verdict.retryAfterSeconds) : rateLimited(verdict.retryAfterSeconds, format);
+      }
     }
+    if (url.pathname === "/mcp") return mcp(request);
     if (request.method !== "GET" && request.method !== "HEAD") {
       return respond({ status: 405, json: { error: "method_not_allowed" }, md: () => "Método não permitido / Method not allowed.\n" }, format, {
         allow: "GET, HEAD",
