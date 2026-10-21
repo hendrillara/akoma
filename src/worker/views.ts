@@ -264,13 +264,18 @@ function heading(norm: NormEntry): string {
 }
 
 /** Blocks separated by blank lines, then the provenance footer. */
-function document(blocks: string[], closing: string): string {
+export function document(blocks: string[], closing: string): string {
   return `${[...blocks, closing].join("\n\n")}\n`;
 }
 
 /** The provenance footer: where the text came from, when, which build, and the notice. */
-function footer({ sourceUrl, retrievedAt, datasetVersion }: Currency): string {
-  return `---\nFonte / source: ${sourceUrl} · obtido em / retrieved ${retrievedAt} · dataset ${datasetVersion}\n${NOTICE}`;
+function footer(currency: Currency): string {
+  return `---\n${sourceLine(currency)}\n${NOTICE}`;
+}
+
+/** Where a text came from, when, and which build it is in. */
+export function sourceLine({ sourceUrl, retrievedAt, datasetVersion }: Currency): string {
+  return `Fonte / source: ${sourceUrl} · obtido em / retrieved ${retrievedAt} · dataset ${datasetVersion}`;
 }
 
 function datasetFooter(version: string | undefined): string {

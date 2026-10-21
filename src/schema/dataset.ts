@@ -1,4 +1,5 @@
 // The published dataset. Shared by the build pipeline (producer) and the Worker (consumer).
+import type { SearchIndex } from "./search.ts";
 
 export interface Dataset {
   norms: NormEntry[];
@@ -9,6 +10,8 @@ export interface Dataset {
   articles?: Article[];
   /** The source pages the build read, once each (the CF and the ADCT share one): change detection's pre-filter. */
   pages?: SourcePage[];
+  /** The prebuilt BM25 index over `provisions` that `GET /v1/search` reads. */
+  search?: SearchIndex;
 }
 
 /**
