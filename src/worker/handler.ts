@@ -64,7 +64,8 @@ function route(routes: [RegExp, (...segments: string[]) => View][], pathname: st
       throw error;
     }
   }
-  return notFound([pathname]);
+  // The path is never echoed: request input does not reach a response body.
+  return notFound();
 }
 
 function respond(view: View, format: Format, extra: Record<string, string> = {}): Response {

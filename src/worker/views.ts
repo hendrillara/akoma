@@ -109,7 +109,7 @@ export function createViews(dataset: Dataset) {
 
     norm(key: string): View {
       const norm = norms.get(key);
-      if (!norm) return notFound([key]);
+      if (!norm) return notFound();
       const { counts } = stats.get(key)!;
       const links = { structure: `/v1/norms/${key}/structure`, provisions: `/v1/provisions/${key}/{id}` };
       const now = currency(key);
@@ -128,7 +128,7 @@ export function createViews(dataset: Dataset) {
 
     structure(key: string): View {
       const norm = norms.get(key);
-      if (!norm) return notFound([key]);
+      if (!norm) return notFound();
       const { outline, range } = stats.get(key)!.outline;
       const now = currency(key);
       const json = {
@@ -147,6 +147,8 @@ export function createViews(dataset: Dataset) {
     },
 
     provision(key: string, id: string): View {
+      // Only a known norm and a well-formed id may be named back in a response: anything else is never echoed.
+      if (!norms.has(key) || !ID.test(id)) return notFound();
       const provision = provisions.get(`${key}/${id}`);
       if (provision) {
         return ok(provision, () => {
@@ -279,13 +281,23 @@ function ok(json: unknown, md: () => string): View {
   return { status: 200, json, md };
 }
 
-/** 404 for what the request named (`[norm]` or `[norm, id]`), with the canonical id when the id is a known alias. */
-export function notFound(named: string[], suggestion?: { id: string; url: string }): View {
+/**
+ * What an id may look like to be named back in a 404: LexML ids and normas.leg.br fragments ("art5_cpt_inc79",
+ * "art5_cpt_inc79,emc-115-2022-02-10"). Agents read these responses as trusted legal text, so raw request input
+ * (backticks, newlines, markup) must never reach a response body.
+ */
+const ID = /^[a-z0-9][a-z0-9_.,-]{0,119}$/;
+
+/**
+ * 404. `named` (a known norm key and an id that passed `ID`) is named back; omit it for anything else. The canonical
+ * id comes along when the id is a known alias.
+ */
+export function notFound(named: [norm: string, id: string] | [] = [], suggestion?: { id: string; url: string }): View {
   return {
     status: 404,
     json: { error: "not_found", ...(suggestion && { suggestion }) },
     md: () => {
-      const what = `Não encontrado / Not found: ${named.map((n) => `\`${n}\``).join(" ")}.`;
+      const what = named.length ? `Não encontrado / Not found: ${named.map((n) => `\`${n}\``).join(" ")}.` : "Não encontrado / Not found.";
       return `${what}${suggestion ? `\n\nVocê quis dizer / did you mean \`${suggestion.id}\`? ${suggestion.url}` : ""}\n`;
     },
   };
