@@ -52,8 +52,10 @@ export function createHandler(dataset: Dataset, options: HandlerOptions = {}): (
     }
 
     const view = url.pathname === "/v1/search" ? search(url.searchParams) : route(routes, url.pathname);
-    const response = respond(view, format);
-    return request.method === "HEAD" ? new Response(null, response) : response;
+    if (request.method !== "HEAD") return respond(view, format);
+    // GET and HEAD share one edge cache entry (Workers Cache), so a stored HEAD answer would reach a later GET with
+    // no body: HEAD answers are never stored.
+    return new Response(null, respond(view, format, { "cache-control": "no-store" }));
   };
 }
 
