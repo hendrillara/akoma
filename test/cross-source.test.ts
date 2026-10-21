@@ -202,6 +202,12 @@ describe("every norm from the recorded sources", () => {
     });
   });
 
+  it("credits Senado/LexML for the aliases in the status file", () => {
+    const status = JSON.parse(datasetFiles(dataset).find((f) => f.path === "status.json")!.content);
+    expect(status.attributions).toHaveLength(1);
+    expect(status.attributions[0]).toMatch(/normas\.leg\.br \/ LexML Brasil, © Senado Federal, CC BY 4\.0/);
+  });
+
   it("leaves aliases out of change detection: they come from the secondary source", () => {
     const withoutAliases = { ...dataset, provisions: dataset.provisions.map(({ aliases: _, ...p }) => p) };
     expect(detectChanges(withoutAliases, dataset).changes).toEqual([]);

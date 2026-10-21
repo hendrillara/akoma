@@ -175,7 +175,15 @@ export function createViews(dataset: Dataset) {
         return { key: n.key, ...now, articles: counts.articles, provisions: counts.provisions };
       });
       const pages: SourcePage[] = dataset.pages ?? [];
-      const json = { ...(datasetVersion && { datasetVersion }), norms: perNorm, pages, notice: NOTICE };
+      // Credit owed for third-party data anywhere in the dataset (the normas.leg.br aliases), once per text.
+      const attributions = [...new Set(dataset.norms.flatMap((n) => (n.attribution ? [n.attribution] : [])))];
+      const json = {
+        ...(datasetVersion && { datasetVersion }),
+        norms: perNorm,
+        pages,
+        ...(attributions.length && { attributions }),
+        notice: NOTICE,
+      };
       return ok(json, () => {
         const normLines = perNorm.map(
           (n) =>
@@ -191,6 +199,7 @@ export function createViews(dataset: Dataset) {
         const body = ["# Status", ...(datasetVersion ? [`Dataset ${datasetVersion}`] : [])];
         if (normLines.length) body.push(normLines.join("\n"));
         if (pageLines.length) body.push(`Páginas de origem / source pages:\n${pageLines.join("\n")}`);
+        for (const text of attributions) body.push(`Atribuição / attribution: ${escape(text)}`);
         return document(body, NOTICE);
       });
     },

@@ -167,7 +167,9 @@ export async function build({ manifests, source, datasetVersion, today, synonyms
     provisions,
     synonyms ?? (await loadSynonyms()),
   );
-  return { norms, provisions, groupings, articles, pages: [...pages.values()], search, status: { crossSource } };
+  const attributions = [...new Set(norms.flatMap((n) => (n.attribution ? [n.attribution] : [])))];
+  const status = { crossSource, ...(attributions.length && { attributions }) };
+  return { norms, provisions, groupings, articles, pages: [...pages.values()], search, status };
 }
 
 function sourcePage(snapshot: RawSnapshot, html: string): SourcePage {

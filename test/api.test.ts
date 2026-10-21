@@ -446,6 +446,14 @@ describe("API v1", () => {
       });
     });
 
+    it("credits Senado/LexML in the status, in JSON and Markdown, since the dataset carries normas.leg.br aliases", async () => {
+      const credit = /normas\.leg\.br \/ LexML Brasil, © Senado Federal, CC BY 4\.0/;
+      const body = (await (await get("/v1/status")).json()) as { attributions: string[] };
+      expect(body.attributions).toHaveLength(1);
+      expect(body.attributions[0]).toMatch(credit);
+      expect(await (await get("/v1/status?format=md")).text()).toMatch(new RegExp(`Atribuição / attribution: .*${credit.source}`));
+    });
+
     it("serves normas.leg.br's id aliases only with their CC BY 4.0 credit", async () => {
       // normas.leg.br calls CF art. 100 § 5º "art100_par1" (it never renumbers); review layer 2 keeps that as an alias.
       const one = await (await get("/v1/provisions/cf/art100_par5")).json();

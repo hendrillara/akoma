@@ -19,6 +19,8 @@ export interface Dataset {
 export interface DatasetStatus {
   /** Review layer 2, one entry per norm: how its dispositivos fared against the secondary source (ADR 0004). */
   crossSource: CrossSourceStatus[];
+  /** Credit owed for third-party data in the dataset, once per text (today the normas.leg.br aliases); absent when none. */
+  attributions?: string[];
 }
 
 export interface CrossSourceStatus {
