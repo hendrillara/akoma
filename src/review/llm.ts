@@ -8,6 +8,8 @@ import type { ChangeKind, ChangeReport, ProvisionChange } from "../pipeline/chan
 import { visibleLines } from "../pipeline/planalto.ts";
 import type { Dataset, Provision } from "../schema/dataset.ts";
 import type { Source } from "../sources/source.ts";
+import { readActCitation } from "../pipeline/acts.ts";
+import { verifyActPage } from "./act-pages.ts";
 import { actsCitedBy, knownActs } from "./gates.ts";
 import type { Finding } from "./verdict.ts";
 
@@ -135,7 +137,7 @@ export async function reviewLlm({ manifests, previous, report, source, reviewer 
     const act = cited.label;
     const url = cited.url;
     if (!url) {
-      problems.push(finding("act-text", "problem", "its annotations give no link to its official page, so the reviewer cannot read it", { act }));
+      problems.push(finding("act-text", "problem", `cannot be resolved to its official page (${cited.problem}), so the reviewer cannot read it`, { act }));
       continue;
     }
     const snapshot = await source.get(url);
@@ -144,6 +146,17 @@ export async function reviewLlm({ manifests, previous, report, source, reviewer 
       continue;
     }
     const html = new TextDecoder(snapshot.encoding).decode(snapshot.body);
+    // The page must be the act's own before the reviewer is told it is.
+    let unverified: string | undefined;
+    try {
+      unverified = verifyActPage(cited.citation, readActCitation(html, url));
+    } catch (error) {
+      unverified = `its page could not be read: ${(error as Error).message}`;
+    }
+    if (unverified) {
+      problems.push(finding("act-text", "problem", `${unverified}, so the reviewer is not given it`, { act }));
+      continue;
+    }
     const text = visibleLines(html, {}, url).map((line) => line.text).join("\n");
     acts.push({ act, url, inDataset: known.has(cited.key), text });
   }

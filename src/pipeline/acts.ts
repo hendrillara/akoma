@@ -92,6 +92,11 @@ const KINDS: { title: RegExp; type: ActType; name: string }[] = [
   { title: /^DECRETO-LEI$/i, type: "decreto_lei", name: "Decreto-Lei" },
 ];
 
+/** The act a page is the page of, from its title line (throws when it has none). */
+export function readActCitation(html: string, url: string): ActCitation {
+  return citationOf(visibleLines(html, {}, url), url);
+}
+
 /** "EMENDA CONSTITUCIONAL Nº 141, DE 16 DE OUTUBRO DE 2026", "LEI Nº 14.181, DE 1º DE JULHO DE 2021"… */
 function citationOf(lines: Line[], url: string): ActCitation {
   const pattern = /^(EMENDA CONSTITUCIONAL|LEI COMPLEMENTAR|LEI|MEDIDA PROVIS[ÓO]RIA|DECRETO-LEI) N[º°o]\s*(\d[\d.]*(?:-\d+)?),\s*DE\s+\d+[º°o]?\s+DE\s+\S+\s+DE\s+(\d{4})/i;

@@ -19,7 +19,7 @@ import { diskWorkspace, memoryWorkspace } from "../src/publish/workspace.ts";
 import type { LlmReviewer, ReviewerOutput } from "../src/review/llm.ts";
 import type { Dataset, Provision } from "../src/schema/dataset.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
-import type { Source } from "../src/sources/source.ts";
+import type { RawSnapshot, Source } from "../src/sources/source.ts";
 
 const root = new URL("../", import.meta.url);
 const fixtures = new URL("fixtures/", root);
@@ -493,6 +493,88 @@ describe("daily job: the CDC reworded by a law (test/fixtures/refresh/cdc-law, s
         message: "changed (text, amendments), citing Lei 15.999, which does not target it",
       },
       { layer: "llm", check: "act-text", severity: "problem", act: "Lei 15.999", message: `its page ${lei15999} is not in the source, so the reviewer cannot read it` },
+    ]);
+  });
+});
+
+describe("daily job: an amending act's page is fetched only from its own Planalto address", () => {
+  // The cdc-law refresh, with the annotation's link (or the law's page) tampered with. The act's address is derived
+  // from its identity (Lei nº 15.999, de 2026 → _ato2023-2026/2026/lei/L15999.htm, src/review/act-pages.ts); a link
+  // anywhere else is never requested, and the act is unresolved, which blocks the merge.
+  const cdcUrl = cdc.primaryUrl;
+  const lei15999 = "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/L15999.htm";
+  const link = '<a href="../_ato2023-2026/2026/lei/L15999.htm#art1">';
+  const reviewer = fakeReviewer({
+    mappings: [{ change: "cdc/art49_cpt", act: "Lei 15.999", command: "art. 1º", reason: "new caput quoted" }],
+    orphanChanges: [],
+    unappliedCommands: [],
+  });
+
+  /** The cdc-law source with one page's bytes edited, logging every URL the job asks for. */
+  async function tampered(url: string, find: string, replace: string) {
+    const base = await recordedSource(recorded, acts, scenario("cdc-law"));
+    const requested: string[] = [];
+    const edit = (snapshot: RawSnapshot | undefined) => {
+      if (!snapshot || snapshot.url !== url) return snapshot;
+      const text = Buffer.from(snapshot.body).toString("latin1");
+      expect(text.split(find)).toHaveLength(2);
+      return { ...snapshot, body: new Uint8Array(Buffer.from(text.replace(find, replace), "latin1")) };
+    };
+    const source: Source = {
+      async get(u) {
+        requested.push(u);
+        return edit(await base.get(u));
+      },
+      async probe(u, validators) {
+        requested.push(u);
+        const result = await base.probe!(u, validators);
+        return result.status === "modified" ? { status: "modified", snapshot: edit(result.snapshot)! } : result;
+      },
+    };
+    const before = await build({ manifests: [cdc], source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
+    const ran = await run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before, reviewer });
+    return { ...ran, requested };
+  }
+
+  const problems = (result: Awaited<ReturnType<typeof tampered>>["result"]) =>
+    result.verdict?.findings.filter((f) => f.severity === "problem" && f.act === "Lei 15.999").map((f) => `${f.layer}: ${f.message}`);
+
+  it("never requests a link to another host, to another Planalto page or over plain http, and escalates", async () => {
+    const outside = "its annotation links to a page outside https://www.planalto.gov.br/ccivil_03/, which is never fetched";
+    const other = "its annotation links to a Planalto page that is not this act's, which is never fetched";
+    const crafted: [string, string][] = [
+      ["https://evil.example/ccivil_03/_ato2023-2026/2026/lei/L15999.htm", outside],
+      ["http://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/L15999.htm", outside],
+      ["../_ato2023-2026/2026/lei/L15998.htm", other],
+      ["../../ccivil_03/outra/pagina.htm", other],
+    ];
+    for (const [href, why] of crafted) {
+      const { result, requested } = await tampered(cdcUrl, link, `<a href="${href}#art1">`);
+      expect(result.verdict?.decision).toBe("needs-human");
+      expect(requested.filter((u) => /L1599[89]|evil|outra/.test(u))).toEqual([]);
+      expect(problems(result)).toEqual([
+        `gates: cannot be resolved to its official page (${why}), so its commands cannot be read`,
+        `llm: cannot be resolved to its official page (${why}), so the reviewer cannot read it`,
+      ]);
+    }
+  });
+
+  it("escalates an act cited with no link at all: its address is never guessed for a fetch", async () => {
+    const { result, requested } = await tampered(cdcUrl, link, "<a>");
+    expect(result.verdict?.decision).toBe("needs-human");
+    expect(requested).not.toContain(lei15999);
+    expect(problems(result)).toEqual([
+      "gates: cannot be resolved to its official page (its annotations give no link to its official page), so its commands cannot be read",
+      "llm: cannot be resolved to its official page (its annotations give no link to its official page), so the reviewer cannot read it",
+    ]);
+  });
+
+  it("escalates when the page at the act's address is the page of another act", async () => {
+    const { result } = await tampered(lei15999, "LEI Nº 15.999, DE 22", "LEI Nº 15.998, DE 22");
+    expect(result.verdict?.decision).toBe("needs-human");
+    expect(problems(result)).toEqual([
+      "gates: its page is the page of Lei nº 15.998, de 2026, not of Lei nº 15.999, de 2026",
+      "llm: its page is the page of Lei nº 15.998, de 2026, not of Lei nº 15.999, de 2026, so the reviewer is not given it",
     ]);
   });
 });
