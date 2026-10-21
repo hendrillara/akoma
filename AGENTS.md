@@ -9,7 +9,8 @@ Check here before searching. When a listed path moves, update this Map in the sa
 - `src/norms/` — one declarative manifest per norm (`cf.ts`, `adct.ts`, `cdc.ts`: identity, primary Planalto URL, secondary sources, known quirks); `index.ts` is the registry of all norms
 - `src/sources/` — the `Source` port and its adapters (recorded fixtures today; live HTTP next, per ADR 0001)
 - `src/worker/` — the served API: HTTP request → response over a dataset (test seam 2)
-- `test/` — seam tests only (`build.test.ts`, `cf-adct.test.ts`, `cdc.test.ts` and `changes.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
+- `test/` — seam tests only (`build.test.ts`, `cf-adct.test.ts`, `cdc.test.ts`, `changes.test.ts` and `structure.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
+- `test/structure.test.ts` — groupings (LexML ids, verbatim heading names and annotations) and article records, hand-checked against the fixture HTML
 - `test/cf-adct.test.ts` — CF/ADCT golden set (hand-verified against the fixture HTML), structural invariants, full-text snapshot
 - `test/cdc.test.ts` — CDC golden set (hand-verified against the fixture HTML), structural invariants, full-text snapshot, secondary source
 - `test/snapshots/` — committed full-text Markdown mirrors of the CF, ADCT and CDC (generated; never hand-edited)

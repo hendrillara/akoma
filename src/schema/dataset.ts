@@ -3,6 +3,10 @@
 export interface Dataset {
   norms: NormEntry[];
   provisions: Provision[];
+  /** Every norm's groupings (títulos, capítulos, seções…), in page order: the structure outline. */
+  groupings?: Grouping[];
+  /** Every norm's articles, in page order: what "get a whole article" returns, with its dispositivos. */
+  articles?: Article[];
   /** The source pages the build read, once each (the CF and the ADCT share one): change detection's pre-filter. */
   pages?: SourcePage[];
 }
@@ -30,6 +34,45 @@ export interface NormEntry {
   /** LexML URN of the norm. */
   urn: string;
   title: string;
+}
+
+/**
+ * A heading of the LC 95 hierarchy (Parte › Livro › Título › Capítulo › Seção › Subseção). Headings are not dispositivos
+ * (LC 95 art. 10 sole paragraph); they are the outline an agent navigates a norm by.
+ */
+export interface Grouping {
+  /** Key of the norm it belongs to (NormEntry.key). */
+  norm: string;
+  /** LexML Parte 3 grouping id, from the top level down: "tit2", "tit2_cap1", "tit6_cap1_sec5-1"; never reused. */
+  id: string;
+  kind: GroupingKind;
+  /** As in `PathSegment`: "Título II", "Capítulo VI-A", "Seção V". */
+  label: string;
+  /** The heading's name verbatim, blocks joined by one space ("DOS DIREITOS E DEVERES INDIVIDUAIS E COLETIVOS"). */
+  name: string;
+  /** Id of the enclosing grouping; absent at the top level. */
+  parent?: string;
+  /** Annotations printed with the heading ("Incluído pela Lei nº 14.181, de 2021"), as on a dispositivo. */
+  amendments: Amendment[];
+  references: Reference[];
+}
+
+export type GroupingKind = "parte" | "livro" | "titulo" | "capitulo" | "secao" | "subsecao";
+
+/**
+ * An article: the container of its caput, parágrafos, incisos… It carries no text of its own (its caput does). Its
+ * dispositivos are the records whose id's first segment is the article's id ("art5" holds "art5_cpt_inc10", not
+ * "art50_cpt").
+ */
+export interface Article {
+  /** Key of the norm it belongs to (NormEntry.key). */
+  norm: string;
+  /** LexML id, e.g. "art5", "art103-1". */
+  id: string;
+  /** As printed with ordinals normalised, e.g. "Art. 5º", "Art. 103-A". */
+  label: string;
+  /** Id of the innermost grouping the article sits in; absent when the norm has none (the ADCT). */
+  grouping?: string;
 }
 
 /** One dispositivo (caput, parágrafo, inciso…) with its verbatim text. */
@@ -118,8 +161,8 @@ export type ReferenceKind =
   | "other";
 
 /**
- * The text-bearing dispositivos. An article has no record of its own: its caput carries it, and a whole article is
- * the group of records whose id starts with the article's id.
+ * The text-bearing dispositivos. An article's text is its caput's; the article itself is an `Article` record, and a
+ * whole article is the group of records whose id's first segment is the article's id.
  */
 export type ProvisionKind = "caput" | "paragrafo" | "inciso" | "alinea" | "item";
 
