@@ -112,6 +112,8 @@ describe("build", () => {
           contentHash: "sha256:9b297737a232926510d14e28c0bc7fa48fc891bc5a553e8b440902d461a9cab3",
           datasetVersion,
           notice: STF_NOTICE,
+          // normas.leg.br "art1_cpt_inc4" (Original_Version): the same wording, word for word.
+          secondary: { source: "normas.leg.br", outcome: "agrees" },
         },
       });
     });
@@ -285,6 +287,7 @@ describe("parser hygiene", () => {
     expect(paths.filter((p) => p.endsWith(".json"))).toEqual([
       ...["art1", "art2", "art3", "art4-1", "art10-2", "art11"].map((a) => `hygiene/${a}.json`),
       "search-index.json",
+      "status.json",
     ]);
     expect(JSON.parse(files.find((f) => f.path === "search-index.json")!.content)).toEqual(dataset.search);
     expect(paths.filter((p) => p.endsWith(".md"))).toEqual([

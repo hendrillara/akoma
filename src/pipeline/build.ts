@@ -1,12 +1,15 @@
 // The build pipeline: raw snapshots + norm manifests in, canonical dataset out.
 import { createHash } from "node:crypto";
+import { crossCheck, NORMAS_ATTRIBUTION } from "../review/cross-source.ts";
 import {
   NOTICE,
   type Article,
+  type CrossSourceStatus,
   type Dataset,
   type Grouping,
   type NormEntry,
   type Provision,
+  type SecondarySourceName,
   type SourcePage,
 } from "../schema/dataset.ts";
 import { buildSearchIndex, loadSynonyms, type SynonymDictionary } from "../search/build-index.ts";
@@ -46,10 +49,13 @@ export interface NormManifest extends NormEntry, PageLayout {
 
 /** A cross-check source for a norm's text (review layer 2). */
 export interface SecondarySource {
-  name: "normas.leg.br" | "camara-legin";
+  name: SecondarySourceName;
   /** The page or API response holding the norm's text. */
   url: string;
-  /** How finely it can be compared: per dispositivo (articulated, with ids) or per article (text only). */
+  /**
+   * `dispositivo`: articulated, with ids of its own (kept as aliases); `article`: a page of text with no ids. Either
+   * way, review layer 2 matches each dispositivo by the id its printed labels give it (ADR 0004).
+   */
   granularity: "dispositivo" | "article";
   /** Whether it was found usable as a cross-check, when, and why (or why not). */
   verified: { on: string; usable: boolean; note: string };
@@ -77,6 +83,7 @@ export async function build({ manifests, source, datasetVersion, today, synonyms
   const groupings: Grouping[] = [];
   const articles: Article[] = [];
   const pages = new Map<string, SourcePage>();
+  const crossSource: CrossSourceStatus[] = [];
   const acts = new Map<string, Promise<{ act: AmendingAct; retrievedAt: string; url: string }>>();
   const actAt = (url: string) => {
     if (!acts.has(url)) acts.set(url, readAct(source, url));
@@ -133,11 +140,26 @@ export async function build({ manifests, source, datasetVersion, today, synonyms
       }));
     }
 
+    // Review layer 2: every dispositivo gets its secondary-source outcome; normas.leg.br's own ids become aliases.
+    const checked = await crossCheck(manifest, drafts, source);
+    crossSource.push(checked.status);
     for (const draft of drafts) {
-      const { provenance, pending, ...rest } = draft;
-      provisions.push({ ...rest, ...(pending && { pending }), provenance: { ...provenance, contentHash: sha256(draft.text) } } as Provision);
+      const { id, provenance, pending, ...rest } = draft;
+      const aliases = checked.aliases.get(id);
+      provisions.push({
+        id,
+        ...(aliases && { aliases }),
+        ...rest,
+        ...(pending && { pending }),
+        provenance: { ...provenance, contentHash: sha256(draft.text), secondary: checked.agreement.get(id)! },
+      } as Provision);
     }
-    norms.push({ key: manifest.key, urn: manifest.urn, title: manifest.title });
+    norms.push({
+      key: manifest.key,
+      urn: manifest.urn,
+      title: manifest.title,
+      ...(checked.aliases.size && { attribution: NORMAS_ATTRIBUTION }),
+    });
   }
 
   const search = buildSearchIndex(
@@ -145,7 +167,7 @@ export async function build({ manifests, source, datasetVersion, today, synonyms
     provisions,
     synonyms ?? (await loadSynonyms()),
   );
-  return { norms, provisions, groupings, articles, pages: [...pages.values()], search };
+  return { norms, provisions, groupings, articles, pages: [...pages.values()], search, status: { crossSource } };
 }
 
 function sourcePage(snapshot: RawSnapshot, html: string): SourcePage {

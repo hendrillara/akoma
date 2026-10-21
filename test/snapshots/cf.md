@@ -3520,7 +3520,7 @@ III - propriedade de veículos automotores. *(Redação dada pela Emenda Constit
 
 I - relativamente a bens imóveis e respectivos direitos, compete ao Estado da situação do bem, ou ao Distrito Federal;
 
-II - relativamente a bens móveis, títulos e créditos, compete ao Estado onde era domiciliado ode cujus, ou tiver domicílio o doador, ou ao Distrito Federal; *(Redação dada pela Emenda Constitucional nº 132, de 2023)*
+II - relativamente a bens móveis, títulos e créditos, compete ao Estado onde era domiciliado o de cujus, ou tiver domicílio o doador, ou ao Distrito Federal; *(Redação dada pela Emenda Constitucional nº 132, de 2023)*
 
 III - terá competência para sua instituição regulada por lei complementar:
 
@@ -4038,9 +4038,9 @@ III - do produto da arrecadação da contribuição de intervenção no domínio
 
 § 2º A nenhuma unidade federada poderá ser destinada parcela superior a vinte por cento do montante a que se refere o inciso II, devendo o eventual excedente ser distribuído entre os demais participantes, mantido, em relação a esses, o critério de partilha nele estabelecido.
 
-§ 3º Os Estados entregarão aos respectivos Municípios 25% (vinte e cinco por cento) dos recursos que receberem nos termos do inciso II docaputdeste artigo, observados os critérios estabelecidos no art. 158, § 1º, para a parcela relativa ao imposto sobre produtos industrializados, e no art. 158, § 2º, para a parcela relativa ao imposto previsto no art. 153, VIII. *(Redação dada pela Emenda Constitucional nº 132, de 2023)*
+§ 3º Os Estados entregarão aos respectivos Municípios 25% (vinte e cinco por cento) dos recursos que receberem nos termos do inciso II do caput deste artigo, observados os critérios estabelecidos no art. 158, § 1º, para a parcela relativa ao imposto sobre produtos industrializados, e no art. 158, § 2º, para a parcela relativa ao imposto previsto no art. 153, VIII. *(Redação dada pela Emenda Constitucional nº 132, de 2023)*
 
-> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): Os Estados entregarão aos respectivos Municípios 25% (vinte e cinco por cento) dos recursos que receberem nos termos do inciso II docaputdeste artigo, observados os critérios estabelecidos no art. 158, § 2º.
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): Os Estados entregarão aos respectivos Municípios 25% (vinte e cinco por cento) dos recursos que receberem nos termos do inciso II do caput deste artigo, observados os critérios estabelecidos no art. 158, § 2º.
 
 § 4º Do montante de recursos de que trata o inciso III que cabe a cada Estado, vinte e cinco por cento serão destinados aos seus Municípios, na forma da lei a que se refere o mencionado inciso. *(Incluído pela Emenda Constitucional nº 42, de 19.12.2003)*
 

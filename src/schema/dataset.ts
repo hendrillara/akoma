@@ -12,6 +12,43 @@ export interface Dataset {
   pages?: SourcePage[];
   /** The prebuilt BM25 index over `provisions` that `GET /v1/search` reads. */
   search?: SearchIndex;
+  /** The build's own checks, for the public status file. */
+  status?: DatasetStatus;
+}
+
+export interface DatasetStatus {
+  /** Review layer 2, one entry per norm: how its dispositivos fared against the secondary source (ADR 0004). */
+  crossSource: CrossSourceStatus[];
+}
+
+export interface CrossSourceStatus {
+  norm: string;
+  /** The secondary source compared, as the build read it; absent when the norm had no usable one. */
+  source?: { name: SecondarySourceName; url: string; retrievedAt: string };
+  /** How many of the norm's dispositivos ended with each outcome. */
+  outcomes: Record<SecondaryOutcome, number>;
+  /**
+   * Every outcome worth a word (a stale secondary, a reviewed known divergence, a dispositivo left unconfirmed) as a
+   * `note`, and every unexplained divergence as a `problem`, which blocks the merge. Messages never quote the
+   * secondary's text.
+   */
+  findings: CrossSourceFinding[];
+}
+
+/**
+ * One finding of review layer 2, in the shape every review layer reports (layer, check, severity, what it is about,
+ * a message the maintainer can act on). `problem` blocks the merge; `note` passes and is recorded.
+ */
+export interface CrossSourceFinding {
+  layer: "cross-source";
+  /** e.g. "divergence", "secondary-stale", "known-divergence", "missing-in-secondary", "missing-in-primary". */
+  check: string;
+  severity: "problem" | "note";
+  norm?: string;
+  id?: string;
+  /** The amending act it is about, as the primary cites it, e.g. "Emenda Constitucional nº 136, de 2025". */
+  act?: string;
+  message: string;
 }
 
 /**
@@ -37,6 +74,11 @@ export interface NormEntry {
   /** LexML URN of the norm. */
   urn: string;
   title: string;
+  /**
+   * Credit owed for third-party data inside this norm's records: today the normas.leg.br ids kept as `aliases`
+   * (CC BY 4.0). Absent when the records hold none.
+   */
+  attribution?: string;
 }
 
 /**
@@ -113,7 +155,9 @@ export interface Provision {
   /**
    * Other ids that name this dispositivo elsewhere (normas.leg.br fragments such as "art1_par1u" or
    * "art5_cpt_inc79,emc-115-2022-02-10"), with attribution to Senado/LexML. Never an address: the API answers an alias
-   * with 404 and this record's `id` as the suggestion.
+   * with 404 and this record's `id` as the suggestion. Set by review layer 2 only where a fragment differs from `id`
+   * (normas.leg.br never renumbers: its "art100_par1" is the § 5º that EC 62 renumbered); absent when there are none.
+   * Not part of change detection: they change with the secondary source, not with the law.
    */
   aliases?: string[];
   provenance: Provenance;
@@ -234,6 +278,26 @@ export interface Provenance {
   datasetVersion: string;
   /** Always `NOTICE`: the text is unofficial and its vigência is not checked against STF decisions. */
   notice: string;
+  /** Review layer 2: whether a secondary source confirms the text (ADR 0004). */
+  secondary: SecondaryAgreement;
+}
+
+export type SecondarySourceName = "normas.leg.br" | "camara-legin";
+
+/**
+ * `agrees`: the secondary prints the same wording (after the documented normalisation), or differs only by a reviewed
+ * defect of its own; `note` says which. `secondary-stale`: they differ, and the primary cites an amending act the
+ * secondary does not record for this dispositivo. `unconfirmed`: no usable secondary, no counterpart in it, or a
+ * difference nobody could settle; `note` says why. An unexplained divergence is `unconfirmed` too, and blocks the merge.
+ */
+export type SecondaryOutcome = "agrees" | "secondary-stale" | "unconfirmed";
+
+export interface SecondaryAgreement {
+  outcome: SecondaryOutcome;
+  /** The source compared with; absent when the norm has no usable one. */
+  source?: SecondarySourceName;
+  /** A plain-English explanation; it never quotes the secondary's text. */
+  note?: string;
 }
 
 export const NOTICE =
