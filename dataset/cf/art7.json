@@ -1,0 +1,1753 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art7",
+  "provisions": [
+    {
+      "id": "art7_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "São direitos dos trabalhadores urbanos e rurais, além de outros que visem à melhoria de sua condição social:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:26874930f344a9c3faea382e9c614d40bc77ea3af6ad4410e22491eb721ab54c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "relação de emprego protegida contra despedida arbitrária ou sem justa causa, nos termos de lei complementar, que preverá indenização compensatória, dentre outros direitos;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e1e43070d1b14eca382cdb6d8e7bd9474cfd985120cf83618794b3a56d8a3158",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "seguro-desemprego, em caso de desemprego involuntário;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:49aafc509fb9d380f2b24e1fb7753db8beeba3426198e7f75814f2539352cf1f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc3",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "fundo de garantia do tempo de serviço;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ee6f1c156c540a6307135fd2318dcd0e1c4eb9c486848b589428025d1bb68e5f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc4",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "salário mínimo , fixado em lei, nacionalmente unificado, capaz de atender a suas necessidades vitais básicas e às de sua família com moradia, alimentação, educação, saúde, lazer, vestuário, higiene, transporte e previdência social, com reajustes periódicos que lhe preservem o poder aquisitivo, sendo vedada sua vinculação para qualquer fim;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b9dc5fc98b94b4544be9f1b59f77046666700df4a4ec6774e74e87c0ef1f20f1",
+        "secondary": {
+          "outcome": "unconfirmed",
+          "source": "normas.leg.br",
+          "note": "Known divergence, reviewed: One word: normas.leg.br has a crase where Planalto reads \"a suas necessidades\"."
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc5",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "piso salarial proporcional à extensão e à complexidade do trabalho;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:21cf67efb165f6eeeebdf84b90974fafd45d65b37024cac04e32ee42123b7dee",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc6",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "irredutibilidade do salário, salvo o disposto em convenção ou acordo coletivo;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:acc594c5ebee409a00bfe898ed3c2d48db931fbad6d78e92bf7f8e3c8c0a6fd7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc7",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        }
+      ],
+      "text": "garantia de salário, nunca inferior ao mínimo, para os que percebem remuneração variável;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f3effdd5e8e262b7fc20d0bcd9aca2bc234c386cf773e8bcc57671ef31496a80",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc8",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VIII"
+        }
+      ],
+      "text": "décimo terceiro salário com base na remuneração integral ou no valor da aposentadoria;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2db0e1902ef93965afde95061b60df092d7c9744a9eb3b476fc54cd3d21b106d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc9",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IX",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IX"
+        }
+      ],
+      "text": "remuneração do trabalho noturno superior à do diurno;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:525582abddc600c955c884158a76bb23ccb8f0a8cf8a89e1c1235e5dfcd094a1",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc10",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso X",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso X"
+        }
+      ],
+      "text": "proteção do salário na forma da lei, constituindo crime sua retenção dolosa;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2adb896096c38ecc7216cb601c46f2ed6121cfb0ce935d48f77a88d57f1ae9b5",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc11",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XI"
+        }
+      ],
+      "text": "participação nos lucros, ou resultados, desvinculada da remuneração, e, excepcionalmente, participação na gestão da empresa, conforme definido em lei;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4788d9c1d0eaba27107ef5b96ed622879d6585a1ed0f0f4bc7c119f9e9949cf4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc12",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XII"
+        }
+      ],
+      "text": "salário-família pago em razão do dependente do trabalhador de baixa renda nos termos da lei;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 20, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 20, de 1998",
+            "type": "emenda_constitucional",
+            "number": "20",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc20.htm#art7xii"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:05e527d207c78b7b402c11ce46407fdd5d5cbd43892ba1e42e0cea386b04f13d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc13",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XIII"
+        }
+      ],
+      "text": "duração do trabalho normal não superior a 8 (oito) horas diárias e 40 (quarenta) horas semanais, facultada a compensação de horários e a redução da jornada, mediante acordo ou convenção coletiva de trabalho;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 141, de 2026",
+          "act": {
+            "citation": "Emenda Constitucional nº 141, de 2026",
+            "type": "emenda_constitucional",
+            "number": "141",
+            "year": 2026,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e8951e7d91ae4ae9b28b25131b95518b8454b90b6500ffddb72e879ae151f331",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc14",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XIV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XIV"
+        }
+      ],
+      "text": "jornada de seis horas para o trabalho realizado em turnos ininterruptos de revezamento, salvo negociação coletiva;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:dd0ebd61445b4681075fe17dc959a628a18d7696153b40f75a2a138a7fbadb71",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc15",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XV"
+        }
+      ],
+      "text": "repouso semanal remunerado, preferencialmente aos domingos;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [
+        {
+          "kind": "act",
+          "annotation": "Vide Emenda Constitucional nº 141, de 2026",
+          "act": {
+            "citation": "Emenda Constitucional nº 141, de 2026",
+            "type": "emenda_constitucional",
+            "number": "141",
+            "year": 2026,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm#art1"
+          }
+        },
+        {
+          "kind": "vigencia",
+          "annotation": "Vigência",
+          "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm#art10"
+        }
+      ],
+      "pending": [
+        {
+          "effect": "wording",
+          "text": "repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;",
+          "effectiveFrom": "2026-12-17",
+          "vigencia": "após decorridos 2 (dois) meses de sua publicação, em relação à alteração promovida pelo art. 1º desta Emenda Constitucional no inciso XV do caput do art. 7º da Constituição Federal",
+          "act": {
+            "citation": "Emenda Constitucional nº 141, de 2026",
+            "type": "emenda_constitucional",
+            "number": "141",
+            "year": 2026,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:911147612cba688a36d3d033f07453b4f7e082d656132a6184b45f909aa7921e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br",
+          "note": "normas.leg.br already shows the change by Emenda Constitucional nº 141, de 2026 as current, dated from its publication; it takes effect on 2026-12-17 (see pending). The wording in force matches the secondary's previous version."
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc16",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XVI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XVI"
+        }
+      ],
+      "text": "remuneração do serviço extraordinário superior, no mínimo, em cinqüenta por cento à do normal;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [
+        {
+          "kind": "act",
+          "annotation": "Vide Del 5.452, art. 59 § 1º",
+          "act": {
+            "citation": "Del 5.452, art. 59 § 1º",
+            "type": "decreto_lei",
+            "number": "5.452",
+            "href": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del5452.htm#art59%C2%A71"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:46d8e722e159daf3e908608e6b40e34cd33f89221d515787145746a8448a8d8e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc17",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XVII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XVII"
+        }
+      ],
+      "text": "gozo de férias anuais remuneradas com, pelo menos, um terço a mais do que o salário normal;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:dfdec7667daef2737fd198ebf005175bff84f6c3e23abdfa1e66d4ed2bdc9120",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc18",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XVIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XVIII"
+        }
+      ],
+      "text": "licença à gestante, sem prejuízo do emprego e do salário, com a duração de cento e vinte dias;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:508e44be88cbd046456c8ab834a4583f754d889c6f96df2cf3ea59ad957a0dc7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc19",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XIX",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XIX"
+        }
+      ],
+      "text": "licença-paternidade, nos termos fixados em lei;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e4e3045e90601eede0b603fff063f6a8e4d93925ef401234588eef2676c148e3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc20",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XX",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XX"
+        }
+      ],
+      "text": "proteção do mercado de trabalho da mulher, mediante incentivos específicos, nos termos da lei;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8db59dfa2a49ababf0cf9eeff81349dce4893a0daaa0db331f9bf03f8099dfe6",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc21",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXI"
+        }
+      ],
+      "text": "aviso prévio proporcional ao tempo de serviço, sendo no mínimo de trinta dias, nos termos da lei;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7ca83a77b728b1a898335943d98be0155c1b90120836b4b66e148cc6955b76bb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc22",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXII"
+        }
+      ],
+      "text": "redução dos riscos inerentes ao trabalho, por meio de normas de saúde, higiene e segurança;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:877975b57f393843fa387e55cda4c1147a8767959fb8f062da28de0522969697",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc23",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXIII"
+        }
+      ],
+      "text": "adicional de remuneração para as atividades penosas, insalubres ou perigosas, na forma da lei;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:52d147d2fd4aa8a42c053956c30fd09b3fba847516909d494be33f4a8951d9a7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc24",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXIV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXIV"
+        }
+      ],
+      "text": "aposentadoria;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1ec419cba41dbb356ba34bb7cdc5fa9d7e79bfc8b33278d8b40176724d55cbf3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc25",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXV"
+        }
+      ],
+      "text": "assistência gratuita aos filhos e dependentes desde o nascimento até 5 (cinco) anos de idade em creches e pré-escolas;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 53, de 2006",
+          "act": {
+            "citation": "Emenda Constitucional nº 53, de 2006",
+            "type": "emenda_constitucional",
+            "number": "53",
+            "year": 2006,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc53.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0d2e2b390397f07a041d52a2f7c22f4ae65329c87c269beaeaf01d0631a5a628",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc26",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXVI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXVI"
+        }
+      ],
+      "text": "reconhecimento das convenções e acordos coletivos de trabalho;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:33378de58aff8ae96c77c0af63c55b18cf0438fbd6b622d9ce5186e9797efe69",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc27",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXVII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXVII"
+        }
+      ],
+      "text": "proteção em face da automação, na forma da lei;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5043eb682625840c3491bf2a263c140c7837e114b0cb549bd3806419bf7794e9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc28",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXVIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXVIII"
+        }
+      ],
+      "text": "seguro contra acidentes de trabalho, a cargo do empregador, sem excluir a indenização a que este está obrigado, quando incorrer em dolo ou culpa;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3bd6445c0c0d098b38a5ffe446595d17b6bc7256397f73a402b9253843e5a2f0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc29",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXIX",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXIX"
+        }
+      ],
+      "text": "ação, quanto aos créditos resultantes das relações de trabalho, com prazo prescricional de cinco anos para os trabalhadores urbanos e rurais, até o limite de dois anos após a extinção do contrato de trabalho;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 28, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 28, de 2000",
+            "type": "emenda_constitucional",
+            "number": "28",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc28.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:389fa2446fdd01de924f34162a8f7e545fbb986cf6db9f2d16c7ecdeed4fa034",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc29_ali1",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXIX"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "(Revogada).",
+      "status": "revoked",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 28, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 28, de 2000",
+            "type": "emenda_constitucional",
+            "number": "28",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc28.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f0b79e18c71c4084c4ffe3f2fc4d4187e2cdefcf3178f5f584e913df009b030f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc29_ali2",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXIX"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "(Revogada).",
+      "status": "revoked",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 28, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 28, de 2000",
+            "type": "emenda_constitucional",
+            "number": "28",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc28.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f0b79e18c71c4084c4ffe3f2fc4d4187e2cdefcf3178f5f584e913df009b030f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc30",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXX",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXX"
+        }
+      ],
+      "text": "proibição de diferença de salários, de exercício de funções e de critério de admissão por motivo de sexo, idade, cor ou estado civil;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5f61b28f66719ad9b467bcdb6f57e93cd29f13367dbdd3da4ea6b82f3a4d9f27",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc31",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXXI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXXI"
+        }
+      ],
+      "text": "proibição de qualquer discriminação no tocante a salário e critérios de admissão do trabalhador portador de deficiência;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4465bb5b005b1ff91de4d0a4388820672533452a58121637655ed2f6799a07de",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc32",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXXII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXXII"
+        }
+      ],
+      "text": "proibição de distinção entre trabalho manual, técnico e intelectual ou entre os profissionais respectivos;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4ce401a6f977931207d705f0870233949c69e8ca7e37bc6d360c7558ecf09835",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc33",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXXIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXXIII"
+        }
+      ],
+      "text": "proibição de trabalho noturno, perigoso ou insalubre a menores de dezoito e de qualquer trabalho a menores de dezesseis anos, salvo na condição de aprendiz, a partir de quatorze anos;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 20, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 20, de 1998",
+            "type": "emenda_constitucional",
+            "number": "20",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc20.htm#art7xxxiii"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:55f6f2914e48039e04b3bd2d9de0bb7e6fc04d03b5479a9b36bee3d09bb27a20",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_cpt_inc34",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XXXIV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XXXIV"
+        }
+      ],
+      "text": "igualdade de direitos entre o trabalhador com vínculo empregatício permanente e o trabalhador avulso.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1722ee0337ac46fcf12a1fbc401dce271fce319e89150e6d5799b64cc1f19c92",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_par1",
+      "aliases": [
+        "art7_par1u"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "São assegurados à categoria dos trabalhadores domésticos os direitos previstos nos incisos IV, VI, VII, VIII, X, XIII, XV, XVI, XVII, XVIII, XIX, XXI, XXII, XXIV, XXVI, XXX, XXXI e XXXIII e, atendidas as condições estabelecidas em lei e observada a simplificação do cumprimento das obrigações tributárias, principais e acessórias, decorrentes da relação de trabalho e suas peculiaridades, os previstos nos incisos I, II, III, IX, XII, XXV e XXVIII, bem como a sua integração à previdência social.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 141, de 2026",
+          "act": {
+            "citation": "Emenda Constitucional nº 141, de 2026",
+            "type": "emenda_constitucional",
+            "number": "141",
+            "year": 2026,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0d5dd208b51393ea1cd1c9bb7cffb359b9a06d2535cb3c5fea3dd608f5803bc4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_par2",
+      "aliases": [
+        "art7_par2,emc-141-2026-10-16"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Excepcionalmente, convenção ou acordo coletivo de trabalho poderão, inclusive para os trabalhadores sujeitos a regimes diferenciados de trabalho estabelecidos em lei ou norma regulamentadora, estabelecer regime compensatório que assegure, na média, 2 (dois) dias de repouso semanal remunerado dentro do mês-calendário, garantido o gozo de pelo menos 1 (um) dos dias dentro do período máximo de 1 (uma) semana de trabalho.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 141, de 2026",
+          "act": {
+            "citation": "Emenda Constitucional nº 141, de 2026",
+            "type": "emenda_constitucional",
+            "number": "141",
+            "year": 2026,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:fee4af564e808278577147cb6e6fff995db7c79c1ab4cb718c5dbafa6a4dce86",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art7_par3",
+      "aliases": [
+        "art7_par3,emc-141-2026-10-16"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 7º"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Lei poderá dispor sobre hipóteses e condições em que a duração do trabalho e os dias de repouso semanal remunerado poderão observar regimes diferenciados, respeitados os limites previstos nos incisos XIII, XIV e XV do caput deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 141, de 2026",
+          "act": {
+            "citation": "Emenda Constitucional nº 141, de 2026",
+            "type": "emenda_constitucional",
+            "number": "141",
+            "year": 2026,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc141.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4c43e8bf46fd9cefd3e009d0f4ceefa5c7a63a6cb2da9fcd9b2c35e4f9b2361e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

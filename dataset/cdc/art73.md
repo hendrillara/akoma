@@ -1,0 +1,4 @@
+<!-- Título II › Art. 73 -->
+
+**Art. 73** Deixar de corrigir imediatamente informação sobre consumidor constante de cadastro, banco de dados, fichas ou registros que sabe ou deveria saber ser inexata:
+Pena Detenção de um a seis meses ou multa.

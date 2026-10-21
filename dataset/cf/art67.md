@@ -1,0 +1,3 @@
+<!-- Título IV › Capítulo I › Seção VIII › Subseção III › Art. 67 -->
+
+**Art. 67** A matéria constante de projeto de lei rejeitado somente poderá constituir objeto de novo projeto, na mesma sessão legislativa, mediante proposta da maioria absoluta dos membros de qualquer das Casas do Congresso Nacional.

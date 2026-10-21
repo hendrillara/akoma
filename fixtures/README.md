@@ -41,6 +41,10 @@ It was checked offline before being committed: it is the FrontPage page Planalto
 
 Scenario fixtures (a simulated new amendment, a stale secondary source…) are derived from these files by documented edits and live next to the tests that use them.
 
+## Daily captures (`YYYY-MM-DD-daily/`)
+
+The daily publish job commits the pages it built the published dataset from as `YYYY-MM-DD-daily/`, in this same format, with a generated README (provenance, licences, the LEGIN meta redaction). These folders are written by the job, never by hand. Together with the hand-made captures above, they are the input of `pnpm build:dataset`: every dated folder, later ones winning for the same URL (docs/publishing.md). Tests keep reading the folders they name, so a new capture never moves a test.
+
 ---
 
 # Fixtures (PT)
@@ -73,3 +77,7 @@ Capturada em 21/10/2026, às 04:48 UTC, de uma conexão residencial, com um GET 
 Antes do commit, foi conferida offline: é a página FrontPage que o Planalto serve (`GENERATOR` Microsoft FrontPage 6.0, o script `f5_cspm` do F5 depois de `</html>`, rodapé `Este texto não substitui o publicado no DOU 21.12.2023`), e as redações citadas no art. 1º dela para os arts. 146, III, "d", 156-A, § 1º, IX, 159, § 3º, 195, § 17, e 225, § 1º, VIII, da CF são idênticas às que a CF compilada de 20/10 mostra como dadas pela EC 132. SHA-256 `bee37a51c439d37d261c859ffd7992a4164257e6017f12cdf5c4ab2ca44eed4c`, 510.399 bytes. Domínio público (Lei 9.610/1998, art. 8º, IV).
 
 Fixtures de cenário (uma emenda nova simulada, uma fonte secundária defasada…) são derivadas destes arquivos por edições documentadas e ficam ao lado dos testes que as usam.
+
+## Capturas diárias (`AAAA-MM-DD-daily/`)
+
+O job diário de publicação commita as páginas de que montou o dataset publicado em `AAAA-MM-DD-daily/`, neste mesmo formato, com um README gerado (proveniência, licenças, a edição dos metadados do LEGIN). Essas pastas são escritas pelo job, nunca à mão. Junto com as capturas acima, são a entrada do `pnpm build:dataset`: todas as pastas datadas, e a mais recente prevalece para a mesma URL (docs/publishing.md). Os testes leem as pastas que nomeiam, então uma captura nova não muda nenhum teste.

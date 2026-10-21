@@ -1,0 +1,149 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art98",
+  "provisions": [
+    {
+      "id": "art98_cpt",
+      "aliases": [
+        "art98_cpt,emc-80-2014-06-04"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 98"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "O número de defensores públicos na unidade jurisdicional será proporcional à efetiva demanda pelo serviço da Defensoria Pública e à respectiva população.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 80, de 2014",
+          "act": {
+            "citation": "Emenda Constitucional nº 80, de 2014",
+            "type": "emenda_constitucional",
+            "number": "80",
+            "year": 2014,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc80.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:cf84c874e1efbc829b80622c7af85a564e052359208b40122331c17ad22d850f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art98_par1",
+      "aliases": [
+        "art98_par1,emc-80-2014-06-04"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 98"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "No prazo de 8 (oito) anos, a União, os Estados e o Distrito Federal deverão contar com defensores públicos em todas as unidades jurisdicionais, observado o disposto no caput deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 80, de 2014",
+          "act": {
+            "citation": "Emenda Constitucional nº 80, de 2014",
+            "type": "emenda_constitucional",
+            "number": "80",
+            "year": 2014,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc80.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:28b3e9d2bff63ec99c0cc9d4f60779623e55905f502c22d3bb2901b0f9b78ecb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art98_par2",
+      "aliases": [
+        "art98_par2,emc-80-2014-06-04"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 98"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Durante o decurso do prazo previsto no § 1º deste artigo, a lotação dos defensores públicos ocorrerá, prioritariamente, atendendo as regiões com maiores índices de exclusão social e adensamento populacional.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 80, de 2014",
+          "act": {
+            "citation": "Emenda Constitucional nº 80, de 2014",
+            "type": "emenda_constitucional",
+            "number": "80",
+            "year": 2014,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc80.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ec5a6234fee3d1e21ca9e670e04e3850a195280251b04ef7ce629a9e2da7282a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

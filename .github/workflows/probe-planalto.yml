@@ -1,10 +1,8 @@
 name: Probe Planalto access
 
 on:
+  # Manual only: the daily publish job (#12) took over the scheduled check of Planalto (ADR 0001).
   workflow_dispatch:
-  # Temporary (ADR 0001): cover other hours of the day until the daily publish job (#12) runs.
-  schedule:
-    - cron: "23 */6 * * *"
   push:
     paths:
       - scripts/probe-planalto.mjs

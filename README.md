@@ -1,12 +1,12 @@
 # Akoma
 
-[![CI](https://github.com/hendrillara/akoma/actions/workflows/ci.yml/badge.svg)](https://github.com/hendrillara/akoma/actions/workflows/ci.yml)
+[![CI](https://github.com/hendrillara/akoma/actions/workflows/ci.yml/badge.svg)](https://github.com/hendrillara/akoma/actions/workflows/ci.yml) [![Akoma status](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhendrillara%2Fakoma%2Fstatus%2Fbadge.json)](https://github.com/hendrillara/akoma/blob/status/status.json)
 
 **Português** · [English](#english)
 
 O Akoma espelha a legislação federal brasileira em dados estruturados por dispositivo (artigo, parágrafo, inciso, alínea, item), cada um com um id LexML estável e a sua proveniência, para agentes de IA. A v1 cobre a Constituição Federal (CF), o ADCT e o Código de Defesa do Consumidor (CDC, Lei 8.078/1990). O agente busca ("direito de arrependimento") ou pede um dispositivo exato pelo id, por um servidor MCP remoto ou por uma API REST, e recebe só o texto de que precisa.
 
-> **Situação: em construção, ainda não publicado.** `akoma.hendril.dev` é o endereço planejado; o primeiro deploy ainda não aconteceu ([`docs/deploy.md`](docs/deploy.md)). Os exemplos abaixo descrevem a API como ela está no código e são conferidos pelos testes. Localmente, `pnpm dev` serve a API depois que a pasta `dataset/` é gerada (o comando que a gera vem com o #12).
+> **Situação: em construção, ainda não publicado.** `akoma.hendril.dev` é o endereço planejado; o primeiro deploy ainda não aconteceu ([`docs/deploy.md`](docs/deploy.md)). Os exemplos abaixo descrevem a API como ela está no código e são conferidos pelos testes. Localmente, `pnpm dev` serve a API a partir da pasta `dataset/` commitada (gerada por `pnpm build:dataset`).
 
 ## O que o Akoma não é
 
@@ -82,7 +82,7 @@ curl https://akoma.hendril.dev/v1/status
 
 Erros: 400 para parâmetros inválidos; 404 para id desconhecido, com `suggestion` quando o id é um alias conhecido do normas.leg.br (`/v1/provisions/cf/art7_par1u` sugere `art7_par1`); 429 com `Retry-After` acima de 120 requisições por minuto por IP (o `/mcp` tem uma cota própria do mesmo tamanho). As respostas de sucesso podem ser guardadas em cache pela CDN por até uma hora.
 
-Depois que o dataset for commitado (#12), os mesmos dados ficam também como arquivos estáticos: `/cf/art5.json`, `/cf/art5.md`, `/cf.md`, `/dataset.json`, `/status.json`.
+Os mesmos dados ficam também como arquivos estáticos, da pasta `dataset/` commitada: `/cf/art5.json`, `/cf/art5.md`, `/cf.md`, `/dataset.json`, `/status.json`.
 
 ## O que cada dispositivo traz
 
@@ -101,14 +101,14 @@ Tudo isto roda em `pnpm verify`, o mesmo comando do CI (o badge acima):
 ### Limites conhecidos
 
 - **Não publicado ainda.** O endereço é planejado; nada roda em produção.
-- **A atualização diária ainda não roda.** O job que busca o Planalto, abre um PR e faz merge sozinho ou pede revisão humana é o #12. Os dados de hoje vêm das capturas de 2026-10-20/21 (`fixtures/`).
+- **A atualização diária ainda não roda.** O job que busca o Planalto, abre um PR e faz merge sozinho ou pede revisão humana existe ([`docs/publishing.md`](docs/publishing.md)), mas só roda depois de chegar ao `main` e de o mantenedor permitir que o GitHub Actions abra PRs. Os dados de hoje vêm das capturas de 2026-10-20/21 (`fixtures/`).
 - **Revisão por LLM (camada 3): construída, não ativa.** O revisor e seus testes existem, mas ainda não rodam em nenhum fluxo.
 - **Mudanças no CDC sempre vão para revisão humana na v1.** A conferência de alvos lê só os comandos de emendas constitucionais; o CDC é alterado por leis, então toda mudança de texto nele é escalada.
 - **STF não verificado** (ver acima). A busca é lexical (BM25 com dicionário de sinônimos), não semântica.
 
 ## Estado do serviço
 
-O badge acima é o do CI (os testes na branch principal). O arquivo de estado do job diário e o badge dele (última verificação, última mudança, atraso por fonte, resultado dos testes) vêm com o #12. Já existem `GET /v1/status` e o `status.json` do dataset, com a conferência entre fontes por norma e a atribuição ao Senado/LexML.
+O primeiro badge acima é o do CI (os testes na branch principal). O segundo é o do job diário e mostra o resultado da última execução. O arquivo de estado dele fica no branch `status`, em [`status.json`](https://github.com/hendrillara/akoma/blob/status/status.json): última verificação, última mudança, atraso por fonte e resultado dos testes ([`docs/publishing.md`](docs/publishing.md)). O badge só aparece depois da primeira execução. Além disso, `GET /v1/status` e o `status.json` do dataset trazem a conferência entre fontes por norma e a atribuição ao Senado/LexML.
 
 ## Licenças e atribuição
 
@@ -133,7 +133,7 @@ Veja [CONTRIBUTING.md](CONTRIBUTING.md). Em resumo: PRs no parser, nos manifesto
 
 Akoma mirrors Brazilian federal law as structured data, one dispositivo (article, paragraph, inciso, alínea, item) at a time, each with a stable LexML id and its provenance, for AI agents. v1 covers the Constituição Federal (CF), the ADCT and the Código de Defesa do Consumidor (CDC, Lei 8.078/1990). An agent searches ("direito de arrependimento") or fetches an exact dispositivo by id, over a remote MCP server or a REST API, and gets only the text it needs.
 
-> **Status: building, not deployed yet.** `akoma.hendril.dev` is the planned address; the first deploy has not happened ([`docs/deploy.md`](docs/deploy.md)). The examples below describe the API as it is in the code, and the tests check them. Locally, `pnpm dev` serves the API once the `dataset/` folder is generated (the command that generates it comes with #12).
+> **Status: building, not deployed yet.** `akoma.hendril.dev` is the planned address; the first deploy has not happened ([`docs/deploy.md`](docs/deploy.md)). The examples below describe the API as it is in the code, and the tests check them. Locally, `pnpm dev` serves the API from the committed `dataset/` folder (generated by `pnpm build:dataset`).
 
 ### What Akoma is not
 
@@ -209,7 +209,7 @@ curl https://akoma.hendril.dev/v1/status
 
 Errors: 400 for invalid parameters; 404 for an unknown id, with a `suggestion` when the id is a known normas.leg.br alias (`/v1/provisions/cf/art7_par1u` suggests `art7_par1`); 429 with `Retry-After` above 120 requests a minute per IP (`/mcp` has its own budget of the same size). Successful answers may be cached by the CDN for up to an hour.
 
-Once the dataset is committed (#12), the same data is also served as static files: `/cf/art5.json`, `/cf/art5.md`, `/cf.md`, `/dataset.json`, `/status.json`.
+The same data is also served as static files, from the committed `dataset/` folder: `/cf/art5.json`, `/cf/art5.md`, `/cf.md`, `/dataset.json`, `/status.json`.
 
 ### What each dispositivo carries
 
@@ -228,14 +228,14 @@ All of this runs in `pnpm verify`, the same command CI runs (the badge above):
 #### Known limits
 
 - **Not deployed yet.** The address is planned; nothing runs in production.
-- **The daily refresh does not run yet.** The job that fetches Planalto, opens a PR and merges it or asks for human review is #12. Today's data is built from the 2026-10-20/21 captures (`fixtures/`).
+- **The daily refresh does not run yet.** The job that fetches Planalto, opens a PR and merges it or asks for human review exists ([`docs/publishing.md`](docs/publishing.md)), but it runs only once it reaches `main` and the maintainer lets GitHub Actions open PRs. Today's data is built from the 2026-10-20/21 captures (`fixtures/`).
 - **LLM review (layer 3): built, not active.** The reviewer and its tests exist, but no workflow runs it yet.
 - **CDC changes always escalate to human review in v1.** Target matching reads only constitutional amendments' commands; the CDC is amended by laws, so every text change to it is escalated.
 - **STF not verified** (see above). Search is lexical (BM25 with a synonym dictionary), not semantic.
 
 ### Service status
 
-The badge above is CI's (the tests on the default branch). The daily job's status file and its badge (last check, last change, per-source lag, test results) come with #12. `GET /v1/status` and the dataset's `status.json` already exist, with the per-norm cross-source results and the Senado/LexML attribution.
+The first badge above is CI's (the tests on the default branch). The second is the daily job's and shows its latest run. Its status file lives on the `status` branch, in [`status.json`](https://github.com/hendrillara/akoma/blob/status/status.json): last check, last change, per-source lag and test results ([`docs/publishing.md`](docs/publishing.md)). The badge appears after the first run. Separately, `GET /v1/status` and the dataset's `status.json` carry the per-norm cross-source results and the Senado/LexML attribution.
 
 ### Licences and attribution
 

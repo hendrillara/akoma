@@ -1,0 +1,113 @@
+// `pnpm publish:daily`: the daily publish job (src/publish/job.ts; docs/publishing.md).
+//
+//   node scripts/publish.ts                      the workflow's run: live sources, git + gh, `pnpm verify`
+//   node scripts/publish.ts --dry-run [options]  everything but GitHub and the checkout: writes out/dry-run/ (the
+//                                                PR body, the actions it would take, the status, and in workspace/
+//                                                the capture and dataset/ it would commit)
+//
+// Dry-run options:
+//   --recorded <folder>…   replay these capture folders instead of fetching (later folders win), e.g.
+//                          --recorded fixtures/2026-10-20 fixtures/2026-10-21 test/fixtures/refresh/ec142
+//   --now <ISO instant>    the run's instant (default: now); its Brasília day is the build's date
+//   --status <file>        the run status the previous run left (default: none)
+//
+// Environment (the workflow sets them): ANTHROPIC_API_KEY (layer 3; absent → the review blocks any change it must
+// see), AKOMA_REVIEW_MODEL, GITHUB_SERVER_URL + GITHUB_REPOSITORY + GITHUB_RUN_ID (the run link), GH_TOKEN (gh).
+import { spawn } from "node:child_process";
+import { existsSync, readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { norms } from "../src/norms/index.ts";
+import { ghCli, memoryGitHub } from "../src/publish/github.ts";
+import { runDailyJob, type TestRunner } from "../src/publish/job.ts";
+import { readPublished } from "../src/publish/published.ts";
+import { diskWorkspace, memoryWorkspace } from "../src/publish/workspace.ts";
+import { claudeReviewer, DEFAULT_REVIEW_MODEL } from "../src/review/claude.ts";
+import { httpSource } from "../src/sources/http.ts";
+import { recordedSource } from "../src/sources/recorded.ts";
+
+const root = new URL("../", import.meta.url);
+const args = process.argv.slice(2);
+const dryRun = args.includes("--dry-run");
+const option = (name: string) => {
+  const i = args.indexOf(name);
+  return i >= 0 ? args[i + 1] : undefined;
+};
+const list = (name: string) => {
+  const i = args.indexOf(name);
+  if (i < 0) return [];
+  const values: string[] = [];
+  for (const value of args.slice(i + 1)) {
+    if (value.startsWith("--")) break;
+    values.push(value);
+  }
+  return values;
+};
+
+const recorded = list("--recorded");
+const source = recorded.length
+  ? await recordedSource(...recorded.map((folder) => new URL(`${folder.replace(/\/?$/, "/")}`, `file://${process.cwd()}/`)))
+  : httpSource({ log: (line) => console.log(line) });
+const now = option("--now") ? new Date(option("--now")!) : new Date();
+if (Number.isNaN(now.getTime())) throw new Error(`--now: not an instant: ${option("--now")}`);
+
+const apiKey = process.env.ANTHROPIC_API_KEY || undefined;
+const model = process.env.AKOMA_REVIEW_MODEL || DEFAULT_REVIEW_MODEL;
+const { GITHUB_SERVER_URL, GITHUB_REPOSITORY, GITHUB_RUN_ID } = process.env;
+const runUrl = GITHUB_SERVER_URL && GITHUB_REPOSITORY && GITHUB_RUN_ID ? `${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}` : undefined;
+
+const github = dryRun ? memoryGitHub() : ghCli({ cwd: fileURLToPath(root), statusBranch: "status", base: "main" });
+if (dryRun && option("--status")) await github.writeStatus([{ path: "status.json", content: readFileSync(option("--status")!, "utf8") }]);
+const workspace = dryRun ? memoryWorkspace() : diskWorkspace(root);
+const tests: TestRunner = dryRun ? { async verify() { return { passed: true, ran: false, summary: "This is a dry run." }; } } : { verify: verify };
+
+const result = await runDailyJob({
+  manifests: norms,
+  previous: await readPublished(new URL("dataset/", root)),
+  source,
+  now,
+  reviewer: apiKey ? claudeReviewer({ apiKey, model }) : undefined,
+  reviewerModel: model,
+  github,
+  workspace,
+  tests,
+  ...(runUrl && { runUrl }),
+  // A merge made with the workflow token starts no `push` workflow; `workflow_dispatch` is the exception.
+  ...(existsSync(new URL(".github/workflows/deploy.yml", root)) && { deployWorkflow: "deploy.yml" }),
+});
+
+console.log(`publish: ${result.outcome} (${result.today}): ${result.message}`);
+if (result.verdict) console.log(`publish: verdict ${result.verdict.decision}, ${result.verdict.findings.filter((f) => f.severity === "problem").length} problems`);
+if (dryRun) {
+  const out = diskWorkspace(new URL("out/dry-run/", root));
+  const memory = github as ReturnType<typeof memoryGitHub>;
+  const files = workspace as ReturnType<typeof memoryWorkspace>;
+  await out.write("actions.txt", `${memory.log.join("\n")}\n`);
+  await out.write("status.json", memory.status.get("status.json") ?? "");
+  await out.write("badge.json", memory.status.get("badge.json") ?? "");
+  if (result.body) await out.write("pr-body.md", result.body);
+  if (files.files.has("out/change-report.md")) await out.write("change-report.md", files.text("out/change-report.md"));
+  // What the run would commit (the capture and dataset/), to inspect or to regenerate from.
+  for (const [path, content] of files.files) if (!path.startsWith("out/")) await out.write(`workspace/${path}`, content);
+  const { report: _, body: __, fullReport: ___, ...summary } = result;
+  await out.write("result.json", `${JSON.stringify(summary, null, 2)}\n`);
+  console.log(`publish: dry run, nothing pushed. GitHub actions it would take:\n${memory.log.map((l) => `  ${l}`).join("\n") || "  (none)"}\nWritten: out/dry-run/`);
+}
+process.exit(result.outcome === "failed" ? 1 : 0);
+
+/** `pnpm verify` on the written dataset: typecheck, both seams, the Map check and the regeneration guard. */
+function verify(): Promise<{ passed: boolean; summary: string }> {
+  return new Promise((resolve) => {
+    // The tests and their dependencies never see the write token or the API key.
+    const { GH_TOKEN: _token, GITHUB_TOKEN: _github, ANTHROPIC_API_KEY: _key, ...env } = process.env;
+    const child = spawn("pnpm", ["verify"], { cwd: fileURLToPath(root), env, stdio: ["ignore", "pipe", "pipe"] });
+    let output = "";
+    child.stdout.on("data", (d) => (output += d));
+    child.stderr.on("data", (d) => (output += d));
+    child.on("close", (code) => {
+      process.stdout.write(output);
+      const tests = /Tests\s+(.+)/.exec(output)?.[1]?.trim();
+      const tail = output.trim().split("\n").slice(-15).join("\n");
+      resolve(code === 0 ? { passed: true, summary: `pnpm verify passed${tests ? ` (tests: ${tests})` : ""}.` } : { passed: false, summary: `exit code ${code}. Last lines:\n\n\`\`\`\n${tail}\n\`\`\`` });
+    });
+  });
+}

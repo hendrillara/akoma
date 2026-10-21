@@ -1,0 +1,3 @@
+<!-- Título I › Capítulo IV › Seção I › Art. 9º -->
+
+**Art. 9º** O fornecedor de produtos e serviços potencialmente nocivos ou perigosos à saúde ou segurança deverá informar, de maneira ostensiva e adequada, a respeito da sua nocividade ou periculosidade, sem prejuízo da adoção de outras medidas cabíveis em cada caso concreto.

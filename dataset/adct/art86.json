@@ -1,0 +1,333 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art86",
+  "provisions": [
+    {
+      "id": "art86_cpt",
+      "aliases": [
+        "art86_cpt,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 86"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Serão pagos conforme disposto no art. 100 da Constituição Federal, não se lhes aplicando a regra de parcelamento estabelecida no caput do art. 78 deste Ato das Disposições Constitucionais Transitórias, os débitos da Fazenda Federal, Estadual, Distrital ou Municipal oriundos de sentenças transitadas em julgado, que preencham, cumulativamente, as seguintes condições:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:518bb5efc6ecc664bfc3edbe06af6c87cd8ae43a7e7fe37fd9b650deb2789996",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art86_cpt_inc1",
+      "aliases": [
+        "art86_cpt_inc1,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 86"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "ter sido objeto de emissão de precatórios judiciários;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:00fae31b7f2a56ef0d4c224524b96332a517b1c6c7f2bd85840d832e2bcc1ad0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art86_cpt_inc2",
+      "aliases": [
+        "art86_cpt_inc2,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 86"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "ter sido definidos como de pequeno valor pela lei de que trata o § 3º do art. 100 da Constituição Federal ou pelo art. 87 deste Ato das Disposições Constitucionais Transitórias;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:35a07e9a6c44e706723f40cad177dcb8e13f1996a22990e11e41fe8bcfa1d99e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art86_cpt_inc3",
+      "aliases": [
+        "art86_cpt_inc3,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 86"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "estar, total ou parcialmente, pendentes de pagamento na data da publicação desta Emenda Constitucional .",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1a004942f5f247e9ec5043a3b2eac2c932cf3c42cb726935e93bdc58d9e1e73c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art86_par1",
+      "aliases": [
+        "art86_par1,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 86"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Os débitos a que se refere o caput deste artigo, ou os respectivos saldos, serão pagos na ordem cronológica de apresentação dos respectivos precatórios, com precedência sobre os de maior valor.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7b6ff739a73b9eacbdb96f2f9c48293d677bfd3f7d0c214f06d65ed5ce5e42c0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art86_par2",
+      "aliases": [
+        "art86_par2,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 86"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Os débitos a que se refere o caput deste artigo, se ainda não tiverem sido objeto de pagamento parcial, nos termos do art. 78 deste Ato das Disposições Constitucionais Transitórias, poderão ser pagos em duas parcelas anuais, se assim dispuser a lei.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:34bec6459646ea10208fc16a0754c05ae8a6c66076971538a6a38ddfc7667631",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art86_par3",
+      "aliases": [
+        "art86_par3,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 86"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Observada a ordem cronológica de sua apresentação, os débitos de natureza alimentícia previstos neste artigo terão precedência para pagamento sobre todos os demais.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f584b28b2fc2d8e27a4b0deacba2104052824f54324d54671fcd7af38ba859b0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

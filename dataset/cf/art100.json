@@ -1,0 +1,3598 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art100",
+  "provisions": [
+    {
+      "id": "art100_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Os pagamentos devidos pelas Fazendas Públicas Federal, Estaduais, Distrital e Municipais, em virtude de sentença judiciária, far-se-ão exclusivamente na ordem cronológica de apresentação dos precatórios e à conta dos créditos respectivos, proibida a designação de casos ou de pessoas nas dotações orçamentárias e nos créditos adicionais abertos para este fim.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art1"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "act",
+          "annotation": "Vide Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art4"
+          }
+        },
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI 4425",
+          "number": "4425",
+          "href": "http://www.stf.jus.br/portal/peticaoInicial/verPeticaoInicial.asp?base=ADIN&s1=4425&processo=4425"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e5dd078731c71d78a6821d23e5c3f0a877492375cff562bd357e1128ea672ee1",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par1",
+      "aliases": [
+        "art1_cpt_alt1_art100_par1-1,emc-30-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Os débitos de natureza alimentícia compreendem aqueles decorrentes da relação laboral ou previdenciária, independentemente da sua natureza tributária, inclusive os oriundos de repetição de indébito incidente sobre remuneração ou proventos de aposentadoria, bem como indenizações por morte ou por invalidez, fundadas em responsabilidade civil, em virtude de sentença judicial transitada em julgado, e serão pagos com preferência sobre todos os demais débitos, exceto sobre aqueles referidos no § 2º deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:35e90d27120a05e9de11997af3abf2e386279d6210774f844b87a72e9c31d9a7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par2",
+      "aliases": [
+        "art100_par2,emc-62-2009-12-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Os débitos de natureza alimentícia cujos titulares, originários ou por sucessão hereditária, tenham 60 (sessenta) anos de idade, ou sejam portadores de doença grave, ou pessoas com deficiência, assim definidos na forma da lei, serão pagos com preferência sobre todos os demais débitos, até o valor equivalente ao triplo fixado em lei para os fins do disposto no § 3º deste artigo, admitido o fracionamento para essa finalidade, sendo que o restante será pago na ordem cronológica de apresentação do precatório.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 94, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 94, de 2016",
+            "type": "emenda_constitucional",
+            "number": "94",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc94.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b7087239d02e93b7fde77194d3b5e6000f9571ec42dc467833e53440c3933d64",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par3",
+      "aliases": [
+        "art100_par3,emc-20-1998-12-15"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "O disposto no caput deste artigo relativamente à expedição de precatórios não se aplica aos pagamentos de obrigações definidas em leis como de pequeno valor que as Fazendas referidas devam fazer em virtude de sentença judicial transitada em julgado.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a3cbda20acea9cf22ad9312e24d55c1b62b8739f28a86b9f50f0df317fc348d4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par4",
+      "aliases": [
+        "art100_par4,emc-30-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "Para os fins do disposto no § 3º, poderão ser fixados, por leis próprias, valores distintos às entidades de direito público, segundo as diferentes capacidades econômicas, sendo o mínimo igual ao valor do maior benefício do regime geral de previdência social.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:568cfda73eadab2e7abdc92ef3198f9693a750c7b083a20bffeab03a2176a0fb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par5",
+      "aliases": [
+        "art100_par1"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "É obrigatória a inclusão no orçamento das entidades de direito público de verba necessária ao pagamento de seus débitos oriundos de sentenças transitadas em julgado constantes de precatórios judiciários apresentados até 1º de fevereiro, fazendo-se o pagamento até o final do exercício seguinte, quando terão seus valores atualizados monetariamente.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5caffed19476570026a2f1fcf89a5ea0dc1e83e341957f2afd2e6f45669d01d0",
+        "secondary": {
+          "outcome": "secondary-stale",
+          "source": "normas.leg.br",
+          "note": "The primary cites Emenda Constitucional nº 136, de 2025, which normas.leg.br does not record for this dispositivo or any above it: the secondary is behind."
+        }
+      }
+    },
+    {
+      "id": "art100_par6",
+      "aliases": [
+        "art100_par2"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 6º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 6º"
+        }
+      ],
+      "text": "As dotações orçamentárias e os créditos abertos serão consignados diretamente ao Poder Judiciário, cabendo ao Presidente do Tribunal que proferir a decisão exequenda determinar o pagamento integral e autorizar, a requerimento do credor e exclusivamente para os casos de preterimento de seu direito de precedência ou de não alocação orçamentária do valor necessário à satisfação do seu débito, o sequestro da quantia respectiva.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:86fc402f67e7ef6ee2b883b4da53989ce0da652a4ee5880ed724767a07c9d30d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par7",
+      "aliases": [
+        "art100_par5,emc-30-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 7º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 7º"
+        }
+      ],
+      "text": "O Presidente do Tribunal competente que, por ato comissivo ou omissivo, retardar ou tentar frustrar a liquidação regular de precatórios incorrerá em crime de responsabilidade e responderá, também, perante o Conselho Nacional de Justiça.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3bd335de00d95982c1b9fc1d04d9a21fc43a13ebc55029058433865271017630",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par8",
+      "aliases": [
+        "art100_par4,emc-37-2002-06-12"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 8º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        }
+      ],
+      "text": "É vedada a expedição de precatórios complementares ou suplementares de valor pago, bem como o fracionamento, repartição ou quebra do valor da execução para fins de enquadramento de parcela do total ao que dispõe o § 3º deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:bb6c20383f82892db3d61054f8fdaf951e4b905afd87b6ae097e64949037fc26",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par9",
+      "aliases": [
+        "art100_par9,emc-62-2009-12-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 9º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        }
+      ],
+      "text": "Sem que haja interrupção no pagamento do precatório e mediante comunicação da Fazenda Pública ao Tribunal, o valor correspondente aos eventuais débitos inscritos em dívida ativa contra o credor do requisitório e seus substituídos deverá ser depositado à conta do juízo responsável pela ação de cobrança, que decidirá pelo seu destino definitivo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI 7047",
+          "number": "7047",
+          "href": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=6318731"
+        },
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI 7064",
+          "number": "7064",
+          "href": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=6330822"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:516b628c75593401a427cfd4579d113942dbe100c27c3fb9ecfaea370b9c6d37",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par10",
+      "aliases": [
+        "art100_par10,emc-62-2009-12-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 10",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 10"
+        }
+      ],
+      "text": "Antes da expedição dos precatórios, o Tribunal solicitará à Fazenda Pública devedora, para resposta em até 30 (trinta) dias, sob pena de perda do direito de abatimento, informação sobre os débitos que preencham as condições estabelecidas no § 9º, para os fins nele previstos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art1"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI 4425",
+          "number": "4425",
+          "href": "http://www.stf.jus.br/portal/peticaoInicial/verPeticaoInicial.asp?base=ADIN&s1=4425&processo=4425"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:95454244d5661cc5ab520ce021e9e21912deb3303dc96f5520d01ac1cc94331f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par11",
+      "aliases": [
+        "art100_par11,emc-62-2009-12-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 11",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 11"
+        }
+      ],
+      "text": "É facultada ao credor, conforme estabelecido em lei do ente federativo devedor, a oferta de créditos líquidos e certos que originalmente lhe são próprios ou adquiridos de terceiros reconhecidos pelo ente federativo ou por decisão judicial transitada em julgado para:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI 7047",
+          "number": "7047",
+          "href": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=6318731"
+        },
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI 7064",
+          "number": "7064",
+          "href": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=6330822"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8b9c5f7944d41b33a9350360f9f3466fd0d9518001b9a7574dceafd8abbe9780",
+        "secondary": {
+          "outcome": "unconfirmed",
+          "source": "normas.leg.br",
+          "note": "Known divergence, reviewed: Planalto strikes through a phrase of EC 113/2021's wording, linking it to ADI 7047 (STF); normas.leg.br still prints the phrase. Akoma does not check STF decisions."
+        }
+      }
+    },
+    {
+      "id": "art100_par11_inc1",
+      "aliases": [
+        "art100_par11_inc1,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 11"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "quitação de débitos parcelados ou débitos inscritos em dívida ativa do ente federativo devedor, inclusive em transação resolutiva de litígio, e, subsidiariamente, débitos com a administração autárquica e fundacional do mesmo ente;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f6e3a518e1d1f8de1fdc61a9f7ef71ecd31749cfdedc5920c14485beef8b11e9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par11_inc2",
+      "aliases": [
+        "art100_par11_inc2,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 11"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "compra de imóveis públicos de propriedade do mesmo ente disponibilizados para venda;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6ce33fd95711266ddaa28278833f19324462b20918534991726c1678e95fd53d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par11_inc3",
+      "aliases": [
+        "art100_par11_inc3,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 11"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "pagamento de outorga de delegações de serviços públicos e demais espécies de concessão negocial promovidas pelo mesmo ente;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f92e8fdeed2cb7d5cf1c08207ecc7491d561441c7e56cb2e2429fcee8e88d689",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par11_inc4",
+      "aliases": [
+        "art100_par11_inc4,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 11"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "aquisição, inclusive minoritária, de participação societária, disponibilizada para venda, do respectivo ente federativo; ou",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:40533be87e9c30fd21a8877ba3b9d4e3b91eb3ef9ff6df3092cd98645706e494",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par11_inc5",
+      "aliases": [
+        "art100_par11_inc5,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 11"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "compra de direitos, disponibilizados para cessão, do respectivo ente federativo, inclusive, no caso da União, da antecipação de valores a serem recebidos a título do excedente em óleo em contratos de partilha de petróleo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5de8c00062c3fb4405cba6c06fb8f8677887c6a854740fbbfced4c33177bdad5",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par12",
+      "aliases": [
+        "art100_par12,emc-62-2009-12-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 12",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        }
+      ],
+      "text": "A partir da promulgação desta Emenda Constitucional, a atualização de valores de requisitórios, após sua expedição, até o efetivo pagamento, independentemente de sua natureza, será feita pelo índice oficial de remuneração básica da caderneta de poupança, e, para fins de compensação da mora, incidirão juros simples no mesmo percentual de juros incidentes sobre a caderneta de poupança, ficando excluída a incidência de juros compensatórios.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art1"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI 4425",
+          "number": "4425",
+          "href": "http://www.stf.jus.br/portal/peticaoInicial/verPeticaoInicial.asp?base=ADIN&s1=4425&processo=4425"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2a049c8a8bb912e81c4aec602fd9316ed95d633619428b00ae16c7a15d4e1388",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par13",
+      "aliases": [
+        "art100_par13,emc-62-2009-12-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 13",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 13"
+        }
+      ],
+      "text": "O credor poderá ceder, total ou parcialmente, seus créditos em precatórios a terceiros, independentemente da concordância do devedor, não se aplicando ao cessionário o disposto nos §§ 2º e 3º.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f46c38e0e69a3a2ce13e12808404fcee16a8c63afd83be9803dcb1d36b7c07de",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par14",
+      "aliases": [
+        "art100_par14,emc-62-2009-12-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 14",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 14"
+        }
+      ],
+      "text": "A cessão de precatórios, observado o disposto no § 9º deste artigo, somente produzirá efeitos após comunicação, por meio de petição protocolizada, ao Tribunal de origem e ao ente federativo devedor.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c940b76c0d0af20f25c0aebc2704b659dbe5ae41b15097fd742924d20d491b8e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par15",
+      "aliases": [
+        "art100_par15,emc-62-2009-12-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 15",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 15"
+        }
+      ],
+      "text": "Sem prejuízo do disposto neste artigo, lei complementar a esta Constituição Federal poderá estabelecer regime especial para pagamento de crédito de precatórios de Estados, Distrito Federal e Municípios, dispondo sobre vinculações à receita corrente líquida e forma e prazo de liquidação.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c7bc4f6d2b4c237b023ce11aac78587e4a608c9ac8277f153158b6a0ac85646d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par16",
+      "aliases": [
+        "art100_par16,emc-62-2009-12-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 16",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 16"
+        }
+      ],
+      "text": "A seu critério exclusivo e na forma de lei, a União poderá assumir débitos, oriundos de precatórios, de Estados, Distrito Federal e Municípios, refinanciando-os diretamente.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:cba4b250ae4266e4320c7328f7a413effc8c4ccfda394f7454449a5e87466bb9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par17",
+      "aliases": [
+        "art100_par17,emc-94-2016-12-15"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 17",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 17"
+        }
+      ],
+      "text": "A União, os Estados, o Distrito Federal e os Municípios aferirão mensalmente, em base anual, o comprometimento de suas respectivas receitas correntes líquidas com o pagamento de precatórios e obrigações de pequeno valor.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 94, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 94, de 2016",
+            "type": "emenda_constitucional",
+            "number": "94",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc94.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b152ad5c1d3daa00457d33eba7d4c67cf171f3255f8281364c84eb5679044cfa",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par18",
+      "aliases": [
+        "art100_par18,emc-94-2016-12-15"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 18",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 18"
+        }
+      ],
+      "text": "Entende-se como receita corrente líquida, para os fins de que trata o § 17, o somatório das receitas tributárias, patrimoniais, industriais, agropecuárias, de contribuições e de serviços, de transferências correntes e outras receitas correntes, incluindo as oriundas do § 1º do art. 20 da Constituição Federal, verificado no período compreendido pelo segundo mês imediatamente anterior ao de referência e os 11 (onze) meses precedentes, excluídas as duplicidades, e deduzidas:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 94, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 94, de 2016",
+            "type": "emenda_constitucional",
+            "number": "94",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc94.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:132b0f470f312cca27dcff0f6a8af9a8036d6976266bdc2398342102468c47b9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par18_inc1",
+      "aliases": [
+        "art100_par18_inc1,emc-94-2016-12-15"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 18"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "na União, as parcelas entregues aos Estados, ao Distrito Federal e aos Municípios por determinação constitucional;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 94, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 94, de 2016",
+            "type": "emenda_constitucional",
+            "number": "94",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc94.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:fd052d1f81038239e8c61d5120337ff96c9fa78ef13c215eb0b65a340eb4842a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par18_inc2",
+      "aliases": [
+        "art100_par18_inc2,emc-94-2016-12-15"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 18"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "nos Estados, as parcelas entregues aos Municípios por determinação constitucional;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 94, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 94, de 2016",
+            "type": "emenda_constitucional",
+            "number": "94",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc94.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:35a50c8453f54f24d0aee8f61dc46b4456de13e3bb524dc7ed94d8597374d9ea",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par18_inc3",
+      "aliases": [
+        "art100_par18_inc3,emc-94-2016-12-15"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 18"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "na União, nos Estados, no Distrito Federal e nos Municípios, a contribuição dos servidores para custeio de seu sistema de previdência e assistência social e as receitas provenientes da compensação financeira referida no § 9º do art. 201 da Constituição Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 94, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 94, de 2016",
+            "type": "emenda_constitucional",
+            "number": "94",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc94.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b61e87c8abd84dc3fe0dcca2a653758b21fc501473d04ba40041d797bdb648ca",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par19",
+      "aliases": [
+        "art100_par19,emc-94-2016-12-15"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 19",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 19"
+        }
+      ],
+      "text": "Caso o montante total de débitos decorrentes de condenações judiciais em precatórios e obrigações de pequeno valor, em período de 12 (doze) meses, ultrapasse a média do comprometimento percentual da receita corrente líquida nos 5 (cinco) anos imediatamente anteriores, a parcela que exceder esse percentual poderá ser financiada, excetuada dos limites de endividamento de que tratam os incisos VI e VII do art. 52 da Constituição Federal e de quaisquer outros limites de endividamento previstos, não se aplicando a esse financiamento a vedação de vinculação de receita prevista no inciso IV do art. 167 da Constituição Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 94, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 94, de 2016",
+            "type": "emenda_constitucional",
+            "number": "94",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc94.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c1389cfae3d7a0a9b9ad1f3d7c4042a9ae374c1b6ffc403a2ad01e30e33e8426",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par19-1",
+      "aliases": [
+        "art100_par19-1,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 19-A",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 19-A"
+        }
+      ],
+      "text": "A União fica autorizada a instituir linha de crédito especial, por intermédio de instituições financeiras estatais federais, destinada exclusivamente à quitação dos precatórios referidos no § 19 deste artigo, nos termos de lei complementar.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1a97e8a480db7fcace8463e4c51685ae25d958ecf4560da11d9a77811db14f62",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par20",
+      "aliases": [
+        "art100_par20,emc-94-2016-12-15"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 20",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 20"
+        }
+      ],
+      "text": "Caso haja precatório com valor superior a 15% (quinze por cento) do montante dos precatórios apresentados nos termos do § 5º deste artigo, 15% (quinze por cento) do valor deste precatório serão pagos até o final do exercício seguinte e o restante em parcelas iguais nos cinco exercícios subsequentes, acrescidas de juros de mora e correção monetária, ou mediante acordos diretos, perante Juízos Auxiliares de Conciliação de Precatórios, com redução máxima de 40% (quarenta por cento) do valor do crédito atualizado, desde que em relação ao crédito não penda recurso ou defesa judicial e que sejam observados os requisitos definidos na regulamentação editada pelo ente federado.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 94, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 94, de 2016",
+            "type": "emenda_constitucional",
+            "number": "94",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc94.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6ab6d7ae322c8860f0a2e878022d31358aadabde1eef6e4fcec20137a8f218d1",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par21",
+      "aliases": [
+        "art100_par21,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 21",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 21"
+        }
+      ],
+      "text": "Ficam a União e os demais entes federativos, nos montantes que lhes são próprios, desde que aceito por ambas as partes, autorizados a utilizar valores objeto de sentenças transitadas em julgado devidos a pessoa jurídica de direito público para amortizar dívidas, vencidas ou vincendas:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:51421d81e0237badddf57f6e6da79cde68c760a3692740fce630a579eb7dff8c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par21_inc1",
+      "aliases": [
+        "art100_par21_inc1,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 21"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "nos contratos de refinanciamento cujos créditos sejam detidos pelo ente federativo que figure como devedor na sentença de que trata o caput deste artigo;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f191fc12a2662a2d751e5e2f6f9a7969fa888288ad12060ba098ec037a329ff1",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par21_inc2",
+      "aliases": [
+        "art100_par21_inc2,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 21"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "nos contratos em que houve prestação de garantia a outro ente federativo;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6f0760ed243ae97a83dd4ecf1397ea4ae3723f80063f09fdbe0d0ec0fb5b207e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par21_inc3",
+      "aliases": [
+        "art100_par21_inc3,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 21"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "nos parcelamentos de tributos ou de contribuições sociais; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:50c3c4557f1e122b061bc838ad9d77e088ea9252fe1719591d6f074042731a3d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par21_inc4",
+      "aliases": [
+        "art100_par21_inc4,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 21"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "nas obrigações decorrentes do descumprimento de prestação de contas ou de desvio de recursos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9780b38154ca8ad95a1a3cbe90aa4566eb9388d473c6a4fbbd7f5a47d808510c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par22",
+      "aliases": [
+        "art100_par22,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 22",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 22"
+        }
+      ],
+      "text": "A amortização de que trata o § 21 deste artigo:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9573fa64c8d36d03c7c5307a4b9c33567b932d30b915b19e7ab4f73cccbee578",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par22_inc1",
+      "aliases": [
+        "art100_par22_inc1,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 22"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "nas obrigações vencidas, será imputada primeiramente às parcelas mais antigas;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c8e740be71747c65c4a9f9c978c60250fc51ac836186c7883bdbdeb3252588ad",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par22_inc2",
+      "aliases": [
+        "art100_par22_inc2,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 22"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "nas obrigações vincendas, reduzirá uniformemente o valor de cada parcela devida, mantida a duração original do respectivo contrato ou parcelamento.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3db44aade852e84f0daf5e55f1ea80e61046aca1a4769e57bfb6e39d18212a1f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par23",
+      "aliases": [
+        "art100_par23,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 23",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 23"
+        }
+      ],
+      "text": "Os pagamentos de precatórios pelos Estados, pelo Distrito Federal e pelos Municípios, relativos às suas administrações diretas e indiretas, estão limitados, observado o disposto nos §§ 24, 25, 26 e 28 deste artigo, a:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:581b979e6fc7c16508442f702a5232c3730fd887f56190b618ef1e28bbc46b6d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par23_inc1",
+      "aliases": [
+        "art100_par23_inc1,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 23"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "1% (um por cento) da receita corrente líquida apurada no exercício financeiro anterior, para os entes federativos que não possuam estoque e para os entes federativos cujo estoque de precatórios em mora, atualizados monetariamente e acrescidos de juros moratórios, em 1º de janeiro, não superar 15% (quinze por cento) desse valor;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e20e02957b65f4d5e7b959b4dcc7e07939582c458240333f01d234e383435aa4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par23_inc2",
+      "aliases": [
+        "art100_par23_inc2,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 23"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "1,5% (um inteiro e cinco décimos por cento) da receita corrente líquida apurada no exercício financeiro anterior, se o estoque de precatórios em mora, atualizados monetariamente e acrescidos de juros moratórios, em 1º de janeiro, for superior a 15% (quinze por cento) e inferior ou igual a 25% (vinte e cinco por cento) desse valor;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c1fb7ab476d1f8570fe1baab504a1bbaeef2a6422fe8847052b69dd38be9a4ec",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par23_inc3",
+      "aliases": [
+        "art100_par23_inc3,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 23"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "2% (dois por cento) da receita corrente líquida apurada no exercício financeiro anterior, se o estoque de precatórios em mora, atualizados monetariamente e acrescidos de juros moratórios, em 1º de janeiro, for superior a 25% (vinte e cinco por cento) e inferior ou igual a 35% (trinta e cinco por cento) desse valor;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:be3fe3b61ce9b676c9c91b539c2d4befe532ec29754f7d3d9e957eede8fcda9d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par23_inc4",
+      "aliases": [
+        "art100_par23_inc4,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 23"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "2,5% (dois inteiros e cinco décimos por cento) da receita corrente líquida apurada no exercício financeiro anterior, se o estoque de precatórios em mora, atualizados monetariamente e acrescidos de juros moratórios, em 1º de janeiro, for superior a 35% (trinta e cinco por cento) e inferior ou igual a 45% (quarenta e cinco por cento) desse valor;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c221079d033b6bf77fbb9dc1fdf1549c551187c60b63c6be7ce47ade770a75bd",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par23_inc5",
+      "aliases": [
+        "art100_par23_inc5,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 23"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "3% (três por cento) da receita corrente líquida apurada no exercício financeiro anterior, se o estoque de precatórios em mora, atualizados monetariamente e acrescidos de juros moratórios, em 1º de janeiro, for superior a 45% (quarenta e cinco por cento) e inferior ou igual a 55% (cinquenta e cinco por cento) desse valor;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:71c806dbcd1b25c6096d40d04a8a37cf0a5368d509baac7a1184373279cdccc1",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par23_inc6",
+      "aliases": [
+        "art100_par23_inc6,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 23"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "3,5% (três inteiros e cinco décimos por cento) da receita corrente líquida apurada no exercício financeiro anterior, se o estoque de precatórios em mora, atualizados monetariamente e acrescidos de juros moratórios, em 1º de janeiro, for superior a 55% (cinquenta e cinco por cento) e inferior ou igual a 65% (sessenta e cinco por cento) desse valor;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:fc46f40bd845af39f22a1e4ed186be8dcc03f3ad8d3e9b53283c379a727c7885",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par23_inc7",
+      "aliases": [
+        "art100_par23_inc7,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 23"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        }
+      ],
+      "text": "4% (quatro por cento) da receita corrente líquida apurada no exercício financeiro anterior, se o estoque de precatórios em mora, atualizados monetariamente e acrescidos de juros moratórios, em 1º de janeiro, for superior a 65% (sessenta e cinco por cento) e inferior ou igual a 75% (setenta e cinco por cento) desse valor;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ca39327ae95f984c567b07b09561b575b9e8515a685a19f4afb7f9230e72858a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par23_inc8",
+      "aliases": [
+        "art100_par23_inc8,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 23"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VIII"
+        }
+      ],
+      "text": "4,5% (quatro inteiros e cinco décimos por cento) da receita corrente líquida apurada no exercício financeiro anterior, se o estoque de precatórios em mora, atualizados monetariamente e acrescidos de juros moratórios, em 1º de janeiro, for superior a 75% (setenta e cinco por cento) e inferior ou igual a 85% (oitenta e cinco por cento) desse valor;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:dcf80353144c61aaac49e9317b952a11e174d532610d9d7e0325c04e4423cfeb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par23_inc9",
+      "aliases": [
+        "art100_par23_inc9,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IX",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 23"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IX"
+        }
+      ],
+      "text": "5% (cinco por cento) da receita corrente líquida apurada no exercício financeiro anterior, se o estoque de precatórios em mora, atualizados monetariamente e acrescidos de juros moratórios, em 1º de janeiro, for superior a 85% (oitenta e cinco por cento) desse valor.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:fceeac3358fdad78dc03d1359de7d5c36fdcb0d526c3e1042e0603a79e3aa162",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par24",
+      "aliases": [
+        "art100_par24,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 24",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 24"
+        }
+      ],
+      "text": "Os limites percentuais fixados nos incisos I a IX do § 23 deste artigo deverão ser majorados, de forma fixa para o decênio seguinte, em 0,5 (cinco décimos) ponto percentual sobre a receita corrente líquida apurada no exercício financeiro imediatamente anterior, a partir de 1º de janeiro de 2036, e a cada período subsequente de 10 (dez) anos, caso seja verificada a existência de estoque de precatórios em mora.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f5b94d67277534d342bc7367740f1d99c916d9cb77be6f638392d38e8a8b779a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par25",
+      "aliases": [
+        "art100_par25,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 25",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 25"
+        }
+      ],
+      "text": "Toda medida efetiva de redução de estoque de precatórios promovida pelos Estados, pelo Distrito Federal e pelos Municípios deverá ser contabilizada para fins de apuração do cumprimento do respectivo plano anual de pagamento de precatórios.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ea2bfa64a908aeb9cba3d074f0acd05b26dec593218778b634d6f6b96baf81f1",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par26",
+      "aliases": [
+        "art100_par26,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 26",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 26"
+        }
+      ],
+      "text": "Os pagamentos de precatórios realizados nos termos dos §§ 11 e 21 deste artigo não são considerados para aplicação dos limites de que trata o § 23 deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:354c14809792c40013b3072d6adfedd16b62a531a382a01de6908310592d5540",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par27",
+      "aliases": [
+        "art100_par27,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 27",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 27"
+        }
+      ],
+      "text": "Se os recursos destinados aos pagamentos de precatórios dos Estados, do Distrito Federal e dos Municípios, observados os limites do § 23 deste artigo, não forem tempestivamente liberados, no todo ou em parte:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c972b4e6885408c5111d2ec69a858190c9f160af59e7bbc1987bf476b5c17456",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par27_inc1",
+      "aliases": [
+        "art100_par27_inc1,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 27"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "os limites de que trata o § 23 deste artigo serão suspensos;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:119eda571b9b326d154412daa4426409e6642e36a78af46c997473c263ea6d01",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par27_inc2",
+      "aliases": [
+        "art100_par27_inc2,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 27"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "o Presidente do Tribunal de Justiça local determinará o sequestro, até o limite do valor devido, das contas municipais, estaduais ou distrital do ente federativo inadimplente para fins de pagamento de precatórios;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9817803ce83b5105d20f215979b2a697c1ead237d261045401dcc54034cb4aaa",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par27_inc3",
+      "aliases": [
+        "art100_par27_inc3,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 27"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "o Governador do Estado ou do Distrito Federal ou o Prefeito do Município inadimplente responderá na forma da legislação de responsabilidade fiscal e de improbidade administrativa;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:40bf76d7bd474cc5efb7956f99a6dc6523827fa35dd4c375f6d32e75977baa55",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par27_inc4",
+      "aliases": [
+        "art100_par27_inc4,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 27"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "o Estado, o Distrito Federal ou o Município ficará impedido de receber transferências voluntárias, enquanto perdurar a omissão.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:61678f66bfcad6d1ecec87125894406c425b294bcf16145c8ab4cc689e0a12a7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par28",
+      "aliases": [
+        "art100_par28,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 28",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 28"
+        }
+      ],
+      "text": "Os Estados, o Distrito Federal e os Municípios, mediante dotação orçamentária específica, poderão efetuar pagamentos de precatórios que superem os limites previstos no § 23 deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:beed3247461940f0571658b5a1dbbb286b4c9b641f4ea81a20d5e442813888f6",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par29",
+      "aliases": [
+        "art100_par29,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 29",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 29"
+        }
+      ],
+      "text": "É facultado ao credor de precatório dos Estados, do Distrito Federal e dos Municípios que não tenha sido pago em razão do disposto nos §§ 20 ou 23 deste artigo, sem prejuízo dos procedimentos previstos nos §§ 9º e 21 deste artigo, optar pelo recebimento, mediante acordos diretos perante Juízos Auxiliares de Conciliação de Pagamento de Condenações Judiciais contra a Fazenda Pública estadual, municipal ou do Distrito Federal, em parcela única, até o final do exercício seguinte, com renúncia de parcela do valor desse crédito.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3bb6fea1171622fa8ab0259a578275a284925a02571b1a9a8bccae7eecbeb0b5",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art100_par30",
+      "aliases": [
+        "art100_par30,emc-136-2025-09-09"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 30",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 100"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 30"
+        }
+      ],
+      "text": "Os valores efetivamente aportados pelos entes federativos nas contas especiais do Poder Judiciário destinadas ao pagamento de precatórios deverão ser imediatamente excluídos do estoque da dívida para fins de apuração do saldo devedor, vedada a incidência de juros, de correção monetária ou de quaisquer acréscimos legais sobre esses valores após sua transferência.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3b1cf18a4cdf4275d88506c69a5f616bb16f63a39e747c67dd967f5680857cff",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

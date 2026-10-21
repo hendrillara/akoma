@@ -1,0 +1,287 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art99",
+  "provisions": [
+    {
+      "id": "art99_cpt",
+      "aliases": [
+        "art99_cpt,emc-87-2015-04-16"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 99"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Para efeito do disposto no inciso VII do § 2º do art. 155, no caso de operações e prestações que destinem bens e serviços a consumidor final não contribuinte localizado em outro Estado, o imposto correspondente à diferença entre a alíquota interna e a interestadual será partilhado entre os Estados de origem e de destino, na seguinte proporção:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 87, de 2015",
+          "act": {
+            "citation": "Emenda Constitucional nº 87, de 2015",
+            "type": "emenda_constitucional",
+            "number": "87",
+            "year": 2015,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc87.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d8a91a62d2e3345b461bd9110089e5d5705792e54756f8faeb21f6607a9ae843",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art99_cpt_inc1",
+      "aliases": [
+        "art99_cpt_inc1,emc-87-2015-04-16"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 99"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "para o ano de 2015: 20% (vinte por cento) para o Estado de destino e 80% (oitenta por cento) para o Estado de origem;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 87, de 2015",
+          "act": {
+            "citation": "Emenda Constitucional nº 87, de 2015",
+            "type": "emenda_constitucional",
+            "number": "87",
+            "year": 2015,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc87.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:68641df5bd218a866896724c106e9731181684ba270e604cb348996eef7b6dcb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art99_cpt_inc2",
+      "aliases": [
+        "art99_cpt_inc2,emc-87-2015-04-16"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 99"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "para o ano de 2016: 40% (quarenta por cento) para o Estado de destino e 60% (sessenta por cento) para o Estado de origem;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 87, de 2015",
+          "act": {
+            "citation": "Emenda Constitucional nº 87, de 2015",
+            "type": "emenda_constitucional",
+            "number": "87",
+            "year": 2015,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc87.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:86a1b4a64c35c078360ae4d867c18db3daefc41d2221abfb4eef9e0c8a07c9d8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art99_cpt_inc3",
+      "aliases": [
+        "art99_cpt_inc3,emc-87-2015-04-16"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 99"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "para o ano de 2017: 60% (sessenta por cento) para o Estado de destino e 40% (quarenta por cento) para o Estado de origem;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 87, de 2015",
+          "act": {
+            "citation": "Emenda Constitucional nº 87, de 2015",
+            "type": "emenda_constitucional",
+            "number": "87",
+            "year": 2015,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc87.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5e2986f7011f776c421b51f97fa0ad1d8be2cceb1ecf3b617890023e1542569f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art99_cpt_inc4",
+      "aliases": [
+        "art99_cpt_inc4,emc-87-2015-04-16"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 99"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "para o ano de 2018: 80% (oitenta por cento) para o Estado de destino e 20% (vinte por cento) para o Estado de origem;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 87, de 2015",
+          "act": {
+            "citation": "Emenda Constitucional nº 87, de 2015",
+            "type": "emenda_constitucional",
+            "number": "87",
+            "year": 2015,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc87.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d3556a0c0928aa9fa8aefb210c49916021d0242b8ef2bc331039093d92238102",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art99_cpt_inc5",
+      "aliases": [
+        "art99_cpt_inc5,emc-87-2015-04-16"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 99"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "a partir do ano de 2019: 100% (cem por cento) para o Estado de destino.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 87, de 2015",
+          "act": {
+            "citation": "Emenda Constitucional nº 87, de 2015",
+            "type": "emenda_constitucional",
+            "number": "87",
+            "year": 2015,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc87.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3488ccd98efd39fa98f6d407f5b8e5741e8297cd4eb63faba8c23c7c4bc05783",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art75",
+  "provisions": [
+    {
+      "id": "art75_cpt",
+      "aliases": [
+        "art75_cpt,emc-21-1999-03-18"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 75"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "É prorrogada, por trinta e seis meses, a cobrança da contribuição provisória sobre movimentação ou transmissão de valores e de créditos e direitos de natureza financeira de que trata o art. 74, instituída pela Lei nº 9.311, de 24 de outubro de 1996, modificada pela Lei nº 9.539, de 12 de dezembro de 1997, cuja vigência é também prorrogada por idêntico prazo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 21, de 1999",
+          "act": {
+            "citation": "Emenda Constitucional nº 21, de 1999",
+            "type": "emenda_constitucional",
+            "number": "21",
+            "year": 1999,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc21.htm#art75"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a79b23d420baf8a7fffc2d259973c1667687a040a0e4e714d32c66879f25ed0b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art75_par1",
+      "aliases": [
+        "art75_par1,emc-21-1999-03-18"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 75"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Observado o disposto no § 6º do art. 195 da Constituição Federal, a alíquota da contribuição será de trinta e oito centésimos por cento, nos primeiros doze meses, e de trinta centésimos, nos meses subseqüentes, facultado ao Poder Executivo reduzi-la total ou parcialmente, nos limites aqui definidos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 21, de 1999",
+          "act": {
+            "citation": "Emenda Constitucional nº 21, de 1999",
+            "type": "emenda_constitucional",
+            "number": "21",
+            "year": 1999,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc21.htm#art75"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ec9d0c91cc1d005eca33d80c1fe0d3abf6f3ad8f90cc116f224e0fcec932e47e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art75_par2",
+      "aliases": [
+        "art75_par2,emc-21-1999-03-18"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 75"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "O resultado do aumento da arrecadação, decorrente da alteração da alíquota, nos exercícios financeiros de 1999, 2000 e 2001, será destinado ao custeio da previdência social.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 21, de 1999",
+          "act": {
+            "citation": "Emenda Constitucional nº 21, de 1999",
+            "type": "emenda_constitucional",
+            "number": "21",
+            "year": 1999,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc21.htm#art75"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:75af45ebf387116c54d3e939e356e6070fb7bb372be5c3180841f9cbc2d1b54a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art75_par3",
+      "aliases": [
+        "art75_par3,emc-21-1999-03-18"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 75"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "É a União autorizada a emitir títulos da dívida pública interna, cujos recursos serão destinados ao custeio da saúde e da previdência social, em montante equivalente ao produto da arrecadação da contribuição, prevista e não realizada em 1999.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 21, de 1999",
+          "act": {
+            "citation": "Emenda Constitucional nº 21, de 1999",
+            "type": "emenda_constitucional",
+            "number": "21",
+            "year": 1999,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc21.htm#art75"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "adi",
+          "annotation": "Vide ADIN nº 2.031-5",
+          "number": "2.031-5",
+          "href": "http://www.stf.jus.br/portal/peticaoInicial/verPeticaoInicial.asp?base=ADIN&s1=2031&processo=2031"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:77fcd46607ef061b47a7f7be523349ee8d772465b34b72682a52a8b7c0684454",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

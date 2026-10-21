@@ -1,0 +1,4 @@
+<!-- Título II › Art. 72 -->
+
+**Art. 72** Impedir ou dificultar o acesso do consumidor às informações que sobre ele constem em cadastros, banco de dados, fichas e registros:
+Pena Detenção de seis meses a um ano ou multa.

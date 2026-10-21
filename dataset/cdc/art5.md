@@ -1,0 +1,21 @@
+<!-- Título I › Capítulo II › Art. 5º -->
+
+**Art. 5º** Para a execução da Política Nacional das Relações de Consumo, contará o poder público com os seguintes instrumentos, entre outros:
+
+I - manutenção de assistência jurídica, integral e gratuita para o consumidor carente;
+
+II - instituição de Promotorias de Justiça de Defesa do Consumidor, no âmbito do Ministério Público;
+
+III - criação de delegacias de polícia especializadas no atendimento de consumidores vítimas de infrações penais de consumo;
+
+IV - criação de Juizados Especiais de Pequenas Causas e Varas Especializadas para a solução de litígios de consumo;
+
+V - concessão de estímulos à criação e desenvolvimento das Associações de Defesa do Consumidor.
+
+VI - instituição de mecanismos de prevenção e tratamento extrajudicial e judicial do superendividamento e de proteção do consumidor pessoa natural; *(Incluído pela Lei nº 14.181, de 2021)*
+
+VII - instituição de núcleos de conciliação e mediação de conflitos oriundos de superendividamento. *(Incluído pela Lei nº 14.181, de 2021)*
+
+§ 1º (Vetado).
+
+§ 2º (Vetado).

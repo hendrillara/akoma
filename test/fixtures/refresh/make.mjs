@@ -43,9 +43,11 @@ const emcUrl = (n) => `https://www.planalto.gov.br/ccivil_03/constituicao/emenda
 /** Writes a folder's files and its index.json; `files` are `{ file, url, page, headers }`, the CF page first. */
 function write(folder, files, retrievedAt) {
   mkdirSync(new URL(`${folder}/`, here), { recursive: true });
-  const snapshots = files.map(({ file, url, page, headers }) => {
+  const snapshots = files.map(({ file, url, page, headers, c1 }) => {
     const bytes = Buffer.from(page, "latin1");
-    if (/[^\x00-\x7f\xa0-\xff]/.test(page)) throw new Error(`${folder}/${file}: not a windows-1252/latin1 common byte`);
+    // `c1`: the page itself has windows-1252 bytes 0x80–0x9F (the CDC's curly quotes), which latin1 keeps as they are;
+    // the inserted strings are still checked by edit().
+    if (!c1 && /[^\x00-\x7f\xa0-\xff]/.test(page)) throw new Error(`${folder}/${file}: not a windows-1252/latin1 common byte`);
     writeFileSync(new URL(`${folder}/${file}`, here), bytes);
     return {
       file,
@@ -254,3 +256,21 @@ const emc142 = [
   );
 }
 
+
+// --- cdc-law: the CDC reworded by a simulated ordinary law (not a constitutional amendment) ----------------------
+{
+  const cdcUrl = "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm";
+  let page = readFileSync(new URL("../../../fixtures/2026-10-20/planalto/l8078compilado.htm", import.meta.url), "latin1");
+  page = edit(
+    page,
+    "<html",
+    "<!-- Akoma test fixture: NOT an official text. Derived from Planalto's compiled CDC page (2026-10-20); Lei 15.999/2026 does not exist. See test/fixtures/refresh/README.md. -->\r\n<html",
+  );
+  page = edit(
+    page,
+    "Art. 49. O consumidor pode desistir do contrato, no prazo de 7 dias a contar de sua\r\nassinatura ou do ato de recebimento do produto ou serviço, sempre que a contratação de\r\nfornecimento de produtos e serviços ocorrer fora do estabelecimento comercial,\r\nespecialmente por telefone ou a domicílio.</font></p>",
+    "Art. 49. O consumidor pode desistir do contrato, no prazo de 14 dias a contar de sua\r\nassinatura ou do ato de recebimento do produto ou serviço, sempre que a contratação de\r\nfornecimento de produtos e serviços ocorrer fora do estabelecimento comercial,\r\nespecialmente por telefone ou a domicílio. " +
+      '<a href="_ato2023-2026/2026/lei/L15999.htm#art1">(Redação dada pela Lei nº 15.999, de 2026)</a></font></p>',
+  );
+  write("cdc-law", [{ file: "page.htm", url: cdcUrl, page, c1: true, headers: { "last-modified": "Thu, 22 Oct 2026 09:50:35 GMT" } }], "2026-10-23T01:30:00Z");
+}

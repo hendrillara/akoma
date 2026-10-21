@@ -1,4 +1,6 @@
 .scratch/
 node_modules/
 probe-result.json
+dist/
 .wrangler/
+out/

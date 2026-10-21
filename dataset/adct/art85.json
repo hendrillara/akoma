@@ -1,0 +1,595 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art85",
+  "provisions": [
+    {
+      "id": "art85_cpt",
+      "aliases": [
+        "art85_cpt,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 85"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "A contribuição a que se refere o art. 84 deste Ato das Disposições Constitucionais Transitórias não incidirá, a partir do trigésimo dia da data de publicação desta Emenda Constitucional, nos lançamentos:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c2e7d488ee3df9854aaaa922b67a231647b800f0a0ad024a0dd35d2baa8ce43d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art85_cpt_inc1",
+      "aliases": [
+        "art85_cpt_inc1,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 85"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "em contas correntes de depósito especialmente abertas e exclusivamente utilizadas para operações de:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "act",
+          "annotation": "Vide Lei nº 10.982, de 2004",
+          "act": {
+            "citation": "Lei nº 10.982, de 2004",
+            "type": "lei",
+            "number": "10.982",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2004/Lei/L10.892.htm#art2%C2%A73"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:fcdc7cc98fa561f2b1f3f22ec6c4fd96c41a6508c686be4c5080dd410a064eba",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art85_cpt_inc1_ali1",
+      "aliases": [
+        "art85_cpt_inc1_ali1,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 85"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "câmaras e prestadoras de serviços de compensação e de liquidação de que trata o parágrafo único do art. 2º da Lei nº 10.214, de 27 de março de 2001;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f4e97b88a1ff9e5c197920cb75e28e215f5c441c87196f6a2b35253a402092c1",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art85_cpt_inc1_ali2",
+      "aliases": [
+        "art85_cpt_inc1_ali2,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 85"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "companhias securitizadoras de que trata a Lei nº 9.514, de 20 de novembro de 1997;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:98f18cf916433385724697e6a25de3a0e2e49c43841a2177e12ce672fb83e91f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art85_cpt_inc1_ali3",
+      "aliases": [
+        "art85_cpt_inc1_ali3,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea c",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 85"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea c"
+        }
+      ],
+      "text": "sociedades anônimas que tenham por objeto exclusivo a aquisição de créditos oriundos de operações praticadas no mercado financeiro;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a97ab39d75ef4a1fa51600e67692aa820260d2878fac05854822b3b29a29f0dc",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art85_cpt_inc2",
+      "aliases": [
+        "art85_cpt_inc2,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 85"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "em contas correntes de depósito, relativos a:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9eaca8162b0ef77004e3c8a62b8ec0df13f962d471f1d6ce8e3c1cdaef20dff0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art85_cpt_inc2_ali1",
+      "aliases": [
+        "art85_cpt_inc2_ali1,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 85"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "operações de compra e venda de ações, realizadas em recintos ou sistemas de negociação de bolsas de valores e no mercado de balcão organizado;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:33e49ccee0c8d65781100f21abe6226b9189db90387769cc119bd2768b2ee76a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art85_cpt_inc2_ali2",
+      "aliases": [
+        "art85_cpt_inc2_ali2,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 85"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "contratos referenciados em ações ou índices de ações, em suas diversas modalidades, negociados em bolsas de valores, de mercadorias e de futuros;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b6c9404b2300a5fdcfb0f50f40e895d5ca6aea9a10d1a9bdf204fda675adef85",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art85_cpt_inc3",
+      "aliases": [
+        "art85_cpt_inc3,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 85"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "em contas de investidores estrangeiros, relativos a entradas no País e a remessas para o exterior de recursos financeiros empregados, exclusivamente, em operações e contratos referidos no inciso II deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:406fadeb042b5b5bade2315b323bfd5fd96f0b59db56ac1f2258da0d60202c5e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art85_par1",
+      "aliases": [
+        "art85_par1,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 85"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "O Poder Executivo disciplinará o disposto neste artigo no prazo de trinta dias da data de publicação desta Emenda Constitucional.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:24b7b5655b3065923aab4cbd0e53275c40c1e61133247db867c6de8d35ed7f6d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art85_par2",
+      "aliases": [
+        "art85_par2,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 85"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "O disposto no inciso I deste artigo aplica-se somente às operações relacionadas em ato do Poder Executivo, dentre aquelas que constituam o objeto social das referidas entidades.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d6b9bbe505335629eb2a6bdbb5a78b4c8110b01097f61baab8a90075c874de97",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art85_par3",
+      "aliases": [
+        "art85_par3,emc-37-2002-06-12"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 85"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "O disposto no inciso II deste artigo aplica-se somente a operações e contratos efetuados por intermédio de instituições financeiras, sociedades corretoras de títulos e valores mobiliários, sociedades distribuidoras de títulos e valores mobiliários e sociedades corretoras de mercadorias.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 37, de 2002",
+          "act": {
+            "citation": "Emenda Constitucional nº 37, de 2002",
+            "type": "emenda_constitucional",
+            "number": "37",
+            "year": 2002,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc37.htm#art3"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a54e984730fa995838dc61e886727eed0ab69bbf8f4baa496efc27f93f66ae51",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

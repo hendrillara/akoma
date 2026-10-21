@@ -1,0 +1,4 @@
+<!-- Título II › Art. 70 -->
+
+**Art. 70** Empregar na reparação de produtos, peça ou componentes de reposição usados, sem autorização do consumidor:
+Pena Detenção de três meses a um ano e multa.

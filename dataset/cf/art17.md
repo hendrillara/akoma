@@ -1,0 +1,33 @@
+<!-- Título II › Capítulo V › Art. 17 -->
+
+**Art. 17** É livre a criação, fusão, incorporação e extinção de partidos políticos, resguardados a soberania nacional, o regime democrático, o pluripartidarismo, os direitos fundamentais da pessoa humana e observados os seguintes preceitos: *(Regulamento)*
+
+I - caráter nacional;
+
+II - proibição de recebimento de recursos financeiros de entidade ou governo estrangeiros ou de subordinação a estes;
+
+III - prestação de contas à Justiça Eleitoral;
+
+IV - funcionamento parlamentar de acordo com a lei.
+
+§ 1º É assegurada aos partidos políticos autonomia para definir sua estrutura interna e estabelecer regras sobre escolha, formação e duração de seus órgãos permanentes e provisórios e sobre sua organização e funcionamento e para adotar os critérios de escolha e o regime de suas coligações nas eleições majoritárias, vedada a sua celebração nas eleições proporcionais, sem obrigatoriedade de vinculação entre as candidaturas em âmbito nacional, estadual, distrital ou municipal, devendo seus estatutos estabelecer normas de disciplina e fidelidade partidária. *(Redação dada pela Emenda Constitucional nº 97, de 2017)*
+
+§ 2º Os partidos políticos, após adquirirem personalidade jurídica, na forma da lei civil, registrarão seus estatutos no Tribunal Superior Eleitoral.
+
+§ 3º Somente terão direito a recursos do fundo partidário e acesso gratuito ao rádio e à televisão, na forma da lei, os partidos políticos que alternativamente: *(Redação dada pela Emenda Constitucional nº 97, de 2017)*
+
+I - obtiverem, nas eleições para a Câmara dos Deputados, no mínimo, 3% (três por cento) dos votos válidos, distribuídos em pelo menos um terço das unidades da Federação, com um mínimo de 2% (dois por cento) dos votos válidos em cada uma delas; ou *(Incluído pela Emenda Constitucional nº 97, de 2017)*
+
+II - tiverem elegido pelo menos quinze Deputados Federais distribuídos em pelo menos um terço das unidades da Federação. *(Incluído pela Emenda Constitucional nº 97, de 2017)*
+
+§ 4º É vedada a utilização pelos partidos políticos de organização paramilitar.
+
+§ 5º Ao eleito por partido que não preencher os requisitos previstos no § 3º deste artigo é assegurado o mandato e facultada a filiação, sem perda do mandato, a outro partido que os tenha atingido, não sendo essa filiação considerada para fins de distribuição dos recursos do fundo partidário e de acesso gratuito ao tempo de rádio e de televisão. *(Incluído pela Emenda Constitucional nº 97, de 2017)*
+
+§ 6º Os Deputados Federais, os Deputados Estaduais, os Deputados Distritais e os Vereadores que se desligarem do partido pelo qual tenham sido eleitos perderão o mandato, salvo nos casos de anuência do partido ou de outras hipóteses de justa causa estabelecidas em lei, não computada, em qualquer caso, a migração de partido para fins de distribuição de recursos do fundo partidário ou de outros fundos públicos e de acesso gratuito ao rádio e à televisão. *(Incluído pela Emenda Constitucional nº 111, de 2021)*
+
+§ 7º Os partidos políticos devem aplicar no mínimo 5% (cinco por cento) dos recursos do fundo partidário na criação e na manutenção de programas de promoção e difusão da participação política das mulheres, de acordo com os interesses intrapartidários. *(Incluído pela Emenda Constitucional nº 117, de 2022)*
+
+§ 8º O montante do Fundo Especial de Financiamento de Campanha e da parcela do fundo partidário destinada a campanhas eleitorais, bem como o tempo de propaganda gratuita no rádio e na televisão a ser distribuído pelos partidos às respectivas candidatas, deverão ser de no mínimo 30% (trinta por cento), proporcional ao número de candidatas, e a distribuição deverá ser realizada conforme critérios definidos pelos respectivos órgãos de direção e pelas normas estatutárias, considerados a autonomia e o interesse partidário. *(Incluído pela Emenda Constitucional nº 117, de 2022)*
+
+§ 9º Dos recursos oriundos do Fundo Especial de Financiamento de Campanha e do fundo partidário destinados às campanhas eleitorais, os partidos políticos devem, obrigatoriamente, aplicar 30% (trinta por cento) em candidaturas de pessoas pretas e pardas, nas circunscrições que melhor atendam aos interesses e às estratégias partidárias. *(Incluído pela Emenda Constitucional nº 133, de 2024)*

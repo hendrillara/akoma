@@ -13,6 +13,21 @@ export interface RawSnapshot {
   retrievedAt: string;
 }
 
+/** What the previous fetch of a page returned, for a conditional request. */
+export interface Validators {
+  etag?: string;
+  lastModified?: string;
+}
+
+/**
+ * A conditional check of one page (the daily job's pre-filter): `not-modified` when the validators still hold (HTTP
+ * 304), `modified` with the new snapshot, `unavailable` when the page could not be fetched.
+ */
+export type Probe = { status: "not-modified" } | { status: "modified"; snapshot: RawSnapshot } | { status: "unavailable"; error: string };
+
 export interface Source {
+  /** The page as served now; `undefined` when it cannot be fetched (unreachable, an HTTP error, not recorded). */
   get(url: string): Promise<RawSnapshot | undefined>;
+  /** A conditional request with the validators of the previous fetch; without it, a check is a plain `get`. */
+  probe?(url: string, validators: Validators): Promise<Probe>;
 }
