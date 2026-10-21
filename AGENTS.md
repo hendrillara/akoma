@@ -21,7 +21,9 @@ Check here before searching. When a listed path moves, update this Map in the sa
 - `scripts/publish.ts` — `pnpm publish:daily`: the daily job (`--rebuild` skips the pre-filter; `--dry-run [--recorded <folders…>] [--now <instant>]` touches no GitHub and writes `out/dry-run/`)
 - `scripts/recheck.ts` — `pnpm recheck`: the divergence recheck, reading the issue from `GITHUB_EVENT_PATH` (`--dry-run --event <file> [--recorded …] [--now …]` prints the comment instead)
 - `scripts/build-dataset.ts` — `pnpm build:dataset`; `scripts/check-dataset.ts` — `pnpm check:dataset`
-- `.github/workflows/publish.yml` — the daily cron (09:17 UTC) running the job, and its dispatch (`rebuild` from the recheck); actions pinned by SHA
+- `.github/workflows/publish.yml` — the daily cron (09:17 UTC) running the job, and its dispatch (`rebuild` from the recheck)
+- `.github/workflows/` (all of them) — every action pinned by commit SHA with its version as a comment, pnpm from `corepack enable` (no third-party setup action), a minimal `permissions:` block per workflow; `ci.yml` runs `pnpm verify` on every push and PR
+- `.github/dependabot.yml` — weekly PRs that move the actions' SHA pins (github-actions only)
 - `.github/workflows/recheck.yml` — `issues: opened/edited` with the `text-divergence` label → `scripts/recheck.ts`; contents read, issues + actions write, no secrets, no issue expression in any script
 - `.github/ISSUE_TEMPLATE/text-divergence.yml` — the "Divergência de texto / Text divergence" issue form (PT + EN): norm (dropdown of the registered norms), dispositivo, what looks wrong
 - `src/search/` — BM25 search shared by both sides: `analyze.ts` text → terms (same code at build and query time), `build-index.ts` dispositivos + synonyms → prebuilt index (build), `query.ts` index + query → ranked hits (Worker)
