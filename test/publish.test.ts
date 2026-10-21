@@ -249,6 +249,9 @@ describe("daily job: nothing to publish", () => {
   it("opens no PR when only the headers and the WAF token changed", async () => {
     const { result, github, workspace } = await run({ source: await sourceWith(scenario("etag-only")), now: "2026-10-22T09:00:00Z" });
     expect(result.outcome).toBe("no-change");
+    // Decided by the pre-filter, without a rebuild: the job redacts the page it fetches, and the committed captures
+    // the dataset was built from are already redacted the same way, so their content hashes still agree.
+    expect(result.message).toMatch(/^No primary page changed/);
     expect(github.log).toEqual([]);
     expect(workspace.files.size).toBe(0);
     expect(result.badge).toEqual({ schemaVersion: 1, label: "akoma", message: "current · checked 2026-10-22", color: "brightgreen" });
@@ -420,25 +423,56 @@ describe("daily job: the CDC reworded by a law (test/fixtures/refresh/cdc-law, s
 });
 
 describe("daily job: personal data in page metadata (test/fixtures/redaction)", () => {
-  it("never lets a planted name into anything it writes, whatever the markup", async () => {
-    // The CDC refresh of cdc-law, with a LEGIN page whose metadata names people in three forms.
+  // The CDC refresh of cdc-law, with a LEGIN page whose metadata names people in ten forms (its README lists them).
+  const names = ["Fulana", "Beltrano", "Sicrano", "Mevio", "Ticio", "Sempronio", "Graco", "Tizio", "Fulano"];
+  const plantedPage = new URL("test/fixtures/redaction/legin.html", root);
+  const captured = "fixtures/2026-10-23-daily/camara-legin/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html";
+
+  async function redactionRun() {
     const source = await recordedSource(recorded, acts, scenario("cdc-law"), new URL("test/fixtures/redaction/", root));
     const before = await build({ manifests: [cdc], source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
-    const { result, github, workspace } = await run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before });
-    expect(result.outcome).toBe("published");
+    return run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before });
+  }
 
+  it("never lets a planted name into anything it writes, whatever the markup", async () => {
+    const { result, github, workspace } = await redactionRun();
+    expect(result.outcome).toBe("published");
     const written = [
       ...[...workspace.files.values()].map((c) => (typeof c === "string" ? c : Buffer.from(c).toString("latin1"))),
       ...github.pulls.map((p) => p.body),
       ...github.issues.flatMap((i) => [i.body, ...i.comments]),
       ...github.status.values(),
     ].join("\n");
-    for (const name of ["Fulana", "Beltrano", "Sicrano"]) expect(written).not.toContain(name);
+    for (const name of names) expect(written).not.toContain(name);
+  });
 
-    const legin = workspace.text("fixtures/2026-10-23-daily/camara-legin/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html");
+  it("keeps only the charset metas, blanks every other meta's values, every comment and the Office XML block", async () => {
+    const { workspace } = await redactionRun();
+    const legin = workspace.text(captured);
+    // Kept as served: the charset declaration.
+    expect(legin).toContain('<meta http-equiv="content-type" content="text/html; charset=utf-8"/>');
+    // Every other meta keeps its key (name, property, itemprop) and its content is redacted, in any markup; any
+    // other attribute goes, an attribute name written with a character reference included.
+    expect(legin).toContain('<meta name="generator" content="[redacted]"/>');
     expect(legin).toContain('<meta content="[redacted]" name="Author"/>');
-    expect(legin).toContain("<META NAME=changedby data-origin=word CONTENT=[redacted]>");
-    expect(legin).toContain("<o:Author>[redacted]</o:Author><o:LastAuthor>[redacted]</o:LastAuthor><o:Manager>[redacted]</o:Manager>");
+    expect(legin).toContain("<META NAME=changedby CONTENT=[redacted]>");
+    expect(legin).toContain('<meta name="author" content="[redacted]"/>\n<meta content="[redacted]"/>');
+    expect(legin).toContain('<meta property="article:author" content="[redacted]"/>');
+    expect(legin).toContain('<meta itemprop="editor" content="[redacted]"/>');
+    // A repeated attribute, which the parser drops, is rewritten from what the parser reads.
+    expect(legin).toContain('<meta name="description" content="[redacted]"/>');
+    // Comments (the conditional one with Word's properties too) and the bare XML block are emptied.
+    expect(legin).toContain("<!---->\n<meta");
+    expect(legin).toContain("<!---->\n<xml></xml>\n</head>");
+  });
+
+  it("leaves every byte outside the head as served, so the build reads the same law", async () => {
+    const { workspace } = await redactionRun();
+    const legin = workspace.text(captured);
+    const planted = await readFile(plantedPage, "utf8");
+    const body = (page: string) => page.slice(page.indexOf("</head>"));
+    expect(body(legin)).toEqual(body(planted));
+    expect(body(legin).length).toBeGreaterThan(200_000);
   });
 });
 

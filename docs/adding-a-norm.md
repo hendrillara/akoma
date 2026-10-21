@@ -4,7 +4,7 @@ A norm is a declarative manifest plus its tests. The pipeline has no per-norm co
 
 1. **Capture the page.** Save Planalto's compiled page (`…compilado.htm`) into a new dated folder under `fixtures/`. Store the exact bytes, plus an `index.json` entry (URL, encoding, headers, `retrievedAt` from the `Date` header, SHA-256, size) and README provenance in EN and PT.
    - Make an anonymous GET with `Mozilla/5.0 (compatible; akoma/<version>)`.
-   - Never put a personal identifier in the request or in the committed file. If the page's metadata names someone, redact it as a documented edit.
+   - Never put a personal identifier in the request or in the committed file. Store the page as `redactPersonalData` (`src/sources/redact.ts`) returns it, the redaction every page the daily job fetches gets, and record the served SHA-256 and size as `servedSha256`/`servedBytes` with an `edits` note (`fixtures/README.md`).
 2. **Write the manifest** in `src/norms/<key>.ts` and add it to `src/norms/index.ts`:
    - `key`, `title`, the LexML `urn`, plus its `type` and `date`. The build fails if they disagree with the URN.
    - `primaryUrl`: the Planalto page. Add `startAnchor`/`endAnchor` only when the norm shares its page with another norm (CF/ADCT).
@@ -31,7 +31,7 @@ Uma norma é um manifesto declarativo mais os testes dela. O pipeline não tem c
 
 1. **Capture a página.** Salve a página compilada do Planalto numa nova pasta datada em `fixtures/`. Grave os bytes exatos, uma entrada no `index.json` (URL, codificação, headers, `retrievedAt` do header `Date`, SHA-256, tamanho) e a proveniência no README, em EN e PT.
    - Use GET anônimo com `Mozilla/5.0 (compatible; akoma/<versão>)`.
-   - Nunca coloque identificador pessoal no pedido nem no arquivo versionado. Se os metadados da página nomearem alguém, remova o nome como edição documentada.
+   - Nunca coloque identificador pessoal no pedido nem no arquivo versionado. Grave a página como o `redactPersonalData` (`src/sources/redact.ts`) a devolve, a mesma redação que toda página baixada pelo job diário recebe, e registre o SHA-256 e o tamanho servidos em `servedSha256`/`servedBytes`, com uma nota `edits` (`fixtures/README.md`).
 2. **Escreva o manifesto** em `src/norms/<chave>.ts` e inclua-o em `src/norms/index.ts`:
    - `key`, `title`, a `urn` LexML, mais `type` e `date`. O build falha se não baterem com a URN.
    - `primaryUrl`: a página do Planalto. `startAnchor`/`endAnchor` só quando a norma divide a página com outra.

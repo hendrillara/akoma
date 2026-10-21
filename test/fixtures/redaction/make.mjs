@@ -23,6 +23,27 @@ edit(
   "</head>",
   "<!--[if gte mso 9]><xml><o:DocumentProperties><o:Author>Fulana de Tal</o:Author><o:LastAuthor>Beltrano Sicrano</o:LastAuthor><o:Manager>Sicrano Beltrano</o:Manager></o:DocumentProperties></xml><![endif]-->\n</head>",
 );
+// Forms a list of person fields, or a regex over the markup, would miss (the redactor parses the page with parse5,
+// the parser the build reads it with, and keeps only the charset metas):
+edit(
+  "</head>",
+  [
+    // a ">" inside a quoted value ends a naive `<meta[^>]*>` match before `content`;
+    '<meta name="author" data-note="a>b" content="Mevio"/>',
+    // an attribute name written with a character reference (HTML does not decode names);
+    '<meta n&#97;me="author" content="Ticio"/>',
+    // a property meta (Open Graph, RDFa) and a microdata one;
+    '<meta property="article:author" content="Sempronio"/>',
+    '<meta itemprop="editor" content="Sempronio"/>',
+    // the same attribute twice: the parser keeps the first, the bytes keep both;
+    '<meta name="description" content="CDC" content="Graco"/>',
+    // a name in a plain HTML comment;
+    "<!-- revisado por Tizio -->",
+    // a bare Office XML block (not inside a conditional comment) with an element no list names.
+    "<xml><o:DocumentProperties><o:Editor>Fulano</o:Editor><o:Category>Fulano</o:Category></o:DocumentProperties></xml>",
+    "</head>",
+  ].join("\n"),
+);
 
 const bytes = Buffer.from(page, "latin1");
 writeFileSync(new URL("legin.html", here), bytes);

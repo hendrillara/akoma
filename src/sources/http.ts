@@ -3,8 +3,8 @@
 // pause between them, and a few retries on network errors and 5xx/429. Never called from tests (seam 1 replays
 // recorded captures); the daily job and its dry run use it.
 //
-// It serves pages exactly as fetched: the daily job wraps it in `redacting` (redact.ts), which removes the personal
-// data in page metadata (LEGIN's author fields) before anything reads or keeps the bytes.
+// It serves pages exactly as fetched: the daily job wraps it in `redacting` (redact.ts), which removes the page
+// metadata that could name a person (LEGIN's author fields) before anything reads or keeps the bytes.
 import { readFileSync } from "node:fs";
 import type { Encoding, Probe, RawSnapshot, Source, Validators } from "./source.ts";
 
