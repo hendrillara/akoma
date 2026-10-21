@@ -44,7 +44,7 @@ Ferramentas (nomes em inglês, descrições em inglês e português):
 | `get_structure` | `norm` | sumário da norma (títulos, capítulos, seções, intervalos de artigos), sem texto |
 | `list_norms` | — | normas disponíveis, URN e quando cada texto foi obtido |
 
-As respostas são Markdown compacto: o texto primeiro, depois o caminho (Título II › Capítulo I › Art. 5º › inciso X), a situação (revogado, vetado), a redação pendente com a data de início, as notas "Vide"/ADI e um rodapé com a fonte e o aviso.
+As respostas são Markdown compacto: o texto primeiro, depois o caminho (Título II › Capítulo I › Art. 5º › inciso X), a situação (revogado, vetado), a redação pendente com a data de início e a cláusula de vigência do ato que a adia, as notas "Vide"/ADI e um rodapé com a fonte e o aviso.
 
 Agentes também se descobrem sozinhos por [`/llms.txt`](https://akoma.hendril.dev/llms.txt) e pelo guia de uso [`/usage.md`](https://akoma.hendril.dev/usage.md). A verificação de que um agente que recebe só a URL do MCP encontra e usa as ferramentas está registrada em [`docs/agent-discovery-check.md`](docs/agent-discovery-check.md) (feita localmente; a verificação em produção fica para depois do deploy).
 
@@ -173,7 +173,7 @@ Tools (English names, English and Portuguese descriptions):
 | `get_structure` | `norm` | the norm's outline (títulos, capítulos, seções, article ranges), no text |
 | `list_norms` | — | available norms, URNs and when each text was retrieved |
 
-Answers are compact Markdown: the text first, then the path (Título II › Capítulo I › Art. 5º › inciso X), the status (revoked, vetoed), any pending wording with its start date, the "Vide"/ADI notes and a footer with the source and the notice.
+Answers are compact Markdown: the text first, then the path (Título II › Capítulo I › Art. 5º › inciso X), the status (revoked, vetoed), any pending wording with its start date and the act's vigência clause that defers it, the "Vide"/ADI notes and a footer with the source and the notice.
 
 Agents can also discover the service through [`/llms.txt`](https://akoma.hendril.dev/llms.txt) and the usage guide [`/usage.md`](https://akoma.hendril.dev/usage.md). The check that an agent given only the MCP URL finds and uses the tools is recorded in [`docs/agent-discovery-check.md`](docs/agent-discovery-check.md) (run locally; production verification is pending the deploy).
 

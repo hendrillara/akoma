@@ -98,8 +98,8 @@ III - a remuneração do pessoal. *(Incluído pela Emenda Constitucional nº 19,
 
 § 17 (Ainda não vigente)
 
-> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): Lei complementar estabelecerá normas gerais aplicáveis às administrações tributárias da União, dos Estados, do Distrito Federal e dos Municípios, dispondo sobre deveres, direitos e garantias dos servidores das carreiras de que trata o inciso XXII do caput.
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023; cláusula de vigência: "em 2027, em relação aos arts. 3º e 11"): Lei complementar estabelecerá normas gerais aplicáveis às administrações tributárias da União, dos Estados, do Distrito Federal e dos Municípios, dispondo sobre deveres, direitos e garantias dos servidores das carreiras de que trata o inciso XXII do caput.
 
 § 18 (Ainda não vigente)
 
-> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023): Para os fins do disposto no inciso XI do caput deste artigo, os servidores de carreira das administrações tributárias dos Estados, do Distrito Federal e dos Municípios sujeitam-se ao limite aplicável aos servidores da União.
+> **Pendente a partir de 2027-01-01** (Emenda Constitucional nº 132, de 2023; cláusula de vigência: "em 2027, em relação aos arts. 3º e 11"): Para os fins do disposto no inciso XI do caput deste artigo, os servidores de carreira das administrações tributárias dos Estados, do Distrito Federal e dos Municípios sujeitam-se ao limite aplicável aos servidores da União.

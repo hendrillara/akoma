@@ -147,7 +147,7 @@ describe.each(ERAS)("MCP over the %s protocol", (era) => {
     // EC 141/2026: art. 7º XV keeps its wording until 2026-12-17 (EC 141 art. 10 I; ADR 0003).
     expect(text(result)).toMatch(/^XV - repouso semanal remunerado, preferencialmente aos domingos;/);
     expect(text(result)).toContain(
-      "\n\n> **Pendente a partir de 2026-12-17** (Emenda Constitucional nº 141, de 2026): repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;",
+      "\n\n> **Pendente a partir de 2026-12-17** (Emenda Constitucional nº 141, de 2026; cláusula de vigência: \"após decorridos 2 (dois) meses de sua publicação, em relação à alteração promovida pelo art. 1º desta Emenda Constitucional no inciso XV do caput do art. 7º da Constituição Federal\"): repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;",
     );
     expect(text(result).trimEnd()).toMatch(new RegExp(`${escapeRegExp(STF_NOTICE)}$`));
   });

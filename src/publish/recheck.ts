@@ -224,7 +224,7 @@ function rebuiltLabel(before: Provision | undefined, after: Provision): string {
 function pendingLines(p: Provision): string[] {
   return (p.pending ?? []).map(
     (c) =>
-      `- Mudança pendente / Pending change (${c.effect}), a partir de / from ${c.effectiveFrom}, ${c.act.citation}${c.note ? ` (${c.note})` : ""}${c.text ? `:\n\n${fenced(c.text)}` : "."}`,
+      `- Mudança pendente / Pending change (${c.effect}), a partir de / from ${c.effectiveFrom}, ${c.act.citation} (cláusula de vigência / vigência clause: "${c.vigencia}")${c.note ? ` (${c.note})` : ""}${c.text ? `:\n\n${fenced(c.text)}` : "."}`,
   );
 }
 

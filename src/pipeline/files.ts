@@ -82,7 +82,11 @@ function articleMarkdown(provisions: Provision[]): string[] {
 
 const GROUPINGS = new Set(["parte", "livro", "titulo", "capitulo", "secao", "subsecao"]);
 
-/** A dispositivo's line, then a quoted line per pending change: "> **Pendente a partir de 2026-12-17** (EC …): …". */
+/**
+ * A dispositivo's line, then a quoted line per pending change, with the act's vigência clause for it, so a reader sees
+ * which change waits for which date: "> **Pendente a partir de 2026-12-17** (Emenda Constitucional nº 141, de 2026;
+ * cláusula de vigência: "após decorridos 2 (dois) meses …"): …".
+ */
 export function lines(provision: Provision): string[] {
   return [line(provision), ...(provision.pending ?? []).map(pendingLine)];
 }
@@ -90,7 +94,7 @@ export function lines(provision: Provision): string[] {
 function pendingLine(entry: PendingChange): string {
   const shown = entry.effect === "revoked" ? "(Revogado)" : escape(entry.text ?? "");
   const note = entry.note ? ` *${escape(entry.note)}*` : "";
-  return `> **Pendente a partir de ${entry.effectiveFrom}** (${entry.act.citation}): ${shown}${note}`;
+  return `> **Pendente a partir de ${entry.effectiveFrom}** (${entry.act.citation}; cláusula de vigência: "${escape(entry.vigencia)}"): ${shown}${note}`;
 }
 
 const MARKER: Partial<Record<Provision["status"], string>> = {

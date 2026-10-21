@@ -103,7 +103,7 @@ LexML Parte 3 ids, never reused: \`art5_cpt_inc10\` (art. 5º, caput, inciso X),
 ## Reading a record
 
 - \`text\`: the official wording, verbatim. \`status\`: \`in_force\`, \`revoked\`, \`vetoed\`, \`renumbered\` or \`not_yet_in_force\`. Never present a non-\`in_force\` record as current law.
-- \`pending\`: wording an amending act has enacted with deferred vigência, with \`effectiveFrom\` (YYYY-MM-DD, Brasília). Until that date \`text\` is what applies.
+- \`pending\`: wording an amending act has enacted with deferred vigência, with \`effectiveFrom\` (YYYY-MM-DD, Brasília) and \`vigencia\`, the act's own clause that defers that change (the Markdown shows it as "cláusula de vigência"). Until that date \`text\` is what applies; only the dispositivos with a \`pending\` entry wait.
 - \`references\`: the "Vide" notes Planalto prints, including STF cases (ADI, ADPF…). Akoma does not check what the STF decided: warn the user when one is present.
 - \`amendments\`: the acts that inserted, reworded or revoked it.
 - \`provenance\`: \`sourceUrl\`, \`retrievedAt\`, \`contentHash\`, \`datasetVersion\`, the notice, and \`secondary\` (\`agrees\`, \`secondary-stale\` or \`unconfirmed\` against a second official source).

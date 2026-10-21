@@ -450,7 +450,10 @@ describe("recheck: a deferred change that has come into force (ADR 0003)", () =>
     const result = await recheck(github, opens(github, { norm: option("cf"), dispositivo: "art7_cpt_inc15", what: "." }));
     expect(result.outcome).toBe("not-confirmed");
     const comment = github.issues[0]!.comments[0]!;
-    expect(comment).toContain("- Mudança pendente / Pending change (wording), a partir de / from 2026-12-17, Emenda Constitucional nº 141, de 2026:");
+    // EC 141 art. 10 I (fixtures/2026-10-20/planalto/emc141.htm): the clause that defers this change, and only this one.
+    expect(comment).toContain(
+      '- Mudança pendente / Pending change (wording), a partir de / from 2026-12-17, Emenda Constitucional nº 141, de 2026 (cláusula de vigência / vigência clause: "após decorridos 2 (dois) meses de sua publicação, em relação à alteração promovida pelo art. 1º desta Emenda Constitucional no inciso XV do caput do art. 7º da Constituição Federal"):',
+    );
     expect(comment).toContain(XV_EC141);
   });
 
