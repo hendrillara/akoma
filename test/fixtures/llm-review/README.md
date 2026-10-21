@@ -13,6 +13,8 @@
 | `max-tokens.json` | 200 | `stop_reason: "max_tokens"`, the JSON cut off | `needs-human` |
 | `api-error-500.json` | 500 | The API's error body (`api_error`) | `needs-human` |
 
+`index.json` gives each file's HTTP status, SHA-256 and size; the test checks the checksum before serving a file.
+
 When the real adapter first runs with a key (`pnpm review:live`), its response can replace these as a recorded fixture.
 
 ---
@@ -31,5 +33,7 @@ When the real adapter first runs with a key (`pnpm review:live`), its response c
 | `refusal.json` | 200 | `stop_reason: "refusal"` com `stop_details`, sem conteúdo | `needs-human` |
 | `max-tokens.json` | 200 | `stop_reason: "max_tokens"`, o JSON cortado | `needs-human` |
 | `api-error-500.json` | 500 | O corpo de erro da API (`api_error`) | `needs-human` |
+
+`index.json` traz o status HTTP, o SHA-256 e o tamanho de cada arquivo; o teste confere o checksum antes de servir o arquivo.
 
 Quando o adaptador real rodar pela primeira vez com uma chave (`pnpm review:live`), a resposta dele pode substituir estes arquivos como fixture gravada.

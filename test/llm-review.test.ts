@@ -4,6 +4,7 @@
 // Expected targets were read by hand from the simulated act's page (test/fixtures/refresh/ec142/emc142.htm): art. 1º
 // alters art. 6º (caput quoted, parágrafo único numbered § 1º, § 2º quoted), art. 2º quotes art. 7º XIV as
 // "(revogado)", art. 3º "Revoga-se o inciso XXVII do caput do art. 7º da Constituição Federal.".
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { beforeAll, describe, expect, it } from "vitest";
 import { adct } from "../src/norms/adct.ts";
@@ -271,15 +272,20 @@ describe("LLM review with the Claude adapter, over handwritten API responses", (
     };
   }
 
-  /** A fetch that answers every request with one response file, and records what was sent. */
-  function api(file: string, status = 200): { fetch: typeof fetch; sent: Sent[] } {
+  /** A fetch that answers every request with one response file (status and checksum from its index.json), and records what was sent. */
+  function api(file: string): { fetch: typeof fetch; sent: Sent[] } {
     const sent: Sent[] = [];
     return {
       sent,
       fetch: async (input, init) => {
         sent.push({ url: String(input), body: JSON.parse(String(init?.body)) });
-        const body = await readFile(new URL(file, responses), "utf8");
-        return new Response(body, { status, headers: { "content-type": "application/json" } });
+        const index = JSON.parse(await readFile(new URL("index.json", responses), "utf8")) as {
+          responses: { file: string; status: number; sha256: string }[];
+        };
+        const entry = index.responses.find((r) => r.file === file)!;
+        const body = await readFile(new URL(file, responses));
+        expect(createHash("sha256").update(body).digest("hex"), `${file} checksum`).toBe(entry.sha256);
+        return new Response(body, { status: entry.status, headers: { "content-type": "application/json" } });
       },
     };
   }
@@ -321,13 +327,13 @@ describe("LLM review with the Claude adapter, over handwritten API responses", (
   });
 
   it.each([
-    ["malformed JSON", "malformed.json", 200, /^the reviewer gave no usable answer: claude-opus-5's answer is not the reviewer's schema: it is not JSON \(Unterminated string/],
-    ["a missing field", "missing-field.json", 200, /^the reviewer gave no usable answer: claude-opus-5's answer is not the reviewer's schema: unappliedCommands: Invalid input: expected array, received undefined$/],
-    ["a refusal", "refusal.json", 200, /^the reviewer gave no usable answer: claude-opus-5 refused to answer/],
-    ["a cut-off answer", "max-tokens.json", 200, /^the reviewer gave no usable answer: claude-opus-5 stopped before finishing \(max_tokens\)/],
-    ["an API error", "api-error-500.json", 500, /^the reviewer gave no usable answer: the Claude API answered 500: Internal server error$/],
-  ])("needs a human on %s, never merges", async (_, file, status, message) => {
-    const verdict = await reviewWith(api(file, status).fetch);
+    ["malformed JSON", "malformed.json", /^the reviewer gave no usable answer: claude-opus-5's answer is not the reviewer's schema: it is not JSON \(Unterminated string/],
+    ["a missing field", "missing-field.json", /^the reviewer gave no usable answer: claude-opus-5's answer is not the reviewer's schema: unappliedCommands: Invalid input: expected array, received undefined$/],
+    ["a refusal", "refusal.json", /^the reviewer gave no usable answer: claude-opus-5 refused to answer/],
+    ["a cut-off answer", "max-tokens.json", /^the reviewer gave no usable answer: claude-opus-5 stopped before finishing \(max_tokens\)/],
+    ["an API error", "api-error-500.json", /^the reviewer gave no usable answer: the Claude API answered 500: Internal server error$/],
+  ])("needs a human on %s, never merges", async (_, file, message) => {
+    const verdict = await reviewWith(api(file).fetch);
     expect(verdict.decision).toBe("needs-human");
     const problems = llmProblems(verdict);
     expect(problems).toHaveLength(1);
