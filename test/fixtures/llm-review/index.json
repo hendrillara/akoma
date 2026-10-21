@@ -1,0 +1,43 @@
+{
+  "madeOn": "2026-10-21",
+  "handwritten": true,
+  "endpoint": "POST https://api.anthropic.com/v1/messages",
+  "responses": [
+    {
+      "file": "ec142-mapping.json",
+      "status": 200,
+      "sha256": "e908dca0240451bcfbed96d864fb9200feb937a4162f52e019a32d110988d15c",
+      "size": 1465
+    },
+    {
+      "file": "malformed.json",
+      "status": 200,
+      "sha256": "4468375021e3634ac5c9e612f044e5b43089e5dd75b020db02ffe7dceb780030",
+      "size": 914
+    },
+    {
+      "file": "missing-field.json",
+      "status": 200,
+      "sha256": "b1aa2c87fc93e6d630fae097c2d4bfb131d6400eaac6da116695512b5de8e943",
+      "size": 1440
+    },
+    {
+      "file": "refusal.json",
+      "status": 200,
+      "sha256": "6a5b7f00a5b4d71507a88d5dabfebb83a6e9043c64d774ef08a12b5c971f857d",
+      "size": 438
+    },
+    {
+      "file": "max-tokens.json",
+      "status": 200,
+      "sha256": "68f98135294f55e918278b35f9e3c347d49e8a09cc565118834bad3b91acae04",
+      "size": 722
+    },
+    {
+      "file": "api-error-500.json",
+      "status": 500,
+      "sha256": "05613ef6efc49cb246b970d6447dd1e1f25c450a37865b0f3087e7fb168c4c10",
+      "size": 104
+    }
+  ]
+}
