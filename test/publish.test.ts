@@ -11,32 +11,33 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { adct } from "../src/norms/adct.ts";
 import { cdc } from "../src/norms/cdc.ts";
 import { cf, emc } from "../src/norms/cf.ts";
+import { norms } from "../src/norms/index.ts";
 import { build, type NormManifest } from "../src/pipeline/build.ts";
 import { memoryGitHub, type MemoryGitHub } from "../src/publish/github.ts";
 import { runDailyJob, type TestRunner } from "../src/publish/job.ts";
-import { diffPublished, publishedBuild, writePublished, type PublishedBuild } from "../src/publish/published.ts";
+import { buildDataset, checkDataset, type PublishedBuild } from "../src/publish/published.ts";
 import { diskWorkspace, memoryWorkspace } from "../src/publish/workspace.ts";
 import type { LlmReviewer, ReviewerOutput } from "../src/review/llm.ts";
 import type { Dataset, Provision } from "../src/schema/dataset.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
-import type { Source } from "../src/sources/source.ts";
+import type { RawSnapshot, Source } from "../src/sources/source.ts";
 
 const root = new URL("../", import.meta.url);
 const fixtures = new URL("fixtures/", root);
 
 describe("the published dataset: dataset/ is the regeneration of the committed captures", () => {
-  // A copy of the two hand-made captures, so the daily captures the job commits later never move these expectations.
-  // `pnpm check:dataset` (in `pnpm verify`) runs the same comparison on the repository's own fixtures/ and dataset/.
+  // A repository with a copy of the two hand-made captures, so the daily captures the job commits later never move
+  // these expectations; `pnpm build:dataset` and `pnpm check:dataset` (in `pnpm verify`) are the same two calls on the
+  // repository itself.
   let published: PublishedBuild;
   let dir: string;
-  let copy: URL;
+  let repo: URL;
 
   beforeAll(async () => {
     dir = await mkdtemp(join(tmpdir(), "akoma-dataset-"));
     for (const day of ["2026-10-20", "2026-10-21"]) await cp(new URL(`fixtures/${day}/`, root), join(dir, "fixtures", day), { recursive: true });
-    published = await publishedBuild(pathToFileURL(`${dir}/fixtures/`));
-    copy = pathToFileURL(`${dir}/dataset/`);
-    await writePublished(published.files, copy);
+    repo = pathToFileURL(`${dir}/`);
+    published = await buildDataset(repo);
   });
   afterAll(async () => {
     await rm(dir, { recursive: true, force: true });
@@ -53,14 +54,14 @@ describe("the published dataset: dataset/ is the regeneration of the committed c
   });
 
   it("names every hand edit: a changed text, a deleted mirror and an added file", async () => {
-    expect(await diffPublished(published.files, copy)).toEqual({ changed: [], missing: [], extra: [] });
-    const art5 = new URL("cf/art5.json", copy);
+    expect((await checkDataset(repo)).diff).toEqual({ changed: [], missing: [], extra: [] });
+    const art5 = new URL("dataset/cf/art5.json", repo);
     const json = await readFile(art5, "utf8");
     await writeFile(art5, json.replace("Todos são iguais perante a lei", "Todos são iguais perante a lei e o rei"));
-    await unlink(new URL("cdc/art49.md", copy));
-    await writeFile(new URL("cf/art999.json", copy), "{}\n");
+    await unlink(new URL("dataset/cdc/art49.md", repo));
+    await writeFile(new URL("dataset/cf/art999.json", repo), "{}\n");
 
-    expect(await diffPublished(published.files, copy)).toEqual({ changed: ["cf/art5.json"], missing: ["cdc/art49.md"], extra: ["cf/art999.json"] });
+    expect((await checkDataset(repo)).diff).toEqual({ changed: ["cf/art5.json"], missing: ["cdc/art49.md"], extra: ["cf/art999.json"] });
   });
 });
 
@@ -162,6 +163,44 @@ describe("daily job: the simulated EC 142 arrives, and every review layer passes
     const art6 = JSON.parse(out.workspace.text("dataset/cf/art6.json")) as { provisions: Provision[] };
     expect(art6.provisions.find((p) => p.id === "art6_par2")?.text).toBe("O cuidado é direito de todos e dever do Estado, da família e da sociedade, na forma da lei.");
   });
+
+  it("keeps every dispositivo EC 142 does not touch byte for byte, golden set included, but its version and fetch time", () => {
+    // The six EC 142 changes (test/fixtures/refresh/README.md, edits 1–6); everything else must come through as it was.
+    const touched = new Set(["art6_cpt", "art6_par1", "art6_par2", "art7_cpt_inc14", "art7_cpt_inc18", "art7_cpt_inc27"].map((id) => `cf/${id}`));
+    const next = JSON.parse(out.workspace.text("dataset/dataset.json")) as Dataset;
+    const after = new Map(next.provisions.map((p) => [`${p.norm}/${p.id}`, p]));
+    const comparable = (p: Provision) => JSON.stringify({ ...p, provenance: { ...p.provenance, datasetVersion: "", retrievedAt: "" } });
+    const untouched = previous.provisions.filter((p) => !touched.has(`${p.norm}/${p.id}`));
+    expect(untouched.length).toBe(previous.provisions.length - 5); // art6_par2 is new
+    const moved = untouched.filter((p) => !after.has(`${p.norm}/${p.id}`) || comparable(after.get(`${p.norm}/${p.id}`)!) !== comparable(p));
+    expect(moved.map((p) => `${p.norm}/${p.id}`)).toEqual([]);
+    // Two of the golden set's dispositivos (test/cf-adct.test.ts), by their text in the recorded page.
+    expect(after.get("cf/art5_cpt_inc10")!.text).toBe(
+      "são invioláveis a intimidade, a vida privada, a honra e a imagem das pessoas, assegurado o direito a indenização pelo dano material ou moral decorrente de sua violação;",
+    );
+    expect(after.get("adct/art1_cpt")!.provenance.datasetVersion).toBe("2026-10-23");
+  });
+
+  it("finds every count of dispositivos per norm and kind within the tolerance", () => {
+    expect(out.result.verdict?.findings.filter((f) => f.check === "counts")).toEqual([]);
+  });
+});
+
+describe("daily job: dispositivo counts against the previous dataset", () => {
+  it("escalates when a norm's count of one kind moves beyond the tolerance", async () => {
+    // A previous dataset without art. 5º's 79 incisos (I to LXXIX): the refresh reads them all again, as a parser that
+    // suddenly finds (or loses) dozens of dispositivos would. Each is also an untargeted change, but the count gate
+    // names the scale of it on its own.
+    const art5 = /^art5_cpt_inc\d+$/;
+    const shrunk = { ...previous, provisions: previous.provisions.filter((p) => !(p.norm === "cf" && art5.test(p.id))) };
+    expect(previous.provisions.length - shrunk.provisions.length).toBe(79);
+    const { result } = await run({ source: await sourceWith(scenario("ec142")), now: "2026-10-23T09:00:00Z", previous: shrunk });
+    expect(result.verdict?.decision).toBe("needs-human");
+    const counts = result.verdict?.findings.filter((f) => f.check === "counts");
+    expect(counts).toHaveLength(1);
+    expect(counts![0]).toMatchObject({ layer: "gates", severity: "problem", norm: "cf" });
+    expect(counts![0]!.message).toMatch(/^inciso: (\d+) → \d+ \(\+79\), beyond the tolerance of ±\d+ \(2% of \1, at least 5\)$/);
+  });
 });
 
 describe("daily job: a report longer than GitHub allows in a PR body", () => {
@@ -249,6 +288,9 @@ describe("daily job: nothing to publish", () => {
   it("opens no PR when only the headers and the WAF token changed", async () => {
     const { result, github, workspace } = await run({ source: await sourceWith(scenario("etag-only")), now: "2026-10-22T09:00:00Z" });
     expect(result.outcome).toBe("no-change");
+    // Decided by the pre-filter, without a rebuild: the job redacts the page it fetches, and the committed captures
+    // the dataset was built from are already redacted the same way, so their content hashes still agree.
+    expect(result.message).toMatch(/^No primary page changed/);
     expect(github.log).toEqual([]);
     expect(workspace.files.size).toBe(0);
     expect(result.badge).toEqual({ schemaVersion: 1, label: "akoma", message: "current · checked 2026-10-22", color: "brightgreen" });
@@ -310,6 +352,46 @@ function crashing(): Source {
     },
   };
 }
+
+describe("daily job: the run status's checks, on every run", () => {
+  it("reports the tests, search recall, invariants, golden sets, schema, attribution and each secondary's lag even with no change", async () => {
+    // The whole registry, as the workflow runs it: the evaluation set's questions are about all three norms.
+    const github = memoryGitHub();
+    const published = await build({ manifests: norms, source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
+    const source = await sourceWith();
+    const day = (now: string) => run({ source, now, github, manifests: norms, previous: published });
+    await day("2026-10-22T09:00:00Z");
+    const { result } = await day("2026-10-23T09:00:00Z");
+    expect(result.outcome).toBe("no-change");
+    const status = result.status;
+    // The tests ran although nothing changed (the checkout's dataset/ is the published one).
+    expect(status.tests).toEqual({ at: "2026-10-23T09:00:00.000Z", passed: true, summary: "pnpm verify passed" });
+    expect(status.schemaVersion).toBe("1.0.0");
+    expect(status.checks).toMatchObject({
+      at: "2026-10-23T09:00:00.000Z",
+      datasetVersion: "2026-10-21",
+      // data/search-eval.json, against the thresholds test/search.test.ts enforces.
+      search: { k: 10, questions: 184, passed: true },
+      invariants: { problems: 0, passed: true },
+      golden: { suites: ["test/cf-adct.test.ts", "test/cdc.test.ts"], passed: true },
+    });
+    expect(status.checks!.search!.all).toBeGreaterThanOrEqual(0.85);
+    expect(status.attributions).toEqual([expect.stringMatching(/normas\.leg\.br \/ LexML Brasil, © Senado Federal, CC BY 4\.0/)]);
+    // normas.leg.br is behind Planalto on one CF dispositivo (art. 100 § 5º, EC 136/2025; test/cross-source.test.ts),
+    // seen since the first run; on none of the ADCT's.
+    expect(status.contentLag).toEqual([
+      { norm: "cf", source: "normas.leg.br", url: cf.secondarySources[0]!.url, retrievedAt: "2026-10-20", secondaryStale: 1, since: "2026-10-22T09:00:00.000Z", hours: 24 },
+      { norm: "adct", source: "normas.leg.br", url: adct.secondarySources[0]!.url, retrievedAt: "2026-10-20", secondaryStale: 0 },
+      { norm: "cdc", source: "camara-legin", url: cdc.secondarySources[0]!.url, retrievedAt: "2026-10-21T04:48:50Z", secondaryStale: 0 },
+    ]);
+  });
+
+  it("says the golden sets failed when their suites fail in the job's tests", async () => {
+    const failing: TestRunner = { async verify() { return { passed: false, summary: "1 failed", failedFiles: ["test/cdc.test.ts"] }; } };
+    const { result } = await run({ source: await sourceWith(), now: "2026-10-23T09:00:00Z", tests: failing });
+    expect(result.status.checks!.golden).toEqual({ suites: ["test/cf-adct.test.ts", "test/cdc.test.ts"], passed: false });
+  });
+});
 
 describe("daily job: Planalto unreachable for days", () => {
   const github = memoryGitHub();
@@ -388,9 +470,9 @@ describe("daily job: what it writes regenerates to the same dataset", () => {
         workspace: diskWorkspace(repo),
         tests: passing,
       });
-      const regenerated = await publishedBuild(new URL("fixtures/", repo), manifests);
+      const { published: regenerated, diff } = await checkDataset(repo, manifests);
       expect(regenerated.captures).toEqual(["2026-10-20", "2026-10-21", "2026-10-23-daily"]);
-      expect(await diffPublished(regenerated.files, new URL("dataset/", repo))).toEqual({ changed: [], missing: [], extra: [] });
+      expect(diff).toEqual({ changed: [], missing: [], extra: [] });
     } finally {
       await rm(dir, { recursive: true, force: true });
     }
@@ -407,38 +489,253 @@ describe("daily job: what it writes regenerates to the same dataset", () => {
 });
 
 describe("daily job: the CDC reworded by a law (test/fixtures/refresh/cdc-law, simulated Lei 15.999/2026)", () => {
-  it("escalates, and the PR body explains that v1 reviews only constitutional amendments", async () => {
+  // test/fixtures/refresh/cdc-law/L15999.htm, art. 1º: "O art. 49 da Lei nº 8.078, de 1990 (Código de Defesa do
+  // Consumidor), passa a vigorar com a seguinte redação:", quoting the caput with "no prazo de 14 dias";
+  // art. 2º: "Esta Lei entra em vigor na data de sua publicação."
+  const lei15999 = "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/L15999.htm";
+  const reviewer = fakeReviewer({
+    mappings: [{ change: "cdc/art49_cpt", act: "Lei 15.999", command: "art. 1º", reason: "new caput quoted" }],
+    orphanChanges: [],
+    unappliedCommands: [],
+  });
+  let before: Dataset;
+  beforeAll(async () => {
+    before = await build({ manifests: [cdc], source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
+  });
+
+  it("reads the law's commands like an amendment's and merges: every layer passes", async () => {
     const source = await recordedSource(recorded, acts, scenario("cdc-law"));
-    const before = await build({ manifests: [cdc], source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
-    const { result, github } = await run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before });
+    const { result, github } = await run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before, reviewer });
     expect(result.report?.changes.map((c) => `${c.kind} ${c.norm} ${c.id}`)).toEqual(["changed cdc art49_cpt"]);
+    expect(result.verdict?.findings.filter((f) => f.severity === "problem")).toEqual([]);
+    expect(result.verdict?.findings).toContainEqual({
+      layer: "gates",
+      check: "target-matching",
+      severity: "note",
+      act: "Lei 15.999",
+      message: "targets 1 dispositivos, all changed: cdc art49_cpt",
+    });
+    expect(result.verdict?.decision).toBe("merge");
+    expect(github.pulls[0]!.body).not.toContain("Why a change by a law needs a human");
+  });
+
+  it("escalates when the law's page cannot be read, naming the page", async () => {
+    const source = unreachable(await recordedSource(recorded, acts, scenario("cdc-law")), [lei15999]);
+    const { result } = await run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before, reviewer });
     expect(result.verdict?.decision).toBe("needs-human");
-    expect(github.pulls[0]!.body).toContain(
-      "> **Why a change by a law needs a human.** 1 change cites only acts other than constitutional amendments (Lei nº 15.999, de 2026). In v1, target matching and the LLM reviewer read only constitutional amendments",
-    );
+    expect(result.verdict?.findings.filter((f) => f.severity === "problem")).toEqual([
+      { layer: "gates", check: "target-matching", severity: "problem", act: "Lei 15.999", message: `its page ${lei15999} is not in the source` },
+      {
+        layer: "gates",
+        check: "target-matching",
+        severity: "problem",
+        norm: "cdc",
+        id: "art49_cpt",
+        message: "changed (text, amendments), citing Lei 15.999, which does not target it",
+      },
+      { layer: "llm", check: "act-text", severity: "problem", act: "Lei 15.999", message: `its page ${lei15999} is not in the source, so the reviewer cannot read it` },
+    ]);
+  });
+});
+
+describe("daily job: an amending act's page is fetched only from its own Planalto address", () => {
+  // The cdc-law refresh, with the annotation's link (or the law's page) tampered with. The act's address is derived
+  // from its identity (Lei nº 15.999, de 2026 → _ato2023-2026/2026/lei/L15999.htm, src/review/act-pages.ts); a link
+  // anywhere else is never requested, and the act is unresolved, which blocks the merge.
+  const cdcUrl = cdc.primaryUrl;
+  const lei15999 = "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/L15999.htm";
+  const link = '<a href="../_ato2023-2026/2026/lei/L15999.htm#art1">';
+  const reviewer = fakeReviewer({
+    mappings: [{ change: "cdc/art49_cpt", act: "Lei 15.999", command: "art. 1º", reason: "new caput quoted" }],
+    orphanChanges: [],
+    unappliedCommands: [],
+  });
+
+  /** The cdc-law source with one page's bytes edited, logging every URL the job asks for. */
+  async function tampered(url: string, find: string, replace: string) {
+    const base = await recordedSource(recorded, acts, scenario("cdc-law"));
+    const requested: string[] = [];
+    const edit = (snapshot: RawSnapshot | undefined) => {
+      if (!snapshot || snapshot.url !== url) return snapshot;
+      const text = Buffer.from(snapshot.body).toString("latin1");
+      expect(text.split(find)).toHaveLength(2);
+      return { ...snapshot, body: new Uint8Array(Buffer.from(text.replace(find, replace), "latin1")) };
+    };
+    const source: Source = {
+      async get(u) {
+        requested.push(u);
+        return edit(await base.get(u));
+      },
+      async probe(u, validators) {
+        requested.push(u);
+        const result = await base.probe!(u, validators);
+        return result.status === "modified" ? { status: "modified", snapshot: edit(result.snapshot)! } : result;
+      },
+    };
+    const before = await build({ manifests: [cdc], source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
+    const ran = await run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before, reviewer });
+    return { ...ran, requested };
+  }
+
+  const problems = (result: Awaited<ReturnType<typeof tampered>>["result"]) =>
+    result.verdict?.findings.filter((f) => f.severity === "problem" && f.act === "Lei 15.999").map((f) => `${f.layer}: ${f.message}`);
+
+  it("never requests a link to another host, to another Planalto page or over plain http, and escalates", async () => {
+    const outside = "its annotation links to a page outside https://www.planalto.gov.br/ccivil_03/, which is never fetched";
+    const other = "its annotation links to a Planalto page that is not this act's, which is never fetched";
+    const crafted: [string, string][] = [
+      ["https://evil.example/ccivil_03/_ato2023-2026/2026/lei/L15999.htm", outside],
+      ["http://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/L15999.htm", outside],
+      ["../_ato2023-2026/2026/lei/L15998.htm", other],
+      ["../../ccivil_03/outra/pagina.htm", other],
+    ];
+    for (const [href, why] of crafted) {
+      const { result, requested } = await tampered(cdcUrl, link, `<a href="${href}#art1">`);
+      expect(result.verdict?.decision).toBe("needs-human");
+      expect(requested.filter((u) => /L1599[89]|evil|outra/.test(u))).toEqual([]);
+      expect(problems(result)).toEqual([
+        `gates: cannot be resolved to its official page (${why}), so its commands cannot be read`,
+        `llm: cannot be resolved to its official page (${why}), so the reviewer cannot read it`,
+      ]);
+    }
+  });
+
+  it("escalates an act cited with no link at all: its address is never guessed for a fetch", async () => {
+    const { result, requested } = await tampered(cdcUrl, link, "<a>");
+    expect(result.verdict?.decision).toBe("needs-human");
+    expect(requested).not.toContain(lei15999);
+    expect(problems(result)).toEqual([
+      "gates: cannot be resolved to its official page (its annotations give no link to its official page), so its commands cannot be read",
+      "llm: cannot be resolved to its official page (its annotations give no link to its official page), so the reviewer cannot read it",
+    ]);
+  });
+
+  it("escalates when the page at the act's address is the page of another act", async () => {
+    const { result } = await tampered(lei15999, "LEI Nº 15.999, DE 22", "LEI Nº 15.998, DE 22");
+    expect(result.verdict?.decision).toBe("needs-human");
+    expect(problems(result)).toEqual([
+      "gates: its page is the page of Lei nº 15.998, de 2026, not of Lei nº 15.999, de 2026",
+      "llm: its page is the page of Lei nº 15.998, de 2026, not of Lei nº 15.999, de 2026, so the reviewer is not given it",
+    ]);
+  });
+});
+
+describe("daily job: a dispositivo of the real Lei 14.181/2021 appears (test/fixtures/refresh/cdc-before-14181)", () => {
+  // fixtures/2026-10-21/planalto/L14181.htm, read by hand: art. 1º quotes, for the CDC, art. 4º IX–X, art. 5º VI–VII,
+  // art. 6º XI–XIII, art. 51 XVII–XIX, arts. 54-A (caput, §§ 1º–3º), 54-B (caput, I–V, §§ 1º–3º), 54-C (caput, I–V,
+  // parágrafo único), 54-D (caput, I–III, parágrafo único), 54-E (caput), 54-F (caput, I–II, §§ 1º–4º, § 3º I–II),
+  // 54-G (caput, I–III, §§ 1º–2º), 104-A (caput, §§ 1º–5º, § 4º I–IV), 104-B (caput, §§ 1º–4º) and 104-C (caput,
+  // §§ 1º–2º): 69 dispositivos. Art. 2º amends the Estatuto do Idoso, outside the corpus; art. 5º: in force on publication.
+  it("reads every command of the official page and merges the dispositivo it targets", async () => {
+    const before = await build({ manifests: [cdc], source: await sourceWith(scenario("cdc-before-14181")), datasetVersion: "2026-10-15", today: "2026-10-15" });
+    const reviewer = fakeReviewer({
+      mappings: [{ change: "cdc/art6_cpt_inc13", act: "Lei 14.181", command: "art. 1º", reason: "inciso XIII quoted" }],
+      orphanChanges: [],
+      unappliedCommands: [],
+    });
+    const { result } = await run({ source: await sourceWith(), now: "2026-10-22T09:00:00Z", manifests: [cdc], previous: before, reviewer });
+    expect(result.report?.changes.map((c) => `${c.kind} ${c.norm} ${c.id}`)).toEqual(["added cdc art6_cpt_inc13"]);
+    const lei = result.verdict?.findings.filter((f) => f.act === "Lei 14.181");
+    expect(lei).toEqual([
+      {
+        layer: "gates",
+        check: "target-matching",
+        severity: "note",
+        act: "Lei 14.181",
+        message: "already in the dataset: each change citing it must be one of its 69 targets; the others may stay as they are",
+      },
+      { layer: "llm", check: "change-mapping", severity: "note", act: "Lei 14.181", message: "fake-reviewer (prompt fake) mapped the only change to its commands: cdc art6_cpt_inc13 → art. 1º" },
+    ]);
+    expect(result.verdict?.decision).toBe("merge");
   });
 });
 
 describe("daily job: personal data in page metadata (test/fixtures/redaction)", () => {
-  it("never lets a planted name into anything it writes, whatever the markup", async () => {
-    // The CDC refresh of cdc-law, with a LEGIN page whose metadata names people in three forms.
-    const source = await recordedSource(recorded, acts, scenario("cdc-law"), new URL("test/fixtures/redaction/", root));
-    const before = await build({ manifests: [cdc], source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
-    const { result, github, workspace } = await run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before });
-    expect(result.outcome).toBe("published");
+  // The CDC refresh of cdc-law, with a LEGIN page whose metadata names people in every form its README lists.
+  const names = ["Fulana", "Beltrano", "Sicrano", "Mevio", "Ticio", "Sempronio", "Graco", "Tizio", "Fulano", "Zutano", "Mengano", "Perengano", "Tertius", "Quartus"];
+  const plantedPage = new URL("test/fixtures/redaction/legin.html", root);
+  const captured = "fixtures/2026-10-23-daily/camara-legin/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html";
 
-    const written = [
+  async function redactionRun(folder = "") {
+    const source = await recordedSource(recorded, acts, scenario("cdc-law"), new URL(`test/fixtures/redaction/${folder}`, root));
+    const before = await build({ manifests: [cdc], source: await sourceWith(), datasetVersion: "2026-10-21", today: "2026-10-21" });
+    return run({ source, now: "2026-10-23T09:00:00Z", manifests: [cdc], previous: before });
+  }
+
+  /** Everything the job wrote or sent anywhere: files, PR bodies, issues and comments, the run status. */
+  function everything({ github, workspace }: Awaited<ReturnType<typeof redactionRun>>): string {
+    return [
       ...[...workspace.files.values()].map((c) => (typeof c === "string" ? c : Buffer.from(c).toString("latin1"))),
       ...github.pulls.map((p) => p.body),
-      ...github.issues.flatMap((i) => [i.body, ...i.comments]),
+      ...github.issues.flatMap((i) => [i.title, i.body, ...i.comments]),
       ...github.status.values(),
     ].join("\n");
-    for (const name of ["Fulana", "Beltrano", "Sicrano"]) expect(written).not.toContain(name);
+  }
 
-    const legin = workspace.text("fixtures/2026-10-23-daily/camara-legin/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html");
-    expect(legin).toContain('<meta content="[redacted]" name="Author"/>');
-    expect(legin).toContain("<META NAME=changedby data-origin=word CONTENT=[redacted]>");
-    expect(legin).toContain("<o:Author>[redacted]</o:Author><o:LastAuthor>[redacted]</o:LastAuthor><o:Manager>[redacted]</o:Manager>");
+  it("never lets a planted name into anything it writes, whatever the markup", async () => {
+    const ran = await redactionRun();
+    expect(ran.result.outcome).toBe("published");
+    const written = everything(ran);
+    for (const name of names) expect(written).not.toContain(name);
+  });
+
+  it("fails closed on a page it cannot redact with certainty: nothing from it is kept, the job fails", async () => {
+    // A tag cut off by the end of the page, which the parser keeps in no node; a NUL byte (not windows-1252 or UTF-8
+    // text). The job stops before the build, so no capture, dataset or PR exists, and the failure issue names the page.
+    for (const folder of ["malformed/", "nul/"]) {
+      const ran = await redactionRun(folder);
+      expect(ran.result.outcome).toBe("failed");
+      expect(ran.result.error).toMatch(/^RedactionError: redact: https:\/\/www2\.camara\.leg\.br\/legin\/.*: .*; nothing from this page is kept/);
+      expect(ran.github.pulls).toEqual([]);
+      expect([...ran.workspace.files.keys()]).toEqual(["out/failure-reported"]);
+      const written = everything(ran);
+      for (const name of names) expect(written).not.toContain(name);
+    }
+  });
+
+  it("redacts a body that starts like JSON as HTML: only a known JSON endpoint's JSON passes through unread", async () => {
+    const ran = await redactionRun("json-prefix/");
+    expect(ran.result.outcome).toBe("published");
+    expect(ran.workspace.text(captured).startsWith('{"autor": 1}\n<!DOCTYPE HTML')).toBe(true);
+    const written = everything(ran);
+    for (const name of names) expect(written).not.toContain(name);
+    // The normas.leg.br API's JSON is a known JSON endpoint's: the CF build reads it as served (cross-source.test.ts).
+  });
+
+  it("keeps only the charset declaration and blanks every meta, comment, raw-text content and Office block", async () => {
+    const { workspace } = await redactionRun();
+    const legin = workspace.text(captured);
+    // Kept as served: the charset declaration, and the plain stylesheet link (none on this page).
+    expect(legin).toContain('<meta http-equiv="content-type" content="text/html; charset=utf-8"/>');
+    // Every other meta, in any markup (reversed or repeated attributes, a ">" in a value, an encoded attribute name,
+    // property and itemprop, inside raw text), and the charset-shaped ones carrying other values: a fixed tag.
+    const metas = [...legin.matchAll(/<meta\b[^>]*>/gi)].map((m) => m[0]);
+    expect(new Set(metas)).toEqual(
+      new Set(['<meta http-equiv="content-type" content="text/html; charset=utf-8"/>', '<meta content="[redacted]"/>', '<meta content="[redacted]">']),
+    );
+    // The page's own 13 metas (one the charset), 7 planted ones and the 2 charset-shaped ones; the 2 inside raw text
+    // are gone with its content.
+    expect(metas.length).toBe(13 + 7 + 2);
+    expect(legin).toContain("\n<link/>\n");
+    // Every comment (the conditional one with Word's properties, CDATA, <![if …]>, <?…?>) is emptied.
+    expect([...legin.matchAll(/<!--[\s\S]*?-->/g)].map((m) => m[0]).every((c) => c === "<!---->")).toBe(true);
+    // Raw-text and RCDATA elements keep their tags and lose their content.
+    for (const tag of ["script", "style", "title", "noscript", "noframes", "textarea", "xmp", "iframe", "noembed"]) {
+      expect(legin).toContain(`<${tag}></${tag}>`);
+    }
+    // The Office blocks keep their tags and lose their content.
+    expect(legin).toContain("<xml></xml>");
+    expect(legin).toContain("<cp:coreProperties></cp:coreProperties>");
+    expect(legin).toContain("<o:Author></o:Author>");
+  });
+
+  it("leaves every byte outside the head as served, so the build reads the same law", async () => {
+    const { workspace } = await redactionRun();
+    const legin = workspace.text(captured);
+    const planted = await readFile(plantedPage, "utf8");
+    const body = (page: string) => page.slice(page.indexOf("</head>"));
+    expect(body(legin)).toEqual(body(planted));
+    expect(body(legin).length).toBeGreaterThan(200_000);
   });
 });
 

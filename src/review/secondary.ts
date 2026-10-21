@@ -19,24 +19,3 @@ export interface SecondaryDispositivo {
 export function actKey(type: ActType, number: string): string {
   return `${type}:${number.replace(/\./g, "")}`;
 }
-
-/** LexML Parte 3 letter suffixes: "-A-B" → "-1-2". */
-export function suffixId(suffix: string): string {
-  return suffix
-    .split("-")
-    .filter(Boolean)
-    .map((letter) => `-${letter.toUpperCase().charCodeAt(0) - 64}`)
-    .join("");
-}
-
-const ROMAN: Record<string, number> = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
-
-export function romanToNumber(numeral: string): number {
-  let total = 0;
-  for (let i = 0; i < numeral.length; i++) {
-    const value = ROMAN[numeral[i]!]!;
-    const next = ROMAN[numeral[i + 1] ?? ""] ?? 0;
-    total += value < next ? -value : value;
-  }
-  return total;
-}

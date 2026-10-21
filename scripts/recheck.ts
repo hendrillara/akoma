@@ -15,40 +15,21 @@ import { norms } from "../src/norms/index.ts";
 import { ghCli, memoryGitHub } from "../src/publish/github.ts";
 import { readPublished } from "../src/publish/published.ts";
 import { runRecheck, type IssueEvent } from "../src/publish/recheck.ts";
-import { httpSource } from "../src/sources/http.ts";
-import { recordedSource } from "../src/sources/recorded.ts";
+import { cli, nowFrom, runUrlFromEnv, sourceFrom } from "./cli.ts";
 
 const root = new URL("../", import.meta.url);
-const args = process.argv.slice(2);
-const dryRun = args.includes("--dry-run");
-const option = (name: string) => {
-  const i = args.indexOf(name);
-  return i >= 0 ? args[i + 1] : undefined;
-};
-const list = (name: string) => {
-  const i = args.indexOf(name);
-  if (i < 0) return [];
-  const values: string[] = [];
-  for (const value of args.slice(i + 1)) {
-    if (value.startsWith("--")) break;
-    values.push(value);
-  }
-  return values;
-};
+const args = cli();
+const { dryRun } = args;
+const option = args.option;
 
 const eventPath = dryRun ? option("--event") : process.env.GITHUB_EVENT_PATH;
 if (!eventPath) throw new Error(dryRun ? "--dry-run needs --event <file>" : "GITHUB_EVENT_PATH is not set");
 const event = JSON.parse(readFileSync(eventPath, "utf8")) as IssueEvent;
 
-const recorded = list("--recorded");
-const source = recorded.length
-  ? await recordedSource(...recorded.map((folder) => new URL(`${folder.replace(/\/?$/, "/")}`, `file://${process.cwd()}/`)))
-  : httpSource({ log: (line) => console.log(line) });
-const now = option("--now") ? new Date(option("--now")!) : new Date();
-if (Number.isNaN(now.getTime())) throw new Error(`--now: not an instant: ${option("--now")}`);
+const source = await sourceFrom(args);
+const now = nowFrom(args);
 
-const { GITHUB_SERVER_URL, GITHUB_REPOSITORY, GITHUB_RUN_ID } = process.env;
-const runUrl = GITHUB_SERVER_URL && GITHUB_REPOSITORY && GITHUB_RUN_ID ? `${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}` : undefined;
+const runUrl = runUrlFromEnv();
 const github = dryRun ? memoryGitHub() : ghCli({ cwd: fileURLToPath(root), statusBranch: "status", base: "main" });
 
 const result = await runRecheck({

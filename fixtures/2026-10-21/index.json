@@ -8,9 +8,9 @@
       "encoding": "utf-8",
       "headers": {},
       "retrievedAt": "2026-10-21T04:48:50Z",
-      "sha256": "3f1b532e3c274a8629ddf31b19987d388110897681d5c39b74ebcfd3b90b0f08",
-      "bytes": 220585,
-      "edits": "The <meta> author and changedby values (a Câmara staff member's name and staff ID) replaced with [redacted]; see README.",
+      "sha256": "7b8968a0cb16ca907c975fea2e7699c75f12a244745c2887bbf14faca951cb27",
+      "bytes": 219297,
+      "edits": "Page metadata redacted by src/sources/redact.ts (every <meta> but the charset declaration, every comment and every script, style and title content blanked; the author and changedby metas held a Câmara staff member's name and staff ID); see README.",
       "servedSha256": "0f46ff9e5738563d855ff61d4d914017a7f265de248f331239da36d30af3a39d",
       "servedBytes": 220597
     },
@@ -19,8 +19,26 @@
       "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm",
       "encoding": "windows-1252",
       "headers": {},
-      "sha256": "bee37a51c439d37d261c859ffd7992a4164257e6017f12cdf5c4ab2ca44eed4c",
-      "bytes": 510399
+      "sha256": "7d663a8d9139aa8d7e527a3894dfa5c005162ac4c3abffc47824cb9bbbe55dff",
+      "bytes": 508641,
+      "edits": "Page metadata redacted by src/sources/redact.ts (every <meta> but the charset declaration, every comment and every script, style and title content blanked: here the FrontPage GENERATOR/ProgId metas, the title, the inline CSS and the scripts, including the F5 WAF token); see README.",
+      "servedSha256": "bee37a51c439d37d261c859ffd7992a4164257e6017f12cdf5c4ab2ca44eed4c",
+      "servedBytes": 510399
+    },
+    {
+      "file": "planalto/L14181.htm",
+      "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm",
+      "encoding": "windows-1252",
+      "headers": {
+        "etag": "\"c673-65029161d32dd\"",
+        "last-modified": "Thu, 23 Apr 2026 23:34:15 GMT"
+      },
+      "retrievedAt": "2026-10-21T07:16:20Z",
+      "sha256": "b7840b1ea6a6985949eb7b948773b19ab6455412c7adaddbcbad9409f6113684",
+      "bytes": 47450,
+      "edits": "Page metadata redacted by src/sources/redact.ts (every <meta> but the charset declaration, every comment and every script, style and title content blanked); see README.",
+      "servedSha256": "c46d30bcfeb0262e6f9af05754ec5138ce22a2f0dc8dc32c9273db2a1a6554e1",
+      "servedBytes": 52362
     }
   ]
 }

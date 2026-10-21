@@ -147,7 +147,7 @@ describe.each(ERAS)("MCP over the %s protocol", (era) => {
     // EC 141/2026: art. 7º XV keeps its wording until 2026-12-17 (EC 141 art. 10 I; ADR 0003).
     expect(text(result)).toMatch(/^XV - repouso semanal remunerado, preferencialmente aos domingos;/);
     expect(text(result)).toContain(
-      "\n\n> **Pendente a partir de 2026-12-17** (Emenda Constitucional nº 141, de 2026): repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;",
+      "\n\n> **Pendente a partir de 2026-12-17** (Emenda Constitucional nº 141, de 2026; cláusula de vigência: \"após decorridos 2 (dois) meses de sua publicação, em relação à alteração promovida pelo art. 1º desta Emenda Constitucional no inciso XV do caput do art. 7º da Constituição Federal\"): repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;",
     );
     expect(text(result).trimEnd()).toMatch(new RegExp(`${escapeRegExp(STF_NOTICE)}$`));
   });
@@ -336,6 +336,33 @@ describe("the /mcp endpoint over HTTP", () => {
       id: 7,
       error: { code: -32601, message: "Método não encontrado / Method not found." },
     });
+  });
+
+  it("echoes a JSON-RPC id only when it is a number or a short plain string, and rejects any other with a fixed error", async () => {
+    const withId = (id: unknown) => JSON.stringify({ jsonrpc: "2.0", id, method: "server/discover", params: modern });
+    const discover = (body: string) => post(body, { "mcp-protocol-version": "2026-07-28", "mcp-method": "server/discover" });
+    // Accepted, and echoed as given: an integer, and a client's usual string ids.
+    for (const id of [7, "req-1", "a1b2c3d4-0000-4000-8000-000000000000", "call:3.1"]) {
+      const response = await discover(withId(id));
+      expect(response.status).toBe(200);
+      expect(await response.json()).toMatchObject({ jsonrpc: "2.0", id, result: { supportedVersions: ["2026-07-28"] } });
+    }
+    // Rejected before the SDK sees the request: text that could be read as an instruction, markup, a long string, an
+    // object, a fraction, and one bad id in a batch. The answer is the fixed invalid-request error with a null id.
+    const rejected = [
+      withId(INJECTED),
+      withId("<b>x</b>"),
+      withId("x".repeat(65)),
+      withId({ text: INJECTED }),
+      withId(1.5),
+      JSON.stringify([JSON.parse(withId(1)), JSON.parse(withId(INJECTED))]),
+    ];
+    for (const body of rejected) {
+      const response = await discover(body);
+      expect(response.status).toBe(400);
+      expect(response.headers.get("cache-control")).toBe("no-store");
+      expect(await response.json()).toEqual({ jsonrpc: "2.0", id: null, error: { code: -32600, message: "Requisição inválida / Invalid request." } });
+    }
   });
 
   it("answers methods other than POST with 405, and a CORS preflight with the fixed allowed headers", async () => {

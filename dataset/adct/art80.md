@@ -6,7 +6,7 @@ I - a parcela do produto da arrecadação correspondente a um adicional de oito 
 
 II - a parcela do produto da arrecadação correspondente a um adicional de cinco pontos percentuais na alíquota do Imposto sobre Produtos Industrializados – IPI, ou do imposto que vier a substituí-lo, incidente sobre produtos supérfluos e aplicável até a extinção do Fundo; *(Incluído pela Emenda Constitucional nº 31, de 2000)* *(Vide Emenda Constitucional nº 132, de 2023)* *(Vigência)*
 
-> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023): (Revogado)
+> **Pendente a partir de 2033-01-01** (Emenda Constitucional nº 132, de 2023; cláusula de vigência: "em 2033: b) os arts. 80, II, 82, § 2º, e 83 do Ato das Disposições Constitucionais Transitórias"): (Revogado)
 
 III - o produto da arrecadação do imposto de que trata o art. 153, inciso VII, da Constituição; *(Incluído pela Emenda Constitucional nº 31, de 2000)*
 

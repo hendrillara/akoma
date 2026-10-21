@@ -1,13 +1,13 @@
 // Review layer 1: deterministic gates over a new build and its change report. Each gate returns findings; a problem
 // from any of them makes the verdict `needs-human` (see verdict.ts).
 import { createHash } from "node:crypto";
-import { isUnder, readActCommands, readAmendingAct, type ActTarget } from "../pipeline/acts.ts";
-import { emc } from "../norms/cf.ts";
+import { isUnder, NORM_NAMES, readActCommands, readAmendingAct, type ActTarget } from "../pipeline/acts.ts";
 import type { NormManifest } from "../pipeline/build.ts";
 import type { ChangeReport, ProvisionChange } from "../pipeline/changes.ts";
 import {
   NOTICE,
   type ActCitation,
+  type ActType,
   type Amendment,
   type Dataset,
   type Provision,
@@ -16,6 +16,8 @@ import {
   type Reference,
 } from "../schema/dataset.ts";
 import type { Source } from "../sources/source.ts";
+import { actPage, verifyActPage } from "./act-pages.ts";
+import { actKey } from "./secondary.ts";
 import type { Finding } from "./verdict.ts";
 
 export interface GateInput {
@@ -29,8 +31,9 @@ export interface GateInput {
 }
 
 /**
- * Schema, id stability (no removal without a revocation mark, no revoked id back in force), structural invariants, a
- * promoted wording the page prints differently, and target matching, in that order. The golden set and the full-text snapshot are test suites over the recorded
+ * Schema, id stability (no removal without a revocation mark, no revoked id back in force), structural invariants,
+ * dispositivo counts against the previous dataset, a promoted wording the page prints differently, and target
+ * matching, in that order. The golden set and the full-text snapshot are test suites over the recorded
  * fixtures and gate every PR through `pnpm verify`; on a refresh, target matching is what explains each changed text.
  */
 export async function reviewGates({ manifests, previous, next, report, source }: GateInput): Promise<Finding[]> {
@@ -39,6 +42,7 @@ export async function reviewGates({ manifests, previous, next, report, source }:
     ...removals(report),
     ...idReuse(report),
     ...invariants(next),
+    ...counts(previous, next),
     ...pageDivergence(report),
     ...(await targetMatching(report, previous, next, manifests, source)),
   ];
@@ -107,8 +111,11 @@ function idReuse(report: ChangeReport): Finding[] {
 
 // --- Structural invariants --------------------------------------------------------------------------------
 
-/** Siblings are numbered monotonically, letter suffixes after their base (29, 29-A, 30; § 1º, § 1º-A, § 2º). */
-function invariants(next: Dataset): Finding[] {
+/**
+ * Siblings are numbered monotonically, letter suffixes after their base (29, 29-A, 30; § 1º, § 1º-A, § 2º). Exported
+ * for the run status, which reports them for the published dataset on every run.
+ */
+export function invariants(next: Dataset): Finding[] {
   const findings: Finding[] = [];
   const last = new Map<string, { numbers: number[]; id: string }>();
   for (const { norm, id } of next.provisions) {
@@ -136,6 +143,39 @@ function compare(a: number[], b: number[]): number {
     if (d !== 0) return d;
   }
   return 0;
+}
+
+// --- Counts against the previous dataset -----------------------------------------------------------------
+
+/**
+ * How far a norm's count of one kind of dispositivo (caput, parágrafo, inciso…) may move in one refresh: 2% of the
+ * previous count, and at least 5. A parser regression shows up as dozens of dispositivos found or lost at once; a real
+ * act that inserts that many (Lei 14.181/2021 put 69 into the CDC) deserves a person's look anyway.
+ */
+export const COUNT_TOLERANCE = { relative: 0.02, absolute: 5 } as const;
+
+function counts(previous: Dataset, next: Dataset): Finding[] {
+  const tally = (dataset: Dataset) => {
+    const byKey = new Map<string, number>();
+    for (const p of dataset.provisions) byKey.set(`${p.norm}|${p.kind}`, (byKey.get(`${p.norm}|${p.kind}`) ?? 0) + 1);
+    return byKey;
+  };
+  const before = tally(previous);
+  const after = tally(next);
+  const findings: Finding[] = [];
+  for (const key of [...new Set([...before.keys(), ...after.keys()])]) {
+    const [norm, kind] = key.split("|") as [string, ProvisionKind];
+    // A norm new to the dataset (or gone from it) has nothing to compare with.
+    if (!previous.norms.some((n) => n.key === norm) || !next.norms.some((n) => n.key === norm)) continue;
+    const was = before.get(key) ?? 0;
+    const is = after.get(key) ?? 0;
+    const allowed = Math.max(COUNT_TOLERANCE.absolute, Math.round(was * COUNT_TOLERANCE.relative));
+    if (Math.abs(is - was) <= allowed) continue;
+    const delta = is - was > 0 ? `+${is - was}` : `−${was - is}`;
+    const message = `${kind}: ${was} → ${is} (${delta}), beyond the tolerance of ±${allowed} (2% of ${was}, at least 5)`;
+    findings.push(gate("counts", "problem", message, { norm }));
+  }
+  return findings;
 }
 
 // --- Promoted wording against the page -------------------------------------------------------------------
@@ -180,25 +220,33 @@ async function targetMatching(
 ): Promise<Finding[]> {
   const findings: Finding[] = [];
   const position = new Map(next.provisions.map((p, i) => [`${p.norm}/${p.id}`, i]));
-  const known = new Set(previous.provisions.flatMap(citedByRecord));
+  const known = new Set(previous.provisions.flatMap(knownActs));
   const changes = report.changes.filter((c) => c.kind !== "removed");
-  const numbers = [...new Set(changes.flatMap(citedEcs))].sort((a, b) => Number(a) - Number(b));
+  const names = normNames(manifests);
 
   const targetsOf = new Map<string, { norm: string; target: ActTarget }[]>();
-  for (const number of numbers) {
-    const act = `EC ${number}`;
-    const isNew = !known.has(number);
-    const url = emc(Number(number));
-    const snapshot = await source.get(url);
+  for (const cited of actsCitedBy(changes)) {
+    const act = cited.label;
+    const isNew = !known.has(cited.key);
+    if (!cited.url) {
+      findings.push(gate("target-matching", "problem", `cannot be resolved to its official page (${cited.problem}), so its commands cannot be read`, { act }));
+      continue;
+    }
+    const snapshot = await source.get(cited.url);
     if (!snapshot) {
-      findings.push(gate("target-matching", "problem", `its page ${url} is not in the source`, { act }));
+      findings.push(gate("target-matching", "problem", `its page ${cited.url} is not in the source`, { act }));
       continue;
     }
     let commands;
     try {
-      commands = readActCommands(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url);
+      commands = readActCommands(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url, names);
     } catch (error) {
       findings.push(gate("target-matching", "problem", `its page could not be read: ${(error as Error).message}`, { act }));
+      continue;
+    }
+    const unverified = verifyActPage(cited.citation, commands.act);
+    if (unverified) {
+      findings.push(gate("target-matching", "problem", unverified, { act }));
       continue;
     }
     const unread = commands.problems.map((p) => `could not read its commands: ${p}`);
@@ -210,8 +258,10 @@ async function targetMatching(
     }
     // Page order: the order a reader of the change report meets them.
     targets.sort((a, b) => (position.get(`${a.norm}/${a.target.id}`) ?? Infinity) - (position.get(`${b.norm}/${b.target.id}`) ?? Infinity));
-    targetsOf.set(number, targets);
-    for (const message of unread) findings.push(gate("target-matching", isNew ? "problem" : "note", message, { act }));
+    targetsOf.set(cited.key, targets);
+    // Fail closed: an act whose commands cannot all be read, or that commands nothing on these norms, explains nothing.
+    for (const message of unread) findings.push(gate("target-matching", "problem", message, { act }));
+    if (!targets.length) findings.push(gate("target-matching", "problem", "its page holds no command on the norms of this build", { act }));
     if (!isNew) {
       const message = `already in the dataset: each change citing it must be one of its ${targets.length} targets; the others may stay as they are`;
       findings.push(gate("target-matching", "note", message, { act }));
@@ -229,8 +279,8 @@ async function targetMatching(
   }
 
   for (const c of changes) {
-    const cited = citedEcs(c);
-    if (cited.some((n) => targetsOf.get(n)?.some(({ norm, target }) => norm === c.norm && covers(target, c.id)))) continue;
+    const cited = citedActs(c);
+    if (cited.some((a) => targetsOf.get(a.key)?.some(({ norm, target }) => norm === c.norm && covers(target, c.id)))) continue;
     const about = { norm: c.norm, id: c.id };
     if (c.fields.length === 1 && c.fields[0] === "references") {
       // Planalto adds "Vide" notes (STF cases, other acts) without any amending act; the wording is untouched.
@@ -244,7 +294,7 @@ async function targetMatching(
         "target-matching",
         "problem",
         cited.length
-          ? `${what}, citing ${cited.map((n) => `EC ${n}`).join(", ")}, which ${cited.length === 1 ? "does" : "do"} not target it`
+          ? `${what}, citing ${cited.map((a) => a.label).join(", ")}, which ${cited.length === 1 ? "does" : "do"} not target it`
           : `${what} without citing an amending act`,
         about,
       ),
@@ -265,26 +315,26 @@ export interface DeferredActInput {
 }
 
 /**
- * A constitutional amendment new to the dataset whose vigência clause defers changes that no manifest lists it for
+ * An amending act (an EC, a law, an MP) new to the dataset whose vigência clause defers changes that no manifest lists it for
  * in `deferredActs` (ADR 0003). The compiled page shows such a change only as a "(Vigência)" note, so without the
  * manifest entry its pending wording is never recorded, and the other layers may not notice: the gates accept a
  * references-only change on a target, and the LLM reviewer is not shown one. Each such act blocks with the fix.
  * An act whose page is missing is target matching's to report.
  */
 export async function reviewDeferredActs({ manifests, previous, report, source, today }: DeferredActInput): Promise<Finding[]> {
-  const known = new Set(previous.provisions.flatMap(citedByRecord));
+  const known = new Set(previous.provisions.flatMap(knownActs));
   const listed = new Set(manifests.flatMap((m) => m.deferredActs ?? []));
-  const numbers = [...new Set(report.changes.filter((c) => c.kind !== "removed").flatMap(citedEcs))].sort((a, b) => Number(a) - Number(b));
+  const names = normNames(manifests);
   const findings: Finding[] = [];
-  for (const number of numbers) {
-    const url = emc(Number(number));
-    if (known.has(number) || listed.has(url)) continue;
-    const act = `EC ${number}`;
+  for (const cited of actsCitedBy(report.changes.filter((c) => c.kind !== "removed"))) {
+    const url = cited.url;
+    if (!url || known.has(cited.key) || listed.has(url)) continue;
+    const act = cited.label;
     const snapshot = await source.get(url);
     if (!snapshot) continue;
     let changes;
     try {
-      changes = readAmendingAct(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url).changes;
+      changes = readAmendingAct(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url, names).changes;
     } catch (error) {
       const message = `its vigência clause could not be read (${(error as Error).message}); if it defers changes, add ${url} to the deferredActs of the norms it changes`;
       findings.push(gate("deferred-act", "problem", message, { act }));
@@ -308,20 +358,83 @@ function covers(target: ActTarget, id: string): boolean {
   return target.how === "revoked" || !target.id.includes("_") ? isUnder(id, target.id) : id === target.id;
 }
 
-/** The constitutional amendments a record carries: those it took effect by, and pending ones. */
-export function citedByRecord(record: Provision): string[] {
-  const acts = [...record.amendments.map((a) => a.act), ...(record.pending ?? []).map((p) => p.act)];
-  return acts.filter((a) => a?.type === "emenda_constitucional").map((a) => a!.number);
+/** An amending act a change or a record cites, whatever its type. */
+export interface CitedAct {
+  /** `actKey`: "emenda_constitucional:141", "lei:15999". */
+  key: string;
+  /** How findings and the LLM reviewer name it: "EC 141", "Lei 15.999", "MP 1.393". */
+  label: string;
+  /** As an annotation cites it (the first one that does). */
+  citation: ActCitation;
+  /**
+   * Its official page, derived from its identity (act-pages.ts): an EC's canonical Planalto URL, any other act's page
+   * as its annotation links it once the link is shown to be the act's. Absent when it cannot be resolved; `problem`
+   * says why, and such an act blocks the merge, unfetched.
+   */
+  url?: string;
+  problem?: string;
 }
 
-/** The constitutional amendments a change cites anew: new amendment annotations, "Vide" notes or pending changes. */
-export function citedEcs(c: ProvisionChange): string[] {
+const SHORT: Record<ActType, string> = {
+  emenda_constitucional: "EC",
+  emenda_constitucional_de_revisao: "ECR",
+  lei: "Lei",
+  lei_complementar: "LC",
+  decreto_lei: "Decreto-Lei",
+  decreto_legislativo: "Decreto Legislativo",
+  decreto: "Decreto",
+  medida_provisoria: "MP",
+};
+
+export function citedAct(act: ActCitation): CitedAct {
+  const page = actPage(act);
+  return { key: actKey(act.type, act.number), label: `${SHORT[act.type]} ${act.number}`, citation: act, ...page };
+}
+
+/** The acts a record carries (`actKey`s): those it took effect by, and pending ones. */
+export function knownActs(record: Provision): string[] {
+  const acts = [...record.amendments.map((a) => a.act), ...(record.pending ?? []).map((p) => p.act)];
+  return acts.flatMap((a) => (a ? [actKey(a.type, a.number)] : []));
+}
+
+/**
+ * The amending acts a change cites anew: its new amendment annotations and pending changes, of any act, and the
+ * constitutional amendments of its new "Vide" notes (the CF annotates a deferred change with "Vide Emenda
+ * Constitucional"; a "Vide Lei" is a cross-reference, not a command). Once each: an act is resolved only when every
+ * citation of it resolves (a link to anywhere else, on any of them, leaves it unresolved).
+ */
+export function citedActs(c: ProvisionChange): CitedAct[] {
   const acts: (ActCitation | undefined)[] = [
     ...c.amendments.map((a) => a.act),
-    ...newReferences(c).map((r) => r.act),
+    ...newReferences(c).map((r) => (r.act?.type === "emenda_constitucional" ? r.act : undefined)),
     ...newPending(c).map((p) => p.act),
   ];
-  return [...new Set(acts.filter((a) => a?.type === "emenda_constitucional").map((a) => a!.number))];
+  return merged(acts.flatMap((act) => (act ? [citedAct(act)] : [])));
+}
+
+function merged(cited: CitedAct[]): CitedAct[] {
+  const byKey = new Map<string, CitedAct>();
+  for (const one of cited) {
+    const seen = byKey.get(one.key);
+    if (!seen) byKey.set(one.key, one);
+    else if (one.problem && !seen.problem) byKey.set(one.key, { key: seen.key, label: seen.label, citation: seen.citation, problem: one.problem });
+    else if (!seen.url && !seen.problem && one.url) byKey.set(one.key, { ...seen, url: one.url });
+  }
+  return [...byKey.values()];
+}
+
+/** Every act the changes cite, once: the constitutional amendments first, by number, then the others by label. */
+export function actsCitedBy(changes: ProvisionChange[]): CitedAct[] {
+  const ec = (a: CitedAct) => (a.citation.type === "emenda_constitucional" ? 0 : 1);
+  const number = (a: CitedAct) => Number(a.citation.number.replace(/\./g, "").replace(/-.*$/, ""));
+  return merged(changes.flatMap(citedActs)).sort(
+    (a, b) => ec(a) - ec(b) || (ec(a) === 0 ? number(a) - number(b) : a.label < b.label ? -1 : a.label > b.label ? 1 : 0),
+  );
+}
+
+/** How acts may name the norms: the CF and the ADCT always, and every manifest's `citedAs`. */
+export function normNames(manifests: NormManifest[]): string[] {
+  return [...new Set([...NORM_NAMES, ...manifests.flatMap((m) => (m.citedAs ? [m.citedAs] : []))])];
 }
 
 function newPending(c: ProvisionChange): NonNullable<Provision["pending"]> {

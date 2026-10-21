@@ -1,11 +1,9 @@
 // `pnpm check:dataset`: fails when dataset/ is not exactly the regeneration of the committed captures, so generated
 // data cannot be hand-edited (CI runs it through `pnpm verify`). Fix: `pnpm build:dataset`, and commit the result
 // only when a parser, manifest or capture change explains every file it touches.
-import { diffPublished, publishedBuild } from "../src/publish/published.ts";
+import { checkDataset } from "../src/publish/published.ts";
 
-const root = new URL("../", import.meta.url);
-const published = await publishedBuild(new URL("fixtures/", root));
-const diff = await diffPublished(published.files, new URL("dataset/", root));
+const { published, diff } = await checkDataset(new URL("../", import.meta.url));
 const lines = [
   ...diff.changed.map((p) => `  changed: dataset/${p}`),
   ...diff.missing.map((p) => `  missing: dataset/${p}`),

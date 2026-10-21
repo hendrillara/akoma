@@ -11,6 +11,8 @@ export interface RawSnapshot {
   encoding: Encoding;
   /** When the response was retrieved: an ISO 8601 instant, or a date when only the capture day is known. */
   retrievedAt: string;
+  /** The response's media type, lower-cased without parameters, when it was served live (recorded captures omit it). */
+  contentType?: string;
 }
 
 /** What the previous fetch of a page returned, for a conditional request. */

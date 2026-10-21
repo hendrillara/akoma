@@ -1,6 +1,6 @@
 # Akoma
 
-[![CI](https://github.com/hendrillara/akoma/actions/workflows/ci.yml/badge.svg)](https://github.com/hendrillara/akoma/actions/workflows/ci.yml) [![Akoma status](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhendrillara%2Fakoma%2Fstatus%2Fbadge.json)](https://github.com/hendrillara/akoma/blob/status/status.json)
+[![Akoma status](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhendrillara%2Fakoma%2Fstatus%2Fbadge.json)](https://github.com/hendrillara/akoma/blob/status/status.json)
 
 **Português** · [English](#english)
 
@@ -44,7 +44,7 @@ Ferramentas (nomes em inglês, descrições em inglês e português):
 | `get_structure` | `norm` | sumário da norma (títulos, capítulos, seções, intervalos de artigos), sem texto |
 | `list_norms` | — | normas disponíveis, URN e quando cada texto foi obtido |
 
-As respostas são Markdown compacto: o texto primeiro, depois o caminho (Título II › Capítulo I › Art. 5º › inciso X), a situação (revogado, vetado), a redação pendente com a data de início, as notas "Vide"/ADI e um rodapé com a fonte e o aviso.
+As respostas são Markdown compacto: o texto primeiro, depois o caminho (Título II › Capítulo I › Art. 5º › inciso X), a situação (revogado, vetado), a redação pendente com a data de início e a cláusula de vigência do ato que a adia, as notas "Vide"/ADI e um rodapé com a fonte e o aviso.
 
 Agentes também se descobrem sozinhos por [`/llms.txt`](https://akoma.hendril.dev/llms.txt) e pelo guia de uso [`/usage.md`](https://akoma.hendril.dev/usage.md). A verificação de que um agente que recebe só a URL do MCP encontra e usa as ferramentas está registrada em [`docs/agent-discovery-check.md`](docs/agent-discovery-check.md) (feita localmente; a verificação em produção fica para depois do deploy).
 
@@ -88,9 +88,11 @@ Os mesmos dados ficam também como arquivos estáticos, da pasta `dataset/` comm
 
 `id`, `norm`, `kind`, `label`, o caminho na hierarquia, o `text` literal, `status` (`in_force`, `revoked`, `vetoed`, `renumbered`, `not_yet_in_force`), `amendments` (os atos que o incluíram, alteraram ou revogaram), `references` (notas "Vide", inclusive ADI/ADPF), `pending` (redação com vigência diferida e `effectiveFrom`), `aliases` (ids do normas.leg.br, com atribuição) e `provenance`: URL da fonte, data de obtenção, hash do conteúdo, versão do dataset, o resultado da conferência com uma segunda fonte (`agrees`, `secondary-stale`, `unconfirmed`) e o aviso fixo.
 
+**Versão do esquema.** `schemaVersion` (semver, hoje `1.0.0`) está no `dataset.json`, no `status.json`, em `GET /v1/status` e no arquivo de estado do job. Muda o MAJOR quando um campo some ou muda de nome, de tipo ou de sentido, ou quando muda o esquema de ids (o consumidor precisa se adaptar); o MINOR quando entra um campo, um endpoint ou um valor novo num conjunto aberto (o consumidor pode ignorar); o PATCH quando só a documentação ou uma correção muda, sem mexer na forma nem no sentido de nenhum campo. O texto legal mudar nunca muda o esquema: isso é o `datasetVersion`.
+
 ## Garantias de precisão: o que é medido hoje
 
-Tudo isto roda em `pnpm verify`, o mesmo comando do CI (o badge acima):
+Tudo isto roda em `pnpm verify`, o mesmo comando do [CI](https://github.com/hendrillara/akoma/actions/workflows/ci.yml) e do job diário:
 
 - **Golden sets** conferidos à mão contra o HTML oficial: 62 dispositivos da CF e do ADCT e 60 do CDC (texto, id, caminho, situação, anotações).
 - **Invariantes estruturais** (ids únicos, numeração monotônica, contagens exatas de incisos, parágrafos e alíneas) e **snapshots do texto completo** de cada norma: qualquer mudança no texto falha o teste.
@@ -103,12 +105,12 @@ Tudo isto roda em `pnpm verify`, o mesmo comando do CI (o badge acima):
 - **Não publicado ainda.** O endereço é planejado; nada roda em produção.
 - **A atualização diária ainda não roda.** O job que busca o Planalto, abre um PR e faz merge sozinho ou pede revisão humana existe ([`docs/publishing.md`](docs/publishing.md)), mas só roda depois de chegar ao `main` e de o mantenedor permitir que o GitHub Actions abra PRs. Os dados de hoje vêm das capturas de 2026-10-20/21 (`fixtures/`).
 - **Revisão por LLM (camada 3): construída, não ativa.** O revisor e seus testes existem, mas ainda não rodam em nenhum fluxo.
-- **Mudanças no CDC sempre vão para revisão humana na v1.** A conferência de alvos lê só os comandos de emendas constitucionais; o CDC é alterado por leis, então toda mudança de texto nele é escalada.
+- **Mudanças feitas por lei passam pela mesma revisão que as feitas por emenda.** A conferência de alvos e o revisor LLM leem os comandos de todo ato que a mudança cita (EC, lei, medida provisória), na página do Planalto a que a anotação aponta. Se a anotação não traz link, ou se a página não pode ser lida, a mudança vai para revisão humana.
 - **STF não verificado** (ver acima). A busca é lexical (BM25 com dicionário de sinônimos), não semântica.
 
 ## Estado do serviço
 
-O primeiro badge acima é o do CI (os testes na branch principal). O segundo é o do job diário e mostra o resultado da última execução. O arquivo de estado dele fica no branch `status`, em [`status.json`](https://github.com/hendrillara/akoma/blob/status/status.json): última verificação, última mudança, atraso por fonte e resultado dos testes ([`docs/publishing.md`](docs/publishing.md)). O badge só aparece depois da primeira execução. Além disso, `GET /v1/status` e o `status.json` do dataset trazem a conferência entre fontes por norma e a atribuição ao Senado/LexML.
+O badge acima é o do job diário e mostra o resultado da última execução: "current" quando a última checagem passou, ou o problema (mudança aguardando revisão, testes falhando, fonte inacessível, job com falha). O arquivo de estado dele fica no branch `status`, em [`status.json`](https://github.com/hendrillara/akoma/blob/status/status.json): última verificação, última mudança, testes, recall da busca, invariantes e conjunto-ouro, versão do esquema, atraso por fonte (de busca e de conteúdo da fonte secundária) e a atribuição ao Senado/LexML, a cada execução ([`docs/publishing.md`](docs/publishing.md)). O badge só aparece depois da primeira execução. Além disso, `GET /v1/status` e o `status.json` do dataset trazem a conferência entre fontes por norma e a atribuição ao Senado/LexML.
 
 ## Licenças e atribuição
 
@@ -171,7 +173,7 @@ Tools (English names, English and Portuguese descriptions):
 | `get_structure` | `norm` | the norm's outline (títulos, capítulos, seções, article ranges), no text |
 | `list_norms` | — | available norms, URNs and when each text was retrieved |
 
-Answers are compact Markdown: the text first, then the path (Título II › Capítulo I › Art. 5º › inciso X), the status (revoked, vetoed), any pending wording with its start date, the "Vide"/ADI notes and a footer with the source and the notice.
+Answers are compact Markdown: the text first, then the path (Título II › Capítulo I › Art. 5º › inciso X), the status (revoked, vetoed), any pending wording with its start date and the act's vigência clause that defers it, the "Vide"/ADI notes and a footer with the source and the notice.
 
 Agents can also discover the service through [`/llms.txt`](https://akoma.hendril.dev/llms.txt) and the usage guide [`/usage.md`](https://akoma.hendril.dev/usage.md). The check that an agent given only the MCP URL finds and uses the tools is recorded in [`docs/agent-discovery-check.md`](docs/agent-discovery-check.md) (run locally; production verification is pending the deploy).
 
@@ -215,9 +217,11 @@ The same data is also served as static files, from the committed `dataset/` fold
 
 `id`, `norm`, `kind`, `label`, its hierarchy path, the verbatim `text`, `status` (`in_force`, `revoked`, `vetoed`, `renumbered`, `not_yet_in_force`), `amendments` (the acts that inserted, reworded or revoked it), `references` ("Vide" notes, including ADI/ADPF), `pending` (deferred-vigência wording with `effectiveFrom`), `aliases` (normas.leg.br ids, with attribution) and `provenance`: source URL, retrieval time, content hash, dataset version, the outcome of the check against a second source (`agrees`, `secondary-stale`, `unconfirmed`) and the fixed notice.
 
+**Schema version.** `schemaVersion` (semver, `1.0.0` today) is in `dataset.json`, `status.json`, `GET /v1/status` and the job's run status. MAJOR changes when a field is removed or renamed, changes type or meaning, or the id scheme changes (a consumer must adapt); MINOR when a field, an endpoint or a value of an open set is added (a consumer may ignore it); PATCH when only documentation or a fix changes, leaving every field's shape and meaning as documented. The legal text changing is never a schema change: that is `datasetVersion`.
+
 ### Accuracy guarantees: what is measured today
 
-All of this runs in `pnpm verify`, the same command CI runs (the badge above):
+All of this runs in `pnpm verify`, the same command [CI](https://github.com/hendrillara/akoma/actions/workflows/ci.yml) and the daily job run:
 
 - **Golden sets** hand-checked against the official HTML: 62 CF and ADCT dispositivos and 60 CDC ones (text, id, path, status, annotations).
 - **Structural invariants** (unique ids, monotonic numbering, exact counts of incisos, paragraphs and alíneas) and **full-text snapshots** of each norm: any change to the text fails the tests.
@@ -230,12 +234,12 @@ All of this runs in `pnpm verify`, the same command CI runs (the badge above):
 - **Not deployed yet.** The address is planned; nothing runs in production.
 - **The daily refresh does not run yet.** The job that fetches Planalto, opens a PR and merges it or asks for human review exists ([`docs/publishing.md`](docs/publishing.md)), but it runs only once it reaches `main` and the maintainer lets GitHub Actions open PRs. Today's data is built from the 2026-10-20/21 captures (`fixtures/`).
 - **LLM review (layer 3): built, not active.** The reviewer and its tests exist, but no workflow runs it yet.
-- **CDC changes always escalate to human review in v1.** Target matching reads only constitutional amendments' commands; the CDC is amended by laws, so every text change to it is escalated.
+- **Changes made by a law get the same review as changes made by an amendment.** Target matching and the LLM reviewer read the commands of every act a change cites (an EC, a law, a medida provisória), on the Planalto page its annotation links to. A change whose act has no link, or whose page cannot be read, escalates to human review.
 - **STF not verified** (see above). Search is lexical (BM25 with a synonym dictionary), not semantic.
 
 ### Service status
 
-The first badge above is CI's (the tests on the default branch). The second is the daily job's and shows its latest run. Its status file lives on the `status` branch, in [`status.json`](https://github.com/hendrillara/akoma/blob/status/status.json): last check, last change, per-source lag and test results ([`docs/publishing.md`](docs/publishing.md)). The badge appears after the first run. Separately, `GET /v1/status` and the dataset's `status.json` carry the per-norm cross-source results and the Senado/LexML attribution.
+The badge above is the daily job's and shows its latest run: "current" when the last check passed, or the trouble (a change awaiting review, failing tests, an unreachable source, a failed job). Its status file lives on the `status` branch, in [`status.json`](https://github.com/hendrillara/akoma/blob/status/status.json): last check, last change, the tests, search recall, invariants and golden sets, the schema version, per-source lag (fetch and the secondary source's content) and the Senado/LexML attribution, on every run ([`docs/publishing.md`](docs/publishing.md)). The badge appears after the first run. Separately, `GET /v1/status` and the dataset's `status.json` carry the per-norm cross-source results and the Senado/LexML attribution.
 
 ### Licences and attribution
 

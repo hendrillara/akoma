@@ -10,6 +10,7 @@ import type {
   ProvisionStatus,
   Reference,
 } from "../schema/dataset.ts";
+import { alineaId, articleId, incisoId, itemId, paragraphId, romanToNumber, suffixId } from "../schema/lexml.ts";
 import { peelAnnotations, type Link, type Peeled } from "./annotations.ts";
 
 type Node = DefaultTreeAdapterMap["node"];
@@ -462,7 +463,7 @@ export function matchArticle(line: string): Numbered | undefined {
   if (!m) return undefined;
   const n = Number(m[1]);
   const { suffix, rest } = ordinalAndSuffix(n, m[2]!);
-  return { id: `art${n}${suffixId(suffix)}`, label: `Art. ${n}${n < 10 ? "º" : ""}${suffix}`, rest };
+  return { id: articleId(n, suffix), label: `Art. ${n}${n < 10 ? "º" : ""}${suffix}`, rest };
 }
 
 /** One parágrafo, or several when the page groups them ("§§ 1º a 3º. (Revogados pela …)"). */
@@ -482,7 +483,7 @@ export function matchParagraphs(line: string): Numbered[] | undefined {
   if (!found) return undefined;
   const n = Number(found[1]);
   const { suffix, rest } = ordinalAndSuffix(n, found[2]!);
-  return [{ id: `par${n}${suffixId(suffix)}`, label: paragraphLabel(n, suffix), rest }];
+  return [{ id: paragraphId(n, suffix), label: paragraphLabel(n, suffix), rest }];
 }
 
 function paragraphLabel(n: number, suffix: string): string {
@@ -495,10 +496,10 @@ export function matchInciso(line: string): Numbered | undefined {
   // the text must start in lower case, so a line of prose that opens with a capital "I" is not read as an inciso.
   const m = /^([IVXLCDM]+)((?:-[A-Z])*)(?:\s*[-–]\s*|\s+(?=[a-zà-úç(]))(.*)$/.exec(line);
   if (!m) return undefined;
-  const n = romanToNumber(m[1]!);
-  if (n === undefined) return undefined;
   const suffix = m[2] ?? "";
-  return { id: `inc${n}${suffixId(suffix)}`, label: `inciso ${m[1]}${suffix}`, rest: m[3]! };
+  const id = incisoId(m[1]!, suffix);
+  if (id === undefined) return undefined;
+  return { id, label: `inciso ${m[1]}${suffix}`, rest: m[3]! };
 }
 
 export function matchAlinea(line: string): Numbered | undefined {
@@ -506,14 +507,14 @@ export function matchAlinea(line: string): Numbered | undefined {
   const m = /^([a-z])((?:-[A-Z])*)\)\s*(.*)$/.exec(line);
   if (!m) return undefined;
   const suffix = m[2]!;
-  return { id: `ali${m[1]!.charCodeAt(0) - 96}${suffixId(suffix)}`, label: `alínea ${m[1]}${suffix}`, rest: m[3]! };
+  return { id: alineaId(m[1]!, suffix), label: `alínea ${m[1]}${suffix}`, rest: m[3]! };
 }
 
 export function matchItem(line: string): Numbered | undefined {
   const m = /^(\d+)((?:-[A-Z])*)\)\s*(.*)$/.exec(line);
   if (!m) return undefined;
   const suffix = m[2]!;
-  return { id: `ite${Number(m[1])}${suffixId(suffix)}`, label: `item ${Number(m[1])}${suffix}`, rest: m[3]! };
+  return { id: itemId(m[1]!, suffix), label: `item ${Number(m[1])}${suffix}`, rest: m[3]! };
 }
 
 /**
@@ -529,19 +530,3 @@ function ordinalAndSuffix(n: number, after: string): { suffix: string; rest: str
   return { suffix, rest };
 }
 
-/** "-A-B" → "-1-2" (LexML Parte 3: letters become numbers). */
-function suffixId(suffix: string): string {
-  return suffix.replace(/-([A-Z])/g, (_, letter: string) => `-${letter.charCodeAt(0) - 64}`);
-}
-
-const ROMAN: Record<string, number> = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
-
-export function romanToNumber(numeral: string): number | undefined {
-  let total = 0;
-  for (let i = 0; i < numeral.length; i++) {
-    const value = ROMAN[numeral[i]!]!;
-    const next = ROMAN[numeral[i + 1] ?? ""] ?? 0;
-    total += value < next ? -value : value;
-  }
-  return total > 0 ? total : undefined;
-}

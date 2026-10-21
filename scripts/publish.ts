@@ -20,42 +20,23 @@ import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { norms } from "../src/norms/index.ts";
 import { ghCli, memoryGitHub } from "../src/publish/github.ts";
-import { runDailyJob, type TestRunner } from "../src/publish/job.ts";
+import { runDailyJob, type TestResult, type TestRunner } from "../src/publish/job.ts";
 import { readPublished } from "../src/publish/published.ts";
 import { diskWorkspace, memoryWorkspace } from "../src/publish/workspace.ts";
 import { claudeReviewer, DEFAULT_REVIEW_MODEL } from "../src/review/claude.ts";
-import { httpSource } from "../src/sources/http.ts";
-import { recordedSource } from "../src/sources/recorded.ts";
+import { cli, nowFrom, runUrlFromEnv, sourceFrom } from "./cli.ts";
 
 const root = new URL("../", import.meta.url);
-const args = process.argv.slice(2);
-const dryRun = args.includes("--dry-run");
-const option = (name: string) => {
-  const i = args.indexOf(name);
-  return i >= 0 ? args[i + 1] : undefined;
-};
-const list = (name: string) => {
-  const i = args.indexOf(name);
-  if (i < 0) return [];
-  const values: string[] = [];
-  for (const value of args.slice(i + 1)) {
-    if (value.startsWith("--")) break;
-    values.push(value);
-  }
-  return values;
-};
+const args = cli();
+const { dryRun } = args;
+const option = args.option;
 
-const recorded = list("--recorded");
-const source = recorded.length
-  ? await recordedSource(...recorded.map((folder) => new URL(`${folder.replace(/\/?$/, "/")}`, `file://${process.cwd()}/`)))
-  : httpSource({ log: (line) => console.log(line) });
-const now = option("--now") ? new Date(option("--now")!) : new Date();
-if (Number.isNaN(now.getTime())) throw new Error(`--now: not an instant: ${option("--now")}`);
+const source = await sourceFrom(args);
+const now = nowFrom(args);
 
 const apiKey = process.env.ANTHROPIC_API_KEY || undefined;
 const model = process.env.AKOMA_REVIEW_MODEL || DEFAULT_REVIEW_MODEL;
-const { GITHUB_SERVER_URL, GITHUB_REPOSITORY, GITHUB_RUN_ID } = process.env;
-const runUrl = GITHUB_SERVER_URL && GITHUB_REPOSITORY && GITHUB_RUN_ID ? `${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}` : undefined;
+const runUrl = runUrlFromEnv();
 
 const github = dryRun ? memoryGitHub() : ghCli({ cwd: fileURLToPath(root), statusBranch: "status", base: "main" });
 if (dryRun && option("--status")) await github.writeStatus([{ path: "status.json", content: readFileSync(option("--status")!, "utf8") }]);
@@ -73,7 +54,7 @@ const result = await runDailyJob({
   workspace,
   tests,
   ...(runUrl && { runUrl }),
-  ...(args.includes("--rebuild") && { rebuild: true }),
+  ...(args.has("--rebuild") && { rebuild: true }),
   // A merge made with the workflow token starts no `push` workflow; `workflow_dispatch` is the exception.
   ...(existsSync(new URL(".github/workflows/deploy.yml", root)) && { deployWorkflow: "deploy.yml" }),
 });
@@ -97,8 +78,12 @@ if (dryRun) {
 }
 process.exit(result.outcome === "failed" ? 1 : 0);
 
-/** `pnpm verify` on the written dataset: typecheck, both seams, the Map check and the regeneration guard. */
-function verify(): Promise<{ passed: boolean; summary: string }> {
+/**
+ * `pnpm verify` on the checkout (the written dataset, or the published one on a run with no change): typecheck, both
+ * seams, the Map check and the regeneration guard. The failed test files, from vitest's "FAIL  test/…" lines, let the
+ * run status say whether the golden sets passed.
+ */
+function verify(): Promise<TestResult> {
   return new Promise((resolve) => {
     // The tests and their dependencies never see the write token or the API key.
     const { GH_TOKEN: _token, GITHUB_TOKEN: _github, ANTHROPIC_API_KEY: _key, ...env } = process.env;
@@ -110,7 +95,12 @@ function verify(): Promise<{ passed: boolean; summary: string }> {
       process.stdout.write(output);
       const tests = /Tests\s+(.+)/.exec(output)?.[1]?.trim();
       const tail = output.trim().split("\n").slice(-15).join("\n");
-      resolve(code === 0 ? { passed: true, summary: `pnpm verify passed${tests ? ` (tests: ${tests})` : ""}.` } : { passed: false, summary: `exit code ${code}. Last lines:\n\n\`\`\`\n${tail}\n\`\`\`` });
+      const failedFiles = [...new Set([...output.matchAll(/FAIL\s+(test\/[\w./-]+\.test\.ts)/g)].map((m) => m[1]!))];
+      resolve(
+        code === 0
+          ? { passed: true, summary: `pnpm verify passed${tests ? ` (tests: ${tests})` : ""}.` }
+          : { passed: false, summary: `exit code ${code}. Last lines:\n\n\`\`\`\n${tail}\n\`\`\``, ...(tests && { failedFiles }) },
+      );
     });
   });
 }

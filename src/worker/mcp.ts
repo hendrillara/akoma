@@ -2,9 +2,12 @@
 // as the REST API. Its four tools answer with the REST views' compact Markdown: the dispositivo text first, then its
 // path, vigência, references and the provenance footer with the notice.
 //
-// Agents read what this endpoint says as legal text from a trusted domain, so no request input is ever echoed: tool
-// arguments are checked here before any view runs, tool errors are fixed texts, and every JSON-RPC error the SDK writes
-// (some of which repeat headers or method names) is replaced on the way out by a fixed message for its code.
+// Agents read what this endpoint says as legal text from a trusted domain, so no request input is echoed but the
+// JSON-RPC `id`, which a client needs back and which is accepted only as an integer or a short string of letters,
+// digits and `_ . : -` (any other id, in a single message or a batch, is rejected with a fixed error before the SDK
+// reads the request). Tool arguments are checked here before any view runs, tool errors are fixed texts, and every
+// JSON-RPC error the SDK writes (some of which repeat headers or method names) is replaced on the way out by a fixed
+// message for its code.
 import {
   createMcpHandler,
   ProtocolError,
@@ -23,11 +26,9 @@ export interface McpDeps {
   search: (params: URLSearchParams) => View;
 }
 
-type ToolResult = CallToolResult;
-
 interface Tool {
   definition: ToolDefinition;
-  run(args: Record<string, unknown>): ToolResult;
+  run(args: Record<string, unknown>): CallToolResult;
 }
 
 const SERVER = { name: "akoma", title: "Akoma: legislação federal brasileira / Brazilian federal law", version: "1.0.0" };
@@ -215,8 +216,31 @@ export function createMcp({ dataset, views, search }: McpDeps): (request: Reques
     if (request.method !== "POST") {
       return rpcResponse(405, rpcError(-32000, METHOD_NOT_ALLOWED), { allow: "POST, OPTIONS" });
     }
+    if (!(await safeIds(request))) return rpcResponse(400, rpcError(-32600, RPC_MESSAGES[-32600]!));
     return sanitize(await handler.fetch(request));
   };
+}
+
+/** The only JSON-RPC ids echoed back: an integer, or a short plain string (UUIDs and "req-1"-style counters fit). */
+const SAFE_ID = /^[A-Za-z0-9_.:-]{1,64}$/;
+
+/**
+ * Whether every message in the body has a safe id or none (a notification). A body that is not JSON is left to the
+ * SDK, whose parse error carries a null id.
+ */
+async function safeIds(request: Request): Promise<boolean> {
+  let body: unknown;
+  try {
+    body = JSON.parse(await request.clone().text());
+  } catch {
+    return true;
+  }
+  const messages = Array.isArray(body) ? body : [body];
+  return messages.every((m) => {
+    if (!isRecord(m) || !("id" in m)) return true;
+    const { id } = m;
+    return (typeof id === "number" && Number.isSafeInteger(id)) || (typeof id === "string" && SAFE_ID.test(id));
+  });
 }
 
 /** 429 for `/mcp`: a JSON-RPC error the client surfaces with the HTTP status, never cached. */
@@ -225,11 +249,11 @@ export function mcpRateLimited(retryAfter: number): Response {
   return rpcResponse(429, rpcError(-32000, message, { retryAfter }), { "retry-after": String(retryAfter) });
 }
 
-function answer(view: View): ToolResult {
+function answer(view: View): CallToolResult {
   return view.status === 200 ? { content: [{ type: "text", text: view.md() }] } : failure(view.md());
 }
 
-function failure(text: string): ToolResult {
+function failure(text: string): CallToolResult {
   return { content: [{ type: "text", text: text.endsWith("\n") ? text : `${text}\n` }], isError: true };
 }
 

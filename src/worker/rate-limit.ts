@@ -1,6 +1,12 @@
 // Per-client rate limiting behind one small port, so the Worker can use Cloudflare's rate-limit binding (whose
 // availability on the Free plan is unconfirmed) or an in-memory window, and seam 2 can drive either deterministically.
 
+/**
+ * Requests per client (IP) per period. The single source of these numbers: wrangler.jsonc `ratelimits[0].simple`
+ * repeats them for the binding, the in-memory fallback uses them directly, and `/llms.txt` and `/usage.md` state them.
+ */
+export const RATE_LIMIT = { limit: 120, periodSeconds: 60 } as const;
+
 export type RateLimitResult = { allowed: true } | { allowed: false; retryAfterSeconds: number };
 
 export interface RateLimiter {

@@ -258,7 +258,7 @@ describe("API v1", () => {
 
       expect(text).toMatch(/^XV - repouso semanal remunerado, preferencialmente aos domingos;/);
       expect(text).toContain(
-        "\n\n> **Pendente a partir de 2026-12-17** (Emenda Constitucional nº 141, de 2026): repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;",
+        "\n\n> **Pendente a partir de 2026-12-17** (Emenda Constitucional nº 141, de 2026; cláusula de vigência: \"após decorridos 2 (dois) meses de sua publicação, em relação à alteração promovida pelo art. 1º desta Emenda Constitucional no inciso XV do caput do art. 7º da Constituição Federal\"): repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;",
       );
       expect(text).toContain("`cf` `art7_cpt_inc15`");
     });
@@ -429,6 +429,8 @@ describe("API v1", () => {
 
       expect(body).toMatchObject({
         datasetVersion: "2026.10.21-test",
+        // The dataset format's semantic version (src/schema/dataset.ts SCHEMA_VERSION; the bump rule is in README.md).
+        schemaVersion: "1.0.0",
         norms: [
           { key: "cf", sourceUrl: compiledCf, retrievedAt: "2026-10-21T01:26:39Z", articles: 276 },
           { key: "adct", sourceUrl: compiledCf, retrievedAt: "2026-10-21T01:26:39Z", articles: 148 },
@@ -444,6 +446,10 @@ describe("API v1", () => {
         ],
         notice: STF_NOTICE,
       });
+    });
+
+    it("states the schema version in the Markdown status too", async () => {
+      expect(await (await get("/v1/status?format=md")).text()).toContain("\nEsquema / schema 1.0.0\n");
     });
 
     it("credits Senado/LexML in the status, in JSON and Markdown, since the dataset carries normas.leg.br aliases", async () => {

@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { crossCheck, NORMAS_ATTRIBUTION } from "../review/cross-source.ts";
 import {
   NOTICE,
+  SCHEMA_VERSION,
   type Article,
   type CrossSourceStatus,
   type Dataset,
@@ -14,10 +15,10 @@ import {
 } from "../schema/dataset.ts";
 import { buildSearchIndex, loadSynonyms, type SynonymDictionary } from "../search/build-index.ts";
 import type { RawSnapshot, Source } from "../sources/source.ts";
-import { readAmendingAct, type AmendingAct } from "./acts.ts";
+import { NORM_NAMES, readAmendingAct, type AmendingAct } from "./acts.ts";
 import { parsePlanaltoPage, type PageLayout } from "./planalto.ts";
 import { applyDeferredChanges, type Draft } from "./vigencia.ts";
-import { isCalendarDate } from "./vigencia-dates.ts";
+import { brasiliaDay, isCalendarDate } from "./vigencia-dates.ts";
 
 /**
  * Declarative description of one norm: its dataset identity, where its text comes from, the sources it is
@@ -85,8 +86,9 @@ export async function build({ manifests, source, datasetVersion, today, synonyms
   const pages = new Map<string, SourcePage>();
   const crossSource: CrossSourceStatus[] = [];
   const acts = new Map<string, Promise<{ act: AmendingAct; retrievedAt: string; url: string }>>();
+  const names = [...new Set([...NORM_NAMES, ...manifests.flatMap((m) => (m.citedAs ? [m.citedAs] : []))])];
   const actAt = (url: string) => {
-    if (!acts.has(url)) acts.set(url, readAct(source, url));
+    if (!acts.has(url)) acts.set(url, readAct(source, url, names));
     return acts.get(url)!;
   };
 
@@ -132,7 +134,7 @@ export async function build({ manifests, source, datasetVersion, today, synonyms
     if (manifest.deferredActs?.length) {
       if (!manifest.citedAs) throw new Error(`${manifest.key}: deferredActs needs citedAs`);
       const read = await Promise.all(manifest.deferredActs.map(actAt));
-      applyDeferredChanges(drafts, read, manifest.citedAs, today ?? brasiliaDay(snapshot), ({ act, retrievedAt }) => ({
+      applyDeferredChanges(drafts, read, manifest.citedAs, today ?? brasiliaDay(snapshot.retrievedAt), ({ act, retrievedAt }) => ({
         sourceUrl: act.act.href!,
         retrievedAt,
         datasetVersion,
@@ -168,8 +170,8 @@ export async function build({ manifests, source, datasetVersion, today, synonyms
     synonyms ?? (await loadSynonyms()),
   );
   const attributions = [...new Set(norms.flatMap((n) => (n.attribution ? [n.attribution] : [])))];
-  const status = { crossSource, ...(attributions.length && { attributions }) };
-  return { norms, provisions, groupings, articles, pages: [...pages.values()], search, status };
+  const status = { schemaVersion: SCHEMA_VERSION, crossSource, ...(attributions.length && { attributions }) };
+  return { schemaVersion: SCHEMA_VERSION, norms, provisions, groupings, articles, pages: [...pages.values()], search, status };
 }
 
 function sourcePage(snapshot: RawSnapshot, html: string): SourcePage {
@@ -196,15 +198,9 @@ function sha256(text: string): string {
   return `sha256:${createHash("sha256").update(text, "utf8").digest("hex")}`;
 }
 
-async function readAct(source: Source, url: string): Promise<{ act: AmendingAct; retrievedAt: string; url: string }> {
+async function readAct(source: Source, url: string, names: string[]): Promise<{ act: AmendingAct; retrievedAt: string; url: string }> {
   const snapshot = await source.get(url);
   if (!snapshot) throw new Error(`amending act ${url} is unavailable`);
-  const act = readAmendingAct(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url);
+  const act = readAmendingAct(new TextDecoder(snapshot.encoding).decode(snapshot.body), snapshot.url, names);
   return { act, retrievedAt: snapshot.retrievedAt, url };
-}
-
-/** The calendar day, in Brasília, on which a snapshot was retrieved. */
-function brasiliaDay(snapshot: RawSnapshot): string {
-  if (/^\d{4}-\d{2}-\d{2}$/.test(snapshot.retrievedAt)) return snapshot.retrievedAt;
-  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date(snapshot.retrievedAt));
 }

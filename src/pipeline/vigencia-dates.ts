@@ -48,3 +48,12 @@ function daysIn(y: number, m: number): number {
 function iso({ y, m, d }: Ymd): string {
   return `${y}-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
 }
+
+/**
+ * The calendar day in Brasília of an instant (where a norm takes effect at the start of the day), or the day itself
+ * when only a capture day is known ("2026-10-20").
+ */
+export function brasiliaDay(instant: Date | string): string {
+  if (typeof instant === "string" && /^\d{4}-\d{2}-\d{2}$/.test(instant)) return instant;
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(typeof instant === "string" ? new Date(instant) : instant);
+}

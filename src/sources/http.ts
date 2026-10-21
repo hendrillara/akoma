@@ -1,10 +1,11 @@
 // The live adapter of the `Source` port (ADR 0001): plain anonymous GETs from the runner, an honest browser-compatible
 // UA with no contact or personal identifier, conditional requests for the pre-filter, one request at a time with a
-// pause between them, and a few retries on network errors and 5xx/429. Never called from tests (seam 1 replays
+// pause between them, and a few retries on network errors and 5xx/429. It requests only https URLs on the hosts in
+// `ALLOWED_HOSTS`, and follows a redirect only to such a URL (at most three); anything else fails the request. Never called from tests (seam 1 replays
 // recorded captures); the daily job and its dry run use it.
 //
-// It serves pages exactly as fetched: the daily job wraps it in `redacting` (redact.ts), which removes the personal
-// data in page metadata (LEGIN's author fields) before anything reads or keeps the bytes.
+// It serves pages exactly as fetched: the daily job wraps it in `redacting` (redact.ts), which removes the page
+// metadata that could name a person (LEGIN's author fields) before anything reads or keeps the bytes.
 import { readFileSync } from "node:fs";
 import type { Encoding, Probe, RawSnapshot, Source, Validators } from "./source.ts";
 
@@ -19,6 +20,24 @@ export interface HttpSourceOptions {
   fetch?: typeof fetch;
   /** One line per request (the workflow log). */
   log?: (line: string) => void;
+}
+
+/** The only hosts the job ever requests (the manifests' sources and the acts' Planalto pages), over https only. */
+export const ALLOWED_HOSTS = new Set(["www.planalto.gov.br", "normas.leg.br", "www2.camara.leg.br"]);
+/** Redirects followed per request, each to an allowed host over https; any other redirect fails the request. */
+const MAX_REDIRECTS = 3;
+
+/** Why `url` may not be requested, or `undefined` when it may. */
+function refused(url: string): string | undefined {
+  let parsed: URL;
+  try {
+    parsed = new URL(url);
+  } catch {
+    return "not a URL";
+  }
+  if (parsed.protocol !== "https:") return "not https";
+  if (!ALLOWED_HOSTS.has(parsed.hostname) || parsed.port !== "" || parsed.username || parsed.password) return `host ${parsed.hostname} is not allowed`;
+  return undefined;
 }
 
 const { version } = JSON.parse(readFileSync(new URL("../../package.json", import.meta.url), "utf8")) as { version: string };
@@ -47,6 +66,25 @@ export function httpSource({ intervalMs = 2_000, timeoutMs = 60_000, retries = 2
     return next;
   };
 
+  /** One GET, following at most MAX_REDIRECTS redirects, each to an allowed host over https. */
+  const follow = async (url: string, conditional: Record<string, string>): Promise<Response> => {
+    let at = url;
+    for (let hop = 0; ; hop++) {
+      const why = refused(at);
+      if (why) throw new Refused(`refused ${at}: ${why}`);
+      const response = await fetchImpl(at, {
+        headers: { "user-agent": USER_AGENT, accept: "text/html,application/json;q=0.9,*/*;q=0.8", ...conditional },
+        redirect: "manual",
+        signal: AbortSignal.timeout(timeoutMs),
+      });
+      const location = response.status >= 300 && response.status < 400 ? response.headers.get("location") : null;
+      if (location === null) return response;
+      await response.body?.cancel();
+      if (hop >= MAX_REDIRECTS) throw new Refused(`too many redirects from ${url}`);
+      at = new URL(location, at).href;
+    }
+  };
+
   const request = (url: string, conditional: Record<string, string>): Promise<Fetched> =>
     serial(async () => {
       let error = "";
@@ -54,11 +92,7 @@ export function httpSource({ intervalMs = 2_000, timeoutMs = 60_000, retries = 2
         if (attempt) await sleep(5_000 * 3 ** (attempt - 1));
         const started = Date.now();
         try {
-          const response = await fetchImpl(url, {
-            headers: { "user-agent": USER_AGENT, accept: "text/html,application/json;q=0.9,*/*;q=0.8", ...conditional },
-            redirect: "follow",
-            signal: AbortSignal.timeout(timeoutMs),
-          });
+          const response = await follow(url, conditional);
           const body = new Uint8Array(await response.arrayBuffer());
           log(`GET ${url} → ${response.status} (${body.byteLength} B, ${Date.now() - started} ms)`);
           if (response.status === 304) return { status: "not-modified" };
@@ -68,6 +102,7 @@ export function httpSource({ intervalMs = 2_000, timeoutMs = 60_000, retries = 2
         } catch (e) {
           const cause = (e as { cause?: { code?: string; message?: string } }).cause;
           error = `${(e as Error).message}${cause ? ` (${cause.code ?? cause.message})` : ""}`;
+          if (e instanceof Refused) break;
           log(`GET ${url} → ${error} (${Date.now() - started} ms)`);
         }
       }
@@ -107,7 +142,8 @@ function snapshot(url: string, response: Response, body: Uint8Array): RawSnapsho
   const encoding = encodingOf(type, body);
   const date = response.headers.get("date");
   const retrievedAt = (date && !Number.isNaN(Date.parse(date)) ? new Date(date) : new Date()).toISOString().replace(/\.\d{3}Z$/, "Z");
-  return { url, body, headers, encoding, retrievedAt };
+  const contentType = type.split(";")[0]!.trim().toLowerCase();
+  return { url, body, headers, encoding, retrievedAt, ...(contentType && { contentType }) };
 }
 
 /** The declared charset; else a `<meta>` charset; else windows-1252, what Planalto serves without declaring it. */
@@ -117,5 +153,8 @@ function encodingOf(contentType: string, body: Uint8Array): Encoding {
   const meta = declared ?? /<meta[^>]+charset=["']?([\w-]+)/i.exec(head)?.[1];
   return meta && /^utf-?8$/i.test(meta) ? "utf-8" : "windows-1252";
 }
+
+/** A request the adapter will not make (a host or scheme outside the allowlist, a redirect there): never retried. */
+class Refused extends Error {}
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));

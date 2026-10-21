@@ -32,7 +32,7 @@ XIV - jornada de seis horas para o trabalho realizado em turnos ininterruptos de
 
 XV - repouso semanal remunerado, preferencialmente aos domingos; *(Vide Emenda Constitucional nº 141, de 2026)* *(Vigência)*
 
-> **Pendente a partir de 2026-12-17** (Emenda Constitucional nº 141, de 2026): repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;
+> **Pendente a partir de 2026-12-17** (Emenda Constitucional nº 141, de 2026; cláusula de vigência: "após decorridos 2 (dois) meses de sua publicação, em relação à alteração promovida pelo art. 1º desta Emenda Constitucional no inciso XV do caput do art. 7º da Constituição Federal"): repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;
 
 XVI - remuneração do serviço extraordinário superior, no mínimo, em cinqüenta por cento à do normal; *(Vide Del 5.452, art. 59 § 1º)*
 

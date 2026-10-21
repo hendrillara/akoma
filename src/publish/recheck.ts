@@ -26,8 +26,9 @@ import {
   type RecheckOutcome,
 } from "./divergence.ts";
 import type { GitHub } from "./github.ts";
-import { brasiliaDay } from "./job.ts";
+import { brasiliaDay } from "../pipeline/vigencia-dates.ts";
 import { BODY_LIMIT } from "./pr-body.ts";
+import { articleOf, pathLabel } from "../schema/lexml.ts";
 
 /** The parts of GitHub's `issues` event payload the recheck reads. */
 export interface IssueEvent {
@@ -63,6 +64,9 @@ export type RecheckResult = {
   /** The comment posted, when one was. */
   comment?: string;
 };
+
+/** The triage label (docs/agents/triage-labels.md) an unconfirmed report gets: a maintainer evaluates it. */
+export const TRIAGE_LABEL = "needs-triage";
 
 /** Rechecks per Brasília day, all issues together (each reads Planalto's page and the secondary source). */
 export const RECHECKS_PER_DAY = 20;
@@ -106,7 +110,7 @@ export async function runRecheck(input: RecheckInput): Promise<RecheckResult> {
   type Entry = (typeof todays)[number];
   /** A recheck today that covers this target: the same target, or the article holding this dispositivo. */
   const covers = (e: Entry) =>
-    e.kind === "recheck" && e.norm === norm && BLOCKING.has(e.outcome!) && (e.target === target.id || (target.kind === "provision" && e.target === target.id.split("_")[0]));
+    e.kind === "recheck" && e.norm === norm && BLOCKING.has(e.outcome!) && (e.target === target.id || (target.kind === "provision" && e.target === articleOf(target.id)));
   /** Rechecks that fetched (or are fetching) today, all issues together. */
   const fetched = (entries: Entry[]) => new Set(entries.filter((e) => e.kind === "recheck" && COUNTED.has(e.outcome!)).map((e) => e.id)).size;
 
@@ -151,7 +155,13 @@ export async function runRecheck(input: RecheckInput): Promise<RecheckResult> {
     const version = previous.provisions[0]?.provenance.datasetVersion ?? "?";
     const links = linksLine(manifest, norm, target.id);
 
-    if (!differing.length) return await finish({ ...base, outcome: "not-confirmed" }, notConfirmedText(norm, target.id, version, compared, links));
+    if (!differing.length) {
+      const answer = await finish({ ...base, outcome: "not-confirmed" }, notConfirmedText(norm, target.id, version, compared, links));
+      // The recheck reads the page with the parser that built the dataset, so it cannot see that parser's own errors:
+      // the report goes to the maintainer's triage queue. A missing label must not lose the answer already posted.
+      await github.labelIssue(n, TRIAGE_LABEL).catch((error: unknown) => console.error(`recheck: could not label issue #${n} ${TRIAGE_LABEL}: ${(error as Error).message}`));
+      return answer;
+    }
     const answer = await finish({ ...base, outcome: "confirmed" }, confirmedText(norm, target.id, version, differing, links));
     // The correction is the daily job's: a forced rebuild, its three-layer review and its one PR.
     if (input.publishWorkflow) await github.dispatchWorkflow(input.publishWorkflow, { rebuild: "true" });
@@ -215,7 +225,7 @@ function rebuiltLabel(before: Provision | undefined, after: Provision): string {
 function pendingLines(p: Provision): string[] {
   return (p.pending ?? []).map(
     (c) =>
-      `- Mudança pendente / Pending change (${c.effect}), a partir de / from ${c.effectiveFrom}, ${c.act.citation}${c.note ? ` (${c.note})` : ""}${c.text ? `:\n\n${fenced(c.text)}` : "."}`,
+      `- Mudança pendente / Pending change (${c.effect}), a partir de / from ${c.effectiveFrom}, ${c.act.citation} (cláusula de vigência / vigência clause: "${c.vigencia}")${c.note ? ` (${c.note})` : ""}${c.text ? `:\n\n${fenced(c.text)}` : "."}`,
   );
 }
 
@@ -224,7 +234,7 @@ function wording(p: Provision): string {
 }
 
 function heading(norm: string, p: Provision): string {
-  return `#### ${code(norm, p.id)} · ${p.path.map((s) => s.label).join(" › ")}`;
+  return `#### ${code(norm, p.id)} · ${pathLabel(p.path)}`;
 }
 
 function linksLine(manifest: NormManifest, norm: string, id: string): string {
@@ -292,9 +302,9 @@ function notConfirmedText(norm: string, id: string, version: string, compared: C
   return [
     `**Divergência não confirmada / Divergence not confirmed** · ${code(norm, id)}`,
     "",
-    `PT: A página do Planalto, lida agora, imprime o mesmo texto que o dataset publicado (versão ${version}), então nenhum PR é aberto. Abaixo, o que cada fonte diz. Se o texto oficial for outro, o mantenedor vai olhar esta issue; o campo "O que parece errado" é para ele.`,
+    `PT: A página do Planalto, lida agora, imprime o mesmo texto que o dataset publicado (versão ${version}), então nenhum PR é aberto. Abaixo, o que cada fonte diz. A reconferência lê a página do Planalto com o mesmo leitor que montou o dataset, então um erro de leitura do próprio Akoma apareceria igual nos dois lados e não pode ser visto aqui. Por isso esta issue agora tem o rótulo \`needs-triage\`: o mantenedor vai revisar o relato; o campo "O que parece errado" é para ele.`,
     "",
-    `EN: Planalto's page, read just now, prints the same text as the published dataset (version ${version}), so no PR is opened. Below is what each source says. If the official text is different, the maintainer will look at this issue; the "What looks wrong" field is for them.`,
+    `EN: Planalto's page, read just now, prints the same text as the published dataset (version ${version}), so no PR is opened. Below is what each source says. The recheck reads Planalto's page with the same parser that built the dataset, so an error in Akoma's own reading would look the same on both sides and cannot be seen here. That is why this issue now has the \`needs-triage\` label: a maintainer will review the report; the "What looks wrong" field is for them.`,
     "",
     ...summary,
     ...shown.flatMap((s) => [s, ""]),

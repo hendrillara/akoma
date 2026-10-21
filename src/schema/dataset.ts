@@ -1,7 +1,18 @@
 // The published dataset. Shared by the build pipeline (producer) and the Worker (consumer).
 import type { SearchIndex } from "./search.ts";
 
+/**
+ * The dataset format's semantic version, published in `dataset.json`, `status.json`, `GET /v1/status` and the run
+ * status. MAJOR: a field removed or renamed, a type or a meaning changed, an id scheme changed (a consumer must
+ * change). MINOR: a field, an endpoint or a value of an open set added (a consumer may ignore it). PATCH: documentation
+ * or a fix that leaves every field's shape and meaning as documented. The legal text changing is never a schema change:
+ * that is `datasetVersion`.
+ */
+export const SCHEMA_VERSION = "1.0.0";
+
 export interface Dataset {
+  /** `SCHEMA_VERSION` of the build that wrote it. */
+  schemaVersion?: string;
   norms: NormEntry[];
   provisions: Provision[];
   /** Every norm's groupings (títulos, capítulos, seções…), in page order: the structure outline. */
@@ -17,6 +28,8 @@ export interface Dataset {
 }
 
 export interface DatasetStatus {
+  /** `SCHEMA_VERSION` of the build that wrote it. */
+  schemaVersion?: string;
   /** Review layer 2, one entry per norm: how its dispositivos fared against the secondary source (ADR 0004). */
   crossSource: CrossSourceStatus[];
   /** Credit owed for third-party data in the dataset, once per text (today the normas.leg.br aliases); absent when none. */

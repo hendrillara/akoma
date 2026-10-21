@@ -3,14 +3,16 @@
 // The layer never trusts the answer as given: it checks the answer's shape and that it accounts for every change it
 // was shown, and anything it cannot use (an error, a refusal, a malformed or incomplete answer) is a problem.
 import { z } from "zod";
-import { emc } from "../norms/cf.ts";
 import type { NormManifest } from "../pipeline/build.ts";
 import type { ChangeKind, ChangeReport, ProvisionChange } from "../pipeline/changes.ts";
 import { visibleLines } from "../pipeline/planalto.ts";
 import type { Dataset, Provision } from "../schema/dataset.ts";
 import type { Source } from "../sources/source.ts";
-import { citedByRecord, citedEcs } from "./gates.ts";
+import { readActCitation } from "../pipeline/acts.ts";
+import { verifyActPage } from "./act-pages.ts";
+import { actsCitedBy, knownActs } from "./gates.ts";
 import type { Finding } from "./verdict.ts";
+import { pathLabel } from "../schema/lexml.ts";
 
 /** What the reviewer must answer: the schema its structured output is constrained to and validated against. */
 export const ReviewerOutputSchema = z.object({
@@ -47,7 +49,7 @@ export function schemaIssues(error: z.ZodError): string {
 
 /** An amending act as the reviewer reads it: its official page's visible text. */
 export interface ReviewedAct {
-  /** "EC 142". */
+  /** "EC 142", "Lei 15.999". */
   act: string;
   url: string;
   /**
@@ -122,27 +124,42 @@ const finding = (check: string, severity: Finding["severity"], message: string, 
 
 /**
  * Asks the reviewer about every change but those that only moved "Vide" notes (Planalto adds them without any act;
- * the gates note them), with the text of every constitutional amendment those changes cite. No change: no call.
+ * the gates note them), with the text of every amending act those changes cite (an EC, a law, an MP…). No change: no
+ * call.
  */
 export async function reviewLlm({ manifests, previous, report, source, reviewer }: LlmReviewInput): Promise<Finding[]> {
   const changes = report.changes.filter((c) => !(c.fields.length === 1 && c.fields[0] === "references"));
   if (!changes.length) return [];
 
-  const known = new Set(previous.provisions.flatMap(citedByRecord));
-  const numbers = [...new Set(changes.flatMap(citedEcs))].sort((a, b) => Number(a) - Number(b));
+  const known = new Set(previous.provisions.flatMap(knownActs));
   const problems: Finding[] = [];
   const acts: ReviewedAct[] = [];
-  for (const number of numbers) {
-    const act = `EC ${number}`;
-    const url = emc(Number(number));
+  for (const cited of actsCitedBy(changes)) {
+    const act = cited.label;
+    const url = cited.url;
+    if (!url) {
+      problems.push(finding("act-text", "problem", `cannot be resolved to its official page (${cited.problem}), so the reviewer cannot read it`, { act }));
+      continue;
+    }
     const snapshot = await source.get(url);
     if (!snapshot) {
       problems.push(finding("act-text", "problem", `its page ${url} is not in the source, so the reviewer cannot read it`, { act }));
       continue;
     }
     const html = new TextDecoder(snapshot.encoding).decode(snapshot.body);
+    // The page must be the act's own before the reviewer is told it is.
+    let unverified: string | undefined;
+    try {
+      unverified = verifyActPage(cited.citation, readActCitation(html, url));
+    } catch (error) {
+      unverified = `its page could not be read: ${(error as Error).message}`;
+    }
+    if (unverified) {
+      problems.push(finding("act-text", "problem", `${unverified}, so the reviewer is not given it`, { act }));
+      continue;
+    }
     const text = visibleLines(html, {}, url).map((line) => line.text).join("\n");
-    acts.push({ act, url, inDataset: known.has(number), text });
+    acts.push({ act, url, inDataset: known.has(cited.key), text });
   }
   if (!acts.length && !problems.length) {
     const message = `${changes.length} changed dispositivos to review, but none cites an amending act whose text the reviewer could read`;
@@ -227,7 +244,7 @@ function view(c: ProvisionChange, manifests: NormManifest[]): ReviewedChange {
     norm: c.norm,
     normName: manifest?.citedAs ?? manifest?.title ?? c.norm,
     id: c.id,
-    path: record.path.map((s) => s.label).join(" › "),
+    path: pathLabel(record.path),
     fields: c.fields,
     annotations: c.amendments.map((a) => a.annotation),
     ...(c.before && { before: side(c.before) }),

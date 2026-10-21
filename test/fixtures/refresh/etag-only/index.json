@@ -6,12 +6,12 @@
       "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
       "encoding": "windows-1252",
       "headers": {
-        "etag": "\"16f927-65e4f0a1b2c3d\"",
+        "etag": "\"16f8f3-65e4f0a1b2c3d\"",
         "last-modified": "Wed, 21 Oct 2026 16:20:10 GMT"
       },
       "retrievedAt": "2026-10-22T01:30:00Z",
-      "sha256": "56ddb8bdb3d79a42c1afd7433f29a50cdbba83d95f0be037c307d33b41498e69",
-      "bytes": 1507134
+      "sha256": "f6727f56386304f8fd1ff6d33f208a610c0d0c1d62ee2f1377c4f6161aae2077",
+      "bytes": 1505593
     }
   ]
 }

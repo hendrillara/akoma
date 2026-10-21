@@ -2,7 +2,8 @@
 // undocumented, so any change to what this reader relies on fails the build instead of letting the check pass
 // vacuously (spec story 42; ADR 0004). CC BY 4.0, © Senado Federal: its text is compared, never republished.
 import type { ActType } from "../schema/dataset.ts";
-import { actKey, romanToNumber, suffixId, type SecondaryDispositivo } from "./secondary.ts";
+import { alineaId, articleId, incisoId, itemId, paragraphId } from "../schema/lexml.ts";
+import { actKey, type SecondaryDispositivo } from "./secondary.ts";
 
 const LICENSE = "https://creativecommons.org/licenses/by/4.0/";
 
@@ -205,14 +206,14 @@ function segment(kind: string, label: string | undefined): string | undefined {
   if (!label) return undefined;
   const text = label.trim();
   let m: RegExpExecArray | null;
-  if (kind === "artigo" && (m = /^Art\.\s*(\d+)\s*[º°o]?((?:-[A-Z])*)/.exec(text))) return `art${m[1]}${suffixId(m[2]!)}`;
+  if (kind === "artigo" && (m = /^Art\.\s*(\d+)\s*[º°o]?((?:-[A-Z])*)/.exec(text))) return articleId(m[1]!, m[2]!);
   if (kind === "paragrafo") {
     if (/^Parágrafo único/i.test(text)) return "par1";
-    if ((m = /^§\s*(\d+)\s*[º°o]?((?:-[A-Z])*)/.exec(text))) return `par${m[1]}${suffixId(m[2]!)}`;
+    if ((m = /^§\s*(\d+)\s*[º°o]?((?:-[A-Z])*)/.exec(text))) return paragraphId(m[1]!, m[2]!);
   }
-  if (kind === "inciso" && (m = /^([IVXLCDM]+)((?:-[A-Z])*)/.exec(text))) return `inc${romanToNumber(m[1]!)}${suffixId(m[2]!)}`;
-  if (kind === "alinea" && (m = /^([a-z])((?:-[A-Za-z])*)\)/.exec(text))) return `ali${m[1]!.charCodeAt(0) - 96}${suffixId(m[2]!)}`;
-  if (kind === "item" && (m = /^(\d+)((?:-[A-Z])*)/.exec(text))) return `ite${Number(m[1])}${suffixId(m[2]!)}`;
+  if (kind === "inciso" && (m = /^([IVXLCDM]+)((?:-[A-Z])*)/.exec(text))) return incisoId(m[1]!, m[2]!);
+  if (kind === "alinea" && (m = /^([a-z])((?:-[A-Za-z])*)\)/.exec(text))) return alineaId(m[1]!, m[2]!);
+  if (kind === "item" && (m = /^(\d+)((?:-[A-Z])*)/.exec(text))) return itemId(m[1]!, m[2]!);
   return undefined;
 }
 

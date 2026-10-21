@@ -10,13 +10,13 @@ One deploy uploads two things, both from the committed `dataset/` folder (writte
 | `/llms.txt` and `/usage.md` | the Worker, since no dataset file takes these paths | agent discovery: the llms.txt index and the usage guide (`src/worker/discovery.ts`) |
 | every file in `dataset/`, at its own path (`/cf/art5.json`, `/cf/art5.md`, `/cf.md`, `/status.json`, `/search-index.json`, `/dataset.json`) | Workers static assets, without running the Worker | the downloadable dataset, with the headers in `dataset/_headers` (open CORS) |
 
-The spec said Cloudflare Pages. Workers static assets do the same job inside the same Worker: one deploy, one domain, and file requests are free and unlimited.
+The spec said Cloudflare Pages. Workers static assets do the same job inside the same Worker: one deploy, one domain, and file requests are free and unlimited ([ADR 0005](adr/0005-workers-static-assets-instead-of-pages.md)).
 
 ## How requests are handled
 
 - **Edge cache.** The CDN does not cache a Worker's answers on its own, because a Worker runs in front of the cache. Workers Cache (`"cache": { "enabled": true }`, wrangler ≥ 4.69) stores them by their `Cache-Control` alone: no Cache API code is needed. Successful answers are `public, max-age=300, s-maxage=3600`, misses `public, max-age=60`. A 429, every HEAD answer and every `/mcp` answer are `no-store`. GET and HEAD share one cache entry, and an empty HEAD body must never reach a GET. MCP calls are POSTs, which are never cached anyway. The cache key includes the Worker version, so each deploy, and so each dataset, starts with an empty cache.
 - **Cached hits skip the rate limiter.** A hit is answered without running the Worker, so it costs no CPU and is never counted. It is still a billed request: Free gives 100,000 a day, and requests for static files are not counted. The limiter therefore bounds the uncached path, which is where CPU is spent. A new query string is a new cache key, so it is a miss and is limited.
-- **Rate limiting.** 120 requests a minute per IP (`RATE_LIMIT` in `src/worker/worker.ts`; `ratelimits` in `wrangler.jsonc` repeats it). The Workers rate-limit binding counts per Cloudflare location. If it is not bound, the Worker falls back to an in-memory window per isolate, which is looser but never absent. `/mcp` has its own budget of the same size per IP (key `mcp:<ip>`). A 2025-protocol MCP session spends about four requests on its handshake, and REST and MCP use from the same IP must not starve each other.
+- **Rate limiting.** 120 requests a minute per IP (`RATE_LIMIT` in `src/worker/rate-limit.ts`; `ratelimits` in `wrangler.jsonc` repeats it). The Workers rate-limit binding counts per Cloudflare location. If it is not bound, the Worker falls back to an in-memory window per isolate, which is looser but never absent. `/mcp` has its own budget of the same size per IP (key `mcp:<ip>`). A 2025-protocol MCP session spends about four requests on its handshake, and REST and MCP use from the same IP must not starve each other.
 - **CPU.** The dataset is evaluated and indexed at global scope, once per isolate. That costs 43–47 ms in `wrangler check startup` (bundle 6.5 MB, 889 KB gzip, MCP SDK included). It is done once per isolate, within the 1 s startup limit, instead of on every request (10 ms of CPU on Free). Cloudflare's limits page does not say whether startup work counts toward the CPU of the first request an isolate serves, so step 7 checks that first request. In Node, warm REST requests measured 0.5–1.5 ms of CPU and warm MCP tool calls 2–3 ms. The first MCP call in a fresh process measured about 30 ms, which is the SDK's own warm-up. Cloudflare tolerates infrequent overruns, but this is the request most likely to go over the limit. None of these numbers is a production measurement: step 7 below checks them.
 - **Locally**, `pnpm dev` (`wrangler dev`, after `dataset/` exists) simulates the rate-limit binding but not Workers Cache: no `cf-cache-status` header appears. `/mcp` answers there in both protocol eras (checked with raw JSON-RPC).
 
@@ -62,6 +62,12 @@ The account id is committed in `wrangler.jsonc`. It is not a secret. If you woul
 
 **Rollback:** `pnpm exec wrangler deployments list`, then `pnpm exec wrangler rollback [version-id]`. Each version has its own cache, so a rollback serves that version's answers.
 
+## Follow-ups for the maintainer
+
+- **The `akoma-mcp` npm package** that spec #1 lists is not built or published. Publishing needs the maintainer's npm account and a decision on the package name and its support promise; until then, clients connect to `https://akoma.hendril.dev/mcp` directly (README).
+- **Workers static assets instead of Pages** ([ADR 0005](adr/0005-workers-static-assets-instead-of-pages.md)): a deviation from the spec to confirm.
+- **The review model** ([ADR 0006](adr/0006-review-model.md)): keep `claude-opus-5` or switch, after a `pnpm review:live` run.
+
 ---
 
 # Deploy de akoma.hendril.dev (PT)
@@ -76,13 +82,13 @@ Um deploy envia duas coisas, ambas da pasta `dataset/` commitada (gerada por `pn
 | `/llms.txt` e `/usage.md` | o Worker, já que nenhum arquivo do dataset ocupa esses caminhos | descoberta por agentes: o índice llms.txt e o guia de uso (`src/worker/discovery.ts`) |
 | cada arquivo de `dataset/`, no próprio caminho (`/cf/art5.json`, `/cf/art5.md`, `/cf.md`, `/status.json`, `/search-index.json`, `/dataset.json`) | os static assets do Workers, sem rodar o Worker | o dataset para download, com os cabeçalhos de `dataset/_headers` (CORS aberto) |
 
-O spec dizia Cloudflare Pages. Os static assets do Workers fazem o mesmo papel dentro do mesmo Worker: um deploy, um domínio, e as requisições de arquivo são gratuitas e ilimitadas.
+O spec dizia Cloudflare Pages. Os static assets do Workers fazem o mesmo papel dentro do mesmo Worker: um deploy, um domínio, e as requisições de arquivo são gratuitas e ilimitadas ([ADR 0005](adr/0005-workers-static-assets-instead-of-pages.md)).
 
 ## Como as requisições são tratadas
 
 - **Cache na borda.** A CDN não guarda sozinha as respostas de um Worker, porque o Worker roda antes do cache. O Workers Cache (`"cache": { "enabled": true }`, wrangler ≥ 4.69) guarda essas respostas só pelo `Cache-Control`, sem código da Cache API. Respostas de sucesso levam `public, max-age=300, s-maxage=3600`; as que não acham nada, `public, max-age=60`. Um 429, toda resposta a HEAD e toda resposta de `/mcp` levam `no-store`. GET e HEAD dividem a mesma entrada de cache, e um corpo vazio de HEAD nunca pode chegar a um GET. Chamadas MCP são POSTs, que nunca entram no cache. A chave do cache inclui a versão do Worker, então cada deploy, e portanto cada dataset, começa com o cache vazio.
 - **Acertos de cache não passam pelo rate limiter.** Um acerto é respondido sem rodar o Worker: não gasta CPU e não é contado. Mesmo assim é uma requisição cobrada: o Free dá 100.000 por dia, e as requisições de arquivos estáticos não entram nessa conta. O limitador, portanto, limita o caminho sem cache, que é onde se gasta CPU. Uma query string nova é uma chave nova: não está no cache e é limitada.
-- **Rate limiting.** São 120 requisições por minuto por IP (`RATE_LIMIT` em `src/worker/worker.ts`; `ratelimits` em `wrangler.jsonc` repete o valor). O binding de rate limit do Workers conta por local da Cloudflare. Se não houver binding, o Worker recorre a uma janela em memória por isolate, mais frouxa, mas nunca ausente. `/mcp` tem um orçamento próprio, do mesmo tamanho, por IP (chave `mcp:<ip>`). Uma sessão MCP do protocolo 2025 gasta umas quatro requisições no handshake, e o uso de REST e de MCP pelo mesmo IP não pode sufocar um ao outro.
+- **Rate limiting.** São 120 requisições por minuto por IP (`RATE_LIMIT` em `src/worker/rate-limit.ts`; `ratelimits` em `wrangler.jsonc` repete o valor). O binding de rate limit do Workers conta por local da Cloudflare. Se não houver binding, o Worker recorre a uma janela em memória por isolate, mais frouxa, mas nunca ausente. `/mcp` tem um orçamento próprio, do mesmo tamanho, por IP (chave `mcp:<ip>`). Uma sessão MCP do protocolo 2025 gasta umas quatro requisições no handshake, e o uso de REST e de MCP pelo mesmo IP não pode sufocar um ao outro.
 - **CPU.** O dataset é avaliado e indexado no escopo global, uma vez por isolate. Isso leva 43–47 ms em `wrangler check startup` (bundle de 6,5 MB, 889 KB gzip, SDK do MCP incluído). Esse trabalho é feito uma vez por isolate, dentro do limite de 1 s de inicialização, em vez de em toda requisição (10 ms de CPU no Free). A página de limites da Cloudflare não diz se o trabalho de inicialização conta na CPU da primeira requisição que o isolate atende, então o passo 7 confere essa primeira requisição. No Node, requisições REST já aquecidas mediram 0,5–1,5 ms de CPU, e chamadas de ferramenta MCP aquecidas, 2–3 ms. A primeira chamada MCP num processo novo mediu uns 30 ms, que é o aquecimento do próprio SDK. A Cloudflare tolera estouros esporádicos, mas é essa a requisição com mais chance de passar do limite. Nenhum desses números é medição de produção: o passo 7 abaixo confere.
 - **Localmente**, `pnpm dev` (`wrangler dev`, depois que `dataset/` existir) simula o binding de rate limit, mas não o Workers Cache: o cabeçalho `cf-cache-status` não aparece. O `/mcp` responde lá nas duas gerações do protocolo (conferido com JSON-RPC cru).
 
@@ -127,3 +133,9 @@ O id da conta está commitado em `wrangler.jsonc`. Ele não é segredo. Se prefe
 8. **Ligue o deploy automático.** Crie o token acima e rode `gh secret set CLOUDFLARE_API_TOKEN -R hendrillara/akoma`. A partir daí, cada push em `main` roda `.github/workflows/deploy.yml`: `pnpm verify`, `wrangler deploy` da `dataset/` commitada e o smoke check. Dá para rodar à mão com *Run workflow*. Enquanto o secret não existir, o job de deploy é pulado com um aviso, e o de verify continua rodando.
 
 **Rollback:** `pnpm exec wrangler deployments list` e depois `pnpm exec wrangler rollback [version-id]`. Cada versão tem o próprio cache, então um rollback serve as respostas daquela versão.
+
+## Pendências para o mantenedor
+
+- **O pacote npm `akoma-mcp`** que o spec #1 lista não foi construído nem publicado. Publicar exige a conta npm do mantenedor e uma decisão sobre o nome do pacote e o suporte prometido; até lá, os clientes se conectam direto a `https://akoma.hendril.dev/mcp` (README).
+- **Static assets do Workers em vez do Pages** ([ADR 0005](adr/0005-workers-static-assets-instead-of-pages.md)): um desvio do spec a confirmar.
+- **O modelo revisor** ([ADR 0006](adr/0006-review-model.md)): manter o `claude-opus-5` ou trocar, depois de rodar o `pnpm review:live`.

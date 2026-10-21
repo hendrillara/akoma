@@ -87,7 +87,8 @@ export function peelAnnotations(raw: string, links: Link[]): Peeled {
   return { text, amendments, references };
 }
 
-function matchingParen(text: string, close: number): number | undefined {
+/** The "(" that opens the parenthesis closing at `close`, nested ones skipped; `undefined` when none does. */
+export function matchingParen(text: string, close: number): number | undefined {
   let depth = 0;
   for (let i = close; i >= 0; i--) {
     if (text[i] === ")") depth++;

@@ -4,7 +4,7 @@ A norm is a declarative manifest plus its tests. The pipeline has no per-norm co
 
 1. **Capture the page.** Save Planalto's compiled page (`…compilado.htm`) into a new dated folder under `fixtures/`. Store the exact bytes, plus an `index.json` entry (URL, encoding, headers, `retrievedAt` from the `Date` header, SHA-256, size) and README provenance in EN and PT.
    - Make an anonymous GET with `Mozilla/5.0 (compatible; akoma/<version>)`.
-   - Never put a personal identifier in the request or in the committed file. If the page's metadata names someone, redact it as a documented edit.
+   - Never put a personal identifier in the request or in the committed file. Store the page as `redactPersonalData` (`src/sources/redact.ts`) returns it, the redaction every page the daily job fetches gets, and record the served SHA-256 and size as `servedSha256`/`servedBytes` with an `edits` note (`fixtures/README.md`).
 2. **Write the manifest** in `src/norms/<key>.ts` and add it to `src/norms/index.ts`:
    - `key`, `title`, the LexML `urn`, plus its `type` and `date`. The build fails if they disagree with the URN.
    - `primaryUrl`: the Planalto page. Add `startAnchor`/`endAnchor` only when the norm shares its page with another norm (CF/ADCT).
@@ -20,7 +20,7 @@ A norm is a declarative manifest plus its tests. The pipeline has no per-norm co
    - Exercise it through a golden-set entry or a scenario fixture in `test/fixtures/`.
    - Keep every other norm's golden set green and its snapshot unchanged. Comparing the full JSON of the CF compiled, CF full-history and hygiene builds before and after is a cheap extra check.
 5. **Per-norm hook: the last resort.** If a quirk truly can't be a generic rule, a norm may have at most one documented hook. Needing a second one means the generic parser should evolve instead. The CF, ADCT and CDC have none.
-6. **Make it searchable.** The build indexes the new norm with no extra code. Add questions about it to `test/search-eval.json`, written from the law text and never from search results. Add `data/synonyms.json` entries for its everyday vocabulary when the questions need them. Keep the recall thresholds in `test/search.test.ts` (see `docs/search.md`).
+6. **Make it searchable.** The build indexes the new norm with no extra code. Add questions about it to `data/search-eval.json`, written from the law text and never from search results. Add `data/synonyms.json` entries for its everyday vocabulary when the questions need them. Keep the recall thresholds in `test/search.test.ts` (see `docs/search.md`).
 7. **Update the Map** in `AGENTS.md` for new paths, then run `pnpm verify`.
 
 ---
@@ -31,7 +31,7 @@ Uma norma é um manifesto declarativo mais os testes dela. O pipeline não tem c
 
 1. **Capture a página.** Salve a página compilada do Planalto numa nova pasta datada em `fixtures/`. Grave os bytes exatos, uma entrada no `index.json` (URL, codificação, headers, `retrievedAt` do header `Date`, SHA-256, tamanho) e a proveniência no README, em EN e PT.
    - Use GET anônimo com `Mozilla/5.0 (compatible; akoma/<versão>)`.
-   - Nunca coloque identificador pessoal no pedido nem no arquivo versionado. Se os metadados da página nomearem alguém, remova o nome como edição documentada.
+   - Nunca coloque identificador pessoal no pedido nem no arquivo versionado. Grave a página como o `redactPersonalData` (`src/sources/redact.ts`) a devolve, a mesma redação que toda página baixada pelo job diário recebe, e registre o SHA-256 e o tamanho servidos em `servedSha256`/`servedBytes`, com uma nota `edits` (`fixtures/README.md`).
 2. **Escreva o manifesto** em `src/norms/<chave>.ts` e inclua-o em `src/norms/index.ts`:
    - `key`, `title`, a `urn` LexML, mais `type` e `date`. O build falha se não baterem com a URN.
    - `primaryUrl`: a página do Planalto. `startAnchor`/`endAnchor` só quando a norma divide a página com outra.
@@ -47,5 +47,5 @@ Uma norma é um manifesto declarativo mais os testes dela. O pipeline não tem c
    - Ela precisa ser exercitada por um item do golden set ou por uma fixture de cenário.
    - O golden set das outras normas tem de continuar verde, e os snapshots delas sem mudança.
 5. **Hook por norma é o último recurso:** no máximo um, documentado. Precisar de um segundo significa que o parser genérico deve evoluir. CF, ADCT e CDC não têm nenhum.
-6. **Torne-a pesquisável.** O build indexa a norma nova sem código extra. Inclua perguntas sobre ela em `test/search-eval.json`, escritas a partir do texto da lei, nunca dos resultados da busca. Inclua entradas em `data/synonyms.json` para o vocabulário do dia a dia dela quando as perguntas precisarem. Mantenha os limites de recall de `test/search.test.ts` (veja `docs/search.md`).
+6. **Torne-a pesquisável.** O build indexa a norma nova sem código extra. Inclua perguntas sobre ela em `data/search-eval.json`, escritas a partir do texto da lei, nunca dos resultados da busca. Inclua entradas em `data/synonyms.json` para o vocabulário do dia a dia dela quando as perguntas precisarem. Mantenha os limites de recall de `test/search.test.ts` (veja `docs/search.md`).
 7. **Atualize o Map** do `AGENTS.md` e rode `pnpm verify`.
