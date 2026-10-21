@@ -1,5 +1,6 @@
-// Seam 1: review layer 1, the deterministic gates and target matching, over two builds of recorded fixtures.
-// Both datasets come out of build(); the amending acts' pages come from the same recorded source as the new build.
+// Seam 1: review layer 1, the deterministic gates and target matching, as the daily job runs them on a refresh. The
+// previous dataset comes out of build(); runDailyJob rebuilds from the new source and reviews (the amending acts'
+// pages come from that source), and only layer 1's findings are kept here (layers 2 and 3 have their own tests).
 // Expected targets were read by hand from the acts' official text (fixtures/2026-10-20/planalto/emc140.htm and
 // emc141.htm; the simulated test/fixtures/refresh/ec142/emc142.htm), and expected changes from the CF annotations.
 import { beforeAll, describe, expect, it } from "vitest";
@@ -7,8 +8,11 @@ import { adct } from "../src/norms/adct.ts";
 import { cf, emc } from "../src/norms/cf.ts";
 import { norms } from "../src/norms/index.ts";
 import { build } from "../src/pipeline/build.ts";
-import { detectChanges, renderChangeReport, type ChangeReport } from "../src/pipeline/changes.ts";
-import { reviewGates } from "../src/review/gates.ts";
+import { renderChangeReport, type ChangeReport } from "../src/pipeline/changes.ts";
+import { memoryGitHub } from "../src/publish/github.ts";
+import { runDailyJob } from "../src/publish/job.ts";
+import { memoryWorkspace } from "../src/publish/workspace.ts";
+import type { LlmReviewer } from "../src/review/llm.ts";
 import { decide, type Verdict } from "../src/review/verdict.ts";
 import type { Dataset } from "../src/schema/dataset.ts";
 import type { Source } from "../src/sources/source.ts";
@@ -25,18 +29,47 @@ async function sourceWith(folder?: URL): Promise<Source> {
   return folder ? recordedSource(recorded, acts, folder) : recordedSource(recorded, acts);
 }
 
-/** Detects the changes between two builds and runs the gates, with the acts read from the new build's source. */
-async function reviewBuilds(previous: Dataset, next: Dataset, source: Source): Promise<{ report: ChangeReport; verdict: Verdict }> {
-  const report = detectChanges(previous, next);
-  return { report, verdict: decide(await reviewGates({ manifests, previous, next, report, source })) };
+/** A reviewer for layer 3 that maps every change to the first act it is given: its findings are not looked at here. */
+const anyReviewer: LlmReviewer = {
+  async review(request) {
+    const act = request.acts[0]?.act ?? "none";
+    return { model: "any", prompt: "any", output: { mappings: request.changes.map((c) => ({ change: c.ref, act, command: "art. 1º", reason: "-" })), orphanChanges: [], unappliedCommands: [] } };
+  },
+};
+
+/**
+ * The daily job's refresh from `previous` over `source` on Brasília day `today` (rebuilding whatever the pre-filter
+ * says), and layer 1 of its review: the change report and the gates' findings, with the verdict they alone give.
+ */
+async function reviewRefresh(previous: Dataset, source: Source, today: string, jobManifests = manifests): Promise<{ report: ChangeReport; verdict: Verdict }> {
+  const result = await runDailyJob({
+    manifests: jobManifests,
+    previous,
+    source,
+    // Noon in Brasília (UTC−3): the run's Brasília day is `today`.
+    now: new Date(`${today}T15:00:00Z`),
+    reviewer: anyReviewer,
+    github: memoryGitHub(),
+    workspace: memoryWorkspace(),
+    tests: { async verify() { return { passed: true, summary: "not run here" }; } },
+    rebuild: true,
+  });
+  if (result.outcome === "failed") throw new Error(result.error);
+  const report = result.report ?? { changes: [], pages: [] };
+  return { report, verdict: decide((result.verdict?.findings ?? []).filter((f) => f.layer === "gates")) };
 }
 
-/** Builds both sides from their scenario folders (none: the recorded captures as they are). */
+/** The Brasília day a page of `source` was retrieved: the day a build of it promotes deferred changes for. */
+async function retrievalDay(source: Source): Promise<string> {
+  const { retrievedAt } = (await source.get(cf.primaryUrl))!;
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date(retrievedAt));
+}
+
+/** The previous dataset from one scenario folder, the refresh from another (none: the recorded captures as they are). */
 async function review(previousFolder: URL | undefined, nextFolder: URL | undefined, previousManifests = manifests) {
   const source = await sourceWith(nextFolder);
   const previous = await build({ manifests: previousManifests, source: await sourceWith(previousFolder), datasetVersion: "previous-test" });
-  const next = await build({ manifests, source, datasetVersion: "next-test" });
-  return reviewBuilds(previous, next, source);
+  return reviewRefresh(previous, source, await retrievalDay(source));
 }
 
 describe("review: EC 140 and EC 141 against the CF as it read before them", () => {
@@ -220,8 +253,7 @@ describe("review: EC 141's deferred art. 7º XV, from pending to the page", () =
   it("merges the build on its effective date, which promotes the pending wording", async () => {
     const source = await sourceWith();
     const eve = await build({ manifests, source, datasetVersion: "eve", today: "2026-12-16" });
-    const day = await build({ manifests, source, datasetVersion: "day", today: "2026-12-17" });
-    const { report, verdict } = await reviewBuilds(eve, day, source);
+    const { report, verdict } = await reviewRefresh(eve, source, "2026-12-17");
     expect(report.changes.map((c) => `${c.kind} ${c.id}`)).toEqual(["pending-activated art7_cpt_inc15"]);
     expect(verdict).toEqual({ decision: "merge", findings: [ec141Note] });
   });
@@ -248,8 +280,7 @@ describe("review: EC 141's deferred art. 7º XV, from pending to the page", () =
   it("merges the day Planalto prints the promoted wording itself, a change attributed to the same act", async () => {
     const promoted = await build({ manifests, source: await sourceWith(), datasetVersion: "promoted", today: "2026-12-17" });
     const applied = await pageApplying("repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente aos domingos;");
-    const next = await build({ manifests, source: applied, datasetVersion: "applied", today: "2026-12-18" });
-    const { report, verdict } = await reviewBuilds(promoted, next, applied);
+    const { report, verdict } = await reviewRefresh(promoted, applied, "2026-12-18");
     expect(report.changes.map((c) => `${c.kind} ${c.id} ${c.fields.join(",")}`)).toEqual(["changed art7_cpt_inc15 amendments,references"]);
     expect(verdict).toEqual({ decision: "merge", findings: [ec141Note] });
   });
@@ -258,8 +289,7 @@ describe("review: EC 141's deferred art. 7º XV, from pending to the page", () =
     // "ao domingo" for EC 141's "aos domingos": the build keeps the act's quote, and nothing in the text shows it.
     const promoted = await build({ manifests, source: await sourceWith(), datasetVersion: "promoted", today: "2026-12-17" });
     const applied = await pageApplying("repouso semanal remunerado de 2 (dois) dias, um dos quais preferencialmente ao domingo;");
-    const next = await build({ manifests, source: applied, datasetVersion: "applied", today: "2026-12-18" });
-    const { verdict } = await reviewBuilds(promoted, next, applied);
+    const { verdict } = await reviewRefresh(promoted, applied, "2026-12-18");
     expect(verdict).toEqual({
       decision: "needs-human",
       findings: [
@@ -281,8 +311,7 @@ describe("review: EC 132's 2027 phase taking effect (ADR 0003)", () => {
   it("merges: every promoted change is one of EC 132's targets, and its 2033 targets may wait", async () => {
     const source = await sourceWith();
     const eve = await build({ manifests, source, datasetVersion: "eve", today: "2026-12-31" });
-    const day = await build({ manifests, source, datasetVersion: "day", today: "2027-01-01" });
-    const { report, verdict } = await reviewBuilds(eve, day, source);
+    const { report, verdict } = await reviewRefresh(eve, source, "2027-01-01");
     // E.g. art. 37 § 18, inserted by EC 132 art. 3 "em 2027", and art. 195 § 12, revoked by art. 22 I "em 2027, o
     // art. 195, I, "b", e IV, e § 12".
     expect(report.changes.map((c) => c.id)).toEqual(expect.arrayContaining(["art37_par18", "art195_par12"]));
@@ -294,10 +323,10 @@ describe("review: EC 132's 2027 phase taking effect (ADR 0003)", () => {
 describe("review: every registered norm rebuilt from the same captures", () => {
   it.each([undefined, "2027-01-01"])("merges with nothing to report (build date %s)", async (today) => {
     const source = await sourceWith();
-    const options = { manifests: norms, source, ...(today && { today }) };
-    const previous = await build({ ...options, datasetVersion: "previous" });
-    const next = await build({ ...options, datasetVersion: "next" });
-    const report = detectChanges(previous, next);
-    expect(decide(await reviewGates({ manifests: norms, previous, next, report, source }))).toEqual({ decision: "merge", findings: [] });
+    const day = today ?? (await retrievalDay(source));
+    const previous = await build({ manifests: norms, source, datasetVersion: "previous", today: day });
+    const { report, verdict } = await reviewRefresh(previous, source, day, norms);
+    expect(report.changes).toEqual([]);
+    expect(verdict).toEqual({ decision: "merge", findings: [] });
   });
 });

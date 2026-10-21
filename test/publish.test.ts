@@ -15,7 +15,7 @@ import { norms } from "../src/norms/index.ts";
 import { build, type NormManifest } from "../src/pipeline/build.ts";
 import { memoryGitHub, type MemoryGitHub } from "../src/publish/github.ts";
 import { runDailyJob, type TestRunner } from "../src/publish/job.ts";
-import { diffPublished, publishedBuild, writePublished, type PublishedBuild } from "../src/publish/published.ts";
+import { buildDataset, checkDataset, type PublishedBuild } from "../src/publish/published.ts";
 import { diskWorkspace, memoryWorkspace } from "../src/publish/workspace.ts";
 import type { LlmReviewer, ReviewerOutput } from "../src/review/llm.ts";
 import type { Dataset, Provision } from "../src/schema/dataset.ts";
@@ -26,18 +26,18 @@ const root = new URL("../", import.meta.url);
 const fixtures = new URL("fixtures/", root);
 
 describe("the published dataset: dataset/ is the regeneration of the committed captures", () => {
-  // A copy of the two hand-made captures, so the daily captures the job commits later never move these expectations.
-  // `pnpm check:dataset` (in `pnpm verify`) runs the same comparison on the repository's own fixtures/ and dataset/.
+  // A repository with a copy of the two hand-made captures, so the daily captures the job commits later never move
+  // these expectations; `pnpm build:dataset` and `pnpm check:dataset` (in `pnpm verify`) are the same two calls on the
+  // repository itself.
   let published: PublishedBuild;
   let dir: string;
-  let copy: URL;
+  let repo: URL;
 
   beforeAll(async () => {
     dir = await mkdtemp(join(tmpdir(), "akoma-dataset-"));
     for (const day of ["2026-10-20", "2026-10-21"]) await cp(new URL(`fixtures/${day}/`, root), join(dir, "fixtures", day), { recursive: true });
-    published = await publishedBuild(pathToFileURL(`${dir}/fixtures/`));
-    copy = pathToFileURL(`${dir}/dataset/`);
-    await writePublished(published.files, copy);
+    repo = pathToFileURL(`${dir}/`);
+    published = await buildDataset(repo);
   });
   afterAll(async () => {
     await rm(dir, { recursive: true, force: true });
@@ -54,14 +54,14 @@ describe("the published dataset: dataset/ is the regeneration of the committed c
   });
 
   it("names every hand edit: a changed text, a deleted mirror and an added file", async () => {
-    expect(await diffPublished(published.files, copy)).toEqual({ changed: [], missing: [], extra: [] });
-    const art5 = new URL("cf/art5.json", copy);
+    expect((await checkDataset(repo)).diff).toEqual({ changed: [], missing: [], extra: [] });
+    const art5 = new URL("dataset/cf/art5.json", repo);
     const json = await readFile(art5, "utf8");
     await writeFile(art5, json.replace("Todos são iguais perante a lei", "Todos são iguais perante a lei e o rei"));
-    await unlink(new URL("cdc/art49.md", copy));
-    await writeFile(new URL("cf/art999.json", copy), "{}\n");
+    await unlink(new URL("dataset/cdc/art49.md", repo));
+    await writeFile(new URL("dataset/cf/art999.json", repo), "{}\n");
 
-    expect(await diffPublished(published.files, copy)).toEqual({ changed: ["cf/art5.json"], missing: ["cdc/art49.md"], extra: ["cf/art999.json"] });
+    expect((await checkDataset(repo)).diff).toEqual({ changed: ["cf/art5.json"], missing: ["cdc/art49.md"], extra: ["cf/art999.json"] });
   });
 });
 
@@ -470,9 +470,9 @@ describe("daily job: what it writes regenerates to the same dataset", () => {
         workspace: diskWorkspace(repo),
         tests: passing,
       });
-      const regenerated = await publishedBuild(new URL("fixtures/", repo), manifests);
+      const { published: regenerated, diff } = await checkDataset(repo, manifests);
       expect(regenerated.captures).toEqual(["2026-10-20", "2026-10-21", "2026-10-23-daily"]);
-      expect(await diffPublished(regenerated.files, new URL("dataset/", repo))).toEqual({ changed: [], missing: [], extra: [] });
+      expect(diff).toEqual({ changed: [], missing: [], extra: [] });
     } finally {
       await rm(dir, { recursive: true, force: true });
     }

@@ -50,6 +50,22 @@ export async function publishedBuild(fixtures: URL, manifests: NormManifest[] = 
   return { dataset, files: datasetFiles(dataset), today, datasetVersion: today, captures };
 }
 
+/** `pnpm build:dataset`: writes `<repo>/dataset/` as the regeneration of `<repo>/fixtures/`. */
+export async function buildDataset(repo: URL): Promise<PublishedBuild> {
+  const published = await publishedBuild(new URL("fixtures/", repo));
+  await writePublished(published.files, new URL("dataset/", repo));
+  return published;
+}
+
+/**
+ * `pnpm check:dataset` (in `pnpm verify`): how `<repo>/dataset/` differs from the regeneration of `<repo>/fixtures/`.
+ * Empty lists: the committed dataset is exactly that regeneration.
+ */
+export async function checkDataset(repo: URL, manifests: NormManifest[] = norms): Promise<{ published: PublishedBuild; diff: PublishedDiff }> {
+  const published = await publishedBuild(new URL("fixtures/", repo), manifests);
+  return { published, diff: await diffPublished(published.files, new URL("dataset/", repo)) };
+}
+
 /** The previous dataset, as the last publish committed it. */
 export async function readPublished(dir: URL): Promise<Dataset> {
   return JSON.parse(await readFile(new URL("dataset.json", dir), "utf8")) as Dataset;
