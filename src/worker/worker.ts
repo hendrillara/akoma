@@ -21,7 +21,7 @@ export interface Worker {
 }
 
 /**
- * Builds the dataset's indexes once (seconds of global-scope time are free; a request has 10 ms of CPU on Free).
+ * Builds the dataset's indexes once, so no request pays for them (a request has 10 ms of CPU on Free).
  * Clients are limited by the Workers rate-limit binding when it is bound, otherwise by an in-memory window per isolate
  * (each isolate counts on its own, so it is looser, but never absent).
  */
