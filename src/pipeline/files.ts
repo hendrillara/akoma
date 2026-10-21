@@ -15,7 +15,10 @@ export interface ArticleFile {
   provisions: Provision[];
 }
 
-/** Per norm: `<norm>/<article>.json` and `<norm>/<article>.md` for each article, plus `<norm>.md` with the whole text. */
+/**
+ * Per norm: `<norm>/<article>.json` and `<norm>/<article>.md` for each article, plus `<norm>.md` with the whole text.
+ * Then `search-index.json`, the prebuilt search index, compact since the Worker parses it.
+ */
 export function datasetFiles(dataset: Dataset): DatasetFile[] {
   const files: DatasetFile[] = [];
   for (const norm of dataset.norms) {
@@ -27,6 +30,7 @@ export function datasetFiles(dataset: Dataset): DatasetFile[] {
     }
     files.push({ path: `${norm.key}.md`, content: normMarkdown(norm, [...articles.values()].flat()) });
   }
+  if (dataset.search) files.push({ path: "search-index.json", content: `${JSON.stringify(dataset.search)}\n` });
   return files;
 }
 

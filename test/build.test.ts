@@ -277,12 +277,14 @@ describe("parser hygiene", () => {
     });
   });
 
-  it("publishes one canonical JSON and one Markdown mirror per article, plus a Markdown mirror of the whole norm", () => {
+  it("publishes one canonical JSON and one Markdown mirror per article, a Markdown mirror of the whole norm, and the search index", () => {
     const files = datasetFiles(dataset);
     const paths = files.map((f) => f.path);
-    expect(paths.filter((p) => p.endsWith(".json"))).toEqual(
-      ["art1", "art2", "art3", "art4-1", "art10-2", "art11"].map((a) => `hygiene/${a}.json`),
-    );
+    expect(paths.filter((p) => p.endsWith(".json"))).toEqual([
+      ...["art1", "art2", "art3", "art4-1", "art10-2", "art11"].map((a) => `hygiene/${a}.json`),
+      "search-index.json",
+    ]);
+    expect(JSON.parse(files.find((f) => f.path === "search-index.json")!.content)).toEqual(dataset.search);
     expect(paths.filter((p) => p.endsWith(".md"))).toEqual([
       ...["art1", "art2", "art3", "art4-1", "art10-2", "art11"].map((a) => `hygiene/${a}.md`),
       "hygiene.md",

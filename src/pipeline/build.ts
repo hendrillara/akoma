@@ -1,6 +1,7 @@
 // The build pipeline: raw snapshots + norm manifests in, canonical dataset out.
 import { createHash } from "node:crypto";
 import { NOTICE, type Dataset, type NormEntry, type Provision, type SourcePage } from "../schema/dataset.ts";
+import { buildSearchIndex, loadSynonyms, type SynonymDictionary } from "../search/build-index.ts";
 import type { RawSnapshot, Source } from "../sources/source.ts";
 import { parsePlanaltoPage, type PageLayout } from "./planalto.ts";
 
@@ -41,9 +42,11 @@ export interface BuildInput {
   source: Source;
   /** Stamped into every record's provenance; chosen by the caller so the build stays deterministic. */
   datasetVersion: string;
+  /** The search synonym dictionary; `data/synonyms.json` when omitted. */
+  synonyms?: SynonymDictionary;
 }
 
-export async function build({ manifests, source, datasetVersion }: BuildInput): Promise<Dataset> {
+export async function build({ manifests, source, datasetVersion, synonyms }: BuildInput): Promise<Dataset> {
   const norms: NormEntry[] = [];
   const provisions: Provision[] = [];
   const pages = new Map<string, SourcePage>();
@@ -85,7 +88,12 @@ export async function build({ manifests, source, datasetVersion }: BuildInput): 
     norms.push({ key: manifest.key, urn: manifest.urn, title: manifest.title });
   }
 
-  return { norms, provisions, pages: [...pages.values()] };
+  const search = buildSearchIndex(
+    norms.map((n) => n.key),
+    provisions,
+    synonyms ?? (await loadSynonyms()),
+  );
+  return { norms, provisions, pages: [...pages.values()], search };
 }
 
 function sourcePage(snapshot: RawSnapshot, html: string): SourcePage {
