@@ -1,0 +1,140 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art72",
+  "provisions": [
+    {
+      "id": "art72_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção IX"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 72"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "A Comissão mista permanente a que se refere o art. 166, §1º, diante de indícios de despesas não autorizadas, ainda que sob a forma de investimentos não programados ou de subsídios não aprovados, poderá solicitar à autoridade governamental responsável que, no prazo de cinco dias, preste os esclarecimentos necessários.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4ee719f725a990762d9699a6d5d853057ad734b1fc09b545e5f1e59ccf393c53",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art72_par1",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção IX"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 72"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Não prestados os esclarecimentos, ou considerados estes insuficientes, a Comissão solicitará ao Tribunal pronunciamento conclusivo sobre a matéria, no prazo de trinta dias.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c4fbfda896446cd9f7b195c9dcb46e54cf6753dd569ad1764dd028d47f771725",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art72_par2",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção IX"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 72"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Entendendo o Tribunal irregular a despesa, a Comissão, se julgar que o gasto possa causar dano irreparável ou grave lesão à economia pública, proporá ao Congresso Nacional sua sustação.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:150996b29fb8941a941845b973137011481b5dab00cfe8a7b4bc332822a7d018",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

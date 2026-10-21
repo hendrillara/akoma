@@ -1,0 +1,45 @@
+{
+  "norm": {
+    "key": "cdc",
+    "urn": "urn:lex:br:federal:lei:1990-09-11;8078",
+    "title": "Código de Defesa do Consumidor (Lei nº 8.078, de 11 de setembro de 1990)"
+  },
+  "article": "art69",
+  "provisions": [
+    {
+      "id": "art69_cpt",
+      "norm": "cdc",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 69"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Deixar de organizar dados fáticos, técnicos e científicos que dão base à publicidade:\nPena Detenção de um a seis meses ou multa.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e9671f37ddf608a4c38e4b8f956393005a83fbe4fac48aad2be65372fa19b0a0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    }
+  ]
+}

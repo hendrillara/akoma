@@ -1,0 +1,379 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art115",
+  "provisions": [
+    {
+      "id": "art115_cpt",
+      "aliases": [
+        "art115_cpt,emc-113-2021-12-08"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 115"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Fica excepcionalmente autorizado o parcelamento das contribuições previdenciárias e dos demais débitos dos Estados, do Distrito Federal e dos Municípios, incluídas suas autarquias e fundações, com os respectivos regimes próprios de previdência social, com vencimento até 31 de agosto de 2025, inclusive os parcelados anteriormente, no prazo máximo de 300 (trezentas) prestações mensais, mediante autorização em lei específica do ente federativo, desde que comprovem, em até 15 (quinze) meses após a data da promulgação da alteração deste caput, ter aderido ao Programa de Regularidade Previdenciária junto ao Ministério da Previdência Social e alterado a respectiva legislação do regime próprio de previdência social para atendimento das seguintes condições, cumulativamente:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:668e23a0c70061d43cc8f654a6e55f405dfb4165961e1a341011678e9914af77",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art115_cpt_inc1",
+      "aliases": [
+        "art115_cpt_inc1,emc-113-2021-12-08"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 115"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "adoção de regras de elegibilidade, de cálculo e de reajustamento dos benefícios que contemplem, nos termos previstos nos incisos I e III do § 1º e nos §§ 3º a 5º, 7º e 8º do art. 40 da Constituição Federal, regras assemelhadas às aplicáveis aos servidores públicos do regime próprio de previdência social da União e que contribuam efetivamente para o atingimento e a manutenção do equilíbrio financeiro e atuarial;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:115891ed4c38094b2c336d9dd9481871f04fb4ca95306153f0b33eaca0aef2c0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art115_cpt_inc2",
+      "aliases": [
+        "art115_cpt_inc2,emc-113-2021-12-08"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 115"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "adequação do rol de benefícios ao disposto nos §§ 2º e 3º do art. 9º da Emenda Constitucional nº 103, de 12 de novembro de 2019;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7518248a100d922cb80dae88702232bb35bd0a2d1dc4e25ccd2318ad43a92ff2",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art115_cpt_inc3",
+      "aliases": [
+        "art115_cpt_inc3,emc-113-2021-12-08"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 115"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "adequação da alíquota de contribuição devida pelos servidores, nos termos do § 4º do art. 9º da Emenda Constitucional nº 103, de 12 de novembro de 2019; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:de9d63e1c746199f0a965b1486d0021c6a94f050a17a2df22dd3475d142d602e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art115_cpt_inc4",
+      "aliases": [
+        "art115_cpt_inc4,emc-113-2021-12-08"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 115"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "instituição do regime de previdência complementar e adequação do órgão ou entidade gestora do regime próprio de previdência social, nos termos do § 6º do art. 9º da Emenda Constitucional nº 103, de 12 de novembro de 2019.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1f319fb7cb91f7a5a0f9f2e88cfddf7f210d6f8d3ea23b5b299d3031a41c22b9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art115_par1",
+      "aliases": [
+        "art115_par1u,emc-113-2021-12-08"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 115"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Ato do Ministério da Previdência Social, no âmbito de suas competências, definirá os critérios para o parcelamento previsto neste artigo, inclusive quanto ao cumprimento do disposto nos incisos I, II, III e IV do caput deste artigo e à adesão ao Programa de Regularidade Previdenciária, que contemplará prazos e condições diferenciados para o cumprimento das exigências do Certificado de Regularidade Previdenciária e para a busca do equilíbrio financeiro e atuarial dos regimes próprios, bem como disponibilizará as informações aos entes federativos subnacionais sobre o montante das dívidas, as formas de parcelamento, os juros e os encargos incidentes, de modo a possibilitar o acompanhamento da evolução desses débitos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9585ade11b18f931215cd9ab858c1843c99ab21d538ddbdb0d65d5daefdb7fa9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art115_par2",
+      "aliases": [
+        "art115_par2,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 115"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "O ente federativo que não comprovar o atendimento das condições cumulativas previstas no caput deste artigo em até 15 (quinze) meses após a data da promulgação deste parágrafo terá seu parcelamento suspenso e não poderá renegociar a respectiva dívida até ulterior cumprimento das condições.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4395c76b5e1e2bb62b29cb867aa57a290f0067f9c8d3f2dff2c256293f86fe1c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art115_par3",
+      "aliases": [
+        "art115_par3,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 115"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "O parcelamento será suspenso na hipótese de inadimplência por 3 (três) meses consecutivos ou por 6 (seis) meses alternados, relativa às contribuições previdenciárias referidas no caput deste artigo ou de descumprimento do Programa de Regularidade Previdenciária.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:23402d5335f7faaf91e41031d267fc05eaacdeabdc40a84826d552bffda19b30",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

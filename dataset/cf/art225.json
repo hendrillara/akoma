@@ -1,0 +1,787 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art225",
+  "provisions": [
+    {
+      "id": "art225_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Todos têm direito ao meio ambiente ecologicamente equilibrado, bem de uso comum do povo e essencial à sadia qualidade de vida, impondo-se ao Poder Público e à coletividade o dever de defendê-lo e preservá- lo para as presentes e futuras gerações.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c5350fb9d445e1baca3bf11caa9e7e4ee611f18cdde5f93fac42936a82f301fc",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par1",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Para assegurar a efetividade desse direito, incumbe ao Poder Público:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4eb578ecfa2c0ec16ba82f732524a4548519a686847ba174ab6ec3ca60c0c281",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par1_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "preservar e restaurar os processos ecológicos essenciais e prover o manejo ecológico das espécies e ecossistemas;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/LEIS/L9985.htm"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:cb26d527876ee6c29e2ef4e6c58d9b1681030a0dfbf3d21fdb637e9be2ca0828",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par1_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "preservar a diversidade e a integridade do patrimônio genético do País e fiscalizar as entidades dedicadas à pesquisa e manipulação de material genético;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13123.htm"
+        },
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2005/Lei/L11105.htm"
+        },
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/MPV/2186-16.htm"
+        },
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/LEIS/L9985.htm"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4fd5ee9b7c13819f6ffe717b664112084991a00213f458dbb623bd59aa874d1c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par1_inc3",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "definir, em todas as unidades da Federação, espaços territoriais e seus componentes a serem especialmente protegidos, sendo a alteração e a supressão permitidas somente através de lei, vedada qualquer utilização que comprometa a integridade dos atributos que justifiquem sua proteção;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/LEIS/L9985.htm"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:79b88584ddcc6ccccd7b8de715ac67bb8207c13f4b00911ad7a720b3109294b0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par1_inc4",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "exigir, na forma da lei, para instalação de obra ou atividade potencialmente causadora de significativa degradação do meio ambiente, estudo prévio de impacto ambiental, a que se dará publicidade;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2005/Lei/L11105.htm"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0234c07f57aa3efd23736fc1dd8a31ccaa8ccb368261a6b4815e33f1b6eb4c54",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par1_inc5",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "controlar a produção, a comercialização e o emprego de técnicas, métodos e substâncias que comportem risco para a vida, a qualidade de vida e o meio ambiente;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2005/Lei/L11105.htm"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:353c8a4c7bd142ee64d5b8efa1ca301110ee1bd323a0dd7e41d69bbff8a387c7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par1_inc6",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "promover a educação ambiental em todos os níveis de ensino e a conscientização pública para a preservação do meio ambiente;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:882889f4dfac3b286eed4f8429314199a50b08c66a5e0fb7506a3ebdd2faa441",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par1_inc7",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        }
+      ],
+      "text": "proteger a fauna e a flora, vedadas, na forma da lei, as práticas que coloquem em risco sua função ecológica, provoquem a extinção de espécies ou submetam os animais a crueldade.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/LEIS/L9985.htm"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d0ab26c624d02111160051f0354de8437ffbea9d9c7392dc41678b06e8a513ca",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par1_inc8",
+      "aliases": [
+        "art225_par1_inc8,emc-123-2022-07-14"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VIII"
+        }
+      ],
+      "text": "manter regime fiscal favorecido para os biocombustíveis e para o hidrogênio de baixa emissão de carbono, na forma de lei complementar, a fim de assegurar-lhes tributação inferior à incidente sobre os combustíveis fósseis, capaz de garantir diferencial competitivo em relação a estes, especialmente em relação às contribuições de que tratam o art. 195, I, \"b\", IV e V, e o art. 239 e aos impostos a que se referem os arts. 155, II, e 156-A.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "pending": [
+        {
+          "effect": "wording",
+          "text": "manter regime fiscal favorecido para os biocombustíveis e para o hidrogênio de baixa emissão de carbono, na forma de lei complementar, a fim de assegurar-lhes tributação inferior à incidente sobre os combustíveis fósseis, capaz de garantir diferencial competitivo em relação a estes, especialmente em relação à contribuição de que trata o art. 195, V, e aos impostos a que se referem os arts. 155, II, e 156-A.",
+          "effectiveFrom": "2027-01-01",
+          "vigencia": "em 2027, em relação aos arts. 3º e 11",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm"
+          }
+        },
+        {
+          "effect": "wording",
+          "text": "manter regime fiscal favorecido para os biocombustíveis e para o hidrogênio de baixa emissão de carbono, na forma de lei complementar, a fim de assegurar-lhes tributação inferior à incidente sobre os combustíveis fósseis, capaz de garantir diferencial competitivo em relação a estes, especialmente em relação à contribuição de que trata o art. 195, V, e ao imposto a que se refere o art. 156-A.",
+          "effectiveFrom": "2033-01-01",
+          "vigencia": "em 2033, em relação aos arts. 4º e 5º",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ff4bc46deab0e50d90392bf2319deffb8f3c07a10303633db6b6521bfb842016",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par2",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Aquele que explorar recursos minerais fica obrigado a recuperar o meio ambiente degradado, de acordo com solução técnica exigida pelo órgão público competente, na forma da lei.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c5d0ba8d981812463c8c1a296831c7c811fb756837305b1fb70b8046bcfd7883",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par3",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "As condutas e atividades consideradas lesivas ao meio ambiente sujeitarão os infratores, pessoas físicas ou jurídicas, a sanções penais e administrativas, independentemente da obrigação de reparar os danos causados.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f53e3b5db1c8632a0544c6d1623dca6a85d35d8ba3b241881b0f45f32b89bbe3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par4",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "A Floresta Amazônica brasileira, a Mata Atlântica, a Serra do Mar, o Pantanal Mato-Grossense e a Zona Costeira são patrimônio nacional, e sua utilização far-se-á, na forma da lei, dentro de condições que assegurem a preservação do meio ambiente, inclusive quanto ao uso dos recursos naturais.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13123.htm"
+        },
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/MPV/2186-16.htm"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1d64c4c349a84e16dcbf46de3dd2b5c85c9b638ddfb0501e212da29685f5a9ad",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par5",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "São indisponíveis as terras devolutas ou arrecadadas pelos Estados, por ações discriminatórias, necessárias à proteção dos ecossistemas naturais.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e5ab1d1b1e912c8989a0c0b9401c5c8575ceccd01fe0ef1602036a4a2cf81a1a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par6",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 6º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 6º"
+        }
+      ],
+      "text": "As usinas que operem com reator nuclear deverão ter sua localização definida em lei federal, sem o que não poderão ser instaladas.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ba47609a234878ca433ee4ef81a376606ac35c3125920bbddc7d35c98a899b71",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art225_par7",
+      "aliases": [
+        "art225_par7,emc-96-2017-06-06"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 7º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 225"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 7º"
+        }
+      ],
+      "text": "Para fins do disposto na parte final do inciso VII do § 1º deste artigo, não se consideram cruéis as práticas desportivas que utilizem animais, desde que sejam manifestações culturais, conforme o § 1º do art. 215 desta Constituição Federal, registradas como bem de natureza imaterial integrante do patrimônio cultural brasileiro, devendo ser regulamentadas por lei específica que assegure o bem-estar dos animais envolvidos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 96, de 2017",
+          "act": {
+            "citation": "Emenda Constitucional nº 96, de 2017",
+            "type": "emenda_constitucional",
+            "number": "96",
+            "year": 2017,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc96.htm"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c2618083a43d9ec7acfa0007a36f968bed5cb5f1039852fff04c1d9989c408a4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

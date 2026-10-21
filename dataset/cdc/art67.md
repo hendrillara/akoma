@@ -1,0 +1,6 @@
+<!-- Título II › Art. 67 -->
+
+**Art. 67** Fazer ou promover publicidade que sabe ou deveria saber ser enganosa ou abusiva:
+Pena Detenção de três meses a um ano e multa.
+
+Parágrafo único. (Vetado).

@@ -1,0 +1,352 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art68",
+  "provisions": [
+    {
+      "id": "art68_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção VIII"
+        },
+        {
+          "kind": "subsecao",
+          "label": "Subseção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 68"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "As leis delegadas serão elaboradas pelo Presidente da República, que deverá solicitar a delegação ao Congresso Nacional.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2a70f0b368d770b285bf2872004841286caeb33447c78aafda08dd8324db4992",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art68_par1",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção VIII"
+        },
+        {
+          "kind": "subsecao",
+          "label": "Subseção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 68"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Não serão objeto de delegação os atos de competência exclusiva do Congresso Nacional, os de competência privativa da Câmara dos Deputados ou do Senado Federal, a matéria reservada à lei complementar, nem a legislação sobre:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6e3d844d9445997c306f32bb5d799f1079eb40495ad6eb20bee92131efc84edf",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art68_par1_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção VIII"
+        },
+        {
+          "kind": "subsecao",
+          "label": "Subseção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 68"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "organização do Poder Judiciário e do Ministério Público, a carreira e a garantia de seus membros;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5cb27f9936318ef6b653f56ff37c3b7e99c33ca0da3baedd6aa10859274fbf8e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art68_par1_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção VIII"
+        },
+        {
+          "kind": "subsecao",
+          "label": "Subseção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 68"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "nacionalidade, cidadania, direitos individuais, políticos e eleitorais;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:84202a0377a922fe42d6449fdf9098fc64f7ba0e25aadf8c5d89b764f1085768",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art68_par1_inc3",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção VIII"
+        },
+        {
+          "kind": "subsecao",
+          "label": "Subseção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 68"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "planos plurianuais, diretrizes orçamentárias e orçamentos.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c6a0e4eb89c12a3df0d1352772faffa339dac6319799690b5f85af68798d39e5",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art68_par2",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção VIII"
+        },
+        {
+          "kind": "subsecao",
+          "label": "Subseção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 68"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "A delegação ao Presidente da República terá a forma de resolução do Congresso Nacional, que especificará seu conteúdo e os termos de seu exercício.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:af81a0716e6f1f4404d397d04f57b58ca6c0e0f56da94df77f611fb13f9e29ab",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art68_par3",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção VIII"
+        },
+        {
+          "kind": "subsecao",
+          "label": "Subseção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 68"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Se a resolução determinar a apreciação do projeto pelo Congresso Nacional, este a fará em votação única, vedada qualquer emenda.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2472538fbfad55e0f805a5998ff6bbd4736da3f0aa0d52747bf68cc5ea90a403",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

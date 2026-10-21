@@ -1,0 +1,1140 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art12",
+  "provisions": [
+    {
+      "id": "art12_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "São brasileiros:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a3294c8f8b962668d3bcc217fa208284e52ae66a0926fa0d5bba052574d5538f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_cpt_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "natos:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:02b3b86f3da29bdefa594ddcfac9708e26ffad4ceda4f16bfcdcc72a34296ad0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_cpt_inc1_ali1",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "os nascidos na República Federativa do Brasil, ainda que de pais estrangeiros, desde que estes não estejam a serviço de seu país;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0aed055baed70a98bc3069285f31e2173e5505c8f360bf8563d566aab11ad85c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_cpt_inc1_ali2",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "os nascidos no estrangeiro, de pai brasileiro ou mãe brasileira, desde que qualquer deles esteja a serviço da República Federativa do Brasil;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:895bf97c666d750877b7c869852d1fcfba5a82cc82f333ee0bb76f3c27b6f9a4",
+        "secondary": {
+          "outcome": "unconfirmed",
+          "source": "normas.leg.br",
+          "note": "Known divergence, reviewed: One word: normas.leg.br repeats the preposition before \"mãe brasileira\"."
+        }
+      }
+    },
+    {
+      "id": "art12_cpt_inc1_ali3",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea c",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea c"
+        }
+      ],
+      "text": "os nascidos no estrangeiro de pai brasileiro ou de mãe brasileira, desde que sejam registrados em repartição brasileira competente ou venham a residir na República Federativa do Brasil e optem, em qualquer tempo, depois de atingida a maioridade, pela nacionalidade brasileira;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 54, de 2007",
+          "act": {
+            "citation": "Emenda Constitucional nº 54, de 2007",
+            "type": "emenda_constitucional",
+            "number": "54",
+            "year": 2007,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc54.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:cb0d30217191d303a5345e6f17546023e9455a7cd8f51d933392d7873ea1f929",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_cpt_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "naturalizados:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:092beaf5b62b843f2f8cfc5bf95ea6d7a762fbad6770a21e3d5b5c4d2eb02868",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_cpt_inc2_ali1",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "os que, na forma da lei, adquiram a nacionalidade brasileira, exigidas aos originários de países de língua portuguesa apenas residência por um ano ininterrupto e idoneidade moral;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:17c7ce0b8cc3640c6bea3384d44fe3352c37d76f4c6534fbfb74d8b91f2d28a3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_cpt_inc2_ali2",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "os estrangeiros de qualquer nacionalidade, residentes na República Federativa do Brasil há mais de quinze anos ininterruptos e sem condenação penal, desde que requeiram a nacionalidade brasileira.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional de Revisão nº 3, de 1994",
+          "act": {
+            "citation": "Emenda Constitucional de Revisão nº 3, de 1994",
+            "type": "emenda_constitucional_de_revisao",
+            "number": "3",
+            "year": 1994,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/ECR/ecr3.htm#art12iib"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d7ff10c850066d098591f4e8723ac684b02658d16bd535b28adca8a1e43ae353",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par1",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Aos portugueses com residência permanente no País, se houver reciprocidade em favor de brasileiros, serão atribuídos os direitos inerentes ao brasileiro, salvo os casos previstos nesta Constituição.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional de Revisão nº 3, de 1994",
+          "act": {
+            "citation": "Emenda Constitucional de Revisão nº 3, de 1994",
+            "type": "emenda_constitucional_de_revisao",
+            "number": "3",
+            "year": 1994,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/ECR/ecr3.htm#art12%C2%A71"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d7728de1fc82cc01166c3d124946e76fabf0b26042dc253860027c2265fa2adf",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par2",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "A lei não poderá estabelecer distinção entre brasileiros natos e naturalizados, salvo nos casos previstos nesta Constituição.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a1ee818fa7fa05f73aa6d3e69fd37d0ca5fee92290b6322e8bc84af6a4149293",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par3",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "São privativos de brasileiro nato os cargos:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:44395c5a116642b6c6b7304b31bae08e74b04b92db2fbf3f185a6de87be6f02b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par3_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "de Presidente e Vice-Presidente da República;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a00165e1bb0951127c58c816b96c520521b83596c0d226c274bbba3ecaf9c29a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par3_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "de Presidente da Câmara dos Deputados;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a4b6e899bcdda21baa1f7e553d76e88d7ebd206efde21ef581203bf818b06173",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par3_inc3",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "de Presidente do Senado Federal;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0b704f572f487a7823b6c6e9d99421029893d763901510fe43316a25017dfadc",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par3_inc4",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "de Ministro do Supremo Tribunal Federal;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a04ad146a0d82af1c40841cf06f6b2320e89087d68e5aa9d7b80d1439d4cb626",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par3_inc5",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "da carreira diplomática;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c77b6462d5a33ae688fc21f5ad15f534010dfc20db4289778213421691b7a8e4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par3_inc6",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "de oficial das Forças Armadas.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:84dbd37d9a91377c23b01d893a3b87f800f9b98a15e26a82bbc6b42ed5997242",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par3_inc7",
+      "aliases": [
+        "art12_par3_inc7,emc-23-1999-09-02"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        }
+      ],
+      "text": "de Ministro de Estado da Defesa.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 23, de 1999",
+          "act": {
+            "citation": "Emenda Constitucional nº 23, de 1999",
+            "type": "emenda_constitucional",
+            "number": "23",
+            "year": 1999,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc23.htm#art12%C2%A73vii"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:16fb8a25ae85ecdcb4277776b49ae9bd748e634cb23d31a4b19dff0eb91c0728",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par4",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "Será declarada a perda da nacionalidade do brasileiro que:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3bf0032dbfe75257ba370bd30d55162975240768f160b8a89aa09a6f464be7ea",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par4_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "tiver cancelada sua naturalização, por sentença judicial, em virtude de fraude relacionada ao processo de naturalização ou de atentado contra a ordem constitucional e o Estado Democrático;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 131, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 131, de 2023",
+            "type": "emenda_constitucional",
+            "number": "131",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc131.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:96eae48cd708e05faaba85d5c10ce3e0e846ef8e4c77c5e89380bbc4aa517968",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par4_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "fizer pedido expresso de perda da nacionalidade brasileira perante autoridade brasileira competente, ressalvadas situações que acarretem apatridia.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 131, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 131, de 2023",
+            "type": "emenda_constitucional",
+            "number": "131",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc131.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b2ab335bc72dc86f991834334d3f6f2c6bc6d0d8d965a513af6210f513685ecc",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par4_inc2_ali1",
+      "aliases": [
+        "art12_par4_inc2_ali1,emr-3-1994-06-07"
+      ],
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "revogada;",
+      "status": "revoked",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 131, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 131, de 2023",
+            "type": "emenda_constitucional",
+            "number": "131",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc131.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6e28de975b322a0f0c6c24065954894aef03a204ef7fe25f9408c0456b8b2745",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par4_inc2_ali2",
+      "aliases": [
+        "art12_par4_inc2_ali2,emr-3-1994-06-07"
+      ],
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "revogada.",
+      "status": "revoked",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 131, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 131, de 2023",
+            "type": "emenda_constitucional",
+            "number": "131",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc131.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1526ae511c6df8b53acc47d146848d7e9fa5f46fce364af11c971c4270371666",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art12_par5",
+      "aliases": [
+        "art12_par5,emc-131-2023-10-03"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 12"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "A renúncia da nacionalidade, nos termos do inciso II do § 4º deste artigo, não impede o interessado de readquirir sua nacionalidade brasileira originária, nos termos da lei.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 131, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 131, de 2023",
+            "type": "emenda_constitucional",
+            "number": "131",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc131.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:246f598d7f63ca78095e9dd3f4b1d14167afbf001ae47f61c9d60dfcabc41aca",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

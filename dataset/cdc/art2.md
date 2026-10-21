@@ -1,0 +1,5 @@
+<!-- Título I › Capítulo I › Art. 2º -->
+
+**Art. 2º** Consumidor é toda pessoa física ou jurídica que adquire ou utiliza produto ou serviço como destinatário final.
+
+Parágrafo único. Equipara-se a consumidor a coletividade de pessoas, ainda que indetermináveis, que haja intervindo nas relações de consumo.

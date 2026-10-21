@@ -1,0 +1,3 @@
+<!-- Título I › Capítulo VI › Seção I › Art. 48 -->
+
+**Art. 48** As declarações de vontade constantes de escritos particulares, recibos e pré-contratos relativos às relações de consumo vinculam o fornecedor, ensejando inclusive execução específica, nos termos do art. 84 e parágrafos.

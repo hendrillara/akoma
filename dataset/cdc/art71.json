@@ -1,0 +1,45 @@
+{
+  "norm": {
+    "key": "cdc",
+    "urn": "urn:lex:br:federal:lei:1990-09-11;8078",
+    "title": "Código de Defesa do Consumidor (Lei nº 8.078, de 11 de setembro de 1990)"
+  },
+  "article": "art71",
+  "provisions": [
+    {
+      "id": "art71_cpt",
+      "norm": "cdc",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 71"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Utilizar, na cobrança de dívidas, de ameaça, coação, constrangimento físico ou moral, afirmações falsas incorretas ou enganosas ou de qualquer outro procedimento que exponha o consumidor, injustificadamente, a ridículo ou interfira com seu trabalho, descanso ou lazer:\nPena Detenção de três meses a um ano e multa.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4a4dbd5388198e785e0073cce87f2e078f0015694d27375488004fa0cd1e4abe",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    }
+  ]
+}

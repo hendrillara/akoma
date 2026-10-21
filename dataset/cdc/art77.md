@@ -1,0 +1,3 @@
+<!-- Título II › Art. 77 -->
+
+**Art. 77** A pena pecuniária prevista nesta Seção será fixada em dias-multa, correspondente ao mínimo e ao máximo de dias de duração da pena privativa da liberdade cominada ao crime. Na individualização desta multa, o juiz observará o disposto no art. 60, §1° do Código Penal.

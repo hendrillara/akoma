@@ -1,0 +1,916 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art166-1",
+  "provisions": [
+    {
+      "id": "art166-1_cpt",
+      "aliases": [
+        "art166-1_cpt,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "As emendas individuais impositivas apresentadas ao projeto de lei orçamentária anual poderão alocar recursos a Estados, ao Distrito Federal e a Municípios por meio de:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI 7697",
+          "number": "7697",
+          "href": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=6997560"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b4b0b7e0b59af6ec9dfdf8721e7a1690ff2835c60cfe42f4174fcad06e487131",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_cpt_inc1",
+      "aliases": [
+        "art166-1_cpt_inc1,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "transferência especial; ou",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1f725373feec8970f5ea23ae17827f8b7161d4a6cfee4545f4102b1067f0439a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_cpt_inc2",
+      "aliases": [
+        "art166-1_cpt_inc2,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "transferência com finalidade definida.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:17d39fc6139596c4f83e0cc84605a2c963802ba9ee9f1e712cb16cd0978d3def",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_par1",
+      "aliases": [
+        "art166-1_par1,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Os recursos transferidos na forma do caput deste artigo não integrarão a receita do Estado, do Distrito Federal e dos Municípios para fins de repartição e para o cálculo dos limites da despesa com pessoal ativo e inativo, nos termos do § 16 do art. 166, e de endividamento do ente federado, vedada, em qualquer caso, a aplicação dos recursos a que se refere o caput deste artigo no pagamento de:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b751dffaabe98d9338f934909551a510a57d04e1532b011874d3c1b7b4ed0614",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_par1_inc1",
+      "aliases": [
+        "art166-1_par1_inc1,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "despesas com pessoal e encargos sociais relativas a ativos e inativos, e com pensionistas; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:58c39ff891b24ee45e4c0e10fba0dccc34783938446999f2693daf4614197df3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_par1_inc2",
+      "aliases": [
+        "art166-1_par1_inc2,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "encargos referentes ao serviço da dívida.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:09fc1efec17b9cdc9b9d21fdf3b343661bdc33c9cb057936345bef14993256be",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_par2",
+      "aliases": [
+        "art166-1_par2,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Na transferência especial a que se refere o inciso I do caput deste artigo, os recursos:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a12e155b08ddc3d1851212f490f2afce4dec1fa357936e97c77498398e697fbf",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_par2_inc1",
+      "aliases": [
+        "art166-1_par2_inc1,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "serão repassados diretamente ao ente federado beneficiado, independentemente de celebração de convênio ou de instrumento congênere;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c17b9dd853679a6b9d4150fa3bbd57c271fd4a32c0ca12ac6612f825fa1ea621",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_par2_inc2",
+      "aliases": [
+        "art166-1_par2_inc2,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "pertencerão ao ente federado no ato da efetiva transferência financeira; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:752115f45dd4c44ff56ba939d077e046833bbe672b6c3bef287c58ce199e1aca",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_par2_inc3",
+      "aliases": [
+        "art166-1_par2_inc3,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "serão aplicadas em programações finalísticas das áreas de competência do Poder Executivo do ente federado beneficiado, observado o disposto no § 5º deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:46a4e06bf5bfa99085e203baa2eb4ceddb11eaaaba063cc2cb1f6d19b0f2a35f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_par3",
+      "aliases": [
+        "art166-1_par3,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "O ente federado beneficiado da transferência especial a que se refere o inciso I do caput deste artigo poderá firmar contratos de cooperação técnica para fins de subsidiar o acompanhamento da execução orçamentária na aplicação dos recursos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ac698f15fb6382d290e555e22db7c0d43e4417259a715969f4b8eb7a75d50501",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_par4",
+      "aliases": [
+        "art166-1_par4,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "Na transferência com finalidade definida a que se refere o inciso II do caput deste artigo, os recursos serão:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:eb9ce7fc3c2f3777ea39945292a8f533647512990ee14f0b43f89afaf1cae799",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_par4_inc1",
+      "aliases": [
+        "art166-1_par4_inc1,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "vinculados à programação estabelecida na emenda parlamentar; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6ff3767fbd6c49a4e67b0b3f4f4d35c875773331f74ea1c845709d95a44aeeb9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_par4_inc2",
+      "aliases": [
+        "art166-1_par4_inc2,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "aplicados nas áreas de competência constitucional da União.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d102fbef10e9d385a88b01f075229696635d3e5c269a94812f3b49c69215a053",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art166-1_par5",
+      "aliases": [
+        "art166-1_par5,emc-105-2019-12-12"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 166-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "Pelo menos 70% (setenta por cento) das transferências especiais de que trata o inciso I do caput deste artigo deverão ser aplicadas em despesas de capital, observada a restrição a que se refere o inciso II do § 1º deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 105, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 105, de 2019",
+            "type": "emenda_constitucional",
+            "number": "105",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc105.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:dd7f7cd1dd519aeb63532150d27cf9debd0d9966f95eb089320936cf19d9ce9e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

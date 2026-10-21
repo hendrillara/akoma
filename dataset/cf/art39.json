@@ -1,0 +1,775 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art39",
+  "provisions": [
+    {
+      "id": "art39_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VII"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 39"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "A União, os Estados, o Distrito Federal e os Municípios instituirão conselho de política de administração e remuneração de pessoal, integrado por servidores designados pelos respectivos Poderes.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 19, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 19, de 1998",
+            "type": "emenda_constitucional",
+            "number": "19",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc19.htm#art5"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "adi",
+          "annotation": "Vide ADI nº 2.135",
+          "number": "2.135",
+          "href": "http://portal.stf.jus.br/processos/detalhe.asp?incidente=11299"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:da1de2f11575d456e26140638b77e5d8daf4a96ad7d048bdc058633e2ab56879",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art39_par1",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VII"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 39"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "A fixação dos padrões de vencimento e dos demais componentes do sistema remuneratório observará:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 19, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 19, de 1998",
+            "type": "emenda_constitucional",
+            "number": "19",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc19.htm#art5"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0b404c0300673ae3b415cb772afd0eec5d6f11a00cb3cb1cb5a1f07d25db5885",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art39_par1_inc1",
+      "aliases": [
+        "art39_par1_inc1,emc-19-1998-06-04"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VII"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 39"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "a natureza, o grau de responsabilidade e a complexidade dos cargos componentes de cada carreira;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 19, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 19, de 1998",
+            "type": "emenda_constitucional",
+            "number": "19",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc19.htm#art5"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4bde1ab7112d068a9dbd55d9efa3ebb57611f14ea36dd7a4c4db296c0c6e236b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art39_par1_inc2",
+      "aliases": [
+        "art39_par1_inc2,emc-19-1998-06-04"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VII"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 39"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "os requisitos para a investidura;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 19, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 19, de 1998",
+            "type": "emenda_constitucional",
+            "number": "19",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc19.htm#art5"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:994f23a74585a94d776a7da654bfe521f2dbcc91c281f49eb6f1d71c7595f46b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art39_par1_inc3",
+      "aliases": [
+        "art39_par1_inc3,emc-19-1998-06-04"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VII"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 39"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "as peculiaridades dos cargos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 19, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 19, de 1998",
+            "type": "emenda_constitucional",
+            "number": "19",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc19.htm#art5"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:fa89d0b2d1e9cdb596165bc8f08e279ca9c91c5ffc60bfd3fe4d0ab6addc522d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art39_par2",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VII"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 39"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "A União, os Estados e o Distrito Federal manterão escolas de governo para a formação e o aperfeiçoamento dos servidores públicos, constituindo-se a participação nos cursos um dos requisitos para a promoção na carreira, facultada, para isso, a celebração de convênios ou contratos entre os entes federados.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 19, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 19, de 1998",
+            "type": "emenda_constitucional",
+            "number": "19",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc19.htm#art5"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:34d927b07eb24aed6f0d213ffea33c37acb52775c754207016fbce3aed272345",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art39_par3",
+      "aliases": [
+        "art39_par3,emc-19-1998-06-04"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VII"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 39"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Aplica-se aos servidores ocupantes de cargo público o disposto no art. 7º, IV, VII, VIII, IX, XII, XIII, XV, XVI, XVII, XVIII, XIX, XX, XXII e XXX, podendo a lei estabelecer requisitos diferenciados de admissão quando a natureza do cargo o exigir.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 19, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 19, de 1998",
+            "type": "emenda_constitucional",
+            "number": "19",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc19.htm#art5"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:750cc7d82feb3db17856cc80f3fc3575864b8410ea1fef80df148c6b1c2dac3e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art39_par4",
+      "aliases": [
+        "art39_par4,emc-19-1998-06-04"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VII"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 39"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "O membro de Poder, o detentor de mandato eletivo, os Ministros de Estado e os Secretários Estaduais e Municipais serão remunerados exclusivamente por subsídio fixado em parcela única, vedado o acréscimo de qualquer gratificação, adicional, abono, prêmio, verba de representação ou outra espécie remuneratória, obedecido, em qualquer caso, o disposto no art. 37, X e XI.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 19, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 19, de 1998",
+            "type": "emenda_constitucional",
+            "number": "19",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc19.htm#art5"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2d898a63548ca5246e1e253aca4da1f0e2788c1ef3e09f1c030d6096dc976e58",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art39_par5",
+      "aliases": [
+        "art39_par5,emc-19-1998-06-04"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VII"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 39"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "Lei da União, dos Estados, do Distrito Federal e dos Municípios poderá estabelecer a relação entre a maior e a menor remuneração dos servidores públicos, obedecido, em qualquer caso, o disposto no art. 37, XI.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 19, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 19, de 1998",
+            "type": "emenda_constitucional",
+            "number": "19",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc19.htm#art4"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:84f42b463944a053a80b000fe51abf21336f6f3b10c28137e0f9d64553b957d8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art39_par6",
+      "aliases": [
+        "art39_par6,emc-19-1998-06-04"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 6º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VII"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 39"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 6º"
+        }
+      ],
+      "text": "Os Poderes Executivo, Legislativo e Judiciário publicarão anualmente os valores do subsídio e da remuneração dos cargos e empregos públicos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 19, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 19, de 1998",
+            "type": "emenda_constitucional",
+            "number": "19",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc19.htm#art5"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:596dc1981b7f6b4cff688963f588d05ae51ebcfcefe405a4a3c82fa135084487",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art39_par7",
+      "aliases": [
+        "art39_par7,emc-19-1998-06-04"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 7º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VII"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 39"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 7º"
+        }
+      ],
+      "text": "Lei da União, dos Estados, do Distrito Federal e dos Municípios disciplinará a aplicação de recursos orçamentários provenientes da economia com despesas correntes em cada órgão, autarquia e fundação, para aplicação no desenvolvimento de programas de qualidade e produtividade, treinamento e desenvolvimento, modernização, reaparelhamento e racionalização do serviço público, inclusive sob a forma de adicional ou prêmio de produtividade.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 19, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 19, de 1998",
+            "type": "emenda_constitucional",
+            "number": "19",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc19.htm#art5"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1fabbf10875fc5b9dd5ca8d37866c8fc88606dc14c5877e1551ae1d399e75864",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art39_par8",
+      "aliases": [
+        "art39_par8,emc-19-1998-06-04"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 8º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VII"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 39"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        }
+      ],
+      "text": "A remuneração dos servidores públicos organizados em carreira poderá ser fixada nos termos do § 4º.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 19, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 19, de 1998",
+            "type": "emenda_constitucional",
+            "number": "19",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc19.htm#art5"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5ea1ab1e196d8aa94205a99b41a8ff2e5ea589cb40ceccb4d6264f2a9eecd14c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art39_par9",
+      "aliases": [
+        "art39_par9,emc-103-2019-11-12"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 9º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VII"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 39"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        }
+      ],
+      "text": "É vedada a incorporação de vantagens de caráter temporário ou vinculadas ao exercício de função de confiança ou de cargo em comissão à remuneração do cargo efetivo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 103, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 103, de 2019",
+            "type": "emenda_constitucional",
+            "number": "103",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc103.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:716731f3ab8300b8bea89d876751148bd57d09a25ab2060be3d5a839b1d07731",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

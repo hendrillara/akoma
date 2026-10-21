@@ -1,0 +1,1205 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art128",
+  "provisions": [
+    {
+      "id": "art128_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "O Ministério Público abrange:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f9d636ea783b5c8d22e23a2b39363bf4e0d1956c5114ec894f40701f1e8a6647",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_cpt_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "o Ministério Público da União, que compreende:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:94086a3afbf570ef6b328f0d9e3c5ae3a2bea1ef0de4d22687d609307524ae47",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_cpt_inc1_ali1",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "o Ministério Público Federal;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a56025e515512318e0da716802fb56b9db5722db1f8de25ee4225510fc183a25",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_cpt_inc1_ali2",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "o Ministério Público do Trabalho;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a8d1e316bc66f71615fbf72de0fdd6bf88cac73360cfa2713247d407b159dfb3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_cpt_inc1_ali3",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea c",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea c"
+        }
+      ],
+      "text": "o Ministério Público Militar;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:821fe5ca5014be122f664754fd2c4eb83943e50844813f1ca32fc2c803cf51a3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_cpt_inc1_ali4",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea d",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea d"
+        }
+      ],
+      "text": "o Ministério Público do Distrito Federal e Territórios;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:518abde21186ff89ffe3c6541b33f5aa2c25b166879239db6fca5a01f728b7ab",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_cpt_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "os Ministérios Públicos dos Estados.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8444760c11aab5c1b667b575713e6a667c1cebaa8dc2c7536647e21d5ee4ff99",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par1",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "O Ministério Público da União tem por chefe o Procurador-Geral da República, nomeado pelo Presidente da República dentre integrantes da carreira, maiores de trinta e cinco anos, após a aprovação de seu nome pela maioria absoluta dos membros do Senado Federal, para mandato de dois anos, permitida a recondução.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:633c665544d69f2578e582427cad37daf49d2de60a4a74909475f70ed3432b67",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par2",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "A destituição do Procurador-Geral da República, por iniciativa do Presidente da República, deverá ser precedida de autorização da maioria absoluta do Senado Federal.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:eeab25d11ca6edf518aedfe5bb4942a5321516d28c781dac800e0e97393eedd5",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par3",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Os Ministérios Públicos dos Estados e o do Distrito Federal e Territórios formarão lista tríplice dentre integrantes da carreira, na forma da lei respectiva, para escolha de seu Procurador-Geral, que será nomeado pelo Chefe do Poder Executivo, para mandato de dois anos, permitida uma recondução.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f6e67cbb8fee58a97c16691a737da3a2b0e541ca5025d945e100f8081da484b4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par4",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "Os Procuradores-Gerais nos Estados e no Distrito Federal e Territórios poderão ser destituídos por deliberação da maioria absoluta do Poder Legislativo, na forma da lei complementar respectiva.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:441c2d1d8ee0d56b15de022edb464f2712357366479f8c672ce0fca01e1e25b3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par5",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "Leis complementares da União e dos Estados, cuja iniciativa é facultada aos respectivos Procuradores-Gerais, estabelecerão a organização, as atribuições e o estatuto de cada Ministério Público, observadas, relativamente a seus membros:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5965377fb8e9b14aa8fc5bb5ffb6248f7d6a3afb9075a2a847fe08e9f5a7f9c8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par5_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "as seguintes garantias:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5131b1b76d358f69bf4c5a87626bde9e0b64bbe36190315fbdc57aeaea4c92a2",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par5_inc1_ali1",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "vitaliciedade, após dois anos de exercício, não podendo perder o cargo senão por sentença judicial transitada em julgado;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1d6df35f6a3ebb94b9dcf8d13d478cea13516be463bd95f1ce0eb75b5ea94e67",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par5_inc1_ali2",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "inamovibilidade, salvo por motivo de interesse público, mediante decisão do órgão colegiado competente do Ministério Público, pelo voto da maioria absoluta de seus membros, assegurada ampla defesa;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:cba8f600a9c058faeb705817ef8d8d071c8fb56ae49589aedd89225e79ed4234",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par5_inc1_ali3",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea c",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea c"
+        }
+      ],
+      "text": "irredutibilidade de subsídio, fixado na forma do art. 39, § 4º, e ressalvado o disposto nos arts. 37, X e XI, 150, II, 153, III, 153, § 2º, I;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 19, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 19, de 1998",
+            "type": "emenda_constitucional",
+            "number": "19",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc19.htm#art15"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:31e738115a4538d110570d1c7c7eb16103b1c27d08e339b51baaa9d480674c2c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par5_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "as seguintes vedações:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9f43af021720e751659d2b4e827636c492540132531c05623c1ad2fb5b418418",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par5_inc2_ali1",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "receber, a qualquer título e sob qualquer pretexto, honorários, percentagens ou custas processuais;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1cd7cf6485ad53fa05174aacbe36e8a6e311ff73b1f3fda6b63253dd4e0a1ee9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par5_inc2_ali2",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "exercer a advocacia;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e4b7978440ddf1e164b552c61bfdf26282b1d67114858f85dac69887680c49d8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par5_inc2_ali3",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea c",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea c"
+        }
+      ],
+      "text": "participar de sociedade comercial, na forma da lei;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9c1b3a40f2fefc31765f3182233040676ac9730136889e21c1decc070d80f769",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par5_inc2_ali4",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea d",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea d"
+        }
+      ],
+      "text": "exercer, ainda que em disponibilidade, qualquer outra função pública, salvo uma de magistério;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5d046084eee89512cdb7fa05d633177541e66db91aa2ef6c0e4d3190fe1de750",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par5_inc2_ali5",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea e",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea e"
+        }
+      ],
+      "text": "exercer atividade político-partidária;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:32e88b4e63128981a2b1ac41edda34ee5b232e038cef101fb2e1fa6c8b0a18da",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par5_inc2_ali6",
+      "aliases": [
+        "art128_par5_inc2_ali6,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea f",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea f"
+        }
+      ],
+      "text": "receber, a qualquer título ou pretexto, auxílios ou contribuições de pessoas físicas, entidades públicas ou privadas, ressalvadas as exceções previstas em lei.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluída pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d06c52346a24d887c4a67b7b0978ba725e5fe86e1636e920a84d2dbb4a3e569f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par6",
+      "aliases": [
+        "art128_par6,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 6º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 6º"
+        }
+      ],
+      "text": "Aplica-se aos membros do Ministério Público o disposto no art. 95, parágrafo único, V.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2d73f23522e4c5898a653578051d7cf8d1d9cc09219eda8e940abb8679cd829e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

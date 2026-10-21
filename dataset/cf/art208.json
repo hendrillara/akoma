@@ -1,0 +1,544 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art208",
+  "provisions": [
+    {
+      "id": "art208_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 208"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "O dever do Estado com a educação será efetivado mediante a garantia de:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:42473a9df2f867f123c342b30c86b2acd05cc6d98fa906233e01a00df6e6cd4d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art208_cpt_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 208"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "educação básica obrigatória e gratuita dos 4 (quatro) aos 17 (dezessete) anos de idade, assegurada inclusive sua oferta gratuita para todos os que a ela não tiveram acesso na idade própria;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 59, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 59, de 2009",
+            "type": "emenda_constitucional",
+            "number": "59",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc59.htm#art1"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "act",
+          "annotation": "Vide Emenda Constitucional nº 59, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 59, de 2009",
+            "type": "emenda_constitucional",
+            "number": "59",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc59.htm#art6"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:dd29f8db8e81923912703532a2b55260f6e733ca3ca1de34f025f32bc2bef1c8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art208_cpt_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 208"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "progressiva universalização do ensino médio gratuito;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 14, de 1996",
+          "act": {
+            "citation": "Emenda Constitucional nº 14, de 1996",
+            "type": "emenda_constitucional",
+            "number": "14",
+            "year": 1996,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc14.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e6336310c93e229e0333cb01d5ecaea602b6c234e31a07f3d4eea49de9dc64ad",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art208_cpt_inc3",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 208"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "atendimento educacional especializado aos portadores de deficiência, preferencialmente na rede regular de ensino;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0292ac9f0cd2caebe2c225d9edaf8b92d886ee1fe7726c50bdd5898f452c63ae",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art208_cpt_inc4",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 208"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "educação infantil, em creche e pré-escola, às crianças até 5 (cinco) anos de idade;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 53, de 2006",
+          "act": {
+            "citation": "Emenda Constitucional nº 53, de 2006",
+            "type": "emenda_constitucional",
+            "number": "53",
+            "year": 2006,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc53.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1607fabb9bf9bd88ea0e6ba0f88c62582c229f447ec18aab31db7bbdbb1fd500",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art208_cpt_inc5",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 208"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "acesso aos níveis mais elevados do ensino, da pesquisa e da criação artística, segundo a capacidade de cada um;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:699b8016d0661079d0e3cf8152e65db5191da78b66483cbac5508c55783e3fa6",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art208_cpt_inc6",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 208"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "oferta de ensino noturno regular, adequado às condições do educando;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:07b2d35f2b0c03975e986aac4b43354f1264e80c5b5bdd82f573d54adc9e6390",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art208_cpt_inc7",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 208"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        }
+      ],
+      "text": "atendimento ao educando, em todas as etapas da educação básica, por meio de programas suplementares de material didático-escolar, transporte, alimentação e assistência à saúde.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 59, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 59, de 2009",
+            "type": "emenda_constitucional",
+            "number": "59",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc59.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a9d6b1c7f06db45bfea299b315f642d3ac3591dc705f85e922f5652267258cf1",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art208_par1",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 208"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "O acesso ao ensino obrigatório e gratuito é direito público subjetivo.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:119d96db1a82dfb8758fdab1a5b0a5e4451c384dae71f82b876fcf2e3f7e4dbe",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art208_par2",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 208"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "O não-oferecimento do ensino obrigatório pelo Poder Público, ou sua oferta irregular, importa responsabilidade da autoridade competente.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:76551e68a738496d7649f1ea5310cea5e1a63e7d6f4c43826e5cf2210e2f2811",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art208_par3",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 208"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Compete ao Poder Público recensear os educandos no ensino fundamental, fazer-lhes a chamada e zelar, junto aos pais ou responsáveis, pela freqüência à escola.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5d4a5dd2652564e7b3483076253e762ede856045eb87f99e9c4d480dd5e02657",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<!-- Título IV › Capítulo I › Seção VIII › Subseção III › Art. 64 -->
+
+**Art. 64** A discussão e votação dos projetos de lei de iniciativa do Presidente da República, do Supremo Tribunal Federal e dos Tribunais Superiores terão início na Câmara dos Deputados.
+
+§ 1º O Presidente da República poderá solicitar urgência para apreciação de projetos de sua iniciativa.
+
+§ 2º Se, no caso do § 1º, a Câmara dos Deputados e o Senado Federal não se manifestarem sobre a proposição, cada qual sucessivamente, em até quarenta e cinco dias, sobrestar-se-ão todas as demais deliberações legislativas da respectiva Casa, com exceção das que tenham prazo constitucional determinado, até que se ultime a votação. *(Redação dada pela Emenda Constitucional nº 32, de 2001)*
+
+§ 3º A apreciação das emendas do Senado Federal pela Câmara dos Deputados far-se-á no prazo de dez dias, observado quanto ao mais o disposto no parágrafo anterior.
+
+§ 4º Os prazos do § 2º não correm nos períodos de recesso do Congresso Nacional, nem se aplicam aos projetos de código.

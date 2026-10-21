@@ -1,0 +1,287 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art136",
+  "provisions": [
+    {
+      "id": "art136_cpt",
+      "aliases": [
+        "art136_cpt,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 136"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Os Estados que possuíam, em 30 de abril de 2023, fundos destinados a investimentos em obras de infraestrutura e habitação e financiados por contribuições sobre produtos primários e semielaborados estabelecidas como condição à aplicação de diferimento, regime especial ou outro tratamento diferenciado, relativos ao imposto de que trata o art. 155, II, da Constituição Federal, poderão instituir contribuições semelhantes, não vinculadas ao referido imposto, observado que:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:aa282b63b51137838ce152edc88cde11a0b03895b063488a2d67065f6be3af94",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art136_cpt_inc1",
+      "aliases": [
+        "art136_cpt_inc1,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 136"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "a alíquota ou o percentual de contribuição não poderão ser superiores e a base de incidência não poderá ser mais ampla que os das respectivas contribuições vigentes em 30 de abril de 2023;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:12af6d78a3799ffaea71c6751d7730357fe4b2c4bb9846d2843c5e606cc8803e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art136_cpt_inc2",
+      "aliases": [
+        "art136_cpt_inc2,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 136"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "a instituição de contribuição nos termos deste artigo implicará a extinção da contribuição correspondente, vinculada ao imposto de que trata o art. 155, II, da Constituição Federal, vigente em 30 de abril de 2023;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a3f2a025087d8a0f41fe7f8ae3e6aef82fa3a6c0b2ef74c718b90518bb1f8c51",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art136_cpt_inc3",
+      "aliases": [
+        "art136_cpt_inc3,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 136"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "a destinação de sua receita deverá ser a mesma das contribuições vigentes em 30 de abril de 2023;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e0b6693f62d2c51d676f3166158f7ca33eccab5215b17e134bdc251f6eee68eb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art136_cpt_inc4",
+      "aliases": [
+        "art136_cpt_inc4,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 136"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "a contribuição instituída nos termos do caput será extinta em 31 de dezembro de 2043.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4d4e882df2e95985db6f1ab7aaf4de18973043b528e70cd302f6d93e95c2274b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art136_par1",
+      "aliases": [
+        "art136_par1u,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "parágrafo único",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 136"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "parágrafo único"
+        }
+      ],
+      "text": "As receitas das contribuições mantidas nos termos deste artigo não serão consideradas como receita do respectivo Estado para fins do disposto nos arts. 130, II, \"b\", e 131, § 2º, I, \"b\", deste Ato das Disposições Constitucionais Transitórias.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ff6e5c5dbb8151a954f51c066beccaf31b31a658ab431ecc5269094bb94c2049",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

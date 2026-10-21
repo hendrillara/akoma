@@ -1,0 +1,1849 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art103-2",
+  "provisions": [
+    {
+      "id": "art103-2_cpt",
+      "aliases": [
+        "art103-2_cpt,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "O Conselho Nacional de Justiça compõe-se de 15 (quinze) membros com mandato de 2 (dois) anos, admitida 1 (uma) recondução, sendo:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 61, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 61, de 2009",
+            "type": "emenda_constitucional",
+            "number": "61",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc61.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9e66565c95adec123c5a6bea73ff6d8dd3a7374eb5fe403e56018960438704d2",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_cpt_inc1",
+      "aliases": [
+        "art103-2_cpt_inc1,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "o Presidente do Supremo Tribunal Federal;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 61, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 61, de 2009",
+            "type": "emenda_constitucional",
+            "number": "61",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc61.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4ab14f6a5eb5b74439f4b9f0cc2d1fe9da4a0a94aeb65a633d2140371d762f2e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_cpt_inc2",
+      "aliases": [
+        "art103-2_cpt_inc2,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "um Ministro do Superior Tribunal de Justiça, indicado pelo respectivo tribunal;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:16cfa119cc9340b21137c1f9d7c67a5c091adfc0f63a42243cebd783e8e1002c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_cpt_inc3",
+      "aliases": [
+        "art103-2_cpt_inc3,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "um Ministro do Tribunal Superior do Trabalho, indicado pelo respectivo tribunal;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:02330b0a748149d8f1adaaa8b5200524bcd655b99e512e56a120beeb91ce5455",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_cpt_inc4",
+      "aliases": [
+        "art103-2_cpt_inc4,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "um desembargador de Tribunal de Justiça, indicado pelo Supremo Tribunal Federal;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7445dfdcf27c384259197d25f2c84bbb270ad869ea5f7f0e865e19701b971d3d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_cpt_inc5",
+      "aliases": [
+        "art103-2_cpt_inc5,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "um juiz estadual, indicado pelo Supremo Tribunal Federal;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b92bea6341af37848966ac28b736810c07a1f95563c41f35cd6ed148c7d851bf",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_cpt_inc6",
+      "aliases": [
+        "art103-2_cpt_inc6,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "um juiz de Tribunal Regional Federal, indicado pelo Superior Tribunal de Justiça;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c3e465d73b86365e35b808a1d467cab072f876628fe4b6caa682cb9c57826f72",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_cpt_inc7",
+      "aliases": [
+        "art103-2_cpt_inc7,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        }
+      ],
+      "text": "um juiz federal, indicado pelo Superior Tribunal de Justiça;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6a14c625ab9ce63bb4b6b0e0aa854a915f0f552c12743b4f28f1b3f80d2d8dbe",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_cpt_inc8",
+      "aliases": [
+        "art103-2_cpt_inc8,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VIII"
+        }
+      ],
+      "text": "um juiz de Tribunal Regional do Trabalho, indicado pelo Tribunal Superior do Trabalho;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7e4836b7c31a3f965ec9984a30a6c96d8017cd7525ed97e511445a84dfa16f57",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_cpt_inc9",
+      "aliases": [
+        "art103-2_cpt_inc9,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IX",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IX"
+        }
+      ],
+      "text": "um juiz do trabalho, indicado pelo Tribunal Superior do Trabalho;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:57d627127646b1f4ab2bb70b939c65398d286112ddc742cf6db714dc5848d040",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_cpt_inc10",
+      "aliases": [
+        "art103-2_cpt_inc10,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso X",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso X"
+        }
+      ],
+      "text": "um membro do Ministério Público da União, indicado pelo Procurador-Geral da República;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:727f80b6a23dad911383c5a47f6443073237c47875cbe7cb9701f7b3fbb06daa",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_cpt_inc11",
+      "aliases": [
+        "art103-2_cpt_inc11,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XI"
+        }
+      ],
+      "text": "um membro do Ministério Público estadual, escolhido pelo Procurador-Geral da República dentre os nomes indicados pelo órgão competente de cada instituição estadual;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:93681b0acaa030ac90d70a7c259829e7306a410fa09150ade0a9fe73b40b9ec2",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_cpt_inc12",
+      "aliases": [
+        "art103-2_cpt_inc12,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XII"
+        }
+      ],
+      "text": "dois advogados, indicados pelo Conselho Federal da Ordem dos Advogados do Brasil;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:75d3e6a7bb415dffaaccd465cfdd5560640ca6ca4161e1773e390dd47425c8e4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_cpt_inc13",
+      "aliases": [
+        "art103-2_cpt_inc13,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso XIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XIII"
+        }
+      ],
+      "text": "dois cidadãos, de notável saber jurídico e reputação ilibada, indicados um pela Câmara dos Deputados e outro pelo Senado Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b93de6be8639dbde07ebaf941a718c18910034518c23f02ba06307109ec104b3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par1",
+      "aliases": [
+        "art103-2_par1,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "O Conselho será presidido pelo Presidente do Supremo Tribunal Federal e, nas suas ausências e impedimentos, pelo Vice-Presidente do Supremo Tribunal Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 61, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 61, de 2009",
+            "type": "emenda_constitucional",
+            "number": "61",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc61.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4ed9a2c28c0260667a04ead5197308792989f1df14f5748b1ccd586595272534",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par2",
+      "aliases": [
+        "art103-2_par2,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Os demais membros do Conselho serão nomeados pelo Presidente da República, depois de aprovada a escolha pela maioria absoluta do Senado Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 61, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 61, de 2009",
+            "type": "emenda_constitucional",
+            "number": "61",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc61.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8fb8026e560a826eea49b7caa1fb7e1de9e8054f9bce70f360841bd8b6ed9436",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par3",
+      "aliases": [
+        "art103-2_par3,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Não efetuadas, no prazo legal, as indicações previstas neste artigo, caberá a escolha ao Supremo Tribunal Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9ae7dc2afbc4d8c8fec4b4d5fc7792a2f2e430569c8f753a6771421cd36466eb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par4",
+      "aliases": [
+        "art103-2_par4,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "Compete ao Conselho o controle da atuação administrativa e financeira do Poder Judiciário e do cumprimento dos deveres funcionais dos juízes, cabendo-lhe, além de outras atribuições que lhe forem conferidas pelo Estatuto da Magistratura:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ed585676682f29304b0fd33aea2167c9c53a0317d530e912c68055905554743e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par4_inc1",
+      "aliases": [
+        "art103-2_par4_inc1,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "zelar pela autonomia do Poder Judiciário e pelo cumprimento do Estatuto da Magistratura, podendo expedir atos regulamentares, no âmbito de sua competência, ou recomendar providências;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ae6a37ceb229c3c3a30ecf52a4eded16defb2743cc7a51badbe3b7d764fe72de",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par4_inc2",
+      "aliases": [
+        "art103-2_par4_inc2,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "zelar pela observância do art. 37 e apreciar, de ofício ou mediante provocação, a legalidade dos atos administrativos praticados por membros ou órgãos do Poder Judiciário, podendo desconstituí-los, revê-los ou fixar prazo para que se adotem as providências necessárias ao exato cumprimento da lei, sem prejuízo da competência do Tribunal de Contas da União;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5b01a9582884439a23d0fa1bc8d445dfeb34120ebf89e06320b0bca71900ffe7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par4_inc3",
+      "aliases": [
+        "art103-2_par4_inc3,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "receber e conhecer das reclamações contra membros ou órgãos do Poder Judiciário, inclusive contra seus serviços auxiliares, serventias e órgãos prestadores de serviços notariais e de registro que atuem por delegação do poder público ou oficializados, sem prejuízo da competência disciplinar e correicional dos tribunais, podendo avocar processos disciplinares em curso, determinar a remoção ou a disponibilidade e aplicar outras sanções administrativas, assegurada ampla defesa;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 103, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 103, de 2019",
+            "type": "emenda_constitucional",
+            "number": "103",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc103.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:43b9a0ca8c50fadff397472fd42c5cd2f53faa83fc01d45b1beacb340d89c2c1",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par4_inc4",
+      "aliases": [
+        "art103-2_par4_inc4,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "representar ao Ministério Público, no caso de crime contra a administração pública ou de abuso de autoridade;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:670ab63fedaf78f88fb22e9ac45422066f82182ad8a6c319dafb2b8a93b7a5bb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par4_inc5",
+      "aliases": [
+        "art103-2_par4_inc5,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "rever, de ofício ou mediante provocação, os processos disciplinares de juízes e membros de tribunais julgados há menos de um ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0b6bd12dd88d525df969f144a257153a2216960babebafb4666d6ee3bcbbe68f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par4_inc6",
+      "aliases": [
+        "art103-2_par4_inc6,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "elaborar semestralmente relatório estatístico sobre processos e sentenças prolatadas, por unidade da Federação, nos diferentes órgãos do Poder Judiciário;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e2fb7d975f6a0997cbff6feee54d29eae69abbcbbc3b6c1e58682712bd579cba",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par4_inc7",
+      "aliases": [
+        "art103-2_par4_inc7,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        }
+      ],
+      "text": "elaborar relatório anual, propondo as providências que julgar necessárias, sobre a situação do Poder Judiciário no País e as atividades do Conselho, o qual deve integrar mensagem do Presidente do Supremo Tribunal Federal a ser remetida ao Congresso Nacional, por ocasião da abertura da sessão legislativa.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ebfde45bc0964275b7c970d855b80e3a2481793bfe195897b339308226902b99",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par5",
+      "aliases": [
+        "art103-2_par5,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "O Ministro do Superior Tribunal de Justiça exercerá a função de Ministro-Corregedor e ficará excluído da distribuição de processos no Tribunal, competindo-lhe, além das atribuições que lhe forem conferidas pelo Estatuto da Magistratura, as seguintes:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2b806986814ae481584ca8fec94cb6f3140363eb00d69657cac901d839b93c88",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par5_inc1",
+      "aliases": [
+        "art103-2_par5_inc1,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "receber as reclamações e denúncias, de qualquer interessado, relativas aos magistrados e aos serviços judiciários;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7d43d7792d8a74ba57153737818a360ee75547b69fe5f72cd5b3da5a498affce",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par5_inc2",
+      "aliases": [
+        "art103-2_par5_inc2,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "exercer funções executivas do Conselho, de inspeção e de correição geral;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:fd1dddd7140ff40dfdf8aa13592356f4a01fba2f71ccd71b158e262363aad635",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par5_inc3",
+      "aliases": [
+        "art103-2_par5_inc3,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "requisitar e designar magistrados, delegando-lhes atribuições, e requisitar servidores de juízos ou tribunais, inclusive nos Estados, Distrito Federal e Territórios.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2ca723a149035dfe03e673f15f5bc36bdc91ea2acb4ffbd24a76648fd1580485",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par6",
+      "aliases": [
+        "art103-2_par6,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 6º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 6º"
+        }
+      ],
+      "text": "Junto ao Conselho oficiarão o Procurador-Geral da República e o Presidente do Conselho Federal da Ordem dos Advogados do Brasil.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:107f82c9b26a8f867db37683283d2cc9b3875943676f33da8174757d3dc12a74",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art103-2_par7",
+      "aliases": [
+        "art103-2_par7,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 7º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 103-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 7º"
+        }
+      ],
+      "text": "A União, inclusive no Distrito Federal e nos Territórios, criará ouvidorias de justiça, competentes para receber reclamações e denúncias de qualquer interessado contra membros ou órgãos do Poder Judiciário, ou contra seus serviços auxiliares, representando diretamente ao Conselho Nacional de Justiça.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:51d93be57d047d38b7ab065104c4f23f915503bcb016ae7b2c67847e2992de05",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

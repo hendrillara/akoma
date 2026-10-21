@@ -1,0 +1,49 @@
+{
+  "norm": {
+    "key": "cdc",
+    "urn": "urn:lex:br:federal:lei:1990-09-11;8078",
+    "title": "Código de Defesa do Consumidor (Lei nº 8.078, de 11 de setembro de 1990)"
+  },
+  "article": "art1",
+  "provisions": [
+    {
+      "id": "art1_cpt",
+      "norm": "cdc",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 1º"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "O presente código estabelece normas de proteção e defesa do consumidor, de ordem pública e interesse social, nos termos dos arts. 5°, inciso XXXII, 170, inciso V, da Constituição Federal e art. 48 de suas Disposições Transitórias.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3426026fb1124d8c8284e5ccb72c44d0e43e0319ec40f0d2065a52ff0fa2362f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    }
+  ]
+}

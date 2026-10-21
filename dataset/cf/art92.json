@@ -1,0 +1,594 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art92",
+  "provisions": [
+    {
+      "id": "art92_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 92"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "São órgãos do Poder Judiciário:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0e8430f229f05d59c620d29053bb41c0aabe183e459e1729d26482c924966c18",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92_cpt_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 92"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "o Supremo Tribunal Federal;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:89e4ac84a310b20870ad83bad2eaf9fbb13749fa2fe5c8a22fcd94b8e90c8b9d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92_cpt_inc1-1",
+      "aliases": [
+        "art92_cpt_inc1-1,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I-A",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 92"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I-A"
+        }
+      ],
+      "text": "o Conselho Nacional de Justiça;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:91ada79488680d190be809955577355fa7779a0fc19268f3b5b2f785ad9ff88d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92_cpt_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 92"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "o Superior Tribunal de Justiça;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3f2721bd8839c482d408765eeb4494d9e717f822baecdd21f6c68b5f9f8511b7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92_cpt_inc2-1",
+      "aliases": [
+        "art92_cpt_inc2-1,emc-92-2016-07-12"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II-A",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 92"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II-A"
+        }
+      ],
+      "text": "o Tribunal Superior do Trabalho;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 92, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 92, de 2016",
+            "type": "emenda_constitucional",
+            "number": "92",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc92.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:31090e49ec05287d13eb13a0d0b2283fe6207596512d48ea852047096ee20e26",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92_cpt_inc3",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 92"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "os Tribunais Regionais Federais e Juízes Federais;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d61fff877a4740b7a365dbcce66786df5ebf61e693ef6c9b97f1e638686ed841",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92_cpt_inc4",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 92"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "os Tribunais e Juízes do Trabalho;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0b98772ca44e7a1a569064ce55202a1d5828a87e39d79da703b21bf3daf99e96",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92_cpt_inc5",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 92"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "os Tribunais e Juízes Eleitorais;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5ebb555c2139e09b85e7afc40be9da7790dabb3260500411262c99081b3c5cad",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92_cpt_inc6",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 92"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "os Tribunais e Juízes Militares;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a52d651c5dca29b75bb8cd9af7c5fd7d63b39339b331b1c32062b58bc6b8691f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92_cpt_inc7",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 92"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        }
+      ],
+      "text": "os Tribunais e Juízes dos Estados e do Distrito Federal e Territórios.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:db7d16d708de46a82120d8791c0360f6d28bbd149f649919496d8842f811be1c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92_par1",
+      "aliases": [
+        "art92_par1u"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 92"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "O Supremo Tribunal Federal, o Conselho Nacional de Justiça e os Tribunais Superiores têm sede na Capital Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art1"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "adi",
+          "annotation": "Vide ADIN 3392",
+          "number": "3392",
+          "href": "http://www.stf.jus.br/portal/peticaoInicial/verPeticaoInicial.asp?base=ADI&documento=&s1=3392&processo=3392"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8078d0a8ae2a938c5751b554c58778dadfe846d3e1037652ba58566a132c88cb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92_par2",
+      "aliases": [
+        "art92_par2,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 92"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "O Supremo Tribunal Federal e os Tribunais Superiores têm jurisdição em todo o território nacional.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:66e07c83bdcc945947feb6cda3e0cc0880b232e8fe51b93dd6c1371c24580db9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

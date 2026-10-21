@@ -1,0 +1,432 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art202",
+  "provisions": [
+    {
+      "id": "art202_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 202"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "O regime de previdência privada, de caráter complementar e organizado de forma autônoma em relação ao regime geral de previdência social, será facultativo, baseado na constituição de reservas que garantam o benefício contratado, e regulado por lei complementar.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 20, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 20, de 1998",
+            "type": "emenda_constitucional",
+            "number": "20",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc20.htm#art202"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "act",
+          "annotation": "Vide Emenda Constitucional nº 20, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 20, de 1998",
+            "type": "emenda_constitucional",
+            "number": "20",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc20.htm#art7"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2da14bd093db473e024ca0ceeafa550939b3749e1f09efb54ad1c58d8e21b3a4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art202_par1",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 202"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "A lei complementar de que trata este artigo assegurará ao participante de planos de benefícios de entidades de previdência privada o pleno acesso às informações relativas à gestão de seus respectivos planos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 20, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 20, de 1998",
+            "type": "emenda_constitucional",
+            "number": "20",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc20.htm#art202"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ca8812558ae0be05731cfe8cd7e4bfa24dadb906af2cf6467a0c83edac09de85",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art202_par2",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 202"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "As contribuições do empregador, os benefícios e as condições contratuais previstas nos estatutos, regulamentos e planos de benefícios das entidades de previdência privada não integram o contrato de trabalho dos participantes, assim como, à exceção dos benefícios concedidos, não integram a remuneração dos participantes, nos termos da lei.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 20, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 20, de 1998",
+            "type": "emenda_constitucional",
+            "number": "20",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc20.htm#art202"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3b2a12072d48213f4a930409592e8a3815504539dc7b1e53daaefc815ba7301f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art202_par3",
+      "aliases": [
+        "art202_par3,emc-20-1998-12-15"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 202"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "É vedado o aporte de recursos a entidade de previdência privada pela União, Estados, Distrito Federal e Municípios, suas autarquias, fundações, empresas públicas, sociedades de economia mista e outras entidades públicas, salvo na qualidade de patrocinador, situação na qual, em hipótese alguma, sua contribuição normal poderá exceder a do segurado.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 20, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 20, de 1998",
+            "type": "emenda_constitucional",
+            "number": "20",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc20.htm#art202"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "act",
+          "annotation": "Vide Emenda Constitucional nº 20, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 20, de 1998",
+            "type": "emenda_constitucional",
+            "number": "20",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc20.htm#art5"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:65d471728cd0b5fd790696a45ff9654ec36ce408c4552c29a27562df548bc0f2",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art202_par4",
+      "aliases": [
+        "art202_par4,emc-20-1998-12-15"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 202"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "Lei complementar disciplinará a relação entre a União, Estados, Distrito Federal ou Municípios, inclusive suas autarquias, fundações, sociedades de economia mista e empresas controladas direta ou indiretamente, enquanto patrocinadores de planos de benefícios previdenciários, e as entidades de previdência complementar.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 103, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 103, de 2019",
+            "type": "emenda_constitucional",
+            "number": "103",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc103.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:db28be2f1cecc9a2d2750f14cd8ded6e2b44a075077218a862d1cc3c29711adf",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art202_par5",
+      "aliases": [
+        "art202_par5,emc-20-1998-12-15"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 202"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "A lei complementar de que trata o § 4º aplicar-se-á, no que couber, às empresas privadas permissionárias ou concessionárias de prestação de serviços públicos, quando patrocinadoras de planos de benefícios em entidades de previdência complementar.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 103, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 103, de 2019",
+            "type": "emenda_constitucional",
+            "number": "103",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc103.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2923e3e8fcb0479ddc55196fbfca7f38c99134ea8f6bd2eac5e9fc24948e480f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art202_par6",
+      "aliases": [
+        "art202_par6,emc-20-1998-12-15"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 6º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 202"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 6º"
+        }
+      ],
+      "text": "Lei complementar estabelecerá os requisitos para a designação dos membros das diretorias das entidades fechadas de previdência complementar instituídas pelos patrocinadores de que trata o § 4º e disciplinará a inserção dos participantes nos colegiados e instâncias de decisão em que seus interesses sejam objeto de discussão e deliberação.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 103, de 2019",
+          "act": {
+            "citation": "Emenda Constitucional nº 103, de 2019",
+            "type": "emenda_constitucional",
+            "number": "103",
+            "year": 2019,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc103.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d6af706fdd10b4934c226c816de2e33b037fa0ece5a71ef57c1629b0102e181f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

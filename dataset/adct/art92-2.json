@@ -1,0 +1,479 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art92-2",
+  "provisions": [
+    {
+      "id": "art92-2_cpt",
+      "aliases": [
+        "art92-2_cpt,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 92-B"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "As leis instituidoras dos tributos previstos nos arts. 156-A e 195, V, da Constituição Federal estabelecerão os mecanismos necessários, com ou sem contrapartidas, para manter, em caráter geral, o diferencial competitivo assegurado à Zona Franca de Manaus pelos arts. 40 e 92-A e às áreas de livre comércio existentes em 31 de maio de 2023, nos níveis estabelecidos pela legislação relativa aos tributos extintos a que se referem os arts. 126 a 129, todos deste Ato das Disposições Constitucionais Transitórias.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d402b24a8513848a7eba6aab7b46f88fc94c88a8769ccba1d33530926521982e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92-2_par1",
+      "aliases": [
+        "art92-2_par1,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 92-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Para assegurar o disposto no caput, serão utilizados, isolada ou cumulativamente, instrumentos fiscais, econômicos ou financeiros.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:adc6834e72025a14e7deb254af172f5fd632eeea21a18f95c3ccf48ed1b78b06",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92-2_par2",
+      "aliases": [
+        "art92-2_par2,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 92-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Lei complementar instituirá Fundo de Sustentabilidade e Diversificação Econômica do Estado do Amazonas, que será constituído com recursos da União e por ela gerido, com a efetiva participação do Estado do Amazonas na definição das políticas, com o objetivo de fomentar o desenvolvimento e a diversificação das atividades econômicas no Estado.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3349c26509c36566c7155bdd652a82c3af3b3c5b980184419857db672c1ec981",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92-2_par3",
+      "aliases": [
+        "art92-2_par3,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 92-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "A lei complementar de que trata o § 2º:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:bedc5145d3e0fca3ab3fc1e5412b61d295037b7481255d3a4e694bb843a7b0ae",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92-2_par3_inc1",
+      "aliases": [
+        "art92-2_par3_inc1,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 92-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "estabelecerá o montante mínimo de aporte anual de recursos ao Fundo, bem como os critérios para sua correção;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:cbae0c4641ae73aae98070d15b871aadee146fd8383ec4e0d4206d230d36a1f8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92-2_par3_inc2",
+      "aliases": [
+        "art92-2_par3_inc2,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 92-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "preverá a possibilidade de utilização dos recursos do Fundo para compensar eventual perda de receita do Estado do Amazonas em função das alterações no sistema tributário decorrentes da instituição dos tributos previstos nos arts. 156-A e 195, V, da Constituição Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:efbe810abe1c74fa01dbb50870fef947bd9188fceeeed99cefd72a9c16daa384",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92-2_par4",
+      "aliases": [
+        "art92-2_par4,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 92-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "A União, mediante acordo com o Estado do Amazonas, poderá reduzir o alcance dos instrumentos previstos no § 1º, condicionado ao aporte de recursos adicionais ao Fundo de que trata o § 2º, asseguradas a diversificação das atividades econômicas e a antecedência mínima de 3 (três) anos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:92170903fc4d75ba4e19ccffe30a20ab7c4a13494eabdb6142bc488b827e606e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92-2_par5",
+      "aliases": [
+        "art92-2_par5,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 92-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "Não se aplica aos mecanismos previstos no caput o disposto nos incisos III e IV do caput do art. 149-B da Constituição Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:df8bb367b5297ff6025a9123d12d7b0a4b51548d82a882c9b09cd42a46a5aa52",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92-2_par6",
+      "aliases": [
+        "art92-2_par6,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 6º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 92-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 6º"
+        }
+      ],
+      "text": "Lei complementar instituirá Fundo de Desenvolvimento Sustentável dos Estados da Amazônia Ocidental e do Amapá, que será constituído com recursos da União e por ela gerido, com a efetiva participação desses Estados na definição das políticas, com o objetivo de fomentar o desenvolvimento e a diversificação de suas atividades econômicas.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b753cf8da2ac13e8c66ff27665dcabeab9780d41ba822b4aea307324205f950d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art92-2_par7",
+      "aliases": [
+        "art92-2_par7,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 7º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 92-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 7º"
+        }
+      ],
+      "text": "O Fundo de que trata o § 6º será integrado pelos Estados onde estão localizadas as áreas de livre comércio de que trata o caput e observará, no que couber, o disposto no § 3º, I e II, sendo, quanto a este inciso, considerados os respectivos Estados, e no § 4º.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9e7999febe8cbd15b9f28b33495af71e7d046ef5ebdf1fafc77fb7beac521337",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

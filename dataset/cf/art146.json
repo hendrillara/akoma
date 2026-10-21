@@ -1,0 +1,972 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art146",
+  "provisions": [
+    {
+      "id": "art146_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Cabe à lei complementar:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:549c469d125964c1dbc01d298114fa77a76005b54b025949b24ea2419f85b9fc",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_cpt_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "dispor sobre conflitos de competência, em matéria tributária, entre a União, os Estados, o Distrito Federal e os Municípios;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9e460134067a8864f887f7e67dc935b773990b1d84067a9061076e597d746c1f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_cpt_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "regular as limitações constitucionais ao poder de tributar;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:877777b18dc5ea5e43152de98edf8e84f2c0079c1e7bd0cd16b5dd3b9661d5a6",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_cpt_inc3",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "estabelecer normas gerais em matéria de legislação tributária, especialmente sobre:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4fce395c60b578fc80bcbe25a4a865a574c2edd928230b9eef4ca799059068b4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_cpt_inc3_ali1",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "definição de tributos e de suas espécies, bem como, em relação aos impostos discriminados nesta Constituição, a dos respectivos fatos geradores, bases de cálculo e contribuintes;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0065a1464ae3fcdb82b1fc1495e65efeac4b4f5d5a0369c22fb13437514f8fe9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_cpt_inc3_ali2",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "obrigação, lançamento, crédito, prescrição e decadência tributários;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e7422fbc3720f381d3837f7624052f12fc96917129bc47b95068c6e925abeeba",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_cpt_inc3_ali3",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea c",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea c"
+        }
+      ],
+      "text": "adequado tratamento tributário ao ato cooperativo praticado pelas sociedades cooperativas, inclusive em relação aos tributos previstos nos arts. 156-A e 195, V;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8f008a46e8454e901ed6de8354742bb6c72a0c96812682613a409f0244106cc3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_cpt_inc3_ali4",
+      "aliases": [
+        "art146_cpt_inc3_ali4,emc-42-2003-12-19"
+      ],
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea d",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea d"
+        }
+      ],
+      "text": "definição de tratamento diferenciado e favorecido para as microempresas e para as empresas de pequeno porte, inclusive regimes especiais ou simplificados no caso dos impostos previstos nos arts. 155, II, e 156-A, das contribuições sociais previstas no art. 195, I e V, e § 12 e da contribuição a que se refere o art. 239.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "pending": [
+        {
+          "effect": "wording",
+          "text": "definição de tratamento diferenciado e favorecido para as microempresas e para as empresas de pequeno porte, inclusive regimes especiais ou simplificados no caso dos impostos previstos nos arts. 155, II, e 156-A e das contribuições previstas no art. 195, I e V.",
+          "effectiveFrom": "2027-01-01",
+          "vigencia": "em 2027, em relação aos arts. 3º e 11",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm"
+          }
+        },
+        {
+          "effect": "wording",
+          "text": "definição de tratamento diferenciado e favorecido para as microempresas e para as empresas de pequeno porte, inclusive regimes especiais ou simplificados no caso do imposto previsto no art. 156-A e das contribuições sociais previstas no art. 195, I e V.",
+          "effectiveFrom": "2033-01-01",
+          "vigencia": "em 2033, em relação aos arts. 4º e 5º",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6320bfdce61d31eb903f090e953c36a324d1da58dc4ab5a207b4accfab9198c2",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_par1",
+      "aliases": [
+        "art146_par1u,emc-42-2003-12-19"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "A lei complementar de que trata o inciso III, d, também poderá instituir um regime único de arrecadação dos impostos e contribuições da União, dos Estados, do Distrito Federal e dos Municípios, observado que:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ae7a4d5951b4fbe15e4069edfc72342f3b60d8188b5aef60eb64ba4c0da04200",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_par1_inc1",
+      "aliases": [
+        "art146_par1u_inc1,emc-42-2003-12-19"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "será opcional para o contribuinte;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0aaec3aa661fac4e119521be31e143aead4a1d200d5ce62c4b053193e1a8ffc3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_par1_inc2",
+      "aliases": [
+        "art146_par1u_inc2,emc-42-2003-12-19"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "poderão ser estabelecidas condições de enquadramento diferenciadas por Estado;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4a7a693a6e4d24b208ca9e6ab22cef74ceb5fbcd5cb89d10f645bd633efbe830",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_par1_inc3",
+      "aliases": [
+        "art146_par1u_inc3,emc-42-2003-12-19"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "o recolhimento será unificado e centralizado e a distribuição da parcela de recursos pertencentes aos respectivos entes federados será imediata, vedada qualquer retenção ou condicionamento;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e33da49846c70c5385d8b21eff718f566ba2b517bb85b49add010b8563eb5f00",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_par1_inc4",
+      "aliases": [
+        "art146_par1u_inc4,emc-42-2003-12-19"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "a arrecadação, a fiscalização e a cobrança poderão ser compartilhadas pelos entes federados, adotado cadastro nacional único de contribuintes.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ea6edff04a694197d8d572a23f9dd812f915610c784c2b3fec482fce06b58f8a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_par2",
+      "aliases": [
+        "art146_par2,emc-132-2023-12-20"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "É facultado ao optante pelo regime único de que trata o § 1º apurar e recolher os tributos previstos nos arts. 156-A e 195, V, nos termos estabelecidos nesses artigos, hipótese em que as parcelas a eles relativas não serão cobradas pelo regime único.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6f531d926755718b12b4d3a1373086096f03b1272b28f8764217730162cbdd67",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_par3",
+      "aliases": [
+        "art146_par3,emc-132-2023-12-20"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Na hipótese de o recolhimento dos tributos previstos nos arts. 156-A e 195, V, ser realizado por meio do regime único de que trata o § 1º, enquanto perdurar a opção:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ea530f1b41aa1f509d79fbc174bce04ecfa88adafeca5fb3d18edc3e9cfb9280",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_par3_inc1",
+      "aliases": [
+        "art146_par3_inc1,emc-132-2023-12-20"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "não será permitida a apropriação de créditos dos tributos previstos nos arts. 156-A e 195, V, pelo contribuinte optante pelo regime único; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:aecf2eef317685f6009e7f791f3f06aafd4e8d26c39cd687d74c85da2c3e5274",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art146_par3_inc2",
+      "aliases": [
+        "art146_par3_inc2,emc-132-2023-12-20"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "será permitida a apropriação de créditos dos tributos previstos nos arts. 156-A e 195, V, pelo adquirente não optante pelo regime único de que trata o § 1º de bens materiais ou imateriais, inclusive direitos, e de serviços do optante, em montante equivalente ao cobrado por meio do regime único.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7cff2ead3ac396223c0ff0a5f9837742ab3443446c52464924828fc950140b28",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

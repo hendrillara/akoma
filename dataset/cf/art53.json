@@ -1,0 +1,531 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art53",
+  "provisions": [
+    {
+      "id": "art53_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 53"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Os Deputados e Senadores são invioláveis, civil e penalmente, por quaisquer de suas opiniões, palavras e votos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 35, de 2001",
+          "act": {
+            "citation": "Emenda Constitucional nº 35, de 2001",
+            "type": "emenda_constitucional",
+            "number": "35",
+            "year": 2001,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc35.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:cea3ad08735a1b360778eaa3d927497e7527f8228a8d4a9aebf9671adb4fdc1f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art53_par1",
+      "aliases": [
+        "art53_par1,emc-35-2001-12-20"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 53"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Os Deputados e Senadores, desde a expedição do diploma, serão submetidos a julgamento perante o Supremo Tribunal Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 35, de 2001",
+          "act": {
+            "citation": "Emenda Constitucional nº 35, de 2001",
+            "type": "emenda_constitucional",
+            "number": "35",
+            "year": 2001,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc35.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7e391b1256f69ae8c5ed2fe0972094f30e6ea554e479fc5f5def26ba8db47d23",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art53_par2",
+      "aliases": [
+        "art53_par1"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 53"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Desde a expedição do diploma, os membros do Congresso Nacional não poderão ser presos, salvo em flagrante de crime inafiançável. Nesse caso, os autos serão remetidos dentro de vinte e quatro horas à Casa respectiva, para que, pelo voto da maioria de seus membros, resolva sobre a prisão.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 35, de 2001",
+          "act": {
+            "citation": "Emenda Constitucional nº 35, de 2001",
+            "type": "emenda_constitucional",
+            "number": "35",
+            "year": 2001,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc35.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c455a523a4bf5fd73fa4267cbc43b27c71b41e2e7c90b4b9318e7d5bb9cb8dcc",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art53_par3",
+      "aliases": [
+        "art53_par2"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 53"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Recebida a denúncia contra o Senador ou Deputado, por crime ocorrido após a diplomação, o Supremo Tribunal Federal dará ciência à Casa respectiva, que, por iniciativa de partido político nela representado e pelo voto da maioria de seus membros, poderá, até a decisão final, sustar o andamento da ação.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 35, de 2001",
+          "act": {
+            "citation": "Emenda Constitucional nº 35, de 2001",
+            "type": "emenda_constitucional",
+            "number": "35",
+            "year": 2001,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc35.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:15fce00ea83be7fd85847f5337864ac4d02ea2d1308981e200f91a8a776a4b22",
+        "secondary": {
+          "outcome": "unconfirmed",
+          "source": "normas.leg.br",
+          "note": "Known divergence, reviewed: One word: normas.leg.br has no article before \"Senador\"."
+        }
+      }
+    },
+    {
+      "id": "art53_par4",
+      "aliases": [
+        "art53_par3"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 53"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "O pedido de sustação será apreciado pela Casa respectiva no prazo improrrogável de quarenta e cinco dias do seu recebimento pela Mesa Diretora.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 35, de 2001",
+          "act": {
+            "citation": "Emenda Constitucional nº 35, de 2001",
+            "type": "emenda_constitucional",
+            "number": "35",
+            "year": 2001,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc35.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:05b2cb4e94cb4e632f2bce61aa3928afb3933d0d4cd46b5f9875a72325efb6a7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art53_par5",
+      "aliases": [
+        "art53_par4"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 53"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "A sustação do processo suspende a prescrição, enquanto durar o mandato.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 35, de 2001",
+          "act": {
+            "citation": "Emenda Constitucional nº 35, de 2001",
+            "type": "emenda_constitucional",
+            "number": "35",
+            "year": 2001,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc35.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:40c2cacc10f2b3468ee086822c06203cdc1e72ddf77b680121bd8693c839e756",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art53_par6",
+      "aliases": [
+        "art53_par5"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 6º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 53"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 6º"
+        }
+      ],
+      "text": "Os Deputados e Senadores não serão obrigados a testemunhar sobre informações recebidas ou prestadas em razão do exercício do mandato, nem sobre as pessoas que lhes confiaram ou deles receberam informações.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 35, de 2001",
+          "act": {
+            "citation": "Emenda Constitucional nº 35, de 2001",
+            "type": "emenda_constitucional",
+            "number": "35",
+            "year": 2001,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc35.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c3166d1ad9c17855f083ea50fc26512a901ec9386546471b78dcb4dcfc2334ab",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art53_par7",
+      "aliases": [
+        "art53_par6"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 7º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 53"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 7º"
+        }
+      ],
+      "text": "A incorporação às Forças Armadas de Deputados e Senadores, embora militares e ainda que em tempo de guerra, dependerá de prévia licença da Casa respectiva.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 35, de 2001",
+          "act": {
+            "citation": "Emenda Constitucional nº 35, de 2001",
+            "type": "emenda_constitucional",
+            "number": "35",
+            "year": 2001,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc35.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:596bdf41ef41a5428a3753e91f1cbf12a84b1df3779088b8be62fec66bf9b4fe",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art53_par8",
+      "aliases": [
+        "art53_par7"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 8º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 53"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        }
+      ],
+      "text": "As imunidades de Deputados ou Senadores subsistirão durante o estado de sítio, só podendo ser suspensas mediante o voto de dois terços dos membros da Casa respectiva, nos casos de atos praticados fora do recinto do Congresso Nacional, que sejam incompatíveis com a execução da medida.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 35, de 2001",
+          "act": {
+            "citation": "Emenda Constitucional nº 35, de 2001",
+            "type": "emenda_constitucional",
+            "number": "35",
+            "year": 2001,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc35.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5325450a6879964262834698b5a1ef68478aa91154a21f348b372241bf90d5ee",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

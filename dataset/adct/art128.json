@@ -1,0 +1,379 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art128",
+  "provisions": [
+    {
+      "id": "art128_cpt",
+      "aliases": [
+        "art128_cpt,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "De 2029 a 2032, as alíquotas dos impostos previstos nos arts. 155, II, e 156, III, da Constituição Federal, serão fixadas nas seguintes proporções das alíquotas fixadas nas respectivas legislações:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c8146a02b849ca247be505234a9aaab41c86afa55a3c41bf4e4137cf85837698",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_cpt_inc1",
+      "aliases": [
+        "art128_cpt_inc1,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "9/10 (nove décimos), em 2029;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8a0d36d2376f9ebbf53f3a196e533e76fe6ab9a50fb899b320aca467a6543e8f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_cpt_inc2",
+      "aliases": [
+        "art128_cpt_inc2,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "8/10 (oito décimos), em 2030;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:75a40d9e58e24df393314505ff0b6d359b78f6403e8e67f753ba9d27cbb01f1d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_cpt_inc3",
+      "aliases": [
+        "art128_cpt_inc3,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "7/10 (sete décimos), em 2031;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:03c3bbf9b1f1fa09a24dbc519df70ce64a945df8de3c59b54b0a73aad64bae9c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_cpt_inc4",
+      "aliases": [
+        "art128_cpt_inc4,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "6/10 (seis décimos), em 2032.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9428c6052904b38d5bd422185abd9d04d84a30b098307be0b2b8c97c4f8339d4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par1",
+      "aliases": [
+        "art128_par1,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Os benefícios ou os incentivos fiscais ou financeiros relativos aos impostos previstos nos arts. 155, II, e 156, III, da Constituição Federal não alcançados pelo disposto no caput deste artigo serão reduzidos na mesma proporção.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f0c8aee84691f2e3f70d2555a3058db25220d497c5271d6d1f7bef651b1b1bf3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par2",
+      "aliases": [
+        "art128_par2,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Os benefícios e incentivos fiscais ou financeiros referidos no art. 3º da Lei Complementar nº 160, de 7 de agosto de 2017, serão reduzidos na forma deste artigo, não se aplicando a redução prevista no § 2º-A do art. 3º da referida Lei Complementar.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:bc9b53633ec6a0a9bdc3046adfd4c6ba307067903f043f4a1511339759f991cf",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art128_par3",
+      "aliases": [
+        "art128_par3,emc-132-2023-12-20"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 128"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Ficam mantidos em sua integralidade, até 31 de dezembro de 2032, os percentuais utilizados para calcular os benefícios ou incentivos fiscais ou financeiros já reduzidos por força da redução das alíquotas, em decorrência do disposto no caput.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f6f904cf8b1c2284fa71123cd237d6ec3a40b2624bc2f80753376fb6bcae2353",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

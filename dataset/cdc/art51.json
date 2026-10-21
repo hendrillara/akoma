@@ -1,0 +1,1220 @@
+{
+  "norm": {
+    "key": "cdc",
+    "urn": "urn:lex:br:federal:lei:1990-09-11;8078",
+    "title": "Código de Defesa do Consumidor (Lei nº 8.078, de 11 de setembro de 1990)"
+  },
+  "article": "art51",
+  "provisions": [
+    {
+      "id": "art51_cpt",
+      "norm": "cdc",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "São nulas de pleno direito, entre outras, as cláusulas contratuais relativas ao fornecimento de produtos e serviços que:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0f4d8fdda63bf62afa28113bfdb3a2d928e0f955dabf8cb79d77cefa36a7db10",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc1",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "impossibilitem, exonerem ou atenuem a responsabilidade do fornecedor por vícios de qualquer natureza dos produtos e serviços ou impliquem renúncia ou disposição de direitos. Nas relações de consumo entre o fornecedor e o consumidor pessoa jurídica, a indenização poderá ser limitada, em situações justificáveis;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e6391888753949422c21e998116674c647345b3c87a8c0012fd9cddc66356871",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc2",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "subtraiam ao consumidor a opção de reembolso da quantia já paga, nos casos previstos neste código;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9449fbe16246b0de8828af921e52754a17bcc3b1692fdc255e7d568207eccd8a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc3",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "transfiram responsabilidades a terceiros;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:84378389c327d3a0cc313ac6ac563f8c4a728f623c724403283ace65f51362f4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc4",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "estabeleçam obrigações consideradas iníquas, abusivas, que coloquem o consumidor em desvantagem exagerada, ou sejam incompatíveis com a boa-fé ou a eqüidade;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2c65372f838acda2d42eab32d9dd30fa52cb53c5138976c792c597ea79c85fad",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc5",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "(Vetado);",
+      "status": "vetoed",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8c4bf6fcb098ac7927e77d929359d02ccc5b80d449b00c2dfcb80d14ac44beb3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc6",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "estabeleçam inversão do ônus da prova em prejuízo do consumidor;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b40d35e0113bcdceec8fa404e3109d9b8c420ab29eb332046149338d9dfdc7c6",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc7",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso VII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        }
+      ],
+      "text": "determinem a utilização compulsória de arbitragem;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:43dd67804375f03c8a04567173fc3f1aa0c13f15b344f2fe5eaf33ff2e4f981f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc8",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso VIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VIII"
+        }
+      ],
+      "text": "imponham representante para concluir ou realizar outro negócio jurídico pelo consumidor;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b4c58644351704d3f2c6f56b933a2fbf26acc100d1932c504cf769330fe195e9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc9",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso IX",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IX"
+        }
+      ],
+      "text": "deixem ao fornecedor a opção de concluir ou não o contrato, embora obrigando o consumidor;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:578a6c0b32265a7a92eacfbd3de01543a6f88e2b5bbf5801501db18ed0729765",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc10",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso X",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso X"
+        }
+      ],
+      "text": "permitam ao fornecedor, direta ou indiretamente, variação do preço de maneira unilateral;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ed7c9ac93e8bc6c213228a8b85f9116f4d304ab86730b069d8546548a163c9d5",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc11",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso XI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XI"
+        }
+      ],
+      "text": "autorizem o fornecedor a cancelar o contrato unilateralmente, sem que igual direito seja conferido ao consumidor;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c6c03a23caeb646b70d815c91b6c5934980c6565d998de706a04dbb094b04c01",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc12",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso XII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XII"
+        }
+      ],
+      "text": "obriguem o consumidor a ressarcir os custos de cobrança de sua obrigação, sem que igual direito lhe seja conferido contra o fornecedor;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:37ea586f6c7083eab002b1dbcd890d0e032ec96bbe36873b1c8e3e097ebaf983",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc13",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso XIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XIII"
+        }
+      ],
+      "text": "autorizem o fornecedor a modificar unilateralmente o conteúdo ou a qualidade do contrato, após sua celebração;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e0fe021a3ca1aed0481d81ab4edbd6cb68a3bc8862b4ed26f58d4c812e37fdb8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc14",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso XIV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XIV"
+        }
+      ],
+      "text": "infrinjam ou possibilitem a violação de normas ambientais;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2ae663178b94fec602ea2b5b17408f1b1ca2b451659e589f78264f3fc58b47a3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc15",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso XV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XV"
+        }
+      ],
+      "text": "estejam em desacordo com o sistema de proteção ao consumidor;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5e321789c1041684bb47ee6bfdb78861e41e9337b2cb5e35f7b58023d17e1860",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc16",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso XVI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XVI"
+        }
+      ],
+      "text": "possibilitem a renúncia do direito de indenização por benfeitorias necessárias.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8a7d86c014c9414c39778b3497050fabbac16f80e37821bd02d7d6b9924b21f4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc17",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso XVII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XVII"
+        }
+      ],
+      "text": "condicionem ou limitem de qualquer forma o acesso aos órgãos do Poder Judiciário;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Lei nº 14.181, de 2021",
+          "act": {
+            "citation": "Lei nº 14.181, de 2021",
+            "type": "lei",
+            "number": "14.181",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:38743d5488d77c4b3e3db47181ef38b68bbb7f4b2507da66b0c6c0769ca0f83b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc18",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso XVIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XVIII"
+        }
+      ],
+      "text": "estabeleçam prazos de carência em caso de impontualidade das prestações mensais ou impeçam o restabelecimento integral dos direitos do consumidor e de seus meios de pagamento a partir da purgação da mora ou do acordo com os credores;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Lei nº 14.181, de 2021",
+          "act": {
+            "citation": "Lei nº 14.181, de 2021",
+            "type": "lei",
+            "number": "14.181",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3a452ab36c6c954b3f19314a3619424407561d1f34bcb872633d5f0cbd6a3f9e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_cpt_inc19",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso XIX",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso XIX"
+        }
+      ],
+      "text": "(VETADO).",
+      "status": "vetoed",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Lei nº 14.181, de 2021",
+          "act": {
+            "citation": "Lei nº 14.181, de 2021",
+            "type": "lei",
+            "number": "14.181",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6190ea2a648e006a5fd586019e897193d320344defc1f9539240ee07fa517604",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_par1",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Presume-se exagerada, entre outros casos, a vantagem que:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c4df6261ff855c8146bd8134ced3b81fb43fb2a04541fa9e883e194b06be4591",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_par1_inc1",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "ofende os princípios fundamentais do sistema jurídico a que pertence;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e2cee5b94cbcdf592c3058cbc913108c4a1e111d76abc66d0825d3eca4e57671",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_par1_inc2",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "restringe direitos ou obrigações fundamentais inerentes à natureza do contrato, de tal modo a ameaçar seu objeto ou equilíbrio contratual;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ce69b79b0234e9a5a489d66516d1d31e0ceb858b918bcd2a81ff2bd25efcffd7",
+        "secondary": {
+          "outcome": "unconfirmed",
+          "source": "camara-legin",
+          "note": "Known divergence, reviewed: One word: LEGIN has an article before \"equilíbrio contratual\"; ADR 0002."
+        }
+      }
+    },
+    {
+      "id": "art51_par1_inc3",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "se mostra excessivamente onerosa para o consumidor, considerando-se a natureza e conteúdo do contrato, o interesse das partes e outras circunstâncias peculiares ao caso.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5f4e63c2d6a6d37f0ae1e395972bfab70d51abb053c0b8e54315942a733ff2aa",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_par2",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "A nulidade de uma cláusula contratual abusiva não invalida o contrato, exceto quando de sua ausência, apesar dos esforços de integração, decorrer ônus excessivo a qualquer das partes.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:16ffa13b75897570a35f956137bd9297e88b799727436dbe64204545d07d6893",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_par3",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "(Vetado).",
+      "status": "vetoed",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:26824100034b7466a62a92d9123d1feda7fcca11fa18a424dab68ed543389675",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art51_par4",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 51"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "É facultado a qualquer consumidor ou entidade que o represente requerer ao Ministério Público que ajuíze a competente ação para ser declarada a nulidade de cláusula contratual que contrarie o disposto neste código ou de qualquer forma não assegure o justo equilíbrio entre direitos e obrigações das partes.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1a06958c4638673963e0942904622a485381a480bde10941c49bd545ee87a71e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    }
+  ]
+}

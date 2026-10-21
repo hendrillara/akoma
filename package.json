@@ -11,8 +11,11 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "check:map": "node scripts/check-agent-map.mjs AGENTS.md",
+    "build:dataset": "node scripts/build-dataset.ts",
+    "check:dataset": "node scripts/check-dataset.ts",
+    "publish": "node scripts/publish.ts",
     "review:live": "node scripts/review-live.ts",
-    "verify": "pnpm typecheck && pnpm test && pnpm check:map"
+    "verify": "pnpm typecheck && pnpm test && pnpm check:map && pnpm check:dataset"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",

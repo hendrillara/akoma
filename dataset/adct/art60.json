@@ -1,0 +1,922 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art60",
+  "provisions": [
+    {
+      "id": "art60_cpt",
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "A complementação da União referida no inciso IV do caput do art. 212-A da Constituição Federal será implementada progressivamente até alcançar a proporção estabelecida no inciso V do caput do mesmo artigo, a partir de 1º de janeiro de 2021, nos seguintes valores mínimos:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:293b6ac248141559bdc973cb04cfbe95520cdbb53459da8a5bf305e1f1a327f4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_cpt_inc1",
+      "aliases": [
+        "art60_cpt_inc1,emc-53-2006-12-19"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "12% (doze por cento), no primeiro ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:de6c7ee9ddaed6b9faa4c95c4a5bf563060c2599c25ce4a849c11a418b7a85d0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_cpt_inc2",
+      "aliases": [
+        "art60_cpt_inc2,emc-53-2006-12-19"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "15% (quinze por cento), no segundo ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:65fab053eea2b34c52b9c105bda80079f514765296eefa3e4551a5d628ba17b5",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_cpt_inc3",
+      "aliases": [
+        "art60_cpt_inc3,emc-53-2006-12-19"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "17% (dezessete por cento), no terceiro ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:51c1308a15f2d322b5c9ad6c10f04a400c48187a136f73033dc07b7d789d9e38",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_cpt_inc4",
+      "aliases": [
+        "art60_cpt_inc4,emc-53-2006-12-19"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "19% (dezenove por cento), no quarto ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:974d87c6e10b1ee16cbc076f71aecb37f3f42c17476feca20e6854024109fb2f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_cpt_inc5",
+      "aliases": [
+        "art60_cpt_inc5,emc-53-2006-12-19"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "21% (vinte e um por cento), no quinto ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0c0ea75622932114fc877d32dccad43cd84fdd8281156fd2443adc21cbdbf451",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_cpt_inc6",
+      "aliases": [
+        "art60_cpt_inc6,emc-53-2006-12-19"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "23% (vinte e três por cento), no sexto ano.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c1e3d57098081fc4e2fbb98efc979b845c0989c2fb5dfb65cdd475f106b7bad4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_par1",
+      "aliases": [
+        "art60_par1u"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "A parcela da complementação de que trata a alínea \"b\" do inciso V do caput do art. 212-A da Constituição Federal observará, no mínimo, os seguintes valores:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5df52441e418bde3b7774f4b8542cf933e6bfdb571938de42726cf0200d42cb9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_par1_inc1",
+      "aliases": [
+        "art60_par1_inc1,emc-108-2020-08-26"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "2 (dois) pontos percentuais, no primeiro ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a4ff03bf02692618bc6ed5c033445124b5b0e7b09fc843f3e3f03ec156eaa2c9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_par1_inc2",
+      "aliases": [
+        "art60_par1_inc2,emc-108-2020-08-26"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "5 (cinco) pontos percentuais, no segundo ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1c60bef944fa471cfe309adae23438d2f44c2c4f5aabbd4561ae658923bebc7a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_par1_inc3",
+      "aliases": [
+        "art60_par1_inc3,emc-108-2020-08-26"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "6,25 (seis inteiros e vinte e cinco centésimos) pontos percentuais, no terceiro ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ad4d5a6da332e5a4415f050a4e3ca7b3be17ec62fd6a63f7d900d71cedf746d2",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_par1_inc4",
+      "aliases": [
+        "art60_par1_inc4,emc-108-2020-08-26"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "7,5 (sete inteiros e cinco décimos) pontos percentuais, no quarto ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:65a53e6bf9b04fa5ad254592b55eb135500fb54efd5ae510dac62224c22e6538",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_par1_inc5",
+      "aliases": [
+        "art60_par1_inc5,emc-108-2020-08-26"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "9 (nove) pontos percentuais, no quinto ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:eaba74d47aa0fff3734a2cca5830f5a71b50851a7986edd4571c0ad24ef4b332",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_par1_inc6",
+      "aliases": [
+        "art60_par1_inc6,emc-108-2020-08-26"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "10,5 (dez inteiros e cinco décimos) pontos percentuais, no sexto ano.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0d63febdf43a82819c212b6604d2a6dff89c6276ca6470252b7f88d48bc0a294",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_par2",
+      "aliases": [
+        "art60_par2,emc-14-1996-09-12"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "A parcela da complementação de que trata a alínea \"c\" do inciso V do caput do art. 212-A da Constituição Federal observará os seguintes valores:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8f5eabd2069b55cdfdaea5ee4eb02e2975128db7e37d7dabd6a0ab7d4044d834",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_par2_inc1",
+      "aliases": [
+        "art60_par2_inc1,emc-108-2020-08-26"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "0,75 (setenta e cinco centésimos) ponto percentual, no terceiro ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e3e3be78bce0e1a72b6c388466b2a36ecbd5a6e98d0f485617be4a9878847278",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_par2_inc2",
+      "aliases": [
+        "art60_par2_inc2,emc-108-2020-08-26"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "1,5 (um inteiro e cinco décimos) ponto percentual, no quarto ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a6543abf0d8cf917edbdc48334503fab72d0d4ec6f33ffca276103ff96c98cd9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_par2_inc3",
+      "aliases": [
+        "art60_par2_inc3,emc-108-2020-08-26"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "2 (dois) pontos percentuais, no quinto ano;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:06869341c734206699ec0f7c025b31abf4654d6b90ebc06006a9ba79074497e0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art60_par2_inc4",
+      "aliases": [
+        "art60_par2_inc4,emc-108-2020-08-26"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 60"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "2,5 (dois inteiros e cinco décimos) pontos percentuais, no sexto ano.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 108, de 2020",
+          "act": {
+            "citation": "Emenda Constitucional nº 108, de 2020",
+            "type": "emenda_constitucional",
+            "number": "108",
+            "year": 2020,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc108.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:12f2fdead0d4e3647931359763e5a17e5ec888dd3576bf5810dce40ce4e40b69",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,778 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art17",
+  "provisions": [
+    {
+      "id": "art17_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "É livre a criação, fusão, incorporação e extinção de partidos políticos, resguardados a soberania nacional, o regime democrático, o pluripartidarismo, os direitos fundamentais da pessoa humana e observados os seguintes preceitos:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/LEIS/L9096.htm"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:cbd5fcf9c2319fa26de9383f30a0a4487ddfba68876041b1958b6f195b185e95",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_cpt_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "caráter nacional;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b88e29fce9277abe75a8d03f120772a554ea9318cc1b1ff1881a6aab9c0099cf",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_cpt_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "proibição de recebimento de recursos financeiros de entidade ou governo estrangeiros ou de subordinação a estes;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f49e529be41fe278e208ac49898ea2b9ac3336d01230a0f161927621db3ace17",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_cpt_inc3",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "prestação de contas à Justiça Eleitoral;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:02ffc392e506fa4287c7a20178ab1b4eb8b787ad900a6711e300cd735f442827",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_cpt_inc4",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "funcionamento parlamentar de acordo com a lei.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:eadb642881049b5ebc7aed70a002b410290faf617af1f26fa3b3e92826a33850",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_par1",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "É assegurada aos partidos políticos autonomia para definir sua estrutura interna e estabelecer regras sobre escolha, formação e duração de seus órgãos permanentes e provisórios e sobre sua organização e funcionamento e para adotar os critérios de escolha e o regime de suas coligações nas eleições majoritárias, vedada a sua celebração nas eleições proporcionais, sem obrigatoriedade de vinculação entre as candidaturas em âmbito nacional, estadual, distrital ou municipal, devendo seus estatutos estabelecer normas de disciplina e fidelidade partidária.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 97, de 2017",
+          "act": {
+            "citation": "Emenda Constitucional nº 97, de 2017",
+            "type": "emenda_constitucional",
+            "number": "97",
+            "year": 2017,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc97.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:257829046e37bf9b3232dd29ca128b8aa8eaf67e482c3c892c32988021cb9d31",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_par2",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Os partidos políticos, após adquirirem personalidade jurídica, na forma da lei civil, registrarão seus estatutos no Tribunal Superior Eleitoral.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:370dac54f3c6979df0cc4c1ea7b0c63a5f9fab5c1ea7f0de52ad4cecd0c24fbd",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_par3",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Somente terão direito a recursos do fundo partidário e acesso gratuito ao rádio e à televisão, na forma da lei, os partidos políticos que alternativamente:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 97, de 2017",
+          "act": {
+            "citation": "Emenda Constitucional nº 97, de 2017",
+            "type": "emenda_constitucional",
+            "number": "97",
+            "year": 2017,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc97.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2c63a6611ee265dae97ce98dd89cd5c90e8c9bb9f911d07cc396e3b573dec829",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_par3_inc1",
+      "aliases": [
+        "art17_par3_inc1,emc-97-2017-10-04"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "obtiverem, nas eleições para a Câmara dos Deputados, no mínimo, 3% (três por cento) dos votos válidos, distribuídos em pelo menos um terço das unidades da Federação, com um mínimo de 2% (dois por cento) dos votos válidos em cada uma delas; ou",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 97, de 2017",
+          "act": {
+            "citation": "Emenda Constitucional nº 97, de 2017",
+            "type": "emenda_constitucional",
+            "number": "97",
+            "year": 2017,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc97.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:11aec6841e8fcf8a7a4f3d72437b7c039f4fa5b5c4e7eb3ff54db51c05b04b06",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_par3_inc2",
+      "aliases": [
+        "art17_par3_inc2,emc-97-2017-10-04"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "tiverem elegido pelo menos quinze Deputados Federais distribuídos em pelo menos um terço das unidades da Federação.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 97, de 2017",
+          "act": {
+            "citation": "Emenda Constitucional nº 97, de 2017",
+            "type": "emenda_constitucional",
+            "number": "97",
+            "year": 2017,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc97.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:26fdb266b35a78d23c477024f9e39db29b00a9624ccbccdd1fb53c28ff0dac7d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_par4",
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "É vedada a utilização pelos partidos políticos de organização paramilitar.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:31b490c45dd3ff998d40bd3a2e4dabc1f5c1a013bd3669098c2d29d8097d7fd9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_par5",
+      "aliases": [
+        "art17_par5,emc-97-2017-10-04"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "Ao eleito por partido que não preencher os requisitos previstos no § 3º deste artigo é assegurado o mandato e facultada a filiação, sem perda do mandato, a outro partido que os tenha atingido, não sendo essa filiação considerada para fins de distribuição dos recursos do fundo partidário e de acesso gratuito ao tempo de rádio e de televisão.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 97, de 2017",
+          "act": {
+            "citation": "Emenda Constitucional nº 97, de 2017",
+            "type": "emenda_constitucional",
+            "number": "97",
+            "year": 2017,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc97.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6095beb1bec8d9e19c57d6b1e0fa754a9d134a79c4cabca005527f07ead88f79",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_par6",
+      "aliases": [
+        "art17_par6,emc-111-2021-09-28"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 6º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 6º"
+        }
+      ],
+      "text": "Os Deputados Federais, os Deputados Estaduais, os Deputados Distritais e os Vereadores que se desligarem do partido pelo qual tenham sido eleitos perderão o mandato, salvo nos casos de anuência do partido ou de outras hipóteses de justa causa estabelecidas em lei, não computada, em qualquer caso, a migração de partido para fins de distribuição de recursos do fundo partidário ou de outros fundos públicos e de acesso gratuito ao rádio e à televisão.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 111, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 111, de 2021",
+            "type": "emenda_constitucional",
+            "number": "111",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc111.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5ba9e84ea7ded12457a08c80ed1f3e70313749facc6b5954e01600f200ce836c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_par7",
+      "aliases": [
+        "art17_par7,emc-117-2022-04-05"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 7º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 7º"
+        }
+      ],
+      "text": "Os partidos políticos devem aplicar no mínimo 5% (cinco por cento) dos recursos do fundo partidário na criação e na manutenção de programas de promoção e difusão da participação política das mulheres, de acordo com os interesses intrapartidários.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 117, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 117, de 2022",
+            "type": "emenda_constitucional",
+            "number": "117",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc117.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:72339b7ebf7259027f516e701a5fe198451b8f98663e62b13c08a33afb2f60fd",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_par8",
+      "aliases": [
+        "art17_par8,emc-117-2022-04-05"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 8º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        }
+      ],
+      "text": "O montante do Fundo Especial de Financiamento de Campanha e da parcela do fundo partidário destinada a campanhas eleitorais, bem como o tempo de propaganda gratuita no rádio e na televisão a ser distribuído pelos partidos às respectivas candidatas, deverão ser de no mínimo 30% (trinta por cento), proporcional ao número de candidatas, e a distribuição deverá ser realizada conforme critérios definidos pelos respectivos órgãos de direção e pelas normas estatutárias, considerados a autonomia e o interesse partidário.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 117, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 117, de 2022",
+            "type": "emenda_constitucional",
+            "number": "117",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc117.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3d97c0369501a31053e95c64195bd2f6d12991297718d026130c8030dfa44eea",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art17_par9",
+      "aliases": [
+        "art17_par9,emc-133-2024-08-22"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 9º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título II"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 17"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        }
+      ],
+      "text": "Dos recursos oriundos do Fundo Especial de Financiamento de Campanha e do fundo partidário destinados às campanhas eleitorais, os partidos políticos devem, obrigatoriamente, aplicar 30% (trinta por cento) em candidaturas de pessoas pretas e pardas, nas circunscrições que melhor atendam aos interesses e às estratégias partidárias.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 133, de 2024",
+          "act": {
+            "citation": "Emenda Constitucional nº 133, de 2024",
+            "type": "emenda_constitucional",
+            "number": "133",
+            "year": 2024,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc133.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5f4cf58e911092d7091b62ea56c8078e7a4c5bfc3a37901dd3dc93aa73deeaec",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

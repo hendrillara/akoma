@@ -1,0 +1,647 @@
+{
+  "norm": {
+    "key": "cdc",
+    "urn": "urn:lex:br:federal:lei:1990-09-11;8078",
+    "title": "Código de Defesa do Consumidor (Lei nº 8.078, de 11 de setembro de 1990)"
+  },
+  "article": "art4",
+  "provisions": [
+    {
+      "id": "art4_cpt",
+      "norm": "cdc",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "A Política Nacional das Relações de Consumo tem por objetivo o atendimento das necessidades dos consumidores, o respeito à sua dignidade, saúde e segurança, a proteção de seus interesses econômicos, a melhoria da sua qualidade de vida, bem como a transparência e harmonia das relações de consumo, atendidos os seguintes princípios:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Lei nº 9.008, de 21.3.1995",
+          "act": {
+            "citation": "Lei nº 9.008, de 21.3.1995",
+            "type": "lei",
+            "number": "9.008",
+            "year": 1995,
+            "href": "https://www.planalto.gov.br/ccivil_03/leis/L9008.htm#art7"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:132f3c1ed0886e97ff2aa8499d7c4bc38a4b4000e1eae688cf09852bee23e54c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc1",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "reconhecimento da vulnerabilidade do consumidor no mercado de consumo;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:50c6a8f079d525b5f003fdba9d11cdf86ae3423d74233d39ea34719e4a82b9a9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc2",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "ação governamental no sentido de proteger efetivamente o consumidor:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:46fccb802474adb0c8ecd2e2a2f8ba3ba09b22954014e7a9bbca33a0b3732b9c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc2_ali1",
+      "norm": "cdc",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "por iniciativa direta;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:63bc1b0b4833feabeb3ec34e446b1d0888e850657a0329e1e416877905156040",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc2_ali2",
+      "norm": "cdc",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "por incentivos à criação e desenvolvimento de associações representativas;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f912771fb8cb019845c1ead31b5d426d0196692e4b29150727bcd7c5e2e1f699",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc2_ali3",
+      "norm": "cdc",
+      "kind": "alinea",
+      "label": "alínea c",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea c"
+        }
+      ],
+      "text": "pela presença do Estado no mercado de consumo;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f7c4da2daa003eff5b49800bcb2c8906b58f224bd3c88a073a89102e287241e0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc2_ali4",
+      "norm": "cdc",
+      "kind": "alinea",
+      "label": "alínea d",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea d"
+        }
+      ],
+      "text": "pela garantia dos produtos e serviços com padrões adequados de qualidade, segurança, durabilidade e desempenho.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:17f0bf571495d2476f77e8ba7de167e1d12b82609e8cb9ebe4da33f6e73ac110",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc3",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "harmonização dos interesses dos participantes das relações de consumo e compatibilização da proteção do consumidor com a necessidade de desenvolvimento econômico e tecnológico, de modo a viabilizar os princípios nos quais se funda a ordem econômica (art. 170, da Constituição Federal), sempre com base na boa-fé e equilíbrio nas relações entre consumidores e fornecedores;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2ea91e6204d7d3d6fe7f0ae7fe1aa5424e2104d362eab34c375c7a6955bc3384",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc4",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "educação e informação de fornecedores e consumidores, quanto aos seus direitos e deveres, com vistas à melhoria do mercado de consumo;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9c17bf28a12d4ea0a2784652211a4d1162c159caf86f1f66e5104db2525e55ab",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc5",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "incentivo à criação pelos fornecedores de meios eficientes de controle de qualidade e segurança de produtos e serviços, assim como de mecanismos alternativos de solução de conflitos de consumo;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:abde637eb82b09b73f201020446f68925bbb4ccec85ab5b2208dbca97d0ca2b2",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc6",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "coibição e repressão eficientes de todos os abusos praticados no mercado de consumo, inclusive a concorrência desleal e utilização indevida de inventos e criações industriais das marcas e nomes comerciais e signos distintivos, que possam causar prejuízos aos consumidores;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:095c1cb3016b03d3cc3da5f5a67c1c7efb4067a2cf9712b25cc1254778f9a22b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc7",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso VII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        }
+      ],
+      "text": "racionalização e melhoria dos serviços públicos;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:706d8af3340ce6034597e371c345c40ae22bebec48d39a1a810ce8d1171b371a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc8",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso VIII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VIII"
+        }
+      ],
+      "text": "estudo constante das modificações do mercado de consumo.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4103bcb4d42900b149d450553bf60bf41e9f78dad3c3e39f90edb03d23b24c9e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc9",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso IX",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IX"
+        }
+      ],
+      "text": "fomento de ações direcionadas à educação financeira e ambiental dos consumidores;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Lei nº 14.181, de 2021",
+          "act": {
+            "citation": "Lei nº 14.181, de 2021",
+            "type": "lei",
+            "number": "14.181",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2783fd238d48e77a3c027d89ac1b90ec9a7edc19d5b621465c5ebf595d65cf82",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art4_cpt_inc10",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso X",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 4º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso X"
+        }
+      ],
+      "text": "prevenção e tratamento do superendividamento como forma de evitar a exclusão social do consumidor.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Lei nº 14.181, de 2021",
+          "act": {
+            "citation": "Lei nº 14.181, de 2021",
+            "type": "lei",
+            "number": "14.181",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:bdf725f9dcfa7aa03bad7def9732b516370dbd200710488a823a151a8d5ac47e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    }
+  ]
+}

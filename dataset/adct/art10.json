@@ -1,0 +1,279 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art10",
+  "provisions": [
+    {
+      "id": "art10_cpt",
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 10"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Até que seja promulgada a lei complementar a que se refere o art. 7º, I, da Constituição:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1b3aadf91fc1959e3d59b77bc687a9d0504936355821f6ff616068d44499a01d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art10_cpt_inc1",
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 10"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "fica limitada a proteção nele referida ao aumento, para quatro vezes, da porcentagem prevista no art. 6º, \"caput\" e § 1º, da Lei nº 5.107, de 13 de setembro de 1966;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:de0645017f907f5673d1d3709012c417d1d1b55d35eb14bece3d07e4d6ef658c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art10_cpt_inc2",
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 10"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "fica vedada a dispensa arbitrária ou sem justa causa:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:931d4af38135ed938dddaa0d4729ee9625ad6e97d67a0fdd07b7fc680900345b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art10_cpt_inc2_ali1",
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 10"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "do empregado eleito para cargo de direção de comissões internas de prevenção de acidentes, desde o registro de sua candidatura até um ano após o final de seu mandato;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5858c3f40c726c170ab5d87ca6764ab6119db68dc442737b7047f4c4e96882bc",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art10_cpt_inc2_ali2",
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 10"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "da empregada gestante, desde a confirmação da gravidez até cinco meses após o parto.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [
+        {
+          "kind": "act",
+          "annotation": "Vide Lei Complementar nº 146, de 2014",
+          "act": {
+            "citation": "Lei Complementar nº 146, de 2014",
+            "type": "lei_complementar",
+            "number": "146",
+            "year": 2014,
+            "href": "https://www.planalto.gov.br/ccivil_03/LEIS/LCP/Lcp146.htm"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:fddc93b1bbe47df93ce9a8bac6d1bcaa1f1d9f4b5a4bc88c9adfe366da46149a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art10_par1",
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 10"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Até que a lei venha a disciplinar o disposto no art. 7º, XIX, da Constituição, o prazo da licença-paternidade a que se refere o inciso é de cinco dias.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:30cb1d2531a8ee4dfbedbc5ad0488c37f29ae279b24a8669d85f5c0d056ed1c3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art10_par2",
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 10"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Até ulterior disposição legal, a cobrança das contribuições para o custeio das atividades dos sindicatos rurais será feita juntamente com a do imposto territorial rural, pelo mesmo órgão arrecadador.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a97e50b14346aa1f5314f6321721dc25df5a901fa1eff04303e2ee9b23e1faa5",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art10_par3",
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 10"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Na primeira comprovação do cumprimento das obrigações trabalhistas pelo empregador rural, na forma do art. 233, após a promulgação da Constituição, será certificada perante a Justiça do Trabalho a regularidade do contrato e das atualizações das obrigações trabalhistas de todo o período.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:712d02521704cd26f13f0cb29765925a6401aaa2e98611e917c9382b5cf8c3b8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

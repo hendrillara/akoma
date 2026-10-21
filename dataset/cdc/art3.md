@@ -1,0 +1,7 @@
+<!-- Título I › Capítulo I › Art. 3º -->
+
+**Art. 3º** Fornecedor é toda pessoa física ou jurídica, pública ou privada, nacional ou estrangeira, bem como os entes despersonalizados, que desenvolvem atividade de produção, montagem, criação, construção, transformação, importação, exportação, distribuição ou comercialização de produtos ou prestação de serviços.
+
+§ 1º Produto é qualquer bem, móvel ou imóvel, material ou imaterial.
+
+§ 2º Serviço é qualquer atividade fornecida no mercado de consumo, mediante remuneração, inclusive as de natureza bancária, financeira, de crédito e securitária, salvo as decorrentes das relações de caráter trabalhista.

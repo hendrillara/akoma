@@ -1,0 +1,182 @@
+{
+  "norm": {
+    "key": "cdc",
+    "urn": "urn:lex:br:federal:lei:1990-09-11;8078",
+    "title": "Código de Defesa do Consumidor (Lei nº 8.078, de 11 de setembro de 1990)"
+  },
+  "article": "art53",
+  "provisions": [
+    {
+      "id": "art53_cpt",
+      "norm": "cdc",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 53"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Nos contratos de compra e venda de móveis ou imóveis mediante pagamento em prestações, bem como nas alienações fiduciárias em garantia, consideram-se nulas de pleno direito as cláusulas que estabeleçam a perda total das prestações pagas em benefício do credor que, em razão do inadimplemento, pleitear a resolução do contrato e a retomada do produto alienado.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c2c42609c455e599a1b7ccab9b9c6393dfa79bf371a78342576c5787f8f0174d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art53_par1",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 53"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "(Vetado).",
+      "status": "vetoed",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:26824100034b7466a62a92d9123d1feda7fcca11fa18a424dab68ed543389675",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art53_par2",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 53"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Nos contratos do sistema de consórcio de produtos duráveis, a compensação ou a restituição das parcelas quitadas, na forma deste artigo, terá descontada, além da vantagem econômica auferida com a fruição, os prejuízos que o desistente ou inadimplente causar ao grupo.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ad380b6538529e2eb88ae9136884683e2e832efe67f55e2c3aa2d86978b1dec7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art53_par3",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 53"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Os contratos de que trata o caput deste artigo serão expressos em moeda corrente nacional.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2569b642742ce57ba6058fb88629608a31c7e1ff2201154eacc322ed686c3a8e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    }
+  ]
+}

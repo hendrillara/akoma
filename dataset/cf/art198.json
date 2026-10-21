@@ -1,0 +1,1680 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art198",
+  "provisions": [
+    {
+      "id": "art198_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "As ações e serviços públicos de saúde integram uma rede regionalizada e hierarquizada e constituem um sistema único, organizado de acordo com as seguintes diretrizes:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [
+        {
+          "kind": "adpf",
+          "annotation": "Vide ADPF 672",
+          "number": "672",
+          "href": "http://www.stf.jus.br/portal/peticaoInicial/verPeticaoInicial.asp?base=ADPF&documento=&s1=672&numProcesso=672"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a48bd9039647cc711a0199189bd5926e63f81ac00f3bc58ed9bbfcb0ad890200",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_cpt_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "descentralização, com direção única em cada esfera de governo;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0ae694d059e2bf6ca23c8bb4edd8784418f59468b74881931a25a0b6e394185f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_cpt_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "atendimento integral, com prioridade para as atividades preventivas, sem prejuízo dos serviços assistenciais;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:67157255fbfab368c80d260fff55f581e5459e9e019d97d63b4c2d8005c370b1",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_cpt_inc3",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "participação da comunidade.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a8694f93533608d7452fd04b53768447ed3059270a5e8aed1c5d384396a049fe",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_cpt_inc4",
+      "aliases": [
+        "art198_cpt_inc4,emc-140-2026-10-16"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "atuação obrigatória e permanente de agentes comunitários de saúde e de agentes de combate às endemias, cuja atividade é essencial ao sistema único de saúde e exclusiva de Estado.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 140, de 2026",
+          "act": {
+            "citation": "Emenda Constitucional nº 140, de 2026",
+            "type": "emenda_constitucional",
+            "number": "140",
+            "year": 2026,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc140.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3f42faec16d8337294c7a88ca4bd9c4aace843d64c634c8ecd83ac8fd48b3bf8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par1",
+      "aliases": [
+        "art198_par1u"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "O sistema único de saúde será financiado, nos termos do art. 195, com recursos do orçamento da seguridade social, da União, dos Estados, do Distrito Federal e dos Municípios, além de outras fontes.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "renumbered",
+          "annotation": "Parágrafo único renumerado para § 1º pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art6"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:dfb01a21c32dd57f29b7547a4245f601a242c228ac9dc9fd5f46f1fad4ffff87",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par2",
+      "aliases": [
+        "art198_par2,emc-29-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "A União, os Estados, o Distrito Federal e os Municípios aplicarão, anualmente, em ações e serviços públicos de saúde recursos mínimos derivados da aplicação de percentuais calculados sobre:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art6"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6a4bc4b193a876ed23bb4d640d90d1e1cfe8b3c1a161a185793af30fa4b8f428",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par2_inc1",
+      "aliases": [
+        "art198_par2_inc1,emc-29-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "no caso da União, a receita corrente líquida do respectivo exercício financeiro, não podendo ser inferior a 15% (quinze por cento);",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 86, de 2015",
+          "act": {
+            "citation": "Emenda Constitucional nº 86, de 2015",
+            "type": "emenda_constitucional",
+            "number": "86",
+            "year": 2015,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc86.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7f989a4957915e7ce13056cea56da2d1d42d71f595ac1ff6a49dcab80537e2bc",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par2_inc2",
+      "aliases": [
+        "art198_par2_inc2,emc-29-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "no caso dos Estados e do Distrito Federal, o produto da arrecadação dos impostos a que se referem os arts. 155 e 156-A e dos recursos de que tratam os arts. 157 e 159, I, \"a\", e II, deduzidas as parcelas que forem transferidas aos respectivos Municípios;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:16c1704a09825d9a7e8502c47c535accddfaac310313f4a9804ef8aeea32bd3c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par2_inc3",
+      "aliases": [
+        "art198_par2_inc3,emc-29-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "no caso dos Municípios e do Distrito Federal, o produto da arrecadação dos impostos a que se referem os arts. 156 e 156-A e dos recursos de que tratam os arts. 158 e 159, I, \"b\", e § 3º.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d4b97c1df7c77b8d37ea00fa075b6de253fb1f72b0f37f28fc807a132616a794",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par3",
+      "aliases": [
+        "art198_par3,emc-29-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Lei complementar, que será reavaliada pelo menos a cada cinco anos, estabelecerá:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art6"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/LEIS/LCP/Lcp141.htm"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9c9679dcf39998a6ecc80b67c7cfac6e0723f0868da329fa160e39bf128c8822",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par3_inc1",
+      "aliases": [
+        "art198_par3_inc1,emc-29-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "os percentuais de que tratam os incisos II e III do § 2º;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 86, de 2015",
+          "act": {
+            "citation": "Emenda Constitucional nº 86, de 2015",
+            "type": "emenda_constitucional",
+            "number": "86",
+            "year": 2015,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc86.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7feae64534274ee104656afc3c583f5e693573ddedf9cfac578e115cf02d3d47",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par3_inc2",
+      "aliases": [
+        "art198_par3_inc2,emc-29-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "os critérios de rateio dos recursos da União vinculados à saúde destinados aos Estados, ao Distrito Federal e aos Municípios, e dos Estados destinados a seus respectivos Municípios, objetivando a progressiva redução das disparidades regionais;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art6"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:55cb81d5010b62d7cb7b3a1458db37d113e1be40143b8a78822393c1fc9a7f1e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par3_inc3",
+      "aliases": [
+        "art198_par3_inc3,emc-29-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "as normas de fiscalização, avaliação e controle das despesas com saúde nas esferas federal, estadual, distrital e municipal;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art6"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4a85dceaf7195484a08e831738d31f55f93f952f783910157ba59ac317885948",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par3_inc4",
+      "aliases": [
+        "art198_par3_inc4,emc-29-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "(revogado).",
+      "status": "revoked",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 86, de 2015",
+          "act": {
+            "citation": "Emenda Constitucional nº 86, de 2015",
+            "type": "emenda_constitucional",
+            "number": "86",
+            "year": 2015,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc86.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0ce54a70c727d5c4c7df38e6238e7cfdd447eeeba749d95f92fd0accfeae5795",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par4",
+      "aliases": [
+        "art198_par4,emc-51-2006-02-14"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "Os gestores locais do sistema único de saúde poderão admitir agentes comunitários de saúde e agentes de combate às endemias por meio de processo seletivo público, de acordo com a natureza e complexidade de suas atribuições e requisitos específicos para sua atuação.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 51, de 2006",
+          "act": {
+            "citation": "Emenda Constitucional nº 51, de 2006",
+            "type": "emenda_constitucional",
+            "number": "51",
+            "year": 2006,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc51.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1768d3f8de38671ca81dce2ef06ba5a4aef7cf0256008e6a000732c3a044ba21",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par4-1",
+      "aliases": [
+        "art198_par4-1,emc-140-2026-10-16"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 4º-A",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º-A"
+        }
+      ],
+      "text": "É vedada a contratação temporária ou terceirizada de agentes comunitários de saúde e de agentes de combate às endemias, salvo a hipótese de emergência em saúde pública, na forma da lei.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 140, de 2026",
+          "act": {
+            "citation": "Emenda Constitucional nº 140, de 2026",
+            "type": "emenda_constitucional",
+            "number": "140",
+            "year": 2026,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc140.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:39bee3ed94507f5071f2191019bb8b68ec7ed29493063091b2a31be620b1f29e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par4-2",
+      "aliases": [
+        "art198_par4-2,emc-140-2026-10-16"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 4º-B",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º-B"
+        }
+      ],
+      "text": "Os agentes de que trata o § 4º deste artigo submetem-se ao regime jurídico dos servidores nomeados para cargo de provimento efetivo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 140, de 2026",
+          "act": {
+            "citation": "Emenda Constitucional nº 140, de 2026",
+            "type": "emenda_constitucional",
+            "number": "140",
+            "year": 2026,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc140.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d343ef4a0c5a1bb7888b4eeac71c3f4674e36dedcfa9debf87471865a3b3cd12",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par5",
+      "aliases": [
+        "art198_par5,emc-51-2006-02-14"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "Lei federal disporá sobre o regime jurídico, o piso salarial profissional nacional, as diretrizes para os Planos de Carreira e a regulamentação das atividades de agente comunitário de saúde e agente de combate às endemias, competindo à União, nos termos da lei, prestar assistência financeira complementar aos Estados, ao Distrito Federal e aos Municípios, para o cumprimento do referido piso salarial.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 63, de 2010",
+          "act": {
+            "citation": "Emenda Constitucional nº 63, de 2010",
+            "type": "emenda_constitucional",
+            "number": "63",
+            "year": 2010,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc63.htm#art1"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "regulamento",
+          "annotation": "Regulamento",
+          "href": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11350.htm"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7003bc38ec1fd6355f40cf80c22893a0d5852e2cf960a14f36e98058f9122b89",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par6",
+      "aliases": [
+        "art198_par6,emc-51-2006-02-14"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 6º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 6º"
+        }
+      ],
+      "text": "Além das hipóteses previstas no § 1º do art. 41 e no § 4º do art. 169 da Constituição Federal, o servidor que exerça funções equivalentes às de agente comunitário de saúde ou de agente de combate às endemias poderá perder o cargo em caso de descumprimento dos requisitos específicos, fixados em lei, para o seu exercício.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 51, de 2006",
+          "act": {
+            "citation": "Emenda Constitucional nº 51, de 2006",
+            "type": "emenda_constitucional",
+            "number": "51",
+            "year": 2006,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc51.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d9911fd45527ab71a1bf5750002e05e20c7931ff12f54aaf5c2723f81565340d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par7",
+      "aliases": [
+        "art198_par7,emc-120-2022-05-05"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 7º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 7º"
+        }
+      ],
+      "text": "O vencimento dos agentes comunitários de saúde e dos agentes de combate às endemias fica sob responsabilidade da União, e cabe aos Estados, ao Distrito Federal e aos Municípios estabelecer, além de outros consectários e vantagens, incentivos, auxílios, gratificações e indenizações, a fim de valorizar o trabalho desses profissionais.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 120, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 120, de 2022",
+            "type": "emenda_constitucional",
+            "number": "120",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc120.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f84c75e4dc36ed8e50cb48e724da81711a765e31f85db1e066200d910110b9d3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par8",
+      "aliases": [
+        "art198_par8,emc-120-2022-05-05"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 8º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        }
+      ],
+      "text": "Os recursos destinados ao pagamento do vencimento dos agentes comunitários de saúde e dos agentes de combate às endemias serão consignados no orçamento geral da União com dotação própria e exclusiva.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 120, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 120, de 2022",
+            "type": "emenda_constitucional",
+            "number": "120",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc120.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:52467823821c34a5436bfc2c933fd0dafa37801344bb12a4f6558718c10e6898",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par9",
+      "aliases": [
+        "art198_par9,emc-120-2022-05-05"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 9º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        }
+      ],
+      "text": "O vencimento dos agentes comunitários de saúde e dos agentes de combate às endemias não será inferior a 2 (dois) salários mínimos, repassados pela União aos Municípios, aos Estados e ao Distrito Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 120, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 120, de 2022",
+            "type": "emenda_constitucional",
+            "number": "120",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc120.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c45021ec1e6cff78fb6bb7f3340fda6d5133f44d1fe050a2530cf0f3df942451",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par10",
+      "aliases": [
+        "art198_par10,emc-120-2022-05-05"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 10",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 10"
+        }
+      ],
+      "text": "Os agentes comunitários de saúde e os agentes de combate às endemias terão, em razão dos riscos inerentes às funções desempenhadas, direito à aposentadoria mediante requisitos diferenciados, na forma do § 5º-A do art. 40 e do § 8º-A do art. 201 desta Constituição, e ao adicional de insalubridade.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 140, de 2026",
+          "act": {
+            "citation": "Emenda Constitucional nº 140, de 2026",
+            "type": "emenda_constitucional",
+            "number": "140",
+            "year": 2026,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc140.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:639949bc78549f9f5ab9304b63e9e796768dd7a84cba9ee27fbf3501a7a95ac2",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par11",
+      "aliases": [
+        "art198_par11,emc-120-2022-05-05"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 11",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 11"
+        }
+      ],
+      "text": "Os recursos financeiros repassados pela União aos Estados, ao Distrito Federal e aos Municípios para pagamento do vencimento ou de qualquer outra vantagem dos agentes comunitários de saúde e dos agentes de combate às endemias não serão objeto de inclusão no cálculo para fins do limite de despesa com pessoal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 120, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 120, de 2022",
+            "type": "emenda_constitucional",
+            "number": "120",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc120.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a93bf9bb839975b99e24ceec69b099d9a6b338d7f07291f7821468defc31014d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par12",
+      "aliases": [
+        "art198_par12,emc-124-2022-07-14"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 12",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        }
+      ],
+      "text": "Lei federal instituirá pisos salariais profissionais nacionais para o enfermeiro, o técnico de enfermagem, o auxiliar de enfermagem e a parteira, a serem observados por pessoas jurídicas de direito público e de direito privado.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 124, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 124, de 2022",
+            "type": "emenda_constitucional",
+            "number": "124",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc124.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:cd987d91a42a7f9399d3ca06377ea330b1938002a99f129151f968c4966926ae",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par13",
+      "aliases": [
+        "art198_par13,emc-124-2022-07-14"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 13",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 13"
+        }
+      ],
+      "text": "A União, os Estados, o Distrito Federal e os Municípios, até o final do exercício financeiro em que for publicada a lei de que trata o § 12 deste artigo, adequarão a remuneração dos cargos ou dos respectivos planos de carreiras, quando houver, de modo a atender aos pisos estabelecidos para cada categoria profissional.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 124, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 124, de 2022",
+            "type": "emenda_constitucional",
+            "number": "124",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc124.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f9d41289d2b9d4e37c4a649359f56874da54dc9cb75801a20391fa78287b9e31",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par14",
+      "aliases": [
+        "art198_par14,emc-127-2022-12-22"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 14",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 14"
+        }
+      ],
+      "text": "Compete à União, nos termos da lei, prestar assistência financeira complementar aos Estados, ao Distrito Federal e aos Municípios e às entidades filantrópicas, bem como aos prestadores de serviços contratualizados que atendam, no mínimo, 60% (sessenta por cento) de seus pacientes pelo sistema único de saúde, para o cumprimento dos pisos salariais de que trata o § 12 deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 127, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 127, de 2022",
+            "type": "emenda_constitucional",
+            "number": "127",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc127.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b34d639bba30e65a6a3a9715ec51474bda78a7ab92c7a25863cf2324083ad80a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art198_par15",
+      "aliases": [
+        "art198_par15,emc-127-2022-12-22"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 15",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VIII"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo II"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção II"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 198"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 15"
+        }
+      ],
+      "text": "Os recursos federais destinados aos pagamentos da assistência financeira complementar aos Estados, ao Distrito Federal e aos Municípios e às entidades filantrópicas, bem como aos prestadores de serviços contratualizados que atendam, no mínimo, 60% (sessenta por cento) de seus pacientes pelo sistema único de saúde, para o cumprimento dos pisos salariais de que trata o § 12 deste artigo serão consignados no orçamento geral da União com dotação própria e exclusiva.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 127, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 127, de 2022",
+            "type": "emenda_constitucional",
+            "number": "127",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc127.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:980ef585dbb1835ebe139808a185539382ed4c0a4f366976c7d1b66d734e7003",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

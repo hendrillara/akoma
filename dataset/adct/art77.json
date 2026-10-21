@@ -1,0 +1,479 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art77",
+  "provisions": [
+    {
+      "id": "art77_cpt",
+      "aliases": [
+        "art77_cpt,emc-29-2000-09-13"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 77"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Até o exercício financeiro de 2004, os recursos mínimos aplicados nas ações e serviços públicos de saúde serão equivalentes:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art7"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:98a75c98c18e8fc01a8ce0d2f6921a0bdbb257334ce787be7c0ba33f61077ce7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art77_cpt_inc1",
+      "aliases": [
+        "art77_cpt_inc1,emc-29-2000-09-13"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 77"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "no caso da União:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art7"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e5061b7aabcfbfb5bc6814633329bca77982301311cd4ff41f5a0b6c301acacd",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art77_cpt_inc1_ali1",
+      "aliases": [
+        "art77_cpt_inc1_ali1,emc-29-2000-09-13"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 77"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "no ano 2000, o montante empenhado em ações e serviços públicos de saúde no exercício financeiro de 1999 acrescido de, no mínimo, cinco por cento;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art7"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:cb3cd9688b6cb400b343094852d7fce382b5297fa03f1c3cafb7c581012dd0f6",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art77_cpt_inc1_ali2",
+      "aliases": [
+        "art77_cpt_inc1_ali2,emc-29-2000-09-13"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 77"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "do ano 2001 ao ano 2004, o valor apurado no ano anterior, corrigido pela variação nominal do Produto Interno Bruto – PIB;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art7"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a926f77b7724ce95ded099524e669782b4d529d4d86740ec2b83104cc53fa83a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art77_cpt_inc2",
+      "aliases": [
+        "art77_cpt_inc2,emc-29-2000-09-13"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 77"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "no caso dos Estados e do Distrito Federal, doze por cento do produto da arrecadação dos impostos a que se refere o art. 155 e dos recursos de que tratam os arts. 157 e 159, inciso I, alínea a, e inciso II, deduzidas as parcelas que forem transferidas aos respectivos Municípios; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art7"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:687cf4294f00ff826ab51cedff5ba34da2860f72ede2f38186e199be3cc77eb3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art77_cpt_inc3",
+      "aliases": [
+        "art77_cpt_inc3,emc-29-2000-09-13"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 77"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "no caso dos Municípios e do Distrito Federal, quinze por cento do produto da arrecadação dos impostos a que se refere o art. 156 e dos recursos de que tratam os arts. 158 e 159, inciso I, alínea b e § 3º.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art7"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:26fff7ca520b0a1d829a4ff1c2b8a22dff19e551b0f44440cbc8e37a098f6c69",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art77_par1",
+      "aliases": [
+        "art77_par1,emc-29-2000-09-13"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 77"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Os Estados, o Distrito Federal e os Municípios que apliquem percentuais inferiores aos fixados nos incisos II e III deverão elevá-los gradualmente, até o exercício financeiro de 2004, reduzida a diferença à razão de, pelo menos, um quinto por ano, sendo que, a partir de 2000, a aplicação será de pelo menos sete por cento.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art7"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7af1b1dfd0a914a33cf58070a8d650973cbc9e4b2c55a031f5af5250cb5e7992",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art77_par2",
+      "aliases": [
+        "art77_par2,emc-29-2000-09-13"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 77"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Dos recursos da União apurados nos termos deste artigo, quinze por cento, no mínimo, serão aplicados nos Municípios, segundo o critério populacional, em ações e serviços básicos de saúde, na forma da lei.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art7"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:73d67d0dcc64a78641496b2abc83ab138e8a8edcc997694b01cc61da8a4caf08",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art77_par3",
+      "aliases": [
+        "art77_par3,emc-29-2000-09-13"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 77"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Os recursos dos Estados, do Distrito Federal e dos Municípios destinados às ações e serviços públicos de saúde e os transferidos pela União para a mesma finalidade serão aplicados por meio de Fundo de Saúde que será acompanhado e fiscalizado por Conselho de Saúde, sem prejuízo do disposto no art. 74 da Constituição Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art7"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:88210b0160691bd82d6b5e716ed9c846a0737f935e0ba3f00c0e6250f0aa1485",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art77_par4",
+      "aliases": [
+        "art77_par4,emc-29-2000-09-13"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 77"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "Na ausência da lei complementar a que se refere o art. 198, § 3º, a partir do exercício financeiro de 2005, aplicar-se-á à União, aos Estados, ao Distrito Federal e aos Municípios o disposto neste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art7"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:abd42e9c6269048a2044342307ab0a2d8a34a1e5b2d7e44fde4a39baf58b5b51",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

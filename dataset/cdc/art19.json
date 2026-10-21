@@ -1,0 +1,311 @@
+{
+  "norm": {
+    "key": "cdc",
+    "urn": "urn:lex:br:federal:lei:1990-09-11;8078",
+    "title": "Código de Defesa do Consumidor (Lei nº 8.078, de 11 de setembro de 1990)"
+  },
+  "article": "art19",
+  "provisions": [
+    {
+      "id": "art19_cpt",
+      "norm": "cdc",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 19"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Os fornecedores respondem solidariamente pelos vícios de quantidade do produto sempre que, respeitadas as variações decorrentes de sua natureza, seu conteúdo líquido for inferior às indicações constantes do recipiente, da embalagem, rotulagem ou de mensagem publicitária, podendo o consumidor exigir, alternativamente e à sua escolha:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0fe1b0f33e8e5115ff48c6d087b7b4f36a8529383b70da37fa08fc273121b5ef",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art19_cpt_inc1",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 19"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "o abatimento proporcional do preço;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f3cdff4622c58e3005110c2871698f932a7c848a203ba4634af1ae139a06c906",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art19_cpt_inc2",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 19"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "complementação do peso ou medida;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7fc582e49f98211bc3f5c74167734f7e9652bffca68f7ecc6a8cbcb44588a2a7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art19_cpt_inc3",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 19"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "a substituição do produto por outro da mesma espécie, marca ou modelo, sem os aludidos vícios;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:00e2868546512ce3e3ee4189cc6f157ba3f07aabc5ea746fb5d946ae22f90597",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art19_cpt_inc4",
+      "norm": "cdc",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 19"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "a restituição imediata da quantia paga, monetariamente atualizada, sem prejuízo de eventuais perdas e danos.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:059692b71b49602b35c586653402491403bb0487fe1c9aad418ee64cee7fb99b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art19_par1",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 19"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Aplica-se a este artigo o disposto no § 4° do artigo anterior.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1e73abf2bbcc17f1805feb258f638a2477a8fa05e312a4d1e494328ffc26cfb3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art19_par2",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção III"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 19"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "O fornecedor imediato será responsável quando fizer a pesagem ou a medição e o instrumento utilizado não estiver aferido segundo os padrões oficiais.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5a49e9b398befc31310fd79d9d96a7fb50bfefcc52d7b0811851ad46ba2b7eba",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    }
+  ]
+}

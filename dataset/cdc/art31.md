@@ -1,0 +1,5 @@
+<!-- Título I › Capítulo V › Seção II › Art. 31 -->
+
+**Art. 31** A oferta e apresentação de produtos ou serviços devem assegurar informações corretas, claras, precisas, ostensivas e em língua portuguesa sobre suas características, qualidades, quantidade, composição, preço, garantia, prazos de validade e origem, entre outros dados, bem como sobre os riscos que apresentam à saúde e segurança dos consumidores.
+
+Parágrafo único. As informações de que trata este artigo, nos produtos refrigerados oferecidos ao consumidor, serão gravadas de forma indelével. *(Incluído pela Lei nº 11.989, de 2009)*

@@ -1,0 +1,61 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art250",
+  "provisions": [
+    {
+      "id": "art250_cpt",
+      "aliases": [
+        "art250_cpt,emc-20-1998-12-15"
+      ],
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IX"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 250"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Com o objetivo de assegurar recursos para o pagamento dos benefícios concedidos pelo regime geral de previdência social, em adição aos recursos de sua arrecadação, a União poderá constituir fundo integrado por bens, direitos e ativos de qualquer natureza, mediante lei que disporá sobre a natureza e administração desse fundo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 20, de 1998",
+          "act": {
+            "citation": "Emenda Constitucional nº 20, de 1998",
+            "type": "emenda_constitucional",
+            "number": "20",
+            "year": 1998,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc20.htm#art250"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:dd43c971df7e9f684cea6188cdbe58283e37228679856c7bac701640ea4c87fc",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

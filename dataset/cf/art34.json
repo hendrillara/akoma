@@ -1,0 +1,639 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art34",
+  "provisions": [
+    {
+      "id": "art34_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "A União não intervirá nos Estados nem no Distrito Federal, exceto para:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:775a759658a5f9d47250de0bc93b55dd11c816fcfad97542396b171fdf3ca7c0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "manter a integridade nacional;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6d1550a573b4a3e168f06dd78abd5058d47a13fc37bd91f3a7fc6d341d596adb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "repelir invasão estrangeira ou de uma unidade da Federação em outra;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7eb4425ae6046d4e287170baa37e63364c807bdda8fb76b4cac730d83f328e4a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc3",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "pôr termo a grave comprometimento da ordem pública;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:47b31d330ba34a0d9273286c40ce54aaa68f1154f4f6001bc46ae5a937e82ce4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc4",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "garantir o livre exercício de qualquer dos Poderes nas unidades da Federação;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:13a7322dd2b7ccdc49b468c38681777d745d1d8e56ffb8efc44343578e2aee7f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc5",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "reorganizar as finanças da unidade da Federação que:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d502083ab7d00ab569408db842370a0880f9d6c0daf8f0ea5d35740c2e317a9d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc5_ali1",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "suspender o pagamento da dívida fundada por mais de dois anos consecutivos, salvo motivo de força maior;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4c11b0babd521d79e38235a717f114afa1e9866e3191d9ccbca09ba598152f2d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc5_ali2",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "deixar de entregar aos Municípios receitas tributárias fixadas nesta Constituição, dentro dos prazos estabelecidos em lei;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:29e2118cfd694bd8aee00a9102cb22a4f4e6f8421fe601668511fe0c74e532c7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc6",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "prover a execução de lei federal, ordem ou decisão judicial;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:46e3ac54322efb073a5b819d4b6534233f8d9db90f4e0cd350221ef37bf32280",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc7",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VII",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        }
+      ],
+      "text": "assegurar a observância dos seguintes princípios constitucionais:",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c989c22993445f4f065c3015933d8571db059c82646dbd19640ba12bc97e4790",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc7_ali1",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "forma republicana, sistema representativo e regime democrático;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:872ac71679ba4ff16a982dcc37b2f72d6a22dfbd94dfe0e98ba47a0a6142c428",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc7_ali2",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "direitos da pessoa humana;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e281551d750e93233c53d38e7ab47ea71c7a55c07f1934138c7d32b205fa328c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc7_ali3",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea c",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea c"
+        }
+      ],
+      "text": "autonomia municipal;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2d4313eb199ebf06edae8f1636967492c830cbb7b947f7efae08c3c0cf081a3e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc7_ali4",
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea d",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea d"
+        }
+      ],
+      "text": "prestação de contas da administração pública, direta e indireta.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e2cf769cbef97d9b2b6bfd67283d16872b9dac152be4790e65b1ac3f9046a909",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art34_cpt_inc7_ali5",
+      "aliases": [
+        "art34_cpt_inc7_ali5,emc-14-1996-09-12"
+      ],
+      "norm": "cf",
+      "kind": "alinea",
+      "label": "alínea e",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 34"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea e"
+        }
+      ],
+      "text": "aplicação do mínimo exigido da receita resultante de impostos estaduais, compreendida a proveniente de transferências, na manutenção e desenvolvimento do ensino e nas ações e serviços públicos de saúde.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2a3b45634a0b6896ab2878c9a6ad8be8255885f6e48cf18a3c94cb2456351e44",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

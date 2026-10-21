@@ -1,0 +1,523 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art120",
+  "provisions": [
+    {
+      "id": "art120_cpt",
+      "aliases": [
+        "art120_cpt,emc-123-2022-07-14"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 120"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Fica reconhecido, no ano de 2022, o estado de emergência decorrente da elevação extraordinária e imprevisível dos preços do petróleo, combustíveis e seus derivados e dos impactos sociais dela decorrentes.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 123, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 123, de 2022",
+            "type": "emenda_constitucional",
+            "number": "123",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc123.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ea78a611816eefc988d82f080849a18cd684e5c12a050c06bbab8eca385ef105",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art120_par1",
+      "aliases": [
+        "art120_par1u,emc-123-2022-07-14"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "parágrafo único",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 120"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "parágrafo único"
+        }
+      ],
+      "text": "Para enfretamento ou mitigação dos impactos decorrentes do estado de emergência reconhecido, as medidas implementadas, até os limites de despesas previstos em uma única e exclusiva norma constitucional observarão o seguinte:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 123, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 123, de 2022",
+            "type": "emenda_constitucional",
+            "number": "123",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc123.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2fa2e11bf3fc5f11c4367666306a42b0f4754b560029803826c87706240b6bfa",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art120_par1_inc1",
+      "aliases": [
+        "art120_par1u_inc1,emc-123-2022-07-14"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 120"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "parágrafo único"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "quanto às despesas:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 123, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 123, de 2022",
+            "type": "emenda_constitucional",
+            "number": "123",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc123.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ade041a10aa180189ed37b818914ca2db2bb2f302c90cf03cc96edab3ef40bb4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art120_par1_inc1_ali1",
+      "aliases": [
+        "art120_par1u_inc1_ali1,emc-123-2022-07-14"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 120"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "parágrafo único"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "serão atendidas por meio de crédito extraordinário;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluída pela Emenda Constitucional nº 123, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 123, de 2022",
+            "type": "emenda_constitucional",
+            "number": "123",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc123.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ec9e9795a72806db93a0a214643d00b0249f500fb83df7a278ef4b2dc0d66eaa",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art120_par1_inc1_ali2",
+      "aliases": [
+        "art120_par1u_inc1_ali2,emc-123-2022-07-14"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 120"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "parágrafo único"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "não serão consideradas para fins de apuração da meta de resultado primário estabelecida no caput do art. 2º da Lei nº 14.194, de 20 de agosto de 2021, e do limite estabelecido para as despesas primárias, conforme disposto no inciso I do caput do art. 107 do Ato das Disposições Constitucionais Transitórias; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluída pela Emenda Constitucional nº 123, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 123, de 2022",
+            "type": "emenda_constitucional",
+            "number": "123",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc123.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0695907203e37d257fc2380bbb144dc920bd7078e6156f2289968af6f1fb9adb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art120_par1_inc1_ali3",
+      "aliases": [
+        "art120_par1u_inc1_ali3,emc-123-2022-07-14"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea c",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 120"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "parágrafo único"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea c"
+        }
+      ],
+      "text": "ficarão ressalvadas do disposto no inciso III do caput do art. 167 da Constituição Federal;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluída pela Emenda Constitucional nº 123, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 123, de 2022",
+            "type": "emenda_constitucional",
+            "number": "123",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc123.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4eb5b72e3da197c4477121f262f6eec4facdf2bb406e2b84e634c801d6f75bd6",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art120_par1_inc2",
+      "aliases": [
+        "art120_par1u_inc2,emc-123-2022-07-14"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 120"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "parágrafo único"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "a abertura do crédito extraordinário para seu atendimento dar-se-á independentemente da observância dos requisitos exigidos no § 3º do art. 167 da Constituição Federal; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 123, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 123, de 2022",
+            "type": "emenda_constitucional",
+            "number": "123",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc123.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:173b37be4aff963ca8bc2177c6c4b919344a07c6d6b5b10767d8557562d4071d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art120_par1_inc3",
+      "aliases": [
+        "art120_par1u_inc3,emc-123-2022-07-14"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 120"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "parágrafo único"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "a dispensa das limitações legais, inclusive quanto à necessidade de compensação:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 123, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 123, de 2022",
+            "type": "emenda_constitucional",
+            "number": "123",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc123.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d2e5098331b35e54ad89482ab816e3cfb9960606f943e3e5d7139e95c7efaf39",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art120_par1_inc3_ali1",
+      "aliases": [
+        "art120_par1u_inc3_ali1,emc-123-2022-07-14"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 120"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "parágrafo único"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "à criação, à expansão ou ao aperfeiçoamento de ação governamental que acarrete aumento de despesa; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluída pela Emenda Constitucional nº 123, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 123, de 2022",
+            "type": "emenda_constitucional",
+            "number": "123",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc123.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9b652fbb8960410632ee671c4ab361082a5fb5bc82a0347ee23812153296eab6",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art120_par1_inc3_ali2",
+      "aliases": [
+        "art120_par1u_inc3_ali2,emc-123-2022-07-14"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 120"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "parágrafo único"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "à renúncia de receita que possa ocorrer.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluída pela Emenda Constitucional nº 123, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 123, de 2022",
+            "type": "emenda_constitucional",
+            "number": "123",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc123.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:33a7b91d61b6894d1967e75c9ed048e0e3db2a6236b98530dfd96ca518a1a95d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

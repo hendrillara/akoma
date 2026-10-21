@@ -1,0 +1,13 @@
+<!-- Art. 38 -->
+
+**Art. 38** Até a promulgação da lei complementar referida no art. 169, a União, os Estados, o Distrito Federal e os Municípios não poderão despender com pessoal mais do que sessenta e cinco por cento do valor das respectivas receitas correntes.
+
+§ 1º A União, os Estados, o Distrito Federal e os Municípios, quando a respectiva despesa de pessoal exceder o limite previsto neste artigo, deverão retornar àquele limite, reduzindo o percentual excedente à razão de um quinto por ano. *(Incluído pela Emenda Constitucional nº 127, de 2022)*
+
+§ 2º As despesas com pessoal resultantes do cumprimento do disposto nos §§ 12, 13, 14 e 15 do art. 198 da Constituição Federal serão contabilizadas, para fins dos limites de que trata o art. 169 da Constituição Federal, da seguinte forma: *(Incluído pela Emenda Constitucional nº 127, de 2022)*
+
+I - até o fim do exercício financeiro subsequente ao da publicação deste dispositivo, não serão contabilizadas para esses limites; *(Incluído pela Emenda Constitucional nº 127, de 2022)*
+
+II - no segundo exercício financeiro subsequente ao da publicação deste dispositivo, serão deduzidas em 90% (noventa por cento) do seu valor; *(Incluído pela Emenda Constitucional nº 127, de 2022)*
+
+III - entre o terceiro e o décimo segundo exercício financeiro subsequente ao da publicação deste dispositivo, a dedução de que trata o inciso II deste parágrafo será reduzida anualmente na proporção de 10% (dez por cento) de seu valor. *(Incluído pela Emenda Constitucional nº 127, de 2022)*

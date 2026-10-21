@@ -1,0 +1,459 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art76-2",
+  "provisions": [
+    {
+      "id": "art76-2_cpt",
+      "aliases": [
+        "art76-2_cpt,emc-93-2016-09-08"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 76-B"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "São desvinculadas de órgão, fundo ou despesa, até 31 de dezembro de 2032, as receitas dos Municípios relativas a impostos, contribuições, taxas e multas, já instituídos ou que vierem a ser criados até a referida data, seus adicionais e respectivos acréscimos legais, e outras receitas correntes, de acordo com os seguintes percentuais:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c9b7d8636b4e1d3ce637fda28b063ec44f2d14a14f8e3531be8521cac7ebdd6a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art76-2_cpt_inc1",
+      "aliases": [
+        "art76-2_cpt_inc1,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 76-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "50% (cinquenta por cento), até 31 de dezembro de 2026; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ef1db8aca6c80fa9e578b2f1be6f75316326e5f65b1ce1507ed747637fa5fdfe",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art76-2_cpt_inc2",
+      "aliases": [
+        "art76-2_cpt_inc2,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 76-B"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "30% (trinta por cento), de 1º de janeiro de 2027 a 31 de dezembro de 2032.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4064fd49f974fb5a59544562769f03e097d22861058bb71d5727da8421bcdc36",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art76-2_par1",
+      "aliases": [
+        "art76-2_par1u,emc-93-2016-09-08"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 76-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Excetuam-se das desvinculações de que trata o caput deste artigo:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5631a57bb83674cbb2757e074d808441a96ce1fb2cc699eca1de83ec03d9a071",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art76-2_par1_inc1",
+      "aliases": [
+        "art76-2_par1u_inc1,emc-93-2016-09-08"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 76-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "recursos destinados ao financiamento das ações e serviços públicos de saúde e à manutenção e desenvolvimento do ensino de que tratam, respectivamente, o inciso III do § 2º do art. 198 e o art. 212 da Constituição Federal;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8a8415b75e6791dfea196ba58dc6ee28d522bbc0e2b7860162384cbbddfbc1eb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art76-2_par1_inc2",
+      "aliases": [
+        "art76-2_par1u_inc2,emc-93-2016-09-08"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 76-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "receitas de contribuições previdenciárias e de assistência à saúde dos servidores;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído dada pela Emenda constitucional nº 93, de 2016",
+          "act": {
+            "citation": "Emenda constitucional nº 93, de 2016",
+            "type": "emenda_constitucional",
+            "number": "93",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc93.htm#art2"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "producao_de_efeito",
+          "annotation": "Produção de efeitos",
+          "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc93.htm#art3"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b4de345ed5c6d2235503fcfdfefe8691d7209e04a3ca002078b144f3308b6eb2",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art76-2_par1_inc3",
+      "aliases": [
+        "art76-2_par1u_inc3,emc-93-2016-09-08"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 76-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "transferências obrigatórias e voluntárias entre entes da Federação com destinação especificada em lei;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído dada pela Emenda constitucional nº 93, de 2016",
+          "act": {
+            "citation": "Emenda constitucional nº 93, de 2016",
+            "type": "emenda_constitucional",
+            "number": "93",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc93.htm#art2"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "producao_de_efeito",
+          "annotation": "Produção de efeitos",
+          "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc93.htm#art3"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2b5eab658271e771aaa5dd2594023090b46e4ae7c9443b96989b142151cb640e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art76-2_par1_inc4",
+      "aliases": [
+        "art76-2_par1u_inc4,emc-93-2016-09-08"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 76-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "fundos instituídos pelo Tribunal de Contas do Município.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído dada pela Emenda constitucional nº 93, de 2016",
+          "act": {
+            "citation": "Emenda constitucional nº 93, de 2016",
+            "type": "emenda_constitucional",
+            "number": "93",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc93.htm#art2"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "producao_de_efeito",
+          "annotation": "Produção de efeitos",
+          "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc93.htm#art3"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1e0bb26a0a64dde065ad0fe776a7c542585b7e635f970a6611aa721a8635a486",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art76-2_par2",
+      "aliases": [
+        "art76-2_par2,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 76-B"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "A cada exercício financeiro, até a data de que trata o caput deste artigo, poderão ser utilizados, exclusivamente para o financiamento de políticas públicas locais de saúde, educação e adaptação às mudanças climáticas, os superávits financeiros, verificados no exercício financeiro imediatamente anterior, dos fundos públicos instituídos pelo Poder Executivo municipal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2283925dc5dc895435a5cfe96376ea65111f7e052b8f1b8abfa85149c8504301",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

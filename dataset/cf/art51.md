@@ -1,0 +1,13 @@
+<!-- Título IV › Capítulo I › Seção III › Art. 51 -->
+
+**Art. 51** Compete privativamente à Câmara dos Deputados:
+
+I - autorizar, por dois terços de seus membros, a instauração de processo contra o Presidente e o Vice-Presidente da República e os Ministros de Estado;
+
+II - proceder à tomada de contas do Presidente da República, quando não apresentadas ao Congresso Nacional dentro de sessenta dias após a abertura da sessão legislativa;
+
+III - elaborar seu regimento interno;
+
+IV - dispor sobre sua organização, funcionamento, polícia, criação, transformação ou extinção dos cargos, empregos e funções de seus serviços, e a iniciativa de lei para fixação da respectiva remuneração, observados os parâmetros estabelecidos na lei de diretrizes orçamentárias; *(Redação dada pela Emenda Constitucional nº 19, de 1998)*
+
+V - eleger membros do Conselho da República, nos termos do art. 89, VII.

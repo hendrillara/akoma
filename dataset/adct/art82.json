@@ -1,0 +1,211 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art82",
+  "provisions": [
+    {
+      "id": "art82_cpt",
+      "aliases": [
+        "art82_cpt,emc-31-2000-12-14"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 82"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Os Estados, o Distrito Federal e os Municípios devem instituir Fundos de Combate à Pobreza, com os recursos de que trata este artigo e outros que vierem a destinar, devendo os referidos Fundos ser geridos por entidades que contem com a participação da sociedade civil.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 31, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 31, de 2000",
+            "type": "emenda_constitucional",
+            "number": "31",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc31.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "pending": [
+        {
+          "effect": "wording",
+          "text": "Os Estados, o Distrito Federal e os Municípios devem instituir Fundos de Combate à Pobreza, devendo os referidos Fundos ser geridos por entidades que contem com a participação da sociedade civil.",
+          "effectiveFrom": "2033-01-01",
+          "vigencia": "em 2033, em relação aos arts. 4º e 5º",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ac0da73965f2cdf075f2dfc61bbb5a5a716a7e3d607f1a8fec77ab954a37cf9f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br",
+          "note": "Known divergence, reviewed: normas.leg.br spells \"este\" with the circumflex abolished in 1971."
+        }
+      }
+    },
+    {
+      "id": "art82_par1",
+      "aliases": [
+        "art82_par1,emc-31-2000-12-14"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 82"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Para o financiamento dos Fundos Estaduais e Distrital, poderá ser criado adicional de até dois pontos percentuais na alíquota do Imposto sobre Circulação de Mercadorias e Serviços - ICMS, sobre os produtos e serviços supérfluos e nas condições definidas na lei complementar de que trata o art. 155, § 2º, XII, da Constituição, não se aplicando, sobre este percentual, o disposto no art. 158, IV, da Constituição.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 42, de 19.12.2003",
+          "act": {
+            "citation": "Emenda Constitucional nº 42, de 19.12.2003",
+            "type": "emenda_constitucional",
+            "number": "42",
+            "year": 2003,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc42.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "pending": [
+        {
+          "effect": "wording",
+          "text": "Para o financiamento dos Fundos Estaduais, Distrital e Municipais, poderá ser destinado percentual do imposto previsto no art. 156-A da Constituição Federal e dos recursos distribuídos nos termos dos arts. 131 e 132 deste Ato das Disposições Constitucionais Transitórias, nos limites definidos em lei complementar, não se aplicando, sobre estes valores, o disposto no art. 158, IV, da Constituição Federal.",
+          "effectiveFrom": "2033-01-01",
+          "vigencia": "em 2033, em relação aos arts. 4º e 5º",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:20197f6426eeb62b011e03480f744768e4aebcbe356167b2e88c97444ae84e26",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art82_par2",
+      "aliases": [
+        "art82_par2,emc-31-2000-12-14"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 82"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Para o financiamento dos Fundos Municipais, poderá ser criado adicional de até meio ponto percentual na alíquota do Imposto sobre serviços ou do imposto que vier a substituí-lo, sobre serviços supérfluos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 31, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 31, de 2000",
+            "type": "emenda_constitucional",
+            "number": "31",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc31.htm#art1"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "act",
+          "annotation": "Vide Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art22"
+          }
+        },
+        {
+          "kind": "vigencia",
+          "annotation": "Vigência",
+          "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art23"
+        }
+      ],
+      "pending": [
+        {
+          "effect": "revoked",
+          "effectiveFrom": "2033-01-01",
+          "vigencia": "em 2033, em relação aos arts. 4º e 5º",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f93b24dd301c5aecb3aab0d0e4e37167ee03ef8da664ff7e2b79a172eb445a85",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

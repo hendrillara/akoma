@@ -1,0 +1,57 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art123",
+  "provisions": [
+    {
+      "id": "art123_cpt",
+      "aliases": [
+        "art123_cpt,emc-129-2023-07-05"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 123"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Todos os termos de credenciamentos, contratos, aditivos e outras formas de ajuste de permissão lotérica, em vigor, indistintamente, na data de publicação deste dispositivo, destinados a viabilizar a venda de serviços lotéricos, disciplinados em lei ou em outros instrumentos de alcance específico, terão assegurado prazo de vigência adicional, contado do término do prazo do instrumento vigente, independentemente da data de seu termo inicial.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 129, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 129, de 2023",
+            "type": "emenda_constitucional",
+            "number": "129",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc129.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:214f6a78e903cc78a24cdbf09a0b4e7a8ad542d5aa3c5f294e41d63edea0f359",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

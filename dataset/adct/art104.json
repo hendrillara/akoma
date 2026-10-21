@@ -1,0 +1,302 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art104",
+  "provisions": [
+    {
+      "id": "art104_cpt",
+      "aliases": [
+        "art104_cpt,emc-94-2016-12-15"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 104"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Se os recursos referidos no art. 101 deste Ato das Disposições Constitucionais Transitórias para o pagamento de precatórios não forem tempestivamente liberados, no todo ou em parte:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 94, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 94, de 2016",
+            "type": "emenda_constitucional",
+            "number": "94",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc94.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:81db9a8ba34366f03258fb741bf5b155f51ebe14fa288553261e612a3ee2321b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art104_cpt_inc1",
+      "aliases": [
+        "art104_cpt_inc1,emc-94-2016-12-15"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 104"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "o Presidente do Tribunal de Justiça local determinará o sequestro, até o limite do valor não liberado, das contas do ente federado inadimplente;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 94, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 94, de 2016",
+            "type": "emenda_constitucional",
+            "number": "94",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc94.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3adc1dc9d2d665ff0789cb29cb31adab1fdc6f5bcaa8a9a24304a9ae407f30db",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art104_cpt_inc2",
+      "aliases": [
+        "art104_cpt_inc2,emc-94-2016-12-15"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 104"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "o chefe do Poder Executivo do ente federado inadimplente responderá, na forma da legislação de responsabilidade fiscal e de improbidade administrativa;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 94, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 94, de 2016",
+            "type": "emenda_constitucional",
+            "number": "94",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc94.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c975da6e4e8e1ae0522329cce9b91c1460309d5cafa065c676f587aa151dcd8c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art104_cpt_inc3",
+      "aliases": [
+        "art104_cpt_inc3,emc-94-2016-12-15"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 104"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "a União reterá os recursos referentes aos repasses ao Fundo de Participação dos Estados e do Distrito Federal e ao Fundo de Participação dos Municípios e os depositará na conta especial referida no art. 101 deste Ato das Disposições Constitucionais Transitórias, para utilização como nele previsto;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 94, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 94, de 2016",
+            "type": "emenda_constitucional",
+            "number": "94",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc94.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3a5570f50131747a2f59b57f6e2512ec8fd21106379279d1395cc2b50ce3fd42",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art104_cpt_inc4",
+      "aliases": [
+        "art104_cpt_inc4,emc-94-2016-12-15"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 104"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "os Estados e o Comitê Gestor do Imposto sobre Bens e Serviços reterão os repasses previstos, respectivamente, nos §§ 1º e 2º do art. 158 da Constituição Federal e os depositarão na conta especial referida no art. 101 deste Ato das Disposições Constitucionais Transitórias, para utilização como nele previsto.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 132, de 2023",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc132.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "pending": [
+        {
+          "effect": "wording",
+          "text": "o Comitê Gestor do Imposto sobre Bens e Serviços reterá os repasses previstos no § 2º do art. 158 da Constituição Federal e os depositará na conta especial referida no art. 101 deste Ato das Disposições Constitucionais Transitórias, para utilização como nele previsto.",
+          "effectiveFrom": "2033-01-01",
+          "vigencia": "em 2033, em relação aos arts. 4º e 5º",
+          "act": {
+            "citation": "Emenda Constitucional nº 132, de 2023",
+            "type": "emenda_constitucional",
+            "number": "132",
+            "year": 2023,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:dfee1a549c3957f201e0373d24d1797afe8200d93982cbe6799bad097adce3c4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art104_par1",
+      "aliases": [
+        "art104_par1u,emc-94-2016-12-15"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "parágrafo único",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 104"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "parágrafo único"
+        }
+      ],
+      "text": "Enquanto perdurar a omissão, o ente federado não poderá contrair empréstimo externo ou interno, exceto para os fins previstos no § 2º do art. 101 deste Ato das Disposições Constitucionais Transitórias, e ficará impedido de receber transferências voluntárias.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 94, de 2016",
+          "act": {
+            "citation": "Emenda Constitucional nº 94, de 2016",
+            "type": "emenda_constitucional",
+            "number": "94",
+            "year": 2016,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc94.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e0274fd49fe8a36eafc1ac6519eb8cb3402563aafd30ea55b19b45d36533ebce",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

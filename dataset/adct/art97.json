@@ -1,0 +1,2517 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art97",
+  "provisions": [
+    {
+      "id": "art97_cpt",
+      "aliases": [
+        "art97_cpt,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Até que seja editada a lei complementar de que trata o § 15 do art. 100 da Constituição Federal, os Estados, o Distrito Federal e os Municípios que, na data de publicação desta Emenda Constitucional, estejam em mora na quitação de precatórios vencidos, relativos às suas administrações direta e indireta, inclusive os emitidos durante o período de vigência do regime especial instituído por este artigo, farão esses pagamentos de acordo com as normas a seguir estabelecidas, sendo inaplicável o disposto no art. 100 desta Constituição Federal, exceto em seus §§ 2º, 3º, 9º, 10, 11, 12, 13 e 14, e sem prejuízo dos acordos de juízos conciliatórios já formalizados na data de promulgação desta Emenda Constitucional.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "act",
+          "annotation": "Vide Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art3"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5d1404dd125f9e6f4cc2efedf0103e7743c8a02feec27b550f9046c904398d0c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par1",
+      "aliases": [
+        "art97_par1,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Os Estados, o Distrito Federal e os Municípios sujeitos ao regime especial de que trata este artigo optarão, por meio de ato do Poder Executivo:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:735d8dc3b6dcd09f151e5e8f959e937b3c9d46bbd7596ac2ae4ba7736ef82e03",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par1_inc1",
+      "aliases": [
+        "art97_par1_inc1,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "pelo depósito em conta especial do valor referido pelo § 2º deste artigo; ou",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3916e4f4f11eb96186a6ad255efd10c54783b819352fe492113f3e6575e28b6a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par1_inc2",
+      "aliases": [
+        "art97_par1_inc2,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "pela adoção do regime especial pelo prazo de até 15 (quinze) anos, caso em que o percentual a ser depositado na conta especial a que se refere o § 2º deste artigo corresponderá, anualmente, ao saldo total dos precatórios devidos, acrescido do índice oficial de remuneração básica da caderneta de poupança e de juros simples no mesmo percentual de juros incidentes sobre a caderneta de poupança para fins de compensação da mora, excluída a incidência de juros compensatórios, diminuído das amortizações e dividido pelo número de anos restantes no regime especial de pagamento.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d46806790a0b382129d9c5acfdd73b0c029cfb7d376255cbe911974583248931",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par2",
+      "aliases": [
+        "art97_par2,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Para saldar os precatórios, vencidos e a vencer, pelo regime especial, os Estados, o Distrito Federal e os Municípios devedores depositarão mensalmente, em conta especial criada para tal fim, 1/12 (um doze avos) do valor calculado percentualmente sobre as respectivas receitas correntes líquidas, apuradas no segundo mês anterior ao mês de pagamento, sendo que esse percentual, calculado no momento de opção pelo regime e mantido fixo até o final do prazo a que se refere o § 14 deste artigo, será:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b3ade271addc00529bd9be71a38da383e6cc517eabc2c6cfc4d3d51595a07c37",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par2_inc1",
+      "aliases": [
+        "art97_par2_inc1,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "para os Estados e para o Distrito Federal:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:bc08b04a7b11718dcf1565f4e2d7625ee0312888748ceb5f97f4abbfc9b9bf79",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par2_inc1_ali1",
+      "aliases": [
+        "art97_par2_inc1_ali1,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "de, no mínimo, 1,5% (um inteiro e cinco décimos por cento), para os Estados das regiões Norte, Nordeste e Centro-Oeste, além do Distrito Federal, ou cujo estoque de precatórios pendentes das suas administrações direta e indireta corresponder a até 35% (trinta e cinco por cento) do total da receita corrente líquida;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:55d4aa26f168237f697a4a2a12048178bb45af354312658901a3329d1b26279f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par2_inc1_ali2",
+      "aliases": [
+        "art97_par2_inc1_ali2,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "de, no mínimo, 2% (dois por cento), para os Estados das regiões Sul e Sudeste, cujo estoque de precatórios pendentes das suas administrações direta e indireta corresponder a mais de 35% (trinta e cinco por cento) da receita corrente líquida;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1bf48c0ef7aac394c50d8042dee3b72454005c5186131196ab8dbbcdaccf0fce",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par2_inc2",
+      "aliases": [
+        "art97_par2_inc2,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "para Municípios:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:febdd24ec6be3761771af57a30f0882a362fb49b5ec075c2a1e2c155a099671c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par2_inc2_ali1",
+      "aliases": [
+        "art97_par2_inc2_ali1,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "de, no mínimo, 1% (um por cento), para Municípios das regiões Norte, Nordeste e Centro-Oeste, ou cujo estoque de precatórios pendentes das suas administrações direta e indireta corresponder a até 35% (trinta e cinco por cento) da receita corrente líquida;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a80b43b54306c75724c5436b0e78d799ac3469c3c63822bf700aa263ba7ae43a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par2_inc2_ali2",
+      "aliases": [
+        "art97_par2_inc2_ali2,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "de, no mínimo, 1,5% (um inteiro e cinco décimos por cento), para Municípios das regiões Sul e Sudeste, cujo estoque de precatórios pendentes das suas administrações direta e indireta corresponder a mais de 35 % (trinta e cinco por cento) da receita corrente líquida.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1d1805a156786f7a957dc7c058069b787793bdfaa9aafb82a0ecb1a25f44efc4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par3",
+      "aliases": [
+        "art97_par3,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Entende-se como receita corrente líquida, para os fins de que trata este artigo, o somatório das receitas tributárias, patrimoniais, industriais, agropecuárias, de contribuições e de serviços, transferências correntes e outras receitas correntes, incluindo as oriundas do § 1º do art. 20 da Constituição Federal, verificado no período compreendido pelo mês de referência e os 11 (onze) meses anteriores, excluídas as duplicidades, e deduzidas:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7712c852a3f3412933b09de2f138de25f052d1ba7f4aeadd71b79601006189b0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par3_inc1",
+      "aliases": [
+        "art97_par3_inc1,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "nos Estados, as parcelas entregues aos Municípios por determinação constitucional;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:35a50c8453f54f24d0aee8f61dc46b4456de13e3bb524dc7ed94d8597374d9ea",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par3_inc2",
+      "aliases": [
+        "art97_par3_inc2,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "nos Estados, no Distrito Federal e nos Municípios, a contribuição dos servidores para custeio do seu sistema de previdência e assistência social e as receitas provenientes da compensação financeira referida no § 9º do art. 201 da Constituição Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:89adbc77c80b7fa3defdd453797b9e9aa885af65e925ba5414ea65e61387caeb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par4",
+      "aliases": [
+        "art97_par4,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "As contas especiais de que tratam os §§ 1º e 2º serão administradas pelo Tribunal de Justiça local, para pagamento de precatórios expedidos pelos tribunais.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:312b0a77a53388a175582fd1a301059fabaadcea479a65346805493a24a7c0f8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par5",
+      "aliases": [
+        "art97_par5,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "Os recursos depositados nas contas especiais de que tratam os §§ 1º e 2º deste artigo não poderão retornar para Estados, Distrito Federal e Municípios devedores.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1042cfbee499702cbe5a00c551d910d48e32da3341f02a97548b498cae1d1dc2",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par6",
+      "aliases": [
+        "art97_par6,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 6º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 6º"
+        }
+      ],
+      "text": "Pelo menos 50% (cinquenta por cento) dos recursos de que tratam os §§ 1º e 2º deste artigo serão utilizados para pagamento de precatórios em ordem cronológica de apresentação, respeitadas as preferências definidas no § 1º, para os requisitórios do mesmo ano e no § 2º do art. 100, para requisitórios de todos os anos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c80991d3249ad999c75adff3edd7919b837406e1ec44e01adbe629b9d7e58d10",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par7",
+      "aliases": [
+        "art97_par7,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 7º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 7º"
+        }
+      ],
+      "text": "Nos casos em que não se possa estabelecer a precedência cronológica entre 2 (dois) precatórios, pagar-se-á primeiramente o precatório de menor valor.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1152c1d30c87b326fa6ffe04d9ce73852bcf5a3fc4d746d6a89a89ebab1774ae",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par8",
+      "aliases": [
+        "art97_par8,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 8º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        }
+      ],
+      "text": "A aplicação dos recursos restantes dependerá de opção a ser exercida por Estados, Distrito Federal e Municípios devedores, por ato do Poder Executivo, obedecendo à seguinte forma, que poderá ser aplicada isoladamente ou simultaneamente:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:44860f6b6ceb74348ff7dbb844c6267b42602517a6b8059783824dc2fa9c0b88",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par8_inc1",
+      "aliases": [
+        "art97_par8_inc1,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "destinados ao pagamento dos precatórios por meio do leilão;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:742974b02d316a3542a9ac1923437977ad22eb02ef64af5f25777396840eaafc",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par8_inc2",
+      "aliases": [
+        "art97_par8_inc2,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "destinados a pagamento a vista de precatórios não quitados na forma do § 6° e do inciso I, em ordem única e crescente de valor por precatório;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1004454535e6a1b360b4cdda81954a089c22d4d432a5723c5cf9fb908544f1e8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par8_inc3",
+      "aliases": [
+        "art97_par8_inc3,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "destinados a pagamento por acordo direto com os credores, na forma estabelecida por lei própria da entidade devedora, que poderá prever criação e forma de funcionamento de câmara de conciliação.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2d900a80e4e3579e514504ddf798d81335b7f7774efe59cf2f918b5173df99c1",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par9",
+      "aliases": [
+        "art97_par9,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 9º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        }
+      ],
+      "text": "Os leilões de que trata o inciso I do § 8º deste artigo:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:afebf78bd68ad282805cb19d2195c91685354a56a74f386314378560c15eab75",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par9_inc1",
+      "aliases": [
+        "art97_par9_inc1,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "serão realizados por meio de sistema eletrônico administrado por entidade autorizada pela Comissão de Valores Mobiliários ou pelo Banco Central do Brasil;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5f5e56b69303746c9989854368c3b8bed428bbc001ee94d9d95008a7175603d7",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par9_inc2",
+      "aliases": [
+        "art97_par9_inc2,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "admitirão a habilitação de precatórios, ou parcela de cada precatório indicada pelo seu detentor, em relação aos quais não esteja pendente, no âmbito do Poder Judiciário, recurso ou impugnação de qualquer natureza, permitida por iniciativa do Poder Executivo a compensação com débitos líquidos e certos, inscritos ou não em dívida ativa e constituídos contra devedor originário pela Fazenda Pública devedora até a data da expedição do precatório, ressalvados aqueles cuja exigibilidade esteja suspensa nos termos da legislação, ou que já tenham sido objeto de abatimento nos termos do § 9º do art. 100 da Constituição Federal;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:799d3cc5411f6ee7c2172adb74b6132792fe00eef4770686ad0765099b0297c9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par9_inc3",
+      "aliases": [
+        "art97_par9_inc3,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "ocorrerão por meio de oferta pública a todos os credores habilitados pelo respectivo ente federativo devedor;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ccc562659d2e7f4ba95eeacd553dd0f2cdda790093e8595c66429dc0175f3be1",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par9_inc4",
+      "aliases": [
+        "art97_par9_inc4,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "considerarão automaticamente habilitado o credor que satisfaça o que consta no inciso II;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5743e62697e300653499bbc936d695aa1d73db068f0f7e4bd4dc6d3cb7afe1af",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par9_inc5",
+      "aliases": [
+        "art97_par9_inc5,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "serão realizados tantas vezes quanto necessário em função do valor disponível;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f485371a224b2090ec7b10990f285336167f3288e0fd4fbd64fb0494865ecfba",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par9_inc6",
+      "aliases": [
+        "art97_par9_inc6,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "a competição por parcela do valor total ocorrerá a critério do credor, com deságio sobre o valor desta;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:28b437649168e15cbd8bbdf26f0c6a57705d493a9fa2492b93637c0b3b7b8926",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par9_inc7",
+      "aliases": [
+        "art97_par9_inc7,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso VII",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        }
+      ],
+      "text": "ocorrerão na modalidade deságio, associado ao maior volume ofertado cumulado ou não com o maior percentual de deságio, pelo maior percentual de deságio, podendo ser fixado valor máximo por credor, ou por outro critério a ser definido em edital;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:731ff0ef357007087be96c0c0cdf22d4a4e57ee2d8de59d777ecf7de4b6e532f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par9_inc8",
+      "aliases": [
+        "art97_par9_inc8,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso VIII",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VIII"
+        }
+      ],
+      "text": "o mecanismo de formação de preço constará nos editais publicados para cada leilão;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:44d6fe27c51fbdc198e900c50209f9d33c4d5211dfc4b1e94efde034ff82fadc",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par9_inc9",
+      "aliases": [
+        "art97_par9_inc9,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IX",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IX"
+        }
+      ],
+      "text": "a quitação parcial dos precatórios será homologada pelo respectivo Tribunal que o expediu.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:027c1a33f50a481910b3469a5dbc37a16e9ed15a3a5c06c588729fa867b7e61a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par10",
+      "aliases": [
+        "art97_par10,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 10",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 10"
+        }
+      ],
+      "text": "No caso de não liberação tempestiva dos recursos de que tratam o inciso II do § 1º e os §§ 2º e 6º deste artigo:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a3b8900b367cca8295c03ab6db5b751545fc3fa69f33ea8f43e2adde718dd3fd",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par10_inc1",
+      "aliases": [
+        "art97_par10_inc1,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 10"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "haverá o sequestro de quantia nas contas de Estados, Distrito Federal e Municípios devedores, por ordem do Presidente do Tribunal referido no § 4º, até o limite do valor não liberado;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:57e917cc93c6478141de5c6750704849cf98667195017ed467fdb09c49d08e5e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par10_inc2",
+      "aliases": [
+        "art97_par10_inc2,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 10"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "constituir-se-á, alternativamente, por ordem do Presidente do Tribunal requerido, em favor dos credores de precatórios, contra Estados, Distrito Federal e Municípios devedores, direito líquido e certo, autoaplicável e independentemente de regulamentação, à compensação automática com débitos líquidos lançados por esta contra aqueles, e, havendo saldo em favor do credor, o valor terá automaticamente poder liberatório do pagamento de tributos de Estados, Distrito Federal e Municípios devedores, até onde se compensarem;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f6dcfd90454d0bcbf72860b1e1f063babe6280113bc62822283f7e5e4bf6ca1d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par10_inc3",
+      "aliases": [
+        "art97_par10_inc3,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 10"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "o chefe do Poder Executivo responderá na forma da legislação de responsabilidade fiscal e de improbidade administrativa;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7834e3cc4635879a3387561c1f878e7f4e26530cb07071b84a248a40ffe8424d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par10_inc4",
+      "aliases": [
+        "art97_par10_inc4,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 10"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "enquanto perdurar a omissão, a entidade devedora:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:dc0d09d414d1efc4170a637383c28a1a2aa3610bdcb6f36d37ab7e100d304e00",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par10_inc4_ali1",
+      "aliases": [
+        "art97_par10_inc4_ali1,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 10"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "não poderá contrair empréstimo externo ou interno;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0b15461d40cf441efc819f8215dde297fc901202f7762102f458adbe821d9d8c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par10_inc4_ali2",
+      "aliases": [
+        "art97_par10_inc4_ali2,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 10"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "ficará impedida de receber transferências voluntárias;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:bbfbb128e69ffa45b14769797c883d720270ab1b4b4d645f4e9b528651fa1a17",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par10_inc5",
+      "aliases": [
+        "art97_par10_inc5,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 10"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "a União reterá os repasses relativos ao Fundo de Participação dos Estados e do Distrito Federal e ao Fundo de Participação dos Municípios, e os depositará nas contas especiais referidas no § 1º, devendo sua utilização obedecer ao que prescreve o § 5º, ambos deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e42b6d5901de455def55c70194e4f607f8e81ba4ac65c53d1a0a72732c740f87",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par11",
+      "aliases": [
+        "art97_par11,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 11",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 11"
+        }
+      ],
+      "text": "No caso de precatórios relativos a diversos credores, em litisconsórcio, admite-se o desmembramento do valor, realizado pelo Tribunal de origem do precatório, por credor, e, por este, a habilitação do valor total a que tem direito, não se aplicando, neste caso, a regra do § 3º do art. 100 da Constituição Federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4b9935824b83b95b33c267a075046a717fc75718f9ff5b9e482bc0fad1d2b06e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par12",
+      "aliases": [
+        "art97_par12,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 12",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        }
+      ],
+      "text": "Se a lei a que se refere o § 4º do art. 100 não estiver publicada em até 180 (cento e oitenta) dias, contados da data de publicação desta Emenda Constitucional, será considerado, para os fins referidos, em relação a Estados, Distrito Federal e Municípios devedores, omissos na regulamentação, o valor de:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d2c53eb9c81ad4f0ba65ab852c7d310497dedeefc981e72e9ad982357a2ad7fc",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par12_inc1",
+      "aliases": [
+        "art97_par12_inc1,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "40 (quarenta) salários mínimos para Estados e para o Distrito Federal;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9b83a0da462b4ecb13780cfd2b25935db606a7fd356a02840fe098b281dfdc91",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par12_inc2",
+      "aliases": [
+        "art97_par12_inc2,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "30 (trinta) salários mínimos para Municípios.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e3bb0e2f27a3e25534d321d07528bceacdd93028d647773a62a7bb48652fffcd",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par13",
+      "aliases": [
+        "art97_par13,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 13",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 13"
+        }
+      ],
+      "text": "Enquanto Estados, Distrito Federal e Municípios devedores estiverem realizando pagamentos de precatórios pelo regime especial, não poderão sofrer sequestro de valores, exceto no caso de não liberação tempestiva dos recursos de que tratam o inciso II do § 1º e o § 2º deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:049e055a50c74f004044058bd6a0ad42b8812d69e5dc0e7b16c595e74592cba0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par14",
+      "aliases": [
+        "art97_par14,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 14",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 14"
+        }
+      ],
+      "text": "O regime especial de pagamento de precatório previsto no inciso I do § 1º vigorará enquanto o valor dos precatórios devidos for superior ao valor dos recursos vinculados, nos termos do § 2º, ambos deste artigo, ou pelo prazo fixo de até 15 (quinze) anos, no caso da opção prevista no inciso II do § 1º.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:89f6b690ae3ed3e32d3cc2369fcf54ae57e1f9d543f2c1d17fc90209446f8679",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par15",
+      "aliases": [
+        "art97_par15,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 15",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 15"
+        }
+      ],
+      "text": "Os precatórios parcelados na forma do art. 33 ou do art. 78 deste Ato das Disposições Constitucionais Transitórias e ainda pendentes de pagamento ingressarão no regime especial com o valor atualizado das parcelas não pagas relativas a cada precatório, bem como o saldo dos acordos judiciais e extrajudiciais.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e3e07ac3e0d32b76d5aa545a72b46320a9e4c2dd080ee2ad61102407d2d9e531",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par16",
+      "aliases": [
+        "art97_par16,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 16",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 16"
+        }
+      ],
+      "text": "A partir de 1º de agosto de 2025, a atualização de valores de requisitórios expedidos contra os Estados, o Distrito Federal e os Municípios, a partir da sua expedição até o efetivo pagamento, será feita pela variação do Índice Nacional de Preços ao Consumidor Amplo (IPCA), e, para fins de compensação da mora, desde a expedição, incidirão juros simples de 2% a.a. (dois por cento ao ano), ficando excluída a incidência de juros compensatórios.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0a072d97badb5489cc1ced6f554902e29eefdb1fe7a50a2b08889ce349b9b7e3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par16-1",
+      "aliases": [
+        "art97_par16-1,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 16-A",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 16-A"
+        }
+      ],
+      "text": "Caso o índice de atualização e juros calculado nos termos do § 16 deste artigo represente valor superior à taxa referencial do Sistema Especial de Liquidação e de Custódia (Selic), esta deve ser aplicada em substituição àquele.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:69a3e810ef71d5137d7ace45a66127e7c2e1e9876f91fb22f856911be8164af3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par17",
+      "aliases": [
+        "art97_par17,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 17",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 17"
+        }
+      ],
+      "text": "O valor que exceder o limite previsto no § 2º do art. 100 da Constituição Federal será pago, durante a vigência do regime especial, na forma prevista nos §§ 6º e 7º ou nos incisos I, II e III do § 8° deste artigo, devendo os valores dispendidos para o atendimento do disposto no § 2º do art. 100 da Constituição Federal serem computados para efeito do § 6º deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9540fdc56458f6a10b09bf76c3763327c67766d82fc801a34649eaabd37ed681",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art97_par18",
+      "aliases": [
+        "art97_par18,emc-62-2009-12-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 18",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 97"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 18"
+        }
+      ],
+      "text": "Durante a vigência do regime especial a que se refere este artigo, gozarão também da preferência a que se refere o § 6º os titulares originais de precatórios que tenham completado 60 (sessenta) anos de idade até a data da promulgação desta Emenda Constitucional.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 62, de 2009",
+          "act": {
+            "citation": "Emenda Constitucional nº 62, de 2009",
+            "type": "emenda_constitucional",
+            "number": "62",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc62.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4bce008f3ed515be2e223884375e0bb0619552cfe43c70516a21404461c1d382",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

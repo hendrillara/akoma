@@ -1,0 +1,31 @@
+<!-- Título IV › Capítulo III › Seção I › Art. 96 -->
+
+**Art. 96** Compete privativamente:
+
+I - aos tribunais:
+
+a) eleger seus órgãos diretivos e elaborar seus regimentos internos, com observância das normas de processo e das garantias processuais das partes, dispondo sobre a competência e o funcionamento dos respectivos órgãos jurisdicionais e administrativos;
+
+b) organizar suas secretarias e serviços auxiliares e os dos juízos que lhes forem vinculados, velando pelo exercício da atividade correicional respectiva;
+
+c) prover, na forma prevista nesta Constituição, os cargos de juiz de carreira da respectiva jurisdição;
+
+d) propor a criação de novas varas judiciárias;
+
+e) prover, por concurso público de provas, ou de provas e títulos, obedecido o disposto no art. 169, parágrafo único, os cargos necessários à administração da Justiça, exceto os de confiança assim definidos em lei;
+
+f) conceder licença, férias e outros afastamentos a seus membros e aos juízes e servidores que lhes forem imediatamente vinculados;
+
+II - ao Supremo Tribunal Federal, aos Tribunais Superiores e aos Tribunais de Justiça propor ao Poder Legislativo respectivo, observado o disposto no art. 169:
+
+a) a alteração do número de membros dos tribunais inferiores;
+
+b) a criação e a extinção de cargos e a remuneração dos seus serviços auxiliares e dos juízos que lhes forem vinculados, bem como a fixação do subsídio de seus membros e dos juízes, inclusive dos tribunais inferiores, onde houver; *(Redação dada pela Emenda Constitucional nº 41, 19.12.2003)*
+
+c) a criação ou extinção dos tribunais inferiores;
+
+d) a alteração da organização e da divisão judiciárias;
+
+III - aos Tribunais de Justiça julgar os juízes estaduais e do Distrito Federal e Territórios, bem como os membros do Ministério Público, nos crimes comuns e de responsabilidade, ressalvada a competência da Justiça Eleitoral.
+
+Parágrafo único. Nos Tribunais de Justiça compostos de mais de 170 (cento e setenta) desembargadores em efetivo exercício, a eleição para os cargos diretivos, de que trata a alínea "a" do inciso I docaputdeste artigo, será realizada entre os membros do tribunal pleno, por maioria absoluta e por voto direto e secreto, para um mandato de 2 (dois) anos, vedada mais de 1 (uma) recondução sucessiva. *(Incluído pela Emenda Constitucional nº 134, de 2024)*

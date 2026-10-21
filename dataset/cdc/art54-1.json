@@ -1,0 +1,214 @@
+{
+  "norm": {
+    "key": "cdc",
+    "urn": "urn:lex:br:federal:lei:1990-09-11;8078",
+    "title": "Código de Defesa do Consumidor (Lei nº 8.078, de 11 de setembro de 1990)"
+  },
+  "article": "art54-1",
+  "provisions": [
+    {
+      "id": "art54-1_cpt",
+      "norm": "cdc",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI-A"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 54-A"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Este Capítulo dispõe sobre a prevenção do superendividamento da pessoa natural, sobre o crédito responsável e sobre a educação financeira do consumidor.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Lei nº 14.181, de 2021",
+          "act": {
+            "citation": "Lei nº 14.181, de 2021",
+            "type": "lei",
+            "number": "14.181",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:27de2c4d6c9aa86fbb459613241c678d0c8607e1072cc999ccd055c8f64fbc89",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art54-1_par1",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI-A"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 54-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Entende-se por superendividamento a impossibilidade manifesta de o consumidor pessoa natural, de boa-fé, pagar a totalidade de suas dívidas de consumo, exigíveis e vincendas, sem comprometer seu mínimo existencial, nos termos da regulamentação.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Lei nº 14.181, de 2021",
+          "act": {
+            "citation": "Lei nº 14.181, de 2021",
+            "type": "lei",
+            "number": "14.181",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4076cd624b09a5cee1d4b6d1d4bd1caae877a92dbaeabfa78648a0f9624d747f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art54-1_par2",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI-A"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 54-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "As dívidas referidas no § 1º deste artigo englobam quaisquer compromissos financeiros assumidos decorrentes de relação de consumo, inclusive operações de crédito, compras a prazo e serviços de prestação continuada.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Lei nº 14.181, de 2021",
+          "act": {
+            "citation": "Lei nº 14.181, de 2021",
+            "type": "lei",
+            "number": "14.181",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4dd0853cdc067dc5dd321ed24bd2d78cdb4e21e7cb844af1c4c884ec50b44152",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art54-1_par3",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título I"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo VI-A"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 54-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "O disposto neste Capítulo não se aplica ao consumidor cujas dívidas tenham sido contraídas mediante fraude ou má-fé, sejam oriundas de contratos celebrados dolosamente com o propósito de não realizar o pagamento ou decorram da aquisição ou contratação de produtos e serviços de luxo de alto valor.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Lei nº 14.181, de 2021",
+          "act": {
+            "citation": "Lei nº 14.181, de 2021",
+            "type": "lei",
+            "number": "14.181",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2495e6ea4578b25dec71f7d04e4c3b2eed33fd824d3045bcbfd423b2b99c4b8c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    }
+  ]
+}

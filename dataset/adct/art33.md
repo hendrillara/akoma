@@ -1,0 +1,5 @@
+<!-- Art. 33 -->
+
+**Art. 33** Ressalvados os créditos de natureza alimentar, o valor dos precatórios judiciais pendentes de pagamento na data da promulgação da Constituição, incluído o remanescente de juros e correção monetária, poderá ser pago em moeda corrente, com atualização, em prestações anuais, iguais e sucessivas, no prazo máximo de oito anos, a partir de 1º de julho de 1989, por decisão editada pelo Poder Executivo até cento e oitenta dias da promulgação da Constituição. *(Vide Emenda Constitucional nº 3, de 1993)*
+
+Parágrafo único. Poderão as entidades devedoras, para o cumprimento do disposto neste artigo, emitir, em cada ano, no exato montante do dispêndio, títulos de dívida pública não computáveis para efeito do limite global de endividamento.

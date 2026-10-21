@@ -1,0 +1,163 @@
+{
+  "norm": {
+    "key": "cdc",
+    "urn": "urn:lex:br:federal:lei:1990-09-11;8078",
+    "title": "Código de Defesa do Consumidor (Lei nº 8.078, de 11 de setembro de 1990)"
+  },
+  "article": "art104-3",
+  "provisions": [
+    {
+      "id": "art104-3_cpt",
+      "norm": "cdc",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 104-C"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Compete concorrente e facultativamente aos órgãos públicos integrantes do Sistema Nacional de Defesa do Consumidor a fase conciliatória e preventiva do processo de repactuação de dívidas, nos moldes do art. 104-A deste Código, no que couber, com possibilidade de o processo ser regulado por convênios específicos celebrados entre os referidos órgãos e as instituições credoras ou suas associações.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Lei nº 14.181, de 2021",
+          "act": {
+            "citation": "Lei nº 14.181, de 2021",
+            "type": "lei",
+            "number": "14.181",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d21517f9d7611cc0f1abed159294a09afc287b66fb4e7efef0d35d0eaa629857",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art104-3_par1",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 104-C"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Em caso de conciliação administrativa para prevenir o superendividamento do consumidor pessoa natural, os órgãos públicos poderão promover, nas reclamações individuais, audiência global de conciliação com todos os credores e, em todos os casos, facilitar a elaboração de plano de pagamento, preservado o mínimo existencial, nos termos da regulamentação, sob a supervisão desses órgãos, sem prejuízo das demais atividades de reeducação financeira cabíveis.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Lei nº 14.181, de 2021",
+          "act": {
+            "citation": "Lei nº 14.181, de 2021",
+            "type": "lei",
+            "number": "14.181",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a1b87a6069c01f835f6e74ad14a55fbf74dae2749e3ad3659b71e59af48ad5ec",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    },
+    {
+      "id": "art104-3_par2",
+      "norm": "cdc",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo V"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 104-C"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "O acordo firmado perante os órgãos públicos de defesa do consumidor, em caso de superendividamento do consumidor pessoa natural, incluirá a data a partir da qual será providenciada a exclusão do consumidor de bancos de dados e de cadastros de inadimplentes, bem como o condicionamento de seus efeitos à abstenção, pelo consumidor, de condutas que importem no agravamento de sua situação de superendividamento, especialmente a de contrair novas dívidas.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Lei nº 14.181, de 2021",
+          "act": {
+            "citation": "Lei nº 14.181, de 2021",
+            "type": "lei",
+            "number": "14.181",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14181.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+        "retrievedAt": "2026-10-20",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:cc15e422faa541a5efeb0e21ed84820e6eb54a9fa58292a493afd35452bb781f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "camara-legin"
+        }
+      }
+    }
+  ]
+}

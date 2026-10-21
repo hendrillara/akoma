@@ -1,0 +1,294 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art160",
+  "provisions": [
+    {
+      "id": "art160_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 160"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "É vedada a retenção ou qualquer restrição à entrega e ao emprego dos recursos atribuídos, nesta seção, aos Estados, ao Distrito Federal e aos Municípios, neles compreendidos adicionais e acréscimos relativos a impostos.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:73a0a3a5764b5d6b57f0487986b0f1b1355816b8fa7beec6fa03aa0d5a985dcd",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art160_par1",
+      "aliases": [
+        "art160_par1u"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 160"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "A vedação prevista neste artigo não impede a União e os Estados de condicionarem a entrega de recursos:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "renumbered",
+          "annotation": "Renumerado do Parágrafo único pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:bee83bfb06f568059a6779f8dff7cff17613e09c6ea36c1e6afb4c49e8d413ab",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art160_par1_inc1",
+      "aliases": [
+        "art160_par1u_inc1,emc-29-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 160"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "ao pagamento de seus créditos, inclusive de suas autarquias;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art4"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:02fed79b610724c2d4bb95636b23d1f3165bdc85091a842fbc7f116d1d721b67",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art160_par1_inc2",
+      "aliases": [
+        "art160_par1u_inc2,emc-29-2000-09-13"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 160"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "ao cumprimento do disposto no art. 198, § 2º, incisos II e III.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 29, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 29, de 2000",
+            "type": "emenda_constitucional",
+            "number": "29",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc29.htm#art4"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:5e078b7a1da054e206b205662764cbb7e772c8fee10b2434aaf7418e798fa52e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art160_par2",
+      "aliases": [
+        "art160_par2,emc-113-2021-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção VI"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 160"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Os contratos, os acordos, os ajustes, os convênios, os parcelamentos ou as renegociações de débitos de qualquer espécie, inclusive tributários, firmados pela União com os entes federativos conterão cláusulas para autorizar a dedução dos valores devidos dos montantes a serem repassados relacionados às respectivas cotas nos Fundos de Participação ou aos precatórios federais.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:abd74c477181fdec8c8a0c5e04bee1721a71976315beba30727414ac1b389a8b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

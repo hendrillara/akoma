@@ -1,0 +1,186 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art42",
+  "provisions": [
+    {
+      "id": "art42_cpt",
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 42"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Durante 40 (quarenta) anos, a União aplicará dos recursos destinados à irrigação:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 89, de 2015",
+          "act": {
+            "citation": "Emenda Constitucional nº 89, de 2015",
+            "type": "emenda_constitucional",
+            "number": "89",
+            "year": 2015,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc89.htm"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:83c2853eda36cf377720f600fba63d99533dafd087a5bcc81e3539899a271609",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art42_cpt_inc1",
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 42"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "20% (vinte por cento) na Região Centro-Oeste;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 89, de 2015",
+          "act": {
+            "citation": "Emenda Constitucional nº 89, de 2015",
+            "type": "emenda_constitucional",
+            "number": "89",
+            "year": 2015,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc89.htm"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9e9cc9dd87963cfcd00db9f1a59f1647af18e5b55824569ba1783d9bec2b390b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art42_cpt_inc2",
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 42"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "50% (cinquenta por cento) na Região Nordeste, preferencialmente no Semiárido.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 89, de 2015",
+          "act": {
+            "citation": "Emenda Constitucional nº 89, de 2015",
+            "type": "emenda_constitucional",
+            "number": "89",
+            "year": 2015,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc89.htm"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6f32b04463b3e783d2da2c95d4503c1cbdcafad203dc305c325bd20f1dc05d01",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art42_par1",
+      "aliases": [
+        "art42_par1u,emc-89-2015-09-15"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "parágrafo único",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 42"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "parágrafo único"
+        }
+      ],
+      "text": "Dos percentuais previstos nos incisos I e II do caput, no mínimo 50% (cinquenta por cento) serão destinados a projetos de irrigação que beneficiem agricultores familiares que atendam aos requisitos previstos em legislação específica.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 89, de 2015",
+          "act": {
+            "citation": "Emenda Constitucional nº 89, de 2015",
+            "type": "emenda_constitucional",
+            "number": "89",
+            "year": 2015,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc89.htm"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7538a26f28c2cd8844d42d731c9b9afd04e545300b313b9b7aa54f1acf387a44",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

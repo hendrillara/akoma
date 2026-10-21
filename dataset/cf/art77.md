@@ -1,0 +1,13 @@
+<!-- Título IV › Capítulo II › Seção I › Art. 77 -->
+
+**Art. 77** A eleição do Presidente e do Vice-Presidente da República realizar-se-á, simultaneamente, no primeiro domingo de outubro, em primeiro turno, e no último domingo de outubro, em segundo turno, se houver, do ano anterior ao do término do mandato presidencial vigente. *(Redação dada pela Emenda Constitucional nº 16, de 1997)*
+
+§ 1º A eleição do Presidente da República importará a do Vice-Presidente com ele registrado.
+
+§ 2º Será considerado eleito Presidente o candidato que, registrado por partido político, obtiver a maioria absoluta de votos, não computados os em branco e os nulos.
+
+§ 3º Se nenhum candidato alcançar maioria absoluta na primeira votação, far-se-á nova eleição em até vinte dias após a proclamação do resultado, concorrendo os dois candidatos mais votados e considerando-se eleito aquele que obtiver a maioria dos votos válidos.
+
+§ 4º Se, antes de realizado o segundo turno, ocorrer morte, desistência ou impedimento legal de candidato, convocar-se-á, dentre os remanescentes, o de maior votação.
+
+§ 5º Se, na hipótese dos parágrafos anteriores, remanescer, em segundo lugar, mais de um candidato com a mesma votação, qualificar-se-á o mais idoso.

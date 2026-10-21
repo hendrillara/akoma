@@ -1,0 +1,326 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art107",
+  "provisions": [
+    {
+      "id": "art107_cpt",
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 107"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Os Tribunais Regionais Federais compõem-se de, no mínimo, sete juízes, recrutados, quando possível, na respectiva região e nomeados pelo Presidente da República dentre brasileiros com mais de trinta e menos de setenta anos de idade, sendo:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 122, de 2022",
+          "act": {
+            "citation": "Emenda Constitucional nº 122, de 2022",
+            "type": "emenda_constitucional",
+            "number": "122",
+            "year": 2022,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc122.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8fe721bc97ebfe8f7548ca999634f174febdb0092e555aab1a24b26348e25e21",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107_cpt_inc1",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 107"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "um quinto dentre advogados com mais de dez anos de efetiva atividade profissional e membros do Ministério Público Federal com mais de dez anos de carreira;",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b54a37cf81aa3fa5e7c1a3cd09847ef09134d4ca75370cb8e953aa4c2f5e3d73",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107_cpt_inc2",
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 107"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "os demais, mediante promoção de juízes federais com mais de cinco anos de exercício, por antigüidade e merecimento, alternadamente.",
+      "status": "in_force",
+      "amendments": [],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:fb246d521b2d237fb1177d5988603acfe4fefc55f20ff21512db7bb8cd5b4809",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107_par1",
+      "aliases": [
+        "art107_par1u"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 107"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "A lei disciplinará a remoção ou a permuta de juízes dos Tribunais Regionais Federais e determinará sua jurisdição e sede.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "renumbered",
+          "annotation": "Renumerado do parágrafo único, pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1f612bcbdef073ee45d89ecc4ed7a61162fb6ac7a6c61e2254184119de9b2711",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107_par2",
+      "aliases": [
+        "art107_par2,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 107"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Os Tribunais Regionais Federais instalarão a justiça itinerante, com a realização de audiências e demais funções da atividade jurisdicional, nos limites territoriais da respectiva jurisdição, servindo-se de equipamentos públicos e comunitários.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8dfd8382e28bf937e59d60bae6dc986ae13e9bddd50468b427a2138b4f03b65a",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art107_par3",
+      "aliases": [
+        "art107_par3,emc-45-2004-12-08"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título IV"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo III"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 107"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Os Tribunais Regionais Federais poderão funcionar descentralizadamente, constituindo Câmaras regionais, a fim de assegurar o pleno acesso do jurisdicionado à justiça em todas as fases do processo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 45, de 2004",
+          "act": {
+            "citation": "Emenda Constitucional nº 45, de 2004",
+            "type": "emenda_constitucional",
+            "number": "45",
+            "year": 2004,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc45.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:78caa1ee68f4ea2f77b16160e4ad355b682867c799cecbe4a3ffc4446241c198",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

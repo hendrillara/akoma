@@ -15,11 +15,18 @@ interface FixtureIndex {
     /** Exact retrieval instant (e.g. from the response's Date header), when recorded. */
     retrievedAt?: string;
   }[];
+  /**
+   * URLs this capture could not fetch (the daily job records them): they read as unavailable, whatever an earlier
+   * folder holds, so a regeneration sees what the run saw.
+   */
+  unavailable?: string[];
 }
 
 /**
  * One source over several captures, e.g. the CF of one day and an amending act fetched the next. When two captures
  * record the same URL, the later folder wins, so a scenario folder can stand in for one page of a base capture.
+ * `probe` answers as a server would: `not-modified` when the recorded ETag (or, without one, Last-Modified) equals
+ * the validator given.
  */
 export async function recordedSource(...folders: URL[]): Promise<Source> {
   const byUrl = new Map<string, RawSnapshot>();
@@ -28,6 +35,13 @@ export async function recordedSource(...folders: URL[]): Promise<Source> {
   return {
     async get(url) {
       return byUrl.get(url);
+    },
+    async probe(url, validators) {
+      const snapshot = byUrl.get(url);
+      if (!snapshot) return { status: "unavailable", error: "not in the recorded captures" };
+      const { etag, "last-modified": lastModified } = snapshot.headers;
+      const same = etag !== undefined ? etag === validators.etag : lastModified !== undefined && lastModified === validators.lastModified;
+      return same ? { status: "not-modified" } : { status: "modified", snapshot };
     },
   };
 }
@@ -48,4 +62,5 @@ async function load(folder: URL, byUrl: Map<string, RawSnapshot>): Promise<void>
       retrievedAt: entry.retrievedAt ?? index.capturedOn,
     });
   }
+  for (const url of index.unavailable ?? []) byUrl.delete(url);
 }

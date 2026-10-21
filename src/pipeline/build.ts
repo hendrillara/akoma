@@ -172,15 +172,22 @@ export async function build({ manifests, source, datasetVersion, today, synonyms
 
 function sourcePage(snapshot: RawSnapshot, html: string): SourcePage {
   const { etag, "last-modified": lastModified } = snapshot.headers;
-  // Script content is raw text up to the first "</script", so a lazy match removes exactly one element.
-  const content = html.replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi, "");
   return {
     url: snapshot.url,
     retrievedAt: snapshot.retrievedAt,
     ...(etag !== undefined && { etag }),
     ...(lastModified !== undefined && { lastModified }),
-    contentHash: sha256(content),
+    contentHash: pageContentHash(html),
   };
+}
+
+/**
+ * `SourcePage.contentHash`: the decoded page with every `<script>` element removed, since Planalto's F5 WAF injects a
+ * script with a random token into every response. The daily job's pre-filter compares pages by it.
+ */
+export function pageContentHash(html: string): string {
+  // Script content is raw text up to the first "</script", so a lazy match removes exactly one element.
+  return sha256(html.replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi, ""));
 }
 
 function sha256(text: string): string {

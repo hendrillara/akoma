@@ -1,0 +1,1637 @@
+{
+  "norm": {
+    "key": "adct",
+    "urn": "urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988",
+    "title": "Ato das Disposições Constitucionais Transitórias",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art116",
+  "provisions": [
+    {
+      "id": "art116_cpt",
+      "aliases": [
+        "art116_cpt,emc-113-2021-12-08"
+      ],
+      "norm": "adct",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Fica excepcionalmente autorizado o parcelamento dos débitos decorrentes de contribuições previdenciárias dos Municípios, incluídas suas autarquias e fundações, com o Regime Geral de Previdência Social, com vencimento até 31 de agosto de 2025, ainda que em fase de execução fiscal ajuizada, inclusive os decorrentes do descumprimento de obrigações acessórias e os que tenham sido objeto de parcelamento anterior não integralmente quitado, no prazo máximo de 300 (trezentas) prestações mensais.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7847339dce71a2f7a604a369035931e6098a8532bbea3f6a31b2a00791f71171",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par1",
+      "aliases": [
+        "art116_par1,emc-113-2021-12-08"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "Os Municípios que possuam regime próprio de previdência social deverão comprovar, para fins de continuidade do parcelamento com o Regime Geral de Previdência Social de que trata este artigo, ter atendido, até 1º de março de 2027, as condições estabelecidas nos incisos I, II, III e IV do caput do art. 115 deste Ato das Disposições Constitucionais Transitórias, sob pena de suspensão do parcelamento e de proibição de renegociação de suas respectivas dívidas até ulterior cumprimento das condições.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2d6af1a43d5e5f0c8b745d1b6956ef9b5873e8b30a31521cd5a62d61f594db44",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par2",
+      "aliases": [
+        "art116_par2,emc-113-2021-12-08"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Os débitos parcelados terão redução de 40% (quarenta por cento) das multas de mora, de ofício e isoladas, de 80% (oitenta por cento) dos juros de mora, de 40% (quarenta por cento) dos encargos legais e de 25% (vinte e cinco por cento) dos honorários advocatícios.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f4f954a9b90e1312a337a549ca29b0a46ff72fa0c61f3dc47807809cbfa4ccb9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par3",
+      "aliases": [
+        "art116_par3,emc-113-2021-12-08"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "O valor de cada parcela será acrescido de atualização monetária e juros, acumulados mensalmente, calculados a partir do mês subsequente ao da consolidação até o mês anterior ao do pagamento, nos seguintes termos:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:cc7c474cecc188125299e9973229b51e9c62dec182941ad9d82322a5b4644cac",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par3_inc1",
+      "aliases": [
+        "art116_par3_inc1,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "atualização monetária pela variação do IPCA ou por índice que vier a substituí-lo;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3a9aef7840506a0fdce0c38c5022ce9fa2169cda78fa1440f0d06510d13d6db4",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par3_inc2",
+      "aliases": [
+        "art116_par3_inc2,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "juros reais de 0% a.a. (zero por cento ao ano) para os Municípios que, em até 18 (dezoito) meses após a promulgação deste inciso, quitarem, no mínimo, 20% (vinte por cento) da dívida de que trata este artigo;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a400ffb9a0efc9ea1642e1e55305f59654832335d016570ab2006b4667cf6c09",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par3_inc3",
+      "aliases": [
+        "art116_par3_inc3,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "juros reais de 1% a.a. (um por cento ao ano) para os Municípios que, em até 18 (dezoito) meses após a promulgação deste inciso, quitarem, no mínimo, 10% (dez por cento) da dívida consolidada de que trata este artigo;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:28916835c992466bf2d60a43414425410c069583bde5908ef2fd5cec66d47707",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par3_inc4",
+      "aliases": [
+        "art116_par3_inc4,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "juros reais de 2% a.a. (dois por cento ao ano) para os Municípios que, em até 18 (dezoito) meses após a promulgação deste inciso, quitarem, no mínimo, 5% (cinco por cento) da dívida de que trata este artigo;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:50db0b7b883b794f169cb67b1fed07580757956afb48a27772a9abe8de65eae3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par3_inc5",
+      "aliases": [
+        "art116_par3_inc5,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "juros reais de 4% a.a. (quatro por cento ao ano) para os Municípios que não se enquadrarem nos incisos II, III ou IV deste parágrafo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:efa78ff5e2d1e40088ac8d3df33634d16e6c77cf943a222047b7568e109ae9a8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par4",
+      "aliases": [
+        "art116_par4,emc-113-2021-12-08"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 4º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 4º"
+        }
+      ],
+      "text": "Não constituem débitos dos Municípios aqueles considerados prescritos ou atingidos pela decadência.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4825fa9c64fc42095eb2b8ca6377a7703a4f62de531110bc80b276eb2ddffb81",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par5",
+      "aliases": [
+        "art116_par5,emc-113-2021-12-08"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 5º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 5º"
+        }
+      ],
+      "text": "A Secretaria Especial da Receita Federal do Brasil e a Procuradoria-Geral da Fazenda Nacional, no âmbito de suas competências, deverão fixar os critérios para o parcelamento previsto neste artigo, bem como disponibilizar as informações aos Municípios sobre o montante das dívidas, as formas de parcelamento, os juros e os encargos incidentes, de modo a possibilitar o acompanhamento da evolução desses débitos.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 113, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 113, de 2021",
+            "type": "emenda_constitucional",
+            "number": "113",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc113.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ff4de0ce82236b2ac289ddf68dda643c749e6aacb6019614a17ad3ac036e7728",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par6",
+      "aliases": [
+        "art116_par6,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 6º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 6º"
+        }
+      ],
+      "text": "O parcelamento será excluído na hipótese de inadimplência por 3 (três) meses consecutivos ou por 6 (seis) meses alternados, relativa às contribuições previdenciárias referidas no caput deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ea3a73070cd6a5d1c02d92f6d71aa1dd7d8c687f7c8cf668b66010823d2878fd",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par7",
+      "aliases": [
+        "art116_par7,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 7º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 7º"
+        }
+      ],
+      "text": "Em caso de exclusão por inadimplência, o Município ficará impedido de receber transferências voluntárias da União, inclusive de emendas parlamentares, enquanto perdurar a inadimplência.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:699d1acf5186d69c25eca527f3c7ddfd9404f0ec6b42cb4916421caca450168e",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par8",
+      "aliases": [
+        "art116_par8,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 8º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 8º"
+        }
+      ],
+      "text": "O chefe do Poder Executivo do Município inadimplente responderá na forma da legislação de responsabilidade fiscal e de improbidade administrativa.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:6ad27bcce7faa7a7fdb9855839304732f0704a3a6eb3f6c441d8ebd5c97d99a6",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par9",
+      "aliases": [
+        "art116_par9,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 9º",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 9º"
+        }
+      ],
+      "text": "Não serão responsabilizados os Municípios e os respectivos chefes do Poder Executivo que demonstrarem que a inadimplência ocorreu por variações negativas inesperadas e significativas nas receitas ou por incremento nas despesas não decorrentes de decisões próprias do Município ou do respectivo chefe do Poder Executivo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:95535456e1e37dd9a13a32d01f461ce8bb496a6a498c04f2c86d407c3e9c43b3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par10",
+      "aliases": [
+        "art116_par10,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 10",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 10"
+        }
+      ],
+      "text": "As parcelas a que se refere o caput deste artigo serão equivalentes ao saldo da dívida fracionado em até 300 (trezentas) parcelas ou a 1% (um por cento) da média mensal da receita corrente líquida do Município referente ao ano anterior ao do vencimento da parcela, o que resultar na menor prestação.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:64b5bc16faebcb6b642c0adf5f7ebfaf273371b4d7e188d3216f9e0eef0fbc7c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par11",
+      "aliases": [
+        "art116_par11,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 11",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 11"
+        }
+      ],
+      "text": "Encerrado o prazo do parcelamento, eventual resíduo da dívida não quitado na forma do caput deste artigo poderá ser pago à vista ou parcelado em até 60 (sessenta) prestações mensais, na forma da legislação aplicável à Fazenda Pública federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:70d68593e2efc5f5a22dab56fe8deb1a13cd5f500927545cedb920fc822e40f6",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12",
+      "aliases": [
+        "art116_par12,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "paragrafo",
+      "label": "§ 12",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        }
+      ],
+      "text": "A quitação antecipada de parcela da dívida de que trata o § 3º deste artigo poderá ser realizada por meio dos seguintes instrumentos:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:408d1b38b3b2765f4a3a12a3ca2ce7b4223c5974280fe37a5aba7ecc64816c38",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc1",
+      "aliases": [
+        "art116_par12_inc1,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "transferência de valores em moeda corrente à conta única do Tesouro Nacional, a título de amortização extraordinária do saldo devedor;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d4b7773a0b222b4aa8dbc56d90c5b5bd16e329bfcea40917bf1df03af78feca9",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc2",
+      "aliases": [
+        "art116_par12_inc2,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "transferência, para a União, de participações societárias em empresas de propriedade do Município, desde que a operação seja autorizada mediante leis específicas da União e do Município;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:7f9366b338fde2932d2685784de0abe632772c8d348464ce5a630928f4976a12",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc3",
+      "aliases": [
+        "art116_par12_inc3,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "transferência de bens móveis ou imóveis do Município para a União, desde que haja manifestação de aceite por ambas as partes e a operação seja autorizada mediante lei específica do Município;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8e8ea0d0f57c312bd336099adf35b3cf5d5393d91a8ae8350f917b51354e39ee",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc4",
+      "aliases": [
+        "art116_par12_inc4,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "cessão de créditos líquidos e certos do Município para o setor privado, desde que previamente aceitos pela União;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:bec6dcdfab1b4227c83619568b5591982c95bcf4d5206bc83aae1dd036e415f8",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc5",
+      "aliases": [
+        "art116_par12_inc5,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "transferência de créditos do Município com a União reconhecidos por ambas as partes;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c113bda95d67ecbd08a7f7638b1f2dc629d4358f561f29a5887e8b9e365960f6",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc6",
+      "aliases": [
+        "art116_par12_inc6,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "cessão, para a União, dos recebíveis originados de créditos inscritos na dívida ativa da Fazenda Pública municipal confessados e considerados recuperáveis nos termos da legislação aplicável, nas seguintes condições:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:e39dc5aaa211c62d0cb464d1043eca927199962ec783e97578226ebd6d3d877f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc6_ali1",
+      "aliases": [
+        "art116_par12_inc6_ali1,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea a",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea a"
+        }
+      ],
+      "text": "o valor considerado para amortização da dívida será o valor atualizado dos créditos com ou sem deságio, negociado entre as partes;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9a61f9c464defece3c2beea808637988855b34a318733afa0ee845faf1fe384c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc6_ali2",
+      "aliases": [
+        "art116_par12_inc6_ali2,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea b",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea b"
+        }
+      ],
+      "text": "a cessão do crédito não gerará qualquer alteração na situação do devedor nem ensejará expedição de certidão negativa;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1a4dc0a54a53a13dcfc908bf94d2dc652691e49505cdfba9f5cdf95da1e6f4d0",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc6_ali3",
+      "aliases": [
+        "art116_par12_inc6_ali3,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea c",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea c"
+        }
+      ],
+      "text": "na hipótese de crédito cedido, regulamento disporá sobre as regras às quais se submeterão os sujeitos passivos;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:c4d289c2ec1c78da055fe17b8e470ec25e0188711d9b58c898dc29d554a69f2b",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc6_ali4",
+      "aliases": [
+        "art116_par12_inc6_ali4,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea d",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea d"
+        }
+      ],
+      "text": "os valores dos créditos de que trata este inciso, líquidos do deságio a que se refere a alínea \"a\" deste inciso, poderão ser utilizados como pagamento da dívida com a União até o limite de 10% (dez por cento) do montante da dívida, e a cessão terá de ser aceita em comum acordo entre a União e o Município cedente;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:a092a1c6f04090dfb65682618be793acec0d5fde930325d09cc5f18c6967eb30",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc6_ali5",
+      "aliases": [
+        "art116_par12_inc6_ali5,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea e",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea e"
+        }
+      ],
+      "text": "o Município deverá fornecer todas as informações necessárias à avaliação, pela administração tributária da União, representada pela Procuradoria-Geral da Fazenda Nacional, da carteira de dívida ativa originadora dos direitos cedidos, especialmente em relação à expectativa de recebimento do fluxo futuro;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4256799a5a0a96b79cd5270bc83b561fbbdca46ffbbbc192dfe72d2ad119bb4f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc6_ali6",
+      "aliases": [
+        "art116_par12_inc6_ali6,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea f",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea f"
+        }
+      ],
+      "text": "as Fazendas Públicas municipais e a Procuradoria-Geral da Fazenda Nacional poderão implementar soluções integradas para otimizar a administração, a cobrança e a representação judicial e extrajudicial dos créditos inscritos em dívida ativa; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:4024df14af8fe85d2d6648bfb354220819ba76da1ec92786f36d95ebc0dd4a24",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc6_ali7",
+      "aliases": [
+        "art116_par12_inc6_ali7,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "alinea",
+      "label": "alínea g",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        },
+        {
+          "kind": "alinea",
+          "label": "alínea g"
+        }
+      ],
+      "text": "a cessão prevista neste inciso preservará a base de cálculo das vinculações constitucionais no exercício financeiro em que o contribuinte efetuar o pagamento;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:8caf9a0bc401c52488db8fe0723663361c21e76428e95f8c17f127e3609ffabd",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc7",
+      "aliases": [
+        "art116_par12_inc7,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso VII",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VII"
+        }
+      ],
+      "text": "cessão de outros ativos que, em comum acordo entre as partes, possam ser utilizados para pagamento das dívidas, nos termos de ato do Poder Executivo federal; e",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:396f6903c9b89e0d5fd836dccd64a42d819d9e17cc179d98feb41bb408c17b24",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art116_par12_inc8",
+      "aliases": [
+        "art116_par12_inc8,emc-136-2025-09-09"
+      ],
+      "norm": "adct",
+      "kind": "inciso",
+      "label": "inciso VIII",
+      "path": [
+        {
+          "kind": "artigo",
+          "label": "Art. 116"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 12"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VIII"
+        }
+      ],
+      "text": "cessão, para a União, dos recebíveis originados da compensação financeira advinda da exploração de petróleo ou gás natural, de recursos hídricos para fins de geração de energia elétrica ou de recursos minerais em seus respectivos territórios, plataformas continentais, mar territorial ou zona econômica exclusiva, conforme as Leis nºs 7.990, de 28 de dezembro de 1989, e 9.478, de 6 de agosto de 1997, de acordo com definição em ato do Poder Executivo federal.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 136, de 2025",
+          "act": {
+            "citation": "Emenda Constitucional nº 136, de 2025",
+            "type": "emenda_constitucional",
+            "number": "136",
+            "year": 2025,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc136.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:2a301742330ceab13066d210edc3b57626cbdd177a7a2f7dbddf50128924808c",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

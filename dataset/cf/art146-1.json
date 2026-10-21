@@ -1,0 +1,69 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art146-1",
+  "provisions": [
+    {
+      "id": "art146-1_cpt",
+      "aliases": [
+        "art146-1_cpt,emc-42-2003-12-19"
+      ],
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título VI"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo I"
+        },
+        {
+          "kind": "secao",
+          "label": "Seção I"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 146-A"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "Lei complementar poderá estabelecer critérios especiais de tributação, com o objetivo de prevenir desequilíbrios da concorrência, sem prejuízo da competência de a União, por lei, estabelecer normas de igual objetivo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 42, de 19.12.2003",
+          "act": {
+            "citation": "Emenda Constitucional nº 42, de 19.12.2003",
+            "type": "emenda_constitucional",
+            "number": "42",
+            "year": 2003,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc42.htm#art1"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:76f06d0457c458cee8a53f1c7b743ebaeaaa7b7ea2635fc3b6b53e192796ce60",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}

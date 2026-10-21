@@ -1,0 +1,737 @@
+{
+  "norm": {
+    "key": "cf",
+    "urn": "urn:lex:br:federal:constituicao:1988-10-05;1988",
+    "title": "Constituição da República Federativa do Brasil de 1988",
+    "attribution": "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  },
+  "article": "art29-1",
+  "provisions": [
+    {
+      "id": "art29-1_cpt",
+      "aliases": [
+        "art29-1_cpt,emc-25-2000-02-14"
+      ],
+      "norm": "cf",
+      "kind": "caput",
+      "label": "caput",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 29-A"
+        },
+        {
+          "kind": "caput",
+          "label": "caput"
+        }
+      ],
+      "text": "O total da despesa do Poder Legislativo Municipal, incluídos os subsídios dos Vereadores e os demais gastos com pessoal inativo e pensionistas, não poderá ultrapassar os seguintes percentuais, relativos ao somatório da receita tributária e das transferências previstas no § 5º do art. 153 e nos arts. 158 e 159 desta Constituição, efetivamente realizado no exercício anterior:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constitucional nº 109, de 2021",
+          "act": {
+            "citation": "Emenda Constitucional nº 109, de 2021",
+            "type": "emenda_constitucional",
+            "number": "109",
+            "year": 2021,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc109.htm#art1"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "vigencia",
+          "annotation": "Vigência",
+          "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc109.htm#art7"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:b44f7245e2e001e423792c231df63ab5dd77b2dd62f0820803e29d6df968cdfe",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art29-1_cpt_inc1",
+      "aliases": [
+        "art29-1_cpt_inc1,emc-25-2000-02-14"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 29-A"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "7% (sete por cento) para Municípios com população de até 100.000 (cem mil) habitantes;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constituição Constitucional nº 58, de 2009",
+          "act": {
+            "citation": "Emenda Constituição Constitucional nº 58, de 2009",
+            "type": "emenda_constitucional",
+            "number": "58",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc58.htm#art2"
+          }
+        }
+      ],
+      "references": [
+        {
+          "kind": "producao_de_efeito",
+          "annotation": "Produção de efeito",
+          "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc58.htm#art3"
+        }
+      ],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:048d96c84b72ed6e564d9961f49a501cb121c46abaf8ead55219bf669b4779f3",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art29-1_cpt_inc2",
+      "aliases": [
+        "art29-1_cpt_inc2,emc-25-2000-02-14"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 29-A"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "6% (seis por cento) para Municípios com população entre 100.000 (cem mil) e 300.000 (trezentos mil) habitantes;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constituição Constitucional nº 58, de 2009",
+          "act": {
+            "citation": "Emenda Constituição Constitucional nº 58, de 2009",
+            "type": "emenda_constitucional",
+            "number": "58",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc58.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:f472ca333cc40e97f8e240b614a812de881c488b93288a39ab532a32a79f5ee6",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art29-1_cpt_inc3",
+      "aliases": [
+        "art29-1_cpt_inc3,emc-25-2000-02-14"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 29-A"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "5% (cinco por cento) para Municípios com população entre 300.001 (trezentos mil e um) e 500.000 (quinhentos mil) habitantes;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constituição Constitucional nº 58, de 2009",
+          "act": {
+            "citation": "Emenda Constituição Constitucional nº 58, de 2009",
+            "type": "emenda_constitucional",
+            "number": "58",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc58.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:1705d2858b1955996b9c65a9e3bf53b6e6a191f95cc3efa7734f175938a91806",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art29-1_cpt_inc4",
+      "aliases": [
+        "art29-1_cpt_inc4,emc-25-2000-02-14"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso IV",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 29-A"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso IV"
+        }
+      ],
+      "text": "4,5% (quatro inteiros e cinco décimos por cento) para Municípios com população entre 500.001 (quinhentos mil e um) e 3.000.000 (três milhões) de habitantes;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "wording",
+          "annotation": "Redação dada pela Emenda Constituição Constitucional nº 58, de 2009",
+          "act": {
+            "citation": "Emenda Constituição Constitucional nº 58, de 2009",
+            "type": "emenda_constitucional",
+            "number": "58",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc58.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3cb6ce5c8832102ce2f3556ed56b7c5751aa8e1323b528b5fb6dbb84aa26aeda",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art29-1_cpt_inc5",
+      "aliases": [
+        "art29-1_cpt_inc5,emc-58-2009-09-23"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso V",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 29-A"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso V"
+        }
+      ],
+      "text": "4% (quatro por cento) para Municípios com população entre 3.000.001 (três milhões e um) e 8.000.000 (oito milhões) de habitantes;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constituição Constitucional nº 58, de 2009",
+          "act": {
+            "citation": "Emenda Constituição Constitucional nº 58, de 2009",
+            "type": "emenda_constitucional",
+            "number": "58",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc58.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:0db18c7609d7a4d51ab4eee8551de62962326e0def514879e28afabdca54e97f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art29-1_cpt_inc6",
+      "aliases": [
+        "art29-1_cpt_inc6,emc-58-2009-09-23"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso VI",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 29-A"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso VI"
+        }
+      ],
+      "text": "3,5% (três inteiros e cinco décimos por cento) para Municípios com população acima de 8.000.001 (oito milhões e um) habitantes.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constituição Constitucional nº 58, de 2009",
+          "act": {
+            "citation": "Emenda Constituição Constitucional nº 58, de 2009",
+            "type": "emenda_constitucional",
+            "number": "58",
+            "year": 2009,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc58.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:9d22b4df4cf32ceee866b0c8202cfa9a401623b57320a1d7a3604ac09051ec5f",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art29-1_par1",
+      "aliases": [
+        "art29-1_par1,emc-25-2000-02-14"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 1º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 29-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 1º"
+        }
+      ],
+      "text": "A Câmara Municipal não gastará mais de setenta por cento de sua receita com folha de pagamento, incluído o gasto com o subsídio de seus Vereadores.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 25, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 25, de 2000",
+            "type": "emenda_constitucional",
+            "number": "25",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc25.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:ef511337217043154beeab3a275fe918a5a096f557d5c0eecb74246c2790ea27",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art29-1_par2",
+      "aliases": [
+        "art29-1_par2,emc-25-2000-02-14"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 2º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 29-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        }
+      ],
+      "text": "Constitui crime de responsabilidade do Prefeito Municipal:",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 25, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 25, de 2000",
+            "type": "emenda_constitucional",
+            "number": "25",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc25.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:d2a598a3ec981a4c6d798512fa525887ecf896473a66c9cda3af59c537093785",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art29-1_par2_inc1",
+      "aliases": [
+        "art29-1_par2_inc1,emc-25-2000-02-14"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso I",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 29-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso I"
+        }
+      ],
+      "text": "efetuar repasse que supere os limites definidos neste artigo;",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 25, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 25, de 2000",
+            "type": "emenda_constitucional",
+            "number": "25",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc25.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:841126b8e944e5a5dfd65528067920ac99fff8f4d23915f33b2a43760fc65a86",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art29-1_par2_inc2",
+      "aliases": [
+        "art29-1_par2_inc2,emc-25-2000-02-14"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso II",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 29-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso II"
+        }
+      ],
+      "text": "não enviar o repasse até o dia vinte de cada mês; ou",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 25, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 25, de 2000",
+            "type": "emenda_constitucional",
+            "number": "25",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc25.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:3e1209fc7f9e2b67890f5f30be91d56ba51df6ecea71dbe644b7a5e1b630fc8d",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art29-1_par2_inc3",
+      "aliases": [
+        "art29-1_par2_inc3,emc-25-2000-02-14"
+      ],
+      "norm": "cf",
+      "kind": "inciso",
+      "label": "inciso III",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 29-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 2º"
+        },
+        {
+          "kind": "inciso",
+          "label": "inciso III"
+        }
+      ],
+      "text": "enviá-lo a menor em relação à proporção fixada na Lei Orçamentária.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 25, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 25, de 2000",
+            "type": "emenda_constitucional",
+            "number": "25",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc25.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:be45f4adbda8a579718426573b22e369c1acb3139219d4e723746570a30ac499",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    },
+    {
+      "id": "art29-1_par3",
+      "aliases": [
+        "art29-1_par3,emc-25-2000-02-14"
+      ],
+      "norm": "cf",
+      "kind": "paragrafo",
+      "label": "§ 3º",
+      "path": [
+        {
+          "kind": "titulo",
+          "label": "Título III"
+        },
+        {
+          "kind": "capitulo",
+          "label": "Capítulo IV"
+        },
+        {
+          "kind": "artigo",
+          "label": "Art. 29-A"
+        },
+        {
+          "kind": "paragrafo",
+          "label": "§ 3º"
+        }
+      ],
+      "text": "Constitui crime de responsabilidade do Presidente da Câmara Municipal o desrespeito ao § 1o deste artigo.",
+      "status": "in_force",
+      "amendments": [
+        {
+          "effect": "inserted",
+          "annotation": "Incluído pela Emenda Constitucional nº 25, de 2000",
+          "act": {
+            "citation": "Emenda Constitucional nº 25, de 2000",
+            "type": "emenda_constitucional",
+            "number": "25",
+            "year": 2000,
+            "href": "https://www.planalto.gov.br/ccivil_03/constituicao/Emendas/Emc/emc25.htm#art2"
+          }
+        }
+      ],
+      "references": [],
+      "provenance": {
+        "sourceUrl": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+        "retrievedAt": "2026-10-21T01:26:39Z",
+        "datasetVersion": "2026-10-21",
+        "notice": "Texto não oficial: confira a fonte. A vigência não é verificada contra decisões do STF. / Unofficial text: check the source. Vigência is not verified against STF decisions.",
+        "contentHash": "sha256:95738685a81f86a88ca65330fa0dc6be60041c00e2d855f2dc21a0df6f9d94cb",
+        "secondary": {
+          "outcome": "agrees",
+          "source": "normas.leg.br"
+        }
+      }
+    }
+  ]
+}
