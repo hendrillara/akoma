@@ -5,11 +5,15 @@ Akoma mirrors Brazilian federal legislation (CF + ADCT first, then CDC, CLT…) 
 ## Map
 Check here before searching. When a listed path moves, update this Map in the same commit (the map check fails otherwise).
 - `src/schema/` — dataset types shared by the pipeline (producer) and the Worker (consumer)
-- `src/pipeline/` — the build: raw snapshots + norm manifests → dataset (test seam 1); `planalto.ts` page → dispositivos, `annotations.ts` annotations → metadata, `files.ts` dataset → per-article JSON + Markdown mirrors, `changes.ts` previous + new dataset → change report (data + Markdown PR body)
+- `src/pipeline/` — the build: raw snapshots + norm manifests → dataset (test seam 1); `planalto.ts` page → dispositivos, `annotations.ts` annotations → metadata, `files.ts` dataset → per-article JSON + Markdown mirrors + `search-index.json`, `changes.ts` previous + new dataset → change report (data + Markdown PR body)
 - `src/norms/` — one declarative manifest per norm (`cf.ts`, `adct.ts`, `cdc.ts`: identity, primary Planalto URL, secondary sources, known quirks); `index.ts` is the registry of all norms
 - `src/sources/` — the `Source` port and its adapters (recorded fixtures today; live HTTP next, per ADR 0001)
-- `src/worker/` — the served API: HTTP request → response over a dataset (test seam 2)
-- `test/` — seam tests only (`build.test.ts`, `cf-adct.test.ts`, `cdc.test.ts` and `changes.test.ts` = seam 1, `api.test.ts` = seam 2); no unit tests of parser internals
+- `src/search/` — BM25 search shared by both sides: `analyze.ts` text → terms (same code at build and query time), `build-index.ts` dispositivos + synonyms → prebuilt index (build), `query.ts` index + query → ranked hits (Worker)
+- `src/worker/` — the served API: HTTP request → response over a dataset (test seam 2); `search.ts` serves `GET /v1/search`
+- `data/synonyms.json` — the search synonym dictionary (everyday words and acronyms → the law's words); data, not code
+- `docs/search.md` — how search works, the evaluation set and its thresholds, the analysis choices and their measurements, query cost
+- `test/` — seam tests only (`build.test.ts`, `cf-adct.test.ts`, `cdc.test.ts` and `changes.test.ts` = seam 1, `api.test.ts` and `search.test.ts` = seam 2); no unit tests of parser internals
+- `test/search-eval.json` — search evaluation set: questions → expected dispositivos (authored + holdout); `search.test.ts` enforces its recall@10 thresholds
 - `test/cf-adct.test.ts` — CF/ADCT golden set (hand-verified against the fixture HTML), structural invariants, full-text snapshot
 - `test/cdc.test.ts` — CDC golden set (hand-verified against the fixture HTML), structural invariants, full-text snapshot, secondary source
 - `test/snapshots/` — committed full-text Markdown mirrors of the CF, ADCT and CDC (generated; never hand-edited)
