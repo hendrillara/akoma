@@ -57,10 +57,10 @@ describe("/llms.txt", () => {
   });
 });
 
-/** Every concrete `/v1/` path a text gives (templates such as `/v1/provisions/{norm}/{id}` are skipped). */
+/** Every concrete `/v1/` path a text gives (templates such as `/v1/provisions/{norm}/{id}` or `q=…` are skipped). */
 function apiPaths(text: string): string[] {
   const found = [...text.matchAll(/\/v1\/[^\s`)\]>"'|]*/g)].map((m) => m[0].replace(/[.,;:]+$/, ""));
-  return [...new Set(found.filter((p) => !p.includes("{")))];
+  return [...new Set(found.filter((p) => !p.includes("{") && !p.includes("…")))];
 }
 
 // The one example that is meant to miss: a normas.leg.br alias, answered 404 with the canonical id.
@@ -69,6 +69,7 @@ const ALIAS_EXAMPLES: Record<string, string> = { "/v1/provisions/cf/art7_par1u":
 describe.each([
   ["/llms.txt", async () => (await get("/llms.txt")).text()],
   ["/usage.md", async () => (await get("/usage.md")).text()],
+  ["README.md", async () => readFileSync(new URL("../README.md", import.meta.url), "utf8")],
 ])("every API example in %s answers", (_name, read) => {
   it("with 200, or with 404 and the canonical id for the alias example", async () => {
     const paths = apiPaths(await read());

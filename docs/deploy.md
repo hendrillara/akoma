@@ -7,6 +7,7 @@ One deploy uploads two things, both from the committed `dataset/` folder (writte
 | Path | Served by | What |
 |---|---|---|
 | `/v1/…` (`norms`, `provisions`, `search`, `status`) and `/mcp` | the Worker (`src/worker/main.ts`), always (`run_worker_first`) | the REST API and the remote MCP endpoint, bundled with `dataset/dataset.json` |
+| `/llms.txt` and `/usage.md` | the Worker, since no dataset file takes these paths | agent discovery: the llms.txt index and the usage guide (`src/worker/discovery.ts`) |
 | every file in `dataset/`, at its own path (`/cf/art5.json`, `/cf/art5.md`, `/cf.md`, `/status.json`, `/search-index.json`, `/dataset.json`) | Workers static assets, without running the Worker | the downloadable dataset, with the headers in `dataset/_headers` (open CORS) |
 
 The spec said Cloudflare Pages. Workers static assets do the same job inside the same Worker: one deploy, one domain, and file requests are free and unlimited.
@@ -56,7 +57,7 @@ The account id is committed in `wrangler.jsonc`. It is not a secret. If you woul
 7. **Limits in production.**
    - Rate limit: `for i in $(seq 1 130); do curl -s -o /dev/null -w "%{http_code}\n" "https://akoma.hendril.dev/v1/norms?n=$i"; done | sort | uniq -c`. Expect some `429`. The varying query string avoids the cache.
    - CPU: Workers → hendril-dev-akoma → Observability should show no "Exceeded CPU" errors (error 1102), and CPU time per request well under 10 ms. Look in particular at the first request after the deploy (a cold isolate) and at `/mcp` calls.
-   - MCP: add `https://akoma.hendril.dev/mcp` to an MCP client and call `list_norms`.
+   - MCP: add `https://akoma.hendril.dev/mcp` to an MCP client and call `list_norms`. Then repeat the agent discovery check against production and record it in `docs/agent-discovery-check.md`.
 8. **Turn on automatic deploys.** Create the token above, then run `gh secret set CLOUDFLARE_API_TOKEN -R hendrillara/akoma`. From then on, every push to `main` runs `.github/workflows/deploy.yml`: `pnpm verify`, `wrangler deploy` of the committed `dataset/`, then the smoke check. You can run it by hand with *Run workflow*. Until the secret exists, the deploy job skips with a notice and the verify job still runs.
 
 **Rollback:** `pnpm exec wrangler deployments list`, then `pnpm exec wrangler rollback [version-id]`. Each version has its own cache, so a rollback serves that version's answers.
@@ -72,6 +73,7 @@ Um deploy envia duas coisas, ambas da pasta `dataset/` commitada (gerada por `pn
 | Caminho | Quem atende | O quê |
 |---|---|---|
 | `/v1/…` (`norms`, `provisions`, `search`, `status`) e `/mcp` | o Worker (`src/worker/main.ts`), sempre (`run_worker_first`) | a API REST e o endpoint MCP remoto, empacotados com `dataset/dataset.json` |
+| `/llms.txt` e `/usage.md` | o Worker, já que nenhum arquivo do dataset ocupa esses caminhos | descoberta por agentes: o índice llms.txt e o guia de uso (`src/worker/discovery.ts`) |
 | cada arquivo de `dataset/`, no próprio caminho (`/cf/art5.json`, `/cf/art5.md`, `/cf.md`, `/status.json`, `/search-index.json`, `/dataset.json`) | os static assets do Workers, sem rodar o Worker | o dataset para download, com os cabeçalhos de `dataset/_headers` (CORS aberto) |
 
 O spec dizia Cloudflare Pages. Os static assets do Workers fazem o mesmo papel dentro do mesmo Worker: um deploy, um domínio, e as requisições de arquivo são gratuitas e ilimitadas.
@@ -121,7 +123,7 @@ O id da conta está commitado em `wrangler.jsonc`. Ele não é segredo. Se prefe
 7. **Limites em produção.**
    - Rate limit: `for i in $(seq 1 130); do curl -s -o /dev/null -w "%{http_code}\n" "https://akoma.hendril.dev/v1/norms?n=$i"; done | sort | uniq -c`. Espere alguns `429`. A query string variada evita o cache.
    - CPU: em Workers → hendril-dev-akoma → Observability não deve aparecer nenhum erro "Exceeded CPU" (erro 1102), e o tempo de CPU por requisição deve ficar bem abaixo de 10 ms. Olhe em especial a primeira requisição depois do deploy (isolate frio) e as chamadas a `/mcp`.
-   - MCP: adicione `https://akoma.hendril.dev/mcp` a um cliente MCP e chame `list_norms`.
+   - MCP: adicione `https://akoma.hendril.dev/mcp` a um cliente MCP e chame `list_norms`. Depois repita a verificação de descoberta por agente contra a produção e registre em `docs/agent-discovery-check.md`.
 8. **Ligue o deploy automático.** Crie o token acima e rode `gh secret set CLOUDFLARE_API_TOKEN -R hendrillara/akoma`. A partir daí, cada push em `main` roda `.github/workflows/deploy.yml`: `pnpm verify`, `wrangler deploy` da `dataset/` commitada e o smoke check. Dá para rodar à mão com *Run workflow*. Enquanto o secret não existir, o job de deploy é pulado com um aviso, e o de verify continua rodando.
 
 **Rollback:** `pnpm exec wrangler deployments list` e depois `pnpm exec wrangler rollback [version-id]`. Cada versão tem o próprio cache, então um rollback serve as respostas daquela versão.
