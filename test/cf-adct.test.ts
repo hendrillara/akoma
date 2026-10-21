@@ -11,6 +11,8 @@ import type { Dataset, Provision } from "../src/schema/dataset.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
 
 const fixtures = new URL("../fixtures/2026-10-20/", import.meta.url);
+// The EC 132 page the CF/ADCT manifests read for deferred vigência was captured a day later.
+const actFixtures = new URL("../fixtures/2026-10-21/", import.meta.url);
 const page = "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm";
 const emc = (file: string) => `https://www.planalto.gov.br/ccivil_03/constituicao/${file}`;
 const stf = (incidente: number) => `http://portal.stf.jus.br/processos/detalhe.asp?incidente=${incidente}`;
@@ -623,7 +625,7 @@ describe("CF and ADCT golden set", () => {
   let dataset: Dataset;
 
   beforeAll(async () => {
-    dataset = await build({ manifests: [cf, adct], source: await recordedSource(fixtures), datasetVersion: "golden" });
+    dataset = await build({ manifests: [cf, adct], source: await recordedSource(fixtures, actFixtures), datasetVersion: "golden" });
   });
 
   it("holds about 50 hand-verified dispositivos", () => {
@@ -647,7 +649,7 @@ describe("CF and ADCT structural invariants", () => {
   const count = (norm: string, kind: string) => of(norm).filter((p) => p.kind === kind).length;
 
   beforeAll(async () => {
-    dataset = await build({ manifests: [cf, adct], source: await recordedSource(fixtures), datasetVersion: "invariants" });
+    dataset = await build({ manifests: [cf, adct], source: await recordedSource(fixtures, actFixtures), datasetVersion: "invariants" });
   });
 
   it("never gives two dispositivos of a norm the same id", () => {
@@ -743,7 +745,7 @@ describe("CF and ADCT structural invariants", () => {
 // with `pnpm vitest run -u` only when the change is explained (a parser fix, or a new amending act in the fixtures).
 describe("CF and ADCT full-text snapshot", () => {
   it.each(["cf", "adct"])("%s matches its committed Markdown mirror", async (norm) => {
-    const dataset = await build({ manifests: [cf, adct], source: await recordedSource(fixtures), datasetVersion: "snapshot" });
+    const dataset = await build({ manifests: [cf, adct], source: await recordedSource(fixtures, actFixtures), datasetVersion: "snapshot" });
     const mirror = datasetFiles(dataset).find((f) => f.path === `${norm}.md`)!.content;
     await expect(mirror).toMatchFileSnapshot(`./snapshots/${norm}.md`);
   });

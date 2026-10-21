@@ -1,6 +1,6 @@
 // The dataset as published files: canonical JSON per article, and generated Markdown mirrors for humans and diffs.
 // The JSON is canonical; the Markdown is always generated from it, never edited.
-import type { Dataset, NormEntry, Provision } from "../schema/dataset.ts";
+import type { Dataset, NormEntry, PendingChange, Provision } from "../schema/dataset.ts";
 
 export interface DatasetFile {
   /** Path inside the published dataset, e.g. "cf/art5.json". */
@@ -57,22 +57,39 @@ export function normMarkdown(norm: NormEntry, provisions: Provision[]): string {
       for (let depth = same; depth < groups.length; depth++) out.push(`${"#".repeat(Math.min(depth + 2, 6))} ${groups[depth]}`);
       open = groups;
     }
-    out.push(line(provision));
+    out.push(...lines(provision));
   }
   return `${out.join("\n\n")}\n`;
 }
 
 function articleMarkdown(provisions: Provision[]): string[] {
   const path = provisions[0]!.path.map((s) => s.label).slice(0, -1).join(" › ");
-  return [`<!-- ${path} -->`, ...provisions.map(line)];
+  return [`<!-- ${path} -->`, ...provisions.flatMap(lines)];
 }
 
 const GROUPINGS = new Set(["parte", "livro", "titulo", "capitulo", "secao", "subsecao"]);
 
+/** A dispositivo's line, then a quoted line per pending change: "> **Pendente a partir de 2026-12-17** (EC …): …". */
+function lines(provision: Provision): string[] {
+  return [line(provision), ...(provision.pending ?? []).map(pendingLine)];
+}
+
+function pendingLine(entry: PendingChange): string {
+  const shown = entry.effect === "revoked" ? "(Revogado)" : escape(entry.text ?? "");
+  const note = entry.note ? ` *${escape(entry.note)}*` : "";
+  return `> **Pendente a partir de ${entry.effectiveFrom}** (${entry.act.citation}): ${shown}${note}`;
+}
+
+const MARKER: Partial<Record<Provision["status"], string>> = {
+  vetoed: "(Vetado)",
+  revoked: "(Revogado)",
+  not_yet_in_force: "(Ainda não vigente)",
+};
+
 /** One dispositivo as printed: "Art. 5º …", "§ 1º …", "Parágrafo único. …", "X - …", "a) …", "1) …". */
 function line(provision: Provision): string {
   const label = printedLabel(provision);
-  const shown = provision.text || (provision.status === "vetoed" ? "(Vetado)" : provision.status === "revoked" ? "(Revogado)" : "");
+  const shown = provision.text || MARKER[provision.status] || "";
   const notes = [...provision.amendments.map((a) => a.annotation), ...provision.references.map((r) => r.annotation)];
   const annotations = notes.length ? ` ${notes.map((n) => `*(${n})*`).join(" ")}` : "";
   // A renumbered dispositivo has no wording left: its label is followed by the note alone.

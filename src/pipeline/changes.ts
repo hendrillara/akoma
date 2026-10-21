@@ -7,9 +7,10 @@ import { escape } from "./files.ts";
 /**
  * `added`: a new id. `changed`: any part of the record moved (text, label, status, annotations…). `revoked`: the
  * record became `revoked`. `removed`: the id vanished with no revocation mark, which the review gates must stop.
- * Deferred vigência (#6) adds `pending-activated` here, with its heading in `SECTIONS`.
+ * `pending-activated`: the build promoted a pending change because its start date came (deferred vigência, ADR 0003):
+ * the record gained an amendment carrying `effectiveFrom`. It takes precedence over `changed` and `revoked`.
  */
-export type ChangeKind = "added" | "changed" | "revoked" | "removed";
+export type ChangeKind = "added" | "changed" | "pending-activated" | "revoked" | "removed";
 
 /** A record's fields that take part in change detection: everything but its provenance (retrieval time, version…). */
 export type RecordField = Exclude<keyof Provision, "provenance">;
@@ -66,16 +67,18 @@ export function detectChanges(previous: Dataset, next: Dataset): ChangeReport {
 
 function change(before: Provision | undefined, after: Provision | undefined): ProvisionChange {
   const record = (after ?? before)!;
+  const cited = new Set((before?.amendments ?? []).map(canonical));
+  const amendments = (after?.amendments ?? []).filter((a) => !cited.has(canonical(a)));
   const kind: ChangeKind = !before
     ? "added"
     : !after
       ? "removed"
-      : after.status === "revoked" && before.status !== "revoked"
-        ? "revoked"
-        : "changed";
+      : amendments.some((a) => a.effectiveFrom !== undefined)
+        ? "pending-activated"
+        : after.status === "revoked" && before.status !== "revoked"
+          ? "revoked"
+          : "changed";
   const fields = before && after ? recordFields(before, after).filter((f) => canonical(before[f]) !== canonical(after[f])) : [];
-  const cited = new Set((before?.amendments ?? []).map(canonical));
-  const amendments = (after?.amendments ?? []).filter((a) => !cited.has(canonical(a)));
   return {
     kind,
     norm: record.norm,
@@ -125,6 +128,7 @@ function checkPage(previous: Dataset, page: NonNullable<Dataset["pages"]>[number
 const SECTIONS: Record<ChangeKind, { heading: string; summary: string }> = {
   added: { heading: "Added", summary: "added" },
   changed: { heading: "Changed", summary: "changed" },
+  "pending-activated": { heading: "Pending activated", summary: "pending activated" },
   revoked: { heading: "Revoked", summary: "revoked" },
   removed: { heading: "Removed without a revocation mark", summary: "removed without a revocation mark" },
 };
@@ -193,7 +197,8 @@ function changeLines(c: ProvisionChange): string[] {
         ...notIn(before.references, after.references).map((r) => `− ${escape(r.annotation)}`),
       ];
       item(`References: ${notes.join("; ")}`);
-    } else item(`\`${field}\`: \`${canonical(before[field])}\` → \`${canonical(after[field])}\``);
+    } else if (field === "pending") item(`Pending: ${pendingText(before)} → ${pendingText(after)}`);
+    else item(`\`${field}\`: \`${canonical(before[field])}\` → \`${canonical(after[field])}\``);
   }
   return lines;
 }
@@ -201,6 +206,12 @@ function changeLines(c: ProvisionChange): string[] {
 function notIn<T extends Amendment | Reference>(these: T[], those: T[]): T[] {
   const there = new Set(those.map(canonical));
   return these.filter((x) => !there.has(canonical(x)));
+}
+
+/** "wording from 2026-12-17; revoked from 2033-01-01", or "none". */
+function pendingText(provision: Provision): string {
+  const entries = provision.pending ?? [];
+  return entries.length ? entries.map((e) => `${e.effect} from ${e.effectiveFrom}`).join("; ") : "none";
 }
 
 function pathText(path: PathSegment[]): string {
