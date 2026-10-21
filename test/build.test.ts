@@ -129,8 +129,21 @@ describe("build", () => {
         path: [...art5, paragrafo("§ 4º")],
         text: "O Brasil se submete à jurisdição de Tribunal Penal Internacional a cuja criação tenha manifestado adesão.",
       },
-    ])("reads $id verbatim from the official text", ({ id, path, text }) => {
-      expect(provision(dataset, id)).toMatchObject({ id, norm: "cf", path, text });
+    ])("reads $id verbatim from the official text, with its provenance", ({ id, path, text }) => {
+      expect(provision(dataset, id)).toMatchObject({
+        id,
+        norm: "cf",
+        path,
+        text,
+        provenance: { sourceUrl: compiledCf, retrievedAt: "2026-10-21T01:26:39Z", datasetVersion },
+      });
+    });
+
+    it("hashes each dispositivo's own text, so the hash changes only when its wording does", () => {
+      // SHA-256 of the hand-copied text of art. 5º X (see the table above), computed with shasum.
+      expect(provision(dataset, "art5_cpt_inc10")?.provenance.contentHash).toBe(
+        "sha256:ac4a37222107e533c0f2e9e78ea6de045a0d5d5d8b0cec8a6a3ed1ee9e73e0f0",
+      );
     });
   });
 
