@@ -66,7 +66,7 @@ The account id is committed in `wrangler.jsonc`. It is not a secret. If you woul
 
 - **The `akoma-mcp` npm package** that spec #1 lists is not built or published. Publishing needs the maintainer's npm account and a decision on the package name and its support promise; until then, clients connect to `https://akoma.hendril.dev/mcp` directly (README).
 - **Workers static assets instead of Pages** ([ADR 0005](adr/0005-workers-static-assets-instead-of-pages.md)): a deviation from the spec to confirm.
-- **The review model** ([ADR 0006](adr/0006-review-model.md)): keep `claude-opus-5` or switch, after a `pnpm review:live` run.
+- **The review model** ([ADR 0006](adr/0006-review-model.md)): OpenAI `gpt-6-luna` when `OPENAI_API_KEY` is set, else `claude-opus-5`; keep or switch, after a `pnpm review:live` run.
 
 ---
 
@@ -138,4 +138,4 @@ O id da conta está commitado em `wrangler.jsonc`. Ele não é segredo. Se prefe
 
 - **O pacote npm `akoma-mcp`** que o spec #1 lista não foi construído nem publicado. Publicar exige a conta npm do mantenedor e uma decisão sobre o nome do pacote e o suporte prometido; até lá, os clientes se conectam direto a `https://akoma.hendril.dev/mcp` (README).
 - **Static assets do Workers em vez do Pages** ([ADR 0005](adr/0005-workers-static-assets-instead-of-pages.md)): um desvio do spec a confirmar.
-- **O modelo revisor** ([ADR 0006](adr/0006-review-model.md)): manter o `claude-opus-5` ou trocar, depois de rodar o `pnpm review:live`.
+- **O modelo revisor** ([ADR 0006](adr/0006-review-model.md)): o OpenAI `gpt-6-luna` quando a `OPENAI_API_KEY` existe, senão o `claude-opus-5`; manter ou trocar, depois de rodar o `pnpm review:live`.
