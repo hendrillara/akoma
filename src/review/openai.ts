@@ -46,7 +46,8 @@ export function openaiReviewer({
   fetch,
 }: OpenAIReviewerOptions): LlmReviewer {
   // Every option the SDK would otherwise read from the environment is given (base URL, admin key, organization,
-  // project, webhook secret, log level), so the request depends on these arguments only.
+  // project, webhook secret, log level). `OPENAI_CUSTOM_HEADERS` has no such option, and its headers override the
+  // key's, so `sealed` sends only the SDK's own headers and this key: the request depends on these arguments only.
   const client = new OpenAI({
     apiKey,
     adminAPIKey: null,
@@ -57,7 +58,7 @@ export function openaiReviewer({
     logLevel: "warn",
     timeout: timeoutMs,
     maxRetries,
-    ...(fetch && { fetch }),
+    fetch: sealed(fetch ?? globalThis.fetch, apiKey),
   });
   const format = zodTextFormat(ReviewerOutputSchema, "reviewer_output");
   const instructions = reviewerPrompt();
@@ -105,6 +106,21 @@ export function openaiReviewer({
       if (!output.success) throw new Error(`${who}'s answer is not the reviewer's schema: ${schemaIssues(output.error)}`);
       return { model: who, prompt: PROMPT_VERSION, output: output.data };
     },
+  };
+}
+
+/** The headers the SDK itself sends (its `x-stainless-*` client metadata included); anything else is dropped. */
+const SDK_HEADERS = /^(accept|content-type|content-length|user-agent|idempotency-key|x-stainless-[a-z-]+)$/;
+
+/** A fetch that sends only to the Responses endpoint, with the SDK's own headers and the given key. */
+function sealed(fetch: typeof globalThis.fetch, apiKey: string): typeof globalThis.fetch {
+  return async (input, init) => {
+    const url = input instanceof Request ? input.url : String(input);
+    if (!url.startsWith(`${BASE_URL}/`)) throw new Error(`the OpenAI adapter only calls ${BASE_URL}, not ${url}`);
+    const headers = new Headers();
+    for (const [name, value] of new Headers(init?.headers)) if (SDK_HEADERS.test(name)) headers.set(name, value);
+    headers.set("authorization", `Bearer ${apiKey}`);
+    return fetch(input, { ...init, headers });
   };
 }
 

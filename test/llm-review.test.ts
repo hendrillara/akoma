@@ -392,6 +392,23 @@ describe("LLM review with the OpenAI adapter, over handwritten API responses", (
     expect(body.text.format).toMatchObject({ type: "json_schema", strict: true });
     expect(body.text.format.schema.required).toEqual(["mappings", "orphanChanges", "unappliedCommands"]);
     expect(body.text.format.schema.additionalProperties).toBe(false);
+    // Strict mode rejects a schema in which any object allows other keys or leaves one optional (a 400 that would block
+    // every review), so every object node of it is checked, the array items included.
+    const objects: { properties: Record<string, unknown>; required?: string[]; additionalProperties?: unknown }[] = [];
+    const walk = (node: unknown) => {
+      if (!node || typeof node !== "object") return;
+      const n = node as { type?: unknown; properties?: Record<string, unknown> };
+      if (n.type === "object") objects.push(n as (typeof objects)[number]);
+      Object.values(node).forEach(walk);
+    };
+    walk(body.text.format.schema);
+    expect(objects).toHaveLength(4);
+    for (const o of objects) {
+      expect(o.additionalProperties).toBe(false);
+      expect([...(o.required ?? [])].sort()).toEqual(Object.keys(o.properties).sort());
+    }
+    expect(body.reasoning).toEqual({ effort: "high" });
+    expect(body.max_output_tokens).toBe(32_000);
     // The same versioned prompt the Claude adapter sends.
     expect(body.instructions).toBe(await readFile(new URL("../src/review/prompts/llm-reviewer.v1.md", import.meta.url), "utf8"));
     const user = body.input.map((m) => m.content.map((c) => c.text).join("\n")).join("\n");
@@ -437,8 +454,9 @@ describe("LLM review with the OpenAI adapter, over handwritten API responses", (
     expect(llmProblems(verdict).map((f) => f.message)).toEqual(["the reviewer gave no usable answer: the OpenAI API did not answer within 50 ms"]);
   });
 
-  it("reads nothing from the environment: neither a base URL, an organization, a project nor a key found there", async () => {
+  it("reads nothing from the environment: neither a base URL, an organization, a project, headers nor a key found there", async () => {
     vi.stubEnv("OPENAI_BASE_URL", "https://elsewhere.example/v1");
+    vi.stubEnv("OPENAI_CUSTOM_HEADERS", "Authorization: Bearer key-from-the-machine\nOpenAI-Organization: org-x\nX-From-The-Machine: yes");
     vi.stubEnv("OPENAI_ORG_ID", "org-from-the-machine");
     vi.stubEnv("OPENAI_PROJECT_ID", "proj-from-the-machine");
     vi.stubEnv("OPENAI_API_KEY", "key-from-the-machine");
@@ -454,6 +472,7 @@ describe("LLM review with the OpenAI adapter, over handwritten API responses", (
       expect(headers[0]!.get("authorization")).toBe("Bearer test-key-not-a-real-one");
       expect(headers[0]!.has("openai-organization")).toBe(false);
       expect(headers[0]!.has("openai-project")).toBe(false);
+      expect(headers[0]!.has("x-from-the-machine")).toBe(false);
     } finally {
       vi.unstubAllEnvs();
     }
