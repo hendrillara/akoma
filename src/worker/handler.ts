@@ -1,6 +1,6 @@
 // The served API: HTTP request in, response out, over a built dataset (test seam 2).
 import type { Dataset } from "../schema/dataset.ts";
-import { discoveryFiles } from "./discovery.ts";
+import { discoveryFiles, README_URL } from "./discovery.ts";
 import { createMcp, mcpRateLimited } from "./mcp.ts";
 import type { RateLimiter } from "./rate-limit.ts";
 import { createSearch } from "./search.ts";
@@ -59,6 +59,16 @@ export function createHandler(dataset: Dataset, options: HandlerOptions = {}): (
       return respond({ status: 405, json: { error: "method_not_allowed" }, md: () => "Método não permitido / Method not allowed.\n" }, format, {
         allow: "GET, HEAD",
       });
+    }
+    if (url.pathname === "/") {
+      // The root has no page of its own: a browser goes to the README, any other client gets the llms.txt index. The
+      // edge cache keys by URL and ignores Vary: Accept, so neither answer may be stored there.
+      const headers = { "cache-control": "no-store", vary: "Accept", "access-control-allow-origin": "*" };
+      if (/text\/html/i.test(request.headers.get("accept") ?? "")) {
+        return new Response(null, { status: 302, headers: { ...headers, location: README_URL } });
+      }
+      const index = discovery.get("/llms.txt")!;
+      return new Response(request.method === "HEAD" ? null : index.body, { headers: { ...headers, "content-type": index.contentType } });
     }
     const file = discovery.get(url.pathname);
     if (file) {

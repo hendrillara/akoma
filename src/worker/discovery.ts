@@ -7,6 +7,8 @@ import { RATE_LIMIT } from "./rate-limit.ts";
 
 export const BASE = "https://akoma.hendril.dev";
 export const MCP_URL = `${BASE}/mcp`;
+/** Where the root sends a browser: the README explains the service in Portuguese and English. */
+export const README_URL = "https://github.com/hendrillara/akoma#readme";
 const REPO = "https://github.com/hendrillara/akoma";
 
 export interface DiscoveryFile {

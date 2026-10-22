@@ -19,6 +19,26 @@ beforeAll(async () => {
   handle = createHandler(dataset);
 });
 
+describe("/ (the root)", () => {
+  // The edge cache keys by URL and ignores Vary: Accept, so the two answers below must never be stored there.
+  it("sends a browser to the README, which explains the service in Portuguese and English", async () => {
+    const response = await get("/", { headers: { accept: "text/html,application/xhtml+xml,*/*;q=0.8" } });
+
+    expect(response.status).toBe(302);
+    expect(response.headers.get("location")).toBe("https://github.com/hendrillara/akoma#readme");
+    expect(response.headers.get("cache-control")).toBe("no-store");
+  });
+
+  it("gives any other client the llms.txt index", async () => {
+    const response = await get("/", { headers: { accept: "*/*" } });
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toMatch(/^text\/plain/);
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(await response.text()).toBe(await (await get("/llms.txt")).text());
+  });
+});
+
 describe("/llms.txt", () => {
   it("is a Markdown index naming the service, the MCP URL and every norm key, cached like the API", async () => {
     const response = await get("/llms.txt");
