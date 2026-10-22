@@ -1,6 +1,7 @@
 // Seam 1: the daily publish job end to end (recorded sources + the previous dataset in; the change report, the
 // verdict, the PR and issue actions and the run status out), and the published dataset's regeneration guard.
-// GitHub is a fake port that records what the job asks of it; the LLM reviewer is a fake with a controlled answer.
+// GitHub is a fake port that records what the job asks of it; the LLM reviewer is a fake with a controlled answer, or
+// the one the environment selects over handwritten API responses.
 // Expected changes and targets were read by hand from the acts' pages (fixtures/2026-10-20/planalto/emc141.htm; the
 // simulated test/fixtures/refresh/ec142/emc142.htm) and the scenario READMEs.
 import { cp, mkdtemp, readFile, rm, unlink, writeFile } from "node:fs/promises";
@@ -18,6 +19,7 @@ import { runDailyJob, type TestRunner } from "../src/publish/job.ts";
 import { buildDataset, checkDataset, type PublishedBuild } from "../src/publish/published.ts";
 import { diskWorkspace, memoryWorkspace } from "../src/publish/workspace.ts";
 import type { LlmReviewer, ReviewerOutput } from "../src/review/llm.ts";
+import { selectReviewer } from "../src/review/select.ts";
 import type { Dataset, Provision } from "../src/schema/dataset.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
 import type { RawSnapshot, Source } from "../src/sources/source.ts";
@@ -115,7 +117,9 @@ async function run(options: {
   now: string;
   manifests?: NormManifest[];
   previous?: Dataset;
-  github?: MemoryGitHub; reviewer?: LlmReviewer | undefined; tests?: TestRunner; bodyLimit?: number }) {
+  github?: MemoryGitHub; reviewer?: LlmReviewer | undefined; tests?: TestRunner; bodyLimit?: number;
+  /** The rest of what `selectReviewer` returns: the provider and model the PR body names, or why there is none. */
+  reviewerProvider?: string; reviewerModel?: string; reviewerUnavailable?: string }) {
   const github = options.github ?? memoryGitHub();
   const workspace = memoryWorkspace();
   const result = await runDailyJob({
@@ -124,6 +128,9 @@ async function run(options: {
     source: options.source,
     now: new Date(options.now),
     reviewer: "reviewer" in options ? options.reviewer : fakeReviewer(ec142Mapping),
+    ...(options.reviewerProvider && { reviewerProvider: options.reviewerProvider }),
+    ...(options.reviewerModel && { reviewerModel: options.reviewerModel }),
+    ...(options.reviewerUnavailable && { reviewerUnavailable: options.reviewerUnavailable }),
     github,
     workspace,
     tests: options.tests ?? passing,
@@ -276,11 +283,108 @@ describe("daily job: no API key for the LLM reviewer", () => {
         layer: "llm",
         check: "reviewer",
         severity: "problem",
-        message: "the reviewer gave no usable answer: LLM review not run: no API key (ANTHROPIC_API_KEY is not set)",
+        message: "the reviewer gave no usable answer: LLM review not run: no API key (neither OPENAI_API_KEY nor ANTHROPIC_API_KEY is set)",
       },
     ]);
-    expect(github.pulls[0]!.body).toContain("LLM reviewer (layer 3): **not run: no API key**");
+    expect(github.pulls[0]!.body).toContain(
+      "LLM reviewer (layer 3): **not run: no API key (neither OPENAI_API_KEY nor ANTHROPIC_API_KEY is set)**, which blocks the merge.",
+    );
     expect(github.log).toContain("label PR #1 needs-human");
+  });
+});
+
+// The provider the daily job's environment selects (scripts/publish.ts passes `process.env` to `selectReviewer`), each
+// adapter's API served by a fetch that records the host and answers with a handwritten response
+// (test/fixtures/llm-review/): no network, and only made-up keys.
+describe("daily job: the LLM reviewer the environment selects", () => {
+  const OPENAI_KEY = "test-openai-key-not-a-real-one";
+  const ANTHROPIC_KEY = "test-anthropic-key-not-a-real-one";
+
+  /** Serves `folder/file` and records each request's URL and model. */
+  function api(folder: string, file: string) {
+    const calls: { url: string; model: string }[] = [];
+    const fetch: typeof globalThis.fetch = async (input, init) => {
+      calls.push({ url: String(input), model: JSON.parse(String(init?.body)).model });
+      return new Response(await readFile(new URL(`test/fixtures/llm-review/${folder}${file}`, root)), {
+        status: 200,
+        headers: { "content-type": "application/json" },
+      });
+    };
+    return { fetch, calls };
+  }
+  /** A fetch for either API, by host. */
+  function both() {
+    const openai = api("openai/", "ec142-mapping.json");
+    const anthropic = api("", "ec142-mapping.json");
+    const fetch: typeof globalThis.fetch = (input, init) =>
+      (new URL(String(input)).host === "api.openai.com" ? openai.fetch : anthropic.fetch)(input, init);
+    return { fetch, openai: openai.calls, anthropic: anthropic.calls };
+  }
+  const runWith = async (env: Record<string, string | undefined>, fetch: typeof globalThis.fetch) =>
+    run({ source: await sourceWith(scenario("ec142")), now: "2026-10-23T09:00:00Z", ...selectReviewer(env, { fetch, maxRetries: 0 }) });
+
+  it("reviews with OpenAI's gpt-6-luna when only OPENAI_API_KEY is set, and the PR body names provider and model", async () => {
+    const apis = both();
+    const { result, github } = await runWith({ OPENAI_API_KEY: OPENAI_KEY }, apis.fetch);
+    expect(apis.openai).toEqual([{ url: "https://api.openai.com/v1/responses", model: "gpt-6-luna" }]);
+    expect(apis.anthropic).toEqual([]);
+    expect(result.verdict?.decision).toBe("merge");
+    expect(github.pulls[0]!.body).toContain("- LLM reviewer (layer 3): OpenAI `gpt-6-luna`.");
+  });
+
+  it("prefers OpenAI when both keys are set and no provider is named, also when the variable is empty (an unset Actions variable)", async () => {
+    for (const env of [{}, { AKOMA_REVIEW_PROVIDER: "" }]) {
+      const apis = both();
+      await runWith({ ...env, OPENAI_API_KEY: OPENAI_KEY, ANTHROPIC_API_KEY: ANTHROPIC_KEY }, apis.fetch);
+      expect(apis.openai).toHaveLength(1);
+      expect(apis.anthropic).toEqual([]);
+    }
+  });
+
+  it("reviews with Claude when only ANTHROPIC_API_KEY is set, or when AKOMA_REVIEW_PROVIDER names anthropic", async () => {
+    for (const env of [{ ANTHROPIC_API_KEY: ANTHROPIC_KEY }, { AKOMA_REVIEW_PROVIDER: "anthropic", OPENAI_API_KEY: OPENAI_KEY, ANTHROPIC_API_KEY: ANTHROPIC_KEY }]) {
+      const apis = both();
+      const { result, github } = await runWith(env, apis.fetch);
+      expect(apis.anthropic).toEqual([{ url: "https://api.anthropic.com/v1/messages", model: "claude-opus-5" }]);
+      expect(apis.openai).toEqual([]);
+      expect(result.verdict?.decision).toBe("merge");
+      expect(github.pulls[0]!.body).toContain("- LLM reviewer (layer 3): Anthropic `claude-opus-5`.");
+    }
+  });
+
+  it("sends AKOMA_REVIEW_MODEL as the model to whichever provider is selected", async () => {
+    const apis = both();
+    const { github } = await runWith({ OPENAI_API_KEY: OPENAI_KEY, AKOMA_REVIEW_MODEL: "gpt-6-astra" }, apis.fetch);
+    expect(apis.openai.map((c) => c.model)).toEqual(["gpt-6-astra"]);
+    expect(github.pulls[0]!.body).toContain("- LLM reviewer (layer 3): OpenAI `gpt-6-astra`.");
+  });
+
+  it.each([
+    [
+      "the named provider's key is missing (never the other provider instead)",
+      { AKOMA_REVIEW_PROVIDER: "openai", ANTHROPIC_API_KEY: ANTHROPIC_KEY },
+      "no API key (AKOMA_REVIEW_PROVIDER is openai and OPENAI_API_KEY is not set)",
+    ],
+    [
+      "the named provider's key is missing, the other way round",
+      { AKOMA_REVIEW_PROVIDER: "anthropic", OPENAI_API_KEY: OPENAI_KEY },
+      "no API key (AKOMA_REVIEW_PROVIDER is anthropic and ANTHROPIC_API_KEY is not set)",
+    ],
+    [
+      "the provider is not one Akoma knows",
+      { AKOMA_REVIEW_PROVIDER: "gemini", OPENAI_API_KEY: OPENAI_KEY, ANTHROPIC_API_KEY: ANTHROPIC_KEY },
+      'unknown provider (AKOMA_REVIEW_PROVIDER is "gemini"; it must be openai or anthropic)',
+    ],
+    ["neither key is set", {}, "no API key (neither OPENAI_API_KEY nor ANTHROPIC_API_KEY is set)"],
+  ])("blocks the merge, calling no API, when %s", async (_, env, why) => {
+    const apis = both();
+    const { result, github } = await runWith(env, apis.fetch);
+    expect([...apis.openai, ...apis.anthropic]).toEqual([]);
+    expect(result.verdict?.decision).toBe("needs-human");
+    expect(result.verdict?.findings.filter((f) => f.severity === "problem").map((f) => f.message)).toEqual([
+      `the reviewer gave no usable answer: LLM review not run: ${why}`,
+    ]);
+    expect(github.pulls[0]!.body).toContain(`- LLM reviewer (layer 3): **not run: ${why}**, which blocks the merge.`);
   });
 });
 

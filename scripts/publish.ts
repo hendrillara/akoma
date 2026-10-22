@@ -13,8 +13,10 @@
 //   --now <ISO instant>    the run's instant (default: now); its Brasília day is the build's date
 //   --status <file>        the run status the previous run left (default: none)
 //
-// Environment (the workflow sets them): ANTHROPIC_API_KEY (layer 3; absent → the review blocks any change it must
-// see), AKOMA_REVIEW_MODEL, GITHUB_SERVER_URL + GITHUB_REPOSITORY + GITHUB_RUN_ID (the run link), GH_TOKEN (gh).
+// Environment (the workflow sets them): the layer 3 reviewer's OPENAI_API_KEY and/or ANTHROPIC_API_KEY,
+// AKOMA_REVIEW_PROVIDER (openai | anthropic; unset: OpenAI if its key is set, else Claude) and AKOMA_REVIEW_MODEL
+// (src/review/select.ts; no usable key → the review blocks any change it must see), GITHUB_SERVER_URL +
+// GITHUB_REPOSITORY + GITHUB_RUN_ID (the run link), GH_TOKEN (gh).
 import { spawn } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -23,7 +25,7 @@ import { ghCli, memoryGitHub } from "../src/publish/github.ts";
 import { runDailyJob, type TestResult, type TestRunner } from "../src/publish/job.ts";
 import { readPublished } from "../src/publish/published.ts";
 import { diskWorkspace, memoryWorkspace } from "../src/publish/workspace.ts";
-import { claudeReviewer, DEFAULT_REVIEW_MODEL } from "../src/review/claude.ts";
+import { selectReviewer } from "../src/review/select.ts";
 import { cli, nowFrom, runUrlFromEnv, sourceFrom } from "./cli.ts";
 
 const root = new URL("../", import.meta.url);
@@ -34,8 +36,7 @@ const option = args.option;
 const source = await sourceFrom(args);
 const now = nowFrom(args);
 
-const apiKey = process.env.ANTHROPIC_API_KEY || undefined;
-const model = process.env.AKOMA_REVIEW_MODEL || DEFAULT_REVIEW_MODEL;
+const reviewer = selectReviewer(process.env);
 const runUrl = runUrlFromEnv();
 
 const github = dryRun ? memoryGitHub() : ghCli({ cwd: fileURLToPath(root), statusBranch: "status", base: "main" });
@@ -48,8 +49,7 @@ const result = await runDailyJob({
   previous: await readPublished(new URL("dataset/", root)),
   source,
   now,
-  reviewer: apiKey ? claudeReviewer({ apiKey, model }) : undefined,
-  reviewerModel: model,
+  ...reviewer,
   github,
   workspace,
   tests,
@@ -85,8 +85,8 @@ process.exit(result.outcome === "failed" ? 1 : 0);
  */
 function verify(): Promise<TestResult> {
   return new Promise((resolve) => {
-    // The tests and their dependencies never see the write token or the API key.
-    const { GH_TOKEN: _token, GITHUB_TOKEN: _github, ANTHROPIC_API_KEY: _key, ...env } = process.env;
+    // The tests and their dependencies never see the write token or an API key.
+    const { GH_TOKEN: _token, GITHUB_TOKEN: _github, ANTHROPIC_API_KEY: _anthropic, OPENAI_API_KEY: _openai, ...env } = process.env;
     const child = spawn("pnpm", ["verify"], { cwd: fileURLToPath(root), env, stdio: ["ignore", "pipe", "pipe"] });
     let output = "";
     child.stdout.on("data", (d) => (output += d));

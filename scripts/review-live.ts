@@ -1,6 +1,9 @@
 // Runs the real LLM reviewer (review layer 3) once on the EC 141 diff, for the record ticket #11 asks for.
-// It is NOT part of `pnpm verify`, it calls the paid Claude API, and it runs only when ANTHROPIC_API_KEY is set:
+// It is NOT part of `pnpm verify`, it calls a paid API, and it runs only when the selected provider's key is set. The
+// provider is chosen as the daily job chooses it (src/review/select.ts): AKOMA_REVIEW_PROVIDER, else OpenAI when
+// OPENAI_API_KEY is set, else Claude when ANTHROPIC_API_KEY is:
 //
+//   OPENAI_API_KEY=… [AKOMA_REVIEW_MODEL=gpt-6-luna] pnpm review:live
 //   ANTHROPIC_API_KEY=… [AKOMA_REVIEW_MODEL=claude-opus-5] pnpm review:live
 //
 // The diff: the CF as it read before EC 140/141 (test/fixtures/refresh/before-ec140-141) → the recorded capture,
@@ -12,17 +15,17 @@ import { adct } from "../src/norms/adct.ts";
 import { cf, emc } from "../src/norms/cf.ts";
 import { build } from "../src/pipeline/build.ts";
 import { detectChanges } from "../src/pipeline/changes.ts";
-import { claudeReviewer, DEFAULT_REVIEW_MODEL } from "../src/review/claude.ts";
 import { citedActs } from "../src/review/gates.ts";
 import { reviewLlm, type LlmReviewer, type ReviewerResult } from "../src/review/llm.ts";
+import { selectReviewer } from "../src/review/select.ts";
 import { recordedSource } from "../src/sources/recorded.ts";
 
-const apiKey = process.env.ANTHROPIC_API_KEY;
-if (!apiKey) {
-  console.error("ANTHROPIC_API_KEY is not set: the live review needs the Claude API key (it is never read from elsewhere).");
+const selection = selectReviewer(process.env);
+if (!selection.reviewer) {
+  console.error(`The live review cannot run: ${selection.reviewerUnavailable}. Set OPENAI_API_KEY or ANTHROPIC_API_KEY (a key is never read from elsewhere).`);
   process.exit(1);
 }
-const model = process.env.AKOMA_REVIEW_MODEL || DEFAULT_REVIEW_MODEL;
+const { reviewerProvider: provider, reviewerModel: model } = selection;
 
 const root = new URL("../", import.meta.url);
 const recorded = new URL("fixtures/2026-10-20/", root);
@@ -38,7 +41,7 @@ const full = detectChanges(previous, next);
 const report = { ...full, changes: full.changes.filter((c) => citedActs(c).some((a) => a.label === "EC 141")) };
 
 let answer: ReviewerResult | undefined;
-const real = claudeReviewer({ apiKey, model });
+const real = selection.reviewer;
 const recording: LlmReviewer = {
   async review(request) {
     answer = await real.review(request);
@@ -56,5 +59,5 @@ const correct =
   answer.output.unappliedCommands.length === 0 &&
   findings.every((f) => f.severity === "note");
 
-console.log(JSON.stringify({ requestedModel: model, changes: report.changes.map((c) => `${c.norm}/${c.id}`), answer, findings, correct }, null, 2));
+console.log(JSON.stringify({ provider, requestedModel: model, changes: report.changes.map((c) => `${c.norm}/${c.id}`), answer, findings, correct }, null, 2));
 process.exit(correct ? 0 : 2);
