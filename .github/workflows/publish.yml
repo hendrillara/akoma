@@ -38,7 +38,7 @@ jobs:
       pull-requests: write # open, edit, label and merge the PR
       issues: write # the failure and outage issues, and the labels the job uses
       actions: write # dispatch deploy.yml after a merge (a merge by the workflow token starts no push workflow)
-    # No job-level secrets: the token and the API key reach only the steps below that need them, never the install
+    # No job-level secrets: the token and the API keys reach only the steps below that need them, never the install
     # (third-party install scripts) or the job's own `pnpm verify` (scripts/publish.ts runs it without them).
     steps:
       # No token left in .git/config: git authenticates through gh (`gh auth setup-git`) inside the publish step only.
@@ -54,8 +54,12 @@ jobs:
       - id: publish
         env:
           GH_TOKEN: ${{ github.token }}
-          # Review layer 3. Without the secret, every change the reviewer must see is blocked (needs-human), never passed.
+          # Review layer 3 (src/review/select.ts): AKOMA_REVIEW_PROVIDER (openai | anthropic) names the provider; unset,
+          # OpenAI when its key is set, else Claude. Without the selected provider's key, every change the reviewer must
+          # see is blocked (needs-human), never passed.
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AKOMA_REVIEW_PROVIDER: ${{ vars.AKOMA_REVIEW_PROVIDER }}
           AKOMA_REVIEW_MODEL: ${{ vars.AKOMA_REVIEW_MODEL }}
         # Both inputs are booleans: each expression yields a fixed flag or nothing, never text from outside.
         run: node scripts/publish.ts ${{ inputs.dry_run && '--dry-run' || '' }} ${{ inputs.rebuild && '--rebuild' || '' }}

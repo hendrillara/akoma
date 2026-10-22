@@ -1,0 +1,39 @@
+{
+  "id": "resp_handwritten_refusal",
+  "object": "response",
+  "created_at": 1761134400,
+  "status": "completed",
+  "error": null,
+  "incomplete_details": null,
+  "model": "gpt-6-luna-2026-09-15",
+  "output": [
+    {
+      "id": "rs_handwritten_refusal",
+      "type": "reasoning",
+      "summary": []
+    },
+    {
+      "id": "msg_handwritten_refusal",
+      "type": "message",
+      "status": "completed",
+      "role": "assistant",
+      "content": [
+        {
+          "type": "refusal",
+          "refusal": "I'm sorry, but I can't help with that request."
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "input_tokens": 9120,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2412,
+    "output_tokens_details": {
+      "reasoning_tokens": 1600
+    },
+    "total_tokens": 11532
+  }
+}

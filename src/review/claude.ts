@@ -5,20 +5,15 @@
 //
 // Server-side refusal fallbacks are deliberately off: a fallback would change which model reviewed the diff, and a
 // refusal should simply escalate to the maintainer.
-import { readFileSync } from "node:fs";
 import Anthropic from "@anthropic-ai/sdk";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
-import { ReviewerOutputSchema, schemaIssues, type LlmReviewer, type ReviewRequest } from "./llm.ts";
+import { PROMPT_VERSION, requestTexts, reviewerPrompt, ReviewerOutputSchema, schemaIssues, type LlmReviewer } from "./llm.ts";
 
 /**
  * The default model. The spec asks for a model independent from the one used to develop the parser
  * (`claude-opus-5-5`); the daily job sets `AKOMA_REVIEW_MODEL` to override it.
  */
 export const DEFAULT_REVIEW_MODEL = "claude-opus-5";
-
-/** The prompt file's name is its version, recorded with every answer; a new prompt is a new file. */
-export const PROMPT_VERSION = "llm-reviewer.v1";
-const PROMPT = new URL(`./prompts/${PROMPT_VERSION}.md`, import.meta.url);
 
 export interface ClaudeReviewerOptions {
   /** Always explicit (the repository secret): the adapter never falls back to credentials found on the machine. */
@@ -43,7 +38,7 @@ export function claudeReviewer({
 }: ClaudeReviewerOptions): LlmReviewer {
   const client = new Anthropic({ apiKey, timeout: timeoutMs, maxRetries, ...(fetch && { fetch }) });
   const format = zodOutputFormat(ReviewerOutputSchema);
-  const system = readFileSync(PROMPT, "utf8");
+  const system = reviewerPrompt();
 
   return {
     async review(request) {
@@ -55,7 +50,7 @@ export function claudeReviewer({
           system,
           thinking: { type: "adaptive" },
           output_config: { effort: "high", format },
-          messages: [{ role: "user", content: userContent(request) }],
+          messages: [{ role: "user", content: requestTexts(request).map((text) => ({ type: "text", text })) }],
         });
       } catch (error) {
         throw new Error(apiFailure(error, timeoutMs));
@@ -80,18 +75,6 @@ export function claudeReviewer({
       return { model: who, prompt: PROMPT_VERSION, output: output.data };
     },
   };
-}
-
-/** The acts' text and the diff, each in its own block, as the prompt describes them. */
-function userContent({ acts, changes }: ReviewRequest): Anthropic.TextBlockParam[] {
-  const attribute = (value: string) => value.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
-  return [
-    ...acts.map(({ act, url, inDataset, text }) => ({
-      type: "text" as const,
-      text: `<amending_act act="${attribute(act)}" url="${attribute(url)}" in_dataset="${inDataset}">\n${text}\n</amending_act>`,
-    })),
-    { type: "text", text: `<diff>\n${JSON.stringify(changes)}\n</diff>` },
-  ];
 }
 
 function apiFailure(error: unknown, timeoutMs: number): string {

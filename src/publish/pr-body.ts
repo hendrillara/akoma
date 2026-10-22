@@ -13,8 +13,8 @@ export interface PrBodyInput {
   report: ChangeReport;
   verdict: Verdict;
   tests: TestResult;
-  /** The reviewer model, or `undefined` when the API key was missing. */
-  reviewer?: string;
+  /** The reviewer that ran (its provider and model), or why none did. */
+  reviewer: { run: true; provider?: string | undefined; model: string } | { run: false; why: string };
   /** The capture folder the dataset was built from, e.g. "fixtures/2026-10-23-daily". */
   capture: string;
   runUrl?: string;
@@ -34,7 +34,7 @@ export function prBody({ today, report, verdict, tests, reviewer, capture, runUr
     tests.ran === false
       ? `- Tests (\`pnpm verify\`): not run. ${tests.summary}`
       : `- Tests (\`pnpm verify\`, run by the job on this branch): ${tests.passed ? "passed" : "**failed**"}. ${tests.summary}`,
-    `- LLM reviewer (layer 3): ${reviewer ? `\`${reviewer}\`` : "**not run: no API key** (`ANTHROPIC_API_KEY` is not set), which blocks the merge"}.`,
+    `- LLM reviewer (layer 3): ${reviewer.run ? `${reviewer.provider ? `${reviewer.provider} ` : ""}\`${reviewer.model}\`` : `**not run: ${reviewer.why}**, which blocks the merge`}.`,
     ...(answers?.length ? [`- Answers the text-divergence reports ${answers.map((n) => `#${n}`).join(", ")}: their recheck saw Planalto's page print a dispositivo differently from the published dataset.`] : []),
   ];
 

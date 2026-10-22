@@ -57,10 +57,16 @@ export interface JobInput {
   source: Source;
   /** The run's instant; its Brasília day is the build's date (ADR 0003). */
   now: Date;
-  /** Review layer 3; `undefined` when there is no API key, which blocks any change the reviewer must see. */
+  /**
+   * Review layer 3 (`selectReviewer` picks it from the environment); `undefined` when there is none, which blocks any
+   * change the reviewer must see.
+   */
   reviewer: LlmReviewer | undefined;
-  /** The reviewer's model, for the PR body. */
+  /** The reviewer's provider and model, for the PR body: "OpenAI", "gpt-6-luna". */
+  reviewerProvider?: string;
   reviewerModel?: string;
+  /** Why there is no reviewer, for the blocking finding and the PR body. Default: no API key. */
+  reviewerUnavailable?: string;
   github: GitHub;
   workspace: Workspace;
   tests: TestRunner;
@@ -230,7 +236,8 @@ async function publish(input: JobInput, source: RecordingSource, today: string):
     ...(await reviewGates({ manifests, previous, next, report, source })),
     ...(await reviewDeferredActs({ manifests, previous, report, source, today })),
   ];
-  const llm = await reviewLlm({ manifests, previous, report, source, reviewer: input.reviewer ?? NO_API_KEY });
+  const unavailable = input.reviewerUnavailable ?? NO_API_KEY;
+  const llm = await reviewLlm({ manifests, previous, report, source, reviewer: input.reviewer ?? notRun(unavailable) });
 
   // 4. The new dataset and the pages it was built from, so CI can regenerate it from committed files.
   const capture = `fixtures/${today}-daily`;
@@ -250,7 +257,9 @@ async function publish(input: JobInput, source: RecordingSource, today: string):
     report,
     verdict,
     tests,
-    ...(input.reviewer && { reviewer: input.reviewerModel ?? "unnamed model" }),
+    reviewer: input.reviewer
+      ? { run: true, provider: input.reviewerProvider, model: input.reviewerModel ?? "unnamed model" }
+      : { run: false, why: unavailable },
     capture,
     ...(runUrl && { runUrl }),
     ...(pending.length && { answers: pending.map((p) => p.issue) }),
@@ -289,12 +298,14 @@ async function publish(input: JobInput, source: RecordingSource, today: string):
   };
 }
 
-/** Layer 3 with no API key: any change the reviewer must see gets a blocking finding, never a silent pass. */
-const NO_API_KEY: LlmReviewer = {
+const NO_API_KEY = "no API key (neither OPENAI_API_KEY nor ANTHROPIC_API_KEY is set)";
+
+/** Layer 3 with no reviewer: any change the reviewer must see gets a blocking finding, never a silent pass. */
+const notRun = (why: string): LlmReviewer => ({
   async review() {
-    throw new Error("LLM review not run: no API key (ANTHROPIC_API_KEY is not set)");
+    throw new Error(`LLM review not run: ${why}`);
   },
-};
+});
 
 /** One open issue per failure streak: opened on the first failed run, commented on the next ones, closed on recovery. */
 async function reportFailure({ github, runUrl }: JobInput, core: Core, error: string | undefined): Promise<void> {

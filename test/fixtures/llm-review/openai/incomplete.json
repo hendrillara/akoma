@@ -1,0 +1,43 @@
+{
+  "id": "resp_handwritten_incomplete",
+  "object": "response",
+  "created_at": 1761134400,
+  "status": "incomplete",
+  "error": null,
+  "incomplete_details": {
+    "reason": "max_output_tokens"
+  },
+  "model": "gpt-6-luna-2026-09-15",
+  "output": [
+    {
+      "id": "rs_handwritten_incomplete",
+      "type": "reasoning",
+      "summary": []
+    },
+    {
+      "id": "msg_handwritten_incomplete",
+      "type": "message",
+      "status": "incomplete",
+      "role": "assistant",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "{\"mappings\":[{\"change\":\"cf/art6_cpt\",\"act\":\"EC 142\",\"command\":\"art. 1º\",\"reason\":\"Art. 1º quotes the new caput of art. 6º, which adds \\\"e o cuidado\\\"; the new text is that wording.\"},{\"change\":\"cf/art",
+          "annotations": [],
+          "logprobs": []
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "input_tokens": 9120,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2412,
+    "output_tokens_details": {
+      "reasoning_tokens": 1600
+    },
+    "total_tokens": 11532
+  }
+}
