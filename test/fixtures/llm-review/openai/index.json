@@ -1,0 +1,43 @@
+{
+  "madeOn": "2026-10-22",
+  "handwritten": true,
+  "endpoint": "POST https://api.openai.com/v1/responses",
+  "responses": [
+    {
+      "file": "ec142-mapping.json",
+      "status": 200,
+      "sha256": "e7c04e4191d42e7c73cac4ddb04d57c2b42b317b6e72576be5a5123bff573392",
+      "size": 1820
+    },
+    {
+      "file": "malformed.json",
+      "status": 200,
+      "sha256": "76c362ee032347f3abb5a1f371686b27b5cb5c63a2fa307c365a1aa91c8871e6",
+      "size": 1261
+    },
+    {
+      "file": "missing-field.json",
+      "status": 200,
+      "sha256": "d5abd9d1df90b81f95902dda998e1697c72eb253831b6a72a6336293398ea117",
+      "size": 1795
+    },
+    {
+      "file": "refusal.json",
+      "status": 200,
+      "sha256": "0c746539235ccd73ce51243f9d80a91bb383ff5cdf58e9c82661c1e188c08757",
+      "size": 822
+    },
+    {
+      "file": "incomplete.json",
+      "status": 200,
+      "sha256": "a9786e88a9cc37853aba5e92c1ecc7182c2cbb469a1a5488ce1f36a399711d85",
+      "size": 1106
+    },
+    {
+      "file": "api-error-500.json",
+      "status": 500,
+      "sha256": "ba2eff341cbe31f5d7764336729e4dc506b54421ad30e898ebc32fcc1755f5f3",
+      "size": 176
+    }
+  ]
+}

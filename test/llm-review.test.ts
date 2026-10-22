@@ -1,17 +1,18 @@
 // Seam 1: review layer 3, the independent LLM reviewer, over two builds of recorded fixtures. The reviewer is a fake
-// with a controlled answer; the real Claude adapter is exercised through handwritten API responses
-// (test/fixtures/llm-review/, served by a fake fetch: no network, no credentials).
+// with a controlled answer; the real Claude and OpenAI adapters are exercised through handwritten API responses
+// (test/fixtures/llm-review/ and its openai/, served by a fake fetch: no network, no credentials).
 // Expected targets were read by hand from the simulated act's page (test/fixtures/refresh/ec142/emc142.htm): art. 1º
 // alters art. 6º (caput quoted, parágrafo único numbered § 1º, § 2º quoted), art. 2º quotes art. 7º XIV as
 // "(revogado)", art. 3º "Revoga-se o inciso XXVII do caput do art. 7º da Constituição Federal.".
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
-import { beforeAll, describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it, vi } from "vitest";
 import { adct } from "../src/norms/adct.ts";
 import { cf } from "../src/norms/cf.ts";
 import { build } from "../src/pipeline/build.ts";
 import { detectChanges, type ChangeReport } from "../src/pipeline/changes.ts";
 import { claudeReviewer, DEFAULT_REVIEW_MODEL } from "../src/review/claude.ts";
+import { DEFAULT_OPENAI_REVIEW_MODEL, openaiReviewer } from "../src/review/openai.ts";
 import { reviewGates } from "../src/review/gates.ts";
 import { reviewLlm, type LlmReviewer, type ReviewerOutput, type ReviewRequest } from "../src/review/llm.ts";
 import { decide, type Verdict } from "../src/review/verdict.ts";
@@ -252,6 +253,31 @@ describe("LLM review of EC 141's deferred art. 7º XV taking effect", () => {
   });
 });
 
+/**
+ * A fetch that answers every request with one handwritten response file from `folder` (status and checksum from its
+ * index.json), and records what was sent.
+ */
+function handwrittenApi<Sent>(folder: URL, file: string): { fetch: typeof fetch; sent: { url: string; body: Sent }[] } {
+  const sent: { url: string; body: Sent }[] = [];
+  return {
+    sent,
+    fetch: async (input, init) => {
+      sent.push({ url: String(input), body: JSON.parse(String(init?.body)) });
+      const index = JSON.parse(await readFile(new URL("index.json", folder), "utf8")) as {
+        responses: { file: string; status: number; sha256: string }[];
+      };
+      const entry = index.responses.find((r) => r.file === file)!;
+      const body = await readFile(new URL(file, folder));
+      expect(createHash("sha256").update(body).digest("hex"), `${file} checksum`).toBe(entry.sha256);
+      return new Response(body, { status: entry.status, headers: { "content-type": "application/json" } });
+    },
+  };
+}
+
+/** A fetch that never answers: it only rejects when the client gives up. */
+const silent: typeof fetch = (_, init) =>
+  new Promise((_, reject) => init?.signal?.addEventListener("abort", () => reject(new DOMException("aborted", "AbortError"))));
+
 // The real adapter, with the Claude API replaced by a fetch that serves a handwritten response body (or never answers).
 // Every call passes an explicit fake key, so no credential on the machine is ever used.
 describe("LLM review with the Claude adapter, over handwritten API responses", () => {
@@ -263,32 +289,13 @@ describe("LLM review with the Claude adapter, over handwritten API responses", (
   const responses = new URL("./fixtures/llm-review/", import.meta.url);
 
   interface Sent {
-    url: string;
-    body: {
-      model: string;
-      system: string;
-      output_config: { format: { type: string; schema: { required: string[] } } };
-      messages: { role: string; content: { type: string; text: string }[] }[];
-    };
+    model: string;
+    system: string;
+    output_config: { format: { type: string; schema: { required: string[] } } };
+    messages: { role: string; content: { type: string; text: string }[] }[];
   }
 
-  /** A fetch that answers every request with one response file (status and checksum from its index.json), and records what was sent. */
-  function api(file: string): { fetch: typeof fetch; sent: Sent[] } {
-    const sent: Sent[] = [];
-    return {
-      sent,
-      fetch: async (input, init) => {
-        sent.push({ url: String(input), body: JSON.parse(String(init?.body)) });
-        const index = JSON.parse(await readFile(new URL("index.json", responses), "utf8")) as {
-          responses: { file: string; status: number; sha256: string }[];
-        };
-        const entry = index.responses.find((r) => r.file === file)!;
-        const body = await readFile(new URL(file, responses));
-        expect(createHash("sha256").update(body).digest("hex"), `${file} checksum`).toBe(entry.sha256);
-        return new Response(body, { status: entry.status, headers: { "content-type": "application/json" } });
-      },
-    };
-  }
+  const api = (file: string) => handwrittenApi<Sent>(responses, file);
 
   const reviewWith = (fetch: typeof globalThis.fetch, timeoutMs?: number) =>
     verdictWith(builds, claudeReviewer({ apiKey: "test-key-not-a-real-one", fetch, maxRetries: 0, ...(timeoutMs && { timeoutMs }) }));
@@ -342,10 +349,113 @@ describe("LLM review with the Claude adapter, over handwritten API responses", (
   });
 
   it("needs a human when the API does not answer in time", async () => {
-    const silent: typeof fetch = (_, init) =>
-      new Promise((_, reject) => init?.signal?.addEventListener("abort", () => reject(new DOMException("aborted", "AbortError"))));
     const verdict = await reviewWith(silent, 50);
     expect(verdict.decision).toBe("needs-human");
     expect(llmProblems(verdict).map((f) => f.message)).toEqual(["the reviewer gave no usable answer: the Claude API did not answer within 50 ms"]);
+  });
+});
+
+// The OpenAI adapter, held to the same contract as the Claude one: the Responses API replaced by a fetch that serves a
+// handwritten response body (test/fixtures/llm-review/openai/) or never answers, with an explicit fake key.
+describe("LLM review with the OpenAI adapter, over handwritten API responses", () => {
+  let builds: Builds;
+  beforeAll(async () => {
+    builds = await ec142Builds();
+  });
+
+  const responses = new URL("./fixtures/llm-review/openai/", import.meta.url);
+
+  interface Sent {
+    model: string;
+    instructions: string;
+    store: boolean;
+    reasoning: { effort: string };
+    max_output_tokens: number;
+    text: { format: { type: string; name: string; strict: boolean; schema: { required: string[]; additionalProperties: boolean } } };
+    input: { role: string; content: { type: string; text: string }[] }[];
+  }
+
+  const api = (file: string) => handwrittenApi<Sent>(responses, file);
+  const reviewWith = (fetch: typeof globalThis.fetch, timeoutMs?: number) =>
+    verdictWith(builds, openaiReviewer({ apiKey: "test-key-not-a-real-one", fetch, maxRetries: 0, ...(timeoutMs && { timeoutMs }) }));
+  const llmProblems = (verdict: Verdict) => verdict.findings.filter((f) => f.layer === "llm" && f.severity === "problem");
+
+  it("sends the act's text and the diff to the configured model on the Responses API, constrained to the reviewer's schema", async () => {
+    const { fetch, sent } = api("ec142-mapping.json");
+    await reviewWith(fetch);
+    expect(sent).toHaveLength(1);
+    const { url, body } = sent[0]!;
+    expect(url).toBe("https://api.openai.com/v1/responses");
+    expect(body.model).toBe("gpt-6-luna");
+    expect(body.model).toBe(DEFAULT_OPENAI_REVIEW_MODEL);
+    expect(body.store).toBe(false);
+    expect(body.text.format).toMatchObject({ type: "json_schema", strict: true });
+    expect(body.text.format.schema.required).toEqual(["mappings", "orphanChanges", "unappliedCommands"]);
+    expect(body.text.format.schema.additionalProperties).toBe(false);
+    // The same versioned prompt the Claude adapter sends.
+    expect(body.instructions).toBe(await readFile(new URL("../src/review/prompts/llm-reviewer.v1.md", import.meta.url), "utf8"));
+    const user = body.input.map((m) => m.content.map((c) => c.text).join("\n")).join("\n");
+    expect(body.input.every((m) => m.role === "user" && m.content.every((c) => c.type === "input_text"))).toBe(true);
+    expect(user).toContain("Art. 3º Revoga-se o inciso XXVII do caput do art. 7º da Constituição Federal.");
+    expect(user).toContain('"ref":"cf/art6_par2"');
+    expect(user).not.toContain("art7_cpt_inc18");
+  });
+
+  it("merges on a well-formed answer that maps every change, naming the model that answered and the prompt", async () => {
+    const verdict = await reviewWith(api("ec142-mapping.json").fetch);
+    expect(verdict.decision).toBe("merge");
+    expect(verdict.findings.filter((f) => f.layer === "llm")).toEqual([
+      {
+        layer: "llm",
+        check: "change-mapping",
+        severity: "note",
+        act: "EC 142",
+        message:
+          "gpt-6-luna-2026-09-15 (prompt llm-reviewer.v1) mapped all 5 changes to its commands: cf art6_cpt → art. 1º, cf art6_par1 → art. 1º, cf art6_par2 → art. 1º, cf art7_cpt_inc14 → art. 2º, cf art7_cpt_inc27 → art. 3º",
+      },
+    ]);
+  });
+
+  it.each([
+    ["malformed JSON", "malformed.json", /^the reviewer gave no usable answer: gpt-6-luna-2026-09-15's answer is not the reviewer's schema: it is not JSON \(Unterminated string/],
+    ["a missing field", "missing-field.json", /^the reviewer gave no usable answer: gpt-6-luna-2026-09-15's answer is not the reviewer's schema: unappliedCommands: Invalid input: expected array, received undefined$/],
+    ["a refusal", "refusal.json", /^the reviewer gave no usable answer: gpt-6-luna-2026-09-15 refused to answer: I'm sorry, but I can't help with that request\.$/],
+    ["a cut-off answer", "incomplete.json", /^the reviewer gave no usable answer: gpt-6-luna-2026-09-15 stopped before finishing \(max_output_tokens\)$/],
+    ["an API error", "api-error-500.json", /^the reviewer gave no usable answer: the OpenAI API answered 500: The server had an error while processing your request\. Sorry about that!$/],
+  ])("needs a human on %s, never merges", async (_, file, message) => {
+    const verdict = await reviewWith(api(file).fetch);
+    expect(verdict.decision).toBe("needs-human");
+    const problems = llmProblems(verdict);
+    expect(problems).toHaveLength(1);
+    expect(problems[0]).toMatchObject({ layer: "llm", check: "reviewer" });
+    expect(problems[0]!.message).toMatch(message);
+  });
+
+  it("needs a human when the API does not answer in time", async () => {
+    const verdict = await reviewWith(silent, 50);
+    expect(verdict.decision).toBe("needs-human");
+    expect(llmProblems(verdict).map((f) => f.message)).toEqual(["the reviewer gave no usable answer: the OpenAI API did not answer within 50 ms"]);
+  });
+
+  it("reads nothing from the environment: neither a base URL, an organization, a project nor a key found there", async () => {
+    vi.stubEnv("OPENAI_BASE_URL", "https://elsewhere.example/v1");
+    vi.stubEnv("OPENAI_ORG_ID", "org-from-the-machine");
+    vi.stubEnv("OPENAI_PROJECT_ID", "proj-from-the-machine");
+    vi.stubEnv("OPENAI_API_KEY", "key-from-the-machine");
+    try {
+      const headers: Headers[] = [];
+      const { fetch, sent } = api("ec142-mapping.json");
+      const verdict = await reviewWith(async (input, init) => {
+        headers.push(new Headers(init?.headers));
+        return fetch(input, init);
+      });
+      expect(verdict.decision).toBe("merge");
+      expect(sent.map((s) => s.url)).toEqual(["https://api.openai.com/v1/responses"]);
+      expect(headers[0]!.get("authorization")).toBe("Bearer test-key-not-a-real-one");
+      expect(headers[0]!.has("openai-organization")).toBe(false);
+      expect(headers[0]!.has("openai-project")).toBe(false);
+    } finally {
+      vi.unstubAllEnvs();
+    }
   });
 });

@@ -1,7 +1,9 @@
 // Review layer 3: an independent LLM reads the amending acts' official text and the diff, and maps each change to a
-// command of an act. The model sits behind the `LlmReviewer` port (the Claude adapter is claude.ts; tests use a fake).
+// command of an act. The model sits behind the `LlmReviewer` port (the adapters are claude.ts and openai.ts, which send
+// the same prompt and the same request text; tests use a fake).
 // The layer never trusts the answer as given: it checks the answer's shape and that it accounts for every change it
 // was shown, and anything it cannot use (an error, a refusal, a malformed or incomplete answer) is a problem.
+import { readFileSync } from "node:fs";
 import { z } from "zod";
 import type { NormManifest } from "../pipeline/build.ts";
 import type { ChangeKind, ChangeReport, ProvisionChange } from "../pipeline/changes.ts";
@@ -41,6 +43,26 @@ export const ReviewerOutputSchema = z.object({
   ),
 });
 export type ReviewerOutput = z.infer<typeof ReviewerOutputSchema>;
+
+/** The prompt file's name is its version, recorded with every answer; a new prompt is a new file. */
+export const PROMPT_VERSION = "llm-reviewer.v1";
+
+/** The reviewer's instructions, the same for every adapter. */
+export function reviewerPrompt(): string {
+  return readFileSync(new URL(`./prompts/${PROMPT_VERSION}.md`, import.meta.url), "utf8");
+}
+
+/** The acts' text and the diff, each in its own block, as the prompt describes them. Every adapter sends these. */
+export function requestTexts({ acts, changes }: ReviewRequest): string[] {
+  const attribute = (value: string) => value.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+  return [
+    ...acts.map(
+      ({ act, url, inDataset, text }) =>
+        `<amending_act act="${attribute(act)}" url="${attribute(url)}" in_dataset="${inDataset}">\n${text}\n</amending_act>`,
+    ),
+    `<diff>\n${JSON.stringify(changes)}\n</diff>`,
+  ];
+}
 
 /** A schema mismatch on one line: "unappliedCommands: Invalid input: expected array, received undefined; …". */
 export function schemaIssues(error: z.ZodError): string {

@@ -1,0 +1,41 @@
+{
+  "id": "resp_handwritten_missing_field",
+  "object": "response",
+  "created_at": 1761134400,
+  "status": "completed",
+  "error": null,
+  "incomplete_details": null,
+  "model": "gpt-6-luna-2026-09-15",
+  "output": [
+    {
+      "id": "rs_handwritten_missing_field",
+      "type": "reasoning",
+      "summary": []
+    },
+    {
+      "id": "msg_handwritten_missing_field",
+      "type": "message",
+      "status": "completed",
+      "role": "assistant",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "{\"mappings\":[{\"change\":\"cf/art6_cpt\",\"act\":\"EC 142\",\"command\":\"art. 1º\",\"reason\":\"Art. 1º quotes the new caput of art. 6º, which adds \\\"e o cuidado\\\"; the new text is that wording.\"},{\"change\":\"cf/art6_par1\",\"act\":\"EC 142\",\"command\":\"art. 1º\",\"reason\":\"Art. 1º orders \\\"numerado o parágrafo único como § 1º\\\" and keeps its wording (\\\"§ 1º ......\\\").\"},{\"change\":\"cf/art6_par2\",\"act\":\"EC 142\",\"command\":\"art. 1º\",\"reason\":\"Art. 1º quotes a new § 2º for art. 6º; the added dispositivo has that wording.\"},{\"change\":\"cf/art7_cpt_inc14\",\"act\":\"EC 142\",\"command\":\"art. 2º\",\"reason\":\"Art. 2º quotes inciso XIV of art. 7º as \\\"(revogado);\\\".\"},{\"change\":\"cf/art7_cpt_inc27\",\"act\":\"EC 142\",\"command\":\"art. 3º\",\"reason\":\"Art. 3º: \\\"Revoga-se o inciso XXVII do caput do art. 7º da Constituição Federal.\\\"\"}],\"orphanChanges\":[]}",
+          "annotations": [],
+          "logprobs": []
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "input_tokens": 9120,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2412,
+    "output_tokens_details": {
+      "reasoning_tokens": 1600
+    },
+    "total_tokens": 11532
+  }
+}

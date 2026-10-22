@@ -1,0 +1,41 @@
+{
+  "id": "resp_handwritten_malformed",
+  "object": "response",
+  "created_at": 1761134400,
+  "status": "completed",
+  "error": null,
+  "incomplete_details": null,
+  "model": "gpt-6-luna-2026-09-15",
+  "output": [
+    {
+      "id": "rs_handwritten_malformed",
+      "type": "reasoning",
+      "summary": []
+    },
+    {
+      "id": "msg_handwritten_malformed",
+      "type": "message",
+      "status": "completed",
+      "role": "assistant",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "{\"mappings\":[{\"change\":\"cf/art6_cpt\",\"act\":\"EC 142\",\"command\":\"art. 1º\",\"reason\":\"Art. 1º quotes the new caput of art. 6º, which adds \\\"e o cuidado\\\"; the new text is that wording.\"},{\"change\":\"cf/art6_par1\",\"act\":\"EC 142\",\"command\":\"art. 1º\",\"reason\":\"Art. 1º orders \\\"numerado o parágrafo único como § 1º\\\" and keeps its wording (\\\"§ 1º ......\\\").\"},{\"change\":\"",
+          "annotations": [],
+          "logprobs": []
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "input_tokens": 9120,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2412,
+    "output_tokens_details": {
+      "reasoning_tokens": 1600
+    },
+    "total_tokens": 11532
+  }
+}
