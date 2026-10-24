@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "lastCheck": {
+    "at": "2026-10-24T13:19:24.967Z",
+    "today": "2026-10-24",
+    "outcome": "no-change",
+    "message": "No primary page changed (ETag, Last-Modified or content without scripts), and no pending change is due.",
+    "run": "https://github.com/hendrillara/akoma/actions/runs/40097621992"
+  },
+  "tests": {
+    "at": "2026-10-24T13:19:24.967Z",
+    "passed": true,
+    "summary": "pnpm verify passed (tests: \u001b[22m \u001b[1m\u001b[32m457 passed\u001b[39m\u001b[22m\u001b[90m (457)\u001b[39m)."
+  },
+  "schemaVersion": "1.0.0",
+  "checks": {
+    "at": "2026-10-24T13:19:24.967Z",
+    "datasetVersion": "2026-10-21",
+    "search": {
+      "k": 10,
+      "all": 0.8587,
+      "holdout": 0.6974,
+      "colloquial": 0.8222,
+      "questions": 184,
+      "passed": true
+    },
+    "invariants": {
+      "problems": 0,
+      "passed": true
+    },
+    "golden": {
+      "suites": [
+        "test/cf-adct.test.ts",
+        "test/cdc.test.ts"
+      ],
+      "passed": true
+    }
+  },
+  "attributions": [
+    "Aliases: URN fragments from normas.leg.br / LexML Brasil, © Senado Federal, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)."
+  ],
+  "contentLag": [
+    {
+      "norm": "cf",
+      "source": "normas.leg.br",
+      "url": "https://normas.leg.br/api/public/normas?urn=urn:lex:br:federal:constituicao:1988-10-05;1988&tipo_documento=maior-detalhe",
+      "retrievedAt": "2026-10-20",
+      "secondaryStale": 1,
+      "since": "2026-10-21T14:07:59.036Z",
+      "hours": 71.2
+    },
+    {
+      "norm": "adct",
+      "source": "normas.leg.br",
+      "url": "https://normas.leg.br/api/public/normas?urn=urn:lex:br:federal:ato.disposicoes.constitucionais.transitorias:1988-10-05;1988&tipo_documento=maior-detalhe",
+      "retrievedAt": "2026-10-20",
+      "secondaryStale": 0
+    },
+    {
+      "norm": "cdc",
+      "source": "camara-legin",
+      "url": "https://www2.camara.leg.br/legin/fed/lei/1990/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html",
+      "retrievedAt": "2026-10-21T04:48:50Z",
+      "secondaryStale": 0
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm",
+      "lastAttempt": "2026-10-24T13:19:24.967Z",
+      "lagHours": 0,
+      "lastSuccess": "2026-10-24T13:19:24.967Z"
+    },
+    {
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+      "lastAttempt": "2026-10-24T13:19:24.967Z",
+      "lagHours": 0,
+      "lastSuccess": "2026-10-24T13:19:24.967Z"
+    }
+  ]
+}
