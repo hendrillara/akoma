@@ -18,7 +18,7 @@ A [licença atual](LICENSE) se aplica somente a novas contribuições próprias 
 
 ## O texto das leis
 
-O texto das leis, da Constituição e dos atos oficiais não tem proteção autoral (Lei 9.610/1998, art. 8º, IV). A CC0 cobre a seleção, a estrutura e os metadados que o Akoma acrescenta. Ela não dá a esse texto um caráter oficial: o Akoma não é fonte oficial (veja o [README](README.md)).
+O texto das leis, da Constituição e dos atos oficiais não tem proteção autoral (Lei 9.610/1998, art. 8º, IV). A CC0 cobre a seleção, a estrutura e os metadados publicados até o marco `262e60ec8e9814ddaca1b9e81c9f63bb90b858e0`. Para acréscimos posteriores, consulte “Novas contribuições ao dataset” acima. Ela não dá a esse texto um caráter oficial: o Akoma não é fonte oficial (veja o [README](README.md)).
 
 ## O que não cobre
 
@@ -47,7 +47,7 @@ The [current licence](LICENSE) applies only to new protectable original contribu
 
 ### The text of the laws
 
-The text of laws, of the Constitution and of official acts is not protected by copyright in Brazil (Lei 9.610/1998, art. 8º, IV). CC0 covers the selection, structure and metadata Akoma adds. It does not make that text official: Akoma is not an official source (see the [README](README.md#english)).
+The text of laws, of the Constitution and of official acts is not protected by copyright in Brazil (Lei 9.610/1998, art. 8º, IV). CC0 covers the selection, structure and metadata published through the boundary `262e60ec8e9814ddaca1b9e81c9f63bb90b858e0`. For later additions, see “New dataset contributions” above. It does not make that text official: Akoma is not an official source (see the [README](README.md#english)).
 
 ### What it does not cover
 
