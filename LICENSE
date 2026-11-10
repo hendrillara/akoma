@@ -11,8 +11,11 @@ under its original dedication. Those permissions are not revoked or restricted
 by this licence, including for future recipients of that material.
 
 “Covered Material” means new, copyright-protected original code, documentation
-and other contributions owned by the Licensor, first published in this
-repository after the Legacy Baseline under this licence. In a modified legacy
+and other contributions owned by the Licensor, or original contributions whose
+author has expressly authorised the Licensor in writing to distribute and
+commercially license them under these terms, first published in this repository
+after the Legacy Baseline under this licence. Authorised external contributions
+must be identified in the relevant release notes. In a modified legacy
 file, only new protectable contributions are Covered Material; the unchanged
 legacy material retains its earlier terms. A new commit, release number,
 repository name, format conversion or regeneration does not by itself make
