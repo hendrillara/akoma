@@ -1,13 +1,15 @@
 # Akoma — agent instructions
 
-Akoma mirrors Brazilian federal legislation (CF + ADCT first, then CDC, CLT…) as structured, per-dispositivo data, refreshed by a daily job and served to AI agents via static files, a REST API and a remote MCP at akoma.hendril.dev. Stage: building (spec #1). Open source, personal project; it is NOT related to Locus/Kanzen or Lucentive.
+Akoma mirrors Brazilian federal legislation (CF + ADCT first, then CDC, CLT…) as structured, per-dispositivo data, refreshed by a daily job and served to AI agents via static files, a REST API and a remote MCP at akoma.hendril.dev. Stage: building (spec #1). Source-available personal project (legacy code remains MIT); it is NOT related to Locus/Kanzen or Lucentive.
 
 ## Map
 Check here before searching. When a listed path moves, update this Map in the same commit (the map check fails otherwise).
 - `README.md` — what Akoma is and is not, MCP connection, REST examples (checked by `test/discovery.test.ts`), accuracy guarantees and known limits, licences (PT first, then EN)
-- `COMMERCIAL.md` — paid integration scope, voluntary credit and existing-licence boundaries (PT + EN)
-- `LICENSE` — MIT (code), "Akoma contributors"
-- `LICENSE-DATA.md` — CC0 1.0 for the dataset except the `aliases` (normas.leg.br / LexML, © Senado Federal, CC BY 4.0) (PT + EN)
+- `COMMERCIAL.md` — paid integration, required credit and commercial royalties for new material; legacy permissions (PT + EN)
+- `LICENSE` — Akoma Noncommercial and Commercial Licence 1.0 for new original contributions; legacy boundary and exclusions
+- `licenses/MIT-legacy.txt` — unchanged MIT notice for code through commit `262e60e`
+- `docs/licensing-transition.md` — release boundary, approved terms, ownership checks and publication requirements
+- `LICENSE-DATA.md` — legacy dataset CC0, scope requirements for new original data, and aliases exception (Senado/LexML CC BY 4.0) (PT + EN)
 - `CONTRIBUTING.md` — PR scope (parser, manifests, tests), no hand-edited data, the divergence-issue flow (#18) (PT + EN)
 - `docs/agent-discovery-check.md` — the recorded check that an agent given only the MCP URL finds and uses the tools (local `wrangler dev`; production pending)
 - `src/schema/` — dataset types shared by the pipeline (producer) and the Worker (consumer); `SCHEMA_VERSION` is the format's semver, with the bump rule in its comment and the README; `lexml.ts` the one derivation of LexML ids from printed labels (suffixes, numerals, `articleOf`, `pathLabel`), used by the parser, the act reader and the secondary readers
@@ -76,7 +78,7 @@ A failing full-text snapshot (`test/snapshots/*.md`) means the CF/ADCT text chan
 - Lines that belong to the dispositivo above them: "Pena" sanction lines (CDC arts. 63–74) and text quoted from another act (CDC arts. 110–117, EC pages). Inside a quote nothing is a label of the norm.
 
 ## Git & deploy
-- Publishing pause (2026-11-10): `publish.yml` and `recheck.yml` are disabled in GitHub settings. Before publishing new work, merging dataset releases or re-enabling automation, read the pause and resume procedure in `docs/publishing.md`; obtain the maintainer's decision on future terms and authorization to resume. Existing MIT/CC0 grants remain unchanged.
+- Publishing pause (2026-11-10): `publish.yml` and `recheck.yml` are disabled in GitHub settings. Before publishing new work, merging dataset releases or re-enabling automation, read the pause and resume procedure in `docs/publishing.md`; the terms are recorded in `docs/licensing-transition.md`, but operational review and maintainer authorization to resume remain required. Existing MIT/CC0 grants remain unchanged. Before publishing new material or accepting third-party contributions, follow the scope and ownership checks in that document.
 - Remote `origin` = github.com/hendrillara/akoma (public), branch `main`. Pushing and deploying to Cloudflare need explicit OK. The daily job (`publish.yml`) pushes only `publish/daily` and `status`, and merges only its own PR on a `merge` verdict.
 - Merges to `main` deploy through `.github/workflows/deploy.yml` once the `CLOUDFLARE_API_TOKEN` secret exists; the first deploy is the maintainer's, by hand (`docs/deploy.md`). Never run `wrangler deploy`/`login` as an agent; `wrangler deploy --dry-run` and `pnpm dev` are local only.
 

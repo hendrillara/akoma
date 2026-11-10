@@ -6,7 +6,7 @@
 
 O Akoma espelha a legislação federal brasileira em dados estruturados por dispositivo (artigo, parágrafo, inciso, alínea, item), cada um com um id LexML estável e a sua proveniência, para agentes de IA. A v1 cobre a Constituição Federal (CF), o ADCT e o Código de Defesa do Consumidor (CDC, Lei 8.078/1990). O agente busca ("direito de arrependimento") ou pede um dispositivo exato pelo id, por um servidor MCP remoto ou por uma API REST, e recebe só o texto de que precisa.
 
-> **Atualizações automáticas pausadas em 10/11/2026 durante a revisão do modelo comercial.** A API respondeu em `akoma.hendril.dev/v1/status` nessa data, com dataset de **21/10/2026**. Isso não é garantia de atualização ou disponibilidade. As licenças atuais continuam válidas. [Integração paga e atribuição](COMMERCIAL.md).
+> **Atualizações automáticas pausadas em 10/11/2026 até a revisão operacional da retomada.** A API respondeu em `akoma.hendril.dev/v1/status` nessa data, com dataset de **21/10/2026**. Isso não é garantia de atualização ou disponibilidade. As licenças atuais continuam válidas. [Integração paga e atribuição](COMMERCIAL.md).
 
 ## O que o Akoma não é
 
@@ -116,10 +116,10 @@ O badge acima é o do job diário e mostra o resultado da última execução: "c
 
 ## Licenças e atribuição
 
-Se o Akoma ajuda seu produto, pedimos o crédito voluntário **“Utiliza Akoma, de Hendril Lara”**, com link para este repositório. Isso não acrescenta restrições às licenças existentes. Para implantação e suporte pagos, veja [COMMERCIAL.md](COMMERCIAL.md).
+**Novas contribuições próprias:** uso pessoal, estudo e pesquisa sem finalidade comercial são gratuitos; uso comercial exige contrato prévio, royalties negociados e crédito **“Utiliza Akoma, de Hendril Lara”**, com link. Veja os termos completos em [LICENSE](LICENSE) e [COMMERCIAL.md](COMMERCIAL.md). O marco anterior `262e60e` mantém suas permissões; crédito destacado nesse material continua voluntário.
 
-- **Código:** [MIT](LICENSE).
-- **Dataset:** [CC0 1.0](LICENSE-DATA.md), exceto os campos `aliases`.
+- **Código:** [Akoma Noncommercial and Commercial Licence 1.0](LICENSE) para novas contribuições próprias; [MIT preservada](licenses/MIT-legacy.txt) para o material anterior ao marco, inclusive. É código disponível sob restrições comerciais, não uma nova versão open source.
+- **Dataset existente:** [CC0 1.0](LICENSE-DATA.md), exceto `aliases`. Novas contribuições protegíveis exigem identificação de escopo por versão; leis e fatos não são exclusivos.
 - **Atribuição:** os `aliases` são fragmentos de URN do **normas.leg.br / LexML Brasil, © Senado Federal, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**. O dataset não republica texto nem histórico do normas.leg.br; a atribuição acompanha os aliases em cada resposta que os traz, e está no `status.json` e em `/v1/status`.
 - O texto das leis não tem proteção autoral (Lei 9.610/1998, art. 8º, IV).
 
@@ -139,7 +139,7 @@ Veja [CONTRIBUTING.md](CONTRIBUTING.md). Em resumo: PRs no parser, nos manifesto
 
 Akoma mirrors Brazilian federal law as structured data, one dispositivo (article, paragraph, inciso, alínea, item) at a time, each with a stable LexML id and its provenance, for AI agents. v1 covers the Constituição Federal (CF), the ADCT and the Código de Defesa do Consumidor (CDC, Lei 8.078/1990). An agent searches ("direito de arrependimento") or fetches an exact dispositivo by id, over a remote MCP server or a REST API, and gets only the text it needs.
 
-> **Automatic updates paused on 2026-11-10 during the commercial-model review.** The API responded at `akoma.hendril.dev/v1/status` on that date with dataset **2026-10-21**. This is not an update or availability guarantee. Existing licences remain in effect. [Paid integration and attribution](COMMERCIAL.md#english).
+> **Automatic updates paused on 2026-11-10 pending operational review before resuming.** The API responded at `akoma.hendril.dev/v1/status` on that date with dataset **2026-10-21**. This is not an update or availability guarantee. Existing licences remain in effect. [Paid integration and attribution](COMMERCIAL.md#english).
 
 ### What Akoma is not
 
@@ -249,10 +249,10 @@ The badge above is the daily job's and shows its latest run: "current" when the 
 
 ### Licences and attribution
 
-If Akoma helps your product, please give voluntary credit: **“Uses Akoma by Hendril Lara”**, linking to this repository. This adds no restrictions to the existing licences. For paid implementation and support, see [COMMERCIAL.md](COMMERCIAL.md#english).
+**New original contributions:** personal use, education and noncommercial research are free; commercial use requires a prior agreement, negotiated royalties and the linked credit **“Uses Akoma by Hendril Lara”**. See [LICENSE](LICENSE) and [COMMERCIAL.md](COMMERCIAL.md#english). The legacy boundary `262e60e` retains its permissions; prominent credit remains voluntary for that material.
 
-- **Code:** [MIT](LICENSE).
-- **Dataset:** [CC0 1.0](LICENSE-DATA.md), except the `aliases` fields.
+- **Code:** [Akoma Noncommercial and Commercial Licence 1.0](LICENSE) for new original contributions; [preserved MIT terms](licenses/MIT-legacy.txt) for material through the legacy boundary. This is source-available with commercial restrictions, not a new open-source release.
+- **Existing dataset:** [CC0 1.0](LICENSE-DATA.md), except `aliases`. New protectable contributions require per-release scope identification; statutory texts and facts are not exclusive.
 - **Attribution:** the `aliases` are URN fragments from **normas.leg.br / LexML Brasil, © Senado Federal, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**. The dataset does not republish normas.leg.br text or history; the credit travels with the aliases in every answer that carries them, and is in `status.json` and `/v1/status`.
 - The text of the laws is not protected by copyright (Lei 9.610/1998, art. 8º, IV).
 
