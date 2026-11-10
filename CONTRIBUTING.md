@@ -2,6 +2,8 @@
 
 **Português** · [English](#english)
 
+> **10/11/2026:** publicação e reconferência automática de divergências pausadas. Relatos continuam abertos para revisão manual. Consulte [a pausa operacional](docs/publishing.md). Novas contribuições funcionais aguardam a definição do modelo de publicação.
+
 ## A regra principal
 
 **Nenhum dado jurídico é editado à mão.** O texto das leis no Akoma vem só das fontes oficiais, pelo build. Os arquivos gerados (`dataset/`, quando existir, e os snapshots em `test/snapshots/`) nunca são editados diretamente, nem para corrigir um erro óbvio. Se o texto está errado, a correção vem do parser, de um manifesto ou de uma nova captura da fonte, e o dado é gerado de novo.
@@ -37,6 +39,8 @@ O PR deve citar a issue (`#n`). Ao contribuir, você aceita que o código fica s
 <a id="english"></a>
 
 ## English
+
+> **2026-11-10:** publishing and automatic divergence rechecks are paused. Reports remain open for manual review. See the [operational pause](docs/publishing.md). New functional contributions await the publishing-model decision.
 
 ### The main rule
 
