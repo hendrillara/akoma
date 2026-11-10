@@ -6,7 +6,7 @@
 
 O Akoma espelha a legislação federal brasileira em dados estruturados por dispositivo (artigo, parágrafo, inciso, alínea, item), cada um com um id LexML estável e a sua proveniência, para agentes de IA. A v1 cobre a Constituição Federal (CF), o ADCT e o Código de Defesa do Consumidor (CDC, Lei 8.078/1990). O agente busca ("direito de arrependimento") ou pede um dispositivo exato pelo id, por um servidor MCP remoto ou por uma API REST, e recebe só o texto de que precisa.
 
-> **Situação: em construção, ainda não publicado.** `akoma.hendril.dev` é o endereço planejado; o primeiro deploy ainda não aconteceu ([`docs/deploy.md`](docs/deploy.md)). Os exemplos abaixo descrevem a API como ela está no código e são conferidos pelos testes. Localmente, `pnpm dev` serve a API a partir da pasta `dataset/` commitada (gerada por `pnpm build:dataset`).
+> **Atualizações automáticas pausadas em 10/11/2026 durante a revisão do modelo comercial.** A API respondeu em `akoma.hendril.dev/v1/status` nessa data, com dataset de **21/10/2026**. Isso não é garantia de atualização ou disponibilidade. As licenças atuais continuam válidas. [Integração paga e atribuição](COMMERCIAL.md).
 
 ## O que o Akoma não é
 
@@ -46,7 +46,7 @@ Ferramentas (nomes em inglês, descrições em inglês e português):
 
 As respostas são Markdown compacto: o texto primeiro, depois o caminho (Título II › Capítulo I › Art. 5º › inciso X), a situação (revogado, vetado), a redação pendente com a data de início e a cláusula de vigência do ato que a adia, as notas "Vide"/ADI e um rodapé com a fonte e o aviso.
 
-Agentes também se descobrem sozinhos por [`/llms.txt`](https://akoma.hendril.dev/llms.txt) e pelo guia de uso [`/usage.md`](https://akoma.hendril.dev/usage.md). A verificação de que um agente que recebe só a URL do MCP encontra e usa as ferramentas está registrada em [`docs/agent-discovery-check.md`](docs/agent-discovery-check.md) (feita localmente; a verificação em produção fica para depois do deploy).
+Agentes também se descobrem sozinhos por [`/llms.txt`](https://akoma.hendril.dev/llms.txt) e pelo guia de uso [`/usage.md`](https://akoma.hendril.dev/usage.md). A verificação de que um agente que recebe só a URL do MCP encontra e usa as ferramentas está registrada em [`docs/agent-discovery-check.md`](docs/agent-discovery-check.md) (feita localmente; a verificação MCP em produção continua pendente nesta revisão).
 
 ## API REST
 
@@ -102,17 +102,21 @@ Tudo isto roda em `pnpm verify`, o mesmo comando do [CI](https://github.com/hend
 
 ### Limites conhecidos
 
-- **Não publicado ainda.** O endereço é planejado; nada roda em produção.
-- **A atualização diária ainda não roda.** O job que busca o Planalto, abre um PR e faz merge sozinho ou pede revisão humana existe ([`docs/publishing.md`](docs/publishing.md)), mas só roda depois de chegar ao `main` e de o mantenedor permitir que o GitHub Actions abra PRs. Os dados de hoje vêm das capturas de 2026-10-20/21 (`fixtures/`).
-- **Revisão por LLM (camada 3): construída, não ativa.** O revisor e seus testes existem, mas ainda não rodam em nenhum fluxo.
+- **Disponibilidade:** a consulta de status em 10/11/2026 respondeu HTTP 200; a integração MCP em produção não foi revalidada nesta revisão.
+- **Atualização diária pausada.** Os workflows `publish.yml` e `recheck.yml` estão desativados no GitHub. Não presuma que os dados refletem alterações posteriores a 21/10/2026. Consulte a fonte oficial.
+- **Revisão por LLM (camada 3):** implementada; não há novas revisões automáticas enquanto a publicação estiver pausada.
 - **Mudanças feitas por lei passam pela mesma revisão que as feitas por emenda.** A conferência de alvos e o revisor LLM leem os comandos de todo ato que a mudança cita (EC, lei, medida provisória), na página do Planalto a que a anotação aponta. Se a anotação não traz link, ou se a página não pode ser lida, a mudança vai para revisão humana.
 - **STF não verificado** (ver acima). A busca é lexical (BM25 com dicionário de sinônimos), não semântica.
 
 ## Estado do serviço
 
+**Durante a pausa, o badge e os arquivos de estado são históricos; não comprovam atualização contínua.**
+
 O badge acima é o do job diário e mostra o resultado da última execução: "current" quando a última checagem passou, ou o problema (mudança aguardando revisão, testes falhando, fonte inacessível, job com falha). O arquivo de estado dele fica no branch `status`, em [`status.json`](https://github.com/hendrillara/akoma/blob/status/status.json): última verificação, última mudança, testes, recall da busca, invariantes e conjunto-ouro, versão do esquema, atraso por fonte (de busca e de conteúdo da fonte secundária) e a atribuição ao Senado/LexML, a cada execução ([`docs/publishing.md`](docs/publishing.md)). O badge só aparece depois da primeira execução. Além disso, `GET /v1/status` e o `status.json` do dataset trazem a conferência entre fontes por norma e a atribuição ao Senado/LexML.
 
 ## Licenças e atribuição
+
+Se o Akoma ajuda seu produto, pedimos o crédito voluntário **“Utiliza Akoma, de Hendril Lara”**, com link para este repositório. Isso não acrescenta restrições às licenças existentes. Para implantação e suporte pagos, veja [COMMERCIAL.md](COMMERCIAL.md).
 
 - **Código:** [MIT](LICENSE).
 - **Dataset:** [CC0 1.0](LICENSE-DATA.md), exceto os campos `aliases`.
@@ -135,7 +139,7 @@ Veja [CONTRIBUTING.md](CONTRIBUTING.md). Em resumo: PRs no parser, nos manifesto
 
 Akoma mirrors Brazilian federal law as structured data, one dispositivo (article, paragraph, inciso, alínea, item) at a time, each with a stable LexML id and its provenance, for AI agents. v1 covers the Constituição Federal (CF), the ADCT and the Código de Defesa do Consumidor (CDC, Lei 8.078/1990). An agent searches ("direito de arrependimento") or fetches an exact dispositivo by id, over a remote MCP server or a REST API, and gets only the text it needs.
 
-> **Status: building, not deployed yet.** `akoma.hendril.dev` is the planned address; the first deploy has not happened ([`docs/deploy.md`](docs/deploy.md)). The examples below describe the API as it is in the code, and the tests check them. Locally, `pnpm dev` serves the API from the committed `dataset/` folder (generated by `pnpm build:dataset`).
+> **Automatic updates paused on 2026-11-10 during the commercial-model review.** The API responded at `akoma.hendril.dev/v1/status` on that date with dataset **2026-10-21**. This is not an update or availability guarantee. Existing licences remain in effect. [Paid integration and attribution](COMMERCIAL.md#english).
 
 ### What Akoma is not
 
@@ -175,7 +179,7 @@ Tools (English names, English and Portuguese descriptions):
 
 Answers are compact Markdown: the text first, then the path (Título II › Capítulo I › Art. 5º › inciso X), the status (revoked, vetoed), any pending wording with its start date and the act's vigência clause that defers it, the "Vide"/ADI notes and a footer with the source and the notice.
 
-Agents can also discover the service through [`/llms.txt`](https://akoma.hendril.dev/llms.txt) and the usage guide [`/usage.md`](https://akoma.hendril.dev/usage.md). The check that an agent given only the MCP URL finds and uses the tools is recorded in [`docs/agent-discovery-check.md`](docs/agent-discovery-check.md) (run locally; production verification is pending the deploy).
+Agents can also discover the service through [`/llms.txt`](https://akoma.hendril.dev/llms.txt) and the usage guide [`/usage.md`](https://akoma.hendril.dev/usage.md). The check that an agent given only the MCP URL finds and uses the tools is recorded in [`docs/agent-discovery-check.md`](docs/agent-discovery-check.md) (run locally; production MCP verification remains pending in this review).
 
 ### REST API
 
@@ -231,17 +235,21 @@ All of this runs in `pnpm verify`, the same command [CI](https://github.com/hend
 
 #### Known limits
 
-- **Not deployed yet.** The address is planned; nothing runs in production.
-- **The daily refresh does not run yet.** The job that fetches Planalto, opens a PR and merges it or asks for human review exists ([`docs/publishing.md`](docs/publishing.md)), but it runs only once it reaches `main` and the maintainer lets GitHub Actions open PRs. Today's data is built from the 2026-10-20/21 captures (`fixtures/`).
-- **LLM review (layer 3): built, not active.** The reviewer and its tests exist, but no workflow runs it yet.
+- **Availability:** the status request on 2026-11-10 returned HTTP 200; production MCP integration was not revalidated in this review.
+- **Daily refresh paused.** The `publish.yml` and `recheck.yml` workflows are disabled in GitHub. Do not assume the data reflects amendments after 2026-10-21. Check the official source.
+- **LLM review (layer 3):** implemented; no new automatic reviews run while publishing is paused.
 - **Changes made by a law get the same review as changes made by an amendment.** Target matching and the LLM reviewer read the commands of every act a change cites (an EC, a law, a medida provisória), on the Planalto page its annotation links to. A change whose act has no link, or whose page cannot be read, escalates to human review.
 - **STF not verified** (see above). Search is lexical (BM25 with a synonym dictionary), not semantic.
 
 ### Service status
 
+**During the pause, the badge and status files are historical; they do not demonstrate ongoing freshness.**
+
 The badge above is the daily job's and shows its latest run: "current" when the last check passed, or the trouble (a change awaiting review, failing tests, an unreachable source, a failed job). Its status file lives on the `status` branch, in [`status.json`](https://github.com/hendrillara/akoma/blob/status/status.json): last check, last change, the tests, search recall, invariants and golden sets, the schema version, per-source lag (fetch and the secondary source's content) and the Senado/LexML attribution, on every run ([`docs/publishing.md`](docs/publishing.md)). The badge appears after the first run. Separately, `GET /v1/status` and the dataset's `status.json` carry the per-norm cross-source results and the Senado/LexML attribution.
 
 ### Licences and attribution
+
+If Akoma helps your product, please give voluntary credit: **“Uses Akoma by Hendril Lara”**, linking to this repository. This adds no restrictions to the existing licences. For paid implementation and support, see [COMMERCIAL.md](COMMERCIAL.md#english).
 
 - **Code:** [MIT](LICENSE).
 - **Dataset:** [CC0 1.0](LICENSE-DATA.md), except the `aliases` fields.

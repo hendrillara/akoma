@@ -1,5 +1,16 @@
 # Publishing: the daily job, the published dataset and the run status
 
+> **Operational pause — 2026-11-10.** With the maintainer's authorization, `publish.yml` and `recheck.yml` were disabled through GitHub Actions settings during the commercial-model review. No publishing/recheck runs were unfinished and no PRs were open at the check. CI and deploy remain enabled; the existing hosted snapshot remains available. This is a settings change, not a removal of the workflow definitions. The procedures below describe normal operation, not the current pause. Do not run `publish:daily` manually or merge new dataset releases during this pause.
+>
+> **Pausa operacional — 10/11/2026.** Com autorização do mantenedor, os workflows de publicação e reconferência foram desativados nas configurações do GitHub. CI e deploy continuam ativos. O snapshot hospedado permanece disponível. Os procedimentos abaixo descrevem o funcionamento normal. Não execute publicação manual nem faça merge de novas versões do dataset durante a pausa.
+
+### Resuming / Retomada
+
+Resume only after the maintainer decides the future publishing terms and authorizes restarting. Inspect source freshness and deferred changes; run `pnpm verify` and review a dry run before publishing. Re-enable with `gh workflow enable publish.yml --repo hendrillara/akoma` and `gh workflow enable recheck.yml --repo hendrillara/akoma`. Reconcile the README pause notices and validate the deployed dataset after a successful reviewed release. Enabling the scheduled workflow can trigger the next scheduled publish; do not enable it before review is complete.
+
+Retome somente após decisão e autorização do mantenedor. Confira fontes e mudanças pendentes, execute a verificação e revise um dry run antes de reativar os workflows. Atualize os avisos do README e confira o dataset publicado após uma entrega revisada.
+
+
 Akoma keeps itself current with one scheduled GitHub Actions workflow, `.github/workflows/publish.yml`. It runs daily at 09:17 UTC (06:17 in Brasília), after midnight there so a deferred change is promoted on its own start date (ADR 0003). The workflow runs `node scripts/publish.ts`, a thin wrapper around `runDailyJob` (`src/publish/job.ts`), and every outside effect goes through a port.
 
 ## What a run does
