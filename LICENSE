@@ -1,21 +1,117 @@
-MIT License
+Akoma Noncommercial and Commercial Licence 1.0
+Effective for Covered Material first published under this licence on or after 2026-11-10.
+Licensor: Hendril Lara.
 
-Copyright (c) 2026 Akoma contributors
+1. Scope and preserved permissions
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+“Legacy Baseline” means commit 262e60ec8e9814ddaca1b9e81c9f63bb90b858e0
+of https://github.com/hendrillara/akoma. Its code remains available under
+licenses/MIT-legacy.txt. Previously published CC0 material remains available
+under its original dedication. Those permissions are not revoked or restricted
+by this licence, including for future recipients of that material.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+“Covered Material” means new, copyright-protected original code, documentation
+and other contributions owned by the Licensor, or original contributions whose
+author has expressly authorised the Licensor in writing to distribute and
+commercially license them under these terms, first published in this repository
+after the Legacy Baseline under this licence. Authorised external contributions
+must be identified in the relevant release notes. In a modified legacy
+file, only new protectable contributions are Covered Material; the unchanged
+legacy material retains its earlier terms. A new commit, release number,
+repository name, format conversion or regeneration does not by itself make
+legacy or public-domain material Covered Material.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Excluded from Covered Material are statutory and other public-domain texts,
+previously CC0-dedicated material, third-party dependencies, third-party source
+captures and third-party identifiers (including Senado/LexML aliases).
+LICENSE-DATA.md governs dataset boundaries. Third-party rights and notices
+remain applicable. No exclusive rights are claimed over facts or official laws.
+
+2. Noncommercial permission
+
+Subject to sections 3 and 4, the Licensor grants a worldwide, non-exclusive,
+royalty-free permission to use, reproduce, study, modify and distribute Covered
+Material solely for personal use, education or research without a commercial
+purpose. This includes noncommercial publications and noncommercial research
+demonstrations. Rights not expressly granted are reserved.
+
+“Commercial Use” includes use in a paid or revenue-generating product or service;
+client work or consulting; business operations or internal professional use;
+and use to develop, operate or improve a commercial offering, including a free,
+advertising-supported or indirectly monetised offering. Organisational or
+nonprofit status alone does not determine whether a use is noncommercial.
+Research principally intended to benefit a commercial offering is Commercial
+Use. Request a written clarification from the Licensor if the purpose is unclear.
+
+3. Attribution and redistribution
+
+When distributing Covered Material or making a product, service, research
+publication or integration using it available to others, retain this licence,
+applicable copyright notices and third-party notices, identify your changes,
+and include either of these credits with a clickable link where supported:
+
+“Uses Akoma by Hendril Lara — https://github.com/hendrillara/akoma”
+“Utiliza Akoma, de Hendril Lara — https://github.com/hendrillara/akoma”
+
+The credit must be reasonably discoverable in the product's credits/about page
+or integration documentation. For a backend-only service, include it in the
+API/integration documentation supplied to its consumers. For an internal tool,
+include it in the documentation available to its users. For a publication,
+include it in acknowledgments or references. Private personal use requires
+retaining the notices in the copy, not publishing a public announcement.
+
+Do not imply endorsement by the Licensor. You may not remove notices or offer
+recipients broader rights to Covered Material than this licence grants.
+Redistributed Covered Material remains subject to these terms; this does not
+require unrelated software to adopt this licence. Distribution under this
+section must itself be noncommercial unless authorised under section 4.
+
+4. Commercial permission and royalties
+
+Commercial Use of Covered Material is not licensed by the noncommercial grant.
+Before starting Commercial Use, obtain a separate written commercial agreement
+signed by the Licensor and the customer. That agreement must identify the
+licensed material and use, term, royalty rate or royalty amounts, calculation
+base, reporting and payment schedule, and the attribution placement.
+
+Royalties are negotiated per customer; this document sets no public rate or
+automatic invoice. Paying a donation, buying integration/support services, or
+sending an inquiry does not grant commercial rights unless a signed agreement
+expressly does so. Permission under that agreement is conditional on compliance
+with its royalty payment terms and the attribution requirement in section 3.
+Attribution remains required for commercial use. Any exception requires a
+separate express written amendment signed by the Licensor.
+
+Commercial enquiries: https://github.com/hendrillara/akoma/issues/new
+See COMMERCIAL.md for the process. Do not submit confidential terms or client
+data in a public issue; arrange a private channel before negotiating them.
+
+5. Termination and reinstatement
+
+The noncommercial permission terminates automatically if its conditions are
+violated. For a first noncommercial breach, it is reinstated when the breach
+is fully cured within 30 days of discovery. A Commercial Use without a signed
+commercial agreement is not authorised by this cure provision. Commercial
+agreement remedies and termination are governed by that agreement. Termination
+does not affect independent legacy MIT, CC0, public-domain or third-party rights.
+
+6. No warranty; limitation of liability
+
+TO THE EXTENT PERMITTED BY APPLICABLE LAW, COVERED MATERIAL IS PROVIDED “AS IS”,
+WITHOUT WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+ACCURACY, LEGAL CURRENCY OR NON-INFRINGEMENT. THE LICENSOR IS NOT LIABLE FOR
+CLAIMS, DAMAGES OR OTHER LIABILITY ARISING FROM ITS USE. NOTHING EXCLUDES
+LIABILITY OR RIGHTS THAT APPLICABLE LAW DOES NOT ALLOW TO BE EXCLUDED.
+
+Akoma is not an official legal source or a provider of legal advice. Verify
+legal content against the official sources. No support, availability, update
+schedule or service-level commitment is granted by this licence.
+
+7. Interpretation
+
+This is a source-available licence with noncommercial restrictions, not an
+OSI-approved open-source licence. English is the authoritative text; translated
+summaries are explanatory. Mandatory applicable law prevails. If a provision
+is unenforceable, the remaining provisions continue to the extent permitted by
+law. This licence grants no right to use the Licensor's trademarks other than
+the factual attribution required above.

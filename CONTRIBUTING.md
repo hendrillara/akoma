@@ -2,7 +2,7 @@
 
 **Português** · [English](#english)
 
-> **10/11/2026:** publicação e reconferência automática de divergências pausadas. Relatos continuam abertos para revisão manual. Consulte [a pausa operacional](docs/publishing.md). Novas contribuições funcionais aguardam a definição do modelo de publicação.
+> **10/11/2026:** publicação e reconferência automática de divergências pausadas. Relatos continuam abertos para revisão manual. Consulte [a pausa operacional](docs/publishing.md). Novas contribuições de terceiros exigem acordo escrito prévio com o mantenedor.
 
 ## A regra principal
 
@@ -32,7 +32,7 @@ Abrir a issue dispara uma nova conferência automática daquele dispositivo: o A
 - Requisições a sites do governo: user agent `Mozilla/5.0 (compatible; akoma/<versão>)`, GETs condicionais, ritmo baixo. Nunca ponha um identificador pessoal (nome, e-mail) numa requisição, num arquivo commitado ou num teste.
 - Documentação técnica em inglês e português; código e schema em inglês; o conteúdo jurídico literal, em português.
 
-O PR deve citar a issue (`#n`). Ao contribuir, você aceita que o código fica sob a [MIT](LICENSE) e os dados sob a [CC0](LICENSE-DATA.md).
+O PR deve citar a issue (`#n`). Antes de enviar código ou outro material original de terceiros, combine um acordo escrito que autorize sua distribuição sob a [licença atual](LICENSE) e o licenciamento comercial por Hendril Lara. Abrir um PR não transfere titularidade nem concede implicitamente esse direito. Não faça merge de contribuições sem esse acordo. Relatos de bugs e sugestões continuam bem-vindos. Materiais anteriores e de terceiros preservam suas licenças; consulte [LICENSE-DATA.md](LICENSE-DATA.md).
 
 ---
 
@@ -40,7 +40,7 @@ O PR deve citar a issue (`#n`). Ao contribuir, você aceita que o código fica s
 
 ## English
 
-> **2026-11-10:** publishing and automatic divergence rechecks are paused. Reports remain open for manual review. See the [operational pause](docs/publishing.md). New functional contributions await the publishing-model decision.
+> **2026-11-10:** publishing and automatic divergence rechecks are paused. Reports remain open for manual review. See the [operational pause](docs/publishing.md). New third-party contributions require a prior written agreement with the maintainer.
 
 ### The main rule
 
@@ -70,4 +70,4 @@ Opening the issue starts an automatic recheck of that dispositivo: Akoma reads P
 - Requests to government sites: user agent `Mozilla/5.0 (compatible; akoma/<version>)`, conditional GETs, low rates. Never put a personal identifier (name, email) in a request, a committed file or a test.
 - Technical docs in English and Portuguese; code and schema in English; legal content verbatim in Portuguese.
 
-The PR should reference its issue (`#n`). By contributing, you agree that code is licensed under [MIT](LICENSE) and data under [CC0](LICENSE-DATA.md).
+The PR should reference its issue (`#n`). Before submitting third-party code or other original material, arrange a written agreement authorising distribution under the [current licence](LICENSE) and commercial licensing by Hendril Lara. Opening a PR does not transfer ownership or implicitly grant that authority. Do not merge contributions without that agreement. Bug reports and suggestions remain welcome. Legacy and third-party material retain their licences; see [LICENSE-DATA.md](LICENSE-DATA.md).
